@@ -1,0 +1,23 @@
+.trusted {
+  padding: 80px 0;
+
+  .title {
+    color: #57687d;
+    font-family: "Averta - Semibold", sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    .trusted__item {
+      margin: 0 40px;
+    }
+  }
+}

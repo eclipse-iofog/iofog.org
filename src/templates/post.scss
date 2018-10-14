@@ -1,0 +1,13 @@
+.post {
+    display: flex;
+
+    .menu-list {
+        width: 340px;
+    }
+
+    .post-container {
+        width: calc(100% - 340px);
+        border-left: 1px solid #d0d7da;
+        padding: 80px 60px 60px 136px;
+    }
+}

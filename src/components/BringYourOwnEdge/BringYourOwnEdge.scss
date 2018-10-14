@@ -1,0 +1,84 @@
+.edge {
+  padding: 245px 0 140px;
+  margin-top: -95px;
+  position: relative;
+
+  .bg-lb {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .bg-r {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 30%;
+    z-index: -1;
+    background-image: url("/images/edge-right.svg");
+    background-size: cover;
+  }
+
+  .own {
+    h1 {
+      color: #4668fd;
+      line-height: 52px;
+      letter-spacing: -0.2px;
+    }
+
+    p {
+      font-size: 19px;
+      line-height: 30px;
+    }
+  }
+}
+
+.code {
+  &__container {
+    a {
+      color: #4668fd;
+      font-family: "Averta Std - Bold", sans-serif;
+      font-size: 15px;
+      line-height: 24px;
+
+      span {
+        position: relative;
+      }
+
+      span:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6px;
+        display: block;
+        border-top: 1px solid #26d6f1;
+      }
+
+      svg {
+        fill: #26d6f1;
+        font-size: 18px;
+        margin-left: 15px;
+      }
+    }
+  }
+  &__content {
+    width: 480px;
+    box-shadow: 0 6px 10px -3px rgba(0, 0, 0, 0.24);
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 40px;
+    margin-bottom: 20px;
+    margin-top: -30px;
+
+    p {
+      color: #5064ec;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 20px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+}

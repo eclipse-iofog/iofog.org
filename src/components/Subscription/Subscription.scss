@@ -1,0 +1,51 @@
+.subscription {
+  background-color: #5064ec;
+  padding: 70px 0 80px;
+  position: relative;
+
+  .sections__header h4 {
+    color: #fff;
+    font-family: "Averta Std - Bold", sans-serif;
+    font-size: 29px;
+    line-height: 36px;
+  }
+
+  &__bg-lt {
+    position: absolute;
+    left: 0;
+    top: 57px;
+    z-index: 0;
+  }
+
+  &__bg-rt {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    z-index: 0;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 35px;
+    input {
+      border-radius: 4px 0 0 4px;
+      background-color: #fff;
+      border: 0;
+      padding: 11px 12px;
+      color: #57687d;
+      font-size: 15px;
+      line-height: 24px;
+      width: 280px;
+    }
+
+    button {
+      border-radius: 0 4px 4px 0;
+      background-color: #26d6f1;
+
+      border: 0;
+      padding: 11px 15px;
+    }
+  }
+}

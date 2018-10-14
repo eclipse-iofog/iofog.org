@@ -1,0 +1,18 @@
+.post-menu {
+  margin-top: 34px;
+
+  a {
+    color: #002e43;
+    font-size: 15px;
+    line-height: 24px;
+    display: block;
+    padding: 8px 30px;
+
+    &.active {
+      color: #4668fd;
+      font-family: "Averta - Semibold", sans-serif;
+      font-size: 15px;
+      background-color: #fafcff;
+    }
+  }
+}
