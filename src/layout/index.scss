@@ -24,37 +24,26 @@ body {
   color: #002e43;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Averta Std - Bold", sans-serif;
-  font-size: 46px;
+  font-weight: normal;
 }
 
+h1 {font-size: 46px;}
+
 h2 {
-  font-family: "Averta Std - Bold", sans-serif;
   font-size: 37px;
   line-height: 46px;
   letter-spacing: -0.2px;
 }
 
-h3 {
-  font-family: "Averta Std - Bold", sans-serif;
-  font-size: 29px;
-}
+h3 {font-size: 29px;}
 
-h4 {
-  font-family: "Averta Std - Bold", sans-serif;
-  font-size: 23px;
-}
+h4 {font-size: 23px;}
 
-h5 {
-  font-family: "Averta Std - Bold", sans-serif;
-  font-size: 19px;
-}
+h5 {font-size: 19px;}
 
-h6 {
-  font-family: "Averta Std - Bold", sans-serif;
-  font-size: 15px;
-}
+h6 {font-size: 15px;}
 
 .bg-grey {
   background-color: #fafcff;

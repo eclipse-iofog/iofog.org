@@ -12,7 +12,7 @@ export default class MainLayout extends Component {
     const configDate = { copyright: config.copyright };
 
     return (
-      <div className="test">
+      <div className="wrapper">
         <Header location={this.props.location} />
 
         <Helmet>

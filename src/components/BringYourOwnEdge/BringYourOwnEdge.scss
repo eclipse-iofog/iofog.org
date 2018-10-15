@@ -3,19 +3,27 @@
   margin-top: -95px;
   position: relative;
 
-  .bg-lb {
+  &:after {
+    content: '';
+    display: block;
     position: absolute;
     bottom: 0;
     left: 0;
+    width: 174px;
+    height: 174px;
+    background: url("/images/edge-left.svg") no-repeat;
     z-index: -1;
   }
 
-  .bg-r {
+  &:before {
+    content: '';
+    display: block;
     position: absolute;
     right: 0;
     bottom: 0;
     top: 0;
-    width: 30%;
+    width: 358px;
+    height: 542px;
     z-index: -1;
     background-image: url("/images/edge-right.svg");
     background-size: cover;
