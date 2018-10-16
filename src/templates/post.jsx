@@ -7,6 +7,7 @@ import config from '../../data/SiteConfig';
 import './b16-tomorrow-dark.css';
 import './post.scss';
 import PostListing from '../components/PostListing/PostListing';
+import Edgeworx from "../components/Egdeworx/Edgeworx";
 
 export default class PostTemplate extends React.Component {
   render() {
@@ -41,6 +42,8 @@ export default class PostTemplate extends React.Component {
             <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
           </div>
         </div>
+
+        <Edgeworx />
       </Layout>
     );
   }

@@ -18,7 +18,7 @@ class RunSoftwareEdge extends Component {
               <div className="icons__container row">
                 <div className="col-md-4">
                   <div className="icon__container">
-                    <img srcSet="/images/lightning.svg" alt=""/>
+                    <img srcSet="/images/icos/ico-lightning.svg" alt="" />
                     <h4>Icon Pending</h4>
                   </div>
                   <h6>Agent</h6>
@@ -26,7 +26,7 @@ class RunSoftwareEdge extends Component {
                 </div>
                 <div className="col-md-4">
                   <div className="icon__container">
-                    <img srcSet="/images/security.svg" alt=""/>
+                    <img srcSet="/images/icos/ico-security.svg" alt="" />
                     <h4>Icon Pending</h4>
                   </div>
                   <h6>Control</h6>
@@ -34,7 +34,7 @@ class RunSoftwareEdge extends Component {
                 </div>
                 <div className="col-md-4">
                   <div className="icon__container">
-                    <img srcSet="/images/apps.svg" alt=""/>
+                    <img srcSet="/images/icos/ico-apps.svg" alt="" />
                     <h4>Icon Pending</h4>
                   </div>
                   <h6>Comsat</h6>

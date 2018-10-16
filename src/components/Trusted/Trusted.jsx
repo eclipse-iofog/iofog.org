@@ -11,9 +11,9 @@ class Trusted extends Component {
             <div className="title">Trusted by</div>
 
             <div className="trusted__container">
-              <div className="trusted__item"><Link to="/"><img srcSet="/images/eclipse-logo.png" alt="" /></Link></div>
-              <div className="trusted__item"><Link to="/"><img srcSet="/images/iot-logo.png" alt="" /></Link></div>
-              <div className="trusted__item"><Link to="/"><img srcSet="/images/eclipse-logo.png" alt="" /></Link></div>
+              <div className="trusted__item"><Link to="/"><img srcSet="/images/logo/logo-eclipse.png" alt="" /></Link></div>
+              <div className="trusted__item"><Link to="/"><img srcSet="/images/logo/logo-iot.png" alt="" /></Link></div>
+              <div className="trusted__item"><Link to="/"><img srcSet="/images/logo/logo-eclipse.png" alt="" /></Link></div>
             </div>
           </section>
         </section>

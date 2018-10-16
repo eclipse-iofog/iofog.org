@@ -3,10 +3,6 @@
   position: relative;
   z-index: 1;
 
-  &.hideBorder {
-    border-bottom: none;
-  }
-
   .logo {
     a {
       display: inline-block;
@@ -53,6 +49,7 @@
     &__wrapper {
       display: inline-block;
       padding: 9px 16px;
+      box-shadow: 0 6px 10px -3px #d0d7da;
       cursor: pointer;
       margin: 28px 0;
 
@@ -66,6 +63,18 @@
       svg {
         font-size: 22px;
         fill: #5064ec;
+      }
+    }
+  }
+}
+
+.home {
+  .header {
+    border-bottom: none;
+
+    .search {
+      &__wrapper {
+        box-shadow: none;
       }
     }
   }

@@ -29,11 +29,11 @@ class Footer extends Component {
               <div className="item">
                 <h4>Sponsored by</h4>
 
-                <Link to="/"><img srcSet="/images/edgeworx-logo.svg" alt="" /></Link>
+                <Link to="/"><img srcSet="/images/logo/logo-edgeworx.svg" alt="" /></Link>
               </div>
               <div className="item">
                 <h4>Trusted by</h4>
-                <Link to="/"><img srcSet="/images/eclipse-logo.png" alt="" /></Link>
+                <Link to="/"><img srcSet="/images/logo/logo-eclipse-footer.png" alt="" /></Link>
               </div>
             </div>
             <div className="col-md-2 footer__follow">

@@ -22,7 +22,7 @@ class WhoUsing extends Component {
 
             <div className="white-paper__container">
               <div className="white-paper__logo">
-                <img srcSet="/images/white-paper-logo.jpg" alt="" />
+                <img srcSet="/images/logo/logo-white-paper.jpg" alt="" />
               </div>
               <div className="white-paper__description">
                 <p className="title__sub">New White Paper</p>

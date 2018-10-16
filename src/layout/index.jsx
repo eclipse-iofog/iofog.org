@@ -10,9 +10,16 @@ export default class MainLayout extends Component {
   render() {
     const { children } = this.props;
     const configDate = { copyright: config.copyright };
+    const isHomePage = this.props.location === '/';
+
+    let wrapperClasses = 'wrapper ';
+
+    if (isHomePage) {
+      wrapperClasses += 'home'
+    }
 
     return (
-      <div className="wrapper">
+      <div className={wrapperClasses}>
         <Header location={this.props.location} />
 
         <Helmet>

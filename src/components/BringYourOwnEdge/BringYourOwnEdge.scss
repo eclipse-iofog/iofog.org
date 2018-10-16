@@ -11,7 +11,7 @@
     left: 0;
     width: 174px;
     height: 174px;
-    background: url("/images/edge-left.svg") no-repeat;
+    background: url("/images/bg/bg-edge-left.svg") no-repeat;
     z-index: -1;
   }
 
@@ -25,7 +25,7 @@
     width: 358px;
     height: 542px;
     z-index: -1;
-    background-image: url("/images/edge-right.svg");
+    background-image: url("/images/bg/bg-edge-right.svg");
     background-size: cover;
   }
 
@@ -72,6 +72,7 @@
       }
     }
   }
+
   &__content {
     width: 480px;
     box-shadow: 0 6px 10px -3px rgba(0, 0, 0, 0.24);

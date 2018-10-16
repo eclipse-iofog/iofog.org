@@ -6,7 +6,7 @@ class Subscription extends Component {
   render() {
     return (
       <section className="subscription">
-        <img className="subscription__bg-lt" src="/images/subscription-left.png" alt="" />
+        <img className="subscription__bg-lt" src="/images/bg/bg-subscription-left.png" alt="" />
         <section className="container">
           <section className="row">
             <section className="col-md-12">
@@ -17,12 +17,12 @@ class Subscription extends Component {
               <form name="subscription">
                 <input type="email" placeholder="Your email address" />
 
-                <button type="subject"><MdArrowForward/></button>
+                <button type="subject"><MdArrowForward /></button>
               </form>
             </section>
           </section>
         </section>
-        <img className="subscription__bg-rt" src="/images/subscription-right.png" alt="" />
+        <img className="subscription__bg-rt" src="/images/bg/bg-subscription-right.png" alt="" />
       </section>
     );
   }

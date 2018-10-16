@@ -7,16 +7,8 @@ import './Header.scss';
 
 class Header extends Component {
   render() {
-    const isHideBorder = this.props.location === '/';
-
-    let headerClasses = 'header ';
-
-    if (isHideBorder) {
-      headerClasses += 'hideBorder'
-    }
-
     return (
-      <header className={headerClasses}>
+      <header className="header">
         <div className="container">
           <div className="row">
             <div className="col-md-3 logo">

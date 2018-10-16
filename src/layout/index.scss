@@ -53,6 +53,30 @@ a {
   text-decoration: none !important;
 }
 
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+
+  .header {
+    flex: 0 0 auto;
+  }
+
+  .container {
+    flex: 1 1 100%;
+
+    &.entry {
+      padding-top: 60px;
+      padding-bottom: 30px;
+    }
+  }
+
+  .footer {
+    flex: 0 0 auto;
+  }
+}
+
 .sections {
   &__header {
     h6 {
@@ -82,7 +106,6 @@ a {
       color: #fff;
       font-family: "Averta Std - Bold", sans-serif;
       font-size: 14px;
-
       margin-top: 15px;
     }
   }

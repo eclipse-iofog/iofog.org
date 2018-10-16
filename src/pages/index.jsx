@@ -8,7 +8,6 @@ import RunSoftwareEdge from '../components/RunSoftwareEdge/RunSoftwareEdge';
 import WhoUsing from '../components/WhoUsing/WhoUsing';
 import AboutProject from '../components/AboutProject/AboutProject';
 import Trusted from '../components/Trusted/Trusted';
-import Subscription from '../components/Subscription/Subscription';
 
 class Index extends React.Component {
   render() {
@@ -22,7 +21,6 @@ class Index extends React.Component {
         <WhoUsing />
         <AboutProject />
         <Trusted />
-        <Subscription />
       </Layout>
     );
   }
