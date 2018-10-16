@@ -10,9 +10,7 @@ class RunSoftwareEdge extends Component {
             <section className="col-md-12">
               <div className="sections__header text-center">
                 <h4>Run software at the edge.</h4>
-                <p>By installing ioFog to any device (with minimal amount of compute) you automatically add a node into
-                  your Edge mesh which enables you to run any microservice on it dynamically, securely, and
-                  remotely.</p>
+                <p>By installing ioFog to any device (with minimal amount of compute) you automatically add a node into your Edge mesh which enables you to run any microservice on it dynamically, securely, and remotely.</p>
               </div>
 
               <div className="icons__container row">

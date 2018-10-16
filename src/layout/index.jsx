@@ -6,6 +6,9 @@ import './index.scss';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
+require("prismjs/themes/prism-okaidia.css");
+require("prismjs/plugins/line-numbers/prism-line-numbers.css");
+
 export default class MainLayout extends Component {
   render() {
     const { children } = this.props;

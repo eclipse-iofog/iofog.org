@@ -15,8 +15,7 @@ class Community extends Component {
           <div className="row block-left">
             <div className="col-md-5">
               <h4>Get help from the Community</h4>
-              <p>This is placeholder copy to introduce the community resources. The paragraph could be up to four
-                sentences, but two are recommended. This is placeholder copy to introduce the community resources.</p>
+              <p>This is placeholder copy to introduce the community resources. The paragraph could be up to four sentences, but two are recommended. This is placeholder copy to introduce the community resources.</p>
 
               <ul className="list-links">
                 <li>
@@ -33,10 +32,10 @@ class Community extends Component {
             <div className="col-md-7">
               <div className="img-holder">
                 <div className="img-01">
-                  <img src="images/img-gallery-03.png" alt="" />
+                  <img src="/images/img-gallery-03.png" alt="" />
                 </div>
                 <div className="img-02">
-                  <img src="images/img-gallery-03.png" alt="" />
+                  <img src="/images/img-gallery-03.png" alt="" />
                 </div>
               </div>
             </div>
@@ -46,14 +45,13 @@ class Community extends Component {
             <div className="col-md-5">
               <div className="img-holder one-img">
                 <div className="img-01">
-                  <img src="images/img-gallery-04.png" alt="" />
+                  <img src="/images/img-gallery-04.png" alt="" />
                 </div>
               </div>
             </div>
             <div className="col-md-7">
               <h4>Stay up to date with the latest news.</h4>
-              <p>This is placeholder copy to introduce the community resources. The paragraph could be up to four
-                sentences, but two are recommended. This is placeholder copy to introduce the community resources.</p>
+              <p>This is placeholder copy to introduce the community resources. The paragraph could be up to four sentences, but two are recommended. This is placeholder copy to introduce the community resources.</p>
 
               <ul className="list-links">
                 <li>
@@ -116,10 +114,10 @@ class Community extends Component {
             <div className="col-md-7">
               <div className="img-holder">
                 <div className="img-01">
-                  <img src="images/img-gallery-03.png" alt="" />
+                  <img src="/images/img-gallery-03.png" alt="" />
                 </div>
                 <div className="img-02">
-                  <img src="images/img-gallery-03.png" alt="" />
+                  <img src="/images/img-gallery-03.png" alt="" />
                 </div>
               </div>
             </div>

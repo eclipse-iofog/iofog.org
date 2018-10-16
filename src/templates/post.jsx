@@ -17,15 +17,6 @@ export default class PostTemplate extends React.Component {
     const post = postNode.frontmatter;
     const postEdges = data.allMarkdownRemark.edges;
 
-    if (!post.id) {
-      post.id = slug;
-    }
-
-    if (!post.category_id) {
-      post.category_id = config.postDefaultCategoryID;
-    }
-
-
     return (
       <Layout>
         <Helmet>
@@ -51,7 +42,7 @@ export default class PostTemplate extends React.Component {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $type: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
@@ -68,9 +59,7 @@ export const pageQuery = graphql`
       }
     }
     
-    allMarkdownRemark(
-      limit: 2000
-    ) {
+    allMarkdownRemark(filter: {frontmatter: { type: { eq: $type } }}) {
       edges {
         node {
           fields {
@@ -80,6 +69,7 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
+              type
           }
         }
       }

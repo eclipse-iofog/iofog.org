@@ -10,6 +10,10 @@ class ReleasesPage extends Component {
   render() {
     const { children, data } = this.props;
 
+    if (!data) {
+      return null;
+    }
+
     const postEdges = data.allMarkdownRemark.edges;
 
     return (
@@ -34,8 +38,8 @@ export default ReleasesPage;
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
-      limit: 2000
-    ) {
+        filter: {frontmatter: {type: { eq: "releases" }} }
+    ){
       edges {
         node {
           fields {
@@ -45,6 +49,7 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
+            type
           }
         }
       }

@@ -13,7 +13,7 @@ module.exports = {
       image_url: `${urljoin(
         config.siteUrl,
         config.pathPrefix
-      )}/logos/logo-512.png`,
+      )}/logos/logo.svg`,
       copyright: config.copyright
     }
   },
@@ -55,7 +55,13 @@ module.exports = {
           {
             resolve: "gatsby-remark-responsive-iframe"
           },
-          "gatsby-remark-prismjs",
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              showLineNumbers: true
+            }
+          },
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-autolink-headers"
         ]
@@ -83,95 +89,23 @@ module.exports = {
         name: config.siteTitle,
         short_name: config.siteTitleShort,
         description: config.siteDescription,
-        start_url: config.pathPrefix,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: "minimal-ui",
         icons: [
           {
-            src: "/logos/logo-192x192.png",
+            src: "/logos/logo.svg",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "/logos/logo-512x512.png",
+            src: "/logos/logo.svg",
             sizes: "512x512",
             type: "image/png"
           }
         ]
       }
     },
-    "gatsby-plugin-offline",
-    {
-      resolve: "gatsby-plugin-feed",
-      options: {
-        setup(ref) {
-          const ret = ref.query.site.siteMetadata.rssMetadata;
-          ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-          ret.generator = "GatsbyJS Material Starter";
-          return ret;
-        },
-        query: `
-        {
-          site {
-            siteMetadata {
-              rssMetadata {
-                site_url
-                feed_url
-                title
-                description
-                image_url
-                copyright
-              }
-            }
-          }
-        }
-      `,
-        feeds: [
-          {
-            serialize(ctx) {
-              const { rssMetadata } = ctx.query.site.siteMetadata;
-              return ctx.query.allMarkdownRemark.edges.map(edge => ({
-                categories: edge.node.frontmatter.tags,
-                date: edge.node.fields.date,
-                title: edge.node.frontmatter.title,
-                description: edge.node.excerpt,
-                url: rssMetadata.site_url + edge.node.fields.slug,
-                guid: rssMetadata.site_url + edge.node.fields.slug,
-                custom_elements: [{ "content:encoded": edge.node.html }]
-              }));
-            },
-            query: `
-            {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [fields___date] },
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    timeToRead
-                    fields {
-                      slug
-                      date
-                    }
-                    frontmatter {
-                      title
-                      cover
-                      date
-                      category
-                      tags
-                    }
-                  }
-                }
-              }
-            }
-          `,
-            output: config.siteRss
-          }
-        ]
-      }
-    }
+    "gatsby-plugin-offline"
   ]
 };

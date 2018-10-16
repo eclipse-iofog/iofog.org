@@ -1,17 +1,15 @@
 ---
 title: "Release 0.01"
-category: "release"
-tags:
-    - tag
+type: "releases"
 ---
-# Release 0.01
+## Release 0.01
 
 This is a short introduction paragraph, this is a short introduction paragraph.
 
-* Bullet list item
-* Bullet list item
-* Bullet list item
-* Bullet list item
+*   Bullet list item
+*   Bullet list item
+*   Bullet list item
+*   Bullet list item
 
 #### Headline goes here
 

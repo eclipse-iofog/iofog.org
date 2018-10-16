@@ -15,7 +15,7 @@ class Edgeworx extends Component {
             </section>
 
             <section className="col-md-4">
-              <img src="images/img-gallery-02.png" alt="" />
+              <img src="/images/img-gallery-02.png" alt="" />
             </section>
           </section>
         </section>

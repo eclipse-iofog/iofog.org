@@ -1,13 +1,31 @@
 .post {
-    display: flex;
+  display: flex;
 
-    .menu-list {
-        width: 340px;
+  .menu-list {
+    width: 340px;
+  }
+
+  .post-container {
+    width: calc(100% - 340px);
+    border-left: 1px solid #d0d7da;
+    padding: 60px 60px 60px 136px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 60px 0 15px;
     }
 
-    .post-container {
-        width: calc(100% - 340px);
-        border-left: 1px solid #d0d7da;
-        padding: 80px 60px 60px 136px;
+    h1:first-child,
+    h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child {
+      margin: 20px 0 20px;
     }
+  }
 }

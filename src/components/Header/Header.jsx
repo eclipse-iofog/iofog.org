@@ -1,39 +1,71 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
-import { MdSearch } from 'react-icons/md';
-import config from '../../../data/SiteConfig';
+import React from "react";
+import { graphql, Link, StaticQuery } from "gatsby";
+import { MdSearch } from "react-icons/md";
+import config from "../../../data/SiteConfig";
 
-import './Header.scss';
+import "./Header.scss";
 
-class Header extends Component {
-  render() {
-    return (
-      <header className="header">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3 logo">
-              <Link to="/">
-                <img srcSet={config.siteLogo} alt="" />
-              </Link>
-            </div>
+const Header = ({ menuLinks }) => (
+  <header className="header">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-3 logo">
+          <Link to="/">
+            <img srcSet={config.siteLogo} alt="" />
+          </Link>
+        </div>
 
-            <nav className="col-md-6 menu">
-              <Link activeClassName="active" to="/documentation">Documentation</Link>
-              <Link activeClassName="active" to="/releases">Releases</Link>
-              <Link activeClassName="active" to="/community">Community</Link>
-              <Link activeClassName="active" to="/enterprise">Enterprise</Link>
-            </nav>
+        <nav className="col-md-6 menu">
+          {menuLinks.map(link => (
+            <Link activeClassName="active" to={link.path} key={link.title}>{link.title}</Link>
+          ))}
+          <Link activeClassName="active" to="/community">Community</Link>
+          <Link activeClassName="active" to="/enterprise">Enterprise</Link>
+        </nav>
 
-            <div className="col-md-3 search">
-              <div className="search__wrapper">
-                <MdSearch /> Search
-              </div>
-            </div>
+        <div className="col-md-3 search">
+          <div className="search__wrapper">
+            <MdSearch /> Search
           </div>
         </div>
-      </header>
-    );
-  }
-}
+      </div>
+    </div>
+  </header>
+);
 
-export default Header;
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query IndexQuery1234 {
+				allMarkdownRemark{
+          group(field: frontmatter___type) {
+            edges {
+              node {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  type
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const { group } = data.allMarkdownRemark;
+
+      const menuLinks = group.map(item => {
+        const { type } = item.edges[0].node.frontmatter;
+
+        return {
+          title: type,
+          path: type + item.edges[0].node.fields.slug
+        }
+      });
+
+      return <Header menuLinks={menuLinks} {...props} />;
+    }}
+  />
+)
