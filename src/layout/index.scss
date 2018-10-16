@@ -53,6 +53,7 @@ a {
   text-decoration: none !important;
 }
 
+/* sticky footer */
 .wrapper {
   min-height: 100vh;
   display: flex;
@@ -65,18 +66,13 @@ a {
 
   .container {
     flex: 1 1 100%;
-
-    &.entry {
-      padding-top: 60px;
-      padding-bottom: 30px;
-    }
   }
 
   .footer {
     flex: 0 0 auto;
   }
 }
-
+/* sections */
 .sections {
   &__header {
     h6 {
@@ -99,14 +95,46 @@ a {
     }
 
     a.button {
-      border-radius: 4px;
-      background-color: #5064ec;
-      display: inline-block;
-      padding: 12px 21px;
-      color: #fff;
-      font-family: "Averta Std - Bold", sans-serif;
-      font-size: 14px;
       margin-top: 15px;
     }
   }
+}
+/* entry */
+.entry {
+  padding-top: 60px;
+  padding-bottom: 30px;
+
+  &__header {
+    max-width: 670px;
+    margin: 0 auto;
+
+    h6 {
+      color: #57687d;
+      font-size: 12px;
+      line-height: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-family: "Averta Std - Regular", sans-serif;
+      font-size: 19px;
+      line-height: 30px;
+    }
+  }
+}
+/* common */
+a.button {
+  border-radius: 4px;
+  background-color: #5064ec;
+  display: inline-block;
+  padding: 12px 21px;
+  color: #fff;
+  font-family: "Averta Std - Bold", sans-serif;
+  font-size: 14px;
 }

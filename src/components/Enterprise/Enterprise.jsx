@@ -8,10 +8,10 @@ class Enterprise extends Component {
     return (
       <section className="row">
         <section className="col-md-12 text-center">
-          <div className="sections__header text-center">
+          <div className="entry__header">
             <h6>Enterprise</h6>
             <h2>Run software at the edge.</h2>
-            <p>This is a placeholder sentence this is a ramp-off page to Edgeworx. <br /> Supporting copy goes here,
+            <p>This is a placeholder sentence this is a ramp-off page to Edgeworx. Supporting copy goes here,
               two sentences maximum.</p>
             <Link className="button" to="/">Learn about Edgeworx</Link>
           </div>
