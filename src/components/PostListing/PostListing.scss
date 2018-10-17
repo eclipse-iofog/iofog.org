@@ -1,18 +1,84 @@
-.post-menu {
+.posts-menu {
   margin-top: 34px;
 
-  a {
-    color: #002e43;
-    font-size: 15px;
-    line-height: 24px;
-    display: block;
-    padding: 8px 30px;
-
-    &.active {
-      color: #4668fd;
+  .item-container {
+    & a.active,
+    &.active > a {
       font-family: "Averta - Semibold", sans-serif;
       font-size: 15px;
-      background-color: #fafcff;
+      background-color: rgba(80, 100, 236, 0.05);
+    }
+
+    a {
+      color: #002e43;
+      font-size: 15px;
+      line-height: 24px;
+      display: block;
+      text-transform: capitalize;
+      padding: 8px 30px 8px 82px;
+      position: relative;
+    }
+
+    .sub-menu {
+      display: none;
+
+      a {
+        padding-left: 93px;
+
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          border: 0;
+          left: 82px;
+          width: 2px;
+          height: 100%;
+          background-color: rgba(80, 100, 236, 0.2);
+        }
+
+        &.active {
+
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            border: 0;
+            left: 82px;
+            width: 2px;
+            height: 100%;
+            background-color: #5064ec;
+          }
+        }
+      }
+    }
+
+    &.open {
+      .sub-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+.Dropdown-root {
+  .Dropdown-control {
+    padding: 8px 30px 8px 82px;
+    border: 0;
+
+    .Dropdown-placeholder {
+      color: #4668fd;
+      font-family: "Averta Std - Bold", sans-serif;
+      font-size: 19px;
+    }
+
+    .Dropdown-arrow {
+      border-color: #5064ec transparent transparent;
+      border-width: 6px 6px 0;
+      right: auto;
+      top: 17px;
+      left: 200px;
     }
   }
 }

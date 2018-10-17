@@ -112,7 +112,8 @@ exports.createPages = ({ graphql, actions }) => {
                   excerpt
                   timeToRead
                   frontmatter {
-                    type
+                    type,
+                    version
                   }
                 }
               }
@@ -127,12 +128,22 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allMarkdownRemark.edges.forEach(edge => {
+          const { version, type } = edge.node.frontmatter;
+          const { slug } = edge.node.fields;
+
+          let articlePath = `${type}${slug}`;
+
+          if (version) {
+            articlePath = `${type}/${version}${slug}`;
+          }
+
           createPage({
-            path: edge.node.frontmatter.type + edge.node.fields.slug,
+            path: articlePath,
             component: postPage,
             context: {
-              slug: edge.node.fields.slug,
-              type: edge.node.frontmatter.type
+              slug,
+              type,
+              version
             }
           });
         });

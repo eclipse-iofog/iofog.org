@@ -1,9 +1,10 @@
 ---
-title: "Installing ioFog"
+title: "Quick Start"
 category: "Getting Started"
 type: "documentations"
+version: "0.1"
 ---
-## Installing ioFog
+## Quick Start
 
 This is a short introduction paragraph, this is a short introduction paragraph. 
 
@@ -20,23 +21,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt Application id 
 est ApplicationInstance.
 
-```javascript{numberLines: true}
+```bash{numberLines: true}
 node --version
 node --version
-```
-
-```javascript{numberLines: true}
-// In your gatsby-config.js
-plugins: [
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
-        `gatsby-remark-prismjs`,
-      ]
-    }
-  }
-]
 ```
 
 1. This is a numbered list item

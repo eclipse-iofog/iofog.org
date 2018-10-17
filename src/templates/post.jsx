@@ -12,7 +12,13 @@ import Edgeworx from "../components/Egdeworx/Edgeworx";
 export default class PostTemplate extends React.Component {
   render() {
     const { pageContext, data } = this.props;
-    const { slug } = pageContext;
+    const { slug, type, version } = pageContext;
+    let activeLink = `/${type}${slug}`;
+
+    if (version) {
+      activeLink = `/${type}/${version}${slug}`;
+    }
+
     const postNode = data.markdownRemark;
     const post = postNode.frontmatter;
     const postEdges = data.allMarkdownRemark.edges;
@@ -27,7 +33,7 @@ export default class PostTemplate extends React.Component {
 
         <div className="post container">
           <div className="menu-list">
-            <PostListing postEdges={postEdges} />
+            <PostListing postEdges={postEdges} activeLink={activeLink} />
           </div>
           <div className="post-container bg-grey">
             <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
@@ -69,7 +75,9 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
-              type
+            type
+            category
+            version
           }
         }
       }

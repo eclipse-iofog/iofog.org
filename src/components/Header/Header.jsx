@@ -46,6 +46,7 @@ export default props => (
                 }
                 frontmatter {
                   type
+                  version
                 }
               }
             }
@@ -57,11 +58,17 @@ export default props => (
       const { group } = data.allMarkdownRemark;
 
       const menuLinks = group.map(item => {
-        const { type } = item.edges[0].node.frontmatter;
+        const { type, version } = item.edges[0].node.frontmatter;
+
+        let path = `${type}${item.edges[0].node.fields.slug}`;
+
+        if (version) {
+          path = `${type}/${version}${item.edges[0].node.fields.slug}`;
+        }
 
         return {
           title: type,
-          path: type + item.edges[0].node.fields.slug
+          path
         }
       });
 
