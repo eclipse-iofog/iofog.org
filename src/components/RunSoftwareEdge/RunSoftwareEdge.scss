@@ -3,6 +3,7 @@
 
   .sections__header {
     max-width: 630px;
+    text-align: center;
     margin: 0 auto;
   }
 
@@ -31,8 +32,51 @@
         }
       }
 
+      p {
+        font-size: 15px;
+      }
+
       h6 {
         margin: 10px 0;
+      }
+    }
+  }
+}
+
+/* resolution less than 992px */
+@media (max-width: 991px) {
+  .run-software {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .sections__header {
+      p {
+        max-width: 390px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+/* resolution less than 768px */
+@media (max-width: 767px) {
+  .run-software {
+    .sections__header {
+      text-align: left;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .icons {
+      &__container {
+        margin-top: 0;
+
+        .icon {
+          &__container {
+            margin-top: 40px;
+          }
+        }
       }
     }
   }

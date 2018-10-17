@@ -6,8 +6,8 @@ import './Enterprise.scss';
 class Enterprise extends Component {
   render() {
     return (
-      <section className="row">
-        <section className="col-md-12 text-center">
+      <section className="row enterprise">
+        <section className="col-md-12">
           <div className="entry__header">
             <h6>Enterprise</h6>
             <h2>Run software at the edge.</h2>

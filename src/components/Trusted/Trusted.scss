@@ -1,5 +1,6 @@
 .trusted {
-  padding: 80px 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
   .title {
     color: #57687d;
@@ -15,9 +16,20 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
-
-    .trusted__item {
-      margin: 0 40px;
+  }
+  &__item {
+    margin: 0 40px;
+  }
+}
+/* resolution less than 768px */
+@media (max-width: 767px) {
+  .trusted {
+    &__container {
+      flex-flow: row wrap;
+      align-items: center;
+    }
+    &__item {
+      margin-top: 20px;
     }
   }
 }

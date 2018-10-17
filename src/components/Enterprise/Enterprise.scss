@@ -2,3 +2,25 @@
   max-width: 650px;
   width: 100%;
 }
+.enterprise {
+  text-align: center;
+}
+/* resolution less than 768px */
+@media (max-width: 767px) {
+  .enterprise {
+    text-align: left;
+
+    .entry {
+      padding-top: 60px;
+      padding-bottom: 30px;
+
+      &__header {
+        h4 {
+          font-size: 23px;
+          line-height: 28px;
+          letter-spacing: 0.2px;
+        }
+      }
+    }
+  }
+}

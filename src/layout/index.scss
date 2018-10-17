@@ -55,6 +55,7 @@ a {
 
 /* sticky footer */
 .wrapper {
+  min-width: 320px;
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
@@ -129,7 +130,7 @@ a {
   }
 }
 /* common */
-a.button {
+.button {
   border-radius: 4px;
   background-color: #5064ec;
   display: inline-block;
@@ -137,4 +138,34 @@ a.button {
   color: #fff;
   font-family: "Averta Std - Bold", sans-serif;
   font-size: 14px;
+}
+
+/* resolution less than 768px */
+@media (max-width: 767px) {
+  /* entry */
+  .entry {
+    padding-top: 60px;
+    padding-bottom: 30px;
+
+    &__header {
+      max-width: 670px;
+      margin: 0 auto;
+
+      h2 {
+        font-size: 29px;
+        line-height: 36px;
+      }
+
+      h4 {
+        font-size: 23px;
+        line-height: 28px;
+        letter-spacing: 0.2px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 24px;
+      }
+    }
+  }
 }

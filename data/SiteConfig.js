@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: "IoFog", // Site title.
   siteTitleShort: "IoFog", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "IoFog", // Alternative site title for SEO.
-  siteLogo: "/logos/logo.svg", // Logo used for SEO and manifest.
+  siteLogo: "/images/logos/logo.svg", // Logo used for SEO and manifest.
   siteUrl: "https://betrozov.github.io", // Domain of your website without pathPrefix.
   pathPrefix: "/ioFog", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "IoFog Documentation", // Website description used for RSS feeds/meta description tag.

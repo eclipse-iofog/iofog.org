@@ -7,8 +7,8 @@ class RunSoftwareEdge extends Component {
       <section className="run-software bg-grey">
         <section className="container">
           <section className="row">
-            <section className="col-md-12">
-              <div className="sections__header text-center">
+            <section className="col-12">
+              <div className="sections__header">
                 <h4>Run software at the edge.</h4>
                 <p>By installing ioFog to any device (with minimal amount of compute) you automatically add a node into your Edge mesh which enables you to run any microservice on it dynamically, securely, and remotely.</p>
               </div>

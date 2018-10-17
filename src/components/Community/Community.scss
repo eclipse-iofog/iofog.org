@@ -20,7 +20,10 @@
 
     .img-01,
     .img-02 {
+      max-width: 300px;
+
       img {
+        max-width: 100%;
         box-shadow: 0 2px 6px #d0d7da;
         border-radius: 2px;
         background-color: #ffffff;
@@ -30,9 +33,15 @@
     .img-02 {
       margin: 160px 0 0 20px;
     }
+
+    &.one-img {
+      .img-01 {
+        max-width: 380px;
+      }
+    }
   }
 
-  .list-links {
+  .list {
     margin: 60px 0 0;
     padding: 0;
     list-style: none;
@@ -41,13 +50,98 @@
       margin-bottom: 20px;
 
       a {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 296px;
         height: 56px;
-        line-height: 56px;
         box-shadow: 0 6px 10px -3px #d0d7da;
         border-radius: 4px;
-        background-color: #ffffff;
+        background: #fff no-repeat 22px 50%;
+        padding-left: 15px;
+        padding-right: 50px;
+        font-size: 15px;
+        position: relative;
+        font-family: "Averta - Semibold", sans-serif;
+        transition: background-color 300ms linear;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 18px;
+          height: 12px;
+          position: absolute;
+          right: 22px;
+          top: 50%;
+          margin-top: -6px;
+          background: url("/images/icos/ico-arrow-r.svg") no-repeat;
+        }
+
+        &:hover {
+          background-color: lighten(#4668fd, 33%);
+        }
+      }
+    }
+
+    &.community-links {
+      li {
+        a {
+          padding-left: 56px;
+
+          &.forum {
+            background-image: url("/images/icos/ico-forum.svg");
+          }
+          &.blog {
+            background-image: url("/images/icos/ico-blog.svg");
+          }
+          &.support {
+            background-image: url("/images/icos/ico-support.svg");
+          }
+        }
+      }
+    }
+
+    &.events-list {
+      li {
+        a {
+          line-height: 1;
+          padding-left: 0;
+          width: 430px;
+
+          .date {
+            display: flex;
+            width: 70px;
+            flex: 0 0 70px;
+            text-align: center;
+            flex-flow: column wrap;
+            color: #4668fd;
+            font-size: 23px;
+            font-family: "Averta Std - Bold", sans-serif;
+
+            span {
+              display: block;
+              font-size: 12px;
+              font-family: "Averta - Semibold", sans-serif;
+            }
+          }
+
+          .wrap {
+            color: #57687d;
+            font-size: 12px;
+            font-family: "Averta Std - Regular", sans-serif;
+            width: 290px;
+
+            span {
+              display: block;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              color: #002e43;
+              margin-bottom: 4px;
+              font-size: 15px;
+              font-family: "Averta - Semibold", sans-serif;
+            }
+          }
+        }
       }
     }
   }

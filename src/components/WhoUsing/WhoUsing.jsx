@@ -8,22 +8,20 @@ class WhoUsing extends Component {
       <section className="container who-using">
         <section className="row">
           <section className="col-md-12">
-            <div className="sections__header text-center">
+            <div className="sections__header">
               <h4>Who is using ioFog</h4>
               <p>This is a short line that inspires and showcases companies currently using ioFog.</p>
             </div>
 
             <div className="row logos__container">
-              <div className="col-md-3">PLACEHOLDER FOR LOGO</div>
-              <div className="col-md-3">PLACEHOLDER FOR LOGO</div>
-              <div className="col-md-3">PLACEHOLDER FOR LOGO</div>
-              <div className="col-md-3">PLACEHOLDER FOR LOGO</div>
+              <div className="col-lg-3 col-md-4">PLACEHOLDER FOR LOGO</div>
+              <div className="col-lg-3 col-md-4">PLACEHOLDER FOR LOGO</div>
+              <div className="col-lg-3 col-md-4">PLACEHOLDER FOR LOGO</div>
+              <div className="col-lg-3 d-lg-block d-md-none">PLACEHOLDER FOR LOGO</div>
             </div>
 
             <div className="white-paper__container">
-              <div className="white-paper__logo">
-                <img srcSet="/images/logo/logo-white-paper.jpg" alt="" />
-              </div>
+              <div className="white-paper__logo" />
               <div className="white-paper__description">
                 <p className="title__sub">New White Paper</p>
                 <h3 className="title">This is the whitepaper title</h3>

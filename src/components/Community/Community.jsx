@@ -17,7 +17,7 @@ class Community extends Component {
               <h4>Get help from the Community</h4>
               <p>This is placeholder copy to introduce the community resources. The paragraph could be up to four sentences, but two are recommended. This is placeholder copy to introduce the community resources.</p>
 
-              <ul className="list-links">
+              <ul className="list community-links">
                 <li>
                   <Link className="forum" to="/">ioFog Discussion Forum</Link>
                 </li>
@@ -53,7 +53,7 @@ class Community extends Component {
               <h4>Stay up to date with the latest news.</h4>
               <p>This is placeholder copy to introduce the community resources. The paragraph could be up to four sentences, but two are recommended. This is placeholder copy to introduce the community resources.</p>
 
-              <ul className="list-links">
+              <ul className="list community-links">
                 <li>
                   <Link className="forum" to="/">This is a link with icon</Link>
                 </li>
@@ -72,40 +72,40 @@ class Community extends Component {
               <h4>Attend a community event</h4>
               <p>This is placeholder copy to introduce the community resources. Two sentences are recommended at most.</p>
 
-              <ul className="list-links">
+              <ul className="list events-list">
                 <li>
-                  <Link className="" to="/">
+                  <Link to="/">
                     <span className="date">
                       12
                       <span>May</span>
                     </span>
                     <span className="wrap">
-                      <strong>This is an example of a long event title and more</strong>
-                      <span>Toronto, Canada</span>
+                      <span>This is an example of a long event title and more</span>
+                      Toronto, Canada
                     </span>
                   </Link>
                 </li>
                 <li>
-                  <Link className="" to="/">
+                  <Link to="/">
                     <span className="date">
                       12
                       <span>May</span>
                     </span>
                     <span className="wrap">
-                      <strong>This is an example of a long event title and more</strong>
-                      <span>Toronto, Canada</span>
+                      <span>This is an example of a long event title and more</span>
+                      Toronto, Canada
                     </span>
                   </Link>
                 </li>
                 <li>
-                  <Link className="" to="/">
+                  <Link to="/">
                     <span className="date">
                       12
                       <span>May</span>
                     </span>
                     <span className="wrap">
-                      <strong>This is an example of a long event title and more</strong>
-                      <span>Toronto, Canada</span>
+                      <span>This is an example of a long event title and more</span>
+                      Toronto, Canada
                     </span>
                   </Link>
                 </li>

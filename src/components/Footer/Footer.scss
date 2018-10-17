@@ -78,3 +78,35 @@
     }
   }
 }
+
+/* resolution less than 768px */
+@media (max-width: 767px) {
+  .footer {
+    &__links {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    &__by {
+      display: flex;
+      flex-flow: row wrap;
+
+      .item {
+        margin-bottom: 0;
+
+        &:first-child {
+          margin-right: 40px;
+        }
+      }
+    }
+
+    &__follow {
+      margin-top: 40px;
+    }
+
+    &__copyright {
+      position: static;
+      margin-top: 40px;
+    }
+  }
+}

@@ -9,12 +9,13 @@ class BringYourOwnEdge extends Component {
       <section className="edge">
         <section className="container">
           <section className="row">
-            <section className="col-md-6 own">
+            <section className="col-12 col-md-6 promo">
               <h1 className="title">Bring your own edge.</h1>
-              <p className="description">Start building your first ioFog application today.<br /> ioFog is free and it always will be.</p>
+              <p>Start building your first ioFog application today. ioFog is free and it always
+                will be.</p>
             </section>
-            <section className="col-md-6 code__container">
-              <div className="float-right">
+            <section className="col-12 col-md-6 code__container">
+              <div className="holder">
                 <div className="code__content">
                   <p>$ a line of code goes here</p>
                   <p>$ a second line of code goes here</p>
