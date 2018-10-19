@@ -88,6 +88,7 @@ class PostListing extends Component {
     }
 
     const {versions, menus} = this.getCategoriesMenu();
+
     const defaultOption = versions.find(item => item.isActive);
 
     return (
@@ -95,7 +96,6 @@ class PostListing extends Component {
         {versions.length > 1 && <Dropdown options={versions} onChange={onSelect} value={defaultOption} placeholder="Select an option" />}
 
         <div className="menu-body">
-          <button className="back">back</button>
           {menus.map(menu => (
             <div key={menu.title} className={["item-container", menu.isActive ? "active open" : ""].join(" ")}>
               <Link to={menu.path} key={menu.title}>{menu.title}</Link>

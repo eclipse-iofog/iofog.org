@@ -93,6 +93,10 @@
       margin-top: 10px;
     }
   }
+  .Dropdown-option {
+    padding-left: 82px;
+  }
+
 }
 /* resolution less than 992px */
 @media (max-width: 991px) {
@@ -109,6 +113,10 @@
       padding: 23px 15px;
       justify-content: center;
       border-bottom: 1px solid #d0d7da;
+    }
+
+    .Dropdown-option {
+      padding-left: 0;
     }
   }
 }

@@ -37,29 +37,35 @@
       box-sizing: content-box;
     }
 
-    a {
-      padding: 0 14px;
-      display: inline-block;
-      text-decoration: none;
-      color: #5064ec;
-      font-size: 15px;
-      font-weight: 600;
-      line-height: 24px;
-      position: relative;
-      text-transform: capitalize;
+    .add-menu {
+      display: none;
+    }
 
-      &.active:after {
-        content: "";
-        display: block;
-        width: 4px;
-        height: 4px;
-        background-color: #5064ec;
-        border-radius: 50%;
-        position: absolute;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-        bottom: -10px;
+    .main-menu {
+      a {
+        padding: 0 14px;
+        display: inline-block;
+        text-decoration: none;
+        color: #5064ec;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 24px;
+        position: relative;
+        text-transform: capitalize;
+
+        &.active:after {
+          content: "";
+          display: block;
+          width: 4px;
+          height: 4px;
+          background-color: #5064ec;
+          border-radius: 50%;
+          position: absolute;
+          margin: 0 auto;
+          left: 0;
+          right: 0;
+          bottom: -10px;
+        }
       }
     }
   }
@@ -163,8 +169,6 @@
       }
 
       .holder {
-        display: flex;
-        flex-flow: column wrap;
         position: fixed;
         top: 45px;
         max-height: calc(100vh - 45px);
@@ -181,19 +185,92 @@
                     right 0.1s linear,
                     opacity 0.3s linear;
 
-        a {
-          color: #002e43;
-          font-family: "Averta Std - Bold", sans-serif;
-          font-size: 23px;
-          line-height: 28px;
-          letter-spacing: 0.2px;
-          font-weight: normal;
-          margin-top: 30px;
+        .main-menu {
+          display: flex;
+          flex-flow: column wrap;
 
-          &.active:after {
-            margin: -4px 0 0;
-            left: -10px;
-            top: 50%;
+          a {
+            color: #002e43;
+            font-family: "Averta Std - Bold", sans-serif;
+            font-size: 23px;
+            line-height: 28px;
+            letter-spacing: 0.2px;
+            font-weight: normal;
+            margin-top: 30px;
+
+            &.active:after {
+              margin: -4px 0 0;
+              left: 0;
+              top: 50%;
+            }
+          }
+        }
+      }
+
+      .doc-menu {
+        .main-menu {
+          display: none;
+        }
+        .add-menu {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          display: flex;
+          flex-flow: column wrap;
+
+          .back {
+            height: 12px;
+            width: 18px;
+            overflow: hidden;
+            text-indent: -9999px;
+            border: none;
+            padding: 10px;
+            margin: -10px;
+            box-sizing: content-box;
+            background: url("/images/icos/ico-arrow-r.svg") no-repeat 50% 50%;
+            position: absolute;
+            top: 23px;
+            left: 20px;
+            transform: rotate(180deg);
+            outline: none;
+          }
+
+          li {
+            margin-top: 20px;
+
+            a {
+              color: #002e43;
+              font-family: "Averta Std - Regular", sans-serif;
+              font-size: 19px;
+              line-height: 24px;
+              padding-left: 45px;
+
+              &.active {
+                font-family: "Averta Std - Bold", sans-serif;
+              }
+            }
+
+            &::first-letter {
+              text-transform: capitalize;
+            }
+          }
+
+          .wrap {
+            display: flex;
+            flex-flow: column wrap;
+
+            a {
+              margin: 5px 0 0 10px;
+              font-size: 15px;
+            }
+          }
+        }
+        &.menu-active {
+          .main-menu {
+            display: flex;
+          }
+          .add-menu {
+            display: none;
           }
         }
       }

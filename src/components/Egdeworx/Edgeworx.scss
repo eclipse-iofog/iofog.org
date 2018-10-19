@@ -14,6 +14,10 @@
   .button {
     margin-top: 21px;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
 /* resolution less than 992px */
 @media (max-width: 991px) {
@@ -24,11 +28,6 @@
   h3 {
     font-size: 23px;
     line-height: 28px;
-  }
-  .edgeworx {
-    img {
-      max-width: 100%;
-    }
   }
 }
 /* resolution less than 768px */

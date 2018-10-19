@@ -8,6 +8,26 @@ import groupBy from "lodash/groupBy";
 import each from "lodash/each";
 import some from "lodash/some";
 
+function activateMainMenu() {
+  const menu = document.getElementById('nav');
+  const selector = menu.getElementsByClassName('doc-menu')[0];
+
+  const addActiveClass = () => {
+    selector.classList.add('menu-active');
+  };
+  const removeActiveClass = () => {
+    selector.classList.remove('menu-active');
+  };
+
+  if (!selector.classList.contains('active')) {
+    addActiveClass()
+  }
+
+  return {
+    removeClass: removeActiveClass
+  };
+}
+
 function toggleMenu() {
   const parent = document.getElementsByClassName('wrapper')[0];
 
@@ -17,6 +37,7 @@ function toggleMenu() {
   };
   const hideMenu = () => {
     parent.classList.remove('menu-opened');
+    activateMainMenu().removeClass();
     document.removeEventListener('click', checkMenu);
   };
 
@@ -32,6 +53,7 @@ function toggleMenu() {
   };
 }
 
+
 function checkMenu(e) {
   const menu = document.getElementById('nav');
   let targetElement = e.target;
@@ -46,7 +68,7 @@ function checkMenu(e) {
   toggleMenu().hide();
 }
 
-const Header = ({ menuLinks }) => (
+const Header = ({ menuLinks, addMenu, location }) => (
   <header className="header">
     <div className="container">
       <div className="row">
@@ -58,12 +80,33 @@ const Header = ({ menuLinks }) => (
 
         <nav className="col-xl-6 col-lg-7 col-4 main-nav" id="nav">
           <button className="menu-opener" onClick={()=> toggleMenu()} />
-          <div className="holder">
-            {menuLinks.map(link => (
-              <Link activeClassName="active" to={link.path} key={link.title}>{link.title}</Link>
-            ))}
-            <Link activeClassName="active" to="/community">Community</Link>
-            <Link activeClassName="active" to="/enterprise">Enterprise</Link>
+          <div className={location.match(/documentations|releases/) ? 'holder doc-menu' : 'holder'}>
+            <div className="main-menu">
+              {menuLinks.map(link => (
+                <Link activeClassName="active" to={link.path} key={link.title}>{link.title}</Link>
+              ))}
+              <Link activeClassName="active" to="/community">Community</Link>
+              <Link activeClassName="active" to="/enterprise">Enterprise</Link>
+            </div>
+
+            {location.match(/documentations|releases/) &&
+              <ul className="add-menu">
+                <button className="back" onClick={()=> activateMainMenu()}>back</button>
+
+                {addMenu.map(menu => (
+                  <li key={menu.title}>
+                    <Link activeClassName="active" to={menu.path} key={menu.title}>{menu.title}</Link>
+                    {menu.items &&
+                    <div className="wrap">
+                      {menu.items.map(item => (
+                        <Link activeClassName="active" to={item.path} key={item.title}>{item.title}</Link>
+                      ))}
+                    </div>
+                    }
+                  </li>
+                ))}
+              </ul>
+            }
           </div>
         </nav>
 
@@ -90,7 +133,9 @@ export default props => (
                   slug
                 }
                 frontmatter {
+                  title
                   type
+                  category
                   version
                 }
               }
@@ -100,14 +145,17 @@ export default props => (
       }
     `}
     render={data => {
-      function getCategoriesMenu() {
+      function getCategoriesMenu(post) {
         const postList = [];
         const versions = [];
-        const { activeLink, postEdges } = this.props;
 
+        const postEdges = post.edges;
+        const activeLink = window.location.pathname;
         postEdges.forEach(postEdge => {
           const { type, version, title, category } = postEdge.node.frontmatter;
+
           const { slug } = postEdge.node.fields;
+
           let path = `/${type}${slug}`;
 
           if (version) {
@@ -167,11 +215,24 @@ export default props => (
           });
         });
 
-        const activeVersion = versions.find(version => version.isActive);
-
-        return {versions, menus: activeVersion.items};
+        return versions;
       }
-      
+
+      let addMenu;
+      switch(props.location) {
+        case ('documentations'):
+          addMenu = getCategoriesMenu(data.allMarkdownRemark.group[0])
+            .filter((item) => item.isActive === true);
+          break;
+        case('releases'):
+          addMenu = getCategoriesMenu(data.allMarkdownRemark.group[1]);
+          break;
+        default:
+          addMenu = '';
+      }
+      if (addMenu && addMenu.length > 0) {
+        addMenu = addMenu[0].items;
+      }
       const { group } = data.allMarkdownRemark;
 
       const menuLinks = group.map(item => {
@@ -189,7 +250,7 @@ export default props => (
         }
       });
 
-      return <Header menuLinks={menuLinks} {...props} />;
+      return <Header menuLinks={menuLinks} addMenu={addMenu} location={props} {...props} />;
     }}
   />
 )

@@ -13,6 +13,7 @@ export default class PostTemplate extends React.Component {
   render() {
     const { pageContext, data } = this.props;
     const { slug, type, version } = pageContext;
+
     let activeLink = `/${type}${slug}`;
 
     if (version) {
