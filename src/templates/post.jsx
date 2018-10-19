@@ -42,7 +42,7 @@ export default class PostTemplate extends React.Component {
             <div className="post-container col-12 col-lg-9 bg-grey">
               <div className="row">
                 <div className="offset-1 offset-lg-1 offset-xl-1" />
-                <div className="col-10 col-lg-10 col-xl-8">
+                <div className="col-12 col-lg-10 col-xl-8">
                   <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
                 </div>
               </div>

@@ -41,7 +41,7 @@
       padding: 20px;
     }
 
-    a {
+    a:not(.anchor) {
       color: #4668fd;
       font-family: "Averta - Semibold", sans-serif;
       font-size: 15px;
@@ -52,6 +52,7 @@
     }
 
     ol {
+      padding-left: 25px;
       list-style: none;
       counter-reset: my-awesome-counter;
 
@@ -61,7 +62,7 @@
         &::before {
           content: counter(my-awesome-counter) ". ";
           position: absolute;
-          left: 34px;
+          left: 15px;
           color: #002e43;
           font-family: "Averta Std - Bold", sans-serif;
           font-size: 19px;
@@ -82,7 +83,7 @@
           font-weight: 700;
           line-height: 24px;
           letter-spacing: 0.2px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
 
         p {

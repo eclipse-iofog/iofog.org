@@ -150,7 +150,7 @@ export default props => (
         const versions = [];
 
         const postEdges = post.edges;
-        const activeLink = window.location.pathname;
+        const activeLink = typeof window !== 'undefined' &&  window.location.pathname;
         postEdges.forEach(postEdge => {
           const { type, version, title, category } = postEdge.node.frontmatter;
 

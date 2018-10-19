@@ -78,7 +78,7 @@ class PostListing extends Component {
 
     const activeVersion = versions.find(version => version.isActive);
 
-    return {versions, menus: activeVersion.items};
+    return {versions, menus: activeVersion ? activeVersion.items : []};
   }
 
   render() {
