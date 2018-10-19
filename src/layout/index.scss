@@ -108,6 +108,7 @@ a {
   &__header {
     max-width: 670px;
     margin: 0 auto;
+    text-align: center;
 
     h6 {
       color: #57687d;
@@ -139,7 +140,12 @@ a {
   font-family: "Averta Std - Bold", sans-serif;
   font-size: 14px;
 }
-
+/* resolution less than 992px */
+@media (max-width: 991px) {
+  .wrapper {
+    padding-top: 68px;
+  }
+}
 /* resolution less than 768px */
 @media (max-width: 767px) {
   /* entry */
@@ -150,6 +156,7 @@ a {
     &__header {
       max-width: 670px;
       margin: 0 auto;
+      text-align: left;
 
       h2 {
         font-size: 29px;

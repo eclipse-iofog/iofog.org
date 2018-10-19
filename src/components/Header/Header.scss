@@ -4,6 +4,9 @@
   z-index: 1;
 
   & > .container {
+    max-width: 100%;
+    padding-right: 82px;
+    padding-left: 82px;
     .row {
       height: 96px;
       align-items: center;
@@ -26,9 +29,12 @@
       display: none;
       width: 23px;
       height: 20px;
-      background: url("/images/icos/ico-menu.svg") no-repeat;
+      background: url("/images/icos/ico-menu.svg") no-repeat 50% 50%;
       border: none;
-      padding: 0;
+      padding: 10px;
+      margin: -10px;
+      outline: none;
+      box-sizing: content-box;
     }
 
     a {
@@ -121,10 +127,19 @@
 /* resolution less than 992px */
 @media (max-width: 991px) {
   .header {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    height: 68px;
+    padding-top: 22px;
+    padding-bottom: 21px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
 
     & > .container {
+      padding-left: 25px;
+      padding-right: 25px;
+
       .row {
         height: auto;
         align-items: flex-start;
@@ -148,7 +163,39 @@
       }
 
       .holder {
-        display: none;
+        display: flex;
+        flex-flow: column wrap;
+        position: fixed;
+        top: 45px;
+        max-height: calc(100vh - 45px);
+        overflow: auto;
+        left: -1000px;
+        right: 1000px;
+        background: #fff;
+        padding-bottom: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-shadow: 0 3px 3px 0 #d0d7da;
+        opacity: 0;
+        transition: left 0.3s linear,
+                    right 0.1s linear,
+                    opacity 0.3s linear;
+
+        a {
+          color: #002e43;
+          font-family: "Averta Std - Bold", sans-serif;
+          font-size: 23px;
+          line-height: 28px;
+          letter-spacing: 0.2px;
+          font-weight: normal;
+          margin-top: 30px;
+
+          &.active:after {
+            margin: -4px 0 0;
+            left: -10px;
+            top: 50%;
+          }
+        }
       }
     }
     /* search */
@@ -164,6 +211,20 @@
         input[type="text"] {
           display: none;
         }
+      }
+    }
+  }
+
+  .wrapper {
+    &.menu-opened {
+      .menu-opener {
+        background: url("/images/icos/ico-cross.svg") no-repeat 50% 50%;
+      }
+
+      .holder {
+        left: 0;
+        right: 0;
+        opacity: 1;
       }
     }
   }

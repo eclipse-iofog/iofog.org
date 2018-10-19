@@ -24,19 +24,28 @@ export default class PostTemplate extends React.Component {
     const postEdges = data.allMarkdownRemark.edges;
 
     return (
-      <Layout>
+      <Layout location={type}>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
 
         <SEO postPath={slug} postNode={postNode} postSEO />
 
-        <div className="post container">
-          <div className="menu-list">
-            <PostListing postEdges={postEdges} activeLink={activeLink} />
-          </div>
-          <div className="post-container bg-grey">
-            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+        <div className="container-fluid">
+          <div className="row post">
+            <div className="menu-list col-12 col-lg-3">
+              <div className="row">
+                <PostListing postEdges={postEdges} activeLink={activeLink} />
+              </div>
+            </div>
+            <div className="post-container col-12 col-lg-9 bg-grey">
+              <div className="row">
+                <div className="offset-1 offset-lg-1 offset-xl-1" />
+                <div className="col-10 col-lg-10 col-xl-8">
+                  <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

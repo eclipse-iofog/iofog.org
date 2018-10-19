@@ -11,7 +11,7 @@ import "./PostListing.scss";
 class PostListing extends Component {
   getCategoriesMenu() {
     const postList = [];
-    let versions = [];
+    const versions = [];
     const { activeLink, postEdges } = this.props;
 
     postEdges.forEach(postEdge => {
@@ -31,7 +31,6 @@ class PostListing extends Component {
       };
 
       if (versions) {
-        console.log(path, activeLink);
         list.isActive = path === activeLink;
       }
 
@@ -95,18 +94,21 @@ class PostListing extends Component {
       <div className="posts-menu">
         {versions.length > 1 && <Dropdown options={versions} onChange={onSelect} value={defaultOption} placeholder="Select an option" />}
 
-        {menus.map(menu => (
-          <div key={menu.title} className={["item-container", menu.isActive ? "active open" : ""].join(" ")}>
-            <Link to={menu.path} key={menu.title}>{menu.title}</Link>
-            {menu.items &&
-            <div className="sub-menu active">
-              {menu.items.map(item => (
-                <Link activeClassName="active" to={item.path} key={item.title}>{item.title}</Link>
-              ))}
+        <div className="menu-body">
+          <button className="back">back</button>
+          {menus.map(menu => (
+            <div key={menu.title} className={["item-container", menu.isActive ? "active open" : ""].join(" ")}>
+              <Link to={menu.path} key={menu.title}>{menu.title}</Link>
+              {menu.items &&
+              <div className="sub-menu active">
+                {menu.items.map(item => (
+                  <Link activeClassName="active" to={item.path} key={item.title}>{item.title}</Link>
+                ))}
+              </div>
+              }
             </div>
-            }
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }

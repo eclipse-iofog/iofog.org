@@ -96,7 +96,7 @@
     }
   }
 }
-/* resolution less than 992px */
+
 @media (max-width: 991px) {
   .edge {
     padding: 62px 0 0;
@@ -111,7 +111,7 @@
     &:before {
       width: 123px;
       height: 338px;
-      bottom: 0;
+      bottom: -22px;
       background-image: url("/images/bg/bg-edge-right-tablet.svg");
     }
   }

@@ -1,14 +1,8 @@
 .post {
-  display: flex;
-
-  .menu-list {
-    width: 340px;
-  }
-
   .post-container {
     width: calc(100% - 340px);
     border-left: 1px solid #d0d7da;
-    padding: 60px 60px 60px 136px;
+    padding: 60px 20px;
 
     h1,
     h2,
@@ -28,4 +22,8 @@
       margin: 20px 0 20px;
     }
   }
+}
+/* resolution less than 1200px */
+@media (max-width: 1199px) {
+  padding: 40px 40px 460px 106px;
 }

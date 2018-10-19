@@ -12,7 +12,7 @@ class DocumentationPage extends Component {
     const postEdges = (data.allMarkdownRemark || {}).edges || [];
 
     return (
-      <Layout>
+      <Layout location="documentations">
         <div className="container">
           <Helmet title={`Documentation | ${config.siteTitle}`} />
 
@@ -31,7 +31,7 @@ export default DocumentationPage;
 export const pageQuery = graphql`
   query IndexQuery123 {
     allMarkdownRemark(
-      filter: {frontmatter: {type: { eq: "documentations" }} }
+      filter: {frontmatter: {type: { eq: "documentation" }} }
     ) {
       edges {
         node {

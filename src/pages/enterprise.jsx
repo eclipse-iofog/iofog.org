@@ -7,11 +7,9 @@ import Enterprise from '../components/Enterprise/Enterprise';
 class EnterprisePage extends Component {
   render() {
     return (
-      <Layout>
-        <div className="container entry">
-          <Helmet title={`Enterprise | ${config.siteTitle}`} />
-          <Enterprise />
-        </div>
+      <Layout location="enterprise">
+        <Helmet title={`Enterprise | ${config.siteTitle}`} />
+        <Enterprise />
       </Layout>
     );
   }

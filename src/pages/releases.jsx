@@ -17,7 +17,7 @@ class ReleasesPage extends Component {
     const postEdges = data.allMarkdownRemark.edges;
 
     return (
-      <Layout>
+      <Layout location="releases">
         <div className="container">
           <Helmet title={`Releases | ${config.siteTitle}`} />
 

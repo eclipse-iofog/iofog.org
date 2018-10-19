@@ -8,11 +8,9 @@ import Community from "../components/Community/Community";
 class CommunityPage extends Component {
   render() {
     return (
-      <Layout>
-        <div className="container entry">
-          <Helmet title={`Community | ${config.siteTitle}`} />
-          <Community />
-        </div>
+      <Layout location="community">
+        <Helmet title={`Community | ${config.siteTitle}`} />
+        <Community />
       </Layout>
     );
   }
