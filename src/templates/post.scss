@@ -1,5 +1,10 @@
 .post {
   .post-container {
+    color: #002e43;
+    font-family: "Averta Std - Regular", sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+
     width: calc(100% - 340px);
     border-left: 1px solid #d0d7da;
     padding: 60px 20px;
@@ -20,6 +25,167 @@
     h5:first-child,
     h6:first-child {
       margin: 20px 0 20px;
+    }
+
+    .language-text {
+      border-radius: 4px;
+      background-color: rgba(38, 214, 241, 0.3);
+
+      color: #000000;
+      font-family: "Roboto Mono", sans-serif;
+      font-weight: 400;
+    }
+
+    pre {
+      margin: 35px 0;
+      padding: 20px;
+    }
+
+    a {
+      color: #4668fd;
+      font-family: "Averta - Semibold", sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 24px;
+      display: inline-block;
+      margin: 5px 0;
+    }
+
+    ol {
+      list-style: none;
+      counter-reset: my-awesome-counter;
+
+      li {
+        counter-increment: my-awesome-counter;
+
+        &::before {
+          content: counter(my-awesome-counter) ". ";
+          position: absolute;
+          left: 34px;
+          color: #002e43;
+          font-family: "Averta Std - Bold", sans-serif;
+          font-size: 19px;
+          font-weight: 700;
+          line-height: 24px;
+          letter-spacing: 0.2px;
+        }
+      }
+    }
+
+    ol,
+    ul {
+      li {
+        p:first-child {
+          color: #002e43;
+          font-family: "Averta Std - Bold", sans-serif;
+          font-size: 19px;
+          font-weight: 700;
+          line-height: 24px;
+          letter-spacing: 0.2px;
+          margin-bottom: 20px;
+        }
+
+        p {
+          a {
+            color: #4668fd;
+            font-family: "Averta - Semibold", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 24px;
+            margin-bottom: 10px;
+            display: inline-block;
+          }
+
+          color: #002e43;
+          font-family: "Averta Std - Regular", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 24px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+
+      thead {
+        th {
+          color: #002e43;
+          font-family: "Averta - Semibold", sans-serif;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 24px;
+          border: 1px solid #d0d7da;
+          padding: 8px 12px;
+          background-color: #fff;
+
+          &:first-child {
+            text-align: center;
+          }
+        }
+      }
+
+      tbody {
+        td {
+          color: #002e43;
+          font-family: "Averta Std - Regular", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 24px;
+          padding: 8px 12px;
+          border: 1px solid #d0d7da;
+          &:first-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    aside.notifications {
+      border-radius: 4px;
+      background-color: #edeffd;
+      border-left: 6px solid #5064ec;
+      padding: 30px;
+      margin: 25px 0;
+
+      h3 {
+        color: #002e43;
+        font-family: "Averta Std - Bold", sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        margin: 0 0 10px;
+
+        img {
+          margin: -5px 10px 0 0;
+        }
+      }
+
+      p {
+        color: #002e43;
+        font-family: "Averta Std - Regular", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 24px;
+        margin: 0;
+      }
+
+      &.note {
+        border-left: 6px solid #5064ec;
+        background-color: #edeffd;
+      }
+
+      &.danger {
+        border-left: 6px solid #ca1f55;
+        background-color: #f9e8ee
+      }
+
+      &.tip {
+        border-left: 6px solid #f5a623;
+        background-color: #fef6e9;
+      }
     }
   }
 }
