@@ -1,11 +1,11 @@
 module.exports = {
-  siteTitle: "IoFog", // Site title.
-  siteTitleShort: "IoFog", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "IoFog", // Alternative site title for SEO.
+  siteTitle: "ioFog", // Site title.
+  siteTitleShort: "ioFog", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  siteTitleAlt: "ioFog", // Alternative site title for SEO.
   siteLogo: "/images/logos/logo.svg", // Logo used for SEO and manifest.
   siteUrl: "https://betrozov.github.io", // Domain of your website without pathPrefix.
   pathPrefix: "/ioFog", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: "IoFog Documentation", // Website description used for RSS feeds/meta description tag.
+  siteDescription: "ioFog Documentation", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
   googleAnalyticsID: "UA-47311644-5", // GA tracking ID.

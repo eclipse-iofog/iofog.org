@@ -8,8 +8,30 @@ import './b16-tomorrow-dark.css';
 import './post.scss';
 import PostListing from '../components/PostListing/PostListing';
 import Edgeworx from "../components/Egdeworx/Edgeworx";
+import swaggerSpec from '../../third_party/FogController/specs/swagger.yml';
 
 export default class PostTemplate extends React.Component {
+  postRef = React.createRef();
+
+  async componentDidMount() {
+    const swaggerEl = this.postRef.current.querySelector('swagger-ui');
+
+    if (swaggerEl) {
+      // swagger-ui doesn't work in SSR. In fact if you even
+      // import it server-side it throws errors.
+      const [{ default: SwaggerUI }, _] = await Promise.all([
+        import('swagger-ui'),
+        import('swagger-ui/dist/swagger-ui.css')
+      ]);
+
+      SwaggerUI({
+        domNode: swaggerEl,
+        //url: 'https://petstore.swagger.io/v2/swagger.json'
+        spec: swaggerSpec
+      })
+    }
+  }
+
   render() {
     const { pageContext, data } = this.props;
     const { slug, type, version } = pageContext;
@@ -27,7 +49,7 @@ export default class PostTemplate extends React.Component {
     return (
       <Layout location={type}>
         <Helmet>
-          <title>{`${post.title} | ${config.siteTitle}`}</title>
+          <title>{`${post.title} | ${post.category} | ${config.siteTitle}`}</title>
         </Helmet>
 
         <SEO postPath={slug} postNode={postNode} postSEO />
@@ -42,8 +64,8 @@ export default class PostTemplate extends React.Component {
             <div className="post-container col-12 col-lg-9 bg-grey">
               <div className="row">
                 <div className="offset-1 offset-lg-1 offset-xl-1" />
-                <div className="col-12 col-lg-10 col-xl-8">
-                  <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+                <div className="col-12 col-lg-10">
+                  <div ref={this.postRef} dangerouslySetInnerHTML={{ __html: postNode.html }} />
                 </div>
               </div>
             </div>
@@ -65,6 +87,7 @@ export const pageQuery = graphql`
       excerpt
       frontmatter {
         title
+        category
       }
       fields {
         nextTitle
@@ -74,7 +97,7 @@ export const pageQuery = graphql`
         slug
       }
     }
-    
+
     allMarkdownRemark(filter: {frontmatter: { type: { eq: $type } }}) {
       edges {
         node {

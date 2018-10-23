@@ -27,7 +27,7 @@ class RunSoftwareEdge extends Component {
                     <img srcSet="/images/icos/ico-security.svg" alt="" />
                     <h4>Icon Pending</h4>
                   </div>
-                  <h6>Control</h6>
+                  <h6>Controller</h6>
                   <p>This is a short sentence that describes this value prop.</p>
                 </div>
                 <div className="col-md-4">
@@ -35,7 +35,7 @@ class RunSoftwareEdge extends Component {
                     <img srcSet="/images/icos/ico-apps.svg" alt="" />
                     <h4>Icon Pending</h4>
                   </div>
-                  <h6>Comsat</h6>
+                  <h6>Connector</h6>
                   <p>This is a short sentence that describes this value prop.</p>
                 </div>
               </div>

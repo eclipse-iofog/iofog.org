@@ -17,6 +17,7 @@ pre[class*="language-"] {
     hyphens: none;
     background: #1d1f21;
     color: #c5c8c6;
+    text-shadow: none;
 }
 
 pre[class*="language-"]::-moz-selection,

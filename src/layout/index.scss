@@ -22,6 +22,7 @@
 body {
   font-family: 'Averta Std - Regular', sans-serif;
   color: #002e43;
+  line-height: 1.55;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +34,6 @@ h1 {font-size: 46px;}
 
 h2 {
   font-size: 37px;
-  line-height: 46px;
   letter-spacing: -0.2px;
 }
 
@@ -54,7 +54,7 @@ a {
 }
 
 /* sticky footer */
-.wrapper {
+.page-wrapper {
   min-width: 320px;
   min-height: 100vh;
   display: flex;
@@ -79,7 +79,6 @@ a {
     h6 {
       color: #57687d;
       font-size: 12px;
-      line-height: 20px;
       text-transform: uppercase;
       letter-spacing: 0.9px;
       margin-bottom: 15px;
@@ -92,7 +91,6 @@ a {
     p {
       font-family: "Averta Std - Regular", sans-serif;
       font-size: 15px;
-      line-height: 24px;
     }
 
     a.button {
@@ -113,7 +111,6 @@ a {
     h6 {
       color: #57687d;
       font-size: 12px;
-      line-height: 20px;
       text-transform: uppercase;
       letter-spacing: 0.9px;
       margin-bottom: 15px;
@@ -126,7 +123,6 @@ a {
     p {
       font-family: "Averta Std - Regular", sans-serif;
       font-size: 19px;
-      line-height: 30px;
     }
   }
 }
@@ -160,18 +156,15 @@ a {
 
       h2 {
         font-size: 29px;
-        line-height: 36px;
       }
 
       h4 {
         font-size: 23px;
-        line-height: 28px;
         letter-spacing: 0.2px;
       }
 
       p {
         font-size: 15px;
-        line-height: 24px;
       }
     }
   }

@@ -3,12 +3,10 @@
 
   h5 {
     color: #57687d;
-    line-height: 24px;
   }
 
   h3 {
     margin-bottom: 0;
-    line-height: 1;
   }
 
   .button {
@@ -23,11 +21,9 @@
 @media (max-width: 991px) {
   h5 {
     font-size: 15px;
-    line-height: 20px;
   }
   h3 {
     font-size: 23px;
-    line-height: 28px;
   }
 }
 /* resolution less than 768px */

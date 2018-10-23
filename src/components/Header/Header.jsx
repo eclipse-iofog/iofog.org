@@ -29,7 +29,7 @@ function activateMainMenu() {
 }
 
 function toggleMenu() {
-  const parent = document.getElementsByClassName('wrapper')[0];
+  const parent = document.getElementsByClassName('page-wrapper')[0];
 
   const showMenu = () => {
     parent.classList.add('menu-opened');
@@ -80,7 +80,7 @@ const Header = ({ menuLinks, addMenu, location }) => (
 
         <nav className="col-xl-6 col-lg-7 col-4 main-nav" id="nav">
           <button className="menu-opener" onClick={()=> toggleMenu()} />
-          <div className={location.match(/documentations|releases/) ? 'holder doc-menu' : 'holder'}>
+          <div className={location.match(/documentation|releases/) ? 'holder doc-menu' : 'holder'}>
             <div className="main-menu">
               {menuLinks.map(link => (
                 <Link activeClassName="active" to={link.path} key={link.title}>{link.title}</Link>
@@ -89,7 +89,7 @@ const Header = ({ menuLinks, addMenu, location }) => (
               <Link activeClassName="active" to="/enterprise">Enterprise</Link>
             </div>
 
-            {location.match(/documentations|releases/) &&
+            {location.match(/documentation|releases/) &&
               <ul className="add-menu">
                 <button className="back" onClick={()=> activateMainMenu()}>back</button>
 
@@ -220,7 +220,7 @@ export default props => (
 
       let addMenu;
       switch(props.location) {
-        case ('documentations'):
+        case ('documentation'):
           addMenu = getCategoriesMenu(data.allMarkdownRemark.group[0])
             .filter((item) => item.isActive === true);
           break;

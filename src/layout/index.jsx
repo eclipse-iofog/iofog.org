@@ -15,7 +15,7 @@ export default class MainLayout extends Component {
     const configDate = { copyright: config.copyright };
     const isHomePage = this.props.location === '/';
 
-    let wrapperClasses = 'wrapper ';
+    let wrapperClasses = 'page-wrapper ';
 
     if (isHomePage) {
       wrapperClasses += 'home'

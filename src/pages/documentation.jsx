@@ -12,7 +12,7 @@ class DocumentationPage extends Component {
     const postEdges = (data.allMarkdownRemark || {}).edges || [];
 
     return (
-      <Layout location="documentations">
+      <Layout location="documentation">
         <div className="container">
           <Helmet title={`Documentation | ${config.siteTitle}`} />
 

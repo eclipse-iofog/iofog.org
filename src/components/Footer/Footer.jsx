@@ -18,7 +18,7 @@ class Footer extends Component {
                   <Link to="/">
                     <img srcSet={config.siteLogo} alt="" />
                   </Link>
-                  <p className="description">ioFog is free, open source and always will be.</p>
+                  <p className="description">ioFog is free, open source, and always will be.</p>
                   <p className="footer__copyright d-none d-md-block">{copyright}</p>
                 </div>
                 <div className="col-12 col-md-3 footer__links">
