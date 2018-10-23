@@ -69,14 +69,14 @@
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
-    "start": "yarn run develop",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
-    "build:gh": "yarn run clean && yarn run build:pp && gh-pages -d public",
+    "build:gh": "npm run clean && npm run build:pp && gh-pages -d public",
     "clean": "rm -rf public && rm -rf .cache",
     "lint:js": "eslint --ext .js,.jsx .",
-    "lint:md": "remark content && yarn run spellcheck",
+    "lint:md": "remark content && npm run spellcheck",
     "write-good": "write-good $(glob 'content/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "spellcheck": "mdspell --ignore-numbers --ignore-acronyms --en-us 'content/documentation/**/*.md' '!**/markdown-kitchen-sink.md'"
