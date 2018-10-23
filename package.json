@@ -79,8 +79,7 @@
     "lint:md": "remark content && yarn run spellcheck",
     "write-good": "write-good $(glob 'content/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "spellcheck": "mdspell --ignore-numbers --ignore-acronyms --en-us 'content/documentation/**/*.md' '!**/markdown-kitchen-sink.md'",
-    "publish": ""
+    "spellcheck": "mdspell --ignore-numbers --ignore-acronyms --en-us 'content/documentation/**/*.md' '!**/markdown-kitchen-sink.md'"
   },
   "remarkConfig": {
     "plugins": [
