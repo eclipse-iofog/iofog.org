@@ -4,7 +4,7 @@ module.exports = {
   siteTitleAlt: "ioFog", // Alternative site title for SEO.
   siteLogo: "/images/logos/logo.svg", // Logo used for SEO and manifest.
   siteUrl: "https://betrozov.github.io", // Domain of your website without pathPrefix.
-  pathPrefix: "/ioFog", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  pathPrefix: "/iofog.org", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "ioFog Documentation", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
