@@ -1,6 +1,7 @@
 const path = require("path");
 const _ = require("lodash");
 const moment = require("moment");
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 const siteConfig = require("./data/SiteConfig");
 
 const postNodes = [];
@@ -48,6 +49,7 @@ function addSiblingNodes(createNodeField) {
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
+  fmImagesToRelative(node);
   const { createNodeField } = actions;
   let slug;
   if (node.internal.type === "MarkdownRemark") {

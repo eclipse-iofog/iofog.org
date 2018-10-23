@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
-import config from "../../../data/SiteConfig";
-
-import "./Header.scss";
 import sortBy from "lodash/sortBy";
 import groupBy from "lodash/groupBy";
 import each from "lodash/each";
 import some from "lodash/some";
+
+import siteLogo from "../../../static/logos/logo.svg";
+import "./Header.scss";
 
 function activateMainMenu() {
   const menu = document.getElementById('nav');
@@ -74,7 +74,7 @@ const Header = ({ menuLinks, addMenu, location }) => (
       <div className="row">
         <div className="col-xl-3 col-lg-2 col-4 logo">
           <Link to="/">
-            <img srcSet={config.siteLogo} alt="" />
+            <img srcSet={siteLogo} alt="" />
           </Link>
         </div>
 

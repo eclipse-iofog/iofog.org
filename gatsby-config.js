@@ -53,6 +53,9 @@ module.exports = {
             }
           },
           {
+            resolve: `gatsby-remark-relative-images`,
+          },
+          {
             resolve: "gatsby-remark-responsive-iframe"
           },
           {

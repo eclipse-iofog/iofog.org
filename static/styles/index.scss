@@ -1,20 +1,22 @@
+@import './bootstrap-no-print.scss';
+
 @font-face {
   font-family: 'Averta Std - Bold';
-  src: url('/fonts/averta/AvertaStd-Bold.ttf') format('truetype');
+  src: url('../fonts/averta/AvertaStd-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Averta Std - Regular';
-  src: url('/fonts/averta/AvertaStd-Regular.ttf') format('truetype');
+  src: url('../fonts/averta/AvertaStd-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Averta - Semibold';
-  src: url('/fonts/averta/AvertaStd-Semibold.ttf') format('truetype');
+  src: url('../fonts/averta/AvertaStd-Semibold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

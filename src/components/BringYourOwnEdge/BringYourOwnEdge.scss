@@ -11,7 +11,7 @@
     left: 0;
     width: 174px;
     height: 174px;
-    background: url("/images/bg/bg-edge-left.svg") no-repeat;
+    background: url("../../../static/images/bg/bg-edge-left.svg") no-repeat;
     z-index: -1;
   }
 
@@ -23,7 +23,7 @@
     bottom: 0;
     width: 358px;
     height: 542px;
-    background: url("/images/bg/bg-edge-right.svg") no-repeat;
+    background: url("../../../static/images/bg/bg-edge-right.svg") no-repeat;
     z-index: -1;
   }
 }
@@ -102,14 +102,14 @@
     &:after {
       width: 129px;
       height: 110px;
-      background: url("/images/bg/bg-edge-left-tablet.svg") no-repeat;
+      background: url("../../../static/images/bg/bg-edge-left-tablet.svg") no-repeat;
     }
 
     &:before {
       width: 123px;
       height: 338px;
       bottom: -22px;
-      background-image: url("/images/bg/bg-edge-right-tablet.svg");
+      background-image: url("../../../static/images/bg/bg-edge-right-tablet.svg");
     }
   }
 
@@ -181,7 +181,7 @@
       width: 60px;
       height: 258px;
       bottom: 120px;
-      background-image: url("/images/bg/bg-edge-right-mobile.svg");
+      background-image: url("../../../static/images/bg/bg-edge-right-mobile.svg");
     }
   }
   .promo {

@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { MdArrowForward } from 'react-icons/md';
 import './Subscription.scss';
 
+import bgSubscriptionLeft from '../../../static/images/bg/bg-subscription-left.png';
+import bgSubscriptionRight from '../../../static/images/bg/bg-subscription-right.png';
+
 class Subscription extends Component {
   render() {
     return (
       <section className="subscription">
-        <img className="subscription__bg-lt" src="/images/bg/bg-subscription-left.png" alt="" />
+        <img className="subscription__bg-lt" srcSet={bgSubscriptionLeft} alt="" />
         <section className="container">
           <section className="row">
             <section className="col-md-12">
@@ -22,7 +25,7 @@ class Subscription extends Component {
             </section>
           </section>
         </section>
-        <img className="subscription__bg-rt" src="/images/bg/bg-subscription-right.png" alt="" />
+        <img className="subscription__bg-rt" srcSet={bgSubscriptionRight} alt="" />
       </section>
     );
   }

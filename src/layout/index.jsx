@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import config from '../../data/SiteConfig';
-import './bootstrap-no-print.scss'
-import './index.scss';
+import '../../static/styles/index.scss';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 

@@ -72,7 +72,7 @@
           right: 22px;
           top: 50%;
           margin-top: -6px;
-          background: url("/images/icos/ico-arrow-r.svg") no-repeat;
+          background: url("../../../static/images/icos/ico-arrow-r.svg") no-repeat;
         }
 
         &:hover {
@@ -87,13 +87,13 @@
           padding-left: 56px;
 
           &.forum {
-            background-image: url("/images/icos/ico-forum.svg");
+            background-image: url("../../../static/images/icos/ico-forum.svg");
           }
           &.blog {
-            background-image: url("/images/icos/ico-blog.svg");
+            background-image: url("../../../static/images/icos/ico-blog.svg");
           }
           &.support {
-            background-image: url("/images/icos/ico-support.svg");
+            background-image: url("../../../static/images/icos/ico-support.svg");
           }
         }
       }

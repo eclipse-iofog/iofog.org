@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import './Enterprise.scss';
+import imgGallery from '../../../static/images/img-gallery-01.png';
 
 class Enterprise extends Component {
   render() {
@@ -16,7 +17,7 @@ class Enterprise extends Component {
             </div>
 
             <div className="img-holder">
-              <img src="/images/img-gallery-01.png" alt="" />
+              <img srcSet={imgGallery} alt="" />
             </div>
           </section>
         </section>

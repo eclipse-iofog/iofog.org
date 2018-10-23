@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './RunSoftwareEdge.scss';
 
+import icoLightning from '../../../static/images/icos/ico-lightning.svg';
+import icoSecurity from '../../../static/images/icos/ico-security.svg';
+import icoApps from '../../../static/images/icos/ico-apps.svg';
+
 class RunSoftwareEdge extends Component {
   render() {
     return (
@@ -16,7 +20,7 @@ class RunSoftwareEdge extends Component {
               <div className="icons__container row">
                 <div className="col-md-4">
                   <div className="icon__container">
-                    <img srcSet="/images/icos/ico-lightning.svg" alt="" />
+                    <img srcSet={icoLightning} alt="" />
                     <h4>Icon Pending</h4>
                   </div>
                   <h6>Agent</h6>
@@ -24,7 +28,7 @@ class RunSoftwareEdge extends Component {
                 </div>
                 <div className="col-md-4">
                   <div className="icon__container">
-                    <img srcSet="/images/icos/ico-security.svg" alt="" />
+                    <img srcSet={icoSecurity} alt="" />
                     <h4>Icon Pending</h4>
                   </div>
                   <h6>Controller</h6>
@@ -32,7 +36,7 @@ class RunSoftwareEdge extends Component {
                 </div>
                 <div className="col-md-4">
                   <div className="icon__container">
-                    <img srcSet="/images/icos/ico-apps.svg" alt="" />
+                    <img srcSet={icoApps} alt="" />
                     <h4>Icon Pending</h4>
                   </div>
                   <h6>Connector</h6>

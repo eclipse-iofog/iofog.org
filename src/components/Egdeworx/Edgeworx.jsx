@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import './Edgeworx.scss';
 
+import imgGallery from '../../../static/images/img-gallery-02.png';
+
 class Edgeworx extends Component {
   render() {
     return (
@@ -15,7 +17,7 @@ class Edgeworx extends Component {
             </section>
 
             <section className="col-12 col-md-4">
-              <img src="/images/img-gallery-02.png" alt="" />
+              <img srcSet={imgGallery} alt="" />
             </section>
           </section>
         </section>

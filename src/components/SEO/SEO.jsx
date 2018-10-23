@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import urljoin from "url-join";
 import config from "../../../data/SiteConfig";
+import siteLogo from "../../../static/logos/logo.svg";
 
 class SEO extends Component {
   render() {
     const { postNode, postPath, postSEO } = this.props;
+    const siteUrl = typeof window !== "undefined" ? window.location.origin : '';
     let title;
     let description;
     let image;
@@ -17,18 +19,18 @@ class SEO extends Component {
       description = postMeta.description
         ? postMeta.description
         : postNode.excerpt;
-      image = postMeta.cover || config.siteLogo;
+      image = postMeta.cover || siteLogo;
 
-      postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
+      postURL = urljoin(siteUrl, postPath);
     } else {
       title = config.siteTitle;
       description = config.siteDescription;
-      image = config.siteLogo;
+      image = siteLogo;
     }
 
-    image = urljoin(config.siteUrl, config.pathPrefix, image);
+    image = urljoin(siteUrl, image);
 
-    const blogURL = urljoin(config.siteUrl, config.pathPrefix);
+    const blogURL = siteUrl;
     const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",

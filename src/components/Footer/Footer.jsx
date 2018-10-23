@@ -4,6 +4,10 @@ import { FaGithub, FaTwitter } from 'react-icons/fa';
 import './Footer.scss';
 import config from '../../../data/SiteConfig';
 
+import logoEdgeworx from '../../../static/images/logos/logo-edgeworx.svg';
+import logoEclipse from '../../../static/images/logos/logo-eclipse-footer.png';
+import siteLogo from "../../../static/logos/logo.svg";
+
 class Footer extends Component {
   render() {
     const { copyright } = this.props.config;
@@ -16,7 +20,7 @@ class Footer extends Component {
               <div className="row">
                 <div className="col-12 col-md-4 footer__main">
                   <Link to="/">
-                    <img srcSet={config.siteLogo} alt="" />
+                    <img srcSet={siteLogo} alt="" />
                   </Link>
                   <p className="description">ioFog is free, open source, and always will be.</p>
                   <p className="footer__copyright d-none d-md-block">{copyright}</p>
@@ -31,11 +35,11 @@ class Footer extends Component {
                   <div className="item">
                     <h4>Sponsored by</h4>
 
-                    <Link to="/"><img srcSet="/images/logos/logo-edgeworx.svg" alt="" /></Link>
+                    <Link to="/"><img srcSet={logoEdgeworx} alt="" /></Link>
                   </div>
                   <div className="item">
                     <h4>Trusted by</h4>
-                    <Link to="/"><img srcSet="/images/logos/logo-eclipse-footer.png" alt="" /></Link>
+                    <Link to="/"><img srcSet={logoEclipse} alt="" /></Link>
                   </div>
                 </div>
                 <div className="col-md-2 footer__follow">

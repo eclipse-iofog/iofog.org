@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import './Community.scss';
 
+import imgGallery3 from '../../../static/images/img-gallery-03.png';
+import imgGallery4 from '../../../static/images/img-gallery-04.png';
+
 class Community extends Component {
   render() {
     function textTruncate(str, length, ending) {
@@ -45,10 +48,10 @@ class Community extends Component {
               <div className="col-12 col-md-6 col-lg-7">
                 <div className="img-holder">
                   <div className="img-01">
-                    <img src="/images/img-gallery-03.png" alt="" />
+                    <img srcSet={imgGallery3} alt="" />
                   </div>
                   <div className="img-02">
-                    <img src="/images/img-gallery-03.png" alt="" />
+                    <img srcSet={imgGallery3} alt="" />
                   </div>
                 </div>
               </div>
@@ -58,7 +61,7 @@ class Community extends Component {
               <div className="col-12 col-md-6 col-lg-5">
                 <div className="img-holder one-img d-none d-md-block">
                   <div className="img-01">
-                    <img src="/images/img-gallery-04.png" alt="" />
+                    <img srcSet={imgGallery4} alt="" />
                   </div>
                 </div>
               </div>
@@ -134,10 +137,10 @@ class Community extends Component {
               <div className="col-12 col-md-6 col-lg-7">
                 <div className="img-holder">
                   <div className="img-01">
-                    <img src="/images/img-gallery-03.png" alt="" />
+                    <img srcSet={imgGallery3} alt="" />
                   </div>
                   <div className="img-02">
-                    <img src="/images/img-gallery-03.png" alt="" />
+                    <img srcSet={imgGallery3} alt="" />
                   </div>
                 </div>
               </div>

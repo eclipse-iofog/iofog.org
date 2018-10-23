@@ -29,7 +29,7 @@
       display: none;
       width: 23px;
       height: 20px;
-      background: url("/images/icos/ico-menu.svg") no-repeat 50% 50%;
+      background: url("../../../static/images/icos/ico-menu.svg") no-repeat 50% 50%;
       border: none;
       padding: 10px;
       margin: -10px;
@@ -79,7 +79,7 @@
 
       button[type="submit"] {
         border: none;
-        background: url("/images/icos/ico-search.svg") no-repeat;
+        background: url("../../../static/images/icos/ico-search.svg") no-repeat;
         background-size: cover;
         text-indent: -9999px;
         width: 16px;
@@ -225,7 +225,7 @@
             padding: 10px;
             margin: -10px;
             box-sizing: content-box;
-            background: url("/images/icos/ico-arrow-r.svg") no-repeat 50% 50%;
+            background: url("../../../static/images/icos/ico-arrow-r.svg") no-repeat 50% 50%;
             position: absolute;
             top: 23px;
             left: 20px;
@@ -293,7 +293,7 @@
   .page-wrapper {
     &.menu-opened {
       .menu-opener {
-        background: url("/images/icos/ico-cross.svg") no-repeat 50% 50%;
+        background: url("../../../static/images/icos/ico-cross.svg") no-repeat 50% 50%;
       }
 
       .holder {
