@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import './Edgeworx.scss';
 
-import imgGallery from '../../../static/images/img-gallery-02.png';
+import imgGallery from '../../../static/images/edgeworx-web.svg';
 
 class Edgeworx extends Component {
   render() {
