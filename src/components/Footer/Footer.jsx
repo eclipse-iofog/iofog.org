@@ -4,9 +4,9 @@ import { FaGithub, FaTwitter } from 'react-icons/fa';
 import './Footer.scss';
 import config from '../../../data/SiteConfig';
 
-import logoEdgeworx from '../../../static/images/logos/logo-edgeworx.svg';
-import logoEclipse from '../../../static/images/logos/logo-eclipse-footer.png';
-import siteLogo from "../../../static/logos/logo.svg";
+import logoEdgeworx from '../../../static/images/logos/edgeworx.svg';
+import logoEclipse from '../../../static/images/logos/eclipse.svg';
+import siteLogo from "../../../static/images/logos/iofog.svg";
 
 class Footer extends Component {
   render() {
@@ -20,7 +20,7 @@ class Footer extends Component {
               <div className="row">
                 <div className="col-12 col-md-4 footer__main">
                   <Link to="/">
-                    <img srcSet={siteLogo} alt="" />
+                    <img srcSet={siteLogo} alt="ioFog" />
                   </Link>
                   <p className="description">ioFog is free, open source, and always will be.</p>
                   <p className="footer__copyright d-none d-md-block">{copyright}</p>
@@ -32,14 +32,12 @@ class Footer extends Component {
                   <div><Link to="/">Contribute this page</Link></div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
+                  <h4>Sponsored by</h4>
                   <div className="item">
-                    <h4>Sponsored by</h4>
-
-                    <Link to="/"><img srcSet={logoEdgeworx} alt="" /></Link>
+                    <Link to="http://edgeworx.io/"><img srcSet={logoEdgeworx} alt="Edgeworx" /></Link>
                   </div>
                   <div className="item">
-                    <h4>Trusted by</h4>
-                    <Link to="/"><img srcSet={logoEclipse} alt="" /></Link>
+                    <Link to="https://projects.eclipse.org/proposals/iofog"><img srcSet={logoEclipse} alt="Eclipse Foundation" /></Link>
                   </div>
                 </div>
                 <div className="col-md-2 footer__follow">

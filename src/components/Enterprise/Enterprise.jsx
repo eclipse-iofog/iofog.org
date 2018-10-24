@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import './Enterprise.scss';
-import imgGallery from '../../../static/images/edgeworx-web.svg';
+import imgGallery from '../../../static/images/edgeworx-illustration-01.svg';
 
 class Enterprise extends Component {
   render() {
