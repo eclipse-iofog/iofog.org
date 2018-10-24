@@ -43,8 +43,8 @@ export default class PostTemplate extends React.Component {
     }
 
     const postNode = data.markdownRemark;
+    const sidebarMenu = data[type];
     const post = postNode.frontmatter;
-    const postEdges = data.allMarkdownRemark.edges;
 
     return (
       <Layout location={type}>
@@ -58,7 +58,7 @@ export default class PostTemplate extends React.Component {
           <div className="row post">
             <div className="menu-list col-12 col-lg-3">
               <div className="row">
-                <PostListing postEdges={postEdges} activeLink={activeLink} />
+                <PostListing postEdges={sidebarMenu} activeLink={activeLink} />
               </div>
             </div>
             <div className="post-container col-12 col-lg-9 bg-grey">
@@ -80,7 +80,7 @@ export default class PostTemplate extends React.Component {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $type: String!) {
+  query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
@@ -98,22 +98,48 @@ export const pageQuery = graphql`
       }
     }
 
-    allMarkdownRemark(filter: {frontmatter: { type: { eq: $type } }}) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          excerpt
-          timeToRead
-          frontmatter {
+    documentation: documentationJson {
+      type
+      versions {
+        version
+        title
+        menus {
+          title
+          subMenus {
             title
-            type
-            category
-            version
+            entry {
+              ...menuEntry
+            }          
           }
-        }
+        }   
       }
     }
+
+    releases: releasesJson {
+      type
+      versions {
+        title
+        menus {
+          title
+          subMenus {
+            title
+            entry {
+              ...menuEntry
+            }          
+          }
+        }   
+      }
+    }
+  }
+
+  fragment menuEntry on File {
+      childMarkdownRemark {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+        }
+      }
   }
 `;

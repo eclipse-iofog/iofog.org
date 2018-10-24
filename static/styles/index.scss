@@ -142,9 +142,14 @@ a {
   background-color: #5064ec;
   display: inline-block;
   padding: 12px 21px;
-  color: #fff;
+  color: #fff !important;
   font-weight: bold;
   font-size: 14px;
+
+  &:hover {
+    transition: 0.6s all ease;
+    background-color: #4b5edb;
+  }
 }
 /* resolution less than 992px */
 @media (max-width: 991px) {

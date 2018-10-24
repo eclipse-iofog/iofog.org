@@ -1,0 +1,46 @@
+{
+  "type": "releases",
+  "versions": [
+    {
+      "title": "Releases",
+      "menus": [
+        {
+          "title": "Release 0.00",
+          "subMenus": [
+            {
+              "title": "Release 0.00",
+              "entry": "./0.00/index.md"
+            }
+          ]
+        },
+        {
+          "title": "Release 0.01",
+          "subMenus": [
+            {
+              "title": "Release 0.01",
+              "entry": "./0.01/index.md"
+            }
+          ]
+        },
+        {
+          "title": "Release 0.02",
+          "subMenus": [
+            {
+              "title": "Release 0.02",
+              "entry": "./0.02/index.md"
+            }
+          ]
+        },
+        {
+          "title": "Release 0.03",
+          "subMenus": [
+            {
+              "title": "Release 0.03",
+              "entry": "./0.03/index.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

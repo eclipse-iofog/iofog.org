@@ -106,6 +106,7 @@ module.exports = {
     "gatsby-plugin-catch-links",
     "gatsby-plugin-twitter",
     "gatsby-plugin-sitemap",
+    "gatsby-transformer-json",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
