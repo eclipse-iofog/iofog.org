@@ -22,7 +22,7 @@
 
     a.active,
     &.active > a {
-      font-family: "Averta - Semibold", sans-serif;
+      font-weight: bold;
       font-size: 15px;
       background-color: rgba(80, 100, 236, 0.05);
     }
@@ -80,7 +80,7 @@
 
     .Dropdown-placeholder {
       color: #4668fd;
-      font-family: "Averta Std - Bold", sans-serif;
+      font-weight: bold;
       font-size: 19px;
     }
 

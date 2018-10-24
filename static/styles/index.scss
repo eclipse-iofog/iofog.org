@@ -1,34 +1,44 @@
 @import './bootstrap-no-print.scss';
 
 @font-face {
-  font-family: 'Averta Std - Bold';
-  src: url('../fonts/averta/AvertaStd-Bold.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'Averta';
+  font-weight: bold;
   font-style: normal;
+  src: url('../fonts/Averta/37D7FF_0_0.eot');
+  src: url('../fonts/Averta/37D7FF_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/37D7FF_0_0.woff2') format('woff2'), url('../fonts/Averta/37D7FF_0_0.woff') format('woff'), url('../fonts/Averta/37D7FF_0_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Averta Std - Regular';
-  src: url('../fonts/averta/AvertaStd-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Averta';
+ font-weight: bold;
+ font-style: italic;
+ src: url('../fonts/Averta/37D7FF_1_0.eot');
+ src: url('../fonts/Averta/37D7FF_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/37D7FF_1_0.woff2') format('woff2'),url('../fonts/Averta/37D7FF_1_0.woff') format('woff'),url('../fonts/Averta/37D7FF_1_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Averta - Semibold';
-  src: url('../fonts/averta/AvertaStd-Semibold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+ font-family: 'Averta';
+ font-weight: normal;
+ font-style: normal;
+ src: url('../fonts/Averta/37D7FF_2_0.eot');
+ src: url('../fonts/Averta/37D7FF_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/37D7FF_2_0.woff2') format('woff2'),url('../fonts/Averta/37D7FF_2_0.woff') format('woff'),url('../fonts/Averta/37D7FF_2_0.ttf') format('truetype');
+}
+
+@font-face {
+ font-family: 'Averta';
+ font-weight: normal;
+ font-style: italic;
+ src: url('../fonts/Averta/37D7FF_3_0.eot');
+ src: url('../fonts/Averta/37D7FF_3_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/37D7FF_3_0.woff2') format('woff2'),url('../fonts/Averta/37D7FF_3_0.woff') format('woff'),url('../fonts/Averta/37D7FF_3_0.ttf') format('truetype');
 }
 
 body {
-  font-family: 'Averta Std - Regular', sans-serif;
+  font-family: 'Averta', sans-serif;
   color: #002e43;
   line-height: 1.55;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Averta Std - Bold", sans-serif;
   font-weight: bold;
 }
 
@@ -91,7 +101,6 @@ a {
     }
 
     p {
-      font-family: "Averta Std - Regular", sans-serif;
       font-size: 15px;
     }
 
@@ -123,7 +132,6 @@ a {
     }
 
     p {
-      font-family: "Averta Std - Regular", sans-serif;
       font-size: 19px;
     }
   }
@@ -135,7 +143,7 @@ a {
   display: inline-block;
   padding: 12px 21px;
   color: #fff;
-  font-family: "Averta Std - Bold", sans-serif;
+  font-weight: bold;
   font-size: 14px;
 }
 /* resolution less than 992px */

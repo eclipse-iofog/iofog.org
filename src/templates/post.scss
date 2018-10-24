@@ -1,9 +1,7 @@
 .post {
   .post-container {
     color: #002e43;
-    font-family: "Averta Std - Regular", sans-serif;
     font-size: 15px;
-
     width: calc(100% - 340px);
     border-left: 1px solid #d0d7da;
     padding: 60px 20px;
@@ -42,7 +40,7 @@
 
     a:not(.anchor) {
       color: #4668fd;
-      font-family: "Averta - Semibold", sans-serif;
+      font-weight: bold;
     }
 
     ol {
@@ -58,9 +56,8 @@
           position: absolute;
           left: 15px;
           color: #002e43;
-          font-family: "Averta Std - Bold", sans-serif;
+          font-weight: bold;
           font-size: 19px;
-          font-weight: 700;
           letter-spacing: 0.2px;
         }
       }
@@ -71,9 +68,8 @@
       li {
         p:first-child {
           color: #002e43;
-          font-family: "Averta Std - Bold", sans-serif;
+          font-weight: bold;
           font-size: 19px;
-          font-weight: 700;
           letter-spacing: 0.2px;
           margin-bottom: 10px;
         }
@@ -81,17 +77,14 @@
         p {
           a {
             color: #4668fd;
-            font-family: "Averta - Semibold", sans-serif;
+            font-weight: bold;
             font-size: 15px;
-            font-weight: 600;
             margin-bottom: 10px;
             display: inline-block;
           }
 
           color: #002e43;
-          font-family: "Averta Std - Regular", sans-serif;
           font-size: 15px;
-          font-weight: 400;
           margin-bottom: 30px;
         }
       }
@@ -103,9 +96,8 @@
       thead {
         th {
           color: #002e43;
-          font-family: "Averta - Semibold", sans-serif;
+          font-weight: bold;
           font-size: 15px;
-          font-weight: 600;
           border: 1px solid #d0d7da;
           padding: 8px 12px;
           background-color: #fff;
@@ -119,9 +111,7 @@
       tbody {
         td {
           color: #002e43;
-          font-family: "Averta Std - Regular", sans-serif;
           font-size: 15px;
-          font-weight: 400;
           padding: 8px 12px;
           border: 1px solid #d0d7da;
         }
@@ -161,9 +151,8 @@
 
       h3 {
         color: #002e43;
-        font-family: "Averta Std - Bold", sans-serif;
+        font-weight: bold;
         font-size: 19px;
-        font-weight: 700;
         letter-spacing: 0.2px;
         margin: 0 0 10px;
 

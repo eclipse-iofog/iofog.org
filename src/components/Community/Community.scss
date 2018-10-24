@@ -59,8 +59,8 @@
         background: #fff no-repeat 22px 50%;
         padding: 10px 50px 10px 15px;
         font-size: 15px;
+        font-weight: bold;
         position: relative;
-        font-family: "Averta - Semibold", sans-serif;
         transition: background-color 300ms linear;
 
         &:after {
@@ -114,19 +114,18 @@
             flex-flow: column wrap;
             color: #4668fd;
             font-size: 23px;
-            font-family: "Averta Std - Bold", sans-serif;
+            font-weight: bold;
 
             span {
               display: block;
               font-size: 12px;
-              font-family: "Averta - Semibold", sans-serif;
+              font-weight: bold;
             }
           }
 
           .wrap {
             color: #57687d;
             font-size: 12px;
-            font-family: "Averta Std - Regular", sans-serif;
             width: calc(100% - 70px);
 
             span {
@@ -134,8 +133,7 @@
               color: #002e43;
               margin-bottom: 4px;
               font-size: 15px;
-
-              font-family: "Averta - Semibold", sans-serif;
+              font-weight: bold;
             }
           }
         }

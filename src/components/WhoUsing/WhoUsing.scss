@@ -12,7 +12,7 @@
     text-align: center;
 
     div {
-      font-family: "Averta - Semibold", sans-serif;
+      font-weight: bold;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.9px;
@@ -40,7 +40,7 @@
     padding: 30px 40px;
 
     .title {
-      font-family: "Averta Std - Bold", sans-serif;
+      font-weight: bold;
       font-size: 19px;
       letter-spacing: 0.2px;
       margin-bottom: 15px;
@@ -48,7 +48,7 @@
 
     .title__sub {
       color: #57687d;
-      font-family: "Averta - Semibold", sans-serif;
+      font-weight: bold;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.9px;
@@ -61,7 +61,7 @@
 
     a {
       color: #4668fd;
-      font-family: "Averta - Semibold", sans-serif;
+      font-weight: bold;
       font-size: 15px;
     }
   }

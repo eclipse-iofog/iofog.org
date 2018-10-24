@@ -51,7 +51,7 @@
 
     a {
       color: #4668fd;
-      font-family: "Averta Std - Bold", sans-serif;
+      font-weight: bold;
       font-size: 15px;
 
       span {
@@ -117,15 +117,13 @@
     margin-top: 14px;
 
     h1 {
-      font-family: "Averta Std - Bold", sans-serif;
+      font-weight: bold;
       font-size: 23px;
-      font-weight: normal;
       letter-spacing: 0.2px;
     }
 
     p {
       color: #002e43;
-      font-family: "Averta Std - Regular", sans-serif;
       font-size: 15px;
     }
   }
@@ -134,7 +132,7 @@
     &__container {
       a {
         color: #4668fd;
-        font-family: "Averta Std - Bold", sans-serif;
+        font-weight: bold;
         font-size: 15px;
 
         span {
