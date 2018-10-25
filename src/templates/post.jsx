@@ -109,9 +109,9 @@ export const pageQuery = graphql`
             title
             entry {
               ...menuEntry
-            }          
+            }
           }
-        }   
+        }
       }
     }
 
@@ -125,21 +125,21 @@ export const pageQuery = graphql`
             title
             entry {
               ...menuEntry
-            }          
+            }
           }
-        }   
+        }
       }
     }
   }
 
   fragment menuEntry on File {
-      childMarkdownRemark {
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-        }
+    childMarkdownRemark {
+      fields {
+        slug
       }
+      frontmatter {
+        title
+      }
+    }
   }
 `;

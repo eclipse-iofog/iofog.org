@@ -1,32 +1,10 @@
 import React from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
-import sortBy from "lodash/sortBy";
-import groupBy from "lodash/groupBy";
-import each from "lodash/each";
-import some from "lodash/some";
+import { MdArrowForward } from "react-icons/md";
 
 import siteLogo from "../../../static/logos/logo.svg";
+import getCategoriesMenu from "../../helpers";
 import "./Header.scss";
-
-function activateMainMenu() {
-  const menu = document.getElementById('nav');
-  const selector = menu.getElementsByClassName('doc-menu')[0];
-
-  const addActiveClass = () => {
-    selector.classList.add('menu-active');
-  };
-  const removeActiveClass = () => {
-    selector.classList.remove('menu-active');
-  };
-
-  if (!selector.classList.contains('active')) {
-    addActiveClass()
-  }
-
-  return {
-    removeClass: removeActiveClass
-  };
-}
 
 function toggleMenu() {
   const parent = document.getElementsByClassName('page-wrapper')[0];
@@ -37,7 +15,6 @@ function toggleMenu() {
   };
   const hideMenu = () => {
     parent.classList.remove('menu-opened');
-    activateMainMenu().removeClass();
     document.removeEventListener('click', checkMenu);
   };
 
@@ -53,7 +30,6 @@ function toggleMenu() {
   };
 }
 
-
 function checkMenu(e) {
   const menu = document.getElementById('nav');
   let targetElement = e.target;
@@ -68,7 +44,19 @@ function checkMenu(e) {
   toggleMenu().hide();
 }
 
-const Header = ({ menuLinks, addMenu, location }) => (
+function activeItem(e) {
+  if (e.target.classList.contains('sub-menu__links')) {
+    e.preventDefault();
+
+    e.target.nextElementSibling.classList.add('active');
+  }
+
+  if (e.target.classList.contains('back')) {
+    e.target.parentElement.classList.remove('active');
+  }
+}
+
+const Header = ({ menuLinks, activeLink }) => (
   <header className="header">
     <div className="container">
       <div className="row">
@@ -79,34 +67,48 @@ const Header = ({ menuLinks, addMenu, location }) => (
         </div>
 
         <nav className="col-xl-6 col-lg-7 col-4 main-nav" id="nav">
-          <button className="menu-opener" onClick={()=> toggleMenu()} />
-          <div className={location.match(/documentation|releases/) ? 'holder doc-menu' : 'holder'}>
-            <div className="main-menu">
-              {menuLinks.map(link => (
-                <Link activeClassName="active" to={link.path} key={link.title}>{link.title}</Link>
+          <button className="menu-opener" onClick={toggleMenu} />
+          <div className="holder">
+            <ul className="main-menu" onClickCapture={activeItem}>
+              {menuLinks.map(topLink => (
+                <li key={topLink.title}>
+                  <Link className={activeLink.match(`/${topLink.title}/`) ? 'active sub-menu__links' : 'sub-menu__links'} to={topLink.path}>{topLink.title}</Link>
+                  <ul className={topLink.activeVersion && topLink.activeVersion.isActive ? 'active sub-menu' : 'sub-menu'}>
+                    <button className="back">back</button>
+                    <li><strong>{topLink.title}</strong></li>
+                    {topLink.menus.map(menu => (
+                      <li key={menu.title} className={menu.isActive ? 'active' : ''}>
+                        <Link className={menu.subMenus ? 'sub-menu__links' : ''} to={menu.path}>
+                          {menu.title}
+                        </Link>
+                        {menu.subMenus &&
+                        <ul className={menu.isActive ? 'active sub-menu' : ' sub-menu'}>
+                          <button className="back">back</button>
+                          <li><strong>{menu.title}</strong></li>
+                          {menu.subMenus.map(subMenu => (
+                            <li key={subMenu.title}>
+                              <Link activeClassName="active" to={subMenu.path}>{subMenu.title}</Link>
+                            </li>
+                          ))}
+                        </ul>
+                        }
+                      </li>
+                    ))}
+                  </ul>
+                </li>
               ))}
-              <Link activeClassName="active" to="/community">Community</Link>
-              <Link activeClassName="active" to="/enterprise">Enterprise</Link>
-            </div>
+              <li>
+                <Link activeClassName="active" to="/community">Community</Link>
+              </li>
+              <li>
+                <Link activeClassName="active" to="/enterprise">Enterprise</Link>
+              </li>
+            </ul>
 
-            {location.match(/documentation|releases/) &&
-              <ul className="add-menu">
-                <button className="back" onClick={()=> activateMainMenu()}>back</button>
-
-                {addMenu.map(menu => (
-                  <li key={menu.title}>
-                    <Link activeClassName="active" to={menu.path} key={menu.title}>{menu.title}</Link>
-                    {menu.items &&
-                    <div className="wrap">
-                      {menu.items.map(item => (
-                        <Link activeClassName="active" to={item.path} key={item.title}>{item.title}</Link>
-                      ))}
-                    </div>
-                    }
-                  </li>
-                ))}
-              </ul>
-            }
+            <Link to="/" className="start-guide">
+              <span>Quick Start Guide</span>
+              <MdArrowForward />
+            </Link>
           </div>
         </nav>
 
@@ -125,132 +127,50 @@ export default props => (
   <StaticQuery
     query={graphql`
       query IndexQuery1234 {
-        allMarkdownRemark{
-          group(field: frontmatter___type) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                  type
-                  category
-                  version
-                }
+        documentation: documentationJson {
+        type
+        versions {
+          version
+          title
+          menus {
+            title
+            subMenus {
+              title
+              entry {
+                ...menuEntry
               }
             }
           }
         }
       }
+
+      releases: releasesJson {
+        type
+        versions {
+          title
+          menus {
+            title
+            subMenus {
+              title
+              entry {
+                ...menuEntry
+              }
+            }
+          }
+        }
+      }
+      }
     `}
     render={data => {
-      function getCategoriesMenu(post) {
-        const postList = [];
-        const versions = [];
+      const activeLink = typeof window !== 'undefined' &&  window.location.pathname;
+      const documentation = getCategoriesMenu(data.documentation, activeLink);
+      const releases = getCategoriesMenu(data.releases, activeLink);
 
-        const postEdges = post.edges;
-        const activeLink = typeof window !== 'undefined' &&  window.location.pathname;
-        postEdges.forEach(postEdge => {
-          const { type, version, title, category } = postEdge.node.frontmatter;
+      const menuLinks = [documentation, releases];
 
-          const { slug } = postEdge.node.fields;
+      console.log(menuLinks);
 
-          let path = `/${type}${slug}`;
-
-          if (version) {
-            path = `/${type}/${version}${slug}`;
-          }
-
-          const list = {
-            path,
-            title,
-            category,
-            version
-          };
-
-          if (versions) {
-            list.isActive = path === activeLink;
-          }
-
-          postList.push(list);
-        });
-
-        const versionsSort = sortBy(postList, "version");
-        const versionsGroup = groupBy(versionsSort, "version");
-
-        each(versionsGroup, (versionItems, version) => {
-          const menus = [];
-
-          each(groupBy(versionItems, "category"), (items, category) => {
-            if (category === "null") {
-              menus.push(...items);
-
-              return;
-            }
-
-            if (items.length === 1) {
-              menus.push({
-                title: category,
-                path: items[0].path,
-                isActive: items[0].isActive
-              });
-
-              return;
-            }
-
-            menus.push({
-              title: category,
-              path: items[0].path,
-              isActive: some(items, ["isActive", true]),
-              items
-            });
-          });
-
-          versions.push({
-            label: `Version ${version}`,
-            value: menus[0].path,
-            isActive: some(menus, ["isActive", true]),
-            items: menus
-          });
-        });
-
-        return versions;
-      }
-
-      let addMenu;
-      switch(props.location) {
-        case ('documentation'):
-          addMenu = getCategoriesMenu(data.allMarkdownRemark.group[0])
-            .filter((item) => item.isActive === true);
-          break;
-        case('releases'):
-          addMenu = getCategoriesMenu(data.allMarkdownRemark.group[1]);
-          break;
-        default:
-          addMenu = '';
-      }
-      if (addMenu && addMenu.length > 0) {
-        addMenu = addMenu[0].items;
-      }
-      const { group } = data.allMarkdownRemark;
-
-      const menuLinks = group.map(item => {
-        const { type, version } = item.edges[0].node.frontmatter;
-
-        let path = `${type}${item.edges[0].node.fields.slug}`;
-
-        if (version) {
-          path = `${type}/${version}${item.edges[0].node.fields.slug}`;
-        }
-
-        return {
-          title: type,
-          path
-        }
-      });
-
-      return <Header menuLinks={menuLinks} addMenu={addMenu} location={props} {...props} />;
+      return <Header menuLinks={menuLinks} activeLink={activeLink} {...props} />;
     }}
   />
 )

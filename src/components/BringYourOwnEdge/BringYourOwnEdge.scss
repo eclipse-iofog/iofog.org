@@ -1,5 +1,5 @@
 .edge {
-  padding: 129px 0 0;
+  padding-top: 129px;
   height: 446px;
   position: relative;
 
@@ -96,7 +96,7 @@
 /* resolution less than 992px */
 @media (max-width: 991px) {
   .edge {
-    padding: 62px 0 0;
+    padding-top: 62px;
     height: 315px;
 
     &:after {

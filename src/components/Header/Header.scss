@@ -42,7 +42,12 @@
     }
 
     .main-menu {
-      a {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+
+      & > li > a {
         padding: 0 14px;
         display: inline-block;
         text-decoration: none;
@@ -65,6 +70,46 @@
           left: 0;
           right: 0;
           bottom: -10px;
+        }
+      }
+    }
+
+    .sub-menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: none;
+      flex-flow: column nowrap;
+    }
+
+    .holder {
+      .start-guide {
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+        color: #4668fd;
+        font-weight: bold;
+        font-size: 15px;
+        display: none;
+
+        span {
+          position: relative;
+        }
+
+        span:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -6px;
+          display: block;
+          border-top: 1px solid #26d6f1;
+        }
+
+        svg {
+          fill: #26d6f1;
+          font-size: 18px;
+          margin-left: 15px;
         }
       }
     }
@@ -170,102 +215,108 @@
       .holder {
         position: fixed;
         top: 45px;
-        max-height: calc(100vh - 45px);
-        overflow: auto;
-        left: -1000px;
-        right: 1000px;
+        overflow: hidden;
+        bottom: 0;
+        left: -100%;
+        right: 100%;
         background: #fff;
-        padding-bottom: 30px;
         padding-left: 10px;
         padding-right: 10px;
         box-shadow: 0 3px 3px 0 #d0d7da;
         opacity: 0;
         transition: left 0.3s linear,
-                    right 0.1s linear,
+                    right 0.3s linear,
                     opacity 0.3s linear;
+      }
 
-        .main-menu {
-          display: flex;
-          flex-flow: column wrap;
+      .main-menu {
+        overflow: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        max-height: 100%;
 
-          a {
-            color: #002e43;
-            font-size: 23px;
-            font-weight: bold;
-            letter-spacing: 0.2px;
-            margin-top: 30px;
+        & > li > a {
+          color: #002e43;
+          font-size: 23px;
+          font-weight: bold;
+          letter-spacing: 0.2px;
+          margin-top: 30px;
 
-            &.active:after {
-              margin: -4px 0 0;
-              left: 0;
-              top: 50%;
-            }
+          &.active:after {
+            margin: -4px 0 0;
+            left: 0;
+            top: 50%;
           }
         }
       }
 
-      .doc-menu {
-        .main-menu {
-          display: none;
+      .sub-menu {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        flex-flow: column wrap;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #fff;
+        z-index: 1;
+        transition: all 0.3s linear;
+
+        &.active {
+          display: flex;
         }
-        .add-menu {
-          padding: 0;
-          margin: 0;
-          list-style: none;
+
+        .back {
+          height: 12px;
+          width: 18px;
+          overflow: hidden;
+          text-indent: -9999px;
+          border: none;
+          padding: 10px;
+          margin: -10px;
+          box-sizing: content-box;
+          background: url("../../../static/images/icos/ico-arrow-r.svg") no-repeat 50% 50%;
+          position: absolute;
+          top: 30px;
+          left: 25px;
+          transform: rotate(180deg);
+          outline: none;
+        }
+
+        li {
+          margin-top: 24px;
+          font-size: 19px;
+          padding-left: 60px;
+          color: #002e43;
+
+          &.active {
+            & > a {
+              font-weight: bold;
+            }
+          }
+
+          a {
+            color: inherit;
+
+            &.active {
+              font-weight: bold;
+            }
+          }
+
+          &::first-letter {
+            text-transform: capitalize;
+          }
+        }
+
+        .wrap {
           display: flex;
           flex-flow: column wrap;
 
-          .back {
-            height: 12px;
-            width: 18px;
-            overflow: hidden;
-            text-indent: -9999px;
-            border: none;
-            padding: 10px;
-            margin: -10px;
-            box-sizing: content-box;
-            background: url("../../../static/images/icos/ico-arrow-r.svg") no-repeat 50% 50%;
-            position: absolute;
-            top: 23px;
-            left: 20px;
-            transform: rotate(180deg);
-            outline: none;
-          }
-
-          li {
-            margin-top: 20px;
-
-            a {
-              color: #002e43;
-              font-size: 19px;
-              padding-left: 45px;
-
-              &.active {
-                font-weight: bold;
-              }
-            }
-
-            &::first-letter {
-              text-transform: capitalize;
-            }
-          }
-
-          .wrap {
-            display: flex;
-            flex-flow: column wrap;
-
-            a {
-              margin: 5px 0 0 10px;
-              font-size: 15px;
-            }
-          }
-        }
-        &.menu-active {
-          .main-menu {
-            display: flex;
-          }
-          .add-menu {
-            display: none;
+          a {
+            margin: 5px 0 0 10px;
+            font-size: 15px;
           }
         }
       }
@@ -294,9 +345,48 @@
       }
 
       .holder {
+        opacity: 1;
+        padding-bottom: 60px;
         left: 0;
         right: 0;
-        opacity: 1;
+      }
+    }
+  }
+
+  /* home */
+  .home {
+    .header {
+      .main-nav {
+        .holder {
+          z-index: 1;
+
+          &:after,
+          &:before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+          }
+
+          &:after {
+            left: 0;
+            bottom: 0;
+            width: 129px;
+            height: 110px;
+            background: url("../../../static/images/bg/bg-edge-left-tablet.svg") no-repeat;
+          }
+          &:before {
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            width: 60px;
+            height: 258px;
+            background-image: url("../../../static/images/bg/bg-edge-right-mobile.svg");
+          }
+
+          .start-guide {
+            display: block;
+          }
+        }
       }
     }
   }
