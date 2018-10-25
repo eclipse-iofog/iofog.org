@@ -45,7 +45,9 @@ function checkMenu(e) {
 }
 
 function activeItem(e) {
-  if (e.target.classList.contains('sub-menu__links')) {
+  const menuOpened = document.getElementsByClassName('menu-opened');
+
+  if (e.target.classList.contains('sub-menu__links') && menuOpened.length > 0) {
     e.preventDefault();
 
     e.target.nextElementSibling.classList.add('active');
