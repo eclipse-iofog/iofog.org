@@ -58,6 +58,10 @@ function activeItem(e) {
   }
 }
 
+function isActiveLink(activeLink, topLink) {
+  return activeLink ? activeLink.match(`/${topLink.title}/`) : false;
+}
+
 const Header = ({ menuLinks, activeLink }) => (
   <header className="header">
     <div className="container">
@@ -74,7 +78,7 @@ const Header = ({ menuLinks, activeLink }) => (
             <ul className="main-menu" onClickCapture={activeItem}>
               {menuLinks.map(topLink => (
                 <li key={topLink.title}>
-                  <Link className={activeLink.match(`/${topLink.title}/`) ? 'active sub-menu__links' : 'sub-menu__links'} to={topLink.path}>{topLink.title}</Link>
+                  <Link className={isActiveLink(activeLink, topLink) ? 'active sub-menu__links' : 'sub-menu__links'} to={topLink.path}>{topLink.title}</Link>
                   <ul className={topLink.activeVersion && topLink.activeVersion.isActive ? 'active sub-menu' : 'sub-menu'}>
                     <button className="back">back</button>
                     <li><strong>{topLink.title}</strong></li>
