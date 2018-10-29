@@ -26,18 +26,16 @@ class Footer extends Component {
                   <p className="footer__copyright d-none d-md-block">{copyright}</p>
                 </div>
                 <div className="col-12 col-md-3 footer__links">
-                  <div><Link to="/">Security</Link></div>
-                  <div><Link to="/">Legal</Link></div>
-                  <div><Link to="/">Community guidelines</Link></div>
-                  <div><Link to="/">Contribute this page</Link></div>
+                  <div><a href="https://www.eclipse.org/legal/">Legal</a></div>
+                  <div><Link to="/documentation/0.1/guidelines">Community guidelines</Link></div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
                   <h4>Sponsored by</h4>
                   <div className="item">
-                    <Link to="http://edgeworx.io/"><img srcSet={logoEdgeworx} alt="Edgeworx" /></Link>
+                    <a href="http://edgeworx.io/"><img srcSet={logoEdgeworx} alt="Edgeworx" /></a>
                   </div>
                   <div className="item">
-                    <Link to="https://projects.eclipse.org/proposals/iofog"><img srcSet={logoEclipse} alt="Eclipse Foundation" /></Link>
+                    <a href="https://projects.eclipse.org/proposals/iofog"><img srcSet={logoEclipse} alt="Eclipse Foundation" /></a>
                   </div>
                 </div>
                 <div className="col-md-2 footer__follow">

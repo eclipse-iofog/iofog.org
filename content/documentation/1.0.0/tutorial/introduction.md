@@ -1,0 +1,127 @@
+---
+title: "Tutorial Introduction"
+category: "Tutorial"
+type: "documentation"
+version: "1.0.0"
+---
+
+# Introduction
+In this tutorial, we'll cover how to create, deploy, and manage your first microservices using ioFog.
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> Familiar with the Core Concepts?</h3>
+  <p>If you aren't already familiar with the core concepts of ioFog, you'll want to check out <a href="core-concepts">our Core Concepts</a> section.</p>
+</aside>
+
+### Minimum Requirements
+ioFog requires a Linux environment, however this Tutorial has everything already setup inside a Linux [Docker container](https://docs.docker.com/get-started/) that can run on Mac or Windows as well.
+
+  - **Linux** v3.10+ (Ubuntu, CentOS, Raspbian, etc), **macOS** 10.12+, or **Windows** 7+
+  - **Docker** 1.10+
+
+## Setup
+  - [Linux](#linux)
+  - [macOS](#macos)
+  - [Windows](#windows)
+
+### Linux
+---
+#### Install Docker
+You can install the latest version of Docker with following command:
+
+```sh
+curl -sSf https://get.docker.com/ | sh
+```
+
+or
+
+Download Docker for [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
+
+#### Download Tutorial Project
+Finally we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+
+```sh
+cd where/you/want/tutorial-project
+curl -sSf https://iofog.org/tutorial/tutorial.tar.gz
+tar -zxvf tutorial.tar.gz
+cd tutorial
+```
+
+[Once you're done, you can skip straight to the next section](#)
+
+### macOS
+---
+#### Install Docker
+Docker for Mac can be installed either using [Homebrew](https://brew.sh/) or from the Docker Store
+
+```sh
+brew cask install docker
+```
+
+or
+
+[Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
+
+#### Download Tutorial Project
+Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+
+```sh
+cd where/you/want/tutorial-project
+curl -sSf https://iofog.org/tutorial/tutorial.tar.gz
+tar -zxvf tutorial.tar.gz
+cd tutorial
+```
+
+[Once you're done, you can skip straight to the next section](#)
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Mac?</h3>
+  <p>Docker for Mac allows you to run Linux containers on your Mac. Under the hood it uses a <a href="https://docs.docker.com/docker-for-mac/docker-toolbox/">lightweight Virtual Machine</a> to provide the Linux environment to containers.</p>
+</aside>
+
+### Windows
+---
+#### Install Docker
+Docker for Windows can be installed from the Docker Store:
+
+[Download Docker from Docker Store](https://docs.docker.com/docker-for-windows/install/)
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Windows?</h3>
+  <p>Docker for Windows allows you to run Linux containers on your Windows. Under the hood it uses a lightweight Virtual Machine to provide the Linux environment to containers.</p>
+</aside>
+
+
+#### Download Tutorial Project
+Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+
+[Download Tutorial project](https://iofog.org/tutorial/tutorial.zip)
+
+Unzip the contents into your preferred working directory.
+
+## Bootstrap the Project
+Using a command prompt (or PowerShell console) navigate to the project directory we just downloaded and run:
+
+```sh
+docker-compose up --detach
+```
+
+The first time this is run it will download and build several Docker images for our ioFog setup. This may take a few minutes.
+
+When you want to stop everything, you can use the `stop` command:
+
+```sh
+docker-compose stop
+# or to stop as well as remove the container/networking:
+docker-compose down
+```
+
+## Get To Know ioFog
+With a working ioFog environment set up, we're now ready to [get to know ioFog](get-to-know-io-fog).
+
+[Continue To Next Step](get-to-know-io-fog).
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
+  <p>If you run into an issue, have a question, or just want to get plugged into the community, head over to our <a href="https://discuss.iofog.org/">Discussion Forum</a>. We'd love to have you!</p>
+</aside>

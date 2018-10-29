@@ -1,7 +1,9 @@
 import React from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
 import { MdArrowForward } from "react-icons/md";
+import { FaGithub, FaTwitter } from 'react-icons/fa';
 
+import config from '../../../data/SiteConfig';
 import siteLogo from "../../../static/logos/logo.svg";
 import getCategoriesMenu from "../../helpers";
 import "./Header.scss";
@@ -111,7 +113,7 @@ const Header = ({ menuLinks, activeLink }) => (
               </li>
             </ul>
 
-            <Link to="/" className="start-guide">
+            <Link to="/documentation/1.0.0/quick-start" className="start-guide">
               <span>Quick Start Guide</span>
               <MdArrowForward />
             </Link>
@@ -123,6 +125,9 @@ const Header = ({ menuLinks, activeLink }) => (
             <button type="submit">submit</button>
             <input type="text" placeholder="Search" />
           </div>
+          <a className="header__github" href={config.userLinks.github} target="_blank" rel="noopener noreferrer">
+            <FaGithub />
+          </a>
         </div>
       </div>
     </div>
@@ -173,8 +178,6 @@ export default props => (
       const releases = getCategoriesMenu(data.releases, activeLink);
 
       const menuLinks = [documentation, releases];
-
-      console.log(menuLinks);
 
       return <Header menuLinks={menuLinks} activeLink={activeLink} {...props} />;
     }}

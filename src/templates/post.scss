@@ -12,7 +12,23 @@
     h4,
     h5,
     h6 {
-      margin: 60px 0 15px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin-top: 60px;
+    }
+
+    h2 {
+      margin-top: 50px;
+    }
+
+    h3 {
+      margin-top: 40px;
+    }
+
+    h4, h5, h6 {
+      margin-top: 30px;
     }
 
     h1:first-child,
@@ -36,11 +52,6 @@
     .gatsby-highlight > pre {
       margin: 35px 0;
       padding: 20px;
-    }
-
-    a:not(.anchor) {
-      color: #4668fd;
-      font-weight: bold;
     }
 
     ol {
@@ -92,6 +103,7 @@
 
     table {
       width: 100%;
+      margin-bottom: 1rem;
 
       thead {
         th {
@@ -101,10 +113,6 @@
           border: 1px solid #d0d7da;
           padding: 8px 12px;
           background-color: #fff;
-
-          &:first-child {
-            text-align: center;
-          }
         }
       }
 
@@ -178,6 +186,10 @@
       &.tip {
         border-left: 6px solid #f5a623;
         background-color: #fef6e9;
+      }
+
+      ul:last-child {
+        margin-bottom: 0;
       }
     }
   }

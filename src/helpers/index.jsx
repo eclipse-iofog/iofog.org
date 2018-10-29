@@ -23,8 +23,8 @@ export default function getCategoriesMenu(params, activeLink) {
   const newVersions = versions.map(version => {
     let path = `/${type}`;
 
-    if (version.version || version.version === 0) {
-      path = `/${type}/${version.version === 0 ? "0.0" : version.version}`;
+    if (version.version || version.version === "0.0.0") {
+      path = `/${type}/${version.version}`;
     }
 
     const newMenu = version.menus.map(menu => {

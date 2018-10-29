@@ -12,8 +12,8 @@ class AboutProject extends Component {
             <section className="col-md-12">
               <div className="sections__header">
                 <h4>About the project</h4>
-                <p>This is a short paragraph that tells the story of ioFog and in which ways it is related to Edgeworx. Two or three sentences are recommended followed by a link to go learn more about Edgeworx as a company.</p>
-                <Link to="/">About our Enterprise Solution</Link>
+                <p>ioFog is an <a href="https://projects.eclipse.org/projects/iot.iofog">Eclipse Foundation project</a> provided by <a href="http://edgeworx.io/">Edgeworx</a>, born out of real-world experience operating large Edge Compute Networks.</p>
+                <Link to="/enterprise">Learn about additional Enterprise Solutions</Link>
               </div>
             </section>
           </section>

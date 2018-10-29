@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import './Community.scss';
 
-import imgGallery3 from '../../../static/images/img-gallery-03.png';
-import imgGallery4 from '../../../static/images/img-gallery-04.png';
+// import imgGallery3 from '../../../static/images/img-gallery-03.png';
+// import imgGallery4 from '../../../static/images/img-gallery-04.png';
+import discourseLogo from '../../../static/images/logos/discourse.svg';
 
 class Community extends Component {
   render() {
@@ -24,9 +25,21 @@ class Community extends Component {
           <section className="col-md-12">
             <div className="entry__header">
               <h2>ioFog Community</h2>
-              <p>Connect with other ioFog enthusiasts through events, resources, and programs.</p>
+              <p>Connect with other ioFog enthusiasts to discuss features, architecture, best practices, and help one another.</p>
+              <div style={{ padding: '60px 0' }}>
+                <a href="https://discuss.iofog.org/">
+                  <img srcSet={discourseLogo} alt="Discourse" style={{
+                    width: 164,
+                    display: 'block',
+                    margin: '0 auto',
+                    marginBottom: 20
+                  }} />
+                  </a>
+                  <a href="https://discuss.iofog.org/" className="button">Visit the ioFog Discussion Forum</a>
+              </div>
             </div>
 
+            {/*
             <div className="row block-left">
               <div className="col-12 col-md-6 col-lg-5">
                 <h4>Get help from the Community</h4>
@@ -35,13 +48,13 @@ class Community extends Component {
 
                 <ul className="list community-links">
                   <li>
-                    <Link className="forum" to="/">ioFog Discussion Forum</Link>
+                    <a className="forum" href="https://discuss.iofog.org/">ioFog Discussion Forum</a>
                   </li>
                   <li>
-                    <Link className="blog" to="/">Official ioFog Blog</Link>
+                    <a className="blog" href="/">Official ioFog Blog</a>
                   </li>
                   <li>
-                    <Link className="support" to="/">Visit our support page</Link>
+                    <a className="support" href="/">Visit our support page</a>
                   </li>
                 </ul>
               </div>
@@ -145,6 +158,7 @@ class Community extends Component {
                 </div>
               </div>
             </div>
+            */}
           </section>
         </section>
       </div>

@@ -5,22 +5,15 @@
 
   &__main {
     position: relative;
+    font-size: 12px;
 
     img {
       width: 68px;
     }
 
     .description {
-      font-size: 14px;
-      margin: 15px 0;
+      margin: 8px 0;
     }
-  }
-
-  &__copyright {
-    font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 15px;
   }
 
   &__links {
@@ -78,30 +71,16 @@
 @media (max-width: 767px) {
   .footer {
     &__links {
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
-
-    &__by {
-      display: flex;
-      flex-flow: row wrap;
-
-      .item {
-        margin-bottom: 0;
-
-        &:first-child {
-          margin-right: 40px;
-        }
-      }
+      margin: 30px 0;
     }
 
     &__follow {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     &__copyright {
       position: static;
-      margin-top: 40px;
+      margin-top: 30px;
     }
   }
 }

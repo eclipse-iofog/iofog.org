@@ -42,20 +42,30 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
-h1 {font-size: 46px;}
+h1 {
+  font-size: 46px;
+}
 
 h2 {
   font-size: 37px;
   letter-spacing: -0.2px;
 }
 
-h3 {font-size: 29px;}
+h3 {
+  font-size: 29px;
+}
 
-h4 {font-size: 23px;}
+h4 {
+  font-size: 23px;
+}
 
-h5 {font-size: 19px;}
+h5 {
+  font-size: 19px;
+}
 
-h6 {font-size: 15px;}
+h6 {
+  font-size: 15px;
+}
 
 .bg-grey {
   background-color: #fafcff;
@@ -63,6 +73,20 @@ h6 {font-size: 15px;}
 
 a {
   text-decoration: none !important;
+  color: #4668fd;
+}
+
+hr {
+  margin: 70px 0;
+  border: none;
+  border-bottom: 1px solid #c5cae8;
+}
+
+h1, h2, h3 {
+  & + hr {
+    margin-top: -16px;
+    margin-bottom: 30px;
+  }
 }
 
 /* sticky footer */

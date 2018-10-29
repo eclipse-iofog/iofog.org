@@ -17,11 +17,11 @@ class BringYourOwnEdge extends Component {
             <section className="col-12 col-md-6 code__container">
               <div className="holder">
                 <div className="code__content">
-                  <p>$ a line of code goes here</p>
-                  <p>$ a second line of code goes here</p>
+                  <p><span className="code__noselect">$</span> curl -sSf https://iofog.org/quick-start/linux.sh | sh</p>
+                  <p><span className="code__noselect">$</span> docker-compose up</p>
                 </div>
 
-                <Link to="/">
+                <Link to="/documentation/0.1/quick-start">
                   <span>View the Quick Start Guide</span>
                   <MdArrowForward />
                 </Link>

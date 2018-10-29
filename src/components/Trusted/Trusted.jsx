@@ -14,9 +14,9 @@ class Trusted extends Component {
           <section className="col-md-12">
             <div className="title">Sponsored by</div>
             <div className="trusted__container">
-              <div className="trusted__item"><Link to="http://edgeworx.io/"><img height="40" srcSet={logoEdgeworx} alt="Edgeworx" /></Link></div>
-              <div className="trusted__item"><Link to="https://iot.eclipse.org/"><img height="55" srcSet={logoIoT} alt="IoT Eclipse" /></Link></div>
-              <div className="trusted__item"><Link to="https://projects.eclipse.org/proposals/iofog"><img height="40" srcSet={logoEclipse} alt="Eclipse Foundation" /></Link></div>
+              <div className="trusted__item"><a href="http://edgeworx.io/"><img height="40" srcSet={logoEdgeworx} alt="Edgeworx" /></a></div>
+              <div className="trusted__item"><a href="https://iot.eclipse.org/"><img height="55" srcSet={logoIoT} alt="IoT Eclipse" /></a></div>
+              <div className="trusted__item"><a href="https://projects.eclipse.org/proposals/iofog"><img height="40" srcSet={logoEclipse} alt="Eclipse Foundation" /></a></div>
             </div>
           </section>
         </section>

@@ -116,11 +116,13 @@
   }
   /* search */
   .search {
+    /* Hiding until we can get Algolia support*/
     text-align: right;
 
     &__wrapper {
       display: inline-flex;
       align-items: center;
+      display: none;
 
       button[type="submit"] {
         border: none;
@@ -153,6 +155,11 @@
       }
     }
   }
+
+  &__github > svg {
+    width: 26px;
+    height: 26px;
+  }
 }
 /* home */
 .home {
@@ -165,6 +172,10 @@
           box-shadow: none;
         }
       }
+    }
+
+    &__github > svg {
+      fill: white;
     }
   }
 }
