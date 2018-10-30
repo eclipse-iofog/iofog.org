@@ -109,8 +109,11 @@ For more information about creating self-signed certificates, [see this guide](h
 Since the Controller can be accessed via REST calls to remotely control your ioFog network, if you plan to use this functionality you'll need to setup at least one user for remote authentication.
 
 ```sh
-iofog-controller user -add <email> <firstName> <lastName> <password>
-# e.g. fog-controller user -add john@example.com John Doe mysecurepassword
+iofog-controller user add \
+  --email <email> \
+  --first-name <firstName> \
+  --last-name <lastName> \
+  --password <password>
 ```
 
 To learn more about the REST APIs available for managing your Controller remotely, visit the [REST API Reference](rest-api-reference).
