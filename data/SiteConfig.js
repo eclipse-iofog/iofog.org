@@ -3,7 +3,7 @@ module.exports = {
   siteTitleShort: "ioFog", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "ioFog", // Alternative site title for SEO.
   siteUrl: "https://iofog.org", // Domain of your website without pathPrefix.
-  //pathPrefix: "/iofog.org", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  pathPrefix: "/iofog.org", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "ioFog Documentation", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
@@ -12,7 +12,7 @@ module.exports = {
   dateFormat: "DD/MM/YYYY", // Date format for display.
   // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: {
-    github: 'https://github.com/ioFog/ioFog',
+    github: 'https://github.com/ioFog',
     twitter: 'https://twitter.com/EdgeworxIO'
   },
   copyright: "© 2018 Eclipse Foundation, Inc.", // Copyright string for the footer of the website and RSS feed.

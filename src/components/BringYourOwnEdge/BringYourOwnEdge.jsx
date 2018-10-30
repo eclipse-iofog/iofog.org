@@ -21,7 +21,7 @@ class BringYourOwnEdge extends Component {
                   <p><span className="code__noselect">$</span> docker-compose up</p>
                 </div>
 
-                <Link to="/documentation/0.1/quick-start">
+                <Link to="/documentation/1.0.0/quick-start">
                   <span>View the Quick Start Guide</span>
                   <MdArrowForward />
                 </Link>
