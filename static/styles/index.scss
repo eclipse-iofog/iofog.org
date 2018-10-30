@@ -138,6 +138,13 @@ h1, h2, h3 {
   padding-top: 60px;
   padding-bottom: 30px;
 
+  .discourse-button img {
+    width: 164px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
   &__header {
     max-width: 670px;
     margin: 0 auto;
@@ -206,5 +213,14 @@ h1, h2, h3 {
         font-size: 15px;
       }
     }
+
+    .discourse-button img {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
+}
+
+.emoji-icon {
+  vertical-align: initial;
 }

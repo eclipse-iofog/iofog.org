@@ -27,13 +27,8 @@ class Community extends Component {
               <h2>ioFog Community</h2>
               <p>Connect with other ioFog enthusiasts to discuss features, architecture, best practices, and help one another.</p>
               <div style={{ padding: '60px 0' }}>
-                <a href="https://discuss.iofog.org/">
-                  <img srcSet={discourseLogo} alt="Discourse" style={{
-                    width: 164,
-                    display: 'block',
-                    margin: '0 auto',
-                    marginBottom: 20
-                  }} />
+                <a href="https://discuss.iofog.org/" className="discourse-button">
+                  <img srcSet={discourseLogo} alt="Discourse" />
                   </a>
                   <a href="https://discuss.iofog.org/" className="button">Visit the ioFog Discussion Forum</a>
               </div>
