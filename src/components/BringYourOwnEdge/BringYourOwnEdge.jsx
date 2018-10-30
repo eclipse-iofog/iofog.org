@@ -17,6 +17,8 @@ class BringYourOwnEdge extends Component {
             <section className="col-12 col-md-6 code__container">
               <div className="holder">
                 <div className="code__content">
+                  <p className="code__comment code__noselect"># Linux development environment</p>
+                  <p className="code__comment code__noselect"># See the Quick Start guide for macOS or Windows</p>
                   <p><span className="code__noselect">$</span> curl -sSf https://iofog.org/quick-start/linux.sh | sh</p>
                   <p><span className="code__noselect">$</span> docker-compose up</p>
                 </div>
