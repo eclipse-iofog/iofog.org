@@ -47,7 +47,7 @@ tar -zxvf tutorial.tar.gz
 cd tutorial
 ```
 
-[Once you're done, you can skip straight to the next section](#)
+[Once you're done, you can skip straight to the next section](#bootstrap-the-project)
 
 ### macOS
 ---
@@ -72,7 +72,7 @@ tar -zxvf tutorial.tar.gz
 cd tutorial
 ```
 
-[Once you're done, you can skip straight to the next section](#)
+[Once you're done, you can skip straight to the next section](#bootstrap-the-project)
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Mac?</h3>
