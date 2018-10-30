@@ -26,30 +26,30 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-0ffd4b2878dc4c13b436.js"
+    "url": "webpack-runtime-1a9b8893643948158d88.js"
   },
   {
-    "url": "app-b661b6df6186b5883495.js"
+    "url": "app-d881f2b7089d3af5d582.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-c521caad8b2f2d54e9e5.js"
   },
   {
     "url": "index.html",
-    "revision": "58a7277f95cc9e57cfc48378ca7de827"
+    "revision": "d86bf236fa1baf9cc6ebc744d6145fef"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "d2fb77da3f7919784911486c862483bc"
+    "revision": "81b4cc2603d968ae0d064242c9cfd89a"
   },
   {
-    "url": "1.d063d2d3429d9989455c.css"
+    "url": "1.ddf13ab320cb5c4330be.css"
   },
   {
     "url": "0.4e1227bfc89beec0f487.css"
   },
   {
-    "url": "component---src-pages-index-jsx.4e2131eb58a8de3b2849.css"
+    "url": "component---src-pages-index-jsx.b523b4c6b85a5ae2cc44.css"
   },
   {
     "url": "component---src-pages-index-jsx-0de705a98a99984ff925.js"
@@ -83,7 +83,7 @@ self.__precacheManifest = [
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/iofog.org/offline-plugin-app-shell-fallback/index.html", {
+workbox.routing.registerNavigationRoute("/offline-plugin-app-shell-fallback/index.html", {
   whitelist: [/^[^?]*([^.?]{5}|\.html)(\?.*)?$/],
   blacklist: [/\?(.+&)?no-cache=1$/],
 });
