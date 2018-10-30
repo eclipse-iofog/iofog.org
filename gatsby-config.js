@@ -13,7 +13,7 @@ module.exports = {
       image_url: `${urljoin(
         config.siteUrl,
         config.pathPrefix
-      )}/logos/logo.svg`,
+      )}/logos/iofog.png`,
       copyright: config.copyright
     }
   },
@@ -118,12 +118,15 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            src: "/logos/logo.svg",
+            src: "/logos/iofog.svg",
+          },
+          {
+            src: "/logos/iofog.png",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "/logos/logo.svg",
+            src: "/logos/iofog.png",
             sizes: "512x512",
             type: "image/png"
           }

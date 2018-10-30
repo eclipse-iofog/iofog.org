@@ -4,7 +4,7 @@ import { MdArrowForward } from "react-icons/md";
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 
 import config from '../../../data/SiteConfig';
-import siteLogo from "../../../static/logos/logo.svg";
+import siteLogo from "../../../static/images/logos/iofog.svg";
 import getCategoriesMenu from "../../helpers";
 import "./Header.scss";
 

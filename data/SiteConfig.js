@@ -4,7 +4,7 @@ module.exports = {
   siteTitleAlt: "ioFog", // Alternative site title for SEO.
   siteUrl: "https://iofog.org", // Domain of your website without pathPrefix.
   pathPrefix: "/iofog.org", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: "ioFog Documentation", // Website description used for RSS feeds/meta description tag.
+  siteDescription: "Eclipse ioFog, a distributed Edge Compute Network (ECN) platform for IoT micoservices and more!", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
   googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
