@@ -2,19 +2,14 @@
 title: "Release 1.0.0"
 type: "releases"
 ---
-## Release 1.0.0
 
-This is a short introduction paragraph, this is a short introduction paragraph.
+### Release 1.0.0
+Our very first release. :tada:
 
-*   Bullet list item
-*   Bullet list item
-*   Bullet list item
-*   Bullet list item
+[Get Started](/1.0.0/core-concepts)
 
-#### Headline goes here
+#### Changelog
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  - Everything of course! :trollface:
 
-#### Headline goes here
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+---
