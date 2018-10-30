@@ -164,7 +164,9 @@ iofog.wsSendMessage(msg);
 </aside>
 
 ## Putting Them Together
-Let's review our goals for our moving average microservice:
+We're ready to start writing some code! Fire up your [favorite editor](https://vim-adventures.com/) and open (or create) the `index.js` file we set as our `package.json` "main". This is where we'll place all our code.
+
+Before we begin, let's review our goals for our moving average microservice:
 
   1. Window size should be configurable
   2. Take input from another microservice
