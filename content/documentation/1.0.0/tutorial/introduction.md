@@ -61,16 +61,14 @@ tar -zxvf tutorial.tar.gz --strip-components=1
 ### macOS
 ---
 #### Install Docker
-Docker for Mac can be installed either using [Homebrew](https://brew.sh/) or from the Docker Store
-
-```sh
-brew cask install docker
-brew install docker-compose
-```
-
-or
+Docker for Mac can be installed from the Docker Store
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Mac?</h3>
+  <p>Docker for Mac allows you to run Linux containers on your Mac. Under the hood it uses a <a href="https://docs.docker.com/docker-for-mac/docker-toolbox/">lightweight Virtual Machine</a> to provide the Linux environment to containers.</p>
+</aside>
 
 #### Download Tutorial Project
 Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
@@ -86,11 +84,6 @@ or alternatively you can manually download it:
 [Download Tutorial project](https://github.com/ioFog/demo/archive/demo-environment.zip)
 
 [Once you're done, you can skip straight to the next section](#bootstrap-the-project)
-
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Mac?</h3>
-  <p>Docker for Mac allows you to run Linux containers on your Mac. Under the hood it uses a <a href="https://docs.docker.com/docker-for-mac/docker-toolbox/">lightweight Virtual Machine</a> to provide the Linux environment to containers.</p>
-</aside>
 
 ### Windows
 ---
