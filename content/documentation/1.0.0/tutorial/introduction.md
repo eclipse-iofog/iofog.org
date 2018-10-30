@@ -42,9 +42,8 @@ Finally we need to download the Tutorial project, which will use Docker to run L
 
 ```sh
 cd where/you/want/tutorial-project
-curl -sSf https://iofog.org/tutorial/tutorial.tar.gz
-tar -zxvf tutorial.tar.gz
-cd tutorial
+curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive/demo-environment.tar.gz
+tar -zxvf tutorial.tar.gz --strip-components=1
 ```
 
 [Once you're done, you can skip straight to the next section](#bootstrap-the-project)
@@ -67,10 +66,13 @@ Next we need to download the Tutorial project, which will use Docker to run Linu
 
 ```sh
 cd where/you/want/tutorial-project
-curl -sSf https://iofog.org/tutorial/tutorial.tar.gz
-tar -zxvf tutorial.tar.gz
-cd tutorial
+curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive/demo-environment.tar.gz
+tar -zxvf tutorial.tar.gz --strip-components=1
 ```
+
+or alternatively you can manually download it:
+
+[Download Tutorial project](https://github.com/ioFog/demo/archive/demo-environment.zip)
 
 [Once you're done, you can skip straight to the next section](#bootstrap-the-project)
 
@@ -95,7 +97,7 @@ Docker for Windows can be installed from the Docker Store:
 #### Download Tutorial Project
 Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
-[Download Tutorial project](https://iofog.org/tutorial/tutorial.zip)
+[Download Tutorial project](https://github.com/ioFog/demo/archive/demo-environment.zip)
 
 Unzip the contents into your preferred working directory.
 

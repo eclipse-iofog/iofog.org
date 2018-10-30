@@ -29,7 +29,7 @@ There are a number of ways of installing Node.js and NPM.
 
 ### Install Controller Daemon
 ```sh
-npm install -g iofog-controller
+sudo npm install -g iofogcontroller
 ```
 
 ## Dev Mode

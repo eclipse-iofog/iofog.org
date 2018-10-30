@@ -36,7 +36,8 @@ sudo apt-get install iofog-connector
 
 #### CentOS/Red Hat/Fedora
 ```sh
-# COMING SOON
+curl -s https://packagecloud.io/install/repositories/iofog/iofog-connector/script.rpm.sh | sudo bash
+sudo yum install iofog-connector
 ```
 
 ## Add Configuration

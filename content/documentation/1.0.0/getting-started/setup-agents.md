@@ -69,7 +69,8 @@ sudo apt-get install iofog-agent
 
 #### CentOS/Red Hat/Fedora
 ```sh
-# COMING SOON
+curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.rpm.sh | sudo bash
+sudo yum install iofog-agent
 ```
 
 ## Start the Agent
