@@ -145,10 +145,13 @@ sudo service iofog-connector stop
 ```
 
 ## Add To Your Controller
-The last step is to register your Connector with your Controlller.
+The last step is to register your Connector with your Controlller. This will require providing a domain and and static IP address to reach your Connector as arguments to the Controller's `connector add` command:
 
 ```sh
-iofog-controller connector add
+iofog-controller connector add \
+  --name <connector_name> \
+  --domain <connector_domain_name> \
+  --public-ip <connector_ip> \
 ```
 
 ## Conclusion
