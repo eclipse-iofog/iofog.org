@@ -44,6 +44,16 @@ or
 
 Download Docker for [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
 
+Next we need to install Docker Compose. For the latest instructions [see the Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose), however it should be similar to this:
+
+```sh
+# This has version 1.22.0 hardcoded, you probably
+# should change it to what ever the latest version is!
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+``
+
 #### Download ioFog Quick Start
 Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
@@ -61,7 +71,7 @@ tar -zxvf quick-start.tar.gz --strip-components=1
 Docker for Mac can be installed either using [Homebrew](https://brew.sh/) or from the Docker Store
 
 ```sh
-brew cask install docker
+brew cask install docker-toolbox
 ```
 
 or
