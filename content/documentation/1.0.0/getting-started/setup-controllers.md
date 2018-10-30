@@ -148,4 +148,4 @@ iofog-controller start
 ## Conclusion
 We now have a running Controller! Next you'll want to setup and configure your ioFog [node Agents](setup-your-agents), and optionally [set up your Connector](setup-your-connectors).
 
-You can also [learn more about Controllers](controller-overview) or change additional [configuration options](controllers-cli-usage).
+You can also [learn more about Controllers](controllers-overview) or change additional [configuration options](controllers-cli-usage).

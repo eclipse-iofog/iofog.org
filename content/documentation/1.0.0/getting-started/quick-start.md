@@ -6,7 +6,7 @@ version: "1.0.0"
 ---
 
 # Quick Start
-In this Quick Start guide we'll download a simple ioFog setup <b>on your local machine</b> containing a [Controller](controller-overview), [Connector](connector-overview), and an [Agent](agent-overview). This gives you a quick way to start playing with ioFog, but can also be used as your local development environment on any machine that can run Docker.
+In this Quick Start guide we'll download a simple ioFog setup <b>on your local machine</b> containing a [Controller](controllers-overview), [Connector](connectors-overview), and an [Agent](agents-overview). This gives you a quick way to start playing with ioFog, but can also be used as your local development environment on any machine that can run Docker.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Want to setup for production?</h3>
@@ -45,7 +45,7 @@ or
 Download Docker for [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
 
 #### Download ioFog Quick Start
-Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
 ```sh
 cd where/you/want/quick-start-project
@@ -70,7 +70,7 @@ or
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
 
 #### Download ioFog Quick Start
-Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
 ```sh
 cd where/you/want/quick-start-project
@@ -94,7 +94,7 @@ Docker for Windows can be installed from the Docker Store:
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-windows/install/)
 
 #### Download ioFog Quick Start
-Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
 [Download Quick Start project](https://iofog.org/quick-start/quick-start.zip)
 

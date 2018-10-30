@@ -153,4 +153,4 @@ iofog-controller connector add
 ## Conclusion
 We now have a running Connector! If you haven't already, you'll want to next setup your ioFog [node Agents](setup-your-agents), and [your Controller](setup-your-controllers).
 
-You can also [learn more about Connectors](connector-overview) or change additional [configuration options](connectors-cli-usage).
+You can also [learn more about Connectors](connectors-overview) or change additional [configuration options](connectors-cli-usage).

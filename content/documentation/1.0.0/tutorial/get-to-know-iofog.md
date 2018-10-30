@@ -31,7 +31,7 @@ For example, there's a microservice running an instance of [Freeboard](https://g
 The Freeboard microservice doesn't know it's running locally, so it could just as well be running on real edge node hardware!
 
 ## Shell Into Your Containers
-Our tutorial environment has four containers, the most important are: iofog-agent-1, iofog-agent-2, iofog-controller, and iofog-connector. As their names imply, they contain two [Agents](agent-overview), a [Controller](controller-overview), and a [Connector](connector-overview).
+Our tutorial environment has four containers, the most important are: iofog-agent-1, iofog-agent-2, iofog-controller, and iofog-connector. As their names imply, they contain two [Agents](agents-overview), a [Controller](controllers-overview), and a [Connector](connectors-overview).
 
 You can think of each of these containers as if they were separate devices. In production, your Controller is most often running on a cloud server and your Agents are each running on individual edge hardware nodes in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away, and the Connector can broker communication between any microservices you run.
 

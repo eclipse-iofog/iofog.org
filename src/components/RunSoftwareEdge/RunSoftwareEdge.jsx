@@ -14,7 +14,7 @@ class RunSoftwareEdge extends Component {
             <section className="col-12">
               <div className="sections__header">
                 <h4>Run software at the edge.</h4>
-                <p>By installing ioFog to any device (with minimal amount of compute) you automatically add a node to create a distributed Edge Compute Network (ECN), enabling you to run any microservice on it dynamically, securely, and remotely.</p>
+                <p>By installing ioFog to any device (with minimal amount of compute) you create a distributed Edge Compute Network (ECN), enabling you to run any microservice on it dynamically, securely, and remotely.</p>
               </div>
 
               <div className="icons__container row">

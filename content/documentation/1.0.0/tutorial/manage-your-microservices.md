@@ -31,7 +31,7 @@ iofog-controller microservice list
 This returns a JSON object containing the full list, along with their configuration. The most important microservices currently running are:
 
 ###### Sensors
-A microservice that pretends to be reading data from a local hardware sensor. The data it produces is published with [the SDK](sdk) and routed through the [Connector](connector-overview) so that it can be read by other microservices.
+A microservice that pretends to be reading data from a local hardware sensor. The data it produces is published with [the SDK](sdk) and routed through the [Connector](connectors-overview) so that it can be read by other microservices.
 
 [Source Code](https://github.com/ioFog/example-microservices/tree/master/sensors-data)
 

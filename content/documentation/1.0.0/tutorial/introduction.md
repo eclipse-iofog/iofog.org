@@ -38,7 +38,7 @@ or
 Download Docker for [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
 
 #### Download Tutorial Project
-Finally we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+Finally we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
 ```sh
 cd where/you/want/tutorial-project
@@ -63,7 +63,7 @@ or
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
 
 #### Download Tutorial Project
-Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
 ```sh
 cd where/you/want/tutorial-project
@@ -93,7 +93,7 @@ Docker for Windows can be installed from the Docker Store:
 
 
 #### Download Tutorial Project
-Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controller-overview), and [Connector](connectors-overview) that are already setup for you.
+Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
 
 [Download Tutorial project](https://iofog.org/tutorial/tutorial.zip)
 

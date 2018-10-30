@@ -123,7 +123,7 @@ iofog.wsControlConnection({
 #### iofog.wsMessageConnection()
 Connect to the ioFog message channel via WebSocket. This is where you'll receive any messages routed to this microservice from another.
 
-Under the hood, communication is brokered by your [Connector](connector-overview) and messages are routed according to that microservice's route settings on the Controller.
+Under the hood, communication is brokered by your [Connector](connectors-overview) and messages are routed according to that microservice's route settings on the Controller.
 
 ```js
 iofog.wsMessageConnection(onMessageConnectionOpen, {

@@ -165,4 +165,4 @@ iofog-agent provision <provisioning_key>
 ## Conclusion
 We now have a running Agent! If you haven't already, you'll want to finish setting up [your Controller](setup-your-controllers) and a [Connector](setup-your-connectors).
 
-You can also [learn more about Agents](agent-overview) or learn more about [writing microservices](microservices-overview).
+You can also [learn more about Agents](agents-overview) or learn more about [writing microservices](microservices-overview).

@@ -6,7 +6,7 @@ type: "releases"
 ### Release 1.0.0
 Our very first release. :tada:
 
-[Get Started](/1.0.0/core-concepts)
+[Get Started](/documentation/1.0.0/core-concepts)
 
 #### Changelog
 
