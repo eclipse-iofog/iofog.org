@@ -64,7 +64,8 @@ tar -zxvf tutorial.tar.gz --strip-components=1
 Docker for Mac can be installed either using [Homebrew](https://brew.sh/) or from the Docker Store
 
 ```sh
-brew cask install docker-toolbox
+brew cask install docker
+brew install docker-compose
 ```
 
 or

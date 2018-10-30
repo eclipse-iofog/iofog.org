@@ -71,12 +71,14 @@ tar -zxvf quick-start.tar.gz --strip-components=1
 Docker for Mac can be installed either using [Homebrew](https://brew.sh/) or from the Docker Store
 
 ```sh
-brew cask install docker-toolbox
+brew cask install docker
+brew install docker-compose
 ```
 
 or
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
+
 
 #### Download ioFog Quick Start
 Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](agents-overview), [Controller](controllers-overview), and [Connector](connectors-overview) that are already setup for you.
