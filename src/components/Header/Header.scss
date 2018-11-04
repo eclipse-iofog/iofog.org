@@ -222,6 +222,7 @@
 
       a {
         width: 68px;
+        margin-right: 5px;
       }
     }
     /* main-nav */
@@ -346,6 +347,8 @@
       order: 2;
 
       &__wrapper {
+        padding-right: 10px;
+
         input {
           font-size: 16px;
           width: 0px;
@@ -354,7 +357,7 @@
 
           &:focus {
             padding-right: 38px;
-            width: calc(100vw - 154px);
+            width: calc(100vw - 140px);
           }
         }
       }
