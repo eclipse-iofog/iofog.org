@@ -3,6 +3,7 @@ import { graphql, Link, StaticQuery } from "gatsby";
 import { MdArrowForward } from "react-icons/md";
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 
+import SearchInput from './SearchInput';
 import config from '../../../data/SiteConfig';
 import siteLogo from "../../../static/images/logos/iofog.svg";
 import getCategoriesMenu from "../../helpers";
@@ -121,10 +122,7 @@ const Header = ({ menuLinks, activeLink }) => (
         </nav>
 
         <div className="col-xl-3 col-lg-3 col-4 search">
-          <div className="search__wrapper">
-            <button type="submit">submit</button>
-            <input type="text" placeholder="Search" />
-          </div>
+          <SearchInput />
           <a className="header__github" href={config.userLinks.github} target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
