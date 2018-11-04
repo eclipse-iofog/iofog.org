@@ -1,11 +1,13 @@
 import React, { createRef, Component } from "react";
-import * as docsearch from 'docsearch.js';
 import searchIcon from '../../../static/images/icos/ico-search.svg';
 
 export default class SearchInput extends Component {
   inputRef = createRef();
 
-  componentDidMount() {
+  async componentDidMount() {
+    // Must be imported async because of SSR incompatibility
+    const { default: docsearch } = await import('docsearch.js');
+
     docsearch({
       apiKey: 'a256bdc2b7b80d0424058db638556958',
       indexName: 'iofog',
