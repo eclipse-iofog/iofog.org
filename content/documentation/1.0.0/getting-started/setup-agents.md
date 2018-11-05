@@ -18,6 +18,16 @@ An ioFog Agent is the microservice platform that runs on your individual edge ha
   - Docker v1.10 or higher
 
 ## Setup
+
+#### Installation Script
+You can install the Agent daemon and requirements (Java and Docker) with following command:
+
+```sh
+curl -sSf https://www.iofog.org/linux.sh | sh
+```
+
+or
+
 #### Java v8.0.0+
 You can find official Java SE Runtime downloads on [Oracle's website](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or alternatively install the [OpenJDK Runtime](http://openjdk.java.net/install/).
 
