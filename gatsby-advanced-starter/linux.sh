@@ -260,18 +260,18 @@ do_install_iofog() {
 	set -x
 	case "$lsb_dist" in
 		ubuntu)
-			curl -s https://packagecloud.io/install/repositories/iofog/iofog/script.deb.sh | $sh_c "bash" >/dev/null
-			$sh_c "apt-get install -y -qq iofog >/dev/null"
+			curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.deb.sh | $sh_c "bash" >/dev/null
+			$sh_c "apt-get install -y -qq iofog-agent >/dev/null"
 			command_status=$?
 			;;
 		fedora|centos)
-			curl -s https://packagecloud.io/install/repositories/iofog/iofog/script.rpm.sh | $sh_c "bash" >/dev/null
-			$sh_c "yum install -y -q iofog"
+			curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.rpm.sh | $sh_c "bash" >/dev/null
+			$sh_c "yum install -y -q iofog-agent"
 			command_status=$?
 			;;
 		debian|raspbian)
-			curl -s https://packagecloud.io/install/repositories/iofog/iofog/script.deb.sh | $sh_c "bash" >/dev/null
-			$sh_c "apt-get install -y -qq iofog >/dev/null"
+			curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.deb.sh | $sh_c "bash" >/dev/null
+			$sh_c "apt-get install -y -qq iofog-agent >/dev/null"
 			command_status=$?
 			;;
 	esac
