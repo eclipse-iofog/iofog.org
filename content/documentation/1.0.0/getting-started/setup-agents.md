@@ -23,7 +23,7 @@ An ioFog Agent is the microservice platform that runs on your individual edge ha
 You can install the Agent daemon and requirements (Java and Docker) with following command:
 
 ```sh
-curl -sSf https://www.iofog.org/linux.sh | sh
+curl -sSf https://iofog.org/linux.sh | sh
 ```
 
 or
