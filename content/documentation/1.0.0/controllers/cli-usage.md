@@ -13,20 +13,20 @@ iofog-controller <command> <action> <options>
 ## Commands
 | | |
 | - | - |
-| [start](#) | Start iofog-controller service. |
-| [stop](#) | Stop iofog-controller service. |
-| [controller](#) | Display iofog-controller service information. |
-| [help](#) | Display usage information. |
-| [user](#) | User operations. |
-| [config](#) | Set/Display iofog-controller service config. |
-| [connector](#) | Connector operations. |
-| [proxy](#) | Proxy operations. |
-| [node](#) | ioFog node operations. |
-| [catalog](#) | Microservices catalog operations. |
-| [flow](#) | Application flow operations. |
-| [microservice](#) | Microservice instance operations. |
-| [registry](#) | Registries instance operations. |
-| [diagnostics](#) | Diagnostic instance operations. |
+| [start](#start) | Start iofog-controller service. |
+| [stop](#stop) | Stop iofog-controller service. |
+| [controller](#controller) | Display iofog-controller service information. |
+| [help](#help) | Display usage information. |
+| [user](#user) | User operations. |
+| [config](#config) | Set/Display iofog-controller service config. |
+| [connector](#connector) | Connector operations. |
+| [proxy](#proxy) | Proxy operations. |
+| [node](#node) | ioFog node operations. |
+| [catalog](#catalog) | Microservices catalog operations. |
+| [flow](#flow) | Application flow operations. |
+| [microservice](#microservice) | Microservice instance operations. |
+| [registry](#registry) | Registries instance operations. |
+| [diagnostics](#diagnostics) | Diagnostic instance operations. |
 
 ---
 
@@ -356,7 +356,7 @@ iofog-controller catalog <action> <options>
 #### Actions
 | | |
 | - | - |
-| **add** | Add a new new catalog item. |
+| **add** | Add a new catalog item. |
 | **update** | Update existing catalog item. |
 | **remove** | Delete a catalog item. |
 | **list** | List all catalog items. |
@@ -386,293 +386,249 @@ iofog-controller catalog <action> <options>
 | **-X, --config-example string** | Catalog item config example |
 | **-u, --user-id number** | User's id |
 
-<!--
-
-
- -n, --name string             (Catalog item name |
- -d, --description string      (Catalog item description |
- -c, --category string         (Catalog item category |
- -x, --x86-image string        (x86 docker image name |
- -a, --arm-image string        (ARM docker image name |
- -p, --publisher string        (Catalog item publisher name |
- -s, --disk-required number    (Amount of disk required to run the microservice (MB) |
- -r, --ram-required number     (Amount of RAM required to run the microservice (MB) |
- -t, --picture string          (Catalog item picture |
- -P, --public                  (Public catalog item |
- -V, --private                 (Private catalog item |
- -g, --registry-id number      (Catalog item docker registry ID |
- -I, --input-type string       (Catalog item input type |
- -F, --input-format string     (Catalog item input format |
- -O, --output-type string      (Catalog item output type |
- -T, --output-format string    (Catalog item output format |
- -X, --config-example string   (Catalog item config example |
- -u, --user-id number          (User's id |
-
-*update*<br>
-
- -f, --file string             (Catalog item settings JSON file |
- -i, --item-id string          (Catalog item ID |
- -n, --name string             (Catalog item name |
- -d, --description string      (Catalog item description |
- -c, --category string         (Catalog item category |
- -x, --x86-image string        (x86 docker image name |
- -a, --arm-image string        (ARM docker image name |
- -p, --publisher string        (Catalog item publisher name |
- -s, --disk-required number    (Amount of disk required to run the microservice (MB) |
- -r, --ram-required number     (Amount of RAM required to run the microservice (MB) |
- -t, --picture string          (Catalog item picture |
- -P, --public                  (Public catalog item |
- -V, --private                 (Private catalog item |
- -g, --registry-id number      (Catalog item docker registry ID |
- -I, --input-type string       (Catalog item input type |
- -F, --input-format string     (Catalog item input format |
- -O, --output-type string      (Catalog item output type |
- -T, --output-format string    (Catalog item output format |
- -X, --config-example string   (Catalog item config example |
-
-*remove*<br>
-
- -i, --item-id string   -- Catalog item ID<br>
-
-*info*<br>
-
- -i, --item-id string   -- Catalog item ID<br>
-
-*JSON File Schema*<br>
-
- name: string<br>
- description: string<br>
- category: string<br>
- publisher: string<br>
- diskRequired: number<br>
- ramRequired: number<br>
- picture: string<br>
- isPublic: boolean<br>
- registryId: number<br>
- configExample: string<br>
- images: array of objects<br>
- containerImage: string<br>
- fogTypeId: number<br>
- inputType: object<br>
- infoType: string<br>
- infoFormat: string<br>
- outputType: object<br>
- infoType: string<br>
- infoFormat: string<br>
-<br>
-<br>
-<br>
-**Flow**<br>
-
- $ iofog-controller flow <*command*> <*options*><br>
-
-*Command List*<br>
-
- add      -- Add a new flow.<br>
- update    -- Update existing flow.<br>
- remove    -- Delete a flow.<br>
- list      -- List all flows.<br>
- info      -- Get flow settings.<br>
-
-*add*<br>
-
- -f, --file string          (Application flow settings JSON file |
- -n, --name string          (Application flow name |
- -d, --description string   (Application flow description |
- -a, --activate             (Activate application flow |
- -D, --deactivate           (Deactivate application flow |
- -u, --user-id number       (User's id |
-
-*update*<br>
-
- -f, --file string          (Application flow settings JSON file |
- -i, --flow-id string       (Application flow ID |
- -n, --name string          (Application flow name |
- -d, --description string   (Application flow description |
- -a, --activate             (Activate application flow |
- -D, --deactivate           (Deactivate application flow |
-
-*remove*<br>
-
- -i, --flow-id string   -- Application flow ID
-
-*info*<br>
-
- -i, --flow-id string   -- Application flow ID
-
-*JSON File Schema*<br>
-
- name: string<br>
- description: string<br>
- isActivated: boolean<br>
-
-<br>
-<br>
-<br>
-
- **Microservice**<br>
-
- $ iofog-controller microservice <*command*> <*options*><br>
-
-*Command List*<br>
-
- add      -- Add a new microservice.<br>
- update   -- Update existing microservice.<br>
- remove   -- Delete a microservice.<br>
- list     -- List all microservices.<br>
- info     -- Get microservice settings.<br>
- route    -- Add/Remove microservice route.<br>
- strace   -- strace option operations.<br>
-
-*add*<br>
-
- -f, --file string         (Microservice settings JSON file |
- -n, --name string         (Microservice name |
- -c, --catalog-id string   (Catalog item ID |
- -F, --flow-id string      (Application flow ID |
- -I, --iofog-id string     (ioFog node ID |
- -g, --config string       (Microservice config |
- -v, --volumes string[]    (Microservice volume mapping(s) |
- -l, --log-limit number    (Log file size limit (MB) |
- -r, --root-enable         (Enable root access |
- -R, --root-disable        (Disable root access |
- -p, --ports string[]      (Container ports |
- -t, --routes string[]     (Microservice route(s) (receiving microservices) |
- -u, --user-id number      (User's id |
-
-*update*<br>
-
- -f, --file string              (Microservice settings JSON file |
- -i, --microservice-id string   (Microservice ID |
- -n, --name string              (Microservice name |
- -c, --catalog-id string        (Catalog item ID |
- -F, --flow-id string           (Application flow ID |
- -I, --iofog-id string          (ioFog node ID |
- -g, --config string            (Microservice config |
- -v, --volumes string[]         (Microservice volume mapping(s) |
- -l, --log-limit number         (Log file size limit (MB) |
- -r, --root-enable              (Enable root access |
- -R, --root-disable             (Disable root access |
- -p, --ports string[]           (Container ports |
- -t, --routes string[]          (Microservice route(s) (receiving microservices) |
-
-*remove*<br>
-
- -i, --microservice-id string   (Microservice ID |
-
-*info*<br>
-
- -i, --microservice-id string   (Microservice ID |
-
-*route*<br>
-
- -i, --microservice-id string   (Microservice ID |
- -a, --add string[]             (Add new route(s) |
- -m, --remove string[]          (Delete existing route(s) |
-
-*strace*<br>
-
- -i, --microservice-id string   (Microservice ID |
- -e, --enable                   (Enable strace option |
- -d, --disable                  (Disable strace option |
- -G, --get string               (Get strace data, formats: string,file |
-
-*JSON File Schema*<br>
-
- name: string<br>
- catalogItemId: string<br>
- flowId: string<br>
- ioFogNodeId: string<br>
- config: string<br>
- volumeMappings: string<br>
- logLimit: number<br>
- rootHostAccess: true<br>
- ports: object<br>
- internal: number<br>
- external: number<br>
- tunnel: boolean<br>
- routes: array of strings<br>
-
-*Examples*
-
- 1. Single mapping:                       $ iofog-controller microservice add [other required options] --volumes
-                                       /host_src:/container_src<br>
- 2. Multiple mappings:                   $ iofog-controller microservice add [other required options] --volumes
-                                       /host_src:/container_src /host_bin:/container_bin<br>
- 3. Ports (internal:external:tunnel):     $ iofog-controller microservice add [other required options] --ports
-                                       80:8080:false 443:5443:true<br>
- 4. Add routes:                           $ iofog-controller microservice route -i ABCD --add DEF GHI<br>
- 5. Delete route:                         $ iofog-controller microservice route -i ABC --remove DEF<br>
- 6. Get strace data:                      $ iofog-controller microservice strace -i ABC --get file<br>
-<br>
-<br>
-<br>
-
- **Registry**
-
- $ iofog-controller registry <*command*> <*options*><br>
-
-*Command List*<br>
-
- add      -- Add a new Registry.<br>
- remove   -- Delete a Registry.<br>
- list     -- List all Registries.<br>
-
-*add*<br>
-
- -u, --uri string        (Registry URI |
- -b, --public            (Set registry as public |
- -r, --private           (Set registry as private |
- -l, --username string   (Registry's user name |
- -p, --password string   (Password |
- -e, --email string      (Email address |
- -i, --user-id number    (User's id |
-
-*remove*<br>
-
- -d, --item-id number    (Item's id)
-<br>
-<br>
-<br>
-
- **Diagnostics**
-
- $ iofog-controller diagnostics <*command*> <*options*><br>
-
-*Command List*<br>
-
- strace-update           -- Change microservice strace status to enabled or disabled.<br>
- strace-info             -- Get microservice strace data.<br>
- strace-ftp-post         -- Post microservice strace data to ftp.<br>
- image-snapshot-create   -- Create microservice image snapshot.<br>
- image-snapshot-get      -- Get microservice image snapshot.<br>
-
-*strace-update*<br>
-
- -e, --enable                   (Enable microservice strace |
- -o, --disable                  (Disable microservice strace |
- -i, --microservice-id string   (Microservice ID |
-
-*strace-info*<br>
-
- -i, --microservice-id string   (Microservice ID |
- -f, --format string            (Format of strace data to receive |
-
- *strace-ftp-post*
-
- -i, --microservice-id string   (Microservice ID |
- -h, --ftpHost string           (FTP host |
- -p, --ftpPort number           (FTP port |
- -u, --ftpUser string           (FTP user |
- -s, --ftpPass string           (FTP user password |
- -d, --ftpDestDir string        (FTP destination directory |
-
-*image-snapshot-create*
-
- -i, --microservice-id string   (Microservice ID |
-
-*image-snapshot-get*
-
- -i, --microservice-id string   (Microservice ID |
-
- -->
+##### update
+| | |
+| - | - |
+| **-f, --file string** | Catalog item settings JSON file |
+| **-i, --item-id string** | Catalog item ID |
+| **-n, --name string** | Catalog item name |
+| **-d, --description string** | Catalog item description |
+| **-c, --category string** | Catalog item category |
+| **-x, --x86-image string** | x86 docker image name |
+| **-a, --arm-image string** | ARM docker image name |
+| **-p, --publisher string** | Catalog item publisher name |
+| **-s, --disk-required number** | Amount of disk required to run the microservice (MB) |
+| **-r, --ram-required number** | Amount of RAM required to run the microservice (MB) |
+| **-t, --picture string** | Catalog item picture |
+| **-P, --public** | Public catalog item |
+| **-V, --private** | Private catalog item |
+| **-g, --registry-id number** | Catalog item docker registry ID |
+| **-I, --input-type string** | Catalog item input type |
+| **-F, --input-format string** | Catalog item input format |
+| **-O, --output-type string** | Catalog item output type |
+| **-T, --output-format string** | Catalog item output format |
+| **-X, --config-example string** | Catalog item config example |
+
+##### remove
+| | |
+| - | - |
+| **-i, --item-id string** | Catalog item ID |
+
+##### info
+| | |
+| - | - |
+| **-i, --item-id string** | Catalog item ID |
+
+---
+
+## flow
+Application flow operations.
+
+```sh
+iofog-controller flow <action> <options>
+```
+
+#### Actions
+| | |
+| - | - |
+| **add** | Add a new flow. |
+| **update** | Update existing flow. |
+| **remove** | Delete a flow. |
+| **list** | List all flows. |
+| **info** | Get flow settings. |
+
+#### Options
+##### add
+| | |
+| - | - |
+| **-f, --file string** | Application flow settings JSON file |
+| **-n, --name string** | Application flow name |
+| **-d, --description string** | Application flow description |
+| **-a, --activate** | Activate application flow |
+| **-D, --deactivate** | Deactivate application flow |
+| **-u, --user-id number** | User's id |
+
+##### update
+| | |
+| - | - |
+| **-f, --file string** | Application flow settings JSON file |
+| **-i, --flow-id string** | Application flow ID |
+| **-n, --name string** | Application flow name |
+| **-d, --description string** | Application flow description |
+| **-a, --activate** | Activate application flow |
+| **-D, --deactivate** | Deactivate application flow |
+
+##### remove
+| | |
+| - | - |
+| **-i, --flow-id string** | Application flow ID |
+
+##### info
+| | |
+| - | - |
+| **-i, --flow-id string** | Application flow ID |
+
+---
+
+## microservice
+Microservice instance operations.
+
+```sh
+iofog-controller microservice <action> <options>
+```
+
+#### Actions
+| | |
+| - | - |
+| **add** | Add a new microservice. |
+| **update** | Update existing microservice. |
+| **remove** | Delete a microservice. |
+| **list** | List all microservices. |
+| **info** | Get microservice settings. |
+| **route** | Add/Remove microservice route. |
+| **strace** | strace option operations. |
+
+#### Options
+##### add
+| | |
+| - | - |
+| **-f, --file string** | Microservice settings JSON file |
+| **-n, --name string** | Microservice name |
+| **-c, --catalog-id string** | Catalog item ID |
+| **-F, --flow-id string** | Application flow ID |
+| **-I, --iofog-id string** | ioFog node ID |
+| **-g, --config string** | Microservice config |
+| **-v, --volumes string[]** | Microservice volume mapping(s) |
+| **-l, --log-limit number** | Log file size limit (MB) |
+| **-r, --root-enable** | Enable root access |
+| **-R, --root-disable** | Disable root access |
+| **-p, --ports string[]** | Container ports |
+| **-t, --routes string[]** | Microservice route(s) (receiving microservices) |
+| **-u, --user-id number** | User's id |
+
+##### update
+| | |
+| - | - |
+| **-f, --file string** | Microservice settings JSON file |
+| **-i, --microservice-id string** | Microservice ID |
+| **-n, --name string** | Microservice name |
+| **-c, --catalog-id string** | Catalog item ID |
+| **-F, --flow-id string** | Application flow ID |
+| **-I, --iofog-id string** | ioFog node ID |
+| **-g, --config string** | Microservice config |
+| **-v, --volumes string[]** | Microservice volume mapping(s) |
+| **-l, --log-limit number** | Log file size limit (MB) |
+| **-r, --root-enable** | Enable root access |
+| **-R, --root-disable** | Disable root access |
+| **-p, --ports string[]** | Container ports |
+| **-t, --routes string[]** | Microservice route(s) (receiving microservices) |
+
+##### remove
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+
+##### info
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+
+##### route
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+| **-a, --add string[]** | Add new route(s) |
+| **-m, --remove string[]** | Delete existing route(s) |
+
+##### strace
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+| **-e, --enable** | Enable strace option |
+| **-d, --disable** | Disable strace option |
+| **-G, --get string** | Get strace data, formats: string,file |
+
+---
+
+## registry
+Registries instance operations.
+
+```sh
+iofog-controller registry <action> <options>
+```
+
+#### Actions
+| | |
+| - | - |
+| **add** | Add a new Registry. |
+| **remove** | Delete a Registry. |
+| **list** | List all Registries. |
+
+#### Options
+##### add
+| | |
+| - | - |
+| **-u, --uri string** | Registry URI |
+| **-b, --public** | Set registry as public |
+| **-r, --private** | Set registry as private |
+| **-l, --username string** | Registry's user name |
+| **-p, --password string** | Password |
+| **-e, --email string** | Email address |
+| **-i, --user-id number** | User's id |
+
+##### remove
+| | |
+| - | - |
+| **-d, --item-id number** | Item's id |
+
+---
+
+## diagnostics
+Diagnostic instance operations.
+
+```sh
+iofog-controller diagnostics <action> <options>
+```
+
+#### Actions
+| | |
+| - | - |
+| **strace-update** | Change microservice strace status to enabled or disabled. |
+| **strace-info** | Get microservice strace data. |
+| **strace-ftp-post** | Post microservice strace data to ftp. |
+| **image-snapshot-create** | Create microservice image snapshot. |
+| **image-snapshot-get** | Get microservice image snapshot. |
+
+#### Options
+##### strace-update
+| | |
+| - | - |
+| **-e, --enable** | Enable microservice strace |
+| **-o, --disable** | Disable microservice strace |
+| **-i, --microservice-id string** | Microservice ID |
+
+##### strace-info
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+| **-f, --format string** | Format of strace data to receive |
+
+##### strace-ftp-post
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+| **--h, --ftpHost string** | FTP host |
+| **--p, --ftpPort number** | FTP port |
+| **--u, --ftpUser string** | FTP user |
+| **--s, --ftpPass string** | FTP user password |
+| **--d, --ftpDestDir string** | FTP destination directory |
+
+##### image-snapshot-create
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+
+##### image-snapshot-get
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
