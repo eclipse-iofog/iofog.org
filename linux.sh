@@ -255,7 +255,7 @@ do_install_docker() {
 }
 
 do_install_iofog() {
-	echo "# Installing ioFog Agent..."
+	echo "# Installing ioFog agent..."
 	echo
 	set -x
 	case "$lsb_dist" in
@@ -279,7 +279,7 @@ do_install_iofog() {
 }
 
 do_install() {
-	echo "# Executing ioFog Agent install script"
+	echo "# Executing iofog install script"
 	
 	command_status=0
 	sh_c='sh -c'
@@ -399,15 +399,15 @@ do_install() {
 	fi
 	
 	do_install_iofog
-	check_command_status $command_status "# ioFog Agent has been installed successfully" "# ioFog Agent installation failed. Please proceed with installation manually" "# ioFog Agent is already intalled"
+	check_command_status $command_status "# ioFog agent has been installed successfully" "# ioFog agent installation failed. Please proceed with installation manually" "# ioFog agent is already intalled"
 	
 
 	if [ "$lsb_dist" = "raspbian" ]; then
 		set -x
-		$sh_c 'sed -i -e "s|<docker_url>.*</docker_url>|<docker_url>tcp://127.0.0.1:2375/</docker_url>|g" /etc/iofog-agent/config.xml'
-		$sh_c "service iofog-agent stop"
+		$sh_c 'sed -i -e "s|<docker_url>.*</docker_url>|<docker_url>tcp://127.0.0.1:2375/</docker_url>|g" /etc/iofog/config.xml'
+		$sh_c "service iofog stop"
 		sleep 3
-		$sh_c "service iofog-agent start"
+		$sh_c "service iofog start"
 	fi
 }
 do_install
