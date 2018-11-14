@@ -1,9 +1,7 @@
-import React, { createRef, Component } from "react";
+import React, { Component } from "react";
 import searchIcon from '../../../static/images/icos/ico-search.svg';
 
 export default class SearchInput extends Component {
-  inputRef = createRef();
-
   async componentDidMount() {
     // Must be imported async because of SSR incompatibility
     const { default: docsearch } = await import('docsearch.js');
@@ -11,7 +9,7 @@ export default class SearchInput extends Component {
     docsearch({
       apiKey: 'a256bdc2b7b80d0424058db638556958',
       indexName: 'iofog',
-      inputSelector: this.inputRef.current
+      inputSelector: '#search-input'
     });
   }
 
@@ -19,7 +17,7 @@ export default class SearchInput extends Component {
     return (
       <div className="search__wrapper">
         <img src={searchIcon} />
-        <input ref={this.inputRef} type="text" placeholder="Search" />
+        <input id="search-input" type="text" placeholder="Search" />
       </div>
     );
   }
