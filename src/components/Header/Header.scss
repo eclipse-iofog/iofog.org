@@ -18,7 +18,9 @@
   .logo {
     a {
       display: inline-block;
-      width: 105px;
+      padding: 8px;
+      width: 107px;
+      box-sizing: content-box;
     }
 
     img {
@@ -152,8 +154,8 @@
         border: 1px solid transparent;
 
         &:focus {
-          border-color: #5063eb;
           width: 100%;
+          box-shadow: 0 0 0 2px rgba(70, 104, 253, 0.6), 0 6px 10px -3px #d0d7da;
         }
       }
     }

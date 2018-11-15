@@ -11,6 +11,7 @@
   }
 
   .item-container {
+    button,
     a {
       color: #002e43;
       font-size: 15px;
@@ -18,12 +19,19 @@
       text-transform: capitalize;
       padding: 8px 30px 8px 82px;
       position: relative;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: none;
+
+      &:focus {
+        outline: none;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
     }
 
-    a.active,
-    &.active > a {
-      font-weight: bold;
-      font-size: 15px;
+    a.active {
       background-color: rgba(80, 100, 236, 0.05);
     }
 
@@ -42,27 +50,27 @@
           left: 82px;
           width: 2px;
           height: 100%;
+          background-color: rgba(0, 0, 0, 0.2);;
+        }
+      }
+    }
+
+    &.active {
+      .sub-menu {
+        a:before {
           background-color: rgba(80, 100, 236, 0.2);
         }
 
-        &.active {
-
-          &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            border: 0;
-            left: 82px;
-            width: 2px;
-            height: 100%;
-            background-color: #5064ec;
-          }
+        a.active:before {
+          background-color: #5064ec;
         }
       }
     }
 
     &.open {
+      & > button {
+        font-weight: bold;
+      }
       .sub-menu {
         display: block;
       }
