@@ -76,6 +76,11 @@ a {
   color: #4668fd;
 }
 
+button:focus,
+*:focus {
+  outline: rgba(70, 104, 253, 0.6) solid 2px;
+}
+
 hr {
   margin: 70px 0;
   border: none;
