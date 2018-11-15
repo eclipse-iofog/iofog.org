@@ -69,7 +69,7 @@ The Docker service configuration file located at `/etc/systemd/system/docker.ser
 
 ###### /etc/systemd/system/docker.service.d/overlay.conf
 
-```text
+```sh
 [Service]
 ExecStart=
 ExecStart=/usr/bin/dockerd --storage-driver overlay -H unix:///var/run/docker.sock -H tcp://127.0.0.1:2375
