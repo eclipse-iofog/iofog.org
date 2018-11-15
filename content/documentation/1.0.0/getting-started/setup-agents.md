@@ -53,7 +53,9 @@ Download Docker for [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubu
 ##### ARM CPU Docker Configuration
 If your edge device has an ARM CPU, there is an additional configuration step for Docker required.
 
-You need to edit (or add) the Docker daemon configuration file located at `/etc/docker/daemon.json` and place two entries in your `"hosts"`:
+You need to edit (or add) either of these files:
+
+The Docker daemon configuration file located at `/etc/docker/daemon.json` and place two entries in your `"hosts"`:
 
 ###### /etc/docker/daemon.json
 
@@ -63,7 +65,24 @@ You need to edit (or add) the Docker daemon configuration file located at `/etc/
 }
 ```
 
-And later, once you've installed the Agent daemon, you need to change the network address that the Docker daemon can be found at:
+The Docker service configuration file located at `/etc/systemd/system/docker.service.d/overlay.conf` and add the following:
+
+###### /etc/systemd/system/docker.service.d/overlay.conf
+
+```text
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd --storage-driver overlay -H unix:///var/run/docker.sock -H tcp://127.0.0.1:2375
+```
+
+And run these commands:
+
+```sh
+sudo systemctl daemon-reload
+sudo service docker restart
+```
+
+Once you've installed the Agent daemon, you need to change the network address that the Docker daemon can be found at:
 
 ```sh
 # Run this once you've installed the iofog-agent daemon
@@ -108,13 +127,13 @@ The Agent has a Dev Mode that allows you to get up and running more quickly with
 To enter Dev Mode:
 
 ```sh
-iofog-agent -dev on
+iofog-agent config -dev on
 ```
 
 and then to disable Dev Mode:
 
 ```sh
-iofog-agent -dev off
+iofog-agent config -dev off
 ```
 
 With this enabled, the Agent will send and receive communications to the Controller and Connector using `http://`, not `https://`, bypassing any need for SSL certificates.

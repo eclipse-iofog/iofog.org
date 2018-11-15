@@ -117,6 +117,10 @@ check_command_status() {
 		echo
 		echo "$2"
 		echo
+	elif [ $1 -eq 776 ]; then
+		echo
+		echo "$5"
+		echo
 	elif [ $1 -eq 777 ]; then
 		echo
 		echo "$4"
@@ -126,6 +130,15 @@ check_command_status() {
 		echo "$3"
 		echo
 		exit $1
+	fi
+}
+
+disable_package_preconfiguration() {
+	if [ "$lsb_dist" = "debian" ]; then
+		if [ -f /etc/apt/apt.conf.d/70debconf ]; then
+			$sh_c 'ex +"%s@DPkg@//DPkg" -cwq /etc/apt/apt.conf.d/70debconf'
+			$sh_c 'dpkg-reconfigure debconf -f noninteractive -p critical'
+		fi
 	fi
 }
 
@@ -177,24 +190,21 @@ do_install_java() {
 				;;
 			fedora|centos)
 				cd /opt/
-				$sh_c 'wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jre-8u181-linux-x64.tar.gz"'
-				$sh_c "tar xzf jre-8u181-linux-x64.tar.gz"
-				cd /opt/jre1.8.0_181/	
-				$sh_c "alternatives --install /usr/bin/java java /opt/jre1.8.0_181/bin/java 4 >/dev/null"
+				$sh_c 'wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jre-8u191-linux-x64.tar.gz"'
+				$sh_c "tar xzf jre-8u191-linux-x64.tar.gz"
+				cd /opt/jre1.8.0_191/	
+				$sh_c "alternatives --install /usr/bin/java java /opt/jre1.8.0_191/bin/java 4 >/dev/null"
 				command_status=$?
 				;;
 			debian|raspbian)
 				if [ "$lsb_dist" = "raspbian" ] && [ "$(uname -m)" = "armv7l" ]; then
 					cd /opt/
-					$sh_c 'wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-arm32-vfp-hflt.tar.gz"'
-					$sh_c "tar xzf jdk-8u181-linux-arm32-vfp-hflt.tar.gz"
-					cd /opt/jdk1.8.0_181
-					$sh_c "update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_181/bin/java 1100 >/dev/null"
+					$sh_c 'wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-arm32-vfp-hflt.tar.gz"'
+					$sh_c "tar xzf jdk-8u191-linux-arm32-vfp-hflt.tar.gz"
+					cd /opt/jdk1.8.0_191
+					$sh_c "update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_191/bin/java 1100 >/dev/null"
 				elif [ "$lsb_dist" = "debian" ]; then
 					$sh_c "apt-get install -y -qq software-properties-common >/dev/null"
-					if [ $? -ne 0 ] && [ "dist_version" = "jessie" ]; then
-						$sh_c "apt-get install -y -qq software-properties-common >/dev/null"
-					fi
 					$sh_c 'add-apt-repository -y "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" >/dev/null 2>&1'
 					$sh_c 'apt-get update -qq >/dev/null'
 					echo debconf shared/accepted-oracle-license-v1-1 select true | $sh_c "debconf-set-selections >/dev/null 2>&1" 
@@ -212,11 +222,16 @@ do_install_java() {
 					$sh_c "apt-get install -y -qq oracle-java8-installer >/dev/null"
 				fi
 				command_status=$?
-				;;	
+				;;		
 		esac
+		# Proceeding with existing java if java update failed
+		if [ "$command_status" -ne "0" ] && [ ! -z "$java8_version" ]; then
+			command_status=776
+		fi
 	else
 		command_status=777
 	fi
+	
 	set +x
 }
 
@@ -237,7 +252,9 @@ start_docker() {
 		if [ $command_status -ne 0 ]; then
 			$sh_c "service docker start >/dev/null 2>&1"
 			command_status=$?
-		fi	
+		fi
+	else
+		command_status=0	
 	fi
 }
 
@@ -250,12 +267,24 @@ do_install_docker() {
 	
 	handle_docker_unsuccessful_installation
 	start_docker
+
+	if [ "$lsb_dist" = "raspbian" ]; then
+		if [ ! -d "/etc/systemd/system/docker.service.d" ]; then
+			$sh_c "mkdir -p /etc/systemd/system/docker.service.d"
+		fi
+		$sh_c 'echo "[Service]" > /etc/systemd/system/docker.service.d/overlay.conf'
+		$sh_c 'echo "ExecStart=" >> /etc/systemd/system/docker.service.d/overlay.conf'
+		$sh_c 'echo "ExecStart=/usr/bin/dockerd --storage-driver overlay -H unix:// -H tcp://127.0.0.1:2375" >> /etc/systemd/system/docker.service.d/overlay.conf'
+		$sh_c "systemctl daemon-reload"
+		$sh_c "service docker restart"
+		command_status=$?
+	fi
 	
 	set +x
 }
 
 do_install_iofog() {
-	echo "# Installing ioFog Agent..."
+	echo "# Installing ioFog agent..."
 	echo
 	set -x
 	case "$lsb_dist" in
@@ -270,16 +299,26 @@ do_install_iofog() {
 			command_status=$?
 			;;
 		debian|raspbian)
+			if [ "$lsb_dist" = "debian" ]; then
+				$sh_c "apt-get install -y -qq net-tools >/dev/null"
+			fi
 			curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.deb.sh | $sh_c "bash" >/dev/null
 			$sh_c "apt-get install -y -qq iofog-agent >/dev/null"
 			command_status=$?
+			if [ "$lsb_dist" = "raspbian" ]; then
+				$sh_c 'sed -i -e "s|<docker_url>.*</docker_url>|<docker_url>tcp://127.0.0.1:2375/</docker_url>|g" /etc/iofog-agent/config.xml'
+				$sh_c "service iofog-agent stop"
+				sleep 3
+				$sh_c "service iofog-agent start"
+			fi
 			;;
 	esac
+
 	set +x
 }
 
 do_install() {
-	echo "# Executing ioFog Agent install script"
+	echo "# Executing iofog install script"
 	
 	command_status=0
 	sh_c='sh -c'
@@ -375,39 +414,19 @@ do_install() {
 		exit 1
 	fi
 
+	disable_package_preconfiguration
+
 	# Run setup for each distro accordingly
 	set +e
 	add_initial_apt_repos_if_not_exist
 	
 	do_install_java
-	check_command_status $command_status "# Java 8 has been successfully installed" "# Java 8 installation failed. Please proceed with installation manually" "# Java 8 is already installed"
+	check_command_status $command_status "# Java 8 has been successfully installed" "# Java 8 installation failed. Please proceed with installation manually" "# Java 8 is already installed" "# Failed to update java version. Already installed java 8 will be used"
 	
 	do_install_docker
 	check_command_status $command_status "# Docker has been installed successfully" "# Docker installation failed. Please proceed with installation manually" "# Docker is already installed"
 	
-	if [ "$lsb_dist" = "raspbian" ]; then
-		set -x
-		if [ ! -d "/etc/systemd/system/docker.service.d" ]; then
-			$sh_c "mkdir -p /etc/systemd/system/docker.service.d"
-		fi
-		$sh_c 'echo "[Service]" > /etc/systemd/system/docker.service.d/overlay.conf'
-		$sh_c 'echo "ExecStart=" >> /etc/systemd/system/docker.service.d/overlay.conf'
-		$sh_c 'echo "ExecStart=/usr/bin/dockerd --storage-driver overlay -H fd:// -H tcp://127.0.0.1:2375" >> /etc/systemd/system/docker.service.d/overlay.conf'
-		$sh_c "systemctl daemon-reload"
-		$sh_c "service docker restart"
-		set +x
-	fi
-	
 	do_install_iofog
-	check_command_status $command_status "# ioFog Agent has been installed successfully" "# ioFog Agent installation failed. Please proceed with installation manually" "# ioFog Agent is already intalled"
-	
-
-	if [ "$lsb_dist" = "raspbian" ]; then
-		set -x
-		$sh_c 'sed -i -e "s|<docker_url>.*</docker_url>|<docker_url>tcp://127.0.0.1:2375/</docker_url>|g" /etc/iofog-agent/config.xml'
-		$sh_c "service iofog-agent stop"
-		sleep 3
-		$sh_c "service iofog-agent start"
-	fi
+	check_command_status $command_status "# ioFog agent has been installed successfully" "# ioFog agent installation failed. Please proceed with installation manually" "# ioFog agent is already intalled"
 }
 do_install
