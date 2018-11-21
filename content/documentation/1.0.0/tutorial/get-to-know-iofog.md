@@ -21,9 +21,10 @@ We can also see that in the PORTS column some of these containers have published
 
 ```sh
 PORTS                      NAMES
-0.0.0.0:52221->80/tcp      freeboard
-0.0.0.0:54421->51121/tcp   iofog-controller
-0.0.0.0:53321->80/tcp      iofog-connector
+0.0.0.0:51121->51121/tcp   iofog-controller
+                           iofog-agent-1
+                           iofog-agent-2
+0.0.0.0:53321->8080/tcp    iofog-connector
 ```
 
 For example, there's a microservice running an instance of [Freeboard](https://github.com/Freeboard/freeboard), an open source visualization dashboard for IoT devices. It's running a web server that serves the dashboard, try it out: http://localhost:10102/?load=dashboard.json
@@ -111,7 +112,7 @@ docker exec -ti iofog-controller bash
 Since this "device" is running our Controller daemon, inside this shell we can now issue commands to it. Try this one:
 
 ```sh
-iofog-controller node list
+iofog-controller iofog list
 ```
 
 This should give you a JSON response containing a list of edge nodes already registered with the Controller. In our case we should get two nodes, `"name": "Agent 1"` and `"name": "Agent 2"`. These "nodes" are the container environments iofog-agent-1 and iofog-agent-2. Remember that in production, instead of being containers running locally on your machine, these nodes would be real edge hardware, part of your Edge Compute Network, where your microservices run.

@@ -157,7 +157,7 @@ docker exec -ti iofog-controller bash
 Now we're inside the iofog-controller container and can issue commands to our Controller. Try this one:
 
 ```sh
-iofog-controller node list
+iofog-controller iofog list
 ```
 
 This should give you a JSON response containing a list of edge nodes already registered with the Controller. In our case, a single node `"name": "ioFog Node"`. That "node" is actually the environment running inside the iofog-agent container.

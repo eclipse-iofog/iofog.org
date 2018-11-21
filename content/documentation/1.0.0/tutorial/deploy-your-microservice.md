@@ -59,7 +59,7 @@ Instantiating a new microservice is done using the `microservice add` command. W
 So let's find the ID for the first Agent with the name "Agent 1":
 
 ```sh
-iofog-controller node list
+iofog-controller iofog list
 ```
 
 Using that ID, we can pass it and our other arguments to instantiate the microservice:

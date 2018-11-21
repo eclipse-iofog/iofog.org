@@ -123,18 +123,18 @@ Your Controller manages all your ioFog nodes remotely by communicating with the 
 
 To setup an ioFog node, it must first be running an Agent. Once it is, you can add it to your Controller and then receive a provisioning key that you'll add to your Agent.
 
-Using the `iofog-controller node add` command we'll pass in a unique `name` for our node as well as the `fog-type`, which is number signifying the node's CPU architecture: `0` for automatic detection, `1` for x86 (and x64), and `2` for ARM. This command will return a unique node ID we'll use in our next step.
+Using the `iofog-controller iofog add` command we'll pass in a unique `name` for our node as well as the `fog-type`, which is number signifying the node's CPU architecture: `0` for automatic detection, `1` for x86 (and x64), and `2` for ARM. This command will return a unique node ID we'll use in our next step.
 
 ```sh
-iofog-controller node add --name "my-fog-node" --fog-type 0
+iofog-controller iofog add --name "my-fog-node" --fog-type 0
 ```
 
 There is a number of other optional configuration options, such as CPU/memory/disk limits, enabling bluetooth, and others found in the [Controller CLI reference](controllers-cli-usage).
 
-Next, copy the node ID that was return from calling `iofog-controller node add` above and use it to create a provisioning key:
+Next, copy the node ID that was return from calling `iofog-controller iofog add` above and use it to create a provisioning key:
 
 ```sh
-iofog-controller node provisioning-key --node-id <node_id>
+iofog-controller iofog provisioning-key --node-id <node_id>
 ```
 
 You can then use provide this provisioning key to [setup an Agent](setup-your-agents) on your edge node.

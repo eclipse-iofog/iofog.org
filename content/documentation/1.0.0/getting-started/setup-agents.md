@@ -167,18 +167,18 @@ iofog-agent config -a 127.0.0.1:9001
 ## Add Node to Controller
 Your Controller manages all your ioFog nodes remotely by communicating with the [Agent](agents-overview) running on them. Since we just setup an Agent on our new ioFog node we now need to add it to the Controller and get a provisioning key.
 
-On the server running our Controller we'll use the `iofog-controller node add` command, providing a unique `name` for our node as well as the `fog-type`, which is number signifying the node's CPU architecture: `0` for automatic detection, `1` for x86 (and x64), and `2` for ARM. This command will return a unique node ID we'll use in our next step.
+On the server running our Controller we'll use the `iofog-controller iofog add` command, providing a unique `name` for our node as well as the `fog-type`, which is number signifying the node's CPU architecture: `0` for automatic detection, `1` for x86 (and x64), and `2` for ARM. This command will return a unique node ID we'll use in our next step.
 
 ```sh
-iofog-controller node add --name "my-fog-node" --fog-type 0
+iofog-controller iofog add --name "my-fog-node" --fog-type 0
 ```
 
 There are a number of other optional configuration options, such as CPU/memory/disk limits, enabling bluetooth, and others found in the [Controller CLI reference](controllers-cli-usage).
 
-Next, copy the node ID that was returned from calling `iofog-controller node add` above and use it to create a provisioning key:
+Next, copy the node ID that was returned from calling `iofog-controller iofog add` above and use it to create a provisioning key:
 
 ```sh
-iofog-controller node provisioning-key --node-id <node_id>
+iofog-controller iofog provisioning-key --node-id <node_id>
 ```
 
 The key is only valid for **20 minutes** and can only be used once.

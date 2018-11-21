@@ -223,7 +223,7 @@ iofog-controller proxy <action> <options>
 ioFog node operations.
 
 ```sh
-iofog-controller node <action> <options>
+iofog-controller iofog <action> <options>
 ```
 
 #### Actions
