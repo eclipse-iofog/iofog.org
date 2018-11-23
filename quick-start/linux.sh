@@ -218,7 +218,10 @@ do_install_demo() {
   $sh_c "tar -zxvf tutorial.tar.gz --strip-components=1"
   command_status=$?
 
-	set +x
+    set +x
+
+   echo "# Removing docker images from previous install..."
+   $sh_c "docker-compose down --rmi all"
 }
 
 do_install() {
