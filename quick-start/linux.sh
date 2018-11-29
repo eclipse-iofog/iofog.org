@@ -175,6 +175,34 @@ start_docker() {
 	fi
 }
 
+do_install_jq() {
+	echo "# Installing jq..."
+	echo
+	set -x
+	# if variable need_to_install equals to 1 jq install is required
+	need_to_install=1
+	if command_exists jq; then
+		need_to_install=0
+	fi
+	if [ "$need_to_install" -ne "0" ]; then
+		case "$lsb_dist" in
+			ubuntu|debian|raspbian)
+				$sh_c "apt-get update -qq >/dev/null"
+				$sh_c "apt-get install -qq jq >/dev/null"
+				command_status=$?
+				;;
+			fedora|centos)
+				$sh_c "yum install -y -q jq"
+				command_status=$?
+				;;
+		esac
+	else
+		command_status=777
+	fi
+	
+	set +x
+}
+
 do_install_docker() {
 	echo "# Installing Docker..."
 	echo
@@ -207,21 +235,15 @@ do_install_docker_compose() {
 }
 
 do_install_demo() {
-	echo "# Installing demo..."
+	echo "# Installing development environment..."
 	echo
 	set -x
 
-  $sh_c "rm -R iofog-demo"
-  $sh_c "mkdir iofog-demo"
-  $sh_c "cd iofog-demo"
-  $sh_c "curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive/demo-environment.tar.gz" >/dev/null
-  $sh_c "tar -zxvf tutorial.tar.gz --strip-components=1"
+  $sh_c "curl -L -o dev.tar.gz https://github.com/ioFog/demo/archive/dev-environment.tar.gz" >/dev/null
+  $sh_c "tar -zxvf dev.tar.gz --strip-components=1"
   command_status=$?
 
-   set +x
-
-   echo "# Removing docker images from previous install..."
-   $sh_c "docker-compose down --rmi all"
+	set +x
 }
 
 do_install() {
@@ -317,6 +339,9 @@ do_install() {
 
 	check_command_status $command_status "# Curl has been installed successfully" "# Curl installation failed. Please proceed with installation manually" "# Curl is already installed"
 
+	do_install_jq
+	check_command_status $command_status "# 'jq' has been successfully installed" "# 'jq' installation failed. Please proceed with installation manually" "# 'jq' is already installed"
+	
 	do_install_docker
 	check_command_status $command_status "# Docker has been installed successfully" "# Docker installation failed. Please proceed with installation manually" "# Docker is already installed"
 
