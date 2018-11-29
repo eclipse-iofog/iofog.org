@@ -70,14 +70,14 @@ iofog-agent info
   Network Interface                        : eth0
   Developer's Mode                         : on
   ioFog Controller                         : http://iofog-controller:51121/api/v3/
-  ioFog Certificate                        : /etc/iofog/cert.crt
+  ioFog Certificate                        : /etc/iofog-agent/cert.crt
   Docker URL                               : unix:///var/run/docker.sock
   Disk Usage Limit                         : 50.00 GiB
-  Message Storage Directory                : /var/lib/iofog/
+  Message Storage Directory                : /var/lib/iofog-agent/
   Memory RAM Limit                         : 4096.00 MiB
   CPU Usage Limit                          : 80.00%
   Log Disk Limit                           : 10.00 GiB
-  Log File Directory                       : /var/log/iofog/
+  Log File Directory                       : /var/log/iofog-agent/
   Log Rolling File Count                   : 10
   Status Update Frequency                  : 30
   Get Changes Frequency                    : 60
