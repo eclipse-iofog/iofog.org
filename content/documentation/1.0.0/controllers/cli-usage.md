@@ -135,13 +135,37 @@ iofog-controller config <options>
 #### Actions
 | | |
 | - | - |
-| **add** | Add a new user. |
-| **update** | Update existing user. |
-| **remove** | Delete a user. |
-| **list** | List all users. |
-| **generate-token** | Generate token for a user. |
-| **activate** | Activate a user. |
-| **suspend** | Suspend a user. |
+| **add** | Change current configuration. |
+| **list** | List current configuration. |
+| **dev-mode** | Enable/disable developer mode. |
+| **email-activation** | Enable/disable email activation. |
+
+#### Options
+##### add
+| | |
+| - | - |
+| **-p, --port number** | Port |
+| **-c, --ssl-cert string** | Path to SSL certificate file |
+| **-k, --ssl-key string** | Path to SSL key file |
+| **-i, --intermediate-cert string** | Path to SSL intermediate certificate file |
+| **-h, --home-url string** | Home page url for email activation links |
+| **-a, --email-address string** | Email address to send activations from |
+| **-w, --email-password string** | Email password to send activations from |
+| **-s, --email-service string** | Email service to send activations |
+| **-d, --log-dir string** | Log files directory |
+| **-z, --log-size number** | Log files size (MB) |
+
+##### dev-mode
+| | |
+| - | - |
+| **-o, --on** | Enable dev mode |
+| **-f, --off** | Disable dev mode |
+
+##### email-activation
+| | |
+| - | - |
+| **-o, --on** | Enable |
+| **-f, --off** | Disable |
 
 ---
 
