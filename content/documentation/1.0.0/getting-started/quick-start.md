@@ -162,5 +162,5 @@ iofog-controller iofog list
 
 This should give you a JSON response containing a list of edge nodes already registered with the Controller. In our case, a single node `"name": "ioFog Node"`. That "node" is actually the environment running inside the iofog-agent container.
 
-## Conclussion
+## Conclusion
 You that you have a local ioFog environment running, you can learn more [about Microservices](microservices-overview), take the [Tutorial](tutorial-introduction), or [setup your production environment](setup-your-controllers).
