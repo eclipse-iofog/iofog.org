@@ -348,7 +348,7 @@ iofog-controller iofog <action> <options>
 | | |
 | - | - |
 | **-i, --node-id string** | ioFog node ID |
-| **-v, --version-command string** | ioFog version command |
+| **-v, --version-command string** | ioFog version command &lt;upgrade/rollback&gt; |
 
 ##### hal-hw
 | | |
@@ -501,8 +501,14 @@ iofog-controller microservice <action> <options>
 | **remove** | Delete a microservice. |
 | **list** | List all microservices. |
 | **info** | Get microservice settings. |
-| **route** | Add/Remove microservice route. |
-| **strace** | strace option operations. |
+| **route-create** | Create microservice route. |
+| **route-remove** | Remove microservice route. |
+| **port-mapping-create** | Create microservice port mapping. |
+| **port-mapping-remove** | Remove microservice port mapping. |
+| **port-mapping-list** | List microservice port mapping. |
+| **volume-mapping-create** | Create microservice volume mapping. |
+| **volume-mapping-remove** | Remove microservice volume mapping. |
+| **volume-mapping-list** | List microservice volume mapping. |
 
 #### Options
 ##### add
@@ -510,12 +516,12 @@ iofog-controller microservice <action> <options>
 | - | - |
 | **-f, --file string** | Microservice settings JSON file |
 | **-n, --name string** | Microservice name |
-| **-c, --catalog-id string** | Catalog item ID |
-| **-F, --flow-id string** | Application flow ID |
+| **-c, --catalog-id number** | Catalog item ID |
+| **-F, --flow-id number** | Application flow ID |
 | **-I, --iofog-id string** | ioFog node ID |
 | **-g, --config string** | Microservice config |
 | **-v, --volumes string[]** | Microservice volume mapping(s |
-| **-l, --log-limit number** | Log file size limit (MB |
+| **-l, --log-size number** | Log file size limit (MB |
 | **-r, --root-enable** | Enable root access |
 | **-R, --root-disable** | Disable root access |
 | **-p, --ports string[]** | Container ports |
@@ -532,8 +538,8 @@ iofog-controller microservice <action> <options>
 | **-F, --flow-id string** | Application flow ID |
 | **-I, --iofog-id string** | ioFog node ID |
 | **-g, --config string** | Microservice config |
-| **-v, --volumes string[]** | Microservice volume mapping(s |
-| **-l, --log-limit number** | Log file size limit (MB |
+| **-v, --volumes string[]** | Microservice volume mapping(s) |
+| **-l, --log-size number** | Log file size limit (MB) |
 | **-r, --root-enable** | Enable root access |
 | **-R, --root-disable** | Disable root access |
 | **-p, --ports string[]** | Container ports |
@@ -549,20 +555,49 @@ iofog-controller microservice <action> <options>
 | - | - |
 | **-i, --microservice-id string** | Microservice ID |
 
-##### route
+##### route-create
 | | |
 | - | - |
-| **-i, --microservice-id string** | Microservice ID |
-| **-a, --add string[]** | Add new route(s |
-| **-m, --remove string[]** | Delete existing route(s |
+| **-T, --route string** | Microservice route (receiving microservices) |
 
-##### strace
+##### route-remove
+| | |
+| - | - |
+| **-T, --route string** | Microservice route (receiving microservices) |
+
+##### port-mapping-create
 | | |
 | - | - |
 | **-i, --microservice-id string** | Microservice ID |
-| **-e, --enable** | Enable strace option |
-| **-d, --disable** | Disable strace option |
-| **-G, --get string** | Get strace data, formats: string,file |
+| **-P, --mapping string** | Container port mapping |
+
+##### port-mapping-remove
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+| **-b, --internal-port string** | Internal port |
+
+##### port-mapping-list
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+
+##### volume-mapping-create
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+| **-P, --mapping string** | Container port mapping |
+
+##### volume-mapping-remove
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
+| **-a, --mapping-id number** | Volume mapping id |
+
+##### volume-mapping-list
+| | |
+| - | - |
+| **-i, --microservice-id string** | Microservice ID |
 
 ---
 
