@@ -13,20 +13,20 @@ iofog-controller <command> <action> <options>
 ## Commands
 | | |
 | - | - |
-| [start](#start | Start iofog-controller service. |
-| [stop](#stop | Stop iofog-controller service. |
-| [controller](#controller | Display iofog-controller service information. |
-| [help](#help | Display usage information. |
-| [user](#user | User operations. |
-| [config](#config | Set/Display iofog-controller service config. |
-| [connector](#connector | Connector operations. |
-| [tunnel](#tunnel | Tunnel operations. |
-| [node](#node | ioFog node operations. |
-| [catalog](#catalog | Microservices catalog operations. |
-| [flow](#flow | Application flow operations. |
-| [microservice](#microservice | Microservice instance operations. |
-| [registry](#registry | Registries instance operations. |
-| [diagnostics](#diagnostics | Diagnostic instance operations. |
+| [start](#start) | Start iofog-controller service. |
+| [stop](#stop) | Stop iofog-controller service. |
+| [controller](#controller) | Display iofog-controller service information. |
+| [help](#help) | Display usage information. |
+| [user](#user) | User operations. |
+| [config](#config) | Set/Display iofog-controller service config. |
+| [connector](#connector) | Connector operations. |
+| [tunnel](#tunnel) | Tunnel operations. |
+| [node](#node) | ioFog node operations. |
+| [catalog](#catalog) | Microservices catalog operations. |
+| [flow](#flow) | Application flow operations. |
+| [microservice](#microservice) | Microservice instance operations. |
+| [registry](#registry) | Registries instance operations. |
+| [diagnostics](#diagnostics) | Diagnostic instance operations. |
 
 ---
 
