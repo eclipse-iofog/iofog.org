@@ -102,26 +102,26 @@ iofog-controller user <action> <options>
 
 ##### update
 
-  -f, --first-name string   User's first name
-  -l, --last-name string    User's last name
-  -e, --email string        User's email address
-  -p, --password string     User's password
+| **-f, --first-name string** | User's first name |
+| **-l, --last-name string** | User's last name |
+| **-e, --email string** | User's email address |
+| **-p, --password string** | User's password |
 
 ##### remove
 
-  -e, --email string   User's email address
+| **-e, --email string** | User's email address |
 
 ##### generate-token
 
-  -e, --email string   User's email address
+| **-e, --email string** | User's email address |
 
 ##### activate
 
-  -e, --email string   User's email address
+| **-e, --email string** | User's email address |
 
 ##### suspend
 
-  -e, --email string   User's email address
+| **-e, --email string** | User's email address |
 
 ---
 
