@@ -612,6 +612,7 @@ iofog-controller registry <action> <options>
 | | |
 | - | - |
 | **add** | Add a new Registry. |
+| **update** | Update a Registry. |
 | **remove** | Delete a Registry. |
 | **list** | List all Registries. |
 
@@ -624,8 +625,21 @@ iofog-controller registry <action> <options>
 | **-r, --private** | Set registry as private |
 | **-l, --username string** | Registry's user name |
 | **-p, --password string** | Password |
+| **-c, --requires-certificate** | Requires certificate |
+| **-C, --certificate string** | Certificate |
 | **-e, --email string** | Email address |
-| **-i, --user-id number** | User's id |
+
+##### update
+| | |
+| - | - |
+| **-u, --uri string** | Registry URI |
+| **-b, --public** | Set registry as public |
+| **-r, --private** | Set registry as private |
+| **-l, --username string** | Registry's user name |
+| **-p, --password string** | Password |
+| **-c, --requires-certificate** | Requires certificate |
+| **-C, --certificate string** | Certificate |
+| **-e, --email string** | Email address |
 
 ##### remove
 | | |
