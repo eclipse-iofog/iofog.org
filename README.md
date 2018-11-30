@@ -2,7 +2,16 @@
 
 ## Setup
 ```sh
+# Important to recursively clone submodules!
+git clone --recurse-submodules git@github.com:ioFog/iofog.org.git
+cd iofog.org
 npm install
+```
+
+When you need to update the submodules, you can use
+
+```sh
+git submodule update --init --recursive
 ```
 
 ## Local development
