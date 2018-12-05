@@ -20,7 +20,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-lodash",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -31,15 +30,9 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "documentation",
-        path: `${__dirname}/content/documentation`
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "releases",
-        path: `${__dirname}/content/releases`
+        name: "content",
+        path: `${__dirname}/content`,
+        ignore: ["**/_third_party/*", `${__dirname}/content/docs/next`]
       }
     },
     {
@@ -87,6 +80,7 @@ module.exports = {
           },
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-autolink-headers",
+          "gatsby-remark-copy-linked-files"
         ]
       }
     },

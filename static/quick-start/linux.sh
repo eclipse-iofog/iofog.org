@@ -327,7 +327,7 @@ do_install() {
 		installer script.
 		Please visit the following URL for more detailed installation instructions:
 
-		https://iofog.org/documentation/1.0.0/tutorial-introduction
+		https://iofog.org/docs/tutorial/introduction.html
 
 		EOF
 		exit 1

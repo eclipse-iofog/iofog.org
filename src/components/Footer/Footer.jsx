@@ -27,7 +27,7 @@ class Footer extends Component {
                 </div>
                 <div className="col-12 col-md-3 footer__links">
                   <div><a href="https://www.eclipse.org/legal/">Legal</a></div>
-                  <div><Link to="/documentation/1.0.0/guidelines">Community guidelines</Link></div>
+                  <div><Link to="/docs/contributing/guidelines.html">Community guidelines</Link></div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
                   <h4>Sponsored by</h4>

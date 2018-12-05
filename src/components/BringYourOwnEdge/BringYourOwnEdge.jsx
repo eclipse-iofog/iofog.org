@@ -22,8 +22,7 @@ class BringYourOwnEdge extends Component {
                   <p><span className="code__noselect">$ </span>curl -sSf https://iofog.org/quick-start/linux.sh | sh</p>
                   <p><span className="code__noselect">$ </span>docker-compose up</p>
                 </div>
-
-                <Link to="/documentation/1.0.0/quick-start">
+                <Link to="/docs/getting-started/quick-start.html">
                   <span>View the Quick Start Guide</span>
                   <MdArrowForward />
                 </Link>

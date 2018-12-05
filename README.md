@@ -2,16 +2,7 @@
 
 ## Setup
 ```sh
-# Important to recursively clone submodules!
-git clone --recurse-submodules git@github.com:ioFog/iofog.org.git
-cd iofog.org
 npm install
-```
-
-When you need to update the submodules, you can use
-
-```sh
-git submodule update --init --recursive
 ```
 
 ## Local development
@@ -21,9 +12,20 @@ npm start
 # http://localhost:8000/
 ```
 
-## Publish (maintainers only)
+## Publish updates to GitHub Pages (maintainers only)
+Builds the Gatsby project and pushes it to GitHub Pages. Should only be used when updating the existing versions of the docs, not when releasing a new version.
+
 ```sh
-npm run build:gh
+npm run deploy:gh
+```
+
+## Cut a new major/minor version and publish (maintainers only)
+Will ask you for the new version number of ioFog and then handle everything to bump it, including coping content/docs/next to a new directory with that number, and then doing a build/deploy to GitHub Pages.
+
+Use this when a new release of major or minor ioFog happens.
+
+```sh
+npm run bump-version
 ```
 
 ## Serving static files

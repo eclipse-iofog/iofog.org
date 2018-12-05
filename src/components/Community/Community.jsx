@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'gatsby';
 import './Community.scss';
 
 // import imgGallery3 from '../../../static/images/img-gallery-03.png';
@@ -8,7 +7,7 @@ import discourseLogo from '../../../static/images/logos/discourse.svg';
 
 class Community extends Component {
   render() {
-    function textTruncate(str, length, ending) {
+    /* function textTruncate(str, length, ending) {
       const textLength = length || 100;
       const textEnding = ending || '...';
 
@@ -17,7 +16,7 @@ class Community extends Component {
       }
 
       return str;
-    };
+    }; */
 
     return (
       <div className="container entry">

@@ -6,77 +6,23 @@ import siteLogo from "../../../static/images/logos/iofog.png";
 
 class SEO extends Component {
   render() {
-    const { postNode, postPath, postSEO } = this.props;
+    const { title, postNode, postPath } = this.props;
     const siteUrl = typeof window !== "undefined" ? window.location.origin : '';
-    let title;
-    let description;
-    let image;
-    let postURL;
+    const url = config.siteUrl + postPath;
 
-    if (postSEO) {
-      const postMeta = postNode.frontmatter;
-      ({ title } = postMeta);
-      description = postMeta.description
-        ? postMeta.description
-        : postNode.excerpt;
-      image = postMeta.cover || siteLogo;
-
-      postURL = urljoin(siteUrl, postPath);
-    } else {
-      title = config.siteTitle;
-      description = config.siteDescription;
-      image = siteLogo;
-    }
-
-    image = urljoin(siteUrl, image);
-
-    const blogURL = siteUrl;
     const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        url: blogURL,
+        url,
         name: title,
         alternateName: config.siteTitleAlt ? config.siteTitleAlt : ""
       }
     ];
-    if (postSEO) {
-      schemaOrgJSONLD.push(
-        {
-          "@context": "http://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              item: {
-                "@id": postURL,
-                name: title,
-                image
-              }
-            }
-          ]
-        },
-        {
-          "@context": "http://schema.org",
-          "@type": "BlogPosting",
-          url: blogURL,
-          name: title,
-          alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
-          headline: title,
-          image: {
-            "@type": "ImageObject",
-            url: image
-          },
-          description
-        }
-      );
-    }
     return (
       <Helmet>
         {/* General tags */}
-        <meta name="description" content={description} />
-        <meta name="image" content={image} />
+        <meta name="image" content={siteLogo} />
 
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -84,11 +30,9 @@ class SEO extends Component {
         </script>
 
         {/* OpenGraph tags */}
-        <meta property="og:url" content={postSEO ? postURL : blogURL} />
-        {postSEO ? <meta property="og:type" content="article" /> : null}
+        <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content={siteLogo} />
         <meta
           property="fb:app_id"
           content={config.siteFBAppID ? config.siteFBAppID : ""}
@@ -97,8 +41,7 @@ class SEO extends Component {
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
+        <meta name="twitter:image" content={siteLogo} />
       </Helmet>
     );
   }
