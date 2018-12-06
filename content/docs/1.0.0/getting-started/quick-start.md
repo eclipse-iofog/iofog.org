@@ -6,12 +6,12 @@ In this Quick Start guide we'll download a simple ioFog setup <b>on your local m
   <h3><img src="/images/icos/ico-note.svg" alt=""> Want to setup for production?</h3>
   <p>This Quick Start guide is intended to get you up and running as quickly as possible, running everything on your local machine.</p>
   <p>To setup your production environment, you'll likely want to instead:
-    <ul>
+  </p>
+  <ul>
       <li><a href="setup-your-controllers">Setup your Controller</a></li>
       <li><a href="setup-your-connectors">Setup your Connector</a></li>
       <li><a href="setup-your-agents">Setup the Agent</a> on each of your edge nodes</li>
     </ul>
-  </p>
 </aside>
 
 #### Minimum Requirements
