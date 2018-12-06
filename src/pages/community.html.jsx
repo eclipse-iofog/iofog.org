@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Layout from '../layout';
 import config from '../../data/SiteConfig';
 
-import Community from "../components/Community/Community";
+import Community from '../components/Community/Community';
 
 class CommunityPage extends Component {
   render() {

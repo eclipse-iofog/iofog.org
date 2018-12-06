@@ -6,7 +6,7 @@ import config from '../../../data/SiteConfig';
 
 import logoEdgeworx from '../../../static/images/logos/edgeworx.svg';
 import logoEclipse from '../../../static/images/logos/eclipse.svg';
-import siteLogo from "../../../static/images/logos/iofog.svg";
+import siteLogo from '../../../static/images/logos/iofog.svg';
 
 class Footer extends Component {
   render() {
@@ -22,26 +22,52 @@ class Footer extends Component {
                   <Link to="/">
                     <img srcSet={siteLogo} alt="ioFog" />
                   </Link>
-                  <p className="description">ioFog is free, open source, and always will be.</p>
-                  <p className="footer__copyright d-none d-md-block">{copyright}</p>
+                  <p className="description">
+                    ioFog is free, open source, and always will be.
+                  </p>
+                  <p className="footer__copyright d-none d-md-block">
+                    {copyright}
+                  </p>
                 </div>
                 <div className="col-12 col-md-3 footer__links">
-                  <div><a href="https://www.eclipse.org/legal/">Legal</a></div>
-                  <div><Link to="/docs/contributing/guidelines.html">Community guidelines</Link></div>
+                  <div>
+                    <a href="https://www.eclipse.org/legal/">Legal</a>
+                  </div>
+                  <div>
+                    <Link to="/docs/contributing/guidelines.html">
+                      Community guidelines
+                    </Link>
+                  </div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
                   <h4>Sponsored by</h4>
                   <div className="item">
-                    <a href="http://edgeworx.io/"><img srcSet={logoEdgeworx} alt="Edgeworx" /></a>
+                    <a href="http://edgeworx.io/">
+                      <img srcSet={logoEdgeworx} alt="Edgeworx" />
+                    </a>
                   </div>
                   <div className="item">
-                    <a href="https://projects.eclipse.org/proposals/iofog"><img srcSet={logoEclipse} alt="Eclipse Foundation" /></a>
+                    <a href="https://projects.eclipse.org/proposals/iofog">
+                      <img srcSet={logoEclipse} alt="Eclipse Foundation" />
+                    </a>
                   </div>
                 </div>
                 <div className="col-md-2 footer__follow">
                   <h4>Follow us</h4>
-                  <a href={config.userLinks.github} target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-                  <a href={config.userLinks.twitter} target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+                  <a
+                    href={config.userLinks.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub />
+                  </a>
+                  <a
+                    href={config.userLinks.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaTwitter />
+                  </a>
                 </div>
                 <div className="col-12 d-md-none">
                   <p className="footer__copyright">{copyright}</p>

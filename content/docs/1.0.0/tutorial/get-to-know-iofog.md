@@ -1,7 +1,9 @@
 # Get To Know ioFog
+
 In this step of the tutorial we'll better familiarize ourselves with the ioFog environment [we just set up](introduction.html) in the previous step.
 
 ## Docker Environment
+
 To verify everything is up and working correctly, run `docker ps`:
 
 ```sh
@@ -25,6 +27,7 @@ For example, there's a microservice running an instance of [Freeboard](https://g
 The Freeboard microservice doesn't know it's running locally, so it could just as well be running on real edge node hardware!
 
 ## Shell Into Your Containers
+
 Our tutorial environment has four containers, the most important are: iofog-agent-1, iofog-agent-2, iofog-controller, and iofog-connector. As their names imply, they contain two [Agents](../agents/overview.html), a [Controller](../controllers/overview.html), and a [Connector](../connectors/overview.html).
 
 You can think of each of these containers as if they were separate devices. In production, your Controller is most often running on a cloud server and your Agents are each running on individual edge hardware nodes in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away, and the Connector can broker communication between any microservices you run.
@@ -32,6 +35,7 @@ You can think of each of these containers as if they were separate devices. In p
 To create a shell (bash) environment into one of your containers you can use the [`docker exec -ti`](https://docs.docker.com/engine/reference/commandline/exec/) command.
 
 #### Agent's Containers
+
 Let's start a shell into one of the containers that is running one the two Agents.
 
 ```sh
@@ -86,7 +90,7 @@ When you're ready to leave the current container, simply use `exit`.
 
 ```sh
 exit
-````
+```
 
 This tutorial has another Agent too, `iofog-agent-2`, you might check it out as well!
 
@@ -96,6 +100,7 @@ This tutorial has another Agent too, `iofog-agent-2`, you might check it out as 
 </aside>
 
 #### Controller's Container
+
 After we've exited from our Agent's containers, let's start a shell into the Controller's container:
 
 ```sh
@@ -113,6 +118,7 @@ This should give you a JSON response containing a list of edge nodes already reg
 When you want to exit that session, you can use the `exit` command again.
 
 ## Manage Your Microservices
+
 Now that we know our way around a bit, let's learn how to manage and launch microservices!
 
 [Continue To Next Step](manage-your-microservices.html).

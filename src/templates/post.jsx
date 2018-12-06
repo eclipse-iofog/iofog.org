@@ -7,7 +7,7 @@ import config from '../../data/SiteConfig';
 import './b16-tomorrow-dark.css';
 import './post.scss';
 import DocsSidebar from '../components/DocsSidebar/DocsSidebar';
-import Edgeworx from "../components/Egdeworx/Edgeworx";
+import Edgeworx from '../components/Egdeworx/Edgeworx';
 
 export default class PostTemplate extends React.Component {
   findTitle(menus, activePath) {
@@ -32,13 +32,11 @@ export default class PostTemplate extends React.Component {
     const { pageContext, data } = this.props;
     const { slug: activePath } = pageContext;
     const postNode = data.markdownRemark;
-    const versions = data.allConfigJson.edges
-      .slice()
-      .sort((a, b) => {
-        return b.node.version.localeCompare(a.node.version);
-      });
+    const versions = data.allConfigJson.edges.slice().sort((a, b) => {
+      return b.node.version.localeCompare(a.node.version);
+    });
     const activeVersion = versions.find(({ node: { fields } }) => {
-      return activePath.startsWith(fields.path)
+      return activePath.startsWith(fields.path);
     });
 
     const title = this.findTitle(activeVersion.node.menus, activePath);

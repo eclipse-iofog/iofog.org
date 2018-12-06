@@ -19,27 +19,27 @@ $ iofog-agent config defaults
 
 ##### Arguments
 
-|     |  |
-| --- | -- |
-| `defaults`                 | Reset configuration to default values |
-| `-d <#GB Limit>`           | Set the limit, in GiB, of disk space that the software is allowed to use |
-| `-dl `                     | Set the directory to use for disk storage |
-| `-m <#MB Limit`            | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages |
-| `-p <#cpu % Limit>`        | Set the limit, in percentage, of CPU time that the software is allowed to use |
-| `-a <uri>`                 | Set the uri of the fog controller to which this software connects |
-| `-ac <filepath>`           | Set the file path of the SSL/TLS certificate for validating the fog controller identity |
-| `-c <uri>`                 | Set the UNIX socket or network address that the Docker daemon is using |
-| `-n <network adapter>`     |    Set the name of the network adapter that holds the correct IP address of this machine |
-| `-l <#MB Limit>`           | Set the limit, in MiB, of disk space that the log files can consume |
-| `-ld <dir>`                | Set the directory to use for log file storage |
-| `-lc <#log files>`         | Set the number of log files to evenly split the log storage limit |
-| `-sf <#seconds>`           | Set the status update frequency |
-| `-cf <#seconds>`           | Set the get changes frequency |
-| `-df <#seconds>`           | Set the post diagnostics frequency |
-| `-sd <#seconds>`           | Set the scan devices frequency |
-| `-idc <on/off>`            | Set the mode on which any not registered docker container will be shut down |
+|                            |                                                                                                                                                                            |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `defaults`                 | Reset configuration to default values                                                                                                                                      |
+| `-d <#GB Limit>`           | Set the limit, in GiB, of disk space that the software is allowed to use                                                                                                   |
+| `-dl`                      | Set the directory to use for disk storage                                                                                                                                  |
+| `-m <#MB Limit`            | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages                                                                                      |
+| `-p <#cpu % Limit>`        | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                              |
+| `-a <uri>`                 | Set the uri of the fog controller to which this software connects                                                                                                          |
+| `-ac <filepath>`           | Set the file path of the SSL/TLS certificate for validating the fog controller identity                                                                                    |
+| `-c <uri>`                 | Set the UNIX socket or network address that the Docker daemon is using                                                                                                     |
+| `-n <network adapter>`     | Set the name of the network adapter that holds the correct IP address of this machine                                                                                      |
+| `-l <#MB Limit>`           | Set the limit, in MiB, of disk space that the log files can consume                                                                                                        |
+| `-ld <dir>`                | Set the directory to use for log file storage                                                                                                                              |
+| `-lc <#log files>`         | Set the number of log files to evenly split the log storage limit                                                                                                          |
+| `-sf <#seconds>`           | Set the status update frequency                                                                                                                                            |
+| `-cf <#seconds>`           | Set the get changes frequency                                                                                                                                              |
+| `-df <#seconds>`           | Set the post diagnostics frequency                                                                                                                                         |
+| `-sd <#seconds>`           | Set the scan devices frequency                                                                                                                                             |
+| `-idc <on/off>`            | Set the mode on which any not registered docker container will be shut down                                                                                                |
 | `-gps <auto/off/#GPS>`     | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |
-| `-ft <auto/intel_amd/arm>` | Set fog type. Use auto to detect fog type by system commands, use arm or intel_amd to set it manually |
+| `-ft <auto/intel_amd/arm>` | Set fog type. Use auto to detect fog type by system commands, use arm or intel_amd to set it manually                                                                      |
 
 <details class="agent-command">
   <summary><h3>info</h3></summary>
@@ -54,7 +54,6 @@ $ iofog-agent config defaults
 </div>
 </details>
 
-
 <details class="agent-command">
   <summary><h3>provision</h3></summary>
 <div markdown="1">
@@ -68,11 +67,10 @@ $ iofog-agent config defaults
 
 ##### Arguments
 
-| `defaults`                 | Reset configuration to default values
+| `defaults` | Reset configuration to default values
 
 </div>
 </details>
-
 
 <details class="agent-command">
   <summary><h3>deprovision</h3></summary>
@@ -87,11 +85,10 @@ $ iofog-agent config defaults
 
 ##### Arguments
 
-| `defaults`                 | Reset configuration to default values
+| `defaults` | Reset configuration to default values
 
 </div>
 </details>
-
 
 <details class="agent-command">
   <summary><h3>status</h3></summary>
@@ -106,11 +103,10 @@ $ iofog-agent config defaults
 
 ##### Arguments
 
-| `defaults`                 | Reset configuration to default values
+| `defaults` | Reset configuration to default values
 
 </div>
 </details>
-
 
 <details class="agent-command">
   <summary><h3>version</h3></summary>
@@ -125,11 +121,10 @@ $ iofog-agent config defaults
 
 ##### Arguments
 
-| `defaults`                 | Reset configuration to default values
+| `defaults` | Reset configuration to default values
 
 </div>
 </details>
-
 
 <details class="agent-command">
   <summary><h3>help</h3></summary>
@@ -144,11 +139,10 @@ $ iofog-agent config defaults
 
 ##### Arguments
 
-| `defaults`                 | Reset configuration to default values
+| `defaults` | Reset configuration to default values
 
 </div>
 </details>
-
 
 <!--
 ```

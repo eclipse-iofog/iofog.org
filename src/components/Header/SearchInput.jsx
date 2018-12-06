@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import searchIcon from '../../../static/images/icos/ico-search.svg';
 
 export default class SearchInput extends Component {

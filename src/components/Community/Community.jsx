@@ -24,12 +24,20 @@ class Community extends Component {
           <section className="col-md-12">
             <div className="entry__header">
               <h2>ioFog Community</h2>
-              <p>Connect with other ioFog enthusiasts to discuss features, architecture, best practices, and help one another.</p>
+              <p>
+                Connect with other ioFog enthusiasts to discuss features,
+                architecture, best practices, and help one another.
+              </p>
               <div style={{ padding: '60px 0' }}>
-                <a href="https://discuss.iofog.org/" className="discourse-button">
+                <a
+                  href="https://discuss.iofog.org/"
+                  className="discourse-button"
+                >
                   <img srcSet={discourseLogo} alt="Discourse" />
-                  </a>
-                  <a href="https://discuss.iofog.org/" className="button">Visit the ioFog Discussion Forum</a>
+                </a>
+                <a href="https://discuss.iofog.org/" className="button">
+                  Visit the ioFog Discussion Forum
+                </a>
               </div>
             </div>
 

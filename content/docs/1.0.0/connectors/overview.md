@@ -1,4 +1,5 @@
 # Connectors
+
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Need to setup your Connector?</h3>
   <p>Instructions on how to install the Connector <a href="../getting-started/setup-your-connectors.html">can be found here</a>.</p>

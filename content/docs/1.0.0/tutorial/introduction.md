@@ -1,4 +1,5 @@
 # Introduction
+
 In this tutorial, we'll cover how to create, deploy, and manage your first microservices using ioFog.
 
 <aside class="notifications note">
@@ -7,19 +8,24 @@ In this tutorial, we'll cover how to create, deploy, and manage your first micro
 </aside>
 
 ### Minimum Requirements
+
 ioFog requires a Linux environment, however this Tutorial has everything already setup inside a Linux [Docker container](https://docs.docker.com/get-started/) that can run on Mac or Windows as well.
 
-  - **Linux** v3.10+ (Ubuntu, CentOS, Raspbian, etc), **macOS** 10.12+, or **Windows** 7+
-  - **Docker** 1.10+
+- **Linux** v3.10+ (Ubuntu, CentOS, Raspbian, etc), **macOS** 10.12+, or **Windows** 7+
+- **Docker** 1.10+
 
 ## Setup
-  - [Linux](#linux)
-  - [macOS](#macos)
-  - [Windows](#windows)
+
+- [Linux](#linux)
+- [macOS](#macos)
+- [Windows](#windows)
 
 ### Linux
+
 ---
+
 #### Install Docker
+
 You can install the latest version of Docker with following command:
 
 ```sh
@@ -41,6 +47,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 #### Download Tutorial Project
+
 Finally we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
 ```sh
@@ -52,8 +59,11 @@ tar -zxvf tutorial.tar.gz --strip-components=1
 [Once you're done, you can skip straight to the next section](#bootstrap-the-project)
 
 ### macOS
+
 ---
+
 #### Install Docker
+
 Docker for Mac can be installed from the Docker Store
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
@@ -64,6 +74,7 @@ Docker for Mac can be installed from the Docker Store
 </aside>
 
 #### Download Tutorial Project
+
 Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
 ```sh
@@ -79,8 +90,11 @@ or alternatively you can manually download it:
 [Once you're done, you can skip straight to the next section](#bootstrap-the-project)
 
 ### Windows
+
 ---
+
 #### Install Docker
+
 Docker for Windows can be installed from the Docker Store:
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-windows/install/)
@@ -91,6 +105,7 @@ Docker for Windows can be installed from the Docker Store:
 </aside>
 
 #### Download Tutorial Project
+
 Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
 [Download Tutorial project](https://github.com/ioFog/demo/archive/demo-environment.zip)
@@ -98,6 +113,7 @@ Next we need to download the Tutorial project, which will use Docker to run Linu
 Unzip the contents into your preferred working directory.
 
 ## Bootstrap the Project
+
 Using a command prompt (or PowerShell console) navigate to the project directory we just downloaded and run:
 
 ```sh
@@ -115,6 +131,7 @@ docker-compose down
 ```
 
 ## Get To Know ioFog
+
 With a working ioFog environment set up, we're now ready to [get to know ioFog](get-to-know-iofog.html).
 
 [Continue To Next Step](get-to-know-iofog.html).

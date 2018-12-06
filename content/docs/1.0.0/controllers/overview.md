@@ -1,4 +1,5 @@
 # Controllers
+
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Need to setup your Controller?</h3>
   <p>Instructions on how to install the Controller daemon <a href="../getting-started/setup-your-controllers.html">can be found here</a>.</p>

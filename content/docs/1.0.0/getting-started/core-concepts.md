@@ -8,14 +8,17 @@
 </aside>
 
 # Core Concepts
+
 Imagine a world where you can choose self-contained pieces of code (called microservices) and make them run anywhere you want at the push of a button. Where you can remotely control the code that is running on twenty iPhones in workers' pockets, thirty servers running in a factory building, and ten computers running in the trucks that ship your products. And you can do it all with the same technology. Where you move the processing close to where the data is generated, and where you can finally separate streams of information from the end applications that use them. This world will be brought to life by **Edge Computing** (also known as Fog Computing) with ioFog.
 
 ## Edge Computing
+
 Edge computing extends cloud computing to the edge of an enterprise's network to perform computation, storage, and networking services locally. Operated directly on (or near) edge devices instead of relying exclusively on data centers. We call this an **Edge Compute Network** or ECN. This provides resiliency, fault tolerance, security, and low-latency connections between edge devices, providing the scaling properties necessary for large deployments, such as with Internet of Things (IoT).
 
 The term Edge Computing is sometimes known as Fog Computing or simply fogging. Cisco Systems, ARM Holdings, Dell, Intel, Microsoft, and Princeton University, founded the [OpenFog Consortium](https://www.openfogconsortium.org/), to promote interests and development in fog computing.
 
 ## Use Cases of Edge Computing
+
 An example use case for edge computing would be a smart electrical grid. These days electrical grids are dynamic, responding to increased electrical consumption by lowering production when it is not needed. To achieve ideal efficiency, a smart grid would rely on real-time data of both production and consumption of electricity.
 
 Edge computing provides the means to achieve this at such a large scale. Instead of every household meter sending usage data to a centralized data center for processing, the devices would collaborate, performing neighborhood processing and aggregation locally, sending only results to the cloud.
@@ -25,6 +28,7 @@ Consumer IoT devices similarly benefit from edge computing. For example, with th
 The manufacturing and industrial sectors also take advantage of edge computing, sometimes dubbed the IIoT (Industrial Internet of Things).
 
 ## Microservices
+
 Microservices are a specialization of a [service-oriented architecture (SOA)](https://wikipedia.org/wiki/Service-oriented_architecture), flexible, independently deployable software.
 
 Microservices are an architectural style that structures an application as a collection of loosely coupled services, which implement business capabilities. The microservice architecture enables the continuous delivery and deployment of large, complex applications by naturally dividing it into smaller pieces. This is in contrast to the more traditional approach of a monolithic architecture.
@@ -32,6 +36,7 @@ Microservices are an architectural style that structures an application as a col
 Popularized by companies like Amazon, Netflix, and Twitter, the philosophy has now become mainstream and adopted by countless organizations.
 
 ## Introducing ioFog
+
 ioFog is an edge computing platform for deploying, running, and networking distributed microservices at the edge.
 
 ioFog aims to make developing edge software just like developing for the cloud. Distributed Internet of Things (IoT) applications let you put your code at the edge, bring legacy devices into the IoT, and keep data anywhere you want.

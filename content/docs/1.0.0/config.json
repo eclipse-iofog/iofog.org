@@ -1,132 +1,134 @@
-[{
-  "version": "1.0.0",
-  "menus": [
-    {
-      "title": "Getting Started",
-      "subMenus": [
-        {
-          "title": "Core Concepts",
-          "entry": "./getting-started/core-concepts.md"
-        },
-        {
-          "title": "Quick Start",
-          "entry": "./getting-started/quick-start.md"
-        },
-        {
-          "title": "Setup Your Controllers",
-          "entry": "./getting-started/setup-your-controllers.md"
-        },
-        {
-          "title": "Setup Your Connectors",
-          "entry": "./getting-started/setup-your-connectors.md"
-        },
-        {
-          "title": "Setup Your Agents",
-          "entry": "./getting-started/setup-your-agents.md"
-        }
-      ]
-    },
-    {
-      "title": "Tutorial",
-      "subMenus": [
-        {
-          "title": "Introduction",
-          "entry": "./tutorial/introduction.md"
-        },
-        {
-          "title": "Get To Know ioFog",
-          "entry": "./tutorial/get-to-know-iofog.md"
-        },
-        {
-          "title": "Manage Your Microservices",
-          "entry": "./tutorial/manage-your-microservices.md"
-        },
-        {
-          "title": "Create Your First Microservice - JavaScript",
-          "entry": "./tutorial/create-your-first-microservice-javascript.md"
-        },
-        {
-          "title": "Deploy Your Microservice",
-          "entry": "./tutorial/deploy-your-microservice.md"
-        }
-      ]
-    },
-    {
-      "title": "Writing Microservices",
-      "subMenus": [
-        {
-          "title": "Overview",
-          "entry": "./writing-microservices/overview.md"
-        },
-        {
-          "title": "SDK",
-          "entry": "./writing-microservices/sdk.md"
-        },
-        {
-          "title": "Debugging",
-          "entry": "./writing-microservices/debugging.md"
-        }
-      ]
-    },
-    {
-      "title": "Controllers",
-      "subMenus": [
-        {
-          "title": "Overview",
-          "entry": "./controllers/overview.md"
-        },
-        {
-          "title": "CLI Usage",
-          "entry": "./controllers/cli-usage.md"
-        },
-        {
-          "title": "REST API Reference",
-          "entry": "./controllers/rest-api.md"
-        }
-      ]
-    },
-    {
-      "title": "Connectors",
-      "subMenus": [
-        {
-          "title": "Overview",
-          "entry": "./connectors/overview.md"
-        },
-        {
-          "title": "CLI Usage",
-          "entry": "./connectors/cli-usage.md"
-        }
-      ]
-    },
-    {
-      "title": "Agents",
-      "subMenus": [
-        {
-          "title": "Overview",
-          "entry": "./agents/overview.md"
-        },
-        {
-          "title": "CLI Usage",
-          "entry": "./agents/cli-usage.md"
-        },
-        {
-          "title": "Local API Reference",
-          "entry": "./agents/local-api.md"
-        }
-      ]
-    },
-    {
-      "title": "Contributing",
-      "subMenus": [
-        {
-          "title": "Guidelines",
-          "entry": "./contributing/guidelines.md"
-        },
-        {
-          "title": "Code of Conduct",
-          "entry": "./contributing/code-of-conduct.md"
-        }
-      ]
-    }
-  ]
-}]
+[
+  {
+    "version": "1.0.0",
+    "menus": [
+      {
+        "title": "Getting Started",
+        "subMenus": [
+          {
+            "title": "Core Concepts",
+            "entry": "./getting-started/core-concepts.md"
+          },
+          {
+            "title": "Quick Start",
+            "entry": "./getting-started/quick-start.md"
+          },
+          {
+            "title": "Setup Your Controllers",
+            "entry": "./getting-started/setup-your-controllers.md"
+          },
+          {
+            "title": "Setup Your Connectors",
+            "entry": "./getting-started/setup-your-connectors.md"
+          },
+          {
+            "title": "Setup Your Agents",
+            "entry": "./getting-started/setup-your-agents.md"
+          }
+        ]
+      },
+      {
+        "title": "Tutorial",
+        "subMenus": [
+          {
+            "title": "Introduction",
+            "entry": "./tutorial/introduction.md"
+          },
+          {
+            "title": "Get To Know ioFog",
+            "entry": "./tutorial/get-to-know-iofog.md"
+          },
+          {
+            "title": "Manage Your Microservices",
+            "entry": "./tutorial/manage-your-microservices.md"
+          },
+          {
+            "title": "Create Your First Microservice - JavaScript",
+            "entry": "./tutorial/create-your-first-microservice-javascript.md"
+          },
+          {
+            "title": "Deploy Your Microservice",
+            "entry": "./tutorial/deploy-your-microservice.md"
+          }
+        ]
+      },
+      {
+        "title": "Writing Microservices",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./writing-microservices/overview.md"
+          },
+          {
+            "title": "SDK",
+            "entry": "./writing-microservices/sdk.md"
+          },
+          {
+            "title": "Debugging",
+            "entry": "./writing-microservices/debugging.md"
+          }
+        ]
+      },
+      {
+        "title": "Controllers",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./controllers/overview.md"
+          },
+          {
+            "title": "CLI Usage",
+            "entry": "./controllers/cli-usage.md"
+          },
+          {
+            "title": "REST API Reference",
+            "entry": "./controllers/rest-api.md"
+          }
+        ]
+      },
+      {
+        "title": "Connectors",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./connectors/overview.md"
+          },
+          {
+            "title": "CLI Usage",
+            "entry": "./connectors/cli-usage.md"
+          }
+        ]
+      },
+      {
+        "title": "Agents",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./agents/overview.md"
+          },
+          {
+            "title": "CLI Usage",
+            "entry": "./agents/cli-usage.md"
+          },
+          {
+            "title": "Local API Reference",
+            "entry": "./agents/local-api.md"
+          }
+        ]
+      },
+      {
+        "title": "Contributing",
+        "subMenus": [
+          {
+            "title": "Guidelines",
+            "entry": "./contributing/guidelines.md"
+          },
+          {
+            "title": "Code of Conduct",
+            "entry": "./contributing/code-of-conduct.md"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,4 +1,5 @@
 # Debugging
+
 Because ioFog microservices are just Docker containers with nearly arbitrary code in them, how you'll do most of your debugging should be the same as other traditional development in Docker.
 
 The easiest way to debug your microservice code is going to be running it locally on your development machine, inside Docker. But remote debugging in production is possible as well.

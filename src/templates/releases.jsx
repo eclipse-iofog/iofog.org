@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../layout';
 import SEO from '../components/SEO/SEO';
-import Edgeworx from "../components/Egdeworx/Edgeworx";
+import Edgeworx from '../components/Egdeworx/Edgeworx';
 
 export default class ReleasesTemplate extends React.Component {
   render() {
@@ -23,15 +23,27 @@ export default class ReleasesTemplate extends React.Component {
             <section className="col-md-12">
               <h1>Releases</h1>
               <aside className="notifications note">
-                <h3><img src="/images/icos/ico-note.svg" alt="" /> Want to install or upgrade?</h3>
+                <h3>
+                  <img src="/images/icos/ico-note.svg" alt="" /> Want to install
+                  or upgrade?
+                </h3>
                 <p>
-                  This page contains a list of releases and their changes, but installing or upgrading an ioFog network involves multiple components.
+                  This page contains a list of releases and their changes, but
+                  installing or upgrading an ioFog network involves multiple
+                  components.
                 </p>
                 <p>
-                  See the <a href="/docs/getting-started/setup-your-controllers.html">setup documentation</a> to install or upgrade ioFog.
+                  See the{' '}
+                  <a href="/docs/getting-started/setup-your-controllers.html">
+                    setup documentation
+                  </a>{' '}
+                  to install or upgrade ioFog.
                 </p>
               </aside>
-              <div ref={this.postRef} dangerouslySetInnerHTML={{ __html: postNode.html }} />
+              <div
+                ref={this.postRef}
+                dangerouslySetInnerHTML={{ __html: postNode.html }}
+              />
             </section>
           </section>
         </div>
