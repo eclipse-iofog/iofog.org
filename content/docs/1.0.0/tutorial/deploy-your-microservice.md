@@ -1,7 +1,9 @@
 # Deploy Your Microservice
+
 In this step we'll learn how to deploy our newly created microservice to our ioFog tutorial environment.
 
 ## Register Your Docker Image
+
 With our Docker image from the previous step in hand, it's time to publish it to a [Docker Registry](https://docs.docker.com/registry/).
 
 While you can use a custom registry (or the public [Docker Hub](https://hub.docker.com/)), the Controller also comes with a built-in private registry that represents the local cache on the ioFog edge compute nodes.
@@ -45,6 +47,7 @@ iofog-controller catalog add \
 This command will return a catalog ID that we'll use in the next step.
 
 ## Add Your Microservice
+
 Now that the Docker image containing our microservice code is registered, we can spin up new copies of it also using the Controller.
 
 Instantiating a new microservice is done using the `microservice add` command. We need to provide several options, the most notable being the catalog ID we received in the previous section as well as a node ID—which is the ID of the edge node we want this microservice to run on.
@@ -78,6 +81,7 @@ This command will return the microservice ID, which we'll then use in the next s
 [View all CLI options](../controllers/cli-usage.html#microservice)
 
 ## Setup Our Routes
+
 With the microservice ID from the last step, let's change our routes so that our new microservice is placed between the Sensors and the REST API.
 
 First, let's remove the old route from the Sensors to the REST API. We need to retrieve the microservice IDs for Sensors and the REST API:
@@ -119,6 +123,7 @@ If everything is working correctly, the JSON returned should be our new moving a
 We can also open up the [Freeboard dashboard](http://localhost:10102/?load=dashboard.json) to view the averaged values!
 
 ## Update a Microservice
+
 Once a microservice is up and running you will probably need to modify it later, which we can also do with the Controller.
 
 The `microservice update` command is used to update a particular microservice:
@@ -132,6 +137,7 @@ iofog-controller microservice update \
 [View all CLI options](../controllers/cli-usage.html#microservice)
 
 ## Conclusion
+
 Congratulations! You've now have the fundamentals of ioFog. Once you're feeling more comfortable you can create a blank [Development Environment](../gettings-started/quick-start.html) locally, or start setting up [ioFog in production](../getting-started/setup-your-controllers.html).
 
 <aside class="notifications note">

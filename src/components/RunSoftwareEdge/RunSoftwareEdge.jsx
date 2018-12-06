@@ -14,7 +14,12 @@ class RunSoftwareEdge extends Component {
             <section className="col-12">
               <div className="sections__header">
                 <h4>Run software at the edge.</h4>
-                <p>By installing ioFog to any device (with minimal amount of compute) you create a distributed Edge Compute Network (ECN), enabling you to run any microservice on it dynamically, securely, and remotely.</p>
+                <p>
+                  By installing ioFog to any device (with minimal amount of
+                  compute) you create a distributed Edge Compute Network (ECN),
+                  enabling you to run any microservice on it dynamically,
+                  securely, and remotely.
+                </p>
               </div>
 
               <div className="icons__container row">
@@ -23,7 +28,10 @@ class RunSoftwareEdge extends Component {
                     <img srcSet={icoLightning} alt="" />
                   </div>
                   <h6>Agent</h6>
-                  <p>Runs on each of your edge devices, giving you a microservice platform</p>
+                  <p>
+                    Runs on each of your edge devices, giving you a microservice
+                    platform
+                  </p>
                 </div>
                 <div className="col-md-4">
                   <div className="icon__container">
@@ -37,7 +45,10 @@ class RunSoftwareEdge extends Component {
                     <img srcSet={icoApps} alt="" />
                   </div>
                   <h6>Connector</h6>
-                  <p>Brokers communication between microservices, across complex networks</p>
+                  <p>
+                    Brokers communication between microservices, across complex
+                    networks
+                  </p>
                 </div>
               </div>
             </section>

@@ -1,4 +1,5 @@
 # Agents
+
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Need to setup your Agents?</h3>
   <p>Instructions on how to install the Agent daemon on your fog nodes <a href="../getting-started/setup-your-agents.html">can be found here</a>.</p>

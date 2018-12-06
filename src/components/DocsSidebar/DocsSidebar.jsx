@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Link, navigate } from "gatsby";
-import Dropdown from "react-dropdown";
-import "react-dropdown/style.css";
-import "./DocsSidebar.scss";
+import React, { Component } from 'react';
+import { Link, navigate } from 'gatsby';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+import './DocsSidebar.scss';
 
 const pathForSubMenu = sub => sub.entry.childMarkdownRemark.fields.slug;
 
@@ -17,7 +17,7 @@ class DocsSidebar extends Component {
 
     return (
       <div className="posts-menu">
-        {versions.length > 1 &&
+        {versions.length > 1 && (
           <Dropdown
             options={versions.map(edge => ({
               label: edge.node.version,
@@ -25,7 +25,9 @@ class DocsSidebar extends Component {
             }))}
             onChange={data => {
               // We want version switching to keep the current file
-              const part = activePath.slice(activeVersion.node.fields.path.length);
+              const part = activePath.slice(
+                activeVersion.node.fields.path.length
+              );
               const path = data.value + part;
               navigate(path);
             }}
@@ -35,42 +37,41 @@ class DocsSidebar extends Component {
             }}
             placeholder="Select an option"
           />
-        }
+        )}
 
         <div className="menu-body">
           {menus.map(menu => {
             const { subMenus } = menu;
             const indexPath = pathForSubMenu(subMenus[0]);
-            const classNames = ["item-container"];
+            const classNames = ['item-container'];
             const menuIsActive = subMenus.some(sub => {
               return activePath === pathForSubMenu(sub);
             });
 
             if (menuIsActive) {
-              classNames.push("active");
+              classNames.push('active');
             }
 
             if (menuIsActive || openMenu === indexPath) {
-              classNames.push("open");
+              classNames.push('open');
             }
 
             return (
-              <div
-                key={menu.title}
-                className={classNames.join(" ")}
-              >
-                <button onClick={() => {
-                  if (openMenu === indexPath) {
-                    this.setState({ openMenu: null });
-                  } else {
-                    this.setState({ openMenu: indexPath });
-                  }
-                }}>
+              <div key={menu.title} className={classNames.join(' ')}>
+                <button
+                  onClick={() => {
+                    if (openMenu === indexPath) {
+                      this.setState({ openMenu: null });
+                    } else {
+                      this.setState({ openMenu: indexPath });
+                    }
+                  }}
+                >
                   {menu.title}
                 </button>
-                {menu.subMenus &&
+                {menu.subMenus && (
                   <div className="sub-menu active">
-                    {menu.subMenus.map((item, i) =>
+                    {menu.subMenus.map((item, i) => (
                       <Link
                         activeClassName="active"
                         to={pathForSubMenu(item)}
@@ -78,9 +79,9 @@ class DocsSidebar extends Component {
                       >
                         {item.title}
                       </Link>
-                    )}
+                    ))}
                   </div>
-                }
+                )}
               </div>
             );
           })}

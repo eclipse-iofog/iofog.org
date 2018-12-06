@@ -1,6 +1,7 @@
 # Agent Local API Reference
-  - [ioMessages Format](#iomessages)
-  - [API Endpoints](#api-endpoints)
+
+- [ioMessages Format](#iomessages)
+- [API Endpoints](#api-endpoints)
 
 The Agent daemon supports a local API with REST-like endpoints as well as WebSockets.
 
@@ -16,6 +17,7 @@ If a message InfoFormat is actually base64, then it will be encoded again during
 All messages sent and received using the Local API must be in the standard ioMessage format, which can be found in the ioMessage Specification below.
 
 ## ioMessages
+
 The purpose of a message is move information along a path. No understanding of the contents of the messages should be required in order to help it to its correct destination. The header fields of each message, however, are intended to be read and understood by functional pieces of the iofog system. Because the data contents of the message format are open, that means each recipient will be required to determine for itself if it understands how to read the data. Recipients can check the information type and information format headers to determine this.
 
 The ioMessage versions are integers, not decimals. This is because it is harder to parse a raw binary message with decimals across different computing platforms. So... ioMessage versions will be things like 4, 5, and 12. The version can be used to determine what fields will be present in the message and perhaps how the data will be arranged in those fields.
@@ -29,213 +31,251 @@ A listing for JSON, XML, and raw bytes is included in this document after the ma
 ### Fields of an ioMessage
 
 #### ID
-| | |
-|---|---|
-|*Data Type*|Text|
-|*Key*|ID|
-|*Required*|Yes|
-|*Description*|A 256-bit universally unique identifier per message allows for portability and globe-wide verification of events. The ID string is formatted in base58 for readability, transmission safety between systems, and compactness.|
+
+|               |                                                                                                                                                                                                                               |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                                                                                                                                          |
+| _Key_         | ID                                                                                                                                                                                                                            |
+| _Required_    | Yes                                                                                                                                                                                                                           |
+| _Description_ | A 256-bit universally unique identifier per message allows for portability and globe-wide verification of events. The ID string is formatted in base58 for readability, transmission safety between systems, and compactness. |
 
 #### Tag
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|Tag|
-|*Required*|No|
-|*Description*|This is an open field for associating a message with a particular device or any other interesting thing. It should be queryable later, making this a high-value field for some applications.|
+
+|               |                                                                                                                                                                                              |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                                                                                                         |
+| _Key_         | Tag                                                                                                                                                                                          |
+| _Required_    | No                                                                                                                                                                                           |
+| _Description_ | This is an open field for associating a message with a particular device or any other interesting thing. It should be queryable later, making this a high-value field for some applications. |
+
 </pre>
 
 #### Message Group ID
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|GroupID|
-|*Required*|No|
-|*Description*|This is how messages can be allocated to a sequence or stream.|
+
+|               |                                                                |
+| ------------- | -------------------------------------------------------------- |
+| _Data Type_   | Text                                                           |
+| _Key_         | GroupID                                                        |
+| _Required_    | No                                                             |
+| _Description_ | This is how messages can be allocated to a sequence or stream. |
+
 </pre>
 
 #### Sequence Number
-|   |   |
-|---|---|
-|*Data Type*|Integer|
-|*Key*|SequenceNumber|
-|*Required*|No|
-|*Description*|What number in the sequence is this current message?|
+
+|               |                                                      |
+| ------------- | ---------------------------------------------------- |
+| _Data Type_   | Integer                                              |
+| _Key_         | SequenceNumber                                       |
+| _Required_    | No                                                   |
+| _Description_ | What number in the sequence is this current message? |
+
 </pre>
 
 #### Sequence Total
-|   |   |
-|---|---|
-|*Data Type*|Integer|
-|*Key*|SequenceTotal|
-|*Required*|No|
-|*Description*|How many total messages are in the sequence? Absence of a total count while sequence numbers and a message group ID are present may be used to indicate a stream with indeterminate length.|
+
+|               |                                                                                                                                                                                             |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Integer                                                                                                                                                                                     |
+| _Key_         | SequenceTotal                                                                                                                                                                               |
+| _Required_    | No                                                                                                                                                                                          |
+| _Description_ | How many total messages are in the sequence? Absence of a total count while sequence numbers and a message group ID are present may be used to indicate a stream with indeterminate length. |
+
 </pre>
 
 #### Priority
-|   |   |
-|---|---|
-|*Data Type*|Integer|
-|*Key*|Priority|
-|*Required*|No|
-|*Description*|The lower the number, the higher the priority. This is a simple quality of service (QoS) indicator. Emergency messages or system error logs might get the highest priority. Self-contained messages (such as a button push or a temperature reading) might get very high priority. Media stream messages (such as one second of audio) might get very low priority ranking in order to allow message slowing or dropping as needed in a busy system.|
+
+|               |                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Integer                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| _Key_         | Priority                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| _Required_    | No                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| _Description_ | The lower the number, the higher the priority. This is a simple quality of service (QoS) indicator. Emergency messages or system error logs might get the highest priority. Self-contained messages (such as a button push or a temperature reading) might get very high priority. Media stream messages (such as one second of audio) might get very low priority ranking in order to allow message slowing or dropping as needed in a busy system. |
+
 </pre>
 
 #### Timestamp
-|   |   |
-|---|---|
-|*Data Type*|Integer|
-|*Key*|Timestamp|
-|*Required*|Yes|
-|*Description*|Universal timecode including milliseconds. Milliseconds can be entered as zeroes if needed.|
+
+|               |                                                                                             |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| _Data Type_   | Integer                                                                                     |
+| _Key_         | Timestamp                                                                                   |
+| _Required_    | Yes                                                                                         |
+| _Description_ | Universal timecode including milliseconds. Milliseconds can be entered as zeroes if needed. |
+
 </pre>
 
 #### Publisher
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|Publisher|
-|*Required*|Yes|
-|*Description*|This is the identifier of the element that is sending the message. It can be used to determine routing or guarantee privacy and security. Because each element is assigned a UUID during configuration, even across ioFog instances no message should be received by an unintended entity.|
+
+|               |                                                                                                                                                                                                                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _Data Type_   | Text                                                                                                                                                                                                                                                                                       |
+| _Key_         | Publisher                                                                                                                                                                                                                                                                                  |
+| _Required_    | Yes                                                                                                                                                                                                                                                                                        |
+| _Description_ | This is the identifier of the element that is sending the message. It can be used to determine routing or guarantee privacy and security. Because each element is assigned a UUID during configuration, even across ioFog instances no message should be received by an unintended entity. |
+
 </pre>
 
 #### Authentication Identifier
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|AuthID|
-|*Required*|No|
-|*Description*|This is an open field to pass along authentication information about the particular authorized entity generating the message, such as an employee ID number or a user ID in the application.|
+
+|               |                                                                                                                                                                                              |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                                                                                                         |
+| _Key_         | AuthID                                                                                                                                                                                       |
+| _Required_    | No                                                                                                                                                                                           |
+| _Description_ | This is an open field to pass along authentication information about the particular authorized entity generating the message, such as an employee ID number or a user ID in the application. |
+
 </pre>
 
 #### Authentication Group
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|AuthGroup|
-|*Required*|No|
-|*Description*|This is an open field to pass authentication group information. This allows pieces of the application to know they are dealing with a message from an authenticated user of a particular type (such as “employee” or “system admin”) without needing to know the actual identification information.|
+
+|               |                                                                                                                                                                                                                                                                                                     |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                                                                                                                                                                                                                |
+| _Key_         | AuthGroup                                                                                                                                                                                                                                                                                           |
+| _Required_    | No                                                                                                                                                                                                                                                                                                  |
+| _Description_ | This is an open field to pass authentication group information. This allows pieces of the application to know they are dealing with a message from an authenticated user of a particular type (such as “employee” or “system admin”) without needing to know the actual identification information. |
+
 </pre>
 
 #### ioMessage Version
-|   |   |
-|---|---|
-|*Data Type*|Integer|
-|*Key*|Version|
-|*Required*|Yes|
-|*Description*|Which version of the ioMessage format does this particular message comply with?|
+
+|               |                                                                                 |
+| ------------- | ------------------------------------------------------------------------------- |
+| _Data Type_   | Integer                                                                         |
+| _Key_         | Version                                                                         |
+| _Required_    | Yes                                                                             |
+| _Description_ | Which version of the ioMessage format does this particular message comply with? |
+
 </pre>
 
 #### Chain Position
-|   |   |
-|---|---|
-|*Data Type*|Integer|
-|*Key*|ChainPosition|
-|*Required*|No|
-|*Description*|When using cryptographic message chaining, this field represents the position in the message chain that this paricular message occupies. It is similar to the "block height" value found in blockchain technology.|
+
+|               |                                                                                                                                                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _Data Type_   | Integer                                                                                                                                                                                                            |
+| _Key_         | ChainPosition                                                                                                                                                                                                      |
+| _Required_    | No                                                                                                                                                                                                                 |
+| _Description_ | When using cryptographic message chaining, this field represents the position in the message chain that this paricular message occupies. It is similar to the "block height" value found in blockchain technology. |
+
 </pre>
 
 #### Hash
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|Hash|
-|*Required*|No|
-|*Description*|When using cryptographic message chaining, a hash of this entire message can be included here.|
+
+|               |                                                                                                |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                           |
+| _Key_         | Hash                                                                                           |
+| _Required_    | No                                                                                             |
+| _Description_ | When using cryptographic message chaining, a hash of this entire message can be included here. |
+
 </pre>
 
 #### Previous Message Hash
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|PreviousHash|
-|*Required*|No|
-|*Description*|When using cryptographic message chaining, the hash value of the previous message is included here. This forms the cryptographic link from the prior message to this one.|
+
+|               |                                                                                                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                                                                                      |
+| _Key_         | PreviousHash                                                                                                                                                              |
+| _Required_    | No                                                                                                                                                                        |
+| _Description_ | When using cryptographic message chaining, the hash value of the previous message is included here. This forms the cryptographic link from the prior message to this one. |
+
 </pre>
 
 #### Nonce
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|Nonce|
-|*Required*|No|
-|*Description*|When using cryptographic message chaining, an open field is needed to achieve the correct hash value. The information in this field will not be meaningful, but will be necessary to produce the final hash of the message.|
+
+|               |                                                                                                                                                                                                                             |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                                                                                                                                        |
+| _Key_         | Nonce                                                                                                                                                                                                                       |
+| _Required_    | No                                                                                                                                                                                                                          |
+| _Description_ | When using cryptographic message chaining, an open field is needed to achieve the correct hash value. The information in this field will not be meaningful, but will be necessary to produce the final hash of the message. |
+
 </pre>
 
 #### Difficulty Target
-|   |   |
-|---|---|
-|*Data Type*|Integer|
-|*Key*|DifficultyTarget|
-|*Required*|No|
-|*Description*|When using cryptographic message chaining, this field represents the hashing workload required to cryptographically seal the chain.|
+
+|               |                                                                                                                                     |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Integer                                                                                                                             |
+| _Key_         | DifficultyTarget                                                                                                                    |
+| _Required_    | No                                                                                                                                  |
+| _Description_ | When using cryptographic message chaining, this field represents the hashing workload required to cryptographically seal the chain. |
+
 </pre>
 
 #### Information Type
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|InfoType|
-|*Required*|Yes|
-|*Description*|This is like a MIME type. It describes what type of information is contained in the content data field.|
+
+|               |                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                    |
+| _Key_         | InfoType                                                                                                |
+| _Required_    | Yes                                                                                                     |
+| _Description_ | This is like a MIME type. It describes what type of information is contained in the content data field. |
+
 </pre>
 
 #### Information Format
-|   |   |
-|---|---|
-|*Data Type*|Text|
-|*Key*|InfoFormat|
-|*Required*|Yes|
-|*Description*|This is a sub-field of the Information Type. It defines the format of the data content in this message. If the information type is “Temperature”, for example, then the information format might be “Degrees Kelvin”.|
+
+|               |                                                                                                                                                                                                                       |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Text                                                                                                                                                                                                                  |
+| _Key_         | InfoFormat                                                                                                                                                                                                            |
+| _Required_    | Yes                                                                                                                                                                                                                   |
+| _Description_ | This is a sub-field of the Information Type. It defines the format of the data content in this message. If the information type is “Temperature”, for example, then the information format might be “Degrees Kelvin”. |
+
 </pre>
 
 #### Context Data
-|   |   |
-|---|---|
-|*Data Type*|Any (including binary, text, integer, etc.)|
-|*Key*|ContextData|
-|*Required*|No|
-|*Description*|Context data in raw bytes. This field can be used to embed any information desired and will likely be very different from one solution to the next. It is the responsibility of the receiving element(s) to understand the context data format and the meaning of the context information.|
+
+|               |                                                                                                                                                                                                                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _Data Type_   | Any (including binary, text, integer, etc.)                                                                                                                                                                                                                                                |
+| _Key_         | ContextData                                                                                                                                                                                                                                                                                |
+| _Required_    | No                                                                                                                                                                                                                                                                                         |
+| _Description_ | Context data in raw bytes. This field can be used to embed any information desired and will likely be very different from one solution to the next. It is the responsibility of the receiving element(s) to understand the context data format and the meaning of the context information. |
+
 </pre>
 
 #### Data Content
-|   |   |
-|---|---|
-|*Data Type*|Any (including binary, text, integer, etc.)|
-|*Key*|ContentData|
-|*Required*|Yes|
-|*Description*|The actual data content of the message in its raw form. Having a raw format for this field allows for the greatest amount of flexibility in the system.|
+
+|               |                                                                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Data Type_   | Any (including binary, text, integer, etc.)                                                                                                             |
+| _Key_         | ContentData                                                                                                                                             |
+| _Required_    | Yes                                                                                                                                                     |
+| _Description_ | The actual data content of the message in its raw form. Having a raw format for this field allows for the greatest amount of flexibility in the system. |
+
 </pre>
 
-
 ### JSON Embodiment of an ioMessage
+
 The ContextData and ContentData fields of an ioMessage, when embodied in JSON, will always be base64 encoded. This is because these fields contain raw bytes and there is no other way to represent raw bytes in the utf-8 structure that JSON uses. Upon receiving a JSON ioMessage, you must base64 decode those two fields. Before sending a JSON ioMessage, you must base64 encode those two fields.
 
 ```json
-	{
-		"id":"sd098wytfskduhdsfDSKfhjw4o8ytwesdoiuhsdf",
-		"tag":"Bosch Camera 16",
-		"groupid":"",
-		"sequencenumber":1,
-		"sequencetotal":1,
-		"priority":0,
-		"timestamp":1234567890123,
-		"publisher":"Ayew98wtosdhFSKdjhsdfkjhkjesdhg",
-		"authid":"",
-		"authgroup":"",
-		"version":4,
-		"chainposition":0,
-		"hash":"",
-		"previoushash":"",
-		"nonce":"",
-		"difficultytarget":0.0,
-		"infotype":"image/jpeg",
-		"infoformat":"file/.jpg",
-		"contextdata":"",
-		"contentdata":"sdkjhwrtiy8wrtgSDFOiuhsrgowh4touwsdhsDFDSKJhsdkljasjklweklfjwhefiauhw98p328946982weiusfhsdkufhaskldjfslkjdhfalsjdf=serg4towhr"
-	}
+{
+  "id": "sd098wytfskduhdsfDSKfhjw4o8ytwesdoiuhsdf",
+  "tag": "Bosch Camera 16",
+  "groupid": "",
+  "sequencenumber": 1,
+  "sequencetotal": 1,
+  "priority": 0,
+  "timestamp": 1234567890123,
+  "publisher": "Ayew98wtosdhFSKdjhsdfkjhkjesdhg",
+  "authid": "",
+  "authgroup": "",
+  "version": 4,
+  "chainposition": 0,
+  "hash": "",
+  "previoushash": "",
+  "nonce": "",
+  "difficultytarget": 0.0,
+  "infotype": "image/jpeg",
+  "infoformat": "file/.jpg",
+  "contextdata": "",
+  "contentdata": "sdkjhwrtiy8wrtgSDFOiuhsrgowh4touwsdhsDFDSKJhsdkljasjklweklfjwhefiauhw98p328946982weiusfhsdkufhaskldjfslkjdhfalsjdf=serg4towhr"
+}
 ```
-
 
 ### XML Embodiment of an ioMessage
 
@@ -265,7 +305,6 @@ The ContextData and ContentData fields of an ioMessage, when embodied in XML, wi
   &lt;contentdata&gt;sDFDSKJhsdkljasjklweklfjwhefiauhw98p328946982weiusfhsdkufha&lt;/contentdata&gt;
 &lt;/iomessage&gt;
 </pre>
-
 
 ### Binary Embodiment of an ioMessage
 
@@ -316,6 +355,7 @@ Bytes are octets here. No funny business. Just good old 8-bit bytes. The sequenc
 </pre>
 
 ## API Endpoints
+
 #### Get Container Configuration
 
 This endpoint provides the current JSON configuration string for the requesting container. Containers identify themselves by their element ID, which is mapped into the container as an environment variable.
@@ -330,8 +370,8 @@ http://iofog:54321/v2/config/get
 
 ```json
 {
-  "status":"okay",
-  "config":"{\"property1\":\"value1\",\"property2\":\"value2\"}"
+  "status": "okay",
+  "config": "{\"property1\":\"value1\",\"property2\":\"value2\"}"
 }
 ```
 
@@ -344,12 +384,11 @@ http://iofog:54321/v2/config/get
 ##### POST Parameters
 
 ```json
-{"id":"R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ"}
+{ "id": "R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ" }
 
 // Note: The POST value is JSON and must be sent
 // with HTTP header set as “Content-Type:application/json”
 ```
-
 
 #### Get Container Next Unread Messages
 
@@ -365,55 +404,54 @@ http://iofog:54321/v2/messages/next
 
 ```json
 {
-  "status":"okay",
-  "count":2,
-  "messages":
-    [
-      {
-        "id":"ObJ5STY02PMLM4XKXM8oSuPlc7mUh5Ej",
-        "tag":"",
-        "groupid":"",
-        "sequencenumber":1,
-        "sequencetotal":1,
-        "priority":0,
-        "timestamp":1452214777495,
-        "publisher":"R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ",
-        "authid":"",
-        "authgroup":"",
-        "version":4,
-        "chainposition":0,
-        "hash":"",
-        "previoushash":"",
-        "nonce":"",
-        "difficultytarget":0.0,
-        "infotype":"text",
-        "infoformat":"utf-8",
-        "contextdata":"",
-        "contentdata":"8943asefSDhdkljsafhasldkjhfdlk==wehj23"
-      },
-      {
-        "id":"sd098wytfskduhdsfDSKfhjw4o8ytwesdoiuhsdf",
-        "tag":"Bosch Camera 16",
-        "groupid":"",
-        "sequencenumber":1,
-        "sequencetotal":1,
-        "priority":0,
-        "timestamp":1234567890123,
-        "publisher":"Ayew98wtosdhFSKdjhsdfkjhkjesdhg",
-        "authid":"",
-        "authgroup":"",
-        "version":4,
-        "chainposition":0,
-        "hash":"",
-        "previoushash":"",
-        "nonce":"",
-        "difficultytarget":0.0,
-        "infotype":"image/jpeg",
-        "infoformat":"file/.jpg",
-        "contextdata":"",
-        "contentdata":"sdkjhwrtiy8wrtgSDFOiuhsrgowh4touwsdhsDFDSKJhsdkljasjklweklfjwhefiauhw98p328946982weiusfhsdkufhaskldjfslkjdhfalsjdf=serg4towhr"
-      }
-    ]
+  "status": "okay",
+  "count": 2,
+  "messages": [
+    {
+      "id": "ObJ5STY02PMLM4XKXM8oSuPlc7mUh5Ej",
+      "tag": "",
+      "groupid": "",
+      "sequencenumber": 1,
+      "sequencetotal": 1,
+      "priority": 0,
+      "timestamp": 1452214777495,
+      "publisher": "R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ",
+      "authid": "",
+      "authgroup": "",
+      "version": 4,
+      "chainposition": 0,
+      "hash": "",
+      "previoushash": "",
+      "nonce": "",
+      "difficultytarget": 0.0,
+      "infotype": "text",
+      "infoformat": "utf-8",
+      "contextdata": "",
+      "contentdata": "8943asefSDhdkljsafhasldkjhfdlk==wehj23"
+    },
+    {
+      "id": "sd098wytfskduhdsfDSKfhjw4o8ytwesdoiuhsdf",
+      "tag": "Bosch Camera 16",
+      "groupid": "",
+      "sequencenumber": 1,
+      "sequencetotal": 1,
+      "priority": 0,
+      "timestamp": 1234567890123,
+      "publisher": "Ayew98wtosdhFSKdjhsdfkjhkjesdhg",
+      "authid": "",
+      "authgroup": "",
+      "version": 4,
+      "chainposition": 0,
+      "hash": "",
+      "previoushash": "",
+      "nonce": "",
+      "difficultytarget": 0.0,
+      "infotype": "image/jpeg",
+      "infoformat": "file/.jpg",
+      "contextdata": "",
+      "contentdata": "sdkjhwrtiy8wrtgSDFOiuhsrgowh4touwsdhsDFDSKJhsdkljasjklweklfjwhefiauhw98p328946982weiusfhsdkufhaskldjfslkjdhfalsjdf=serg4towhr"
+    }
+  ]
 }
 ```
 
@@ -433,7 +471,6 @@ http://iofog:54321/v2/messages/next
 // Note: The POST value is JSON and must be sent with
 // HTTP header set as “Content-Type:application/json”
 ```
-
 
 #### Post Message
 
@@ -465,30 +502,29 @@ None
 
 ```json
 {
-  "tag":"",
-  "groupid":"",
-  "sequencenumber":1,
-  "sequencetotal":1,
-  "priority":0,
-  "publisher":"R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ",
-  "authid":"",
-  "authgroup":"",
-  "version":4,
-  "chainposition":0,
-  "hash":"",
-  "previoushash":"",
-  "nonce":"",
-  "difficultytarget":0.0,
-  "infotype":"text",
-  "infoformat":"utf-8",
-  "contextdata":"",
-  "contentdata":"42h3isuhsdlukhfsd==w3efakhsfdkljhafs"
+  "tag": "",
+  "groupid": "",
+  "sequencenumber": 1,
+  "sequencetotal": 1,
+  "priority": 0,
+  "publisher": "R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ",
+  "authid": "",
+  "authgroup": "",
+  "version": 4,
+  "chainposition": 0,
+  "hash": "",
+  "previoushash": "",
+  "nonce": "",
+  "difficultytarget": 0.0,
+  "infotype": "text",
+  "infoformat": "utf-8",
+  "contextdata": "",
+  "contentdata": "42h3isuhsdlukhfsd==w3efakhsfdkljhafs"
 }
 
 // Note: The POST value is JSON and must be sent with
 // HTTP header set as “Content-Type:application/json”
 ```
-
 
 #### Get Messages From Publishers Within Timeframe
 
@@ -506,57 +542,56 @@ http://iofog:54321/v2/messages/query
 
 ```json
 {
-  "status":"okay",
-  "count":2,
-  "timeframestart":1234567890123,
-  "timeframeend":9876543210123,
-  "messages":
-    [
-      {
-        "id":"ObJ5STY02PMLM4XKXM8oSuPlc7mUh5Ej",
-        "tag":"",
-        "groupid":"",
-        "sequencenumber":1,
-        "sequencetotal":1,
-        "priority":0,
-        "timestamp":1452214777495,
-        "publisher":"R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ",
-        "authid":"",
-        "authgroup":"",
-        "version":4,
-        "chainposition":0,
-        "hash":"",
-        "previoushash":"",
-        "nonce":"",
-        "difficultytarget":0.0,
-        "infotype":"text",
-        "infoformat":"utf-8",
-        "contextdata":"",
-        "contentdata":"wei8y43ipouwhefdskhufdslkjahsdf"
-      },
-      {
-        "id":"sd098wytfskduhdsfDSKfhjw4o8ytwesdoiuhsdf",
-        "tag":"Bosch Camera 16",
-        "groupid":"",
-        "sequencenumber":1,
-        "sequencetotal":1,
-        "priority":0,
-        "timestamp":1234567890123,
-        "publisher":"Ayew98wtosdhFSKdjhsdfkjhkjesdhg",
-        "authid":"",
-        "authgroup":"",
-        "version":4,
-        "chainposition":0,
-        "hash":"",
-        "previoushash":"",
-        "nonce":"",
-        "difficultytarget":0.0,
-        "infotype":"image/jpeg",
-        "infoformat":"file/.jpg",
-        "contextdata":"",
-        "contentdata":"sdkjhwrtiy8wrtgSDFOiuhsrgowh4touwsdhsDFDSKJhsdkljasjklweklfjwhefiauhw98p328946982weiusfhsdkufhaskldjfslkjdhfalsjdf=serg4towhr"
-      }
-    ]
+  "status": "okay",
+  "count": 2,
+  "timeframestart": 1234567890123,
+  "timeframeend": 9876543210123,
+  "messages": [
+    {
+      "id": "ObJ5STY02PMLM4XKXM8oSuPlc7mUh5Ej",
+      "tag": "",
+      "groupid": "",
+      "sequencenumber": 1,
+      "sequencetotal": 1,
+      "priority": 0,
+      "timestamp": 1452214777495,
+      "publisher": "R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ",
+      "authid": "",
+      "authgroup": "",
+      "version": 4,
+      "chainposition": 0,
+      "hash": "",
+      "previoushash": "",
+      "nonce": "",
+      "difficultytarget": 0.0,
+      "infotype": "text",
+      "infoformat": "utf-8",
+      "contextdata": "",
+      "contentdata": "wei8y43ipouwhefdskhufdslkjahsdf"
+    },
+    {
+      "id": "sd098wytfskduhdsfDSKfhjw4o8ytwesdoiuhsdf",
+      "tag": "Bosch Camera 16",
+      "groupid": "",
+      "sequencenumber": 1,
+      "sequencetotal": 1,
+      "priority": 0,
+      "timestamp": 1234567890123,
+      "publisher": "Ayew98wtosdhFSKdjhsdfkjhkjesdhg",
+      "authid": "",
+      "authgroup": "",
+      "version": 4,
+      "chainposition": 0,
+      "hash": "",
+      "previoushash": "",
+      "nonce": "",
+      "difficultytarget": 0.0,
+      "infotype": "image/jpeg",
+      "infoformat": "file/.jpg",
+      "contextdata": "",
+      "contentdata": "sdkjhwrtiy8wrtgSDFOiuhsrgowh4touwsdhsDFDSKJhsdkljasjklweklfjwhefiauhw98p328946982weiusfhsdkufhaskldjfslkjdhfalsjdf=serg4towhr"
+    }
+  ]
 }
 ```
 
@@ -583,7 +618,6 @@ None
 // Note: The POST value is JSON and must be sent
 // with HTTP header set as “Content-Type:application/json”
 ```
-
 
 #### Get Control Websocket Connection
 
@@ -631,7 +665,6 @@ Standard "Ping" message (op code 9)
 Standard "Pong" message (op code 10)
 Acknowledgement message (op code 11)
 </pre>
-
 
 #### Get Message Websocket Connection
 

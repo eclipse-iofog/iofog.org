@@ -1,31 +1,37 @@
 # Setup Your Controllers
+
 Since your Edge Compute Network is likely distributed—composed of many different devices across networks, each with potentially differing microservices—a piece of software called the **Controller** is used for orchestration of the different [Agents](../agents/overview.html).
 
 Because the Controller daemon keeps track of all your Agents automatically, even across complicated network configurations, you can use it to maintain the entire fleet, remotely. Small Edge Compute Networks will only need a single Controller, however, running multiple Controllers is also supported for increased resiliency.
 
 ### Minimum Requirements
-  - Processor: x86-64 or ARM Dual Core or better
-  - RAM: 1 GB minimum
-  - Hard Disk: 5 GB minimum
-  - Linux kernel v3.10+ (Ubuntu, CentOS, Raspbian, etc), macOS 10.12+, or Windows 7+
-  - Node.js v8+ and NPM
+
+- Processor: x86-64 or ARM Dual Core or better
+- RAM: 1 GB minimum
+- Hard Disk: 5 GB minimum
+- Linux kernel v3.10+ (Ubuntu, CentOS, Raspbian, etc), macOS 10.12+, or Windows 7+
+- Node.js v8+ and NPM
 
 ## Setup
+
 #### Node.js and NPM
+
 The Controller software runs on Node.js, which is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 There are a number of ways of installing Node.js and NPM.
 
-  - [Website download](https://nodejs.org/en/download/)
-  - [With a Package Manager](https://nodejs.org/en/download/package-manager/) e.g. apt-get
-  - [Using NVM](https://github.com/creationix/nvm#install-script) the Node Version Manager
+- [Website download](https://nodejs.org/en/download/)
+- [With a Package Manager](https://nodejs.org/en/download/package-manager/) e.g. apt-get
+- [Using NVM](https://github.com/creationix/nvm#install-script) the Node Version Manager
 
 ### Install Controller Daemon
+
 ```sh
 sudo npm install -g iofogcontroller --unsafe-perm
 ```
 
 ## Dev Mode
+
 The Controller has a Dev Mode that allows you to get up and running more quickly without needing to deal with SSL certificates.
 
 <aside class="notifications tip">
@@ -49,16 +55,18 @@ iofog-controller config dev-mode --off
 With this enabled, the Controller will send and receive communications using `http://`, not `https://`, bypassing any need for SSL certificates.
 
 ## SSL Certificates
+
 When not running in developer mode, the Controller requires a valid SSL certificate and key.
 
 Ideally certificates would be signed by a Certificate Authority, but because that would require a public domain name, self-signed certificates are accepted as well.
 
 ### Using a Certificate Authority-Signed Certificate
+
 To use a certificate signed by a supported Certificate Authority (CA) for your domain name, we'll need three things from them:
 
-  - Intermediate certificate (from CA)
-  - Your domain's SSL certificate
-  - Your domain's SSL key
+- Intermediate certificate (from CA)
+- Your domain's SSL certificate
+- Your domain's SSL key
 
 Instructions on how to obtain these vary, but [Let's Encrypt](https://letsencrypt.org/) (free!), [Symantec](https://www.websecurity.symantec.com/), [GlobalSign](https://www.globalsign.com/), and [Digicert](https://www.digicert.com/) are popular choices among others.
 
@@ -71,12 +79,13 @@ iofog-controller config add --ssl-key=path/to/ssl.key
 ```
 
 ### Creating a Self-Signed Certificate
+
 Creating a self-signed certificate can be done a number of ways, but the most common is by using [OpenSSL](https://www.openssl.org/)
 
 We'll create these two:
 
-  - SSL certificate
-  - SSL key
+- SSL certificate
+- SSL key
 
 ```sh
 openssl req \
@@ -99,6 +108,7 @@ iofog-controller config add --ssl-key=path/to/ssl.key
 For more information about creating self-signed certificates, [see this guide](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs).
 
 ## Setup Your Users
+
 Since the Controller can be accessed via REST calls to remotely control your ioFog network, if you plan to use this functionality you'll need to setup at least one user for remote authentication.
 
 ```sh
@@ -112,6 +122,7 @@ iofog-controller user add \
 To learn more about the REST APIs available for managing your Controller remotely, visit the [REST API Reference](rest-api-reference).
 
 ### Create Your ioFog Nodes
+
 Your Controller manages all your ioFog nodes remotely by communicating with the [Agent](../agents/overview.html) running on them.
 
 To setup an ioFog node, it must first be running an Agent. Once it is, you can add it to your Controller and then receive a provisioning key that you'll add to your Agent.
@@ -135,6 +146,7 @@ You can then use provide this provisioning key to [setup an Agent](setup-your-ag
 The key is only valid for **20 minutes** and is one-time use only.
 
 ## Start The Controller
+
 Our Controller is all setup, let's go ahead and start it up!
 
 ```sh
@@ -142,6 +154,7 @@ iofog-controller start
 ```
 
 ## Conclusion
+
 We now have a running Controller! Next you'll want to setup and configure your ioFog [node Agents](setup-your-agents.html), and optionally [set up your Connector](setup-your-connectors.html).
 
 You can also [learn more about Controllers](../controllers/overview.html) or change additional [configuration options](../controllers/cli-usage.html).

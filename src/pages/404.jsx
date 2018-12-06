@@ -14,7 +14,10 @@ class NotFoundPage extends Component {
               <div className="entry__header">
                 <h2>Sorry, we can't find that page</h2>
                 <p>404 (Not Found)</p>
-                <p>It seems the requested page at <b>{this.props.location.pathname}</b> doesn't exist.</p>
+                <p>
+                  It seems the requested page at{' '}
+                  <b>{this.props.location.pathname}</b> doesn't exist.
+                </p>
               </div>
             </section>
           </section>

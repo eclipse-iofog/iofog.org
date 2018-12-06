@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import Helmet from "react-helmet";
-import urljoin from "url-join";
-import config from "../../../data/SiteConfig";
-import siteLogo from "../../../static/images/logos/iofog.png";
+import React, { Component } from 'react';
+import Helmet from 'react-helmet';
+import urljoin from 'url-join';
+import config from '../../../data/SiteConfig';
+import siteLogo from '../../../static/images/logos/iofog.png';
 
 class SEO extends Component {
   render() {
     const { title, postNode, postPath } = this.props;
-    const siteUrl = typeof window !== "undefined" ? window.location.origin : '';
+    const siteUrl = typeof window !== 'undefined' ? window.location.origin : '';
     const url = config.siteUrl + postPath;
 
     const schemaOrgJSONLD = [
       {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
+        '@context': 'http://schema.org',
+        '@type': 'WebSite',
         url,
         name: title,
-        alternateName: config.siteTitleAlt ? config.siteTitleAlt : ""
+        alternateName: config.siteTitleAlt ? config.siteTitleAlt : ''
       }
     ];
     return (
@@ -35,7 +35,7 @@ class SEO extends Component {
         <meta property="og:image" content={siteLogo} />
         <meta
           property="fb:app_id"
-          content={config.siteFBAppID ? config.siteFBAppID : ""}
+          content={config.siteFBAppID ? config.siteFBAppID : ''}
         />
 
         {/* Twitter Card tags */}

@@ -9,23 +9,35 @@ class Subscription extends Component {
   render() {
     return (
       <section className="subscription">
-        <img className="subscription__bg-lt" srcSet={bgSubscriptionLeft} alt="" />
+        <img
+          className="subscription__bg-lt"
+          srcSet={bgSubscriptionLeft}
+          alt=""
+        />
         <section className="container">
           <section className="row">
             <section className="col-md-12">
               <div className="sections__header text-center">
-                <h4>Stay up to date by <br /> signing up for our newsletter.</h4>
+                <h4>
+                  Stay up to date by <br /> signing up for our newsletter.
+                </h4>
               </div>
 
               <form name="subscription">
                 <input type="email" placeholder="Your email address" />
 
-                <button type="subject"><MdArrowForward /></button>
+                <button type="subject">
+                  <MdArrowForward />
+                </button>
               </form>
             </section>
           </section>
         </section>
-        <img className="subscription__bg-rt" srcSet={bgSubscriptionRight} alt="" />
+        <img
+          className="subscription__bg-rt"
+          srcSet={bgSubscriptionRight}
+          alt=""
+        />
       </section>
     );
   }

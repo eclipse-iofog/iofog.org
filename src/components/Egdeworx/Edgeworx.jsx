@@ -13,7 +13,9 @@ class Edgeworx extends Component {
             <section className="col-12 col-md-8">
               <h5>Looking for an enterprise solution?</h5>
               <h3>Run software at the edge with Edgeworx.</h3>
-              <Link className="button" to="/enterprise">Learn More</Link>
+              <Link className="button" to="/enterprise">
+                Learn More
+              </Link>
             </section>
             <section className="col-12 col-md-4">
               <img srcSet={imgGallery} alt="" />

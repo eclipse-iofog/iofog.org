@@ -1,4 +1,5 @@
 # Writing Microservices
+
 Microservices are a specialization of a [service-oriented architecture (SOA)](https://wikipedia.org/wiki/Service-oriented_architecture), flexible, independently deployable software.
 
 Microservices are an architectural style that structures an application as a collection of loosely coupled services, which implement business capabilities. The microservice architecture enables the continuous delivery and deployment of large, complex applications by naturally dividing it into smaller pieces. This is in contrast to the more traditional approach of a monolithic architecture.
@@ -12,6 +13,7 @@ Popularized by companies like Amazon, Netflix, and Twitter, the philosophy has n
 </aside>
 
 ## Microservices on ioFog
+
 Microservices on ioFog run inside a Docker container, following the [same best practices](https://docs.docker.com/develop/dev-best-practices/).
 
 Your microservices can do anything a Docker container can do, from interacting with the physical hardware to hosting a web server. That means most off-the-shelf frameworks and libraries in your favorite language work too!
@@ -26,6 +28,7 @@ But because most Edge Compute Networks contain multiple, sometimes even hundreds
 </aside>
 
 ## Dynamic Configuration
+
 Using [the SDK](sdk.html) microservices can receive any arbitrary custom configuration JSON remotely, from the Controller. This allows you to change configuration of your microservices at runtime through the Controller, but also prevents you from needing to bake secrets and other keys into your microservice.
 
 Updating a microservice's configuration can then be done from the Controller:
@@ -45,6 +48,7 @@ iofog-controller microservice update \
 ```
 
 ## Packaging and Publishing
+
 Microservices on ioFog are packaged as Linux container images, usually using Docker.
 
 <aside class="notifications note">
@@ -54,13 +58,13 @@ Microservices on ioFog are packaged as Linux container images, usually using Doc
 
 The high-level process of creating a new microservice is:
 
-  - Create a project directory
-  - Create a `Dockerfile` with your desired configuration
-  - Write the microservice app code itself
-  - Build the image with [`docker build`](https://docs.docker.com/engine/reference/commandline/build/)
-  - Deploy your image to a Docker registry (e.g. Docker Hub or from the ioFog local cache)
-  - Add the registered image to your Controller's catalog
-  - Start the microservice from your Controller
+- Create a project directory
+- Create a `Dockerfile` with your desired configuration
+- Write the microservice app code itself
+- Build the image with [`docker build`](https://docs.docker.com/engine/reference/commandline/build/)
+- Deploy your image to a Docker registry (e.g. Docker Hub or from the ioFog local cache)
+- Add the registered image to your Controller's catalog
+- Start the microservice from your Controller
 
 ```json
 {
@@ -92,6 +96,3 @@ The high-level process of creating a new microservice is:
   ]
 }
 ```
-
-
-

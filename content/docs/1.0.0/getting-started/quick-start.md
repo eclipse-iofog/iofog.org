@@ -1,4 +1,5 @@
 # Quick Start
+
 In this Quick Start guide we'll download a simple ioFog setup <b>on your local machine</b> containing a [Controller](../controllers/overview.html), [Connector](../connectors/overview.html), and an [Agent](../agents/overview.html). This gives you a quick way to start playing with ioFog, but can also be used as your local development environment on any machine that can run Docker.
 
 <aside class="notifications note">
@@ -14,19 +15,24 @@ In this Quick Start guide we'll download a simple ioFog setup <b>on your local m
 </aside>
 
 #### Minimum Requirements
+
 ioFog requires a Linux environment, however this Quick Start has everything already setup inside a Linux [Docker container](https://docs.docker.com/get-started/) that can run on Mac or Windows as well.
 
-  - **Linux** v3.10+ (Ubuntu, CentOS, Raspbian, etc), **macOS** 10.12+, or **Windows** 7+
-  - **Docker** 1.10+
+- **Linux** v3.10+ (Ubuntu, CentOS, Raspbian, etc), **macOS** 10.12+, or **Windows** 7+
+- **Docker** 1.10+
 
 ## Setup
-  - [Linux](#linux)
-  - [macOS](#macos)
-  - [Windows](#windows)
+
+- [Linux](#linux)
+- [macOS](#macos)
+- [Windows](#windows)
 
 ### Linux
+
 ---
+
 #### Install Docker
+
 You can install the latest version of Docker with following command:
 
 ```sh
@@ -48,6 +54,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 #### Download ioFog Quick Start
+
 Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
 ```sh
@@ -59,13 +66,17 @@ tar -zxvf quick-start.tar.gz --strip-components=1
 [Once you're done, you can skip straight to the next section](#bootstrap-the-project)
 
 ### macOS
+
 ---
+
 #### Install Docker
+
 Docker for Mac can be installed from the Docker Store
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
 
 #### Download ioFog Quick Start
+
 Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
 ```sh
@@ -86,13 +97,17 @@ or alternatively you can manually download it:
 </aside>
 
 ### Windows
+
 ---
+
 #### Install Docker
+
 Docker for Windows can be installed from the Docker Store:
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-windows/install/)
 
 #### Download ioFog Quick Start
+
 Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
 [Download Quick Start project](https://github.com/ioFog/demo/archive/blank-environment.zip)
@@ -105,6 +120,7 @@ You'll then need to unzip the contents into your preferred working directory.
 </aside>
 
 ## Bootstrap the Project
+
 Inside the project directory we downloaded, go ahead and run:
 
 ```sh
@@ -137,6 +153,7 @@ docker-compose down
 ```
 
 ## Shell Into Your Containers
+
 Your newly setup development environment has three containers: iofog-agent, iofog-controller, and iofog-connector. As their names imply, they contain a running Agent, Controller, and Connector respectively.
 
 You can think of each of these containers as if they were separate devices; the Controller is controlling the Agent the same way it would if the devices were hundreds of miles away, and the Connector can broker communication between any microservices you run.
@@ -156,4 +173,5 @@ iofog-controller iofog list
 This should give you a JSON response containing a list of edge nodes already registered with the Controller. In our case, a single node `"name": "ioFog Node"`. That "node" is actually the environment running inside the iofog-agent container.
 
 ## Conclusion
+
 You that you have a local ioFog environment running, you can learn more [about Microservices](../microservices/overview.html), take the [Tutorial](../tutorial/introduction.html), or [setup your production environment](setup-your-controllers.html).
