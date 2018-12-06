@@ -183,7 +183,7 @@ h1, h2, h3 {
   background-color: #5064ec;
   display: inline-block;
   padding: 12px 21px;
-  color: #fff !important;
+  color: #fff;
   font-weight: bold;
   font-size: 14px;
 
@@ -233,4 +233,47 @@ h1, h2, h3 {
 
 .emoji-icon {
   vertical-align: initial;
+}
+
+aside.notifications {
+  border-radius: 4px;
+  background-color: #edeffd;
+  border-left: 6px solid #5064ec;
+  padding: 30px;
+  margin: 25px 0;
+
+  h3 {
+    color: #002e43;
+    font-weight: bold;
+    font-size: 19px;
+    letter-spacing: 0.2px;
+    margin: 0 0 10px;
+
+    img {
+      margin: -5px 10px 0 0;
+    }
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  &.note {
+    border-left: 6px solid #5064ec;
+    background-color: #edeffd;
+  }
+
+  &.danger {
+    border-left: 6px solid #ca1f55;
+    background-color: #f9e8ee
+  }
+
+  &.tip {
+    border-left: 6px solid #f5a623;
+    background-color: #fef6e9;
+  }
+
+  ul:last-child {
+    margin-bottom: 0;
+  }
 }
