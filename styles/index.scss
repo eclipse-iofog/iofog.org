@@ -242,7 +242,7 @@ aside.notifications {
   padding: 30px;
   margin: 25px 0;
 
-  h3 {
+  & > h3 {
     color: #002e43;
     font-weight: bold;
     font-size: 19px;
