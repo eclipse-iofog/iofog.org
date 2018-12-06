@@ -1,6 +1,0 @@
-[submodule "content/documentation/0.1/controller/FogController"]
-	path = content/documentation/0.1/controller/FogController
-	url = git@github.com:ioFog/FogController.git
-[submodule "third_party/FogController"]
-	path = third_party/FogController
-	url = git@github.com:ioFog/FogController.git

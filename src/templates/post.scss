@@ -126,75 +126,37 @@
         }
       }
     }
-
-    // Some swagger-ui styles conflict with Bootstrap
-    // https://github.com/swagger-api/swagger-ui/issues/4574
-    .swagger-ui {
-      table tbody td {
-        border: none;
-      }
-
-      .col:not(th) {
-        padding: 10px 0 0;
-      }
-
-      table.headers td {
-        font-size: 12px;
-      }
-
-      .wrapper, .col-12 {
-        padding: 0;
-      }
-
-      .schemes {
-        padding: 0 20px;
-      }
-    }
-
-    aside.notifications {
-      border-radius: 4px;
-      background-color: #edeffd;
-      border-left: 6px solid #5064ec;
-      padding: 30px;
-      margin: 25px 0;
-
-      h3 {
-        color: #002e43;
-        font-weight: bold;
-        font-size: 19px;
-        letter-spacing: 0.2px;
-        margin: 0 0 10px;
-
-        img {
-          margin: -5px 10px 0 0;
-        }
-      }
-
-      p:last-child {
-        margin-bottom: 0;
-      }
-
-      &.note {
-        border-left: 6px solid #5064ec;
-        background-color: #edeffd;
-      }
-
-      &.danger {
-        border-left: 6px solid #ca1f55;
-        background-color: #f9e8ee
-      }
-
-      &.tip {
-        border-left: 6px solid #f5a623;
-        background-color: #fef6e9;
-      }
-
-      ul:last-child {
-        margin-bottom: 0;
-      }
-    }
   }
 }
+
+// Some swagger-ui styles conflict with Bootstrap
+// https://github.com/swagger-api/swagger-ui/issues/4574
+.swagger-ui {
+  table tbody td {
+    border: none !important;
+  }
+
+  .col:not(th) {
+    padding: 10px 0 0 !important;
+  }
+
+  table.headers td {
+    font-size: 12px;
+  }
+
+  .wrapper, .col-12 {
+    padding: 0 !important;
+  }
+
+  .schemes {
+    padding: 0 20px !important;
+  }
+
+  button {
+    color: #333;
+  }
+}
+
 /* resolution less than 1200px */
 @media (max-width: 1199px) {
   padding: 40px 40px 460px 106px;

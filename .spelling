@@ -28,7 +28,6 @@ iPhones
 natively
 x86
 runtime
- - content/documentation/0.1/agents/cli-usage.md
 uri
 gps
 DD
@@ -36,12 +35,9 @@ DD.DDD
 lat
 lon
 intel_amd
- - content/documentation/0.1/getting-started/core-concepts.md
 Stolfo
- - content/documentation/0.1/getting-started/quick-start.md
 vX.X.X
 v8.0.0
- - content/documentation/0.1/getting-started/setup-agents.md
 iofog
 v3.10
 v1.10
