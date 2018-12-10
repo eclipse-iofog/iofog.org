@@ -150,18 +150,18 @@ iofog-controller config <options>
 
 ##### add
 
-|                                    |                                           |
-| ---------------------------------- | ----------------------------------------- |
-| **-p, --port number**              | Port                                      |
-| **-c, --ssl-cert string**          | Path to SSL certificate file              |
-| **-k, --ssl-key string**           | Path to SSL key file                      |
-| **-i, --intermediate-cert string** | Path to SSL intermediate certificate file |
-| **-h, --home-url string**          | Home page url for email activation links  |
-| **-a, --email-address string**     | Email address to send activations from    |
-| **-w, --email-password string**    | Email password to send activations from   |
-| **-s, --email-service string**     | Email service to send activations         |
-| **-d, --log-dir string**           | Log files directory                       |
-| **-z, --log-size number**          | Log files size (MB                        |
+|                                    |                                                           |
+| ---------------------------------- | --------------------------------------------------------- |
+| **-p, --port number**              | Port                                                      |
+| **-c, --ssl-cert string**          | Path to SSL certificate file                              |
+| **-k, --ssl-key string**           | Path to SSL key file                                      |
+| **-i, --intermediate-cert string** | Path to SSL intermediate certificate file                 |
+| **-h, --home-url string**          | Home page url for email activation links                  |
+| **-a, --email-address string**     | Email address to send activations from                    |
+| **-w, --email-password string**    | Email password to send activations from                   |
+| **-s, --email-service string**     | Email service to send activations                         |
+| **-d, --log-dir string**           | Log files directory, default: `/var/log/iofog-controller` |
+| **-z, --log-size number**          | Log files size (MB                                        |
 
 ##### dev-mode
 
@@ -229,6 +229,97 @@ iofog-controller connector <action> <options>
 |                            |                             |
 | -------------------------- | --------------------------- |
 | **-i, --public-ip string** | Connector public IP address |
+
+## Config Locations
+
+Config files are located in project. There are 3 config files:
+
+#### default.json (general data that is used for default values)
+
+```json
+{
+  "App": {
+    "Name": "iofog-controller"
+  },
+  "Server": {
+    "Port": 54421,
+    "DevMode": false
+  },
+  "Email": {
+    "ActivationEnabled": false,
+    "HomeUrl": "https://google.com"
+  },
+  "Service": {
+    "LogsDirectory": "/var/log/iofog-controller",
+    "LogsFileSize": 1048576
+  },
+  "Settings": {
+    "UserTokenExpirationIntervalSeconds": 3600,
+    "FogTokenExpirationIntervalSeconds": 3600
+  },
+  "Diagnostics": {
+    "DiagnosticDir": "diagnostic"
+  }
+}
+```
+
+#### development.json (data for dev environment)
+
+```json
+{
+  "App": {
+    "Name": "iofog-controller-dev"
+  },
+  "Server": {
+    "Port": 51121,
+    "DevMode": true
+  },
+  "Email": {
+    "ActivationEnabled": false,
+    "HomeUrl": "https://google.com"
+  },
+  "Service": {
+    "LogsDirectory": "/var/log/iofog-controller",
+    "LogsFileSize": 1048576
+  },
+  "Settings": {
+    "UserTokenExpirationIntervalSeconds": 360000,
+    "FogTokenExpirationIntervalSeconds": 3600000
+  },
+  "Tunnel": {
+    "Username": "username",
+    "Password": "password",
+    "Host": "23.253.111.231",
+    "RsaKey": "rsa",
+    "Lport": 22,
+    "PortRange": "2000-10000"
+  },
+  "Diagnostics": {
+    "DiagnosticDir": "diagnostic"
+  }
+}
+```
+
+#### production.json (production data)
+
+```json
+{
+  "App": {
+    "Name": "iofog-controller"
+  },
+  "Server": {
+    "Port": 54421,
+    "DevMode": true
+  },
+  "Email": {
+    "ActivationEnabled": false
+  },
+  "Settings": {
+    "UserTokenExpirationIntervalSeconds": 3600,
+    "FogTokenExpirationIntervalSeconds": 3600
+  }
+}
+```
 
 ---
 

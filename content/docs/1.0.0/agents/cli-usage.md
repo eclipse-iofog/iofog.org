@@ -1,231 +1,199 @@
 # Agent CLI Usage
 
 ```sh
-$ iofog-agent command --option <argument>
+iofog-agent command --option <argument>
 ```
 
 ## Commands
 
-### config
+|                             |                                                                             |
+| --------------------------- | --------------------------------------------------------------------------- |
+| [config](#config)           | Change the software configuration according to the options provided.        |
+| [switch](#switch)           | Switch between dev, prod, or def (default) configs.                         |
+| [info](#info)               | Display the current configuration and other information about the software. |
+| [provision](#provision)     | Attach this software to the configured ioFog controller.                    |
+| [deprovision](#deprovision) | Detach this software from all ioFog controllers.                            |
+| [status](#status)           | Display current status information about the software.                      |
+| [version](#version)         | Display the software version and license information.                       |
+| [help](#help)               | Display the help and usage information.                                     |
 
-> Change the software configuration according to the options provided.
+## config
 
-##### Usage
+Change the software configuration according to the options provided.
 
 ```sh
-$ iofog-agent config --option [<optional-argument>]
-$ iofog-agent config defaults
+iofog-agent config --option [<optional-argument>]
+iofog-agent config defaults
 ```
-
-##### Arguments
 
 |                            |                                                                                                                                                                            |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `defaults`                 | Reset configuration to default values                                                                                                                                      |
-| `-d <#GB Limit>`           | Set the limit, in GiB, of disk space that the software is allowed to use                                                                                                   |
-| `-dl`                      | Set the directory to use for disk storage                                                                                                                                  |
-| `-m <#MB Limit`            | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages                                                                                      |
-| `-p <#cpu % Limit>`        | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                              |
-| `-a <uri>`                 | Set the uri of the fog controller to which this software connects                                                                                                          |
-| `-ac <filepath>`           | Set the file path of the SSL/TLS certificate for validating the fog controller identity                                                                                    |
-| `-c <uri>`                 | Set the UNIX socket or network address that the Docker daemon is using                                                                                                     |
-| `-n <network adapter>`     | Set the name of the network adapter that holds the correct IP address of this machine                                                                                      |
-| `-l <#MB Limit>`           | Set the limit, in MiB, of disk space that the log files can consume                                                                                                        |
-| `-ld <dir>`                | Set the directory to use for log file storage                                                                                                                              |
-| `-lc <#log files>`         | Set the number of log files to evenly split the log storage limit                                                                                                          |
-| `-sf <#seconds>`           | Set the status update frequency                                                                                                                                            |
-| `-cf <#seconds>`           | Set the get changes frequency                                                                                                                                              |
-| `-df <#seconds>`           | Set the post diagnostics frequency                                                                                                                                         |
-| `-sd <#seconds>`           | Set the scan devices frequency                                                                                                                                             |
-| `-idc <on/off>`            | Set the mode on which any not registered docker container will be shut down                                                                                                |
-| `-gps <auto/off/#GPS>`     | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |
-| `-ft <auto/intel_amd/arm>` | Set fog type. Use auto to detect fog type by system commands, use arm or intel_amd to set it manually                                                                      |
+| **defaults**               | Reset configuration to default values                                                                                                                                      |
+| **-d number**              | Set the limit, in GiB, of disk space that the software is allowed to use                                                                                                   |
+| **-dl**                    | Set the directory to use for disk storage                                                                                                                                  |
+| **-m number**              | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages                                                                                      |
+| **-p number**              | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                              |
+| **-a string**              | Set the uri of the fog controller to which this software connects                                                                                                          |
+| **-ac string**             | Set the file path of the SSL/TLS certificate for validating the fog controller identity, default: `/etc/iofog-agent/cert.crt`                                              |
+| **-c string**              | Set the UNIX socket or network address that the Docker daemon is using                                                                                                     |
+| **-n string**              | Set the name of the network adapter that holds the correct IP address of this machine                                                                                      |
+| **-l number**              | Set the limit, in MiB, of disk space that the log files can consume                                                                                                        |
+| **-ld string**             | Set the directory to use for log file storage, default: `/var/log/iofog-agent`                                                                                             |
+| **-lc number**             | Set the number of log files to evenly split the log storage limit                                                                                                          |
+| **-sf number**             | Set the status update frequency                                                                                                                                            |
+| **-cf number**             | Set the get changes frequency                                                                                                                                              |
+| **-df number**             | Set the post diagnostics frequency                                                                                                                                         |
+| **-sd number**             | Set the scan devices frequency                                                                                                                                             |
+| **-idc on/off**            | Set the mode on which any not registered docker container will be shut down                                                                                                |
+| **-gps auto/off/number**   | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |
+| **-ft auto/intel_amd/arm** | Set fog type. Use auto to detect fog type by system commands, use arm or intel_amd to set it manually                                                                      |
 
-<details class="agent-command">
-  <summary><h3>info</h3></summary>
-<div markdown="1">
+## switch
 
-> Display the current configuration and other information about the software
+Switch between dev, prod, or def (default) configs.
 
-##### Usage
-
-| `$ iofog-agent info`
-
-</div>
-</details>
-
-<details class="agent-command">
-  <summary><h3>provision</h3></summary>
-<div markdown="1">
-
-> Change the software configuration according to the options provided.
-
-##### Usage
-
-| `$ iofog config --option [<optional-argument>]`
-| `$ iofog config defaults`
-
-##### Arguments
-
-| `defaults` | Reset configuration to default values
-
-</div>
-</details>
-
-<details class="agent-command">
-  <summary><h3>deprovision</h3></summary>
-<div markdown="1">
-
-> Change the software configuration according to the options provided.
-
-##### Usage
-
-| `$ iofog config --option [<optional-argument>]`
-| `$ iofog config defaults`
-
-##### Arguments
-
-| `defaults` | Reset configuration to default values
-
-</div>
-</details>
-
-<details class="agent-command">
-  <summary><h3>status</h3></summary>
-<div markdown="1">
-
-> Change the software configuration according to the options provided.
-
-##### Usage
-
-| `$ iofog config --option [<optional-argument>]`
-| `$ iofog config defaults`
-
-##### Arguments
-
-| `defaults` | Reset configuration to default values
-
-</div>
-</details>
-
-<details class="agent-command">
-  <summary><h3>version</h3></summary>
-<div markdown="1">
-
-> Change the software configuration according to the options provided.
-
-##### Usage
-
-| `$ iofog config --option [<optional-argument>]`
-| `$ iofog config defaults`
-
-##### Arguments
-
-| `defaults` | Reset configuration to default values
-
-</div>
-</details>
-
-<details class="agent-command">
-  <summary><h3>help</h3></summary>
-<div markdown="1">
-
-> Change the software configuration according to the options provided.
-
-##### Usage
-
-| `$ iofog config --option [<optional-argument>]`
-| `$ iofog config defaults`
-
-##### Arguments
-
-| `defaults` | Reset configuration to default values
-
-</div>
-</details>
-
-<!--
+```sh
+iofog-agent switch <dev|prod|def>
 ```
 
+Configs are located at `/etc/iofog-agent/`. There are 4 config files:
 
-Option           GNU long option         Meaning
-======           ===============         =======
--h, -?           --help                  Show this message
--v               --version               Display the software version and
-                                         license information
+#### config-switcher.xml
 
-
-Command          Arguments               Meaning
-=======          =========               =======
-help                                     Show this message
-version                                  Display the software version and
-                                         license information
-status                                   Display current status information
-                                         about the software
-provision        <provisioning key>      Attach this software to the
-                                         configured ioFog controller
-deprovision                              Detach this software from all
-                                         ioFog controllers
-info                                     Display the current configuration
-                                         and other information about the
-                                         software
-config           [Parameter] [VALUE]     Change the software configuration
-                                         according to the options provided
-                 defaults                Reset configuration to default values
-                 -d <#GB Limit>          Set the limit, in GiB, of disk space
-                                         that the software is allowed to use
-                 -dl <dir>               Set the directory to use for disk
-                                         storage
-                 -m <#MB Limit>          Set the limit, in MiB, of RAM memory that
-                                         the software is allowed to use for
-                                         messages
-                 -p <#cpu % Limit>       Set the limit, in percentage, of CPU
-                                         time that the software is allowed
-                                         to use
-                 -a <uri>                Set the uri of the fog controller
-                                         to which this software connects
-                 -ac <filepath>          Set the file path of the SSL/TLS
-                                         certificate for validating the fog
-                                         controller identity
-                 -c <uri>                Set the UNIX socket or network address
-                                         that the Docker daemon is using
-                 -n <network adapter>    Set the name of the network adapter
-                                         that holds the correct IP address of
-                                         this machine
-                 -l <#MB Limit>          Set the limit, in MiB, of disk space
-                                         that the log files can consume
-                 -ld <dir>               Set the directory to use for log file
-                                         storage
-                 -lc <#log files>        Set the number of log files to evenly
-                                         split the log storage limit
-                 -sf <#seconds>          Set the status update frequency
-                 -cf <#seconds>          Set the get changes frequency
-                 -df <#seconds>          Set the post diagnostics frequency
-                 -sd <#seconds>          Set the scan devices frequency
-                 -idc <on/off>           Set the mode on which any not
-										  registered docker container will be
-										  shut down
-                 -gps <auto/off          Set gps location of fog.
-                      /#GPS DD.DDD(lat), Use auto to get coordinates by IP,
-                            DD.DDD(lon)  use off to forbid gps,
-                                         use GPS coordinates in DD format to set them manually
-                 -ft <auto               Set fog type.
-                     /intel_amd/arm>     Use auto to detect fog type by system commands,
-                                         use arm or intel_amd to set it manually
-
-
-Report bugs to: edgemaster@iofog.org
-ioFog home page: http://iofog.org
-For users with Eclipse accounts, report bugs to: https://bugs.eclipse.org/bugs/enter_bug.cgi?product=iofog
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<switcher>
+  <current_config>default (production, development)</current_config>
+</switcher>
 ```
 
+#### config.xml
 
-- help
-- version
-- status
-- provision
-- deprovision
-- info
-- config
+````xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+  <access_token/>
+  <controller_url>http://localhost:54421/api/v3/</controller_url>
+  <iofog_uuid/>
+  <dev_mode>on</dev_mode>
+  <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
+  <fog_type>auto</fog_type>
+  <network_interface>dynamic</network_interface>
+  <docker_url>unix:///var/run/docker.sock</docker_url>
+  <disk_consumption_limit>50</disk_consumption_limit>
+  <disk_directory>/var/lib/iofog-agent/</disk_directory>
+  <memory_consumption_limit>4096</memory_consumption_limit>
+  <processor_consumption_limit>80.0</processor_consumption_limit>
+  <log_disk_consumption_limit>10.0</log_disk_consumption_limit>
+  <log_disk_directory>/var/log/iofog-agent/</log_disk_directory>
+  <log_file_count>10</log_file_count>
+  <status_update_freq>30</status_update_freq>
+  <get_changes_freq>60</get_changes_freq>
+  <post_diagnostics_freq>10</post_diagnostics_freq>
+  <scan_devices_freq>60</scan_devices_freq>
+  <gps>auto</gps>
+</config>
 
--->
+#### config-development.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+  <access_token/>
+  <controller_url>http://localhost:51121/api/v3/</controller_url>
+  <iofog_uuid/>
+  <dev_mode>on</dev_mode>
+  <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
+  <fog_type>auto</fog_type>
+  <network_interface>dynamic</network_interface>
+  <docker_url>unix:///var/run/docker.sock</docker_url>
+  <disk_consumption_limit>50</disk_consumption_limit>
+  <disk_directory>/var/lib/iofog-agent/</disk_directory>
+  <memory_consumption_limit>4096</memory_consumption_limit>
+  <processor_consumption_limit>80.0</processor_consumption_limit>
+  <log_disk_consumption_limit>10.0</log_disk_consumption_limit>
+  <log_disk_directory>/var/log/iofog-agent/</log_disk_directory>
+  <log_file_count>10</log_file_count>
+  <status_update_freq>30</status_update_freq>
+  <get_changes_freq>60</get_changes_freq>
+  <post_diagnostics_freq>10</post_diagnostics_freq>
+  <scan_devices_freq>60</scan_devices_freq>
+  <gps>auto</gps>
+</config>
+````
+
+#### config-production.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+  <access_token/>
+  <controller_url>http://localhost:54421/api/v3/</controller_url>
+  <iofog_uuid/>
+  <dev_mode>off</dev_mode>
+  <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
+  <fog_type>auto</fog_type>
+  <network_interface>dynamic</network_interface>
+  <docker_url>unix:///var/run/docker.sock</docker_url>
+  <disk_consumption_limit>50</disk_consumption_limit>
+  <disk_directory>/var/lib/iofog-agent/</disk_directory>
+  <memory_consumption_limit>4096</memory_consumption_limit>
+  <processor_consumption_limit>80.0</processor_consumption_limit>
+  <log_disk_consumption_limit>10.0</log_disk_consumption_limit>
+  <log_disk_directory>/var/log/iofog-agent/</log_disk_directory>
+  <log_file_count>10</log_file_count>
+  <status_update_freq>30</status_update_freq>
+  <get_changes_freq>60</get_changes_freq>
+  <post_diagnostics_freq>10</post_diagnostics_freq>
+  <scan_devices_freq>60</scan_devices_freq>
+  <gps>auto</gps>
+</config>
+```
+
+## info
+
+Display the current configuration and other information about the software.
+
+```sh
+iofog-agent info
+```
+
+## provision
+
+Attach this software to the configured ioFog controller.
+
+```sh
+iofog-agent provision <provisioning key>
+```
+
+## deprovision
+
+Detach this software from all ioFog controllers.
+
+```sh
+iofog-agent deprovision
+```
+
+## status
+
+Display current status information about the software.
+
+```sh
+iofog-agent status
+```
+
+## version
+
+Display the software version and license information.
+
+```sh
+iofog-agent version
+```
+
+## help
+
+Display the help and usage information.
+
+```sh
+iofog-agent help
+```
