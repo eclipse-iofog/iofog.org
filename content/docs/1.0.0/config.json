@@ -70,6 +70,15 @@
         ]
       },
       {
+        "title": "Using System Microservices",
+        "subMenus": [
+          {
+            "title": "Diagnostics",
+            "entry": "./using-system-microservices/diagnostics.md"
+          }
+        ]
+      },
+      {
         "title": "Controllers",
         "subMenus": [
           {
