@@ -65,6 +65,7 @@ If "report_url" is not provided or is not available then whole output will be lo
 ### Launching the Container
 
 Enter iofog-controller user add -f first-name -l last-name -e email -p password in terminal.
+**! catalog-id = 4 for Diagnostics container.**
 
 ```sh
 iofog-controller user add -f <first_name> -l <last_name> -e <email> -p <password>
@@ -78,7 +79,6 @@ iofog-controller iofog <provisioning_key> -i <node_id>
 iofog-agent provision <provision_key>
 iofog-controller microservice add -n <name> -c <catalog_id> -F <flow_id> \
   -I <iofog_id> -g <config> -v <volumes> -l <log_size> -r -p <ports> -u <user_id>
-# **! catalog-id = 4 for Diagnostics container.**
 ```
 
 ### Diagnostics output is the detailed logs about system functionality.
@@ -86,5 +86,3 @@ iofog-controller microservice add -n <name> -c <catalog_id> -F <flow_id> \
 1. Go to Terminal.
 2. Get the list of containers with the following command: sudo docker ps in order to use container name for obtaining logs.
 3. See the detailed logs about system functionality with the following command: `sudo docker logs CONTAINER_NAME` (the last value is Container Name taken from the output of sudo docker ps).
-
-![DIAGNOSTICS](./DIAGNOSTICS.png)
