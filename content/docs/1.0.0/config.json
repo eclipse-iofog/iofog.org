@@ -75,6 +75,10 @@
           {
             "title": "Diagnostics",
             "entry": "./using-system-microservices/diagnostics.md"
+          },
+          {
+            "title": "Hardware Abstraction Layer",
+            "entry": "./using-system-microservices/hal.md"
           }
         ]
       },
