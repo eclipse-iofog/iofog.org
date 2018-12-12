@@ -1918,7 +1918,7 @@
           required: true
           type: string
         - in: body
-          name: Filters
+          name: New Registry
           required: false
           schema:
             $ref: '#/definitions/RegistryBody'
@@ -2005,6 +2005,11 @@
           description: User token
           required: true
           type: string
+        - in: body
+          name: Updates
+          required: true
+          schema:
+            $ref: '#/definitions/RegistryBody'
         responses:
           '204':
             description: Updated
