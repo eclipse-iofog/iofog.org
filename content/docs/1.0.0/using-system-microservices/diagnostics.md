@@ -65,7 +65,7 @@ If "report_url" is not provided or is not available then whole output will be lo
 ### Launching the Container
 
 Enter iofog-controller user add -f first-name -l last-name -e email -p password in terminal.
-**! catalog-id = 4 for Diagnostics container.**
+#### catalog-id = 4 for Diagnostics container.
 
 ```sh
 iofog-controller user add -f <first_name> -l <last_name> -e <email> -p <password>
