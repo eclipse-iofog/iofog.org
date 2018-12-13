@@ -48,12 +48,11 @@ The Sensors and REST API microservices are generic; they are not hardcoded to ta
 To connect microservices together, the Controller has the concept of **routes**.
 
 ```sh
-iofog-controller microservice route --add \
-  --source-microservice-id <source_id> \
-  --dest-microservice-id <dest_id>
+iofog-controller microservice route-create \
+  --route <source_id>:<dest_id>
 ```
 
-We can add or remove them with `microservice route --add` and `microservice route --remove` respectively, while passing in the source and destination microservice IDs. These IDs are returned when you start a microservice, but can also be obtained later from the result of `microservice list`.
+We can add or remove them with `microservice route-create --route` and `microservice route-remove --route` respectively, while passing in the source and destination microservice IDs separated by a colon. These IDs are returned when you start a microservice, but can also be obtained later from the result of `microservice list`.
 
 From the result of `microservice list` we can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the API microservice.
 

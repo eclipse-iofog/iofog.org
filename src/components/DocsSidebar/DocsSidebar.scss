@@ -42,7 +42,7 @@
         }
 
         &:before {
-          content: "";
+          content: '';
           display: block;
           position: absolute;
           top: 0;
@@ -107,7 +107,6 @@
   .Dropdown-option {
     padding-left: 82px;
   }
-
 }
 /* resolution less than 992px */
 @media (max-width: 991px) {

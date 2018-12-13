@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+if [ ! -d "content/docs/next" ]; then
+  echo "The first time you do a release, you need to first manually copy content/docs/1.0.0 to content/docs/next";
+  exit 1;
+fi
+
 if [[ -z $(git status -uno --porcelain) ]]; then
   CHANGELOG_PATH=content/releases/CHANGELOG.md
   read -p "Enter the new version number: " BUMP;

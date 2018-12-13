@@ -27,7 +27,9 @@
       margin-top: 40px;
     }
 
-    h4:not(:first-child), h5:not(:first-child), h6:not(:first-child) {
+    h4:not(:first-child),
+    h5:not(:first-child),
+    h6:not(:first-child) {
       margin-top: 30px;
     }
 
@@ -36,7 +38,7 @@
       background-color: rgba(38, 214, 241, 0.3);
       text-shadow: none;
       color: #000000;
-      font-family: "Roboto Mono", sans-serif;
+      font-family: 'Roboto Mono', sans-serif;
       font-weight: 400;
     }
 
@@ -54,7 +56,7 @@
         counter-increment: my-awesome-counter;
 
         &::before {
-          content: counter(my-awesome-counter) ". ";
+          content: counter(my-awesome-counter) '. ';
           position: absolute;
           left: 15px;
           color: #002e43;
@@ -135,7 +137,8 @@
     font-size: 12px;
   }
 
-  .wrapper, .col-12 {
+  .wrapper,
+  .col-12 {
     padding: 0 !important;
   }
 
