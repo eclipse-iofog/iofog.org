@@ -90,29 +90,27 @@ First, let's remove the old route from the Sensors to the REST API. We need to r
 iofog-controller microservice list
 ```
 
-After finding those two IDs in the list, provide the Sensors ID to `--source-microservice-id` and the REST API's to `--dest-microservice-id`:
+After finding those two IDs in the list, provide the Sensors ID and API ID separated by a semicolon to `microservice route-remove --route <source_id>:<dest_id>`:
 
 ```sh
-iofog-controller microservice route --remove \
-  --source-microservice-id <sensors_id>  \
-  --dest-microservice-id <rest_api_id>
+# Note the semicolon between the two IDs!
+iofog-controller microservice route-remove \
+  --route <sensors_id>:<api_id>
 ```
 
 Now we need to place two new routes: one from the Sensors to Moving Average, and another from Moving Average to the REST API; this places our new microservice in between them.
 
 ```sh
 # Sensors -> Moving Average
-iofog-controller microservice route --add \
-  --source-microservice-id <sensors_id>  \
-  --dest-microservice-id <moving_average_id>
+iofog-controller microservice route-create \
+  --route <sensors_id>:<moving_average_id>
 
 # Moving Average -> REST API
-iofog-controller microservice route --add \
-  --source-microservice-id <moving_average_id>  \
-  --dest-microservice-id <rest_api_id>
+iofog-controller microservice route-create \
+  --route <moving_average_id>:<rest_api_id>
 ```
 
-Now for the moment of truth. Let's first try a curl request to our REST API:
+Finally, for the moment of truth. Let's first try a curl request to our REST API:
 
 ```sh
 curl http://localhost:10101/
