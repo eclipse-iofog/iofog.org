@@ -832,20 +832,20 @@ iofog-controller diagnostics <action> <options>
 | -------------------------------- | --------------------------- |
 | **-e, --enable**                 | Enable microservice strace  |
 | **-o, --disable**                | Disable microservice strace |
-| **-i, --microservice-id string** | Microservice ID             |
+| **-i, --microservice-uuid string** | Microservice UUID             |
 
 ##### strace-info
 
 |                                  |                                  |
 | -------------------------------- | -------------------------------- |
-| **-i, --microservice-id string** | Microservice ID                  |
+| **-i, --microservice-uuid string** | Microservice UUID                  |
 | **-f, --format string**          | Format of strace data to receive |
 
 ##### strace-ftp-post
 
 |                                  |                           |
 | -------------------------------- | ------------------------- |
-| **-i, --microservice-id string** | Microservice ID           |
+| **-i, --microservice-uuid string** | Microservice UUID           |
 | **--h, --ftpHost string**        | FTP host                  |
 | **--p, --ftpPort number**        | FTP port                  |
 | **--u, --ftpUser string**        | FTP user                  |
@@ -856,10 +856,10 @@ iofog-controller diagnostics <action> <options>
 
 |                                  |                 |
 | -------------------------------- | --------------- |
-| **-i, --microservice-id string** | Microservice ID |
+| **-i, --microservice-uuid string** | Microservice UUID |
 
 ##### image-snapshot-get
 
 |                                  |                 |
 | -------------------------------- | --------------- |
-| **-i, --microservice-id string** | Microservice ID |
+| **-i, --microservice-uuid string** | Microservice UUID |
