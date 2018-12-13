@@ -21,9 +21,10 @@ Returns parsed info of 'lscpu' command
 
  <pre> http://localhost:54331/hal/hwc/lscpu </pre>
 
-Response example
-
- <pre> {
+ <details><summary>Response example</summary>     
+ <p>
+ <pre> 
+    {
         "on_line_cpus_list": "0-7",
         "cpus": "8",
         "cpu_family": "6",
@@ -49,17 +50,20 @@ Response example
         "cpu_op_modes": "32-bit, 64-bit",
         "l3_cache": "8192K",
         "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
-      } </pre>
+    } 
+</pre>
+</p>
+</details>
 
 #### LSPCI info (GET)
 
 Returns parsed info of 'lspci' command
 
  <pre> http://localhost:54331/hal/hwc/lspci </pre>
-
-Response example
-
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>  
+ 	[
          {
            "device_class_id": "0600",
            "bus_function_number": "0 ",
@@ -344,17 +348,20 @@ Response example
            "bus_number": "0b",
            "device_name": "OZ600 MS/xD Controller "
          }
-       ] </pre>
+       ] 
+</pre>
+</p>
+</details>
 
 #### LSUSB info (GET)
 
 Returns parsed info of 'lsusb' command
 
  <pre> http://localhost:54331/hal/hwc/lsusb </pre>
-
-Response example
-
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>
+ 	[
          {
            "bus_number": "002",
            "device_id": "5802",
@@ -425,17 +432,20 @@ Response example
            "manufacture_id": "1d6b",
            "manufacture_device_name": "Linux Foundation 2.0 root hub"
          }
-       ] </pre>
+       ] 
+</pre>
+</p>
+</details>
 
 #### LSHW info (GET)
 
 Returns parsed info of 'lshw' command
 
  <pre> http://localhost:54331/hal/hwc/lshw </pre>
-
-Response example
-
- <pre> {
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>
+       {
          "id": "machine_id",
          "handle": "handle_string",
          "configuration": {
@@ -1767,17 +1777,20 @@ Response example
          },
          "serial": "serial_string",
          "version": "01"
-       } </pre>
+       } 
+</pre>
+</p>
+</details>
 
 #### CPU info (GET)
 
 Returns parsed info from file /proc/cpuinfo
 
  <pre> http://localhost:54331/hal/hwc/proc/cpuinfo </pre>
-
-Response example
-
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre> 
+       [
          {
            "bugs": "",
            "processor_number": "0",
@@ -2002,17 +2015,20 @@ Response example
            "wp": "yes",
            "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
          }
-       ] </pre>
+       ] 
+</pre>
+</p>
+</details>
 
 #### USB devices list (GET)
 
 Returns a list of serial ports
 
  <pre> http://localhost:54331/hal/rs232/list </pre>
-
-Response example
-
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>  
+ 	[
          {
            "subsystem": "pci",
            "pid": null,
@@ -2045,8 +2061,11 @@ Response example
            "interface": null,
            "name": "ttyUSB0"
          }
-       ] </pre>
-
+       ] 
+</pre>
+</p>
+</details>
+ 
 ### WebSockets
 
 WS server listens on port 54332.
