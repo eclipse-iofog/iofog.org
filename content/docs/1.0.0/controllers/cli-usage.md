@@ -927,38 +927,38 @@ iofog-controller diagnostics <action> <options>
 
 ##### strace-update
 
-|                                  |                             |
-| -------------------------------- | --------------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID             |
-| **-e, --enable**                 | Enable microservice strace  |
-| **-o, --disable**                | Disable microservice strace |
+|                                    |                             |
+| ---------------------------------- | --------------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID           |
+| **-e, --enable**                   | Enable microservice strace  |
+| **-o, --disable**                  | Disable microservice strace |
 
 ##### strace-info
 
-|                                  |                                  |
-| -------------------------------- | -------------------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID                  |
-| **-f, --format string**          | Format of strace data to receive |
+|                                    |                                  |
+| ---------------------------------- | -------------------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID                |
+| **-f, --format string**            | Format of strace data to receive |
 
 ##### strace-ftp-post
 
-|                                  |                           |
-| -------------------------------- | ------------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID           |
-| **--h, --ftpHost string**        | FTP host                  |
-| **--p, --ftpPort number**        | FTP port                  |
-| **--u, --ftpUser string**        | FTP user                  |
-| **--s, --ftpPass string**        | FTP user password         |
-| **--d, --ftpDestDir string**     | FTP destination directory |
+|                                    |                           |
+| ---------------------------------- | ------------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID         |
+| **--h, --ftpHost string**          | FTP host                  |
+| **--p, --ftpPort number**          | FTP port                  |
+| **--u, --ftpUser string**          | FTP user                  |
+| **--s, --ftpPass string**          | FTP user password         |
+| **--d, --ftpDestDir string**       | FTP destination directory |
 
 ##### image-snapshot-create
 
-|                                  |                 |
-| -------------------------------- | --------------- |
+|                                    |                   |
+| ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
 
 ##### image-snapshot-get
 
-|                                  |                 |
-| -------------------------------- | --------------- |
+|                                    |                   |
+| ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
