@@ -1,20 +1,30 @@
 # HAL
-HAL stands for Hardware Abstraction Layer. It's REST/WS abstraction for hardware capabilities for Linux based 
+
+HAL stands for Hardware Abstraction Layer. It's REST/WS abstraction for hardware capabilities for Linux based
 machines.
- 
+
 > ##### Prerequisites:
-> as Docker container, it needs to be run with next options to grant access: 
+>
+> as Docker container, it needs to be run with next options to grant access:
+>
 > <pre> --net=host --privileged </pre>
+>
 > in other cases it needs to start under root user
- 
+
 ### REST
-REST server listens on port 54331. 
+
+REST server listens on port 54331.
 
 #### LSCPU info (GET)
- Returns parsed info of 'lscpu' command
+
+Returns parsed info of 'lscpu' command
+
  <pre> http://localhost:54331/hal/hwc/lscpu </pre>
- Response example
- <pre> {
+
+ <details><summary>Response example</summary>     
+ <p>
+ <pre> 
+    {
         "on_line_cpus_list": "0-7",
         "cpus": "8",
         "cpu_family": "6",
@@ -40,12 +50,20 @@ REST server listens on port 54331.
         "cpu_op_modes": "32-bit, 64-bit",
         "l3_cache": "8192K",
         "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
-      } </pre>
+    } 
+</pre>
+</p>
+</details>
+
 #### LSPCI info (GET)
- Returns parsed info of 'lspci' command
+
+Returns parsed info of 'lspci' command
+
  <pre> http://localhost:54331/hal/hwc/lspci </pre>
- Response example
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>  
+ 	[
          {
            "device_class_id": "0600",
            "bus_function_number": "0 ",
@@ -330,12 +348,20 @@ REST server listens on port 54331.
            "bus_number": "0b",
            "device_name": "OZ600 MS/xD Controller "
          }
-       ] </pre>
+       ] 
+</pre>
+</p>
+</details>
+
 #### LSUSB info (GET)
- Returns parsed info of 'lsusb' command
+
+Returns parsed info of 'lsusb' command
+
  <pre> http://localhost:54331/hal/hwc/lsusb </pre>
- Response example
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>
+ 	[
          {
            "bus_number": "002",
            "device_id": "5802",
@@ -406,12 +432,20 @@ REST server listens on port 54331.
            "manufacture_id": "1d6b",
            "manufacture_device_name": "Linux Foundation 2.0 root hub"
          }
-       ] </pre>
+       ] 
+</pre>
+</p>
+</details>
+
 #### LSHW info (GET)
- Returns parsed info of 'lshw' command
+
+Returns parsed info of 'lshw' command
+
  <pre> http://localhost:54331/hal/hwc/lshw </pre>
- Response example
- <pre> {
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>
+       {
          "id": "machine_id",
          "handle": "handle_string",
          "configuration": {
@@ -1743,12 +1777,20 @@ REST server listens on port 54331.
          },
          "serial": "serial_string",
          "version": "01"
-       } </pre>
+       } 
+</pre>
+</p>
+</details>
+
 #### CPU info (GET)
- Returns parsed info from file /proc/cpuinfo
+
+Returns parsed info from file /proc/cpuinfo
+
  <pre> http://localhost:54331/hal/hwc/proc/cpuinfo </pre>
- Response example
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre> 
+       [
          {
            "bugs": "",
            "processor_number": "0",
@@ -1973,12 +2015,20 @@ REST server listens on port 54331.
            "wp": "yes",
            "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
          }
-       ] </pre>
+       ] 
+</pre>
+</p>
+</details>
+
 #### USB devices list (GET)
- Returns a list of serial ports
+
+Returns a list of serial ports
+
  <pre> http://localhost:54331/hal/rs232/list </pre>
- Response example
- <pre> [
+ <details><summary>Response example</summary>     
+ <p>
+ <pre>  
+ 	[
          {
            "subsystem": "pci",
            "pid": null,
@@ -2011,18 +2061,21 @@ REST server listens on port 54331.
            "interface": null,
            "name": "ttyUSB0"
          }
-       ] </pre>
+       ] 
+</pre>
+</p>
+</details>
  
 ### WebSockets
-WS server listens on port 54332. 
+WS server listens on port 54332.
 
 #### Get USB-to-Serial Web-socket Connection
 
-This endpoint opens a message Web-socket connection to USB-to-Serial device. The messages and other commands sent 
-over this Web-socket are specified here. It is the responsibility of the container to establish this connection 
-and ensure it is running. 
+This endpoint opens a message Web-socket connection to USB-to-Serial device. The messages and other commands sent
+over this Web-socket are specified here. It is the responsibility of the container to establish this connection
+and ensure it is running.
 
-The PORT of USB-to-Serial device must be passed as part of the URL because otherwise it would have to be passed in 
+The PORT of USB-to-Serial device must be passed as part of the URL because otherwise it would have to be passed in
 the Web-socket connection itself and that would make associated connections with different devices rather difficult.
 
 ##### Endpoint
@@ -2070,8 +2123,10 @@ the Web-socket connection itself and that would make associated connections with
     	> status code 4000 with close frame : there was an exception, error will be passed in reason. 	
 </pre>
 
-###### JSON Configuration for USB-to-Serial device 
+###### JSON Configuration for USB-to-Serial device
+
 All available configuration properties:
+
 - 'port'(required to open connection)
 - 'baudrate'
 - 'bytesize'
@@ -2084,11 +2139,7 @@ All available configuration properties:
 - 'write_timeout'
 - 'inter_byte_timeout'
 - 'data_read_timeout'(this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
-> Example: 
-<pre>
-    { 'port': '/dev/ttyUSB0' }
-</pre>
-
-
-
-
+  > Example:
+  <pre>
+      { 'port': '/dev/ttyUSB0' }
+  </pre>
