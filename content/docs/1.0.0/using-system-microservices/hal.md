@@ -21,9 +21,9 @@ Returns parsed info of 'lscpu' command
 
  <pre> http://localhost:54331/hal/hwc/lscpu </pre>
 
- <details><summary>Response example</summary>     
+ <details><summary>Response example</summary>
  <p>
- <pre> 
+ <pre>
     {
         "on_line_cpus_list": "0-7",
         "cpus": "8",
@@ -50,7 +50,7 @@ Returns parsed info of 'lscpu' command
         "cpu_op_modes": "32-bit, 64-bit",
         "l3_cache": "8192K",
         "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
-    } 
+    }
 </pre>
 </p>
 </details>
@@ -60,9 +60,9 @@ Returns parsed info of 'lscpu' command
 Returns parsed info of 'lspci' command
 
  <pre> http://localhost:54331/hal/hwc/lspci </pre>
- <details><summary>Response example</summary>     
+ <details><summary>Response example</summary>
  <p>
- <pre>  
+ <pre>
  	[
          {
            "device_class_id": "0600",
@@ -348,7 +348,7 @@ Returns parsed info of 'lspci' command
            "bus_number": "0b",
            "device_name": "OZ600 MS/xD Controller "
          }
-       ] 
+       ]
 </pre>
 </p>
 </details>
@@ -358,7 +358,7 @@ Returns parsed info of 'lspci' command
 Returns parsed info of 'lsusb' command
 
  <pre> http://localhost:54331/hal/hwc/lsusb </pre>
- <details><summary>Response example</summary>     
+ <details><summary>Response example</summary>
  <p>
  <pre>
  	[
@@ -432,7 +432,7 @@ Returns parsed info of 'lsusb' command
            "manufacture_id": "1d6b",
            "manufacture_device_name": "Linux Foundation 2.0 root hub"
          }
-       ] 
+       ]
 </pre>
 </p>
 </details>
@@ -442,7 +442,7 @@ Returns parsed info of 'lsusb' command
 Returns parsed info of 'lshw' command
 
  <pre> http://localhost:54331/hal/hwc/lshw </pre>
- <details><summary>Response example</summary>     
+ <details><summary>Response example</summary>
  <p>
  <pre>
        {
@@ -1752,7 +1752,7 @@ Returns parsed info of 'lshw' command
              "version": "A00"
            },
            {
-             "id": "battery", 
+             "id": "battery",
              "handle": "handle_string",
              "configuration": {
                "voltage": "11,1V"
@@ -1777,7 +1777,7 @@ Returns parsed info of 'lshw' command
          },
          "serial": "serial_string",
          "version": "01"
-       } 
+       }
 </pre>
 </p>
 </details>
@@ -1787,9 +1787,9 @@ Returns parsed info of 'lshw' command
 Returns parsed info from file /proc/cpuinfo
 
  <pre> http://localhost:54331/hal/hwc/proc/cpuinfo </pre>
- <details><summary>Response example</summary>     
+ <details><summary>Response example</summary>
  <p>
- <pre> 
+ <pre>
        [
          {
            "bugs": "",
@@ -2015,7 +2015,7 @@ Returns parsed info from file /proc/cpuinfo
            "wp": "yes",
            "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
          }
-       ] 
+       ]
 </pre>
 </p>
 </details>
@@ -2025,9 +2025,9 @@ Returns parsed info from file /proc/cpuinfo
 Returns a list of serial ports
 
  <pre> http://localhost:54331/hal/rs232/list </pre>
- <details><summary>Response example</summary>     
+ <details><summary>Response example</summary>
  <p>
- <pre>  
+ <pre>
  	[
          {
            "subsystem": "pci",
@@ -2061,11 +2061,11 @@ Returns a list of serial ports
            "interface": null,
            "name": "ttyUSB0"
          }
-       ] 
+       ]
 </pre>
 </p>
 </details>
- 
+
 ### WebSockets
 
 WS server listens on port 54332.
@@ -2094,34 +2094,34 @@ the Web-socket connection itself and that would make associated connections with
 ##### Querystring Parameters
 
 <pre>
-	PORT - the PORT of USB-to-Serial device to connect to via the Websocket connection 
+	PORT - the PORT of USB-to-Serial device to connect to via the Websocket connection
 	(example shown here as '/dev/ttyusb0')
 </pre>
 
 ##### Signals from HAL to Client
 
 <pre>
-	- op code 4: (single byte command) indicates connection to device was opened (it's an answer to connection open op 
-	code signal sent with configuration for opening connection to physical device); at this point HAL starts 
+	- op code 4: (single byte command) indicates connection to device was opened (it's an answer to connection open op
+	code signal sent with configuration for opening connection to physical device); at this point HAL starts
 	listening on data from connected device.
-	- op code 6: indicates that HAL recieved some data from physical device (op code single byte followed by pure bytes 
+	- op code 6: indicates that HAL recieved some data from physical device (op code single byte followed by pure bytes
 	of data recieved from device)
-	- standart close frame: indicates that current connection was closed. 
+	- standart close frame: indicates that current connection was closed.
 	    > status code 1000 with close frame : means that device normally closed connection
-	    > status code 4000 with close frame : there was an exception, error will be passed in reason. 
+	    > status code 4000 with close frame : there was an exception, error will be passed in reason.
 </pre>
 
 ##### Signals from Client to HAL
 
 <pre>
-    - op code 3: signals HAL to open connection to device with specified configuration in passed data (op code single 
-    byte followed by bytes of json configuration to open connection to device ); in case with USB-to-Serial: PORT 
+    - op code 3: signals HAL to open connection to device with specified configuration in passed data (op code single
+    byte followed by bytes of json configuration to open connection to device ); in case with USB-to-Serial: PORT
     property is required.
-    - op code 5: signals HAL to send recieved data to connected device (op code single byte followed by pure bytes of 
-    data to send to device) 
-    - standart close frame: indicates that client wants to close current connection. 
+    - op code 5: signals HAL to send recieved data to connected device (op code single byte followed by pure bytes of
+    data to send to device)
+    - standart close frame: indicates that client wants to close current connection.
         > status code 1000 with close frame : means that device normally closed connection
-    	> status code 4000 with close frame : there was an exception, error will be passed in reason. 	
+    	> status code 4000 with close frame : there was an exception, error will be passed in reason.
 </pre>
 
 ###### JSON Configuration for USB-to-Serial device
