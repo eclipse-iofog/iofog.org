@@ -11,7 +11,7 @@
     left: 0;
     width: 174px;
     height: 174px;
-    background: url("../../../static/images/bg/bg-edge-left.svg") no-repeat;
+    background: url('../../../static/images/bg/bg-edge-left.svg') no-repeat;
     z-index: -1;
   }
 
@@ -23,7 +23,7 @@
     bottom: 0;
     width: 358px;
     height: 542px;
-    background: url("../../../static/images/bg/bg-edge-right.svg") no-repeat;
+    background: url('../../../static/images/bg/bg-edge-right.svg') no-repeat;
     z-index: -1;
   }
 }
@@ -57,7 +57,7 @@
       }
 
       span:after {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         right: 0;
@@ -100,10 +100,10 @@
   }
 
   &__noselect {
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -moz-user-select: none;     /* Firefox all */
-    -ms-user-select: none;      /* IE 10+ */
-    user-select: none;          /* Likely future */
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
   }
 }
 /* resolution less than 992px */
@@ -115,14 +115,15 @@
     &:after {
       width: 129px;
       height: 110px;
-      background: url("../../../static/images/bg/bg-edge-left-tablet.svg") no-repeat;
+      background: url('../../../static/images/bg/bg-edge-left-tablet.svg')
+        no-repeat;
     }
 
     &:before {
       width: 123px;
       height: 338px;
       bottom: -22px;
-      background-image: url("../../../static/images/bg/bg-edge-right-tablet.svg");
+      background-image: url('../../../static/images/bg/bg-edge-right-tablet.svg');
     }
   }
 
@@ -149,7 +150,7 @@
         }
 
         span:after {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           right: 0;
@@ -187,7 +188,7 @@
       width: 60px;
       height: 258px;
       bottom: 120px;
-      background-image: url("../../../static/images/bg/bg-edge-right-mobile.svg");
+      background-image: url('../../../static/images/bg/bg-edge-right-mobile.svg');
     }
   }
   .promo {

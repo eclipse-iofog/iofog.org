@@ -2067,6 +2067,7 @@ Returns a list of serial ports
 </details>
  
 ### WebSockets
+
 WS server listens on port 54332.
 
 #### Get USB-to-Serial Web-socket Connection

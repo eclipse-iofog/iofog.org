@@ -1651,7 +1651,7 @@
             description: Not Found
           '500':
             description: Internal Server Error
-    '/microservices/{id}/image-snapshot':
+    '/microservices/{uuid}/image-snapshot':
       post:
         tags:
         - Diagnostics
@@ -1664,8 +1664,8 @@
           required: true
           type: string
         - in: path
-          name: id
-          description: Microservice Id
+          name: uuid
+          description: Microservice UUID
           required: true
           type: string
         responses:
@@ -1683,7 +1683,7 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Microservice Id
+            description: Invalid Microservice UUID
           '500':
             description: Internal Server Error
       get:
@@ -1700,8 +1700,8 @@
           required: true
           type: string
         - in: path
-          name: id
-          description: Microservice Id
+          name: uuid
+          description: Microservice UUID
           required: true
           type: string
         responses:
@@ -1716,10 +1716,10 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Microservice Id
+            description: Invalid Microservice UUID
           '500':
             description: Internal Server Error
-    '/microservices/{id}/strace':
+    '/microservices/{uuid}/strace':
       patch:
         tags:
         - Diagnostics
@@ -1732,8 +1732,8 @@
           required: true
           type: string
         - in: path
-          name: id
-          description: Microservice Id
+          name: uuid
+          description: Microservice UUID
           required: true
           type: string
         - in: body
@@ -1757,7 +1757,7 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Microservice Id
+            description: Invalid Microservice UUID
           '500':
             description: Internal Server Error
       get:
@@ -1772,8 +1772,8 @@
           required: true
           type: string
         - in: path
-          name: id
-          description: Microservice Id
+          name: uuid
+          description: Microservice UUID
           required: true
           type: string
         - in: query
@@ -1798,7 +1798,7 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Microservice Id
+            description: Invalid Microservice UUID
           '500':
             description: Internal Server Error
       put:
@@ -1809,8 +1809,8 @@
         parameters:
         - in: path
           required: true
-          name: id
-          description: Microservice Id
+          name: uuid
+          description: Microservice UUID
           type: string
         - in: header
           name: Authorization
@@ -1834,7 +1834,7 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Microservice Id
+            description: Invalid Microservice UUID
           '500':
             description: Internal Server Error
     '/iofog/{uuid}/tunnel':
@@ -2514,8 +2514,8 @@
           - 2
           description: >
             Architecture
-            * '1': x86
-            * '2': arm
+             * '1': x86
+             * '2': arm
         key:
           type: string
           description: provisioning key
