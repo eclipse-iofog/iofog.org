@@ -4,7 +4,7 @@
   "description": "ioFog.org documentation website",
   "dependencies": {
     "bootstrap": "^4.1.3",
-    "docsearch.js": "^2.5.2",
+    "docsearch.js": "^2.6.2",
     "fs-extra": "^7.0.1",
     "gatsby": "^2.0.59",
     "gatsby-image": "^2.0.0",
