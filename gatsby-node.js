@@ -1,16 +1,16 @@
-const path = require("path");
+const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   switch (node.internal.type) {
     case 'ConfigJson': {
-      const fileNode = getNode(node.parent)
+      const fileNode = getNode(node.parent);
       createNodeField({
         name: 'path',
         node,
-        value: `/${fileNode.relativeDirectory}/`,
+        value: `/${fileNode.relativeDirectory}/`
       });
       break;
     }
@@ -22,7 +22,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: `/${relativePath.replace('.md', '.html')}`,
+        value: `/${relativePath.replace('.md', '.html')}`
       });
       break;
     }
@@ -35,8 +35,8 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
 
   return new Promise((resolve, reject) => {
-    const docsComponent = path.resolve("src/templates/post.jsx");
-    const releasesComponent = path.resolve("src/templates/releases.jsx");
+    const docsComponent = path.resolve('src/templates/post.jsx');
+    const releasesComponent = path.resolve('src/templates/releases.jsx');
 
     resolve(
       graphql(
@@ -45,11 +45,11 @@ exports.createPages = ({ graphql, actions }) => {
             allConfigJson {
               edges {
                 node {
-                  version,
+                  version
                   menus {
                     subMenus {
                       entry {
-                        relativePath,
+                        relativePath
                         absolutePath
                       }
                     }
@@ -61,7 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
 
-            allMarkdownRemark{
+            allMarkdownRemark {
               edges {
                 node {
                   fields {
@@ -87,7 +87,8 @@ exports.createPages = ({ graphql, actions }) => {
           .sort((a, b) => b.node.version.localeCompare(a.node.version));
         const latestConfig = configs[0].node;
         const latestVersionBasePath = latestConfig.fields.path;
-        const latestDocsStartFile = latestConfig.menus[0].subMenus[0].entry.absolutePath;
+        const latestDocsStartFile =
+          latestConfig.menus[0].subMenus[0].entry.absolutePath;
         let foundLatestDocsStartFile = false;
 
         result.data.allMarkdownRemark.edges.forEach(edge => {
@@ -113,26 +114,32 @@ exports.createPages = ({ graphql, actions }) => {
               fromPath: `/docs/${slug.slice(latestVersionBasePath.length)}`,
               isPermanent: true,
               redirectInBrowser: true,
-              toPath: slug,
+              toPath: slug
             });
           }
 
           // The latest version changes, so we want to do this dynamically for
           // each build
           if (edge.node.fileAbsolutePath === latestDocsStartFile) {
-            if (foundLatestDocsStartFile) throw new Error(`latestDocsStartFile was already found ${latestDocsStartFile}`);
+            if (foundLatestDocsStartFile)
+              throw new Error(
+                `latestDocsStartFile was already found ${latestDocsStartFile}`
+              );
             foundLatestDocsStartFile = true;
 
             createRedirect({
               fromPath: '/docs/',
               isPermanent: true,
               redirectInBrowser: true,
-              toPath: slug,
+              toPath: slug
             });
           }
         });
 
-        if (!foundLatestDocsStartFile) throw new Error(`no redirect for /docs setup, didn't find ${latestDocsStartFile}`);
+        if (!foundLatestDocsStartFile)
+          throw new Error(
+            `no redirect for /docs setup, didn't find ${latestDocsStartFile}`
+          );
       })
     );
   });
