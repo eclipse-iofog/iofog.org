@@ -2697,7 +2697,7 @@
     MicroserviceStrace:
       type: object
       properties:
-        microserviceId:
+        microserviceUuid:
           type: string
         straceRun:
           type: boolean
@@ -2711,7 +2711,7 @@
     MicroserviceStraceBuffer:
       type: object
       properties:
-        microserviceId:
+        microserviceUuid:
           type: string
         buffer:
           type: string
