@@ -5,31 +5,43 @@
   font-weight: bold;
   font-style: normal;
   src: url('../fonts/Averta/37D7FF_0_0.eot');
-  src: url('../fonts/Averta/37D7FF_0_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/37D7FF_0_0.woff2') format('woff2'), url('../fonts/Averta/37D7FF_0_0.woff') format('woff'), url('../fonts/Averta/37D7FF_0_0.ttf') format('truetype');
+  src: url('../fonts/Averta/37D7FF_0_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Averta/37D7FF_0_0.woff2') format('woff2'),
+    url('../fonts/Averta/37D7FF_0_0.woff') format('woff'),
+    url('../fonts/Averta/37D7FF_0_0.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Averta';
- font-weight: bold;
- font-style: italic;
- src: url('../fonts/Averta/37D7FF_1_0.eot');
- src: url('../fonts/Averta/37D7FF_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/37D7FF_1_0.woff2') format('woff2'),url('../fonts/Averta/37D7FF_1_0.woff') format('woff'),url('../fonts/Averta/37D7FF_1_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  src: url('../fonts/Averta/37D7FF_1_0.eot');
+  src: url('../fonts/Averta/37D7FF_1_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Averta/37D7FF_1_0.woff2') format('woff2'),
+    url('../fonts/Averta/37D7FF_1_0.woff') format('woff'),
+    url('../fonts/Averta/37D7FF_1_0.ttf') format('truetype');
 }
 
 @font-face {
- font-family: 'Averta';
- font-weight: normal;
- font-style: normal;
- src: url('../fonts/Averta/37D7FF_2_0.eot');
- src: url('../fonts/Averta/37D7FF_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/37D7FF_2_0.woff2') format('woff2'),url('../fonts/Averta/37D7FF_2_0.woff') format('woff'),url('../fonts/Averta/37D7FF_2_0.ttf') format('truetype');
+  font-family: 'Averta';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Averta/37D7FF_2_0.eot');
+  src: url('../fonts/Averta/37D7FF_2_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Averta/37D7FF_2_0.woff2') format('woff2'),
+    url('../fonts/Averta/37D7FF_2_0.woff') format('woff'),
+    url('../fonts/Averta/37D7FF_2_0.ttf') format('truetype');
 }
 
 @font-face {
- font-family: 'Averta';
- font-weight: normal;
- font-style: italic;
- src: url('../fonts/Averta/37D7FF_3_0.eot');
- src: url('../fonts/Averta/37D7FF_3_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/37D7FF_3_0.woff2') format('woff2'),url('../fonts/Averta/37D7FF_3_0.woff') format('woff'),url('../fonts/Averta/37D7FF_3_0.ttf') format('truetype');
+  font-family: 'Averta';
+  font-weight: normal;
+  font-style: italic;
+  src: url('../fonts/Averta/37D7FF_3_0.eot');
+  src: url('../fonts/Averta/37D7FF_3_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Averta/37D7FF_3_0.woff2') format('woff2'),
+    url('../fonts/Averta/37D7FF_3_0.woff') format('woff'),
+    url('../fonts/Averta/37D7FF_3_0.ttf') format('truetype');
 }
 
 body {
@@ -38,7 +50,12 @@ body {
   line-height: 1.55;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
 }
 
@@ -92,7 +109,9 @@ hr {
   border-bottom: 1px solid #c5cae8;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   & + hr {
     margin-top: -16px;
     margin-bottom: 30px;
@@ -265,7 +284,7 @@ aside.notifications {
 
   &.danger {
     border-left: 6px solid #ca1f55;
-    background-color: #f9e8ee
+    background-color: #f9e8ee;
   }
 
   &.tip {

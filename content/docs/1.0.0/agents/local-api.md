@@ -384,10 +384,12 @@ http://iofog:54321/v2/config/get
 ##### POST Parameters
 
 ```json
-{ "id": "R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ" }
+{
+  "id": "R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ"
 
-// Note: The POST value is JSON and must be sent
-// with HTTP header set as “Content-Type:application/json”
+  // Note: The POST value is JSON and must be sent
+  // with HTTP header set as “Content-Type:application/json”
+}
 ```
 
 #### Get Container Next Unread Messages
@@ -466,10 +468,10 @@ http://iofog:54321/v2/messages/next
 ```json
 {
   "id": "R4b2WPZRbycCzyZBz9tD7BdMWg94YDhQ"
-}
 
-// Note: The POST value is JSON and must be sent with
-// HTTP header set as “Content-Type:application/json”
+  // Note: The POST value is JSON and must be sent with
+  // HTTP header set as “Content-Type:application/json”
+}
 ```
 
 #### Post Message
@@ -520,10 +522,10 @@ None
   "infoformat": "utf-8",
   "contextdata": "",
   "contentdata": "42h3isuhsdlukhfsd==w3efakhsfdkljhafs"
-}
 
-// Note: The POST value is JSON and must be sent with
-// HTTP header set as “Content-Type:application/json”
+  // Note: The POST value is JSON and must be sent with
+  // HTTP header set as “Content-Type:application/json”
+}
 ```
 
 #### Get Messages From Publishers Within Timeframe
@@ -613,10 +615,10 @@ None
     "d895y459rwdsifuhSDFKukuewf",
     "SESD984wtsdidsiusidsufgsdfkh"
   ]
-}
 
-// Note: The POST value is JSON and must be sent
-// with HTTP header set as “Content-Type:application/json”
+  // Note: The POST value is JSON and must be sent
+  // with HTTP header set as “Content-Type:application/json”
+}
 ```
 
 #### Get Control Websocket Connection
