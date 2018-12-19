@@ -2212,6 +2212,12 @@
           description: User Token
           required: true
           type: string
+        - in: body
+          name: deleteParameters
+          description: parameters for delete
+          required: false
+          schema:
+            $ref: '#/definitions/DeleteParameters'
         responses:
           204:
             description: Success
@@ -3198,6 +3204,13 @@
           type: string
         newPassword:
           type: string
+    DeleteParameters:
+      type: object
+      required:
+      - force
+      properties:
+        force:
+          type: boolean
     SignupRequest:
       type: object
       required:
