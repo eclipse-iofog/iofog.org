@@ -37,7 +37,7 @@ iofog-agent config defaults
 | **-ac string**             | Set the file path of the SSL/TLS certificate for validating the fog controller identity, default: `/etc/iofog-agent/cert.crt`                                              |
 | **-c string**              | Set the UNIX socket or network address that the Docker daemon is using                                                                                                     |
 | **-n string**              | Set the name of the network adapter that holds the correct IP address of this machine                                                                                      |
-| **-l number**              | Set the limit, in MiB, of disk space that the log files can consume                                                                                                        |
+| **-l number**              | Set the limit, in GiB, of disk space that the log files can consume                                                                                                        |
 | **-ld string**             | Set the directory to use for log file storage, default: `/var/log/iofog-agent`                                                                                             |
 | **-lc number**             | Set the number of log files to evenly split the log storage limit                                                                                                          |
 | **-sf number**             | Set the status update frequency                                                                                                                                            |
