@@ -124,9 +124,10 @@ iofog-controller user add \
 
 ##### remove
 
-|                        |                      |
-| ---------------------- | -------------------- |
-| **-e, --email string** | User's email address |
+|                         |                      |
+| ----------------------- | -------------------- |
+| **-e, --email string**  | User's email address |
+| **-F, --force boolean** | User's force delete  |
 
 ##### generate-token
 
