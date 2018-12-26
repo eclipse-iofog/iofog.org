@@ -415,7 +415,7 @@ iofog-controller iofog <action> <options>
 |                                   |                                                          |
 | --------------------------------- | -------------------------------------------------------- |
 | **-u, --user-id number**          | User's id                                                |
-| **-f, --file string**             | ioFog settings JSON file                                 |
+| **-f, --file string**             | Path to ioFog settings JSON file                                 |
 | **-n, --name string**             | ioFog node name                                          |
 | **-l, --location string**         | ioFog node location                                      |
 | **-t, --latitude number**         | ioFog node latitude                                      |
@@ -446,7 +446,7 @@ iofog-controller iofog <action> <options>
 |                                   |                                                          |
 | --------------------------------- | -------------------------------------------------------- |
 | **-i, --node-id string**          | ioFog node ID                                            |
-| **-f, --file string**             | ioFog settings JSON file                                 |
+| **-f, --file string**             | Path to ioFog settings JSON file                                 |
 | **-n, --name string**             | ioFog node name                                          |
 | **-l, --location string**         | ioFog node location                                      |
 | **-t, --latitude number**         | ioFog node latitude                                      |
@@ -542,7 +542,7 @@ iofog-controller catalog <action> <options>
 |                                 |                                                     |
 | ------------------------------- | --------------------------------------------------- |
 | **-u, --user-id number**        | User's id                                           |
-| **-f, --file string**           | Catalog item settings JSON file                     |
+| **-f, --file string**           | Path to catalog item settings JSON file                     |
 | **-n, --name string**           | Catalog item name                                   |
 | **-d, --description string**    | Catalog item description                            |
 | **-c, --category string**       | Catalog item category                               |
@@ -565,8 +565,8 @@ iofog-controller catalog <action> <options>
 
 |                                 |                                                     |
 | ------------------------------- | --------------------------------------------------- |
-| **-i, --item-id string**        | Catalog item ID                                     |
-| **-f, --file string**           | Catalog item settings JSON file                     |
+| **-i, --item-id number**        | Catalog item ID                                     |
+| **-f, --file string**           | Path to catalog item settings JSON file                     |
 | **-n, --name string**           | Catalog item name                                   |
 | **-d, --description string**    | Catalog item description                            |
 | **-c, --category string**       | Catalog item category                               |
@@ -624,7 +624,7 @@ iofog-controller flow <action> <options>
 |                              |                                     |
 | ---------------------------- | ----------------------------------- |
 | **-u, --user-id number**     | User's id                           |
-| **-f, --file string**        | Application flow settings JSON file |
+| **-f, --file string**        | Path to application flow settings JSON file |
 | **-n, --name string**        | Application flow name               |
 | **-d, --description string** | Application flow description        |
 | **-a, --activate**           | Activate application flow           |
@@ -634,8 +634,8 @@ iofog-controller flow <action> <options>
 
 |                              |                                     |
 | ---------------------------- | ----------------------------------- |
-| **-i, --flow-id string**     | Application flow ID                 |
-| **-f, --file string**        | Application flow settings JSON file |
+| **-i, --flow-id number**     | Application flow ID                 |
+| **-f, --file string**        | Path to application flow settings JSON file |
 | **-n, --name string**        | Application flow name               |
 | **-d, --description string** | Application flow description        |
 | **-a, --activate**           | Activate application flow           |
@@ -688,7 +688,7 @@ iofog-controller microservice <action> <options>
 |                             |                                                |
 | --------------------------- | ---------------------------------------------- |
 | **-u, --user-id number**    | User's id                                      |
-| **-f, --file string**       | Microservice settings JSON file                |
+| **-f, --file string**       | Path to microservice settings JSON file                |
 | **-n, --name string**       | Microservice name                              |
 | **-c, --catalog-id number** | Catalog item ID                                |
 | **-F, --flow-id number**    | Application flow ID                            |
@@ -728,7 +728,7 @@ iofog-controller microservice add \
 |                                  |                                         |
 | -------------------------------- | --------------------------------------- |
 | **-i, --microservice-id string** | Microservice ID                         |
-| **-f, --file string**            | Microservice settings JSON file         |
+| **-f, --file string**            | Path to microservice settings JSON file         |
 | **-n, --name string**            | Microservice name                       |
 | **-F, --flow-id string**         | Application flow ID                     |
 | **-I, --iofog-id string**        | ioFog node ID                           |
