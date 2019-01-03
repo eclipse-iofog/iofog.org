@@ -6,21 +6,20 @@ ioFog Agent connects to Connectors and through connecting Connectors traffic is 
 
 ### Connector offers two connectivity types:
 
-*1)    The first type, called a public pipe, provides a way to securely access Fog software and data from anywhere on in the world. Connector punches through firewalls and NATed networks to perform automatic internetworking of the Fog.*
+**1)    The first type, called a public pipe, provides a way to securely access Fog software and data from anywhere on in the world. Connector punches through firewalls and NATed networks to perform automatic internetworking of the Fog.**
 
 Let’s describe what mapping is. Mapping is a way for describing a port opening, no matter whether you create a public or private pipe. It is an object that has an internal and an external port.
 
 
 **The Endpoint and Response (below) of a public pipe connection is displayed below (Add functionality):**
 
-**Endpoint: /api/v2/mapping/add**
-
-**Method: POST**
-
-**Header Content-Type: application/x-www-form-urlencoded**
-
-**Parameters: mapping={"type":"public","maxconnections":60,"heartbeatabsencethreshold":200000}**
-
+**Request**
+```json
+Endpoint: /api/v2/mapping/add
+Method: POST
+Header Content-Type: application/x-www-form-urlencoded
+Parameters: mapping={"type":"public","maxconnections":60,"heartbeatabsencethreshold":200000}
+```
 "maxconnections" means how many connection threads the ioFog agent will make with the Connector. You can have many users at the same time.
 
 "heartbeatabsencethreshold" means if we don’t have a heartbeat signal from the ioFog agent within 20 sec, we kill that connection thread.
@@ -49,14 +48,13 @@ Let’s describe what mapping is. Mapping is a way for describing a port opening
 
 **The Endpoint of public pipe connection is displayed below (Remove):**
 
-**Endpoint: /api/v2/mapping/remove**
-
-**Method: POST**
-
-**Header Content-Type: application/x-www-form-urlencoded**
-
-**Parameters: mappingid=e2454159-ed8c-4d00-a885-fdd87de811de**
-
+**Request**
+```json
+Endpoint: /api/v2/mapping/remove
+Method: POST
+Header Content-Type: application/x-www-form-urlencoded
+Parameters: mappingid=e2454159-ed8c-4d00-a885-fdd87de811de
+```
 **Response:**
 ```json
 {
@@ -67,21 +65,20 @@ Let’s describe what mapping is. Mapping is a way for describing a port opening
 ```
 
 
-*2)    The second type, called a private pipe, consumes bandwidth on the Connector but stabilizes connectivity between Fog nodes that can’t normally see each other.*
+**2)    The second type, called a private pipe, consumes bandwidth on the Connector but stabilizes connectivity between Fog nodes that can’t normally see each other.**
 
 Connector is available for 2 different ioFog agents talking to each other.
 
 
 **The Endpoint and Response (below) of a private pipe connection is displayed below (Add functionality):**
 
-**Endpoint: /api/v2/mapping/add**
-
-**Method: POST**
-
-**Header Content-Type: application/x-www-form-urlencoded**
-
-**Parameters: {"type":"private","maxconnectionsport1":1, "maxconnectionsport2":1, "heartbeatabsencethresholdport1":200000, "heartbeatabsencethresholdport2":200000}**
-
+**Request**
+```json
+Endpoint: /api/v2/mapping/add
+Method: POST
+Header Content-Type: application/x-www-form-urlencoded
+Parameters: {"type":"private","maxconnectionsport1":1, "maxconnectionsport2":1, "heartbeatabsencethresholdport1":200000, "heartbeatabsencethresholdport2":200000}
+```
 **Response:**
 ```json
 {
@@ -102,14 +99,13 @@ Here “port1" will come out in "port2", and vice versa. Without the passcodes y
 
 **The Endpoint of private pipe connection is displayed below (Remove):**
 
-**Endpoint: /api/v2/mapping/remove**
-
-**Method: POST**
-
-**Header Content-Type: application/x-www-form-urlencoded**
-
-**Parameters: mappingid=e2454159-ed8c-4d00-a885-fdd87de811de**
-
+**Request**
+```json
+Endpoint: /api/v2/mapping/remove
+Method: POST
+Header Content-Type: application/x-www-form-urlencoded
+Parameters: mappingid=e2454159-ed8c-4d00-a885-fdd87de811de
+```
 **Response:**
 ```json
 {
@@ -118,9 +114,7 @@ Here “port1" will come out in "port2", and vice versa. Without the passcodes y
      "timestamp": 1542719354334
 }
 ```
-
 ---
-
 **In Public mode the URL is generated as follows:**
 
 Example: ${protocol}://${address}${port2}
@@ -132,7 +126,6 @@ where
 {address} is either IP address or domain name
 
 ---
-
 In iofog-connector.config file
 
 When "dev": true, it's http connection.
