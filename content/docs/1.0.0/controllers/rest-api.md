@@ -407,6 +407,31 @@
             description: Invalid Provisioning Key
           '500':
             description: Internal Server Error
+    '/agent/deprovision':
+      post:
+        tags:
+        - Agent
+        description: Deprovision agent
+        operationId: agentDeprovision
+        parameters:
+        - in: body
+          required: true
+          name: AgentDeprovisioningRequest
+          schema:
+            $ref: '#/definitions/AgentDeprovisioningRequest'
+        responses:
+          '204':
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '500':
+            description: Internal Server Error
     '/agent/config':
       get:
         tags:
@@ -430,8 +455,6 @@
                 description: FogController server timestamp
           '401':
             description: Not Authorized
-          '404':
-            description: Invalid Node Id
           '500':
             description: Internal Server Error
       patch:
@@ -461,8 +484,6 @@
             description: Bad Request
           '401':
             description: Not Authorized
-          '404':
-            description: Invalid Node Id
           '500':
             description: Internal Server Error
     '/agent/config/changes':
@@ -490,8 +511,6 @@
             description: Bad Request
           '401':
             description: Not Authorized
-          '404':
-            description: Invalid Node Id
           '500':
             description: Internal Server Error
     '/agent/status':
@@ -522,8 +541,6 @@
             description: Bad Request
           '401':
             description: Not Authorized
-          '404':
-            description: Invalid Node Id
           '500':
             description: Internal Server Error
     '/agent/microservices':
@@ -549,8 +566,6 @@
                 description: FogController server timestamp
           '401':
             description: Not Authorized
-          '404':
-            description: Invalid Node Id
           '500':
             description: Internal Server Error
     '/agent/microservices/{microserviceUuid}':
@@ -582,7 +597,7 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Node Id
+            description: Invalid Microservice Uuid
           '500':
             description: Internal Server Error
     '/agent/registries':
@@ -608,8 +623,6 @@
                 description: FogController server timestamp
           '401':
             description: Not Authorized
-          '404':
-            description: Invalid Node Id
           '500':
             description: Internal Server Error
     '/agent/tunnel':
@@ -636,7 +649,7 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Node Id
+            description: Tunnel Not Found
           '500':
             description: Internal Server Error
     '/agent/strace':
@@ -663,7 +676,7 @@
           '401':
             description: Not Authorized
           '404':
-            description: Invalid Node Id
+            description: Strace Not Found
           '500':
             description: Internal Server Error
       put:
@@ -2534,6 +2547,13 @@
         token:
           type: string
           description: Agent token
+    AgentDeprovisioningRequest:
+      type: object
+      properties:
+        microserviceUuids:
+          type: array
+          items:
+            type: string
     IOFogNodeConfigChanges:
       type: object
       properties:
