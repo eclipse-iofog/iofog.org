@@ -109,6 +109,10 @@
           {
             "title": "CLI Usage",
             "entry": "./connectors/cli-usage.md"
+          },
+          {
+            "title": "API Reference",
+            "entry": "./connectors/api-reference.md"
           }
         ]
       },
