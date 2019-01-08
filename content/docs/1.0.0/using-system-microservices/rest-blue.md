@@ -7,7 +7,7 @@ Prerequisites:
 Upon startup the container will start scanning if bluetooth is powered on and upon discovering devices it will store them locally and generate an internal ID. In most cases the container will work with this locally stored devices unless the scanning is restarted. If container received command to restart scanning it will delete all previously stored devices and start scanning anew ( which results in generating new local IDs for devices).
 Container will return 'Timeout exception' in case if it didn't get any results of processing.
 
-*For example, if you try to hit http://localhost:10500/device/mac/{mac}/services?scan=true endpoint you can get 'Timeout exception' for next reasons:*
+_For example, if you try to hit http://localhost:10500/device/mac/{mac}/services?scan=true endpoint you can get 'Timeout exception' for next reasons:_
 
 **1. device with specified mac was't found while scanning anew**
 
@@ -194,25 +194,19 @@ http://localhost:10500/device/mac/{mac}/service/{sID}/characteristics
     "uuid": "2a00",
     "name": "Device Name",
     "type": "org.bluetooth.characteristic.gap.device_name",
-    "properties": [
-      "read"
-    ]
+    "properties": ["read"]
   },
   {
     "uuid": "2a01",
     "name": "Appearance",
     "type": "org.bluetooth.characteristic.gap.appearance",
-    "properties": [
-      "read"
-    ]
+    "properties": ["read"]
   },
   {
     "uuid": "2a04",
     "name": "Peripheral Preferred Connection Parameters",
     "type": "org.bluetooth.characteristic.gap.peripheral_preferred_connection_parameters",
-    "properties": [
-      "read"
-    ]
+    "properties": ["read"]
   }
 ]
 ```
@@ -307,7 +301,7 @@ http://localhost:10500/device/mac/{mac}/service/{sID}/characteristic/{cID}/descr
 
 #### Read the value from descriptor (GET)
 
-This endpoint reads the value from specified descriptor dsID for specified characteristic cID, service sID and device dID/Mac Address 
+This endpoint reads the value from specified descriptor dsID for specified characteristic cID, service sID and device dID/Mac Address
 
 **Request**
 
@@ -378,7 +372,7 @@ http://localhost:10500/status
 
 ```json
 {
-  "bluetooth_adapter_powered_on": true/false
+  "bluetooth_adapter_powered_on": true / false
 }
 ```
 
