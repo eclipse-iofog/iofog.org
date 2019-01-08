@@ -79,6 +79,10 @@
           {
             "title": "Hardware Abstraction Layer",
             "entry": "./using-system-microservices/hal.md"
+          },
+          {
+            "title": "Bluetooth Rest API",
+            "entry": "./using-system-microservices/rest-blue.md"
           }
         ]
       },
