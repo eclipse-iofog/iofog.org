@@ -1,4 +1,4 @@
-# bluetooth-rest-api (REST-BLUE)
+# Bluetooth REST API (REST-BLUE)
 
 Prerequisites:
 
@@ -7,11 +7,13 @@ Prerequisites:
 Upon startup the container will start scanning if bluetooth is powered on and upon discovering devices it will store them locally and generate an internal ID. In most cases the container will work with this locally stored devices unless the scanning is restarted. If container received command to restart scanning it will delete all previously stored devices and start scanning anew ( which results in generating new local IDs for devices).
 Container will return 'Timeout exception' in case if it didn't get any results of processing.
 
-> For example, if you try to hit http://localhost:10500/device/mac/{mac}/services?scan=true endpoint you can get 'Timeout exception' for next reasons:
->
-> 1. device with specified mac was't found while scanning anew
-> 2. device is inactive and container hang up on trying to connect to it
-> 3. after connecting to device container hang up on discovering services
+*For example, if you try to hit http://localhost:10500/device/mac/{mac}/services?scan=true endpoint you can get 'Timeout exception' for next reasons:*
+
+**1. device with specified mac was't found while scanning anew**
+
+**2. device is inactive and container hang up on trying to connect to it**
+
+**3. after connecting to device container hang up on discovering services**
 
 Container provides next REST endpoints :
 
@@ -19,75 +21,71 @@ Container provides next REST endpoints :
 
 This endpoint provides the possibility to set config for bluetooth-rest-api system container, upon receiving config container will wipe out all previously stored devices and restart scanning. 'name' - will tell container differentiate devices' uniqueness by localname, 'mac' - will tell container differentiate devices' uniqueness by mac address
 
-###### Endpoint 1
+**Request**
 
-<pre>
+```json
+Endpoint 1
 http://localhost:10500/config/scan
-</pre>
-
-###### POST JSON raw body
-
-<pre>
+POST JSON raw body
 { "deviceIdentifier" : "name"/"mac" }
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 "New config applied. Scanning restarted"
-</pre>
+```
 
 #### Turn ON/OFF level of logging (POST)
 
 This endpoint provides the possibility to turn ON/OFF DEBUG level logging (empty level value will turn off/ "DEBUG" will show exessive logs)
 
-###### Endpoint 2
+**Request**
 
-<pre>
+```json
+Endpoint 2
 http://localhost:10500/config/logging
-</pre>
-
-###### POST JSON raw body
-
-<pre>
+POST JSON raw body
 { "LOG_LEVEL" : "DEBUG" }
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 "LOG_LEVEL = ${LOG_LEVEL} is applied"
-</pre>
+```
 
 #### Restart scanning
 
 This endpoint sends the command to restart scanning to a container. As a result all previously stored devices will be wiped out and then the scanning will be restarted.
 
-###### Endpoint 3
+**Request**
 
-<pre>
+```json
+Endpoint 3
 http://localhost:10500/scan/restart
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 "Scanning restarted"
-</pre>
+```
 
 #### Get list of devices (GET)
 
 This endpoint returns a list of discovered devices till current moment.
 
-###### Endpoint 4
+**Request**
 
-<pre>
+```json
+Endpoint 4
 http://localhost:10500/devices
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 [
   {
     "id": "TzPxHVbBnn",
@@ -103,27 +101,29 @@ http://localhost:10500/devices
     "rssi": -81
   }
 ]
-</pre>
+```
 
 #### Get list of services (GET)
 
 This endpoint returns a list of services discovered for specified device ID/Mac Address.
 
-###### Endpoint 5
+**Request**
 
-<pre>
+```json
+Endpoint 5
 http://localhost:10500/device/iid/{ID}/services
-</pre>
+```
 
-###### Endpoint 6
+**Request**
 
-<pre>
+```json
+Endpoint 6
 http://localhost:10500/device/mac/{mac}/services
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 [
   {
     "uuid": "1800",
@@ -166,27 +166,29 @@ http://localhost:10500/device/mac/{mac}/services
     "type": null
   }
 ]
-</pre>
+```
 
 #### Get list of characteristics (GET)
 
 This endpoint returns the list of discovered characteristics for specified service sID and device dID/Mac Address
 
-###### Endpoint 7
+**Request**
 
-<pre>
+```json
+Endpoint 7
 http://localhost:10500/device/iid/{dID}/service/{sID}/characteristics
-</pre>
+```
 
-###### Endpoint 8
+**Request**
 
-<pre>
+```json
+Endpoint 8
 http://localhost:10500/device/mac/{mac}/service/{sID}/characteristics
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 [
   {
     "uuid": "2a00",
@@ -213,81 +215,82 @@ http://localhost:10500/device/mac/{mac}/service/{sID}/characteristics
     ]
   }
 ]
-</pre>
+```
 
 #### Read characteristic's value (GET)
 
 This endpoint reads the value from specified characteristic cID for specified service sID and device dID/Mac Address
 
-###### Endpoint 9
+**Request**
 
-<pre>
+```json
+Endpoint 9
 http://localhost:10500/device/iid/{dID}/service/{sID}/characteristic/{cID}
-</pre>
+```
 
-###### Endpoint 10
+**Request**
 
-<pre>
+```json
+Endpoint 10
 http://localhost:10500/device/mac/{mac}/service/{sID}/characteristic/{cID}
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 {
   "data": "base64 encoded data"
 }
-</pre>
+```
 
 #### Write value to characteristic (POST)
 
 This endpoint writes value to specified characteristic cID for specified service sID and device dID/Mac Address
 
-###### Endpoint 11
+**Request**
 
-<pre>
+```json
+Endpoint 11
 http://localhost:10500/device/iid/{dID}/service/{sID}/characteristic/{cID}
-</pre>
+```
 
-###### Endpoint 12
+**Request**
 
-<pre>
+```json
+Endpoint 12
 http://localhost:10500/device/mac/{mac}/service/{sID}/characteristic/{cID}
-</pre>
-
-###### POST JSON raw body
-
+POST JSON raw body
 "withresponse" isn't required (in case it's omitted the default value will be false)
-
-<pre>
 { "data" : "base64 encoded data" , "withresponse" : true }
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 "Success writing data to characteristic id = cID"
-</pre>
+```
 
 #### Get list of descriptors (GET)
 
 This endpoint returns a list of discovered descriptors for specified characteristic cID, service sID and device dID/Mac Address
 
-###### Endpoint 13
+**Request**
 
-<pre>
+```json
+Endpoint 13
 http://localhost:10500/device/id/{dID}/service/{sID}/characteristic/{cID}/descriptors
-</pre>
+```
 
-###### Endpoint 14
+**Request**
 
-<pre>
+```json
+Endpoint 14
 http://localhost:10500/device/mac/{mac}/service/{sID}/characteristic/{cID}/descriptors
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 [
   {
     "uuid": "2901",
@@ -300,31 +303,33 @@ http://localhost:10500/device/mac/{mac}/service/{sID}/characteristic/{cID}/descr
     "type": "org.bluetooth.descriptor.gatt.characteristic_extended_properties"
   }
 ]
-</pre>
+```
 
 #### Read the value from descriptor (GET)
 
-This endpoint reads the value from specified descriptor dsID for specified characteristic cID, service sID and device dID/Mac Address
+This endpoint reads the value from specified descriptor dsID for specified characteristic cID, service sID and device dID/Mac Address 
 
-###### Endpoint 15
+**Request**
 
-<pre>
+```json
+Endpoint 15
 http://localhost:10500/device/iid/{dID}/service/{sID}/characteristic/{cID}/descriptor/{dsID}
-</pre>
+```
 
-###### Endpoint 16
+**Request**
 
-<pre>
+```json
+Endpoint 16
 http://localhost:10500/device/mac/{mac}/service/{sID}/characteristic/{cID}/descriptor/{dsID}
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 {
   "data": "base64 encoded data"
 }
-</pre>
+```
 
 #### Subscribe to characteristic's notify event (GET)
 
@@ -335,46 +340,49 @@ When picking up buffered notify data:
 - If RESTBlue doesn't receive any data for more than specified timeout it will unsubscribe and remove notify buffer url and return 500 status code with error:TIMEOUT_DATA.
 - In case if device disconnected while being subscribed the response will be OK with device_disconnected:true and last batch of data.
 
-###### Endpoint 17
+**Request**
 
-<pre>
+```json
+Endpoint 17
 http://localhost:10500/device/iid/{dID}/service/{sID}/characteristic/{cID}/notify??timeout=TIME_MILLISEC
-</pre>
+```
 
-###### Endpoint 18
+**Request**
 
-<pre>
+```json
+Endpoint 18
 http://localhost:10500/device/mac/{mac}/service/{sID}/characteristic/{cID}/notify
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 {
   "message": "Notification is turned ON for characteristic uuid = CH_ID ",
   "url": "notify_buffer/BUFFER_GENERATEDID"
 }
-</pre>
+```
 
 #### Check status of Bluetooth Adapter (GET)
 
 This endpoint return the status of Bluetooth Adapter: if it'spowered on/off (true/false).
 
-###### Endpoint 19
+**Request**
 
-<pre>
+```json
+Endpoint 19
 http://localhost:10500/status
-</pre>
+```
 
-###### Response
+**Response**
 
-<pre>
+```json
 {
   "bluetooth_adapter_powered_on": true/false
 }
-</pre>
+```
 
-Parameters for endpoint 5-18:
+**Parameters for endpoint 5-18:**
 
 - scan=true : This parameter will tell REST Blue to stop scanning, clean up previously stored devices and start scan again and look for specified in the url device.
 - drct=1000 : Device reconnect timeout. Default value = 1000 millisecond. This parameter is specified in milliseconds, it's a timeout that REST Blue will wait to reconnect to device after receiving disconnect event for this device. REST Blue will try to reconnect only if it was subscribed on device's notifications and is storing data for 'NOTIFY Buffer' functionality.
