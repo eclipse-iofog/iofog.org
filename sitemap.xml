@@ -22,6 +22,7 @@
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/writing-microservices/overview.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/writing-microservices/sdk.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/tutorial/create-your-first-microservice-javascript.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/rest-blue.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/agents/cli-usage.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/controllers/cli-usage.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/agents/local-api.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
