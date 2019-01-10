@@ -27,8 +27,7 @@ Returns parsed info of 'lscpu' command
  <p>
  <pre>
  
-```json
-    {
+     {
         "on_line_cpus_list": "0-7",
         "cpus": "8",
         "cpu_family": "6",
@@ -55,7 +54,7 @@ Returns parsed info of 'lscpu' command
         "l3_cache": "8192K",
         "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
     }
-```
+
 </pre>
 </p>
 </details>
@@ -72,7 +71,6 @@ Returns parsed info of 'lspci' command
  <p>
  <pre>
  
- ```json
  	[
          {
            "device_class_id": "0600",
@@ -359,7 +357,7 @@ Returns parsed info of 'lspci' command
            "device_name": "OZ600 MS/xD Controller "
          }
        ]
-```
+
 
 </pre>
 </p>
@@ -377,7 +375,6 @@ Returns parsed info of 'lsusb' command
  <p>
  <pre>
  
- ```json
  	[
          {
            "bus_number": "002",
@@ -450,7 +447,7 @@ Returns parsed info of 'lsusb' command
            "manufacture_device_name": "Linux Foundation 2.0 root hub"
          }
        ]
-```
+
 </pre>
 </p>
 </details>
@@ -467,7 +464,6 @@ Returns parsed info of 'lshw' command
  <p>
  <pre>
  
- ```json
        {
          "id": "machine_id",
          "handle": "handle_string",
@@ -1801,7 +1797,7 @@ Returns parsed info of 'lshw' command
          "serial": "serial_string",
          "version": "01"
        }
-```
+
 </pre>
 </p>
 </details>
@@ -1817,8 +1813,7 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
  <details><summary>Response example</summary>
  <p>
  <pre>
- 
- ```json
+
        [
          {
            "bugs": "",
@@ -2045,7 +2040,6 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
            "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
          }
        ]
-```
 
 </pre>
 </p>
@@ -2063,7 +2057,6 @@ Returns a list of serial ports
  <p>
  <pre>
  
- ```json
  	[
          {
            "subsystem": "pci",
@@ -2098,7 +2091,6 @@ Returns a list of serial ports
            "name": "ttyUSB0"
          }
        ]
-```
 
 </pre>
 </p>
@@ -2178,7 +2170,8 @@ All available configuration properties:
 - 'write_timeout'
 - 'inter_byte_timeout'
 - 'data_read_timeout' (this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
-  > Example:
+
+**Example:**
   
   ```json
       { 'port': '/dev/ttyUSB0' }
