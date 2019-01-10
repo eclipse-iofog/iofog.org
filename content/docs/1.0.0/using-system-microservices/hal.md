@@ -2152,14 +2152,14 @@ the Web-socket connection itself and that would make associated connections with
 ##### Signals from Client to HAL
 
 ```json
-    - op code 3: signals HAL to open connection to device with specified configuration in passed data (op code single
-    byte followed by bytes of json configuration to open connection to device ); in case with USB-to-Serial: PORT
-    property is required.
-    - op code 5: signals HAL to send recieved data to connected device (op code single byte followed by pure bytes of
-    data to send to device)
-    - standart close frame: indicates that client wants to close current connection.
-        > status code 1000 with close frame : means that device normally closed connection
-    	> status code 4000 with close frame : there was an exception, error will be passed in reason.
+       - op code 3: signals HAL to open connection to device with specified configuration in passed data (op code single
+       byte followed by bytes of json configuration to open connection to device ); in case with USB-to-Serial: PORT
+       property is required.
+       - op code 5: signals HAL to send recieved data to connected device (op code single byte followed by pure bytes of
+       data to send to device)
+       - standart close frame: indicates that client wants to close current connection.
+           > status code 1000 with close frame : means that device normally closed connection
+           > status code 4000 with close frame : there was an exception, error will be passed in reason.
 ```
 
 ###### JSON Configuration for USB-to-Serial device
@@ -2177,7 +2177,7 @@ All available configuration properties:
 - 'dsrdtr'
 - 'write_timeout'
 - 'inter_byte_timeout'
-- 'data_read_timeout'(this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
+- 'data_read_timeout' (this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
   > Example:
   
   ```json
