@@ -27,8 +27,7 @@ http://localhost:54331/hal/hwc/lscpu
  <p>
  <pre>
  
-```json
-    {
+     {
         "on_line_cpus_list": "0-7",
         "cpus": "8",
         "cpu_family": "6",
@@ -55,7 +54,7 @@ http://localhost:54331/hal/hwc/lscpu
         "l3_cache": "8192K",
         "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
     }
-```
+
 </pre>
 </p>
 </details>
@@ -72,7 +71,6 @@ http://localhost:54331/hal/hwc/lspci
  <p>
  <pre>
  
- ```json
  	[
          {
            "device_class_id": "0600",
@@ -359,7 +357,6 @@ http://localhost:54331/hal/hwc/lspci
            "device_name": "OZ600 MS/xD Controller "
          }
        ]
-```
 
 </pre>
 </p>
@@ -377,7 +374,6 @@ http://localhost:54331/hal/hwc/lsusb
  <p>
  <pre>
  
- ```json
  	[
          {
            "bus_number": "002",
@@ -450,7 +446,7 @@ http://localhost:54331/hal/hwc/lsusb
            "manufacture_device_name": "Linux Foundation 2.0 root hub"
          }
        ]
-```
+
 </pre>
 </p>
 </details>
@@ -467,7 +463,6 @@ http://localhost:54331/hal/hwc/lshw
  <p>
  <pre>
  
- ```json
        {
          "id": "machine_id",
          "handle": "handle_string",
@@ -1801,7 +1796,7 @@ http://localhost:54331/hal/hwc/lshw
          "serial": "serial_string",
          "version": "01"
        }
-```
+
 </pre>
 </p>
 </details>
@@ -1817,8 +1812,7 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
  <details><summary>Response example</summary>
  <p>
  <pre>
- 
- ```json
+
        [
          {
            "bugs": "",
@@ -2045,7 +2039,6 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
            "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
          }
        ]
-```
 
 </pre>
 </p>
@@ -2063,7 +2056,6 @@ http://localhost:54331/hal/rs232/list
  <p>
  <pre>
  
- ```json
  	[
          {
            "subsystem": "pci",
@@ -2098,7 +2090,6 @@ http://localhost:54331/hal/rs232/list
            "name": "ttyUSB0"
          }
        ]
-```
 
 </pre>
 </p>
@@ -2179,8 +2170,8 @@ All available configuration properties:
 - 'inter_byte_timeout'
 - 'data_read_timeout' (this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
 
-  > Example:
+**Example:**
 
-  ```json
-  { "port": "/dev/ttyUSB0" }
-  ```
+```json
+{ "port": "/dev/ttyUSB0" }
+```
