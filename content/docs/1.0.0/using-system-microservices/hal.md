@@ -1812,7 +1812,7 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
  <details><summary>Response example</summary>
  <p>
  <pre>
-
+ 
        [
          {
            "bugs": "",
