@@ -19,9 +19,9 @@ REST server listens on port 54331.
 
 Returns parsed info of 'lscpu' command
 
- ```json
- http://localhost:54331/hal/hwc/lscpu
-  ```
+```json
+http://localhost:54331/hal/hwc/lscpu
+```
 
  <details><summary>Response example</summary>
  <p>
@@ -64,10 +64,10 @@ Returns parsed info of 'lscpu' command
 
 Returns parsed info of 'lspci' command
 
- ```json
- http://localhost:54331/hal/hwc/lspci
- ```
- 
+```json
+http://localhost:54331/hal/hwc/lspci
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
@@ -369,10 +369,10 @@ Returns parsed info of 'lspci' command
 
 Returns parsed info of 'lsusb' command
 
- ```json
- http://localhost:54331/hal/hwc/lsusb
- ```
- 
+```json
+http://localhost:54331/hal/hwc/lsusb
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
@@ -459,10 +459,10 @@ Returns parsed info of 'lsusb' command
 
 Returns parsed info of 'lshw' command
 
- ```json
- http://localhost:54331/hal/hwc/lshw
- ```
- 
+```json
+http://localhost:54331/hal/hwc/lshw
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
@@ -2055,10 +2055,10 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
 
 Returns a list of serial ports
 
- ```json
- http://localhost:54331/hal/rs232/list
- ```
- 
+```json
+http://localhost:54331/hal/rs232/list
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
@@ -2178,8 +2178,9 @@ All available configuration properties:
 - 'write_timeout'
 - 'inter_byte_timeout'
 - 'data_read_timeout' (this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
+
   > Example:
-  
+
   ```json
-      { 'port': '/dev/ttyUSB0' }
+  { "port": "/dev/ttyUSB0" }
   ```
