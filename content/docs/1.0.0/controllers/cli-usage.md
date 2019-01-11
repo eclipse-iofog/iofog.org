@@ -370,7 +370,7 @@ iofog-controller tunnel <action> <options>
 | **-s, --host string**      | Tunnel host address                     |
 | **-k, --rsa-key string**   | Path to RSA key file                    |
 | **-o, --port number**      | Tunnel port                             |
-| **-i, --iofogUuid string** | ioFog UUID                                |
+| **-i, --iofogUuid string** | ioFog UUID                              |
 
 ```sh
 iofog-controller tunnel update \
@@ -445,7 +445,7 @@ iofog-controller iofog <action> <options>
 
 |                                   |                                                          |
 | --------------------------------- | -------------------------------------------------------- |
-| **-i, --node-uuid string**          | ioFog node UUID                                            |
+| **-i, --node-uuid string**        | ioFog node UUID                                          |
 | **-f, --file string**             | Path to ioFog settings JSON file                         |
 | **-n, --name string**             | ioFog node name                                          |
 | **-l, --location string**         | ioFog node location                                      |
@@ -474,45 +474,45 @@ iofog-controller iofog <action> <options>
 
 ##### remove
 
-|                          |               |
-| ------------------------ | ------------- |
+|                            |                 |
+| -------------------------- | --------------- |
 | **-i, --node-uuid string** | ioFog node UUID |
 
 ##### info
 
-|                          |               |
-| ------------------------ | ------------- |
+|                            |                 |
+| -------------------------- | --------------- |
 | **-i, --node-uuid string** | ioFog node UUID |
 
 ##### provisioning-key
 
-|                          |               |
-| ------------------------ | ------------- |
+|                            |                 |
+| -------------------------- | --------------- |
 | **-i, --node-uuid string** | ioFog node UUID |
 
 ##### reboot
 
-|                          |               |
-| ------------------------ | ------------- |
+|                            |                 |
+| -------------------------- | --------------- |
 | **-i, --node-uuid string** | ioFog node UUID |
 
 ##### version
 
 |                                  |                                                |
 | -------------------------------- | ---------------------------------------------- |
-| **-i, --node-uuid string**         | ioFog node UUID                                  |
+| **-i, --node-uuid string**       | ioFog node UUID                                |
 | **-v, --version-command string** | ioFog version command &lt;upgrade/rollback&gt; |
 
 ##### hal-hw
 
-|                          |               |
-| ------------------------ | ------------- |
+|                            |                 |
+| -------------------------- | --------------- |
 | **-i, --node-uuid string** | ioFog node UUID |
 
 ##### hal-usb
 
-|                          |               |
-| ------------------------ | ------------- |
+|                            |                 |
+| -------------------------- | --------------- |
 | **-i, --node-uuid string** | ioFog node UUID |
 
 ---
@@ -692,7 +692,7 @@ iofog-controller microservice <action> <options>
 | **-n, --name string**       | Microservice name                              |
 | **-c, --catalog-id number** | Catalog item ID                                |
 | **-F, --flow-id number**    | Application flow ID                            |
-| **-I, --iofog-uuid string**   | ioFog node UUID                                  |
+| **-I, --iofog-uuid string** | ioFog node UUID                                |
 | **-g, --config string**     | Microservice config                            |
 | **-v, --volumes string[]**  | Microservice volume mapping(s                  |
 | **-l, --log-size number**   | Log file size limit (MB                        |
@@ -725,19 +725,19 @@ iofog-controller microservice add \
 
 ##### update
 
-|                                  |                                         |
-| -------------------------------- | --------------------------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID                         |
-| **-f, --file string**            | Path to microservice settings JSON file |
-| **-n, --name string**            | Microservice name                       |
-| **-F, --flow-id string**         | Application flow ID                     |
-| **-I, --iofog-uuid string**        | ioFog node UUID                           |
-| **-g, --config string**          | Microservice config                     |
-| **-v, --volumes string[]**       | Microservice volume mapping(s)          |
-| **-l, --log-size number**        | Log file size limit (MB)                |
-| **-r, --root-enable**            | Enable root access                      |
-| **-R, --root-disable**           | Disable root access                     |
-| **-w, --rebuild**                | Rebuild microservice image on fog agent |
+|                                    |                                         |
+| ---------------------------------- | --------------------------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID                       |
+| **-f, --file string**              | Path to microservice settings JSON file |
+| **-n, --name string**              | Microservice name                       |
+| **-F, --flow-id string**           | Application flow ID                     |
+| **-I, --iofog-uuid string**        | ioFog node UUID                         |
+| **-g, --config string**            | Microservice config                     |
+| **-v, --volumes string[]**         | Microservice volume mapping(s)          |
+| **-l, --log-size number**          | Log file size limit (MB)                |
+| **-r, --root-enable**              | Enable root access                      |
+| **-R, --root-disable**             | Disable root access                     |
+| **-w, --rebuild**                  | Rebuild microservice image on fog agent |
 
 ```sh
 iofog-controller update \
@@ -748,15 +748,15 @@ iofog-controller update \
 
 ##### remove
 
-|                                  |                                  |
-| -------------------------------- | -------------------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID                  |
-| **-z, --cleanUp**                | Delete microservice with cleanup |
+|                                    |                                  |
+| ---------------------------------- | -------------------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID                |
+| **-z, --cleanUp**                  | Delete microservice with cleanup |
 
 ##### info
 
-|                                  |                 |
-| -------------------------------- | --------------- |
+|                                    |                   |
+| ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
 
 ##### route-create
@@ -785,10 +785,10 @@ iofog-controller microservice route-remove \
 
 ##### port-mapping-create
 
-|                                  |                        |
-| -------------------------------- | ---------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID        |
-| **-P, --mapping string**         | Container port mapping |
+|                                    |                        |
+| ---------------------------------- | ---------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID      |
+| **-P, --mapping string**           | Container port mapping |
 
 ```sh
 # Create port mapping (80:8080:false - internal port : external port : public mode, ABC - microservice)
@@ -799,10 +799,10 @@ iofog-controller microservice port-mapping-create \
 
 ##### port-mapping-remove
 
-|                                  |                 |
-| -------------------------------- | --------------- |
+|                                    |                   |
+| ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
-| **-b, --internal-port string**   | Internal port   |
+| **-b, --internal-port string**     | Internal port     |
 
 ```sh
 # Delete port mapping (80 - internal port, ABC - microservice uuid)
@@ -813,16 +813,16 @@ iofog-controller microservice port-mapping-remove \
 
 ##### port-mapping-list
 
-|                                  |                 |
-| -------------------------------- | --------------- |
+|                                    |                   |
+| ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
 
 ##### volume-mapping-create
 
-|                                  |                        |
-| -------------------------------- | ---------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID        |
-| **-P, --mapping string**         | Container port mapping |
+|                                    |                        |
+| ---------------------------------- | ---------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID      |
+| **-P, --mapping string**           | Container port mapping |
 
 ```sh
 # Create volume mapping
@@ -833,10 +833,10 @@ iofog-controller microservice volume-mapping-create \
 
 ##### volume-mapping-remove
 
-|                                  |                   |
-| -------------------------------- | ----------------- |
-| **-i, --microservice-uuid string** | Microservice UUID   |
-| **-a, --mapping-id number**      | Volume mapping id |
+|                                    |                   |
+| ---------------------------------- | ----------------- |
+| **-i, --microservice-uuid string** | Microservice UUID |
+| **-a, --mapping-id number**        | Volume mapping id |
 
 ```sh
 # Delete volume mapping
@@ -847,8 +847,8 @@ iofog-controller microservice volume-mapping-remove \
 
 ##### volume-mapping-list
 
-|                                  |                 |
-| -------------------------------- | --------------- |
+|                                    |                   |
+| ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
 
 ---
@@ -899,7 +899,6 @@ iofog-controller registry <action> <options>
 | **-c, --requires-certificate** | Requires certificate    |
 | **-C, --certificate string**   | Certificate             |
 | **-e, --email string**         | Email address           |
-
 
 ##### remove
 
