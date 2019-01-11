@@ -19,12 +19,15 @@ REST server listens on port 54331.
 
 Returns parsed info of 'lscpu' command
 
- <pre> http://localhost:54331/hal/hwc/lscpu </pre>
+```json
+http://localhost:54331/hal/hwc/lscpu
+```
 
  <details><summary>Response example</summary>
  <p>
  <pre>
-    {
+ 
+     {
         "on_line_cpus_list": "0-7",
         "cpus": "8",
         "cpu_family": "6",
@@ -51,6 +54,7 @@ Returns parsed info of 'lscpu' command
         "l3_cache": "8192K",
         "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
     }
+
 </pre>
 </p>
 </details>
@@ -59,10 +63,14 @@ Returns parsed info of 'lscpu' command
 
 Returns parsed info of 'lspci' command
 
- <pre> http://localhost:54331/hal/hwc/lspci </pre>
+```json
+http://localhost:54331/hal/hwc/lspci
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
+ 
  	[
          {
            "device_class_id": "0600",
@@ -349,6 +357,7 @@ Returns parsed info of 'lspci' command
            "device_name": "OZ600 MS/xD Controller "
          }
        ]
+
 </pre>
 </p>
 </details>
@@ -357,10 +366,14 @@ Returns parsed info of 'lspci' command
 
 Returns parsed info of 'lsusb' command
 
- <pre> http://localhost:54331/hal/hwc/lsusb </pre>
+```json
+http://localhost:54331/hal/hwc/lsusb
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
+ 
  	[
          {
            "bus_number": "002",
@@ -433,6 +446,7 @@ Returns parsed info of 'lsusb' command
            "manufacture_device_name": "Linux Foundation 2.0 root hub"
          }
        ]
+
 </pre>
 </p>
 </details>
@@ -441,10 +455,14 @@ Returns parsed info of 'lsusb' command
 
 Returns parsed info of 'lshw' command
 
- <pre> http://localhost:54331/hal/hwc/lshw </pre>
+```json
+http://localhost:54331/hal/hwc/lshw
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
+ 
        {
          "id": "machine_id",
          "handle": "handle_string",
@@ -1778,6 +1796,7 @@ Returns parsed info of 'lshw' command
          "serial": "serial_string",
          "version": "01"
        }
+
 </pre>
 </p>
 </details>
@@ -1786,10 +1805,14 @@ Returns parsed info of 'lshw' command
 
 Returns parsed info from file /proc/cpuinfo
 
- <pre> http://localhost:54331/hal/hwc/proc/cpuinfo </pre>
+```json
+http://localhost:54331/hal/hwc/proc/cpuinfo
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
+ 
        [
          {
            "bugs": "",
@@ -2016,6 +2039,7 @@ Returns parsed info from file /proc/cpuinfo
            "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
          }
        ]
+
 </pre>
 </p>
 </details>
@@ -2024,10 +2048,14 @@ Returns parsed info from file /proc/cpuinfo
 
 Returns a list of serial ports
 
- <pre> http://localhost:54331/hal/rs232/list </pre>
+```json
+http://localhost:54331/hal/rs232/list
+```
+
  <details><summary>Response example</summary>
  <p>
  <pre>
+ 
  	[
          {
            "subsystem": "pci",
@@ -2062,6 +2090,7 @@ Returns a list of serial ports
            "name": "ttyUSB0"
          }
        ]
+
 </pre>
 </p>
 </details>
@@ -2081,26 +2110,26 @@ the Web-socket connection itself and that would make associated connections with
 
 ##### Endpoint
 
-<pre>
+```json
 	ws://loocalhost:54332/hal/rs232/{PORT=dev/ttyusb0}
-</pre>
+```
 
 ##### Response
 
-<pre>
+```json
 	None - the Websocket will simply be opened successfully
-</pre>
+```
 
 ##### Querystring Parameters
 
-<pre>
+```json
 	PORT - the PORT of USB-to-Serial device to connect to via the Websocket connection
 	(example shown here as '/dev/ttyusb0')
-</pre>
+```
 
 ##### Signals from HAL to Client
 
-<pre>
+```json
 	- op code 4: (single byte command) indicates connection to device was opened (it's an answer to connection open op
 	code signal sent with configuration for opening connection to physical device); at this point HAL starts
 	listening on data from connected device.
@@ -2109,20 +2138,20 @@ the Web-socket connection itself and that would make associated connections with
 	- standart close frame: indicates that current connection was closed.
 	    > status code 1000 with close frame : means that device normally closed connection
 	    > status code 4000 with close frame : there was an exception, error will be passed in reason.
-</pre>
+```
 
 ##### Signals from Client to HAL
 
-<pre>
-    - op code 3: signals HAL to open connection to device with specified configuration in passed data (op code single
-    byte followed by bytes of json configuration to open connection to device ); in case with USB-to-Serial: PORT
-    property is required.
-    - op code 5: signals HAL to send recieved data to connected device (op code single byte followed by pure bytes of
-    data to send to device)
-    - standart close frame: indicates that client wants to close current connection.
-        > status code 1000 with close frame : means that device normally closed connection
-    	> status code 4000 with close frame : there was an exception, error will be passed in reason.
-</pre>
+```json
+       - op code 3: signals HAL to open connection to device with specified configuration in passed data (op code single
+       byte followed by bytes of json configuration to open connection to device ); in case with USB-to-Serial: PORT
+       property is required.
+       - op code 5: signals HAL to send recieved data to connected device (op code single byte followed by pure bytes of
+       data to send to device)
+       - standart close frame: indicates that client wants to close current connection.
+           > status code 1000 with close frame : means that device normally closed connection
+           > status code 4000 with close frame : there was an exception, error will be passed in reason.
+```
 
 ###### JSON Configuration for USB-to-Serial device
 
@@ -2139,8 +2168,10 @@ All available configuration properties:
 - 'dsrdtr'
 - 'write_timeout'
 - 'inter_byte_timeout'
-- 'data_read_timeout'(this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
-  > Example:
-  <pre>
-      { 'port': '/dev/ttyUSB0' }
-  </pre>
+- 'data_read_timeout' (this property tells HAL to pause for specified timeout in seconds before reading data from buffer)
+
+**Example:**
+
+```json
+{ "port": "/dev/ttyUSB0" }
+```
