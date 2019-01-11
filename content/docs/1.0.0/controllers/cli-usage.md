@@ -802,7 +802,7 @@ iofog-controller microservice port-mapping-create \
 |                                    |                   |
 | ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
-| **-b, --internal-port string**     | Internal port     |
+| **-b, --internal-port number**     | Internal port     |
 
 ```sh
 # Delete port mapping (80 - internal port, ABC - microservice uuid)
