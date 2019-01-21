@@ -31,7 +31,7 @@ class BringYourOwnEdge extends Component {
                   </p>
                   <p>
                     <span className="code__noselect">$ </span>
-                    docker-compose up
+                    docker-compose up --detach
                   </p>
                 </div>
                 <Link to="/docs/getting-started/quick-start.html">
