@@ -370,7 +370,7 @@ iofog-controller tunnel <action> <options>
 | **-s, --host string**      | Tunnel host address                     |
 | **-k, --rsa-key string**   | Path to RSA key file                    |
 | **-o, --port number**      | Tunnel port                             |
-| **-i, --iofogUuid string** | ioFog UUID                              |
+| **-i, --iofog-uuid string**| ioFog node UUID                        |
 
 ```sh
 iofog-controller tunnel update \
@@ -380,7 +380,7 @@ iofog-controller tunnel update \
   --host 127.12.14.52 \
   --rsa-key /home/dmitrys/documents/rsa.txt \
   --port 22 \
-  --iofogUuid NH44VjVFnr8946Yr8HPRrJdFZgLN8k7j
+  --iofog-uuid NH44VjVFnr8946Yr8HPRrJdFZgLN8k7j
 ```
 
 ---
@@ -445,7 +445,7 @@ iofog-controller iofog <action> <options>
 
 |                                   |                                                          |
 | --------------------------------- | -------------------------------------------------------- |
-| **-i, --node-uuid string**        | ioFog node UUID                                          |
+| **-i, --iofog-uuid string**       | ioFog node UUID                                          |
 | **-f, --file string**             | Path to ioFog settings JSON file                         |
 | **-n, --name string**             | ioFog node name                                          |
 | **-l, --location string**         | ioFog node location                                      |
@@ -476,44 +476,44 @@ iofog-controller iofog <action> <options>
 
 |                            |                 |
 | -------------------------- | --------------- |
-| **-i, --node-uuid string** | ioFog node UUID |
+| **-i, --iofog-uuid string**| ioFog node UUID |
 
 ##### info
 
 |                            |                 |
 | -------------------------- | --------------- |
-| **-i, --node-uuid string** | ioFog node UUID |
+| **-i, --iofog-uuid string**| ioFog node UUID |
 
 ##### provisioning-key
 
 |                            |                 |
 | -------------------------- | --------------- |
-| **-i, --node-uuid string** | ioFog node UUID |
+| **-i, --iofog-uuid string**| ioFog node UUID |
 
 ##### reboot
 
 |                            |                 |
 | -------------------------- | --------------- |
-| **-i, --node-uuid string** | ioFog node UUID |
+| **-i, --iofog-uuid string**| ioFog node UUID |
 
 ##### version
 
 |                                  |                                                |
 | -------------------------------- | ---------------------------------------------- |
-| **-i, --node-uuid string**       | ioFog node UUID                                |
+| **-i, --iofog-uuid string**      | ioFog node UUID                                |
 | **-v, --version-command string** | ioFog version command &lt;upgrade/rollback&gt; |
 
 ##### hal-hw
 
 |                            |                 |
 | -------------------------- | --------------- |
-| **-i, --node-uuid string** | ioFog node UUID |
+| **-i, --iofog-uuid string**| ioFog node UUID |
 
 ##### hal-usb
 
 |                            |                 |
 | -------------------------- | --------------- |
-| **-i, --node-uuid string** | ioFog node UUID |
+| **-i, --iofog-uuid string**| ioFog node UUID |
 
 ---
 
