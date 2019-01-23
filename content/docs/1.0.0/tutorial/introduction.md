@@ -11,7 +11,7 @@ In this tutorial, we'll cover how to create, deploy, and manage your first micro
 
 ioFog requires a Linux environment, however this Tutorial has everything already setup inside a Linux [Docker container](https://docs.docker.com/get-started/) that can run on Mac or Windows as well.
 
-- **Linux** v3.10+ (Ubuntu, CentOS, Raspbian, etc), **macOS** 10.12+, or **Windows** 7+
+- **Linux** v3.10+ (Ubuntu, CentOS, etc), **macOS** 10.12+, or **Windows** 7+
 - **Docker** 1.10+
 
 ## Setup
@@ -19,6 +19,7 @@ ioFog requires a Linux environment, however this Tutorial has everything already
 - [Linux](#linux)
 - [macOS](#macos)
 - [Windows](#windows)
+- [Raspbian](#raspbian-usage)
 
 ### Linux
 
@@ -111,6 +112,19 @@ Next we need to download the Tutorial project, which will use Docker to run Linu
 [Download Tutorial project](https://github.com/ioFog/demo/archive/demo-environment.zip)
 
 Unzip the contents into your preferred working directory.
+
+### Raspbian Usage
+
+---
+
+While we fully support using Raspberry Pi's as workers on the edge environment, they are not meant
+to be used as the Controller and Connector infrastructure. The normal quick-starts above will bring up an entire containerized
+edge environment for usage, while this section will specify using the Raspberry Pi as an agent in your
+edge infrastructure
+
+#### Raspian Agents
+
+We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0/getting-started/setup-your-agents.html)
 
 ## Bootstrap the Project
 
