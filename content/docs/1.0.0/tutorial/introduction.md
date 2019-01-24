@@ -120,9 +120,9 @@ Unzip the contents into your preferred working directory.
 While we fully support using Raspberry Pi's as workers on the edge environment, they are not meant
 to be used as the Controller and Connector infrastructure. The normal quick-starts above will bring up an entire containerized
 edge environment for usage, while this section will specify using the Raspberry Pi as an agent in your
-edge infrastructure
+edge infrastructure.
 
-#### Raspian Agents
+#### Raspbian Agents
 
 We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0/getting-started/setup-your-agents.html)
 
