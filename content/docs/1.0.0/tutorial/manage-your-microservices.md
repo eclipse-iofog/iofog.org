@@ -49,14 +49,14 @@ To connect microservices together, the Controller has the concept of **routes**.
 
 ```sh
 iofog-controller microservice route-create \
-  --route <source_id>:<dest_id>
+  --route <source_uuid>:<dest_uuid>
 ```
 
-We can add or remove them with `microservice route-create --route` and `microservice route-remove --route` respectively, while passing in the source and destination microservice IDs separated by a colon. These IDs are returned when you start a microservice, but can also be obtained later from the result of `microservice list`.
+We can add or remove them with `microservice route-create --route` and `microservice route-remove --route` respectively, while passing in the source and destination microservice UUIDs separated by a colon. These UUIDs are returned when you start a microservice, but can also be obtained later from the result of `microservice list`.
 
 From the result of `microservice list` we can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the API microservice.
 
-The unique ID for each microservice varies, so yours will be different:
+The unique UUID for each microservice varies, so yours will be different:
 
 ```json
 [

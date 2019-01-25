@@ -50,28 +50,28 @@ This command will return a catalog ID that we'll use in the next step.
 
 Now that the Docker image containing our microservice code is registered, we can spin up new copies of it also using the Controller.
 
-Instantiating a new microservice is done using the `microservice add` command. We need to provide several options, the most notable being the catalog ID we received in the previous section as well as a node ID—which is the ID of the edge node we want this microservice to run on.
+Instantiating a new microservice is done using the `microservice add` command. We need to provide several options, the most notable being the catalog ID we received in the previous section as well as a node UUID—which is the UUID of the edge node we want this microservice to run on.
 
-So let's find the ID for the first Agent with the name "Agent 1":
+So let's find the UUID for the first Agent with the name "Agent 1":
 
 ```sh
 iofog-controller iofog list
 ```
 
-Using that ID, we can pass it and our other arguments to instantiate the microservice:
+Using that UUID, we can pass it and our other arguments to instantiate the microservice:
 
 ```sh
 iofog-controller microservice add \
   --name "Moving Average 1" \
   --catalog-id <catalog_id> \
   --config '{ "maxWindowSize": 10 }' \
-  --node-id <node_id> \
+  --node-uuid <node_uuid> \
   --flow-id 1
 ```
 
 This is also a great opportunity to include our custom config for our `maxWindowSize`.
 
-This command will return the microservice ID, which we'll then use in the next step to setup our routes.
+This command will return the microservice UUID, which we'll then use in the next step to setup our routes.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Flow IDs</h3>
@@ -82,20 +82,20 @@ This command will return the microservice ID, which we'll then use in the next s
 
 ## Setup Our Routes
 
-With the microservice ID from the last step, let's change our routes so that our new microservice is placed between the Sensors and the REST API.
+With the microservice UUID from the last step, let's change our routes so that our new microservice is placed between the Sensors and the REST API.
 
-First, let's remove the old route from the Sensors to the REST API. We need to retrieve the microservice IDs for Sensors and the REST API:
+First, let's remove the old route from the Sensors to the REST API. We need to retrieve the microservice UUIDs for Sensors and the REST API:
 
 ```sh
 iofog-controller microservice list
 ```
 
-After finding those two IDs in the list, provide the Sensors ID and API ID separated by a semicolon to `microservice route-remove --route <source_id>:<dest_id>`:
+After finding those two UUIDs in the list, provide the Sensors UUID and API UUID separated by a semicolon to `microservice route-remove --route <source_uuid>:<dest_uuid>`:
 
 ```sh
-# Note the semicolon between the two IDs!
+# Note the semicolon between the two UUIDs!
 iofog-controller microservice route-remove \
-  --route <sensors_id>:<api_id>
+  --route <sensors_uuid>:<api_uuid>
 ```
 
 Now we need to place two new routes: one from the Sensors to Moving Average, and another from Moving Average to the REST API; this places our new microservice in between them.
@@ -103,11 +103,11 @@ Now we need to place two new routes: one from the Sensors to Moving Average, and
 ```sh
 # Sensors -> Moving Average
 iofog-controller microservice route-create \
-  --route <sensors_id>:<moving_average_id>
+  --route <sensors_uuid>:<moving_average_uuid>
 
 # Moving Average -> REST API
 iofog-controller microservice route-create \
-  --route <moving_average_id>:<rest_api_id>
+  --route <moving_average_uuid>:<rest_api_uuid>
 ```
 
 Finally, for the moment of truth. Let's first try a curl request to our REST API:
@@ -128,7 +128,7 @@ The `microservice update` command is used to update a particular microservice:
 
 ```sh
 iofog-controller microservice update \
-  --microservice-id <id> \
+  --microservice-uuid <uuid> \
   --config '{ "maxWindowSize": 100 }' \
 ```
 
