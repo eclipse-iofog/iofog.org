@@ -87,6 +87,15 @@
         ]
       },
       {
+        "title": "Using Public Catalog Microservices",
+        "subMenus": [
+          {
+            "title": "JSON REST API And Open Weather Map",
+            "entry": "./using-public-catalog-microservices/jsonrestapi.md"
+          }
+        ]
+      },
+      {
         "title": "Controllers",
         "subMenus": [
           {
