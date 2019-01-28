@@ -176,7 +176,7 @@ Your Controller manages all your ioFog nodes remotely by communicating with the 
 On the server running our Controller we'll use the `iofog-controller iofog add` command, providing a unique `name` for our node as well as the `fog-type`, which is number signifying the node's CPU architecture: `0` for automatic detection, `1` for x86 (and x64), and `2` for ARM. This command will return a unique node ID we'll use in our next step.
 
 ```sh
-iofog-controller iofog add --name "my-fog-node" --fog-type 0
+iofog-controller iofog add --name "my-fog-node" --fog-type 0 -u <user-id>
 ```
 
 There are a number of other optional configuration options, such as CPU/memory/disk limits, enabling bluetooth, and others found in the [Controller CLI reference](../controllers/cli-usage.html).
