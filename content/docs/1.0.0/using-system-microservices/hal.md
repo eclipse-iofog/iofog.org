@@ -1,4 +1,4 @@
-# HAL
+# Getting Started with HAL
 
 HAL stands for Hardware Abstraction Layer. It's REST/WS abstraction for hardware capabilities for Linux based
 machines.
