@@ -1,4 +1,4 @@
-# GPIO abstaction
+# GPIO Abstraction
 GPIO abstraction is intended to easy the use of GPIO on any language. 
 
 As a part of HAL REST server it listens on port 54331 under 'gpio' path. 
@@ -105,7 +105,6 @@ Response example
 { "Error message" }
 </pre>
 
-</pre>
 #### Set values to HIGH/LOW to GPIO channels (POST)
 Set values to HIGH/LOW to GPIO channels
 <pre> curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/high </pre>
@@ -122,6 +121,7 @@ Response example
 } /
 { "Error message" }
 </pre>
+
 #### Get values of GPIO channels (POST)
 Get values of GPIO channels
 <pre> curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/getv </pre>
