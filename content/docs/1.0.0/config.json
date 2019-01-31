@@ -108,6 +108,10 @@
             "entry": "./using-system-microservices/usbdeviceslist.md"
           },
           {
+            "title": "GPIO Abstraction",
+            "entry": "./using-system-microservices/gpio.md"
+          },
+          {
             "title": "WebSockets",
             "entry": "./using-system-microservices/websockets.md"
           }
