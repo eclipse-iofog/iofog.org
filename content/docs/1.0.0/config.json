@@ -100,6 +100,10 @@
             "entry": "./using-system-microservices/lshw.md"
           },
           {
+            "title": "CPU",
+            "entry": "./using-system-microservices/cpuinfo.md"
+          },
+          {
             "title": "USB devices list",
             "entry": "./using-system-microservices/usbdeviceslist.md"
           },
@@ -110,7 +114,7 @@
         ]
           },
           {
-            "title": "CPU",
+            "title": "Bluetooth REST API",
             "entry": "./using-system-microservices/rest-blue.md"
           }
         ]
