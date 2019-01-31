@@ -80,6 +80,9 @@ Response example
 }
 </pre>
 
+#### Set values to GPIO channels (POST)
+Set values to GPIO channels
+
 <pre> 
 curl -d '[
   {
@@ -102,41 +105,6 @@ Response example
 { "Error message" }
 </pre>
 
-#### Set values to GPIO channels (POST)
-Set values to GPIO channels
-<pre> 
-curl -d '[
-  {
-      "number": 1,
-      "value": "high"
-  },
-  {
-      "number": 3,
-      "value": "low"
-  }
-]' http://localhost:54331/hal/gpio/rpi/setv </pre>
-
-POST JSON example
-<pre> 
-[
-    {
-        "number": 1, 
-        "value": "high"
-    }, 
-    {
-        "number": 2, 
-        "value": "low"
-    }
-]
-</pre>
-
-Response example
-<pre> 
-{
-    "1": "ok",
-    "2": "Error message"
-} /
-{ "Error message" }
 </pre>
 #### Set values to HIGH/LOW to GPIO channels (POST)
 Set values to HIGH/LOW to GPIO channels
