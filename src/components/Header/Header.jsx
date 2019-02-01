@@ -175,6 +175,9 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                             <Link activeClassName="active" to={path}>
                               {subMenu.title}
                             </Link>
+                            <Link activeClassName="active" to={path}>
+                              {"test1"}
+                            </Link>
                           </li>
                         );
                         return acc;
@@ -189,6 +192,9 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                           to={pathForSubMenu(menu.subMenus[0])}
                         >
                           {menu.title}
+                        </Link>
+                        <Link activeClassName="active" to={path}>
+                          {"test2"}
                         </Link>
                         <ul
                           className={isActive ? 'active sub-menu' : ' sub-menu'}
