@@ -207,7 +207,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                               acc.isActive = true;
                             }
 
-                            acc.push(
+                            acc.subSubMenusResponse.push(
                               <li key={subSubMenu.title}>
                                 <Link activeClassName="active" to={path}>
                                   {subSubMenu.title}
