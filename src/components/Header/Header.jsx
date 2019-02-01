@@ -186,28 +186,31 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                       {isActive: false, subMenus: []}
                     );
 
-                    const {isActive2, subSubMenus} = subSubMenuObjects.reduce(
-                      (acc, subSubMenu) => {
-                        const path = pathForSubMenu(subSubMenu);
-                        if (path === activeLink) {
-                          acc.isActive = true;
-                        }
-                        acc.subSubMenus.push(
-                          <li key={subSubMenu.title}>
-                            <Link activeClassName="active" to={path}>
-                              {subSubMenu.title}
-                            </Link>
-                          </li>,
-                          <li key={'test1'}>
-                            <Link activeClassName="active" to={path}>
-                              {'test2'}
-                            </Link>
-                          </li>
-                        );
-                        return acc;
-                      },
-                      {isActive2: false, subSubMenus: []}
-                    );
+                    let subSubMenus = "<li> <Link to='test2'>test123</Link> </li>";
+                    if (subSubMenuObjects) {
+                      const {isActive2, subSubMenus2} = subSubMenuObjects.reduce(
+                        (acc, subSubMenu) => {
+                          const path = pathForSubMenu(subSubMenu);
+                          if (path === activeLink) {
+                            acc.isActive = true;
+                          }
+                          acc.subSubMenus2.push(
+                            <li key={subSubMenu.title}>
+                              <Link activeClassName="active" to={path}>
+                                {subSubMenu.title}
+                              </Link>
+                            </li>,
+                            <li key={'test1'}>
+                              <Link activeClassName="active" to={path}>
+                                {'test2'}
+                              </Link>
+                            </li>
+                          );
+                          return acc;
+                        },
+                        {isActive2: false, subSubMenus2: []}
+                      );
+                    }
 
                     return (
                       <li key={menu.title} className={isActive ? 'active' : ''}>
