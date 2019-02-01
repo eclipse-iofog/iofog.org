@@ -79,7 +79,7 @@
           {
             "title": "Hardware Abstraction Layer",
             "entry": "./using-system-microservices/hal.md",
-            "subSubMenus": [
+            "subMenus": [
               {
                 "title": "Getting Started with HAL",
                 "entry": "./using-system-microservices/hal.md"

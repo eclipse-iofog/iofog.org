@@ -1,7 +1,7 @@
 import React from 'react';
-import {graphql, Link, StaticQuery} from 'gatsby';
-import {MdArrowForward} from 'react-icons/md';
-import {FaGithub} from 'react-icons/fa';
+import { graphql, Link, StaticQuery } from 'gatsby';
+import { MdArrowForward } from 'react-icons/md';
+import { FaGithub } from 'react-icons/fa';
 
 import SearchInput from './SearchInput';
 import config from '../../../data/SiteConfig';
@@ -66,18 +66,18 @@ function isActiveLink(activeLink, topLink) {
 
 const pathForSubMenu = sub => sub.entry.childMarkdownRemark.fields.slug;
 
-const Header = ({menuLinks, activeLink, docsConfig}) => (
+const Header = ({ menuLinks, activeLink, docsConfig }) => (
   <header className="header">
     <div className="container">
       <div className="row">
         <div className="col-xl-3 col-lg-2 col-4 logo">
           <Link to="/">
-            <img srcSet={siteLogo} alt=""/>
+            <img srcSet={siteLogo} alt="" />
           </Link>
         </div>
 
         <nav className="col-xl-6 col-lg-7 col-4 main-nav" id="nav">
-          <button className="menu-opener" onClick={toggleMenu}/>
+          <button className="menu-opener" onClick={toggleMenu} />
           <div className="holder">
             <ul className="main-menu" onClickCapture={activeItem}>
               {menuLinks.map(topLink => (
@@ -164,16 +164,8 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     <strong>Documentation</strong>
                   </li>
                   {docsConfig.menus.map(menu => {
-                    const subSubMenuObjects = [];
-                    const {isActive, subMenus} = menu.subMenus.reduce(
+                    const { isActive, subMenus } = menu.subMenus.reduce(
                       (acc, subMenu) => {
-                        if (subMenu.hasOwnProperty("subSubMenus")) {
-                          const subSubMenuObj = subMenu.subSubMenus;
-                          if (subSubMenuObj && subSubMenuObj !== null) {
-                            subSubMenuObjects.push(subMenu.subSubMenus);
-                          }
-                        }
-
                         const path = pathForSubMenu(subMenu);
                         if (path === activeLink) {
                           acc.isActive = true;
@@ -187,52 +179,8 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                         );
                         return acc;
                       },
-                      {isActive: false, subMenus: []}
+                      { isActive: false, subMenus: [] }
                     );
-
-                    let subSubMenus = [];
-
-
-                    if (subSubMenuObjects && subSubMenuObjects.length > 0) {
-                      const {isActive2, subSubMenusResponse} = subSubMenuObjects.reduce(
-                        (acc, subSubMenu) => {
-                          if (subSubMenu && subSubMenu.entry) {
-                            const path = pathForSubMenu(subSubMenu);
-                            if (path === activeLink) {
-                              acc.isActive2 = true;
-                            }
-
-                            acc.subSubMenusResponse.push(
-                              <li key={subSubMenu.title}>
-                                <Link activeClassName="active" to={path}>
-                                  {subSubMenu.title}
-                                </Link>
-                              </li>
-                            );
-                          }
-
-                          return acc;
-                        },
-                        {isActive2: false, subSubMenusResponse: []}
-                      );
-
-                      subSubMenus = subSubMenusResponse;
-                    }
-
-                    subSubMenus = subSubMenus.filter(sub => sub !== undefined && sub !== null && sub.length > 0);
-
-                    if (subSubMenus.length === 0) {
-                      const logMessage = 'Log: ' + JSON.stringify(subSubMenuObjects);
-                      const logMessage2 = 'Log: ' + JSON.stringify(subSubMenuObjects);
-                      const subMenuObjLog = <li key={'test1'}>
-                        <Link activeClassName="active" to={'test2'}>
-                          {logMessage}
-                          {logMessage2}
-                        </Link>
-                      </li>;
-                      // subSubMenus = <li> <Link to='test2'>emptySubMenu</Link> </li>;
-                      subSubMenus = subMenuObjLog;
-                    }
 
                     return (
                       <li key={menu.title} className={isActive ? 'active' : ''}>
@@ -250,7 +198,6 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                             <strong>{menu.title}</strong>
                           </li>
                           {subMenus}
-                          {subSubMenus[0]}
                         </ul>
                       </li>
                     );
@@ -279,20 +226,20 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
               className="start-guide"
             >
               <span>Quick Start Guide</span>
-              <MdArrowForward/>
+              <MdArrowForward />
             </Link>
           </div>
         </nav>
 
         <div className="col-xl-3 col-lg-3 col-4 search">
-          <SearchInput/>
+          <SearchInput />
           <a
             className="header__github"
             href={config.userLinks.github}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub/>
+            <FaGithub />
           </a>
         </div>
       </div>
@@ -315,12 +262,6 @@ export default props => (
                   entry {
                     ...menuEntry
                   }
-                  subSubMenus {
-                    title
-                    entry {
-                      ...subMenuEntry
-                    }
-                  }
                 }
               }
               fields {
@@ -338,15 +279,6 @@ export default props => (
           }
         }
       }
-
-      fragment subMenuEntry on File {
-        childMarkdownRemark {
-          fields {
-            slug
-          }
-        }
-      }
-
     `}
     render={data => {
       const activeLink =
@@ -355,7 +287,7 @@ export default props => (
       const allConfigEdges = data.allConfigJson.edges
         .slice()
         .sort((a, b) => b.node.version.localeCompare(a.node.version));
-      const docsConfigEdge = allConfigEdges.find(({node}) => {
+      const docsConfigEdge = allConfigEdges.find(({ node }) => {
         return activeLink.startsWith(node.fields.path);
       });
       let docsConfig;
