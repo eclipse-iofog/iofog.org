@@ -167,7 +167,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     const subSubMenuObjects = [];
                     const {isActive, subMenus} = menu.subMenus.reduce(
                       (acc, subMenu) => {
-                        if (subMenu.hasOwnProperty("subMenu")) {
+                        if (subMenu.hasOwnProperty("subMenus")) {
                           subSubMenuObjects.push(subMenu.subMenus);
                         }
 
