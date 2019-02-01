@@ -224,9 +224,9 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                       subSubMenus = subSubMenusResponse;
                     }
 
-                    subSubMenus.filter(sub => sub !== undefined && sub !== null && sub.length > 0);
+                    subSubMenus = subSubMenus.filter(sub => sub !== undefined && sub !== null && sub.length > 0);
 
-                    if (subSubMenus[0].length === 0) {
+                    if (subSubMenus.length === 0) {
                       // subSubMenus = <li> <Link to='test2'>emptySubMenu</Link> </li>;
                       subSubMenus = subMenuObjLog;
                     }
