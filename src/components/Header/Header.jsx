@@ -188,7 +188,13 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     );
 
                     let subSubMenus = [];
-                    if (subSubMenuObjects) {
+                    if (subSubMenuObjects && subSubMenuObjects.length > 0) {
+                      const subMenuObjLog = <li key={'test1'}>
+                      <Link activeClassName="active" to={'test2'}>
+                        {JSON.stringify(subSubMenuObjects)}
+                      </Link>
+                    </li>;
+
                       const {isActive2, subSubMenus2} = subSubMenuObjects.reduce(
                         (acc, subSubMenu) => {
                           const path = pathForSubMenu(subSubMenu);
@@ -200,12 +206,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                               <Link activeClassName="active" to={path}>
                                 {subSubMenu.title}
                               </Link>
-                            </li>,
-                            <li key={'test1'}>
-                              <Link activeClassName="active" to={path}>
-                                {'test2'}
-                              </Link>
-                            </li>
+                            </li>, subMenuObjLog
                           );
                           return acc;
                         },
