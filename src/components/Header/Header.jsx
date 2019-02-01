@@ -164,7 +164,8 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     <strong>Documentation</strong>
                   </li>
                   {docsConfig.menus.map(menu => {
-                    const {isActive, subMenus, subSubMenuObjects} = menu.subMenus.reduce(
+                    const subSubMenuObjects = [];
+                    const {isActive, subMenus} = menu.subMenus.reduce(
                       (acc, subMenu) => {
                         if (subMenu.hasOwnProperty("subMenu")) {
                           subSubMenuObjects.push(subMenu.subMenus);
@@ -186,7 +187,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                       {isActive: false, subMenus: []}
                     );
 
-                    let subSubMenus = "<li> <Link to='test2'>test123</Link> </li>";
+                    let subSubMenus = <li> <Link to='test2'>test123</Link> </li>;
                     if (subSubMenuObjects) {
                       const {isActive2, subSubMenus2} = subSubMenuObjects.reduce(
                         (acc, subSubMenu) => {
