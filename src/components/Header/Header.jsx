@@ -176,11 +176,15 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                               {subMenu.title}
                             </Link>
                           </li>,
-                          <li key={'test'}>
-                            <Link className="sub-menu__links" to={path}>
-                              {'test2'}
-                            </Link>
-                          </li>
+                          <ul
+                            className={isActive ? 'active sub-menu' : ' sub-menu'}
+                          >
+                            <button className="back">back</button>
+                            <li>
+                              <strong>{subMenu.title}</strong>
+                            </li>
+                            {subMenus}
+                          </ul>
                         );
                         return acc;
                       },
@@ -195,7 +199,6 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                         >
                           {menu.title}
                         </Link>
-
                         <ul
                           className={isActive ? 'active sub-menu' : ' sub-menu'}
                         >
