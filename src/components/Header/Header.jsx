@@ -168,7 +168,10 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     const {isActive, subMenus} = menu.subMenus.reduce(
                       (acc, subMenu) => {
                         if (subMenu.hasOwnProperty("subSubMenus")) {
-                          subSubMenuObjects.push(subMenu.subSubMenus);
+                          const subSubMenuObj = subMenu.subSubMenus;
+                          if (subSubMenuObj && subSubMenuObj !== null) {
+                            subSubMenuObjects.push(subMenu.subSubMenus);
+                          }
                         }
 
                         const path = pathForSubMenu(subMenu);
@@ -188,15 +191,15 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     );
 
                     let subSubMenus = [];
+                    const logMessage = 'Log: ' + JSON.stringify(subSubMenuObjects);
                     const subMenuObjLog = <li key={'test1'}>
-                      <Link activeClassName="active" to={'test2'}>
-                        {'Log: ' + JSON.stringify(subSubMenuObjects)}
+                      <Link activeClassName="active" to={logMessage}>
+                        {'_'}
                       </Link>
                     </li>;
 
                     if (subSubMenuObjects && subSubMenuObjects.length > 0) {
-
-                      const {isActive2, subSubMenus2} = subSubMenuObjects.reduce(
+                      subSubMenus = subSubMenuObjects.reduce(
                         (acc, subSubMenu) => {
                           if (subSubMenu && subSubMenu.entry) {
                             const path = pathForSubMenu(subSubMenu);
@@ -204,12 +207,12 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                               acc.isActive = true;
                             }
 
-                            subSubMenus.push(
+                            acc.push(
                               <li key={subSubMenu.title}>
                                 <Link activeClassName="active" to={path}>
                                   {subSubMenu.title}
                                 </Link>
-                              </li>, subMenuObjLog
+                              </li>
                             );
                           }
 
