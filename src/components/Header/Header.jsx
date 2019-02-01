@@ -164,8 +164,12 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     <strong>Documentation</strong>
                   </li>
                   {docsConfig.menus.map(menu => {
-                    const {isActive, subMenus} = menu.subMenus.reduce(
+                    const {isActive, subMenus, subSubMenuObjects} = menu.subMenus.reduce(
                       (acc, subMenu) => {
+                        if (subMenu.hasOwnProperty("subMenu")) {
+                          subSubMenuObjects.push(subMenu.subMenu);
+                        }
+
                         const path = pathForSubMenu(subMenu);
                         if (path === activeLink) {
                           acc.isActive = true;
@@ -182,23 +186,26 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                       {isActive: false, subMenus: []}
                     );
 
-                    const {isActive2, subSubMenus} = menu.subMenus.subMenus.reduce(
-                      (acc2, subSubMenu) => {
-                        const path = pathForSubMenu(subSubMenu);
-                        if (path === activeLink) {
-                          acc2.isActive2 = true;
-                        }
-                        acc2.subMenus.push(
-                          <li key={subSubMenu.title}>
-                            <Link activeClassName="active" to={path}>
-                              {subSubMenu.title}
-                            </Link>
-                          </li>
-                        );
-                        return acc2;
-                      },
-                      {isActive2: false, subSubMenus: []}
-                    );
+                    const subSubMenus = [];
+                    let isActive2 = false;
+                    for (const subMenuObj of subSubMenuObjects) {
+                      const path = pathForSubMenu(subMenuObj);
+                      if (path === activeLink) {
+                        isActive2 = true;
+                      }
+                      subSubMenus.push(
+                        <li key={subMenuObj.title}>
+                          <Link activeClassName="active" to={path}>
+                            {subMenuObj.title}
+                          </Link>
+                        </li>,
+                        <li key={'test1'}>
+                          <Link activeClassName="active" to={path}>
+                            {'test2'}
+                          </Link>
+                        </li>
+                      );
+                    }
 
                     return (
                       <li key={menu.title} className={isActive ? 'active' : ''}>
