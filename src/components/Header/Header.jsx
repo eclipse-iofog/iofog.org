@@ -186,26 +186,28 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                       {isActive: false, subMenus: []}
                     );
 
-                    const subSubMenus = [];
-                    let isActive2 = false;
-                    for (const subMenuObj of subSubMenuObjects) {
-                      const path = pathForSubMenu(subMenuObj);
-                      if (path === activeLink) {
-                        isActive2 = true;
-                      }
-                      subSubMenus.push(
-                        <li key={subMenuObj.title}>
-                          <Link activeClassName="active" to={path}>
-                            {subMenuObj.title}
-                          </Link>
-                        </li>,
-                        <li key={'test1'}>
-                          <Link activeClassName="active" to={path}>
-                            {'test2'}
-                          </Link>
-                        </li>
-                      );
-                    }
+                    const {isActive2, subSubMenus} = subSubMenuObjects.reduce(
+                      (acc, subSubMenu) => {
+                        const path = pathForSubMenu(subSubMenu);
+                        if (path === activeLink) {
+                          acc.isActive = true;
+                        }
+                        acc.subSubMenus.push(
+                          <li key={subSubMenu.title}>
+                            <Link activeClassName="active" to={path}>
+                              {subSubMenu.title}
+                            </Link>
+                          </li>,
+                          <li key={'test1'}>
+                            <Link activeClassName="active" to={path}>
+                              {'test2'}
+                            </Link>
+                          </li>
+                        );
+                        return acc;
+                      },
+                      {isActive2: false, subSubMenus: []}
+                    );
 
                     return (
                       <li key={menu.title} className={isActive ? 'active' : ''}>
