@@ -187,7 +187,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                       {isActive: false, subMenus: []}
                     );
 
-                    let subSubMenus = <li> <Link to='test2'>test123</Link> </li>;
+                    let subSubMenus = [];
                     if (subSubMenuObjects) {
                       const {isActive2, subSubMenus2} = subSubMenuObjects.reduce(
                         (acc, subSubMenu) => {
@@ -195,7 +195,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                           if (path === activeLink) {
                             acc.isActive = true;
                           }
-                          acc.subSubMenus2.push(
+                          subSubMenus.push(
                             <li key={subSubMenu.title}>
                               <Link activeClassName="active" to={path}>
                                 {subSubMenu.title}
@@ -211,6 +211,10 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                         },
                         {isActive2: false, subSubMenus2: []}
                       );
+                    }
+
+                    if (subSubMenus.length === 0) {
+                      subSubMenus = <li> <Link to='test2'>emptySubMenu</Link> </li>;
                     }
 
                     return (
