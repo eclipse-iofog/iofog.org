@@ -301,7 +301,7 @@ export default props => (
                   subSubMenus {
                     title
                     entry {
-                      ...menuEntry
+                      ...subMenuEntry
                     }
                   }
                 }
@@ -321,6 +321,15 @@ export default props => (
           }
         }
       }
+
+      fragment subMenuEntry on File {
+        childMarkdownRemark {
+          fields {
+            slug
+          }
+        }
+      }
+
     `}
     render={data => {
       const activeLink =
