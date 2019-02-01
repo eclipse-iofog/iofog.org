@@ -290,6 +290,12 @@ export default props => (
                   entry {
                     ...menuEntry
                   }
+                  subMenus {
+                    title
+                    entry {
+                      ...menuEntry
+                    }
+                  }
                 }
               }
               fields {
