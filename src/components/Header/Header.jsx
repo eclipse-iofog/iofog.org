@@ -167,8 +167,8 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     const subSubMenuObjects = [];
                     const {isActive, subMenus} = menu.subMenus.reduce(
                       (acc, subMenu) => {
-                        if (subMenu.hasOwnProperty("subMenus")) {
-                          subSubMenuObjects.push(subMenu.subMenus);
+                        if (subMenu.hasOwnProperty("subSubMenus")) {
+                          subSubMenuObjects.push(subMenu.subSubMenus);
                         }
 
                         const path = pathForSubMenu(subMenu);
@@ -298,7 +298,7 @@ export default props => (
                   entry {
                     ...menuEntry
                   }
-                  subMenus {
+                  subSubMenus {
                     title
                     entry {
                       ...menuEntry
