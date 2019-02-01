@@ -224,7 +224,9 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                       subSubMenus = subSubMenusResponse;
                     }
 
-                    if (subSubMenus.length === 0) {
+                    subSubMenus.filter(sub => sub !== undefined && sub !== null && sub.length > 0);
+
+                    if (subSubMenus[0].length === 0) {
                       // subSubMenus = <li> <Link to='test2'>emptySubMenu</Link> </li>;
                       subSubMenus = subMenuObjLog;
                     }
@@ -245,7 +247,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                             <strong>{menu.title}</strong>
                           </li>
                           {subMenus}
-                          {subSubMenus}
+                          {subSubMenus[0]}
                         </ul>
                       </li>
                     );
