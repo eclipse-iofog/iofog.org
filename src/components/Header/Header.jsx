@@ -198,7 +198,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
 
                       const {isActive2, subSubMenus2} = subSubMenuObjects.reduce(
                         (acc, subSubMenu) => {
-                          if (subSubMenu) {
+                          if (subSubMenu && subSubMenu.entry) {
                             const path = pathForSubMenu(subSubMenu);
                             if (path === activeLink) {
                               acc.isActive = true;
