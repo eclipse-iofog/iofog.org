@@ -193,7 +193,7 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                         >
                           {menu.title}
                         </Link>
-                        <Link activeClassName="active" to={path}>
+                        <Link activeClassName="active" to={pathForSubMenu(menu.subMenus[0])}>
                           {"test2"}
                         </Link>
                         <ul
