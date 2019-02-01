@@ -193,7 +193,7 @@ const Header = ({menuLinks, activeLink, docsConfig}) => (
                     let subSubMenus = [];
                     const logMessage = 'Log: ' + JSON.stringify(subSubMenuObjects);
                     const subMenuObjLog = <li key={'test1'}>
-                      <Link activeClassName="active" to={test2}>
+                      <Link activeClassName="active" to={'test2'}>
                         {logMessage}
                       </Link>
                     </li>;
