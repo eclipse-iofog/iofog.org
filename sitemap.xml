@@ -20,7 +20,6 @@
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-public-catalog-microservices/jsonrestapi.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/diagnostics.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/gpio.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/hal.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/lscpu.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/lsusb.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/usbdeviceslist.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -37,6 +36,7 @@
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/lshw.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/agents/local-api.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/controllers/rest-api.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/hal.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/community.html/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/enterprise.html/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
