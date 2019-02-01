@@ -1,7 +1,7 @@
 import React from 'react';
-import { graphql, Link, StaticQuery } from 'gatsby';
-import { MdArrowForward } from 'react-icons/md';
-import { FaGithub } from 'react-icons/fa';
+import {graphql, Link, StaticQuery} from 'gatsby';
+import {MdArrowForward} from 'react-icons/md';
+import {FaGithub} from 'react-icons/fa';
 
 import SearchInput from './SearchInput';
 import config from '../../../data/SiteConfig';
@@ -66,18 +66,18 @@ function isActiveLink(activeLink, topLink) {
 
 const pathForSubMenu = sub => sub.entry.childMarkdownRemark.fields.slug;
 
-const Header = ({ menuLinks, activeLink, docsConfig }) => (
+const Header = ({menuLinks, activeLink, docsConfig}) => (
   <header className="header">
     <div className="container">
       <div className="row">
         <div className="col-xl-3 col-lg-2 col-4 logo">
           <Link to="/">
-            <img srcSet={siteLogo} alt="" />
+            <img srcSet={siteLogo} alt=""/>
           </Link>
         </div>
 
         <nav className="col-xl-6 col-lg-7 col-4 main-nav" id="nav">
-          <button className="menu-opener" onClick={toggleMenu} />
+          <button className="menu-opener" onClick={toggleMenu}/>
           <div className="holder">
             <ul className="main-menu" onClickCapture={activeItem}>
               {menuLinks.map(topLink => (
@@ -164,7 +164,7 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                     <strong>Documentation</strong>
                   </li>
                   {docsConfig.menus.map(menu => {
-                    const { isActive, subMenus } = menu.subMenus.reduce(
+                    const {isActive, subMenus} = menu.subMenus.reduce(
                       (acc, subMenu) => {
                         const path = pathForSubMenu(subMenu);
                         if (path === activeLink) {
@@ -175,20 +175,29 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                             <Link activeClassName="active" to={path}>
                               {subMenu.title}
                             </Link>
-                          </li>,
-                          <ul
-                            className={isActive ? 'active sub-menu' : ' sub-menu'}
-                          >
-                            <button className="back">back</button>
-                            <li>
-                              <strong>{subMenu.title}</strong>
-                            </li>
-                            {subMenus}
-                          </ul>
+                          </li>
                         );
                         return acc;
                       },
-                      { isActive: false, subMenus: [] }
+                      {isActive: false, subMenus: []}
+                    );
+
+                    const {isActive2, subSubMenus} = menu.subMenus.subMenus.reduce(
+                      (acc2, subSubMenu) => {
+                        const path = pathForSubMenu(subSubMenu);
+                        if (path === activeLink) {
+                          acc2.isActive2 = true;
+                        }
+                        acc2.subMenus.push(
+                          <li key={subSubMenu.title}>
+                            <Link activeClassName="active" to={path}>
+                              {subSubMenu.title}
+                            </Link>
+                          </li>
+                        );
+                        return acc2;
+                      },
+                      {isActive2: false, subSubMenus: []}
                     );
 
                     return (
@@ -207,6 +216,7 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                             <strong>{menu.title}</strong>
                           </li>
                           {subMenus}
+                          {subSubMenus}
                         </ul>
                       </li>
                     );
@@ -235,20 +245,20 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
               className="start-guide"
             >
               <span>Quick Start Guide</span>
-              <MdArrowForward />
+              <MdArrowForward/>
             </Link>
           </div>
         </nav>
 
         <div className="col-xl-3 col-lg-3 col-4 search">
-          <SearchInput />
+          <SearchInput/>
           <a
             className="header__github"
             href={config.userLinks.github}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub />
+            <FaGithub/>
           </a>
         </div>
       </div>
@@ -296,7 +306,7 @@ export default props => (
       const allConfigEdges = data.allConfigJson.edges
         .slice()
         .sort((a, b) => b.node.version.localeCompare(a.node.version));
-      const docsConfigEdge = allConfigEdges.find(({ node }) => {
+      const docsConfigEdge = allConfigEdges.find(({node}) => {
         return activeLink.startsWith(node.fields.path);
       });
       let docsConfig;
