@@ -11,11 +11,16 @@ machines.
 >
 > in other cases it needs to start under root user
 
-### REST
+- [LSCPU](#LSCPU-info)
+- [LSPCI](#LSPCI-info)
+- [LSUSB](#LSUSB-info)
+- [LSHW](#LSHW-info)
+
+## REST
 
 REST server listens on port 54331.
 
-#### LSCPU info (GET)
+### LSCPU info (GET)
 
 Returns parsed info of 'lscpu' command
 
@@ -59,7 +64,7 @@ http://localhost:54331/hal/hwc/lscpu
 </p>
 </details>
 
-#### LSPCI info (GET)
+### LSPCI info (GET)
 
 Returns parsed info of 'lspci' command
 
@@ -362,7 +367,7 @@ http://localhost:54331/hal/hwc/lspci
 </p>
 </details>
 
-#### LSUSB info (GET)
+### LSUSB info (GET)
 
 Returns parsed info of 'lsusb' command
 
@@ -451,7 +456,7 @@ http://localhost:54331/hal/hwc/lsusb
 </p>
 </details>
 
-#### LSHW info (GET)
+### LSHW info (GET)
 
 Returns parsed info of 'lshw' command
 
@@ -2111,7 +2116,7 @@ the Web-socket connection itself and that would make associated connections with
 ##### Endpoint
 
 ```json
-	ws://loocalhost:54332/hal/rs232/{PORT=dev/ttyusb0}
+	ws://localhost:54332/hal/rs232/{PORT=dev/ttyusb0}
 ```
 
 ##### Response
