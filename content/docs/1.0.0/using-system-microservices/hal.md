@@ -11,17 +11,20 @@ machines.
 >
 > in other cases it needs to start under root user
 
-- [LSCPU](#LSCPU-info)
-- [LSPCI](#LSPCI-info)
-- [LSUSB](#LSUSB-info)
-- [LSHW](#LSHW-info)
+- [LSCPU](#lscpu-info)
+- [LSPCI](#lspci-info)
+- [LSUSB](#lsusb-info)
+- [LSHW](#lshw-info)
 
 ## REST
 
 REST server listens on port 54331.
 
-### LSCPU info (GET)
+### LSCPU info
 
+---
+
+GET
 Returns parsed info of 'lscpu' command
 
 ```json
@@ -64,8 +67,11 @@ http://localhost:54331/hal/hwc/lscpu
 </p>
 </details>
 
-### LSPCI info (GET)
+### LSPCI info
 
+---
+
+GET
 Returns parsed info of 'lspci' command
 
 ```json
@@ -367,8 +373,11 @@ http://localhost:54331/hal/hwc/lspci
 </p>
 </details>
 
-### LSUSB info (GET)
+### LSUSB info
 
+---
+
+GET
 Returns parsed info of 'lsusb' command
 
 ```json
@@ -456,8 +465,11 @@ http://localhost:54331/hal/hwc/lsusb
 </p>
 </details>
 
-### LSHW info (GET)
+### LSHW info
 
+---
+
+GET
 Returns parsed info of 'lshw' command
 
 ```json
