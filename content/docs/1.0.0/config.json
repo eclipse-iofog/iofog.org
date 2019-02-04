@@ -78,45 +78,7 @@
           },
           {
             "title": "Hardware Abstraction Layer",
-            "entry": "./using-system-microservices/hal.md",
-            "subMenus": [
-              {
-                "title": "Getting Started with HAL",
-                "entry": "./using-system-microservices/hal.md"
-              },
-              {
-                "title": "LSCPU",
-                "entry": "./using-system-microservices/lscpu.md"
-              },
-              {
-                "title": "LSPCI",
-                "entry": "./using-system-microservices/lspci.md"
-              },
-              {
-                "title": "LSUSB",
-                "entry": "./using-system-microservices/lsusb.md"
-              },
-              {
-                "title": "LSHW",
-                "entry": "./using-system-microservices/lshw.md"
-              },
-              {
-                "title": "CPU",
-                "entry": "./using-system-microservices/cpuinfo.md"
-              },
-              {
-                "title": "USB devices list",
-                "entry": "./using-system-microservices/usbdeviceslist.md"
-              },
-              {
-                "title": "GPIO Abstraction",
-                "entry": "./using-system-microservices/gpio.md"
-              },
-              {
-                "title": "WebSockets",
-                "entry": "./using-system-microservices/websockets.md"
-              }
-            ]
+            "entry": "./using-system-microservices/hal.md"
           },
           {
             "title": "Bluetooth REST API",
