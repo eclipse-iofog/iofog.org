@@ -28,6 +28,7 @@ Enter iofog-controller iofog provisioning-key -i node-id in terminal.
 Enter iofog-agent provision {provision-key}.
 
 Enter iofog-controller microservice add -n loggingMicroservice -c 100 -F flow-id -I iofog-uuid -g '{\"access_tokens\" : [\"testToken\"], \"cleanfrequency\" : \"1h40m\", \"ttl\" : \"24h\"}' -r -u user-id in terminal.
+
 catalog-id = 100 for Logging container.
 
 ### Post methods
