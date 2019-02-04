@@ -2209,11 +2209,10 @@ Response example
 
 #### Set values to HIGH/LOW to GPIO channels (POST)
 
-Set values to HIGH/LOW to GPIO channels
-
 ```json
-<pre> curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/high
+curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/high
 ```
+
 ```json
 curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/low
 ```
