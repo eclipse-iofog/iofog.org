@@ -2095,10 +2095,10 @@ Response example
 
 ```json
 {
-    "GPIO mode set successfully" /     
+    "GPIO mode set successfully" /
     "GPIO is already in mode BCM/BOARD"/
     "Error message"
-} 
+}
 ```
 
 #### Set BOARD mode (GET)
@@ -2113,10 +2113,10 @@ Response example
 
 ```json
 {
-    "GPIO mode set successfully" / 
+    "GPIO mode set successfully" /
     "GPIO is already in mode BCM/BOARD"/
     "Error message"
-} 
+}
 ```
 
 #### Clean-up GPIO channels (POST)
@@ -2130,7 +2130,7 @@ curl -d '{}' http://localhost:54331/hal/gpio/rpi/cleanup
 POST JSON example
 
 ```json
-    [] - to clean-up all channels / 
+    [] - to clean-up all channels /
     [17, 5, 4] - list of channels to clean up
 ```
 
@@ -2138,8 +2138,8 @@ Response example
 
 ```json
 {
-    "clean up success" / 
-    "Error message" 
+    "clean up success" /
+    "Error message"
 }
 ```
 
@@ -2147,7 +2147,7 @@ Response example
 
 Set up a list of GPIO channels (number and type properties are mandatory)
 
-```json 
+```json
 curl -d '[
       {
       "number": 1,
@@ -2173,10 +2173,10 @@ curl -d '[
 
 Response example
 
-```json 
+```json
 {
-    "successfully set up all pins" / 
-    "Error message" 
+    "successfully set up all pins" /
+    "Error message"
 }
 ```
 
@@ -2225,7 +2225,7 @@ POST JSON example
 
 Response example
 
-```json 
+```json
 {
     "1": "ok",
     "3": "ok"
