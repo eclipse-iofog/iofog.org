@@ -39,7 +39,6 @@ http://localhost:54331/hal/hwc/lscpu
  <details><summary>Response example</summary>
  <p>
  <pre>
-
      {
         "on_line_cpus_list": "0-7",
         "cpus": "8",
@@ -67,7 +66,6 @@ http://localhost:54331/hal/hwc/lscpu
         "l3_cache": "8192K",
         "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
     }
-
 </pre>
 </p>
 </details>
@@ -89,7 +87,6 @@ http://localhost:54331/hal/hwc/lspci
  <details><summary>Response example</summary>
  <p>
  <pre>
-
 [
 {
 "device_class_id": "0600",
@@ -376,7 +373,6 @@ http://localhost:54331/hal/hwc/lspci
 "device_name": "OZ600 MS/xD Controller "
 }
 ]
-
 </pre>
 </p>
 </details>
@@ -398,7 +394,6 @@ http://localhost:54331/hal/hwc/lsusb
  <details><summary>Response example</summary>
  <p>
  <pre>
-
 [
 {
 "bus_number": "002",
@@ -471,7 +466,6 @@ http://localhost:54331/hal/hwc/lsusb
 "manufacture_device_name": "Linux Foundation 2.0 root hub"
 }
 ]
-
 </pre>
 </p>
 </details>
@@ -493,7 +487,6 @@ http://localhost:54331/hal/hwc/lshw
  <details><summary>Response example</summary>
  <p>
  <pre>
-
        {
          "id": "machine_id",
          "handle": "handle_string",
@@ -1827,7 +1820,6 @@ http://localhost:54331/hal/hwc/lshw
          "serial": "serial_string",
          "version": "01"
        }
-
 </pre>
 </p>
 </details>
@@ -1849,7 +1841,6 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
  <details><summary>Response example</summary>
  <p>
  <pre>
-
        [
          {
            "bugs": "",
@@ -2076,7 +2067,6 @@ http://localhost:54331/hal/hwc/proc/cpuinfo
            "model_name": "Intel(R) Core(TM) i7-2820QM CPU @ 2.30GHz"
          }
        ]
-
 </pre>
 </p>
 </details>
@@ -2097,61 +2087,67 @@ This API will only work for RaspberryPi
 
 Sets GPIO numbering to BCM mode
 
-<pre> curl http://localhost:54331/hal/gpio/rpi/setmode/bcm </pre>
+```json
+curl http://localhost:54331/hal/gpio/rpi/setmode/bcm
+```
 
 Response example
 
-<pre> 
+```json
 {
     "GPIO mode set successfully" /     
     "GPIO is already in mode BCM/BOARD"/
     "Error message"
 } 
-</pre>
+```
 
 #### Set BOARD mode (GET)
 
 Sets GPIO numbering to BOARD mode
 
-<pre> curl http://localhost:54331/hal/gpio/rpi/setmode/board </pre>
+```json
+curl http://localhost:54331/hal/gpio/rpi/setmode/board
+```
 
 Response example
 
-<pre> 
+```json
 {
     "GPIO mode set successfully" / 
     "GPIO is already in mode BCM/BOARD"/
     "Error message"
 } 
-</pre>
+```
 
 #### Clean-up GPIO channels (POST)
 
 Cleans up GPIO channels
 
-<pre> curl -d '{}' http://localhost:54331/hal/gpio/rpi/cleanup </pre>
+```json
+curl -d '{}' http://localhost:54331/hal/gpio/rpi/cleanup
+```
 
 POST JSON example
 
-<pre> 
+```json
     [] - to clean-up all channels / 
     [17, 5, 4] - list of channels to clean up
-</pre>
+```
 
 Response example
 
-<pre> 
+```json
 {
     "clean up success" / 
     "Error message" 
 }
-</pre>
+```
 
 #### Set up GPIO channels (POST)
 
 Set up a list of GPIO channels (number and type properties are mandatory)
 
-<pre>  
+```json 
 curl -d '[
       {
       "number": 1,
@@ -2172,22 +2168,23 @@ curl -d '[
       "number": 4,
       "type": "out"
   }
-]' http://localhost:54331/hal/gpio/rpi/setup </pre>
+]' http://localhost:54331/hal/gpio/rpi/setup
+```
 
 Response example
 
-<pre> 
+```json 
 {
     "successfully set up all pins" / 
     "Error message" 
 }
-</pre>
+```
 
 #### Set values to GPIO channels (POST)
 
 Set values to GPIO channels
 
-<pre> 
+```json
 curl -d '[
   {
       "number": 1,
@@ -2198,62 +2195,68 @@ curl -d '[
       "value": "low"
   }
 ]' http://localhost:54331/hal/gpio/rpi/setv
-</pre>
+```
 
 Response example
 
-<pre> 
+```json
 {
     "1": "ok",
     "3": "ok"
 } /
 { "Error message" }
-</pre>
+```
 
 #### Set values to HIGH/LOW to GPIO channels (POST)
 
 Set values to HIGH/LOW to GPIO channels
 
-<pre> curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/high </pre>
-<pre> curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/low </pre>
+```json
+<pre> curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/high
+```
+```json
+curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/setv/low
+```
 
 POST JSON example
 
-<pre> 
+```json
     [17, 5, 4] - list of channels to set up HIGH/LOW
-</pre>
+```
 
 Response example
 
-<pre> 
+```json 
 {
     "1": "ok",
     "3": "ok"
 } /
 { "Error message" }
-</pre>
+```
 
 #### Get values of GPIO channels (POST)
 
 Get values of GPIO channels
 
-<pre> curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/getv </pre>
+```json
+curl -d '[1,3]' http://localhost:54331/hal/gpio/rpi/getv
+```
 
 POST JSON example
 
-<pre> 
+```json
     [17, 5, 4] - list of channels to read value from
-</pre>
+```
 
 Response example
 
-<pre> 
+```json
 {
     "1": 0,
     "3": 1
 } /
 { "Error message" }
-</pre>
+```
 
 ### USB devices list
 
@@ -2272,7 +2275,6 @@ http://localhost:54331/hal/rs232/list
  <details><summary>Response example</summary>
  <p>
  <pre>
-
 [
 {
 "subsystem": "pci",
@@ -2307,7 +2309,6 @@ http://localhost:54331/hal/rs232/list
 "name": "ttyUSB0"
 }
 ]
-
 </pre>
 </p>
 </details>
