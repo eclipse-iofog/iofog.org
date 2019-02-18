@@ -81,7 +81,7 @@
             "entry": "./using-system-microservices/hal.md"
           },
           {
-            "title": "Bluetooth Rest API",
+            "title": "Bluetooth REST API",
             "entry": "./using-system-microservices/rest-blue.md"
           }
         ]

@@ -10,13 +10,13 @@ The **config** for the container should look in the following way:
 
 **Config explanation:**
 
-*{"buffersize":3} - this instructs the microservice to show last 3 messages*
+_{"buffersize":3} - this instructs the microservice to show last 3 messages_
 
-*"publisher" - the uuid of ms sent messages*
+_"publisher" - the uuid of ms sent messages_
 
-*"contentdata" - message format*
+_"contentdata" - message format_
 
-E.g. if we route the microservice with Open Weather Map microservice, this will allow to access the weather data in a browser or in any other application or any device cloud. 
+E.g. if we route the microservice with Open Weather Map microservice, this will allow to access the weather data in a browser or in any other application or any device cloud.
 
 ## Open Weather Map
 
@@ -28,11 +28,11 @@ The **config** for the container should look in the following way:
 
 **Config explanation:**
 
-*"citycode" - the code of the city*
+_"citycode" - the code of the city_
 
-*"apikey" - the api key of open weather map*
+_"apikey" - the api key of open weather map_
 
-*"frequency" -  the frequency of message sending in millis*
+_"frequency" - the frequency of message sending in millis_
 
 ## Launching the Containers
 
@@ -52,10 +52,8 @@ iofog-controller microservice add -n weather -c 6 -F flow-id -I iofog-uuid -g '{
 
 iofog-controller microservice route-create --route openweather-uuid:jsonrestapi-uuid
 
-
-
 > **catalog-id = 7 (JSON REST API)**
-> 
+>
 > **catalog-id = 6 (Open Weather Map)**
 
 **Request**
@@ -67,5 +65,21 @@ $ curl localhost:5555
 **Response**
 
 ```json
-[{"source":"CmdxYrfZmPRLTH7rXMwKpW92zRHtggxw","temperature":"{\"coord\":{\"lon\":-122.45,\"lat\":37.77},\"weather\":[{\"id\":801,\"main\":\"Clouds\",\"description\":\"few clouds\",\"icon\":\"02n\"}],\"base\":\"stations\",\"main\":{\"temp\":279.46,\"pressure\":1028,\"humidity\":65,\"temp_min\":276.45,\"temp_max\":282.55},\"visibility\":16093,\"wind\":{\"speed\":1.5,\"deg\":320},\"clouds\":{\"all\":20},\"dt\":1548161760,\"sys\":{\"type\":1,\"id\":5817,\"message\":0.0037,\"country\":\"US\",\"sunrise\":1548170436,\"sunset\":1548206570},\"id\":5391997,\"name\":\"San Francisco County\",\"cod\":200}","time":1548163407511},{"source":"CmdxYrfZmPRLTH7rXMwKpW92zRHtggxw","temperature":"{\"coord\":{\"lon\":-122.45,\"lat\":37.77},\"weather\":[{\"id\":801,\"main\":\"Clouds\",\"description\":\"few clouds\",\"icon\":\"02n\"}],\"base\":\"stations\",\"main\":{\"temp\":279.46,\"pressure\":1028,\"humidity\":65,\"temp_min\":276.45,\"temp_max\":282.55},\"visibility\":16093,\"wind\":{\"speed\":1.5,\"deg\":320},\"clouds\":{\"all\":20},\"dt\":1548161760,\"sys\":{\"type\":1,\"id\":5817,\"message\":0.0037,\"country\":\"US\",\"sunrise\":1548170436,\"sunset\":1548206570},\"id\":5391997,\"name\":\"San Francisco County\",\"cod\":200}","time":1548163408502},{"source":"CmdxYrfZmPRLTH7rXMwKpW92zRHtggxw","temperature":"{\"coord\":{\"lon\":-122.45,\"lat\":37.77},\"weather\":[{\"id\":801,\"main\":\"Clouds\",\"description\":\"few clouds\",\"icon\":\"02n\"}],\"base\":\"stations\",\"main\":{\"temp\":279.46,\"pressure\":1028,\"humidity\":65,\"temp_min\":276.45,\"temp_max\":282.55},\"visibility\":16093,\"wind\":{\"speed\":1.5,\"deg\":320},\"clouds\":{\"all\":20},\"dt\":1548161760,\"sys\":{\"type\":1,\"id\":5817,\"message\":0.0037,\"country\":\"US\",\"sunrise\":1548170436,\"sunset\":1548206570},\"id\":5391997,\"name\":\"San Francisco County\",\"cod\":200}","time":1548163409419}]
+[
+  {
+    "source": "CmdxYrfZmPRLTH7rXMwKpW92zRHtggxw",
+    "temperature": "{\"coord\":{\"lon\":-122.45,\"lat\":37.77},\"weather\":[{\"id\":801,\"main\":\"Clouds\",\"description\":\"few clouds\",\"icon\":\"02n\"}],\"base\":\"stations\",\"main\":{\"temp\":279.46,\"pressure\":1028,\"humidity\":65,\"temp_min\":276.45,\"temp_max\":282.55},\"visibility\":16093,\"wind\":{\"speed\":1.5,\"deg\":320},\"clouds\":{\"all\":20},\"dt\":1548161760,\"sys\":{\"type\":1,\"id\":5817,\"message\":0.0037,\"country\":\"US\",\"sunrise\":1548170436,\"sunset\":1548206570},\"id\":5391997,\"name\":\"San Francisco County\",\"cod\":200}",
+    "time": 1548163407511
+  },
+  {
+    "source": "CmdxYrfZmPRLTH7rXMwKpW92zRHtggxw",
+    "temperature": "{\"coord\":{\"lon\":-122.45,\"lat\":37.77},\"weather\":[{\"id\":801,\"main\":\"Clouds\",\"description\":\"few clouds\",\"icon\":\"02n\"}],\"base\":\"stations\",\"main\":{\"temp\":279.46,\"pressure\":1028,\"humidity\":65,\"temp_min\":276.45,\"temp_max\":282.55},\"visibility\":16093,\"wind\":{\"speed\":1.5,\"deg\":320},\"clouds\":{\"all\":20},\"dt\":1548161760,\"sys\":{\"type\":1,\"id\":5817,\"message\":0.0037,\"country\":\"US\",\"sunrise\":1548170436,\"sunset\":1548206570},\"id\":5391997,\"name\":\"San Francisco County\",\"cod\":200}",
+    "time": 1548163408502
+  },
+  {
+    "source": "CmdxYrfZmPRLTH7rXMwKpW92zRHtggxw",
+    "temperature": "{\"coord\":{\"lon\":-122.45,\"lat\":37.77},\"weather\":[{\"id\":801,\"main\":\"Clouds\",\"description\":\"few clouds\",\"icon\":\"02n\"}],\"base\":\"stations\",\"main\":{\"temp\":279.46,\"pressure\":1028,\"humidity\":65,\"temp_min\":276.45,\"temp_max\":282.55},\"visibility\":16093,\"wind\":{\"speed\":1.5,\"deg\":320},\"clouds\":{\"all\":20},\"dt\":1548161760,\"sys\":{\"type\":1,\"id\":5817,\"message\":0.0037,\"country\":\"US\",\"sunrise\":1548170436,\"sunset\":1548206570},\"id\":5391997,\"name\":\"San Francisco County\",\"cod\":200}",
+    "time": 1548163409419
+  }
+]
 ```
