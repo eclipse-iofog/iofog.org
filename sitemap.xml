@@ -19,7 +19,6 @@
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/tutorial/manage-your-microservices.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-public-catalog-microservices/jsonrestapi.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/diagnostics.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://iofog.org/iofog.org/docs/1.0.0/using-system-microservices/gpio.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/writing-microservices/debugging.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/writing-microservices/overview.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://iofog.org/iofog.org/docs/1.0.0/writing-microservices/sdk.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
