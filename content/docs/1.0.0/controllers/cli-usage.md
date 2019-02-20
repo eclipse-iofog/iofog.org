@@ -172,7 +172,7 @@ iofog-controller config <options>
 
 |                                    |                                                           |
 | ---------------------------------- | --------------------------------------------------------- |
-| **-p, --port number**              | Port                                                      |
+| **-p, --port integer**             | Port                                                      |
 | **-c, --ssl-cert string**          | Path to SSL certificate file                              |
 | **-k, --ssl-key string**           | Path to SSL key file                                      |
 | **-i, --intermediate-cert string** | Path to SSL intermediate certificate file                 |
@@ -180,8 +180,8 @@ iofog-controller config <options>
 | **-a, --email-address string**     | Email address to send activations from                    |
 | **-w, --email-password string**    | Email password to send activations from                   |
 | **-s, --email-service string**     | Email service to send activations                         |
-| **-d, --log-dir string**           | Log files directory, default: `/var/log/iofog-controller` |
-| **-z, --log-size number**          | Log files size (MB                                        |
+| **-d, --log-dir string**           | Path to log files directory                               |
+| **-z, --log-size integer**         | Log files size (MB)                                       |
 
 ##### dev-mode
 
@@ -364,12 +364,12 @@ iofog-controller tunnel <action> <options>
 
 |                             |                                         |
 | --------------------------- | --------------------------------------- |
-| **-a, --action string**     | Action: can be either 'open' or 'close' |
+| **-a, --action string**     | Type of action: can be 'open' or 'close'|
 | **-u, --username string**   | Tunnel username                         |
 | **-p, --password string**   | Tunnel password                         |
 | **-s, --host string**       | Tunnel host address                     |
 | **-k, --rsa-key string**    | Path to RSA key file                    |
-| **-o, --port number**       | Tunnel port                             |
+| **-o, --port integer**      | Tunnel port                             |
 | **-i, --iofog-uuid string** | ioFog node UUID                         |
 
 ```sh
