@@ -414,24 +414,24 @@ iofog-controller iofog <action> <options>
 
 |                                   |                                                          |
 | --------------------------------- | -------------------------------------------------------- |
-| **-u, --user-id number**          | User's id                                                |
+| **-u, --user-id integer**         | User's id                                                |
 | **-f, --file string**             | Path to ioFog settings JSON file                         |
 | **-n, --name string**             | ioFog node name                                          |
 | **-l, --location string**         | ioFog node location                                      |
-| **-t, --latitude number**         | ioFog node latitude                                      |
-| **-g, --longitude number**        | ioFog node longitude                                     |
+| **-t, --latitude float**          | ioFog node latitude                                      |
+| **-g, --longitude float**         | ioFog node longitude                                     |
 | **-d, --description string**      | ioFog node description                                   |
 | **-D, --docker-url string**       | ioFog node docker url                                    |
-| **-M, --disk-limit number**       | ioFog node disk usage limit (MB                          |
+| **-M, --disk-limit float**        | ioFog node disk usage limit (MB)                         |
 | **-T, --disk-directory string**   | ioFog node disk directory                                |
-| **-m, --memory-limit number**     | ioFog node memory usage limit (MB                        |
-| **-c, --cpu-limit number**        | ioFog node CPU usage limit (%                            |
-| **-G, --log-limit number**        | ioFog node log size limit (MB                            |
+| **-m, --memory-limit float**      | ioFog node memory usage limit (MB)                       |
+| **-c, --cpu-limit float**         | ioFog node CPU usage limit (%)                           |
+| **-G, --log-limit float**         | ioFog node log size limit (MB)                           |
 | **-Y, --log-directory string**    | ioFog node log files directory                           |
-| **-C, --log-file-count number**   | ioFog node log files count                               |
-| **-s, --status-frequency number** | ioFog node status check frequency (seconds               |
-| **-F, --change-frequency number** | ioFog node configuration change check frequency (seconds |
-| **-Q, --device-frequency number** | ioFog node device scan frequency (seconds                |
+| **-C, --log-file-count integer**  | ioFog node log files count                               |
+| **-s, --status-frequency integer**| ioFog node status check frequency (seconds)              |
+| **-F, --change-frequency integer**| ioFog node configuration change check frequency (seconds)|
+| **-Q, --device-frequency integer**| ioFog node device scan frequency (seconds)               |
 | **-B, --bluetooth-enable**        | Enable bluetooth on ioFog node                           |
 | **-b, --bluetooth-disable**       | Disable bluetooth on ioFog node                          |
 | **-W, --watchdog-enable**         | Enable watchdog on ioFog node                            |
@@ -439,7 +439,7 @@ iofog-controller iofog <action> <options>
 | **-a, --abs-hw-disable**          | Disable hardware abstraction on ioFog node               |
 | **-A, --abs-hw-enable**           | Enable hardware abstraction on ioFog node                |
 | **-o, --reboot**                  | Reboot ioFog node                                        |
-| **-y, --fog-type number**         | ioFog node architecture type                             |
+| **-y, --fog-type integer**        | ioFog node architecture type                             |
 
 ##### update
 
@@ -449,20 +449,20 @@ iofog-controller iofog <action> <options>
 | **-f, --file string**             | Path to ioFog settings JSON file                         |
 | **-n, --name string**             | ioFog node name                                          |
 | **-l, --location string**         | ioFog node location                                      |
-| **-t, --latitude number**         | ioFog node latitude                                      |
-| **-g, --longitude number**        | ioFog node longitude                                     |
+| **-t, --latitude float**          | ioFog node latitude                                      |
+| **-g, --longitude float**         | ioFog node longitude                                     |
 | **-d, --description string**      | ioFog node description                                   |
 | **-D, --docker-url string**       | ioFog node docker url                                    |
-| **-M, --disk-limit number**       | ioFog node disk usage limit (MB                          |
+| **-M, --disk-limit float**        | ioFog node disk usage limit (MB                          |
 | **-T, --disk-directory string**   | ioFog node disk directory                                |
-| **-m, --memory-limit number**     | ioFog node memory usage limit (MB                        |
-| **-c, --cpu-limit number**        | ioFog node CPU usage limit (%                            |
-| **-G, --log-limit number**        | ioFog node log size limit (MB                            |
+| **-m, --memory-limit float**      | ioFog node memory usage limit (MB                        |
+| **-c, --cpu-limit float**         | ioFog node CPU usage limit (%                            |
+| **-G, --log-limit float**         | ioFog node log size limit (MB                            |
 | **-Y, --log-directory string**    | ioFog node log files directory                           |
-| **-C, --log-file-count number**   | ioFog node log files count                               |
-| **-s, --status-frequency number** | ioFog node status check frequency (seconds               |
-| **-F, --change-frequency number** | ioFog node configuration change check frequency (seconds |
-| **-Q, --device-frequency number** | ioFog node device scan frequency (seconds                |
+| **-C, --log-file-count integer**  | ioFog node log files count                               |
+| **-s, --status-frequency integer**| ioFog node status check frequency (seconds               |
+| **-F, --change-frequency integer**| ioFog node configuration change check frequency (seconds |
+| **-Q, --device-frequency integer**| ioFog node device scan frequency (seconds                |
 | **-B, --bluetooth-enable**        | Enable bluetooth on ioFog node                           |
 | **-b, --bluetooth-disable**       | Disable bluetooth on ioFog node                          |
 | **-W, --watchdog-enable**         | Enable watchdog on ioFog node                            |
@@ -470,7 +470,7 @@ iofog-controller iofog <action> <options>
 | **-a, --abs-hw-disable**          | Disable hardware abstraction on ioFog node               |
 | **-A, --abs-hw-enable**           | Enable hardware abstraction on ioFog node                |
 | **-o, --reboot**                  | Reboot ioFog node                                        |
-| **-y, --fog-type number**         | ioFog node architecture type                             |
+| **-y, --fog-type integer**        | ioFog node architecture type                             |
 
 ##### remove
 
@@ -541,7 +541,7 @@ iofog-controller catalog <action> <options>
 
 |                                 |                                                     |
 | ------------------------------- | --------------------------------------------------- |
-| **-u, --user-id number**        | User's id                                           |
+| **-u, --user-id integer**       | User's id                                           |
 | **-f, --file string**           | Path to catalog item settings JSON file             |
 | **-n, --name string**           | Catalog item name                                   |
 | **-d, --description string**    | Catalog item description                            |
@@ -549,12 +549,12 @@ iofog-controller catalog <action> <options>
 | **-x, --x86-image string**      | x86 docker image name                               |
 | **-a, --arm-image string**      | ARM docker image name                               |
 | **-p, --publisher string**      | Catalog item publisher name                         |
-| **-s, --disk-required number**  | Amount of disk required to run the microservice (MB |
-| **-r, --ram-required number**   | Amount of RAM required to run the microservice (MB  |
+| **-s, --disk-required integer** | Amount of disk required to run the microservice (MB)|
+| **-r, --ram-required integer**  | Amount of RAM required to run the microservice (MB) |
 | **-t, --picture string**        | Catalog item picture                                |
 | **-P, --public**                | Public catalog item                                 |
 | **-V, --private**               | Private catalog item                                |
-| **-g, --registry-id number**    | Catalog item docker registry ID                     |
+| **-g, --registry-id integer**   | Catalog item docker registry ID                     |
 | **-I, --input-type string**     | Catalog item input type                             |
 | **-F, --input-format string**   | Catalog item input format                           |
 | **-O, --output-type string**    | Catalog item output type                            |
@@ -565,7 +565,7 @@ iofog-controller catalog <action> <options>
 
 |                                 |                                                     |
 | ------------------------------- | --------------------------------------------------- |
-| **-i, --item-id number**        | Catalog item ID                                     |
+| **-i, --item-id integer**       | Catalog item ID                                     |
 | **-f, --file string**           | Path to catalog item settings JSON file             |
 | **-n, --name string**           | Catalog item name                                   |
 | **-d, --description string**    | Catalog item description                            |
@@ -573,12 +573,12 @@ iofog-controller catalog <action> <options>
 | **-x, --x86-image string**      | x86 docker image name                               |
 | **-a, --arm-image string**      | ARM docker image name                               |
 | **-p, --publisher string**      | Catalog item publisher name                         |
-| **-s, --disk-required number**  | Amount of disk required to run the microservice (MB |
-| **-r, --ram-required number**   | Amount of RAM required to run the microservice (MB  |
+| **-s, --disk-required integer** | Amount of disk required to run the microservice (MB |
+| **-r, --ram-required integer**  | Amount of RAM required to run the microservice (MB  |
 | **-t, --picture string**        | Catalog item picture                                |
 | **-P, --public**                | Public catalog item                                 |
 | **-V, --private**               | Private catalog item                                |
-| **-g, --registry-id number**    | Catalog item docker registry ID                     |
+| **-g, --registry-id integer**   | Catalog item docker registry ID                     |
 | **-I, --input-type string**     | Catalog item input type                             |
 | **-F, --input-format string**   | Catalog item input format                           |
 | **-O, --output-type string**    | Catalog item output type                            |
@@ -589,13 +589,13 @@ iofog-controller catalog <action> <options>
 
 |                          |                 |
 | ------------------------ | --------------- |
-| **-i, --item-id string** | Catalog item ID |
+| **-i, --item-id integer**| Catalog item ID |
 
 ##### info
 
 |                          |                 |
 | ------------------------ | --------------- |
-| **-i, --item-id string** | Catalog item ID |
+| **-i, --item-id integer**| Catalog item ID |
 
 ---
 
@@ -623,7 +623,7 @@ iofog-controller flow <action> <options>
 
 |                              |                                             |
 | ---------------------------- | ------------------------------------------- |
-| **-u, --user-id number**     | User's id                                   |
+| **-u, --user-id integer**    | User's id                                   |
 | **-f, --file string**        | Path to application flow settings JSON file |
 | **-n, --name string**        | Application flow name                       |
 | **-d, --description string** | Application flow description                |
@@ -634,7 +634,7 @@ iofog-controller flow <action> <options>
 
 |                              |                                             |
 | ---------------------------- | ------------------------------------------- |
-| **-i, --flow-id number**     | Application flow ID                         |
+| **-i, --flow-id integer**    | Application flow ID                         |
 | **-f, --file string**        | Path to application flow settings JSON file |
 | **-n, --name string**        | Application flow name                       |
 | **-d, --description string** | Application flow description                |
@@ -645,13 +645,13 @@ iofog-controller flow <action> <options>
 
 |                          |                     |
 | ------------------------ | ------------------- |
-| **-i, --flow-id string** | Application flow ID |
+| **-i, --flow-id integer**| Application flow ID |
 
 ##### info
 
 |                          |                     |
 | ------------------------ | ------------------- |
-| **-i, --flow-id string** | Application flow ID |
+| **-i, --flow-id integer**| Application flow ID |
 
 ---
 
