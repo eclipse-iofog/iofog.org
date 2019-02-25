@@ -695,7 +695,7 @@ iofog-controller microservice <action> <options>
 | **-I, --iofog-uuid string**  | ioFog node UUID                                 |
 | **-g, --config string**      | Microservice config                             |
 | **-v, --volumes string[]**   | Microservice volume mapping(s)                  |
-| **-l, --log-size number**    | Log file size limit (MB)                        |
+| **-l, --log-size integer**   | Log file size limit (MB)                        |
 | **-r, --root-enable**        | Enable root access                              |
 | **-R, --root-disable**       | Disable root access                             |
 | **-p, --ports string[]**     | Container ports                                 |
