@@ -687,19 +687,19 @@ iofog-controller microservice <action> <options>
 
 |                             |                                                |
 | --------------------------- | ---------------------------------------------- |
-| **-u, --user-id number**    | User's id                                      |
+| **-u, --user-id integer**   | User's id                                      |
 | **-f, --file string**       | Path to microservice settings JSON file        |
 | **-n, --name string**       | Microservice name                              |
-| **-c, --catalog-id number** | Catalog item ID                                |
-| **-F, --flow-id number**    | Application flow ID                            |
+| **-c, --catalog-id integer**| Catalog item ID                                |
+| **-F, --flow-id integer**   | Application flow ID                            |
 | **-I, --iofog-uuid string** | ioFog node UUID                                |
 | **-g, --config string**     | Microservice config                            |
-| **-v, --volumes string[]**  | Microservice volume mapping(s                  |
-| **-l, --log-size number**   | Log file size limit (MB                        |
+| **-v, --volumes string[]**  | Microservice volume mapping(s)                 |
+| **-l, --log-size number**   | Log file size limit (MB)                       |
 | **-r, --root-enable**       | Enable root access                             |
 | **-R, --root-disable**      | Disable root access                            |
 | **-p, --ports string[]**    | Container ports                                |
-| **-t, --routes string[]**   | Microservice route(s) (receiving microservices |
+| **-t, --routes string[]**   | Microservice route(s) (receiving microservices)|
 
 ```sh
 # Single mapping
@@ -734,7 +734,7 @@ iofog-controller microservice add \
 | **-I, --iofog-uuid string**        | ioFog node UUID                         |
 | **-g, --config string**            | Microservice config                     |
 | **-v, --volumes string[]**         | Microservice volume mapping(s)          |
-| **-l, --log-size number**          | Log file size limit (MB)                |
+| **-l, --log-size integer**         | Log file size limit (MB)                |
 | **-r, --root-enable**              | Enable root access                      |
 | **-R, --root-disable**             | Disable root access                     |
 | **-w, --rebuild**                  | Rebuild microservice image on fog agent |
@@ -802,7 +802,7 @@ iofog-controller microservice port-mapping-create \
 |                                    |                   |
 | ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
-| **-b, --internal-port number**     | Internal port     |
+| **-b, --internal-port integer**    | Internal port     |
 
 ```sh
 # Delete port mapping (80 - internal port, ABC - microservice uuid)
@@ -836,7 +836,7 @@ iofog-controller microservice volume-mapping-create \
 |                                    |                   |
 | ---------------------------------- | ----------------- |
 | **-i, --microservice-uuid string** | Microservice UUID |
-| **-a, --mapping-id number**        | Volume mapping id |
+| **-a, --mapping-id integer**       | Volume mapping id |
 
 ```sh
 # Delete volume mapping
@@ -884,13 +884,13 @@ iofog-controller registry <action> <options>
 | **-c, --requires-certificate** | Requires certificate    |
 | **-C, --certificate string**   | Certificate             |
 | **-e, --email string**         | Email address           |
-| **-u, --user-id number**       | User's id               |
+| **-u, --user-id integer**      | User's id               |
 
 ##### update
 
 |                                |                         |
 | ------------------------------ | ----------------------- |
-| **-i, --item-id number**       | Registry id             |
+| **-i, --item-id integer**      | Registry id             |
 | **-U, --uri string**           | Registry URI            |
 | **-b, --public**               | Set registry as public  |
 | **-r, --private**              | Set registry as private |
@@ -904,7 +904,7 @@ iofog-controller registry <action> <options>
 
 |                          |           |
 | ------------------------ | --------- |
-| **-i, --item-id number** | Item's id |
+| **-i, --item-id integer**| Item's id |
 
 ---
 
@@ -949,7 +949,7 @@ iofog-controller diagnostics <action> <options>
 | ---------------------------------- | ------------------------- |
 | **-i, --microservice-uuid string** | Microservice UUID         |
 | **--h, --ftpHost string**          | FTP host                  |
-| **--p, --ftpPort number**          | FTP port                  |
+| **--p, --ftpPort integer**         | FTP port                  |
 | **--u, --ftpUser string**          | FTP user                  |
 | **--s, --ftpPass string**          | FTP user password         |
 | **--d, --ftpDestDir string**       | FTP destination directory |
