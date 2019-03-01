@@ -2387,6 +2387,12 @@
           type: boolean
         cpuViolation:
           type: boolean
+        systemAvailableDisk:
+          type: integer
+        systemAvailableMemory:
+           type: integer
+        systemTotalCpu:
+           type: number
         microserviceStatus:
           type: string
         repositoryCount:
@@ -2668,6 +2674,12 @@
           type: boolean
         cpuViolation:
           type: boolean
+        systemAvailableDisk:
+          type: integer
+        systemAvailableMemory:
+          type: integer
+        systemTotalCpu:
+          type: number
         microserviceStatus:
           type: string
         repositoryCount:
