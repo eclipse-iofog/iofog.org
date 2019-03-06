@@ -876,6 +876,30 @@
             description: Not Authorized
           '500':
             description: Internal Server Error
+    '/agent/tracking':
+      post:
+        tags:
+        - Agent
+        description: Post tracking info
+        operationId: postTracking
+        parameters:
+        - in: header
+          name: Authorization
+          description: Agent Token
+          required: true
+          type: string
+        - in: body
+          name: PostTrackingRequest
+          required: true
+          schema:
+            $ref: '#/definitions/PostTrackingRequest'  
+        responses:
+          204:
+            description: Success
+          401:
+            description: Not Authorized
+          500:
+            description: Internal Server Error
     /catalog/microservices:
       get:
         tags:
@@ -3301,6 +3325,25 @@
       properties:
         upstream:
           type: string
+    PostTrackingRequest: 
+      type: array
+      items:
+        $ref: '#/definitions/TrackingEvent'
+    TrackingEvent:
+      type: object
+      required:
+      - uuid
+      properties:
+        uuid:
+          type: string
+        sourceType:
+          type: string
+        timestamp:
+          type: number
+        type:
+          type: string
+        data: 
+          type: object
   schemes:
   - http
   - https
