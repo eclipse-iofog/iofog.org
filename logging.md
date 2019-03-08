@@ -1,11 +1,11 @@
-## Logging Container 
+## Logging Container
 
-Logging Container is a system container that gathers logs and provides REST API for adding and querying logs from containers. 
-Use Logger Container if you want to gather all the logs and find them easily. 
+Logging Container is a system container that gathers logs and provides REST API for adding and querying logs from containers.
+Use Logger Container if you want to gather all the logs and find them easily.
 
 The config for the container should look the following way:
 
-*{"access_tokens" : ["Some_Access_Token"], "cleanfrequency" : "1h40m", "ttl" : "24h"}*
+_{"access_tokens" : ["Some_Access_Token"], "cleanfrequency" : "1h40m", "ttl" : "24h"}_
 
 **Config explanation:**
 
@@ -35,22 +35,22 @@ catalog-id = 100 for Logging container.
 
 **Add logs Endpoint (Post)**
 
-*localhost:10555/logs/add*
+_localhost:10555/logs/add_
 
 Use access-token parameter provided from container config in Headers.
 
-Required header looks like: 
+Required header looks like:
 
-*Header: Access-Token  value: testToken*
+_Header: Access-Token value: testToken_
 
 **Request body example**
 
 ```json
 {
-   "publisher": "sasha",
-   "timestamp": 149622569742,
-   "level": "WARNING",
-   "message": "sample message of level WARNING"
+  "publisher": "sasha",
+  "timestamp": 149622569742,
+  "level": "WARNING",
+  "message": "sample message of level WARNING"
 }
 ```
 
@@ -70,30 +70,29 @@ Status 200 OK
 
 "message"- (Text)
 
-
 **Get logs Endpoint (Post)**
 
-*localhost:10555/logs/get*
+_localhost:10555/logs/get_
 
 Use access-token parameter provided from container config in Headers.
 
-Required header looks like: 
+Required header looks like:
 
-*Header: Access-Token  value: testToken*
+_Header: Access-Token value: testToken_
 
 **Request body example**
 
 ```json
 {
- "level" : "INFO",
- "publishers" : ["sasha", "stani"],
- "page" : 2,
- "pagesize":100,
- "timeframestart" : 149622500000,
- "timeframeend" : 149622599999,
- "orderby" : ["timestamp"],
- "asc" : false,
- "message":"sample mess"
+  "level": "INFO",
+  "publishers": ["sasha", "stani"],
+  "page": 2,
+  "pagesize": 100,
+  "timeframestart": 149622500000,
+  "timeframeend": 149622599999,
+  "orderby": ["timestamp"],
+  "asc": false,
+  "message": "sample mess"
 }
 ```
 
