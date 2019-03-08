@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
-import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaSlack } from 'react-icons/fa';
 import './Footer.scss';
 import config from '../../../data/SiteConfig';
 
@@ -67,6 +67,13 @@ class Footer extends Component {
                     rel="noopener noreferrer"
                   >
                     <FaTwitter />
+                  </a>
+                  <a
+                    href={config.userLinks.slack}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaSlack />
                   </a>
                 </div>
                 <div className="col-12 d-md-none">
