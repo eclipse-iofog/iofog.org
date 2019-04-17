@@ -185,7 +185,7 @@ do_install_java() {
 		fi
 		cd /opt/
 		$sh_c 'wget -q --no-check-certificate '"http://www.edgeworx.io/downloads/jdk/jdk-8u211$is_arm-$os_arch.tar.gz"''
-		$sh_c "tar xzf jdk-8u211-64.tar.gz"
+		$sh_c "tar xzf jdk-8u211$is_arm-$os_arch.tar.gz"
 		cd /opt/jdk1.8.0_211/	
 		case "$lsb_dist" in
 			debian|raspbian|ubuntu)
