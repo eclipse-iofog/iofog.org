@@ -178,51 +178,24 @@ do_install_java() {
         [ "$java8_version" -ge "181" ]; need_to_install=$?
     fi
 	if [ "$need_to_install" -ne "0" ]; then
+		os_arch=$(getconf LONG_BIT)
+		is_arm=""
+		if [ "$lsb_dist" = "raspbian" ] || [ "$(uname -m)" = "armv7l" ] || [ "$(uname -m)" = "aarch64" ] || [ "$(uname -m)" = "armv8" ]; then
+			is_arm="-arm"
+		fi
+		cd /opt/
+		$sh_c 'wget -q --no-check-certificate '"http://www.edgeworx.io/downloads/jdk/jdk-8u211$is_arm-$os_arch.tar.gz"''
+		$sh_c "tar xzf jdk-8u211-64.tar.gz"
+		cd /opt/jdk1.8.0_211/	
 		case "$lsb_dist" in
-			ubuntu)
-				$sh_c "add-apt-repository -y ppa:webupd8team/java >/dev/null 2>&1"
-				$sh_c "apt-get update -qq >/dev/null"
-				$sh_c "dpkg --configure -a >/dev/null"
-				echo debconf shared/accepted-oracle-license-v1-1 select true | $sh_c "debconf-set-selections >/dev/null 2>&1" 
-				echo debconf shared/accepted-oracle-license-v1-1 seen true | $sh_c "debconf-set-selections >/dev/null 2>&1"
-				$sh_c "apt-get install -y -qq oracle-java8-installer >/dev/null 2>&1"
-				command_status=$?
-				;;
-			fedora|centos)
-				cd /opt/
-				$sh_c 'wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jre-8u191-linux-x64.tar.gz"'
-				$sh_c "tar xzf jre-8u191-linux-x64.tar.gz"
-				cd /opt/jre1.8.0_191/	
-				$sh_c "alternatives --install /usr/bin/java java /opt/jre1.8.0_191/bin/java 4 >/dev/null"
-				command_status=$?
-				;;
-			debian|raspbian)
-				if [ "$lsb_dist" = "raspbian" ] && [ "$(uname -m)" = "armv7l" ]; then
-					cd /opt/
-					$sh_c 'wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-arm32-vfp-hflt.tar.gz"'
-					$sh_c "tar xzf jdk-8u191-linux-arm32-vfp-hflt.tar.gz"
-					cd /opt/jdk1.8.0_191
-					$sh_c "update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_191/bin/java 1100 >/dev/null"
-				elif [ "$lsb_dist" = "debian" ]; then
-					$sh_c "apt-get install -y -qq software-properties-common >/dev/null"
-					$sh_c 'add-apt-repository -y "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" >/dev/null 2>&1'
-					$sh_c 'apt-get update -qq >/dev/null'
-					echo debconf shared/accepted-oracle-license-v1-1 select true | $sh_c "debconf-set-selections >/dev/null 2>&1" 
-					echo debconf shared/accepted-oracle-license-v1-1 seen true | $sh_c "debconf-set-selections >/dev/null 2>&1"
-					$sh_c "apt-get install -y -qq oracle-java8-installer >/dev/null"
-				else
-					if [ ! -d "/etc/apt/sudources.list.d" ]; then
-						$sh_c "mkdir -p /etc/apt/sudources.list.d"
-					fi
-					$sh_c "apt-get install -y -qq dirmngr >/dev/null"
-					$sh_c 'echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main"' | $sh_c "tee /etc/apt/sudources.list.d/webupd8team-java.list >/dev/null 2>&1"
-					$sh_c 'echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main"' | $sh_c "tee -a /etc/apt/sources.list.d/webupd8team-java.list >/dev/null 2>&1"
-					$sh_c "apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 >/dev/null 2>&1"
-					$sh_c 'apt-get update -qq >/dev/null'		
-					$sh_c "apt-get install -y -qq oracle-java8-installer >/dev/null"
-				fi
+			debian|raspbian|ubuntu)
+				$sh_c "update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_211/bin/java 1100 >/dev/null"
 				command_status=$?
 				;;		
+			fedora|centos)
+				$sh_c "alternatives --install /usr/bin/java java /opt/jdk1.8.0_211/bin/java 4 >/dev/null"
+				command_status=$?
+				;;
 		esac
 		# Proceeding with existing java if java update failed
 		if [ "$command_status" -ne "0" ] && [ ! -z "$java8_version" ]; then
