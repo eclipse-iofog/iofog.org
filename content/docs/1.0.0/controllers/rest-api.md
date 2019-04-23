@@ -876,6 +876,30 @@
             description: Not Authorized
           '500':
             description: Internal Server Error
+    '/agent/tracking':
+      post:
+        tags:
+        - Agent
+        description: Post tracking info
+        operationId: postTracking
+        parameters:
+        - in: header
+          name: Authorization
+          description: Agent Token
+          required: true
+          type: string
+        - in: body
+          name: PostTrackingRequest
+          required: true
+          schema:
+            $ref: '#/definitions/PostTrackingRequest'  
+        responses:
+          204:
+            description: Success
+          401:
+            description: Not Authorized
+          500:
+            description: Internal Server Error
     /catalog/microservices:
       get:
         tags:
@@ -2387,6 +2411,16 @@
           type: boolean
         cpuViolation:
           type: boolean
+        systemAvailableDisk:
+          type: integer
+        systemAvailableMemory:
+           type: integer
+        systemTotalCpu:
+           type: number
+        securityStatus:
+           type: string
+        securityViolationInfo:
+           type: string
         microserviceStatus:
           type: string
         repositoryCount:
@@ -2668,6 +2702,16 @@
           type: boolean
         cpuViolation:
           type: boolean
+        systemAvailableDisk:
+          type: integer
+        systemAvailableMemory:
+          type: integer
+        systemTotalCpu:
+          type: number
+        securityStatus:
+          type: string
+        securityViolationInfo:
+          type: string
         microserviceStatus:
           type: string
         repositoryCount:
@@ -2792,6 +2836,14 @@
           type: boolean
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     ReceiverMicroservices:
       type: array
       items:
@@ -2829,6 +2881,15 @@
         accessMode:
           type: string
           example: rw
+    MicroserviceEnvVars:
+      type: object
+      properties:
+        key:
+          type: string
+          example: ENV_VAR1
+        value:
+          type: string
+          example: some_value
     PortMappingsResponse:
       type: object
       properties:
@@ -3083,6 +3144,14 @@
             $ref: '#/definitions/PortMappingsResponse'
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     NewMicroserviceRequest:
       type: object
       properties:
@@ -3110,6 +3179,14 @@
             $ref: '#/definitions/PortMappingsRequest'
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     UpdateMicroserviceRequest:
       type: object
       required:
@@ -3131,6 +3208,14 @@
           type: array
           items:
             $ref: '#/definitions/VolumeMapping'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     IOFogNodeTunnelStatusInfoResponse:
       type: object
       properties:
@@ -3281,6 +3366,25 @@
       properties:
         upstream:
           type: string
+    PostTrackingRequest: 
+      type: array
+      items:
+        $ref: '#/definitions/TrackingEvent'
+    TrackingEvent:
+      type: object
+      required:
+      - uuid
+      properties:
+        uuid:
+          type: string
+        sourceType:
+          type: string
+        timestamp:
+          type: number
+        type:
+          type: string
+        data: 
+          type: object
   schemes:
   - http
   - https
