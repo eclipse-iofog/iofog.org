@@ -14,7 +14,9 @@ module.exports = {
   // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: {
     github: 'https://github.com/ioFog',
-    twitter: 'https://twitter.com/EdgeworxIO'
+    twitter: 'https://twitter.com/EdgeworxIO',
+    slack:
+      'https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LWViMThlYTkxYzBhYzYzN2IxZDZjMGYyYjA0OTM2NDZlZTI0ZTUwOTdlYzllYWRlNDgwY2ExZjY3YWVhODM0MzU'
   },
   copyright: '© 2018 Eclipse Foundation, Inc.', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#4668fd', // Used for setting manifest and progress theme colors.
