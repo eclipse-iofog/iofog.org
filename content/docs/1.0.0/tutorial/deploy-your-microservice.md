@@ -65,7 +65,7 @@ iofog-controller microservice add \
   --name "Moving Average 1" \
   --catalog-id <catalog_id> \
   --config '{ "maxWindowSize": 10 }' \
-  --node-uuid <node_uuid> \
+  --iofog-uuid <iofog_uuid> \
   --flow-id 1
 ```
 
