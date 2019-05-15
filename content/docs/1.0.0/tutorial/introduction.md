@@ -128,20 +128,18 @@ We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0
 
 ## Bootstrap the Project
 
-Using a command prompt (or PowerShell console) navigate to the project directory we just downloaded and run:
+Navigate to the project directory we just downloaded and run:
 
 ```sh
-docker-compose up --detach
+./start.sh
 ```
 
 The first time this is run it will download and build several Docker images for our ioFog setup. This may take a few minutes.
 
-When you want to stop everything, you can use the `stop` command:
+When you want to stop everything, you can use:
 
 ```sh
-docker-compose stop
-# or to stop as well as remove the container/networking:
-docker-compose down
+./stop.sh
 ```
 
 ## Get To Know ioFog

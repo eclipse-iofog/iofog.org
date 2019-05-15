@@ -124,7 +124,7 @@ You'll then need to unzip the contents into your preferred working directory.
 Inside the project directory we downloaded, go ahead and run:
 
 ```sh
-docker-compose up --detach
+./start.sh
 ```
 
 The first time this is run it will download and build several Docker images for our ioFog setup. This may take a few minutes.
@@ -135,21 +135,19 @@ After it's all up, confirm it's working correctly by running `docker ps`:
 docker ps
 ```
 
-You should see three containers running:
+You should see three containers running. For example:
 
 ```sh
-CONTAINER ID    IMAGES                         etc...     NAMES
-...             iofog-env_iofog-agent                     iofog-agent
-...             iofog-env_iofog-controller                iofog-controller
-...             iofog-env_iofog-connector                 iofog-connector
+CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+306bc3c3baec        fog_iofog-agent        "/usr/bin/supervisord"   4 seconds ago       Up 3 seconds        0.0.0.0:54321->54321/tcp, 0.0.0.0:8081->22/tcp   iofog-agent
+b74a9aff81cc        fog_iofog-controller   "/start.sh"              5 seconds ago       Up 3 seconds        0.0.0.0:51121->51121/tcp                         iofog-controller
+9e047cd99f6d        fog_iofog-connector    "/start.sh"              5 seconds ago       Up 4 seconds        0.0.0.0:53321->8080/tcp                          iofog-connector
 ```
 
-When you're done, you can shut everything down with `docker-compose stop`
+When you're done, you can shut everything down:
 
 ```sh
-docker-compose stop
-# or to stop as well as remove the container/networking:
-docker-compose down
+./stop.sh
 ```
 
 ## Shell Into Your Containers
