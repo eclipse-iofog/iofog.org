@@ -10,8 +10,8 @@ While you can use a custom registry (or the public [Docker Hub](https://hub.dock
 
 To get a list of the container registries, we can use `registry list`:
 
-```sh
-iofog-controller registry list
+```bash
+docker exec -it iofog-controller iofog-controller registry list
 ```
 
 You should see two, the first being [Docker Hub](https://hub.docker.com/), but we're going to use the second one, which is the built-in private registry:
@@ -25,7 +25,6 @@ You should see two, the first being [Docker Hub](https://hub.docker.com/), but w
   "certificate": "",
   "requiresCert": false,
   "username": "",
-  "password": "",
   "userEmail": "",
   "userId": null
 }
@@ -33,18 +32,18 @@ You should see two, the first being [Docker Hub](https://hub.docker.com/), but w
 
 The unique ID for the built-in registry is always `2`.
 
-Now that we have that registry ID, we can use it to add our Docker image to its catalog. We'll provide `yourname/moving-average:v1` as the x86-image of our microservice:
+Now that we have that registry ID, we can use it to add our Docker image to its catalog. We'll provide `iofog-tutorial/moving-average:v1` as the x86-image of our microservice:
 
-```sh
-# registry ID 2 is the internal private one provided by ioFog
-iofog-controller catalog add \
-  --name "Moving Average" \
-  --x86-image yourname/moving-average:v1 \
-  --registry-id 2 \
-  --user-id 1
+```bash
+$ docker exec -it iofog-controller \
+    iofog-controller catalog add \
+    --name "Moving Average" \
+    --x86-image lkrcal/moving-average:v1 \
+    --registry-id 2 \
+    --user-id 1
 ```
 
-This command will return a catalog ID that we'll use in the next step.
+This command will return a catalog ID that we'll use in the next step, in this case it is `105`.
 
 ## Add Your Microservice
 
@@ -54,24 +53,24 @@ Instantiating a new microservice is done using the `microservice add` command. W
 
 So let's find the UUID for the first Agent with the name "Agent 1":
 
-```sh
-iofog-controller iofog list
+```bash
+docker exec -ti iofog-controller iofog-controller iofog list
 ```
 
-Using that UUID, we can pass it and our other arguments to instantiate the microservice:
+In our case, the default agent has a UUID of `vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC`. Using that UUID together with the reference to the catalog, we can pass it and our other arguments to instantiate the microservice. This is also a great opportunity to include our custom config for our `maxWindowSize`.
 
-```sh
-iofog-controller microservice add \
-  --name "Moving Average 1" \
-  --catalog-id <catalog_id> \
-  --config '{ "maxWindowSize": 10 }' \
-  --node-uuid <node_uuid> \
-  --flow-id 1
+```bash
+docker exec -it iofog-controller \
+    iofog-controller microservice add \
+    --name "Moving Average" \
+    --catalog-id 105 \
+    --config '{ "maxWindowSize": 10 }' \
+    --iofog-uuid vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC \
+    --flow-id 1 \
+    --user-id 1
 ```
 
-This is also a great opportunity to include our custom config for our `maxWindowSize`.
-
-This command will return the microservice UUID, which we'll then use in the next step to setup our routes.
+This command will return the microservice UUID, which we'll then use in the next step to setup our routes. In our case, the returned UUID of hte microservice is `ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23`.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Flow IDs</h3>
@@ -86,34 +85,114 @@ With the microservice UUID from the last step, let's change our routes so that o
 
 First, let's remove the old route from the Sensors to the REST API. We need to retrieve the microservice UUIDs for Sensors and the REST API:
 
-```sh
-iofog-controller microservice list
+```bash
+docker exec -ti iofog-controller iofog-controller microservice list
 ```
 
-After finding those two UUIDs in the list, provide the Sensors UUID and API UUID separated by a semicolon to `microservice route-remove --route <source_uuid>:<dest_uuid>`:
+Example output can look like this. Note that many attributes are not shown in this output, but we can clearly see all the UUIDs and routes.
+```json
+{
+  "microservices": [
+    {
+      "name": "Sensors",
+      "uuid": "PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb",
+      "catalogItemId": 102,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "routes": [
+        "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3"
+      ]
+    },
+    {
+      "name": "Rest API",
+      "uuid": "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3",
+      "catalogItemId": 103,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+    },
+    {
+      "name": "Freeboard",
+      "uuid": "BrKHZf9PTcT6yjKcrpnRVBcYPFqxqXxb",
+      "catalogItemId": 104,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+    },
+    {
+      "name": "Moving Average",
+      "uuid": "ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23",
+      "config": "{ \"maxWindowSize\": 10 }",
+      "catalogItemId": 105,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+    }
+  ]
+}
+```
 
-```sh
-# Note the semicolon between the two UUIDs!
-iofog-controller microservice route-remove \
-  --route <sensors_uuid>:<api_uuid>
+After finding those two UUIDs in the list, provide the Sensors UUID and API UUID separated by a semicolon.
+```bash
+docker exec -ti iofog-controller \
+    iofog-controller microservice route-remove \
+        --route PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb:NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3
 ```
 
 Now we need to place two new routes: one from the Sensors to Moving Average, and another from Moving Average to the REST API; this places our new microservice in between them.
 
-```sh
-# Sensors -> Moving Average
-iofog-controller microservice route-create \
-  --route <sensors_uuid>:<moving_average_uuid>
-
-# Moving Average -> REST API
-iofog-controller microservice route-create \
-  --route <moving_average_uuid>:<rest_api_uuid>
+```bash
+docker exec -ti iofog-controller \
+    iofog-controller microservice route-create \
+        --route PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb:ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23
+        
+docker exec -ti iofog-controller \
+    iofog-controller microservice route-create \
+        --route ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23:NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3
 ```
 
-Finally, for the moment of truth. Let's first try a curl request to our REST API:
+The new configuration of microservices should look like this:
 
-```sh
-curl http://localhost:10101/
+```json
+{
+  "microservices": [
+    {
+      "name": "Sensors",
+      "uuid": "PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb",
+      "catalogItemId": 102,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "routes": [
+        "ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23"
+      ]
+    },
+    {
+      "name": "Rest API",
+      "uuid": "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3",
+      "catalogItemId": 103,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+    },
+    {
+      "name": "Freeboard",
+      "uuid": "BrKHZf9PTcT6yjKcrpnRVBcYPFqxqXxb",
+      "catalogItemId": 104,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+    },
+    {
+      "name": "Moving Average",
+      "uuid": "ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23",
+      "config": "{ \"maxWindowSize\": 10 }",
+      "catalogItemId": 105,
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "routes": [
+        "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3"
+      ]
+    }
+  ]
+}
+```
+
+<aside class="notifications danger">
+  <h3><img src="/images/icos/ico-danger.svg" alt=""> Known issue - Agent deletes moving average image!</h3>
+  <p>When you update the routes for the moving average microservice, ioFog agent re-creates the containers, but due to a known issue, also deletes the underlying image. In order for the moving average image to start correctly, you need to build it again.</p>
+</aside>
+
+Finally, for the moment of truth. Let's first try a curl request to our REST API.
+
+```bash
+curl http://0.0.0.0:10101/
 ```
 
 If everything is working correctly, the JSON returned should be our new moving averages and contain our `"isAverage": true` field we added.
@@ -124,12 +203,13 @@ We can also open up the [Freeboard dashboard](http://localhost:10102/?load=dashb
 
 Once a microservice is up and running you will probably need to modify it later, which we can also do with the Controller.
 
-The `microservice update` command is used to update a particular microservice:
+The `microservice update` command is used to update a particular microservice. We can easily update the configuration of our moving average microservice.
 
-```sh
-iofog-controller microservice update \
-  --microservice-uuid <uuid> \
-  --config '{ "maxWindowSize": 100 }' \
+```bash
+docker exec -ti iofog-controller \
+    iofog-controller microservice update \
+        --microservice-uuid ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23 \
+        --config '{ "maxWindowSize": 100 }'
 ```
 
 [View all CLI options](../controllers/cli-usage.html#microservice)

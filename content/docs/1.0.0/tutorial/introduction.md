@@ -25,25 +25,20 @@ ioFog requires a Linux environment, however this Tutorial has everything already
 
 ---
 
-#### Install Docker
+#### Install Docker and Docker-Compose
 
 You can install the latest version of Docker with following command:
 
-```sh
+```bash
 curl -sSf https://get.docker.com/ | sh
 ```
 
-or
+Or download Docker manually for: [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/) or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
 
-Download Docker for [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
+Next we need to install Docker Compose. For the latest instructions [see the Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose). Note the version to download. This tutorial requires docker-compose version `1.24`.
 
-Next we need to install Docker Compose. For the latest instructions [see the Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose), however it should be similar to this:
-
-```sh
-# This has version 1.22.0 hardcoded, you probably
-# should change it to what ever the latest version is!
-
-sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
@@ -51,9 +46,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 Finally we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
-```sh
+```bash
 cd where/you/want/tutorial-project
-curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive/demo-environment.tar.gz
+curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive/develop.tar.gz
 tar -zxvf tutorial.tar.gz --strip-components=1
 ```
 
@@ -80,7 +75,7 @@ Next we need to download the Tutorial project, which will use Docker to run Linu
 
 ```sh
 cd where/you/want/tutorial-project
-curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive/demo-environment.tar.gz
+curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive//develop.tar.gz
 tar -zxvf tutorial.tar.gz --strip-components=1
 ```
 
@@ -109,7 +104,7 @@ Docker for Windows can be installed from the Docker Store:
 
 Next we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
 
-[Download Tutorial project](https://github.com/ioFog/demo/archive/demo-environment.zip)
+[Download Tutorial project](https://github.com/ioFog/demo/archive//develop.zip)
 
 Unzip the contents into your preferred working directory.
 
@@ -128,20 +123,22 @@ We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0
 
 ## Bootstrap the Project
 
-Using a command prompt (or PowerShell console) navigate to the project directory we just downloaded and run:
+Start by spinning up the ioFog stack (Agent, Controller, and Connector) and tutorial services on your local machine. This creates a fully configured Edge Compute Network (ECN) and deploys microservices that we will use later in the tutorial.
 
 ```sh
-docker-compose up --detach
+$ ./start.sh tutorial
 ```
 
-The first time this is run it will download and build several Docker images for our ioFog setup. This may take a few minutes.
-
-When you want to stop everything, you can use the `stop` command:
+You can optionally verify the ioFog stack is provisioned correctly. The automated tests run a smoke test suite on the  ioFog stack, testing basic operations.
 
 ```sh
-docker-compose stop
-# or to stop as well as remove the container/networking:
-docker-compose down
+$ ./test.sh
+```
+
+When you are finished, tear down the ioFog stack and all services deployed on it.
+
+```sh
+$ ./stop.sh
 ```
 
 ## Get To Know ioFog
