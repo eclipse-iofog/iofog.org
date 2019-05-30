@@ -197,7 +197,7 @@ curl http://0.0.0.0:10101/
 
 If everything is working correctly, the JSON returned should be our new moving averages and contain our `"isAverage": true` field we added.
 
-We can also open up the [Freeboard dashboard](http://localhost:10102/?load=dashboard.json) to view the averaged values!
+We can also open up the [Freeboard dashboard](http://localhost:10102/?load=dashboard.json) to view the averaged values! Note that `?load=dashboard.json` in the URL loads a predefined dashboard for this tutorial. The dashboard definition is already part of the Freeboard container.
 
 ## Update a Microservice
 

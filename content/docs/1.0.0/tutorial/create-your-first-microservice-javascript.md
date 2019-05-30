@@ -231,12 +231,12 @@ onMessages: messages => {
             const result = {
                 isAverage: true,
                 time: input.time, // same time as
-                speed: getMovingAverage(prevSpeeds, input.speed),
-                acceleration: getMovingAverage(
-                    prevAccelerations,
-                    input.acceleration
-                ),
-                rpm: getMovingAverage(prevRpms, input.rpm)
+                speed: getMovingAverage(prevSpeeds,
+                    parseFloat(input.speed)),
+                acceleration: getMovingAverage(prevAccelerations,
+                    parseFloat(input.acceleration)),
+                rpm: getMovingAverage(prevRpms,
+                    parseFloat(input.rpm))
             };
 
             const output = iofog.ioMessage({
@@ -313,12 +313,12 @@ function main() {
                     const result = {
                         isAverage: true,
                         time: input.time, // same time as
-                        speed: getMovingAverage(prevSpeeds, input.speed),
-                        acceleration: getMovingAverage(
-                            prevAccelerations,
-                            input.acceleration
-                        ),
-                        rpm: getMovingAverage(prevRpms, input.rpm)
+                        speed: getMovingAverage(prevSpeeds,
+                            parseFloat(input.speed)),
+                        acceleration: getMovingAverage(prevAccelerations,
+                            parseFloat(input.acceleration)),
+                        rpm: getMovingAverage(prevRpms,
+                            parseFloat(input.rpm))
                     };
 
                     const output = iofog.ioMessage({
