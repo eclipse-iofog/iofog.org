@@ -1,12 +1,12 @@
-# Deploy Your Microservice
+# Deploy Our Microservice
 
 In this step we'll learn how to deploy our newly created microservice to our ioFog tutorial environment.
 
-## Register Your Docker Image
+## Register Our Docker Image
 
 With our Docker image from the previous step in hand, it's time to publish it to a [Docker Registry](https://docs.docker.com/registry/).
 
-While you can use a custom registry (or the public [Docker Hub](https://hub.docker.com/)), the Controller also comes with a built-in private registry that represents the local cache on the ioFog edge compute nodes.
+While we can use a custom registry (or the public [Docker Hub](https://hub.docker.com/)), the Controller also comes with a built-in private registry that represents the local cache on the ioFog edge compute nodes.
 
 To get a list of the container registries, we can use `registry list`:
 
@@ -14,7 +14,7 @@ To get a list of the container registries, we can use `registry list`:
 docker exec -it iofog-controller iofog-controller registry list
 ```
 
-You should see two, the first being [Docker Hub](https://hub.docker.com/), but we're going to use the second one, which is the built-in private registry:
+We should see two registries. The first is [Docker Hub](https://hub.docker.com/) and the second is the built-in private registry, which we're going to use.
 
 ```json
 {
@@ -43,13 +43,13 @@ $ docker exec -it iofog-controller \
     --user-id 1
 ```
 
-This command will return a catalog ID that we'll use in the next step, in this case it is `105`.
+This command will return a catalog ID that we'll use in the next step, which in this case is `105`.
 
-## Add Your Microservice
+## Add Our Microservice
 
 Now that the Docker image containing our microservice code is registered, we can spin up new copies of it also using the Controller.
 
-Instantiating a new microservice is done using the `microservice add` command. We need to provide several options, the most notable being the catalog ID we received in the previous section as well as a node UUID—which is the UUID of the edge node we want this microservice to run on.
+Instantiating a new microservice is done using the `microservice add` command. We need to provide several options and the most notable is the catalog ID we received in the previous section as well as a node UUID, which is the UUID of the edge node that this microservice should run on.
 
 So let's find the UUID for the first Agent with the name "Agent 1":
 
@@ -70,7 +70,7 @@ docker exec -it iofog-controller \
     --user-id 1
 ```
 
-This command will return the microservice UUID, which we'll then use in the next step to setup our routes. In our case, the returned UUID of hte microservice is `ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23`.
+This command will return the microservice UUID, which we'll then use in the next step to set up our routes. In our case, the returned UUID of the microservice is `ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23`.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Flow IDs</h3>
@@ -89,7 +89,7 @@ First, let's remove the old route from the Sensors to the REST API. We need to r
 docker exec -ti iofog-controller iofog-controller microservice list
 ```
 
-Example output can look like this. Note that many attributes are not shown in this output, but we can clearly see all the UUIDs and routes.
+An example output can look like the following. Note that although many attributes are not shown in this output, we can clearly see all the UUIDs and routes.
 ```json
 {
   "microservices": [
@@ -132,7 +132,7 @@ docker exec -ti iofog-controller \
         --route PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb:NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3
 ```
 
-Now we need to place two new routes: one from the Sensors to Moving Average, and another from Moving Average to the REST API; this places our new microservice in between them.
+Now we need to place two new routes: one from the Sensors to Moving Average, and another from Moving Average to the REST API;\. The resulting message flow will then have our new microservice in between Sensors and the REST API microservices.
 
 ```bash
 docker exec -ti iofog-controller \
@@ -186,10 +186,10 @@ The new configuration of microservices should look like this:
 
 <aside class="notifications danger">
   <h3><img src="/images/icos/ico-danger.svg" alt=""> Known issue - Agent deletes moving average image!</h3>
-  <p>When you update the routes for the moving average microservice, ioFog agent re-creates the containers, but due to a known issue, also deletes the underlying image. In order for the moving average image to start correctly, you need to build it again.</p>
+  <p>When we update the routes for the moving average microservice, ioFog agent re-creates the containers, but due to a known issue, also deletes the underlying image. In order for the moving average image to start correctly, we need to build it again.</p>
 </aside>
 
-Finally, for the moment of truth. Let's first try a curl request to our REST API.
+Finally, the moment of truth! Let's first try a curl request to our REST API.
 
 ```bash
 curl http://0.0.0.0:10101/
@@ -201,9 +201,9 @@ We can also open up the [Freeboard dashboard](http://localhost:10102/?load=dashb
 
 ## Update a Microservice
 
-Once a microservice is up and running you will probably need to modify it later, which we can also do with the Controller.
+Once a microservice is up and running, we will probably need to modify it later, which we can also do with the Controller.
 
-The `microservice update` command is used to update a particular microservice. We can easily update the configuration of our moving average microservice.
+The `microservice update` command is used to update a particular microservice. We can easily update the configuration of our Moving Average microservice.
 
 ```bash
 docker exec -ti iofog-controller \

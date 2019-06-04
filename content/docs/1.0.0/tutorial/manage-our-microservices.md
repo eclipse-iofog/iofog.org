@@ -1,14 +1,14 @@
-# Manage Your Microservices
+# Manage Our Microservices
 
 In this step of the tutorial we're ready to learn the basics of managing microservices inside our [Tutorial project](../tutorial/introduction.html).
 
 ## Basic Controller CLI Interactions
 
-The Agent daemon runs microservices on your edge nodes locally, but it is controlled remotely by the Controller. Let's learn some of the most common Controller commands you'll use.
+The Agent daemon runs microservices on our edge nodes locally, but it is controlled remotely by the Controller. Let's learn some of the most common Controller commands.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Production vs. Development</h3>
-  <p>Throughout the rest of this tutorial remember that, while we're running our ioFog network entirely locally using Docker, in production it doesn't have to be--and probably won't. Your Controller and Connector will likely be running on cloud servers and your edge node devices in the wild will each be running their own Agent.</p>
+  <p>Throughout the rest of this tutorial remember that, while we're running our ioFog network entirely locally using Docker, in production it doesn't have to be--and probably won't. Our Controller and Connector will likely be running on cloud servers and our edge node devices in the wild will each be running their own Agent.</p>
 </aside>
 
 This tutorial includes 3 microservices already running. We can view any configured microservices using Controller CLI: `microservice list`.
@@ -21,7 +21,7 @@ This returns a JSON object containing the full list, along with their configurat
 
 ###### Tutorial Microservices
 
-The tutorial consists of three microservices deployed on top of ioFog stack.
+The tutorial consists of 3 microservices deployed on top of ioFog stack.
 
 The *Sensors* microservice pretends to be reading data from a local hardware sensor. The data it produces is published with [the SDK](../writing-microservices/sdk.html) and routed through the [Connector](../connectors/overview.html) to the REST API microservice, so that it can be read by other microservices that only understand REST API.
 
@@ -31,24 +31,24 @@ The *REST API* is a generic microservice that provides a REST API web server, al
 
 [REST API microservice source code on Github](https://github.com/ioFog/example-microservices/tree/master/json-rest-api-cors-enabled)
 
-*Freeboard* is the last microservice that provides an HTML dashboard to view the real-time results coming from a rest API data source. In the case of our tutorial, the source of the data is our RESP API microservice.
+*Freeboard* is the last microservice that provides an HTML dashboard to view the real-time results coming from a rest API data source. In the case of our tutorial, the source of the data is our REST API microservice.
 
 ## Routes
 
-The Sensors and REST API microservices are generic; they are not hardcoded to talk with each other, instead the relationship dictating the flow of data was configured with the Controller. This is in the spirit of the microservice architecture, separating concerns into pieces so that you can combine and interchange them.
+The Sensors and REST API microservices are generic. They are not hardcoded to talk with each other, instead, the relationship dictating the flow of data was configured with the Controller. This is in the spirit of the microservice architecture, separating concerns into pieces so that we can combine and interchange them.
 
 To connect microservices together, the Controller has the concept of routes.
 
 Routes can be listed from the `microservice list` or `microservice info` commands. We can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
 
-We can add or remove them with `microservice route-create --route` and `microservice route-remove --route` respectively, while passing in the source and destination microservice UUIDs separated by a colon. These UUIDs are returned when you start a microservice, but can also be obtained later from the result of `microservice list`.
+We can add or remove them with `microservice route-create --route` and `microservice route-remove --route` respectively, while passing in the source and destination microservice UUIDs separated by a colon. These UUIDs are returned when we start a microservice, but can also be obtained later from the result of `microservice list`.
 
 ```bash
 docker exec -ti iofog-controller \
     iofog-controller microservice route-create --route <source_uuid>:<dest_uuid>
 ```
 
-The unique UUID for each microservice varies, so yours will be different. This is a sample output from `microservices list`, with a route to another microservice.
+The unique UUID for each microservice varies, so ours will be different. This is a sample output from `microservices list`, with a route to another microservice.
 
 ```json
  "microservices": [
@@ -95,12 +95,12 @@ The unique UUID for each microservice varies, so yours will be different. This i
   ]
 ```
 
-## Create Your First Microservice
+## Create Our First Microservice
 
 Next up, we're going to create our very first microservice to run on ioFog. To make it easier, our tutorial provides examples in several languages.
 
-You can also skip straight to learning about how to [Deploy Microservices](deploy-your-microservice.html) instead.
+We can also skip straight to learning about how to [Deploy Microservices](deploy-our-microservice.html) instead.
 
-Pick your preferred language:
+Pick the preferred language:
 
-- [JavaScript (Node.js)](create-your-first-microservice-javascript.html)
+- [JavaScript (Node.js)](create-our-first-microservice-javascript.html)
