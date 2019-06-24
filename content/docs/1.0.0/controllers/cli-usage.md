@@ -700,14 +700,11 @@ iofog-controller microservice <action> <options>
 | **-R, --root-disable**       | Disable root access                             |
 | **-p, --ports string[]**     | Container ports                                 |
 | **-t, --routes string[]**    | Microservice route(s) (receiving microservices) |
-| **-e, --env string[]**       | Microservice environemnt variable(s)            |
-| **-C, --cmd string[]**       | Microservice container command and argument(s)  |
 
 ```sh
 # Single mapping
 iofog-controller microservice add \
   --volumes /host_src:/container_src:rw \
-  --env KEY=value --cmd bash \
   [other required options]
 
 # Multiple mappings
@@ -728,21 +725,19 @@ iofog-controller microservice add \
 
 ##### update
 
-|                                    |                                                |
-| ---------------------------------- | ---------------------------------------------- |
-| **-i, --microservice-uuid string** | Microservice UUID                              |
-| **-f, --file string**              | Path to microservice settings JSON file        |
-| **-n, --name string**              | Microservice name                              |
-| **-F, --flow-id string**           | Application flow ID                            |
-| **-I, --iofog-uuid string**        | ioFog node UUID                                |
-| **-g, --config string**            | Microservice config                            |
-| **-v, --volumes string[]**         | Microservice volume mapping(s)                 |
-| **-l, --log-size integer**         | Log file size limit (MB)                       |
-| **-r, --root-enable**              | Enable root access                             |
-| **-R, --root-disable**             | Disable root access                            |
-| **-w, --rebuild**                  | Rebuild microservice image on fog agent        |
-| **-e, --env string[]**             | Microservice environemnt variable(s)           |
-| **-C, --cmd string[]**             | Microservice container command and argument(s) |
+|                                    |                                         |
+| ---------------------------------- | --------------------------------------- |
+| **-i, --microservice-uuid string** | Microservice UUID                       |
+| **-f, --file string**              | Path to microservice settings JSON file |
+| **-n, --name string**              | Microservice name                       |
+| **-F, --flow-id string**           | Application flow ID                     |
+| **-I, --iofog-uuid string**        | ioFog node UUID                         |
+| **-g, --config string**            | Microservice config                     |
+| **-v, --volumes string[]**         | Microservice volume mapping(s)          |
+| **-l, --log-size integer**         | Log file size limit (MB)                |
+| **-r, --root-enable**              | Enable root access                      |
+| **-R, --root-disable**             | Disable root access                     |
+| **-w, --rebuild**                  | Rebuild microservice image on fog agent |
 
 ```sh
 iofog-controller update \
