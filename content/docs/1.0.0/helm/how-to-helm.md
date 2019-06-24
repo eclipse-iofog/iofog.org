@@ -6,9 +6,11 @@ In this tutorial we will go through deployment of ioFog stack into existing Kube
 
 First, we need working kubernetes cluster. To setup a cluster on Google Kubernetes Engine (GKE), follow the tutorial [Creating a cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster). Alternative managed cluster providers will work as well, so will custom installations of Kubernetes, e.g. using Minikube.
 
-IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tutorial.html)
+The core ioFog stack installed by Helm does not require any Agents to be setup. Agents are edge nodes where microservices are deployed. In order to leverage all ioFog capabilities, we will need to setup Agents. These can simply be small compute instances from GCP, AWS, Packet, or any other provider.
 
-Agents
+All ioFog needs from these Agents is SSH access in order to provision them.
+
+IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tutorial.html) for more details.
 
 The tutorial requires installation of `Helm` and `kubectl` executing the deployment.
 
@@ -95,31 +97,17 @@ kubectl get crd iofogs.k8s.iofog.org
   <p>Helm's support for Custom Resource Definition (CRD) is a bit reckless. Upon installation of Helm release, the CRDs will be disowned by the release and orphaned. Deleting the release will not get rid of the CRDs. This makes sense, since the definitions are scoped for the whole cluster.</p>
 </aside>
 
-## Register Agent With The ioFog Stack
-
-Now is the time to register the agent with the rest of the ioFog stack. For this purpose, we use [iofogctl](https://github.com/eclipse-iofog/iofogctl). For more in-depth dive into `iofogctl`, visit out [iofogctl tutorial](../iofogctl/iofogctl.html).
-
-First, connect iofogctl to the Controller deployed by Helm.
-
-```bash
-iofogctl connect -n iofog iofog-test-controller \
-  -o $(kubectl -n iofog get svc controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}:{.spec.ports[0].port}') \
-  -e user@domain.com  -p '#Bugs4Fun'
-```
-
-Then, we need to provision an ioFog Agent to the Controller we just connected to. Here, `my-first-agent` is the agent name, `1.2.3.4` is the external IP that iofogctl can access, and `/home/username/.ssh/agent-key` is the key that needs to be authorized on the agent. Working SSH access to the agent is required in order to provision the agent.
-
-```bash
-iofogctl deploy agent -n iofog-test my-first-agent --user username --host 1.2.3.4 --key-file /home/username/.ssh/agent-key
-```
-
 ## Testing ioFog Stack With Agent
 
 This is a short guide how to run [ioFog smoke tests](https://github.com/eclipse-iofog/test-runner) on our ioFog installation. These tests require one ioFog Agent to be provisioned as well as SSH access to the Agent.
 
 ### Credentials For ioFog Agent Tests
 
-In order to test the ioFog stack, we will need access to a single ioFog agent. Note that this agent is external to the Kubernetes cluster, but its credentials need to be stored as a secret in the cluster.
+In order to test the ioFog stack, we will need access to a single ioFog Agent.
+
+Now is the time to register the agent with the rest of the ioFog stack. For this purpose, we use [iofogctl](https://github.com/eclipse-iofog/iofogctl). Please follow the instruction on how to use `iofogctl` to deploy a new Agent in the [iofogctl tutorial](../iofogctl/iofogctl.html#deploy-agent-on-the-iofog-stack).
+
+Note that this Agent is external to the Kubernetes cluster, but its credentials need to be stored as a secret in the cluster.
 
 We need to create such secret manually, in the same namespace the Helm chart was deployed. This secret only needs to be created or updated when we want to use a different agent for testing purposes. It is not required in any way if we don't need to test the ioFog stack. Here, `1.2.3.4` is the external IP that iofogctl can access, and `/home/username/.ssh/agent-key` is the key that needs to be authorized on the agent.
 
@@ -151,7 +139,7 @@ helm test iofog
 
 <aside class="notifications danger">
   <h3><img src="/images/icos/ico-danger.svg" alt="">SSH Route Bug GKE</h3>
-  <p>Running Helm commands will fail after an agent has been deployed in any ioFog stack on the cluster. See [#known-isses](Known Issues) for more details. </p>
+  <p>Running Helm commands will fail after an agent has been deployed in any ioFog stack on the cluster. See [#known-issues](Known Issues) for more details. </p>
 </aside>
 
 ## Uninstall ioFog Stack
