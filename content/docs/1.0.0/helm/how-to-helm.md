@@ -10,10 +10,10 @@ IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-
 
 Agents
 
-The tutorial requires installation of `Helm` and `kubectl` executing the deployment. 
+The tutorial requires installation of `Helm` and `kubectl` executing the deployment.
 
-* [Helm installation instructions](https://helm.sh/docs/using_helm/#installing-helm)
-* [kubectl installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- [Helm installation instructions](https://helm.sh/docs/using_helm/#installing-helm)
+- [kubectl installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 From now on, we assume we have a running Kubernetes cluster and Agent nodes. We can verify that our kubernetes cluster is working by running `kubectl cluster-info`. The output of a working cluster will look like this:
 
@@ -51,7 +51,6 @@ gcloud projects add-iam-policy-binding $PROJECT --member=user:person@company.com
 ```
 </aside>
 
-
 ## Initialize Helm And Install Tiller
 
 Now is the time to use our service account to initialize Helm.
@@ -82,10 +81,11 @@ If we want to have multiple instances of ioFog on the same Kubernetes cluster, i
 ```bash
 helm install --name iofog --namespace iofog --set createCustomResource=false iofog/iofog
 ```
- 
+
 Only use this option when the ioFog custom resource exists, either from another Helm installation or manual installation using [iofogctl](https://github.com/eclipse-iofog/iofogctl).
 
 To check if the custom resource exists, run
+
 ```bash
 kubectl get crd iofogs.k8s.iofog.org
 ```
@@ -95,17 +95,16 @@ kubectl get crd iofogs.k8s.iofog.org
   <p>Helm's support for Custom Resource Definition (CRD) is a bit reckless. Upon installation of Helm release, the CRDs will be disowned by the release and orphaned. Deleting the release will not get rid of the CRDs. This makes sense, since the definitions are scoped for the whole cluster.</p>
 </aside>
 
-
 ## Register Agent With The ioFog Stack
 
-Now is the time to register the agent with the rest of the ioFog stack. For this purpose, use [iofogctl](https://github.com/eclipse-iofog/iofogctl).
+Now is the time to register the agent with the rest of the ioFog stack. For this purpose, we use [iofogctl](https://github.com/eclipse-iofog/iofogctl). For more in-depth dive into `iofogctl`, visit out [iofogctl tutorial](../iofogctl/iofogctl.html).
 
-First, connect iofogctl to the Controller deployed by Helm. 
+First, connect iofogctl to the Controller deployed by Helm.
 
 ```bash
 iofogctl connect -n iofog iofog-test-controller \
   -o $(kubectl -n iofog get svc controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}:{.spec.ports[0].port}') \
-  -e user@domain.com  -p '#Bugs4Fun' 
+  -e user@domain.com  -p '#Bugs4Fun'
 ```
 
 Then, we need to provision an ioFog Agent to the Controller we just connected to. Here, `my-first-agent` is the agent name, `1.2.3.4` is the external IP that iofogctl can access, and `/home/username/.ssh/agent-key` is the key that needs to be authorized on the agent. Working SSH access to the agent is required in order to provision the agent.
@@ -113,7 +112,6 @@ Then, we need to provision an ioFog Agent to the Controller we just connected to
 ```bash
 iofogctl deploy agent -n iofog-test my-first-agent --user username --host 1.2.3.4 --key-file /home/username/.ssh/agent-key
 ```
-
 
 ## Testing ioFog Stack With Agent
 
@@ -156,10 +154,9 @@ helm test iofog
   <p>Running Helm commands will fail after an agent has been deployed in any ioFog stack on the cluster. See [#known-isses](Known Issues) for more details. </p>
 </aside>
 
-
 ## Uninstall ioFog Stack
 
-To uninstall ioFog stack, simply delete the Helm release, where the release name refers to `--name` arguments used during installation. 
+To uninstall ioFog stack, simply delete the Helm release, where the release name refers to `--name` arguments used during installation.
 
 ```bash
 helm delete --purge iofog
@@ -168,9 +165,8 @@ helm delete --purge iofog
 Note that due to Helm's handing of custom resource definitions, all such definitions are orphaned when a release is created and thus need to be deleted manually.
 
 ```bash
-kubectl delete crd iofogs.k8s.iofog.org 
+kubectl delete crd iofogs.k8s.iofog.org
 ```
-
 
 ## Known Issues
 
