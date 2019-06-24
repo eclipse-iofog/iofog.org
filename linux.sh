@@ -263,12 +263,12 @@ do_install_iofog() {
 	case "$lsb_dist" in
 		ubuntu)
 			curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.deb.sh | $sh_c "bash" >/dev/null
-			$sh_c "apt-get install -y -qq iofog-agent-dev >/dev/null"
+			$sh_c "apt-get install -y -qq iofog-agent >/dev/null"
 			command_status=$?
 			;;
 		fedora|centos)
 			curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.rpm.sh | $sh_c "bash" >/dev/null
-			$sh_c "yum install -y -q iofog-agent-dev"
+			$sh_c "yum install -y -q iofog-agent"
 			command_status=$?
 			;;
 		debian|raspbian)
@@ -276,7 +276,7 @@ do_install_iofog() {
 				$sh_c "apt-get install -y -qq net-tools >/dev/null"
 			fi
 			curl -s https://packagecloud.io/install/repositories/iofog/iofog-agent/script.deb.sh | $sh_c "bash" >/dev/null
-			$sh_c "apt-get install -y -qq iofog-agent-dev >/dev/null"
+			$sh_c "apt-get install -y -qq iofog-agent >/dev/null"
 			command_status=$?
 			if [ "$lsb_dist" = "raspbian" ]; then
 				$sh_c 'sed -i -e "s|<docker_url>.*</docker_url>|<docker_url>tcp://127.0.0.1:2375/</docker_url>|g" /etc/iofog-agent/config.xml'
