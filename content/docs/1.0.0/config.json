@@ -53,6 +53,24 @@
         ]
       },
       {
+        "title": "Helm Guide",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./helm/how-to-helm.md"
+          }
+        ]
+      },
+      {
+        "title": "Iofogctl Guide",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./iofogctl/iofogctl.md"
+          }
+        ]
+      },
+      {
         "title": "Writing Microservices",
         "subMenus": [
           {

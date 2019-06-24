@@ -1,6 +1,6 @@
 # ioFog Unified Command Line Interface
 
-In this tutorial, we will go through basic functionality of `iofogcli`. This tutorial will get us up and running with iofogctl and show how to deploy and operate a live cluster.
+In this tutorial, we will go through basic functionality of `iofogctl`. This tutorial will get us up and running with iofogctl and show how to deploy and operate a live cluster.
 
 `iofogctl` is a CLI tool for installation, configuration, and operation of ioFog Edge Compute Networks (ECNs).
 
