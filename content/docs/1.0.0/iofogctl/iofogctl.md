@@ -141,7 +141,7 @@ It is also possible to query for all Kubernetes resources installed. The namespa
 
 ## Connect Existing ioFog Stack With iofogctl
 
-Instead of deploying our own iofogctl stack, we can just connect to another Controller, for example one deployed by Helm. See [helm tutorial](../helm/how-to-helm.html) for in depth dive into Helm.
+Instead of deploying our own iofogctl stack, we can just connect to another Controller, for example one deployed by Helm. See [helm tutorial](../kubernetes/how-to-helm.html) for in depth dive into Helm.
 
 ```bash
 iofogctl connect my-ctrl \

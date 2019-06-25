@@ -1,4 +1,4 @@
-# How to Install ioFog Using Helm
+# Helm Guide - How to Install ioFog Using Helm
 
 In this tutorial we will go through deployment of ioFog stack into existing Kubernetes cluster.
 

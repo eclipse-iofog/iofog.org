@@ -53,19 +53,24 @@
         ]
       },
       {
-        "title": "Helm Guide",
+        "title": "Kubernetes",
         "subMenus": [
           {
-            "title": "Overview",
-            "entry": "./helm/how-to-helm.md"
+            "title": "Helm Guide",
+            "entry": "./kubernetes/how-to-helm.md"
+          },
+        "subMenus": [
+          {
+            "title": "Platform Tools",
+            "entry": "./kubernetes/platform-tools.md"
           }
         ]
       },
       {
-        "title": "Iofogctl Guide",
+        "title": "Iofogctl",
         "subMenus": [
           {
-            "title": "Overview",
+            "title": "Introduction to iofogctl",
             "entry": "./iofogctl/iofogctl.md"
           }
         ]
