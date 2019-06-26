@@ -90,6 +90,7 @@ docker exec -ti iofog-controller iofog-controller microservice list
 ```
 
 An example output can look like the following. Note that although many attributes are not shown in this output, we can clearly see all the UUIDs and routes.
+
 ```json
 {
   "microservices": [
@@ -98,34 +99,33 @@ An example output can look like the following. Note that although many attribute
       "uuid": "PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb",
       "catalogItemId": 102,
       "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
-      "routes": [
-        "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3"
-      ]
+      "routes": ["NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3"]
     },
     {
       "name": "Rest API",
       "uuid": "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3",
       "catalogItemId": 103,
-      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC"
     },
     {
       "name": "Freeboard",
       "uuid": "BrKHZf9PTcT6yjKcrpnRVBcYPFqxqXxb",
       "catalogItemId": 104,
-      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC"
     },
     {
       "name": "Moving Average",
       "uuid": "ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23",
       "config": "{ \"maxWindowSize\": 10 }",
       "catalogItemId": 105,
-      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC"
     }
   ]
 }
 ```
 
 After finding those two UUIDs in the list, provide the Sensors UUID and API UUID separated by a semicolon.
+
 ```bash
 docker exec -ti iofog-controller \
     iofog-controller microservice route-remove \
@@ -138,7 +138,7 @@ Now we need to place two new routes: one from the Sensors to Moving Average, and
 docker exec -ti iofog-controller \
     iofog-controller microservice route-create \
         --route PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb:ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23
-        
+
 docker exec -ti iofog-controller \
     iofog-controller microservice route-create \
         --route ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23:NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3
@@ -154,21 +154,19 @@ The new configuration of microservices should look like this:
       "uuid": "PDRRQcbD6DVZJy9QBJQB7JyzH7RgLJCb",
       "catalogItemId": 102,
       "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
-      "routes": [
-        "ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23"
-      ]
+      "routes": ["ydmtBFxJhxvVgLKfM2qLPj4KtcVgdg23"]
     },
     {
       "name": "Rest API",
       "uuid": "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3",
       "catalogItemId": 103,
-      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC"
     },
     {
       "name": "Freeboard",
       "uuid": "BrKHZf9PTcT6yjKcrpnRVBcYPFqxqXxb",
       "catalogItemId": 104,
-      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
+      "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC"
     },
     {
       "name": "Moving Average",
@@ -176,9 +174,7 @@ The new configuration of microservices should look like this:
       "config": "{ \"maxWindowSize\": 10 }",
       "catalogItemId": 105,
       "iofogUuid": "vH6vfNzLwHK483CwHRJyyPZtNZ2m46zC",
-      "routes": [
-        "NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3"
-      ]
+      "routes": ["NZp8HZ7xpztPyC4dpRQx4w3Jd8x9jNF3"]
     }
   ]
 }
@@ -216,7 +212,7 @@ docker exec -ti iofog-controller \
 
 ## Conclusion
 
-Congratulations! You've now have the fundamentals of ioFog. Once you're feeling more comfortable you can create a blank [Development Environment](../gettings-started/quick-start.html) locally, or start setting up [ioFog in production](../getting-started/setup-your-controllers.html).
+Congratulations! You've now have the fundamentals of ioFog. Once you're feeling more comfortable you can start setting up [ioFog in production](../getting-started/setup-your-controllers.html).
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>

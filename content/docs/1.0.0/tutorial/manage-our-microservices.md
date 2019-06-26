@@ -23,15 +23,15 @@ This returns a JSON object containing the full list, along with their configurat
 
 The tutorial consists of 3 microservices deployed on top of ioFog stack.
 
-The *Sensors* microservice pretends to be reading data from a local hardware sensor. The data it produces is published with [the SDK](../writing-microservices/sdk.html) and routed through the [Connector](../connectors/overview.html) to the REST API microservice, so that it can be read by other microservices that only understand REST API.
+The _Sensors_ microservice pretends to be reading data from a local hardware sensor. The data it produces is published with [the SDK](../writing-microservices/sdk.html) and routed through the [Connector](../connectors/overview.html) to the REST API microservice, so that it can be read by other microservices that only understand REST API.
 
 [Sensors microservice source code on Github](https://github.com/ioFog/example-microservices/tree/master/sensors-data)
 
-The *REST API* is a generic microservice that provides a REST API web server, allowing access to any arbitrary data source connected using the Controller.
+The _REST API_ is a generic microservice that provides a REST API web server, allowing access to any arbitrary data source connected using the Controller.
 
 [REST API microservice source code on Github](https://github.com/ioFog/example-microservices/tree/master/json-rest-api-cors-enabled)
 
-*Freeboard* is the last microservice that provides an HTML dashboard to view the real-time results coming from a rest API data source. In the case of our tutorial, the source of the data is our REST API microservice.
+_Freeboard_ is the last microservice that provides an HTML dashboard to view the real-time results coming from a rest API data source. In the case of our tutorial, the source of the data is our REST API microservice.
 
 ## Routes
 
@@ -97,10 +97,6 @@ The unique UUID for each microservice varies, so ours will be different. This is
 
 ## Create Our First Microservice
 
-Next up, we're going to create our very first microservice to run on ioFog. To make it easier, our tutorial provides examples in several languages.
+Next up, we're going to create our very first microservice to run on ioFog.
 
-We can also skip straight to learning about how to [Deploy Microservices](deploy-our-microservice.html) instead.
-
-Pick the preferred language:
-
-- [JavaScript (Node.js)](create-our-first-microservice-javascript.html)
+[Continue To Next Step: Create Our First Microservice](create-our-first-microservice-javascript.html)

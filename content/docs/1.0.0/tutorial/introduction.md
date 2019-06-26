@@ -7,98 +7,33 @@ In this tutorial, we'll cover how to create, deploy, and manage our first micros
   <p>If you aren't already familiar with the core concepts of ioFog, you'll want to check out <a href="../getting-started/core-concepts.html">our Core Concepts</a> section.</p>
 </aside>
 
-### Minimum Requirements
+## Setup Demo Project
 
-ioFog requires a Linux environment, however this Tutorial has everything already setup inside a Linux [Docker container](https://docs.docker.com/get-started/) that can run on Mac or Windows as well.
-
-- **Linux** v3.10+ (Ubuntu, CentOS, etc), **macOS** 10.12+, or **Windows** 7+
-- **Docker** 1.10+
-
-
-
-## Install Docker and Docker-Compose
-
-### Linux
-
-We can install the latest version of Docker with following command:
-
-```bash
-curl -sSf https://get.docker.com/ | sh
-```
-
-Or download Docker manually for: [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/) or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
-
-Next we need to install Docker Compose. For the latest instructions, [see the Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose). This tutorial requires docker-compose version `1.24`.
-
-```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
-### macOS
-
-Docker for Mac can be installed from the Docker Store
-
-[Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
-
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Mac?</h3>
-  <p>Docker for Mac allows us to run Linux containers on Mac. Under the hood it uses a <a href="https://docs.docker.com/docker-for-mac/docker-toolbox/">lightweight Virtual Machine</a> to provide the Linux environment to containers.</p>
-</aside>
-
-To install Docker Compose on Mac, follow the instructions at [Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose). This tutorial requires docker-compose version `1.24`.
-
-### Windows
-
-Docker for Windows can be installed from the Docker Store:
-
-[Download Docker from Docker Store](https://docs.docker.com/docker-for-windows/install/)
-
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Windows?</h3>
-  <p>Docker for Windows allows us to run Linux containers on Windows. Under the hood it uses a lightweight Virtual Machine to provide the Linux environment to containers.</p>
-</aside>
-
-To install Docker Compose on Windows, follow the instructions at[Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose). This tutorial requires docker-compose version `1.24`.
-
-### Raspbian Usage
-
-While we fully support using Raspberry Pi's as workers on the edge environment, they are not meant
-to be used as the Controller and Connector infrastructure. The normal quick-starts above will bring up an entire containerized
-edge environment for usage, while this section will specify using the Raspberry Pi as an agent in our
-edge infrastructure.
-
-#### Raspbian Agents
-
-We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0/getting-started/setup-your-agents.html)
-
-
+In this tutorial, we are going to extend on the ioFog demo project we have previously used in [Quickstart](../getting-started/quick-start.html). Please follow the instructions on how to download all prerequisites required for running the demo project.
 
 ## Download Tutorial Project
 
-Finally, we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already set up.
+We can skip this section if we have already downloaded the demo project from [Quickstart](../getting-started/quick-start.html).
 
 On Unix based systems, download our tar.gz package.
 
 ```bash
-cd where/we/want/tutorial-project
-curl -L -o tutorial.tar.gz https://github.com/ioFog/demo/archive/develop.tar.gz
-tar -zxvf tutorial.tar.gz --strip-components=1
+cd where/we/want/iofog-demo
+curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.0.0.tar.gz
+tar -zxvf demo.tar.gz --strip-components=1
 ```
 
-On windows, [download tutorial .zip package](https://github.com/ioFog/demo/archive//develop.zip). Then unzip the contents into a preferred working directory.
-
-
+On windows, [download tutorial .zip package](https://github.com/eclipse-iofog/demo/archive/v1.0.0.zip). Then unzip the contents into a preferred working directory.
 
 ## Bootstrap the Project
 
-Start by spinning up the ioFog stack (Agent, Controller, and Connector) and tutorial services on our local machine. This creates a fully configured Edge Compute Network (ECN) and deploys microservices that we will use later in the tutorial.
+Unlike in the Quickstart, this time we spin up the ioFog stack (Agent, Controller, and Connector) if not already up and additionally we spin up tutorial services on our local machine. We will use the ioFog stack and tutorial microservices later in the tutorial.
 
 ```sh
 $ ./start.sh tutorial
 ```
 
-We can optionally verify the ioFog stack is provisioned correctly. The automated tests run a smoke test suite on the  ioFog stack, testing basic operations.
+We can optionally verify the ioFog stack is provisioned correctly. The automated tests run a smoke test suite on the ioFog stack, testing basic operations.
 
 ```sh
 $ ./test.sh
@@ -110,13 +45,11 @@ When we are finished, we can tear down the ioFog stack and all services deployed
 $ ./stop.sh
 ```
 
-
-
 ## Get To Know ioFog
 
-With a working ioFog environment set up, we're now ready to [get to know ioFog](get-to-know-iofog.html).
+With a working ioFog environment set up, we're now ready to get to know ioFog.
 
-[Continue To Next Step](get-to-know-iofog.html).
+[Continue To Next Step: Get To Know ioFog](get-to-know-iofog.html).
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>

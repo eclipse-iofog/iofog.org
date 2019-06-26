@@ -47,6 +47,7 @@ npm install --save @iofog/nodejs-sdk
 ```
 
 The `package.json` file should look something like this now:
+
 ```json
 {
   "name": "moving-average",
@@ -103,13 +104,13 @@ Asynchronously fetch the microservice's current configuration (config). When it 
 
 ```js
 function updateConfig() {
-    iofog.getConfig({
-        onNewConfig: newConfig => {
-            config = newConfig;
-        },
-        onBadRequest: err => console.error('updateConfig failed: ', err),
-        onError: err => console.error('updateConfig failed: ', err)
-    });
+  iofog.getConfig({
+    onNewConfig: newConfig => {
+      config = newConfig;
+    },
+    onBadRequest: err => console.error('updateConfig failed: ', err),
+    onError: err => console.error('updateConfig failed: ', err)
+  });
 }
 ```
 
@@ -117,35 +118,35 @@ function updateConfig() {
 
 Note that when a configuration of a microservice changes, the Controller will send a message to the involved microservice.
 
-Therefore we have to connect the ioFog *control channel* via WebSocket, which is used to receive notifications from the Controller that our microservice's config has changed.
+Therefore we have to connect the ioFog _control channel_ via WebSocket, which is used to receive notifications from the Controller that our microservice's config has changed.
 
 Because a config can be any arbitrary JSON, including very large files, the change notifications themselves do not actually include the config. So if we would like to update our local cache of the config, we have to follow up a change notification with a call to `iofog.getConfig()`.
 
 ```js
 iofog.wsControlConnection({
-    onNewConfigSignal: () => updateConfig(),
-    onError: err => console.error('Error with Control Connection: ', err)
+  onNewConfigSignal: () => updateConfig(),
+  onError: err => console.error('Error with Control Connection: ', err)
 });
 ```
 
 #### iofog.wsMessageConnection()
 
-Next, we have to connect to the ioFog *message channel* via WebSocket. This is where we'll receive any messages routed to this microservice from another.
+Next, we have to connect to the ioFog _message channel_ via WebSocket. This is where we'll receive any messages routed to this microservice from another.
 
 Under the hood, communication is brokered by our [Connector](../connectors/overview.html) and messages are routed according to that microservice's route settings on the Controller.
 
 ```js
 iofog.wsMessageConnection(onMessageConnectionOpen, {
-    onMessages: messages => {
-        // Do something with messages... 
-    },
-    onMessageReceipt: (messageId, timestamp) => {
-        console.log('message receipt: ', {
-            messageId,
-            timestamp
-        });
-    },
-    onError: err => console.error('Message WebSocket error: ', err)
+  onMessages: messages => {
+    // Do something with messages...
+  },
+  onMessageReceipt: (messageId, timestamp) => {
+    console.log('message receipt: ', {
+      messageId,
+      timestamp
+    });
+  },
+  onError: err => console.error('Message WebSocket error: ', err)
 });
 ```
 
@@ -159,9 +160,9 @@ There are a number of optional fields, but the most common are: `contentdata`, `
 
 ```js
 const output = iofog.ioMessage({
-    contentdata: Buffer.from(JSON.stringify(result)).toString(),
-    infotype: 'application/json',
-    infoformat: 'text/utf-8'
+  contentdata: Buffer.from(JSON.stringify(result)).toString(),
+  infotype: 'application/json',
+  infoformat: 'text/utf-8'
 });
 
 iofog.wsSendMessage(output);
@@ -198,13 +199,13 @@ In order to do a rolling window, we'll store incoming values in an array up unti
 
 ```js
 function getMovingAverage(arr, newValue) {
-    // Evict the oldest values once we've reached our max window size.
-    while (arr.length >= config.maxWindowSize) {
-        // <------- config
-        arr.shift();
-    }
-    arr.push(newValue);
-    return average(arr);
+  // Evict the oldest values once we've reached our max window size.
+  while (arr.length >= config.maxWindowSize) {
+    // <------- config
+    arr.shift();
+  }
+  arr.push(newValue);
+  return average(arr);
 }
 ```
 
@@ -223,32 +224,32 @@ What we'll do is produce an average for speed, acceleration, and rpm.
 
 ```js
 onMessages: messages => {
-    if (messages) {
-        for (const msg of messages) {
-            const input = JSON.parse(msg.contentdata.toString());
+  if (messages) {
+    for (const msg of messages) {
+      const input = JSON.parse(msg.contentdata.toString());
 
-            // Produce moving averages for all the sensor values
-            const result = {
-                isAverage: true,
-                time: input.time, // same time as
-                speed: getMovingAverage(prevSpeeds,
-                    parseFloat(input.speed)),
-                acceleration: getMovingAverage(prevAccelerations,
-                    parseFloat(input.acceleration)),
-                rpm: getMovingAverage(prevRpms,
-                    parseFloat(input.rpm))
-            };
+      // Produce moving averages for all the sensor values
+      const result = {
+        isAverage: true,
+        time: input.time, // same time as
+        speed: getMovingAverage(prevSpeeds, parseFloat(input.speed)),
+        acceleration: getMovingAverage(
+          prevAccelerations,
+          parseFloat(input.acceleration)
+        ),
+        rpm: getMovingAverage(prevRpms, parseFloat(input.rpm))
+      };
 
-            const output = iofog.ioMessage({
-                contentdata: Buffer.from(JSON.stringify(result)).toString(),
-                infotype: 'application/json',
-                infoformat: 'text/utf-8'
-            });
+      const output = iofog.ioMessage({
+        contentdata: Buffer.from(JSON.stringify(result)).toString(),
+        infotype: 'application/json',
+        infoformat: 'text/utf-8'
+      });
 
-            iofog.wsSendMessage(output);
-        }
+      iofog.wsSendMessage(output);
     }
-}
+  }
+};
 ```
 
 ## The Final Moving Average Code
@@ -263,82 +264,82 @@ const iofog = require('@iofog/nodejs-sdk');
 let config = null;
 
 function updateConfig() {
-    iofog.getConfig({
-        onNewConfig: newConfig => {
-            config = newConfig;
-        },
-        onBadRequest: err => console.error('updateConfig failed: ', err),
-        onError: err => console.error('updateConfig failed: ', err)
-    });
+  iofog.getConfig({
+    onNewConfig: newConfig => {
+      config = newConfig;
+    },
+    onBadRequest: err => console.error('updateConfig failed: ', err),
+    onError: err => console.error('updateConfig failed: ', err)
+  });
 }
 
 const sum = values => values.reduce((a, b) => a + b, 0);
 const average = values => sum(values) / (values.length || 1);
 
 function getMovingAverage(arr, newValue) {
-    // Evict the oldest values once we've reached our max window size.
-    while (arr.length >= config.maxWindowSize) {
-        // <------- config
-        arr.shift();
-    }
-    arr.push(newValue);
-    return average(arr);
+  // Evict the oldest values once we've reached our max window size.
+  while (arr.length >= config.maxWindowSize) {
+    // <------- config
+    arr.shift();
+  }
+  arr.push(newValue);
+  return average(arr);
 }
 
 // This is basically our "entry point", provided to iofog.init() below
 function main() {
-    updateConfig();
+  updateConfig();
 
-    iofog.wsControlConnection({
-        onNewConfigSignal: () => updateConfig(),
-        onError: err => console.error('Error with Control Connection: ', err)
-    });
+  iofog.wsControlConnection({
+    onNewConfigSignal: () => updateConfig(),
+    onError: err => console.error('Error with Control Connection: ', err)
+  });
 
-    const onMessageConnectionOpen = () => {
-        console.log('Listening for incoming messages');
-    };
+  const onMessageConnectionOpen = () => {
+    console.log('Listening for incoming messages');
+  };
 
-    // Cache for our previous values received so we can compute our average
-    const prevSpeeds = [];
-    const prevAccelerations = [];
-    const prevRpms = [];
+  // Cache for our previous values received so we can compute our average
+  const prevSpeeds = [];
+  const prevAccelerations = [];
+  const prevRpms = [];
 
-    iofog.wsMessageConnection(onMessageConnectionOpen, {
-        onMessages: messages => {
-            if (messages) {
-                for (const msg of messages) {
-                    const input = JSON.parse(msg.contentdata.toString());
+  iofog.wsMessageConnection(onMessageConnectionOpen, {
+    onMessages: messages => {
+      if (messages) {
+        for (const msg of messages) {
+          const input = JSON.parse(msg.contentdata.toString());
 
-                    // Produce moving averages for all the sensor values
-                    const result = {
-                        isAverage: true,
-                        time: input.time, // same time as
-                        speed: getMovingAverage(prevSpeeds,
-                            parseFloat(input.speed)),
-                        acceleration: getMovingAverage(prevAccelerations,
-                            parseFloat(input.acceleration)),
-                        rpm: getMovingAverage(prevRpms,
-                            parseFloat(input.rpm))
-                    };
+          // Produce moving averages for all the sensor values
+          const result = {
+            isAverage: true,
+            time: input.time, // same time as
+            speed: getMovingAverage(prevSpeeds, parseFloat(input.speed)),
+            acceleration: getMovingAverage(
+              prevAccelerations,
+              parseFloat(input.acceleration)
+            ),
+            rpm: getMovingAverage(prevRpms, parseFloat(input.rpm))
+          };
 
-                    const output = iofog.ioMessage({
-                        contentdata: Buffer.from(JSON.stringify(result)).toString(),
-                        infotype: 'application/json',
-                        infoformat: 'text/utf-8'
-                    });
+          const output = iofog.ioMessage({
+            contentdata: Buffer.from(JSON.stringify(result)).toString(),
+            infotype: 'application/json',
+            infoformat: 'text/utf-8'
+          });
 
-                    iofog.wsSendMessage(output);
-                }
-            }
-        },
-        onMessageReceipt: (messageId, timestamp) => {
-            console.log('message receipt: ', {
-                messageId,
-                timestamp
-            });
-        },
-        onError: err => console.error('Message WebSocket error: ', err)
-    });
+          iofog.wsSendMessage(output);
+        }
+      }
+    },
+    onMessageReceipt: (messageId, timestamp) => {
+      console.log('message receipt: ', {
+        messageId,
+        timestamp
+      });
+    },
+    onError: err => console.error('Message WebSocket error: ', err)
+  });
 }
 
 iofog.init('iofog', 54321, null, main);
@@ -378,4 +379,4 @@ docker image ls --filter 'reference=*/moving-average'
 
 We now want to see this code in action, so let's go ahead and learn how to deploy this microservice to our ioFog tutorial environment.
 
-[Continue To Next Step](deploy-our-microservice.html).
+[Continue To Next Step: Deploy Our Microservice](deploy-our-microservice.html).

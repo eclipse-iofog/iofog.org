@@ -28,9 +28,9 @@ The Freeboard microservice doesn't know it's running locally, so it could just a
 
 Our tutorial environment has three ioFog containers:
 
-* iofog-agent (see [Agents](../agents/overview.html))
-* iofog-controller (see [Controller](../controllers/overview.html))
-* iofog-connector (see [Connector](../connectors/overview.html)
+- iofog-agent (see [Agents](../agents/overview.html))
+- iofog-controller (see [Controller](../controllers/overview.html))
+- iofog-connector (see [Connector](../connectors/overview.html)
 
 We can think of each of these containers as if they were deployed on separate devices. In production, our Controller is most often running on a cloud server and our Agents are each running on individual edge hardware nodes in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away, and the Connector can broker communication between any microservices we run.
 
@@ -109,4 +109,4 @@ This should give us a JSON response containing a list of edge nodes already regi
 
 Now that we know our way around a bit, let's learn how to manage and launch microservices!
 
-[Continue To Next Step](manage-our-microservices.html).
+[Continue To Next Step: Manage Our Microservices](manage-our-microservices.html).
