@@ -180,11 +180,6 @@ The new configuration of microservices should look like this:
 }
 ```
 
-<aside class="notifications danger">
-  <h3><img src="/images/icos/ico-danger.svg" alt=""> Known issue - Agent deletes moving average image!</h3>
-  <p>When we update the routes for the moving average microservice, ioFog agent re-creates the containers, but due to a known issue, also deletes the underlying image. In order for the moving average image to start correctly, we need to build it again.</p>
-</aside>
-
 Finally, the moment of truth! Let's first try a curl request to our REST API.
 
 ```bash

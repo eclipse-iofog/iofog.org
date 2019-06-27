@@ -100,3 +100,8 @@ The unique UUID for each microservice varies, so ours will be different. This is
 Next up, we're going to create our very first microservice to run on ioFog.
 
 [Continue To Next Step: Create Our First Microservice](create-our-first-microservice-javascript.html)
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
+  <p>If you ran into an issue, have a question, or just want to get plugged into the community, head over to our <a href="https://discuss.iofog.org/">Discussion Forum</a>. We'd love to have you!</p>
+</aside>

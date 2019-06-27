@@ -380,3 +380,8 @@ docker image ls --filter 'reference=*/moving-average'
 We now want to see this code in action, so let's go ahead and learn how to deploy this microservice to our ioFog tutorial environment.
 
 [Continue To Next Step: Deploy Our Microservice](deploy-our-microservice.html).
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
+  <p>If you ran into an issue, have a question, or just want to get plugged into the community, head over to our <a href="https://discuss.iofog.org/">Discussion Forum</a>. We'd love to have you!</p>
+</aside>
