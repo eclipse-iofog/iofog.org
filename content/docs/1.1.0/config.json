@@ -40,15 +40,15 @@
           },
           {
             "title": "Manage Your Microservices",
-            "entry": "./tutorial/manage-your-microservices.md"
+            "entry": "./tutorial/manage-our-microservices.md"
           },
           {
             "title": "Create Your First Microservice - JavaScript",
-            "entry": "./tutorial/create-your-first-microservice-javascript.md"
+            "entry": "./tutorial/create-our-first-microservice-javascript.md"
           },
           {
             "title": "Deploy Your Microservice",
-            "entry": "./tutorial/deploy-your-microservice.md"
+            "entry": "./tutorial/deploy-our-microservice.md"
           }
         ]
       },
