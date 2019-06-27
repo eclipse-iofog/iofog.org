@@ -1,155 +1,119 @@
 # Quick Start
 
-In this Quick Start guide we'll download a simple ioFog setup <b>on your local machine</b> containing a [Controller](../controllers/overview.html), [Connector](../connectors/overview.html), and an [Agent](../agents/overview.html). This gives you a quick way to start playing with ioFog, but can also be used as your local development environment on any machine that can run Docker.
+In this Quick Start guide we'll download a simple ioFog setup containing a [Controller](../controllers/overview.html), [Connector](../connectors/overview.html), and an [Agent](../agents/overview.html). This gives you a quick way to establish a mininal Edge Compute Network (ECN) on our local machine and start playing with ioFog. This setup can also be used as a minimal local development environment on any machine that can run Docker.
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> Familiar with the Core Concepts?</h3>
+  <p>If you aren't already familiar with the core concepts of ioFog, you'll want to check out <a href="../getting-started/core-concepts.html">our Core Concepts</a> section.</p>
+</aside>
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Want to setup for production?</h3>
-  <p>This Quick Start guide is intended to get you up and running as quickly as possible, running everything on your local machine.</p>
-  <p>To setup your production environment, you'll likely want to instead:
+  <p>This Quick Start guide is intended to get us up and running as quickly as possible, running everything on our local machine.</p>
+  <p>To setup for production environment, we want to instead:
   </p>
   <ul>
-      <li><a href="setup-your-controllers">Setup your Controller</a></li>
-      <li><a href="setup-your-connectors">Setup your Connector</a></li>
-      <li><a href="setup-your-agents">Setup the Agent</a> on each of your edge nodes</li>
+      <li><a href="setup-your-controllers.html">Setup your Controller</a></li>
+      <li><a href="setup-your-connectors.html">Setup your Connector</a></li>
+      <li><a href="setup-your-agents.html">Setup the Agent</a> on each of your edge nodes</li>
     </ul>
 </aside>
 
-#### Minimum Requirements
+### Minimum Requirements
 
-ioFog requires a Linux environment, however this Quick Start has everything already setup inside a Linux [Docker container](https://docs.docker.com/get-started/) that can run on Mac or Windows as well.
+ioFog requires a Linux environment, however this Tutorial has everything already setup inside a Linux [Docker container](https://docs.docker.com/get-started/) that can run on Mac or Windows as well.
 
-- **Linux** v3.10+ (Ubuntu, CentOS, Raspbian, etc), **macOS** 10.12+, or **Windows** 7+
+- **Linux** v3.10+ (Ubuntu, CentOS, etc), **macOS** 10.12+, or **Windows** 7+
 - **Docker** 1.10+
 
-## Setup
-
-- [Linux](#linux)
-- [macOS](#macos)
-- [Windows](#windows)
+## Install Docker and Docker-Compose
 
 ### Linux
 
----
+We can install the latest version of Docker with following command:
 
-#### Install Docker
-
-You can install the latest version of Docker with following command:
-
-```sh
+```bash
 curl -sSf https://get.docker.com/ | sh
 ```
 
-or
+Or download Docker manually for: [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/) or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
 
-Download Docker for [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), or [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/).
+Next we need to install Docker Compose. For the latest instructions, [see the Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose). This tutorial requires docker-compose version `1.24`.
 
-Next we need to install Docker Compose. For the latest instructions [see the Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose), however it should be similar to this:
-
-```sh
-# This has version 1.22.0 hardcoded, you probably
-# should change it to what ever the latest version is!
-
-sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-#### Download ioFog Quick Start
-
-Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
-
-```sh
-cd where/you/want/quick-start-project
-curl -L -o quick-start.tar.gz https://github.com/ioFog/demo/archive/blank-environment.tar.gz
-tar -zxvf quick-start.tar.gz --strip-components=1
-```
-
-[Once you're done, you can skip straight to the next section](#bootstrap-the-project)
-
 ### macOS
-
----
-
-#### Install Docker
 
 Docker for Mac can be installed from the Docker Store
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-mac/install/)
 
-#### Download ioFog Quick Start
-
-Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
-
-```sh
-cd where/you/want/quick-start-project
-curl -L -o quick-start.tar.gz https://github.com/ioFog/demo/archive/blank-environment.tar.gz
-tar -zxvf quick-start.tar.gz --strip-components=1
-```
-
-or alternatively you can manually download it:
-
-[Download Tutorial project](https://github.com/ioFog/demo/archive/blank-environment.zip)
-
-[Once you're done, you can skip straight to the next section](#bootstrap-the-project)
-
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Mac?</h3>
-  <p>Docker for Mac allows you to run Linux containers on your Mac. Under the hood it uses a <a href="https://docs.docker.com/docker-for-mac/docker-toolbox/">lightweight Virtual Machine</a> to provide the Linux environment to containers.</p>
+  <p>Docker for Mac allows us to run Linux containers on Mac. Under the hood it uses a <a href="https://docs.docker.com/docker-for-mac/docker-toolbox/">lightweight Virtual Machine</a> to provide the Linux environment to containers.</p>
 </aside>
 
+To install Docker Compose on Mac, follow the instructions at [Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose). This tutorial requires docker-compose version `1.24`.
+
 ### Windows
-
----
-
-#### Install Docker
 
 Docker for Windows can be installed from the Docker Store:
 
 [Download Docker from Docker Store](https://docs.docker.com/docker-for-windows/install/)
 
-#### Download ioFog Quick Start
-
-Finally we need to download the ioFog Quick Start project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already setup for you.
-
-[Download Quick Start project](https://github.com/ioFog/demo/archive/blank-environment.zip)
-
-You'll then need to unzip the contents into your preferred working directory.
-
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Windows?</h3>
-  <p>Docker for Windows allows you to run Linux containers on your Windows. Under the hood it uses a lightweight Virtual Machine to provide the Linux environment to containers.</p>
+  <p>Docker for Windows allows us to run Linux containers on Windows. Under the hood it uses a lightweight Virtual Machine to provide the Linux environment to containers.</p>
 </aside>
+
+To install Docker Compose on Windows, follow the instructions at[Docker Compose Install Guide](https://docs.docker.com/compose/install/#install-compose). This tutorial requires docker-compose version `1.24`.
+
+### Raspbian Usage
+
+While we fully support using Raspberry Pi's as workers on the edge environment, they are not meant
+to be used as the Controller and Connector infrastructure. The normal quick-starts above will bring up an entire containerized
+edge environment for usage, while this section will specify using the Raspberry Pi as an agent in our
+edge infrastructure.
+
+#### Raspbian Agents
+
+We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0/getting-started/setup-your-agents.html)
+
+## Download Tutorial Project
+
+Finally, we need to download the Tutorial project, which will use Docker to run Linux containers for an ioFog [Agent](../agents/overview.html), [Controller](../controllers/overview.html), and [Connector](../connectors/overview.html) that are already set up.
+
+On Unix based systems, download our tar.gz package.
+
+```bash
+cd where/we/want/iofog-demo
+curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.0.0.tar.gz
+tar -zxvf demo.tar.gz --strip-components=1
+```
+
+On windows, [download tutorial .zip package](https://github.com/eclipse-iofog/demo/archive/v1.0.0.zip). Then unzip the contents into a preferred working directory.
 
 ## Bootstrap the Project
 
-Inside the project directory we downloaded, go ahead and run:
+Start by spinning up the ioFog stack (Agent, Controller, and Connector) on our local machine. This creates a fully configured Edge Compute Network (ECN) without any microservices.
 
 ```sh
-docker-compose up --detach
+$ ./start.sh
 ```
 
-The first time this is run it will download and build several Docker images for our ioFog setup. This may take a few minutes.
-
-After it's all up, confirm it's working correctly by running `docker ps`:
+We can optionally verify the ioFog stack is provisioned correctly. The automated tests run a smoke test suite on the ioFog stack, testing basic operations.
 
 ```sh
-docker ps
+$ ./test.sh
 ```
 
-You should see three containers running:
+When we are finished, we can tear down the ioFog stack and all services deployed on it.
 
 ```sh
-CONTAINER ID    IMAGES                         etc...     NAMES
-...             iofog-env_iofog-agent                     iofog-agent
-...             iofog-env_iofog-controller                iofog-controller
-...             iofog-env_iofog-connector                 iofog-connector
-```
-
-When you're done, you can shut everything down with `docker-compose stop`
-
-```sh
-docker-compose stop
-# or to stop as well as remove the container/networking:
-docker-compose down
+$ ./stop.sh
 ```
 
 ## Shell Into Your Containers
