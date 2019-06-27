@@ -2828,6 +2828,14 @@
           type: boolean
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     ReceiverMicroservices:
       type: array
       items:
@@ -2865,6 +2873,15 @@
         accessMode:
           type: string
           example: rw
+    MicroserviceEnvVars:
+      type: object
+      properties:
+        key:
+          type: string
+          example: ENV_VAR1
+        value:
+          type: string
+          example: some_value
     PortMappingsResponse:
       type: object
       properties:
@@ -3119,6 +3136,14 @@
             $ref: '#/definitions/PortMappingsResponse'
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     NewMicroserviceRequest:
       type: object
       properties:
@@ -3146,6 +3171,14 @@
             $ref: '#/definitions/PortMappingsRequest'
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     UpdateMicroserviceRequest:
       type: object
       required:
@@ -3167,6 +3200,14 @@
           type: array
           items:
             $ref: '#/definitions/VolumeMapping'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     IOFogNodeTunnelStatusInfoResponse:
       type: object
       properties:

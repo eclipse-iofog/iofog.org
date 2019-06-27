@@ -1,0 +1,164 @@
+[
+  {
+    "version": "1.1.0",
+    "menus": [
+      {
+        "title": "Getting Started",
+        "subMenus": [
+          {
+            "title": "Core Concepts",
+            "entry": "./getting-started/core-concepts.md"
+          },
+          {
+            "title": "Quick Start",
+            "entry": "./getting-started/quick-start.md"
+          },
+          {
+            "title": "Setup Your Controllers",
+            "entry": "./getting-started/setup-your-controllers.md"
+          },
+          {
+            "title": "Setup Your Connectors",
+            "entry": "./getting-started/setup-your-connectors.md"
+          },
+          {
+            "title": "Setup Your Agents",
+            "entry": "./getting-started/setup-your-agents.md"
+          }
+        ]
+      },
+      {
+        "title": "Tutorial",
+        "subMenus": [
+          {
+            "title": "Introduction",
+            "entry": "./tutorial/introduction.md"
+          },
+          {
+            "title": "Get To Know ioFog",
+            "entry": "./tutorial/get-to-know-iofog.md"
+          },
+          {
+            "title": "Manage Your Microservices",
+            "entry": "./tutorial/manage-our-microservices.md"
+          },
+          {
+            "title": "Create Your First Microservice - JavaScript",
+            "entry": "./tutorial/create-our-first-microservice-javascript.md"
+          },
+          {
+            "title": "Deploy Your Microservice",
+            "entry": "./tutorial/deploy-our-microservice.md"
+          }
+        ]
+      },
+      {
+        "title": "Writing Microservices",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./writing-microservices/overview.md"
+          },
+          {
+            "title": "SDK",
+            "entry": "./writing-microservices/sdk.md"
+          },
+          {
+            "title": "Debugging",
+            "entry": "./writing-microservices/debugging.md"
+          }
+        ]
+      },
+      {
+        "title": "Using System Microservices",
+        "subMenus": [
+          {
+            "title": "Diagnostics",
+            "entry": "./using-system-microservices/diagnostics.md"
+          },
+          {
+            "title": "Hardware Abstraction Layer",
+            "entry": "./using-system-microservices/hal.md"
+          },
+          {
+            "title": "Bluetooth REST API",
+            "entry": "./using-system-microservices/rest-blue.md"
+          }
+        ]
+      },
+      {
+        "title": "Using Public Catalog Microservices",
+        "subMenus": [
+          {
+            "title": "JSON REST API And Open Weather Map",
+            "entry": "./using-public-catalog-microservices/jsonrestapi.md"
+          }
+        ]
+      },
+      {
+        "title": "Controllers",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./controllers/overview.md"
+          },
+          {
+            "title": "CLI Usage",
+            "entry": "./controllers/cli-usage.md"
+          },
+          {
+            "title": "REST API Reference",
+            "entry": "./controllers/rest-api.md"
+          }
+        ]
+      },
+      {
+        "title": "Connectors",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./connectors/overview.md"
+          },
+          {
+            "title": "CLI Usage",
+            "entry": "./connectors/cli-usage.md"
+          },
+          {
+            "title": "API Reference",
+            "entry": "./connectors/api-reference.md"
+          }
+        ]
+      },
+      {
+        "title": "Agents",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./agents/overview.md"
+          },
+          {
+            "title": "CLI Usage",
+            "entry": "./agents/cli-usage.md"
+          },
+          {
+            "title": "Local API Reference",
+            "entry": "./agents/local-api.md"
+          }
+        ]
+      },
+      {
+        "title": "Contributing",
+        "subMenus": [
+          {
+            "title": "Guidelines",
+            "entry": "./contributing/guidelines.md"
+          },
+          {
+            "title": "Code of Conduct",
+            "entry": "./contributing/code-of-conduct.md"
+          }
+        ]
+      }
+    ]
+  }
+]
