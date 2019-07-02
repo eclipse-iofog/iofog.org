@@ -53,6 +53,124 @@
                 description: FogController server timestamp
           '500':
             description: Internal Server Error
+    '/connector':
+      get:
+        tags:
+        - Connector
+        description: Returns a list of connectors
+        operationId: getConnectors
+        parameters:
+        - in: header
+          name: Authorization
+          description: User token
+          required: true
+          type: string
+        responses:
+          '200':
+            description: List of Connectors
+            schema:
+              $ref: '#/definitions/ConnectorInfoListResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '500':
+            description: Internal Server Error
+      post:
+        tags:
+        - Connector
+        description: Adds a connector
+        operationId: addConnector
+        parameters:
+        - in: header
+          name: Authorization
+          description: User token
+          required: true
+          type: string
+        - in: body
+          name: ConnectorInfo
+          required: true
+          schema:
+            $ref: '#/definitions/ConnectorInfoRequest'
+        responses:
+          '200':
+            description: Newly created connector
+            schema:
+              $ref: '#/definitions/ConnectorInfoResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '500':
+            description: Internal Server Error
+      put:
+        tags:
+        - Connector
+        description: Updates a connector
+        operationId: updateConnector
+        parameters:
+        - in: header
+          name: Authorization
+          description: User token
+          required: true
+          type: string
+        - in: body
+          name: ConnectorInfo
+          required: true
+          schema:
+            $ref: '#/definitions/ConnectorInfoRequest'
+        responses:
+          '200':
+            description: Updated connector
+            schema:
+              $ref: '#/definitions/ConnectorInfoResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '500':
+            description: Internal Server Error
+      delete:
+        tags:
+        - Connector
+        description: Removes a connector
+        operationId: deleteConnector
+        parameters:
+        - in: header
+          name: Authorization
+          description: User token
+          required: true
+          type: string
+        - in: body
+          name: ConnectorDeleteInfo
+          required: true
+          schema:
+            $ref: '#/definitions/ConnectorInfoDeleteRequest'
+        responses:
+          '204':
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '500':
+            description: Internal Server Error
     '/iofog-list':
       post:
         tags:
@@ -875,6 +993,30 @@
           '401':
             description: Not Authorized
           '500':
+            description: Internal Server Error
+    '/agent/tracking':
+      post:
+        tags:
+        - Agent
+        description: Post tracking info
+        operationId: postTracking
+        parameters:
+        - in: header
+          name: Authorization
+          description: Agent Token
+          required: true
+          type: string
+        - in: body
+          name: PostTrackingRequest
+          required: true
+          schema:
+            $ref: '#/definitions/PostTrackingRequest'  
+        responses:
+          204:
+            description: Success
+          401:
+            description: Not Authorized
+          500:
             description: Internal Server Error
     /catalog/microservices:
       get:
@@ -2346,6 +2488,50 @@
           type: array
           items:
             $ref: '#/definitions/IOFogNodeInfoResponse'
+    ConnectorInfoRequest:
+      type: object
+      properties:
+        name: 
+          type: string
+        domain: 
+          type: string
+        publicIp: 
+          type: string
+        cert: 
+          type: string
+        isSelfSignedCert: 
+          type: boolean
+        devMode: 
+          type: boolean
+    ConnectorInfoDeleteRequest:
+      type: object
+      properties:
+        publicIp: 
+          type: string
+    ConnectorInfoListResponse:
+      type: object
+      properties:
+        connectors:
+          type: array
+          items:
+            $ref: '#/definitions/ConnectorInfoResponse'
+    ConnectorInfoResponse:
+      type: object
+      properties:
+        id: 
+          type: integer
+        name: 
+          type: string
+        domain: 
+          type: string
+        publicIp: 
+          type: string
+        cert: 
+          type: string
+        isSelfSignedCert: 
+          type: boolean
+        devMode: 
+          type: boolean
     IOFogNodeInfoResponse:
       type: object
       properties:
@@ -2387,6 +2573,16 @@
           type: boolean
         cpuViolation:
           type: boolean
+        systemAvailableDisk:
+          type: integer
+        systemAvailableMemory:
+           type: integer
+        systemTotalCpu:
+           type: number
+        securityStatus:
+           type: string
+        securityViolationInfo:
+           type: string
         microserviceStatus:
           type: string
         repositoryCount:
@@ -2668,6 +2864,16 @@
           type: boolean
         cpuViolation:
           type: boolean
+        systemAvailableDisk:
+          type: integer
+        systemAvailableMemory:
+          type: integer
+        systemTotalCpu:
+          type: number
+        securityStatus:
+          type: string
+        securityViolationInfo:
+          type: string
         microserviceStatus:
           type: string
         repositoryCount:
@@ -3281,6 +3487,25 @@
       properties:
         upstream:
           type: string
+    PostTrackingRequest: 
+      type: array
+      items:
+        $ref: '#/definitions/TrackingEvent'
+    TrackingEvent:
+      type: object
+      required:
+      - uuid
+      properties:
+        uuid:
+          type: string
+        sourceType:
+          type: string
+        timestamp:
+          type: number
+        type:
+          type: string
+        data: 
+          type: object
   schemes:
   - http
   - https
