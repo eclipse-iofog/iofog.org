@@ -138,7 +138,7 @@ There is a number of other optional configuration options, such as CPU/memory/di
 Next, copy the node ID that was return from calling `iofog-controller iofog add` above and use it to create a provisioning key:
 
 ```sh
-iofog-controller iofog provisioning-key --node-id <node_id>
+iofog-controller iofog provisioning-key --iofog-uuid <iofog-uuid>
 ```
 
 You can then use provide this provisioning key to [setup an Agent](setup-your-agents.html) on your edge node.

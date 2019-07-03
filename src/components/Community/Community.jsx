@@ -4,6 +4,8 @@ import './Community.scss';
 // import imgGallery3 from '../../../static/images/img-gallery-03.png';
 // import imgGallery4 from '../../../static/images/img-gallery-04.png';
 import discourseLogo from '../../../static/images/logos/discourse.svg';
+import eclipseLogo from '../../../static/images/logos/eclipse.svg';
+import slackLogo from '../../../static/images/logos/slack.svg';
 
 class Community extends Component {
   render() {
@@ -23,10 +25,13 @@ class Community extends Component {
         <section className="row community">
           <section className="col-md-12">
             <div className="entry__header">
-              <h2>ioFog Community</h2>
+              <h2>
+                Eclipse-ioFog<sup>TM</sup> Community
+              </h2>
               <p>
-                Connect with other ioFog enthusiasts to discuss features,
-                architecture, best practices, and help one another.
+                Connect with other Eclipse-ioFog<sup>TM</sup> enthusiasts to
+                discuss features, architecture, best practices, and help one
+                another.
               </p>
               <div style={{ padding: '60px 0' }}>
                 <a
@@ -36,7 +41,36 @@ class Community extends Component {
                   <img srcSet={discourseLogo} alt="Discourse" />
                 </a>
                 <a href="https://discuss.iofog.org/" className="button">
-                  Visit the ioFog Discussion Forum
+                  Visit the Eclipse-ioFog<sup>TM</sup> Discussion Forum
+                </a>
+              </div>
+              <p>
+                We at Eclipse-ioFog<sup>TM</sup> take security seriously.
+              </p>
+              <div style={{ padding: '60px 0' }}>
+                <a
+                  href="https://www.eclipse.org/security/ "
+                  className="discourse-button"
+                >
+                  <img srcSet={eclipseLogo} alt="Eclipse" />
+                </a>
+                <a
+                  href=" https://www.eclipse.org/security/ "
+                  className="button"
+                >
+                  Report Security Issues
+                </a>
+              </div>
+              <p>Come join our Slack to get updates and ask questions.</p>
+              <div style={{ padding: '60px 0' }}>
+                <a
+                  href="https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LWViMThlYTkxYzBhYzYzN2IxZDZjMGYyYjA0OTM2NDZlZTI0ZTUwOTdlYzllYWRlNDgwY2ExZjY3YWVhODM0MzU"
+                  className="discourse-button"
+                >
+                  <img srcSet={slackLogo} alt="Eclipse" />
+                </a>
+                <a href="https://www.eclipse.org/security/ " className="button">
+                  Join Community Slack
                 </a>
               </div>
             </div>

@@ -1,11 +1,11 @@
 module.exports = {
-  siteTitle: 'ioFog', // Site title.
-  siteTitleShort: 'ioFog', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: 'ioFog', // Alternative site title for SEO.
+  siteTitle: 'Eclipse-ioFog', // Site title.
+  siteTitleShort: 'Eclipse-ioFog', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  siteTitleAlt: 'Eclipse-ioFog', // Alternative site title for SEO.
   siteUrl: 'https://iofog.org', // Domain of your website without pathPrefix.
   pathPrefix: '/iofog.org', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription:
-    'Eclipse ioFog, a distributed Edge Compute Network (ECN) platform for IoT micoservices and more!', // Website description used for RSS feeds/meta description tag.
+    'Eclipse-ioFog<sup>TM</sup>, a distributed Edge Compute Network (ECN) platform for IoT micoservices and more!', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: '', // FB Application ID for using app insights
   googleAnalyticsID: 'UA-126987794-2', // GA tracking ID.
