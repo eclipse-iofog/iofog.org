@@ -12,8 +12,9 @@ class BringYourOwnEdge extends Component {
             <section className="col-12 col-md-6 promo">
               <h1 className="title">Bring your own edge.</h1>
               <p>
-                Start building your first ioFog application today. ioFog is
-                free, <b>open source</b>, and it always will be.
+                Start building your first Eclipse-ioFog<sup>TM</sup> application
+                today. Eclipse-ioFog<sup>TM</sup> is free, <b>open source</b>,
+                and it always will be.
               </p>
             </section>
             <section className="col-12 col-md-6 code__container">

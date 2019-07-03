@@ -214,11 +214,6 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                   Community
                 </Link>
               </li>
-              <li>
-                <Link activeClassName="active" to="/enterprise.html">
-                  Enterprise
-                </Link>
-              </li>
             </ul>
 
             <Link

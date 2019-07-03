@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../layout';
 import SEO from '../components/SEO/SEO';
-import Edgeworx from '../components/Egdeworx/Edgeworx';
 
 export default class ReleasesTemplate extends React.Component {
   render() {
@@ -15,7 +14,7 @@ export default class ReleasesTemplate extends React.Component {
     return (
       <Layout location={slug}>
         <Helmet>
-          <title>ioFog Releases</title>
+          <title>Eclipse-ioFog Releases</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div className="container entry">
@@ -29,15 +28,15 @@ export default class ReleasesTemplate extends React.Component {
                 </h3>
                 <p>
                   This page contains a list of releases and their changes, but
-                  installing or upgrading an ioFog network involves multiple
-                  components.
+                  installing or upgrading an Eclipse-ioFog<sup>TM</sup> network
+                  involves multiple components.
                 </p>
                 <p>
                   See the{' '}
                   <a href="/docs/getting-started/setup-your-controllers.html">
                     setup documentation
                   </a>{' '}
-                  to install or upgrade ioFog.
+                  to install or upgrade Eclipse-ioFog<sup>TM</sup> .
                 </p>
               </aside>
               <div
@@ -47,7 +46,6 @@ export default class ReleasesTemplate extends React.Component {
             </section>
           </section>
         </div>
-        <Edgeworx />
       </Layout>
     );
   }
