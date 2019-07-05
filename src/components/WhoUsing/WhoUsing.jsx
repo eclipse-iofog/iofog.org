@@ -9,10 +9,12 @@ class WhoUsing extends Component {
         <section className="row">
           <section className="col-md-12">
             <div className="sections__header">
-              <h4>Who is using ioFog</h4>
+              <h4>
+                Who is using Eclipse-ioFog<sup>TM</sup>
+              </h4>
               <p>
                 This is a short line that inspires and showcases companies
-                currently using ioFog.
+                currently using Eclipse-ioFog<sup>TM</sup>.
               </p>
             </div>
 

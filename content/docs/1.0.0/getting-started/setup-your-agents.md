@@ -184,7 +184,7 @@ There are a number of other optional configuration options, such as CPU/memory/d
 Next, copy the node ID that was returned from calling `iofog-controller iofog add` above and use it to create a provisioning key:
 
 ```sh
-iofog-controller iofog provisioning-key --node-id <node_id>
+iofog-controller iofog provisioning-key --iofog-uuid <iofog-uuid>
 ```
 
 The key is only valid for **20 minutes** and can only be used once.
