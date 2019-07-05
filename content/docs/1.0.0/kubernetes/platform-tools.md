@@ -35,6 +35,8 @@ In order to setup the infrastructure and the ioFog ECN and Agents, we will need 
 - Kubectl ([installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/))
 - [iofogctl](../iofogctl/iofogctl.html)
 
+### Platform Repository and Local Tools
+
 First, clone the [ioFog platform repository](https://github.com/eclipse-iofog/platform) repository.
 
 ```bash
@@ -48,18 +50,23 @@ We can then run bootstrap to install all the required tools. It is possible to s
 ./bootstrap.sh
 ```
 
+### Google Cloud Platform Setup
+
 Next, we need to setup gcloud with our project. We can either establish a service account or use a personal account with GCP. In both cases, the minimal set of IAM roles required is:
 
 - Compute Admin
 - Kubernetes Engine Admin
 - Service Account User
 
-To login with a service account and setup our project, first download the service account key file from GCP, then run the following:
+To login with a service account and setup our project, first download the service account key file from GCP, then run the authenticate gcloud with the service account. Further details on how to setup a service account are available in the [GCP documentation](https://cloud.google.com/video-intelligence/docs/common/auth#set_up_a_service_account).
+
+You can test authenticate gcloud with the newly created service account.
 
 ```bash
 gcloud auth activate-service-account --key-file=service-account-key.json
-gcloud config set project iofog-project
 ```
+
+If you no longer have the service account key file, it is possible to [generate another key using gcloud](https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/keys/create) or using the GCP console.
 
 <aside class="notifications tip">
   <h3><img src="/images/icos/ico-tip.svg" alt="">Login to GCP</h3>
@@ -68,11 +75,20 @@ Note that is it also possible to login with a personal account using `gcloud aut
   </p>
 </aside>
 
-In order to use Terraform with GCP and Packet, we need to inject our credentials into Terraform. The only way do so is using environment variables. We will need packet account token for packet provide and the service account key file from previous step.
+In order to use Terraform with GCP, we need to inject our credentials into Terraform. The only way do so is using environment variables. We will need the service account key file from previous step.
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json
+```
+
+### Packet Setup
+
+Similarly to GCP, we need to get our project ID and token from Packet. Save the project ID for later, we will have to setup a Terraform variable _packet_project_id_.
+
+Let's provide the Packet token for Terraform to use.
 
 ```bash
 export PACKET_AUTH_TOKEN=...
-export GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json
 ```
 
 With all this setup done, we are ready to move to the next step - using Terraform to spin up the infrastructure.

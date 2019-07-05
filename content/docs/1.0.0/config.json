@@ -59,7 +59,6 @@
             "title": "Helm Guide",
             "entry": "./kubernetes/how-to-helm.md"
           },
-        "subMenus": [
           {
             "title": "Platform Tools",
             "entry": "./kubernetes/platform-tools.md"
