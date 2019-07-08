@@ -41,7 +41,7 @@ class Footer extends Component {
                   </div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
-                  <h4>Sponsored by</h4>
+                  <h4>Contributing Organizations</h4>
                   <div className="item">
                     <a href="http://edgeworx.io/">
                       <img srcSet={logoEdgeworx} alt="Edgeworx" />
