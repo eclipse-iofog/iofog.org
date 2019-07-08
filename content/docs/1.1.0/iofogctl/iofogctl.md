@@ -1,6 +1,6 @@
 # ioFog Unified Command Line Interface
 
-In this tutorial, we will go through basic functionality of `iofogctl`. This tutorial will get us up and running with iofogctl and show how to deploy and operate a live cluster.
+In this tutorial, we will go through basic functionality of `iofogctl`. This tutorial will get us up and running with `iofogctl` and show how to deploy and operate a live cluster.
 
 `iofogctl` is a CLI tool for installation, configuration, and operation of ioFog Edge Compute Networks (ECNs).
 
@@ -12,9 +12,20 @@ The following must be installed and configured before performing bootstrap:
 
 - Go 1.12.1+ ([installation instructions](https://golang.org/doc/install))
 
-In order to use iofogctl for non-local deployments, we will need to provide your own infrastructure. This means we will need to provision a Kubernetes cluster and a set of edge nodes yourself.
+In order to use `iofogctl` for non-local deployments, you will need to provide your own infrastructure. This means you will need to provision a Kubernetes cluster and a set of edge nodes.
 
 IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tutorial.html)
+
+The following table lists all prerequisites required to deploy or connect to individual ioFog components (Controller, Connector and Agent). Note that `iofogctl` does not expose direct interaction with the connector.
+
+| Component  | Prerequisites for new deployment                                                                                                         | Prerequisites for connecting to existing deployment                                             |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Controller | Valid Kubernetes config file (e.g. usually found in ~/.kube/config)                                                                      | Password of ioFog user on existing Controller                                                   |
+|            |                                                                                                                                          | Email of ioFog user on existing Controller                                                      |
+|            |                                                                                                                                          | Valid Kubernetes config file (e.g. usually found in ~/.kube/config) or IP address of Controller |
+| Agent      | RSA priv/pub key pair that can be used to SSH into the respective machine                                                                |                                                                                                 |
+|            | A user that is in sudo group (e.g. usermod -aG sudo \$USER) on the machine                                                               |                                                                                                 |
+|            | Users in group sudo can sudo without a password (use su visudo to edit sudoers file to have %sudo ALL=(ALL) NOPASSWD:ALL) on the machine | N/A - connecting to existing Controller will automatically connect you to provisioned Agents    |
 
 ## Install iofogctl
 
@@ -45,7 +56,7 @@ go get -u github.com/eclipse-iofog/iofogctl/cmd/iofogctl
 
 <aside class="notifications danger">
   <h3><img src="/images/icos/ico-danger.svg" alt="">Go get not recommented for casual users</h3>
-  <p>Downloading iofogctl using `go get ...` will download the latest version of `iofogctl`. This may not be the same as released, well-tested version.</p>
+  <p>Downloading `iofogctl` using `go get ...` will download the latest version of `iofogctl`. This may not be the same as released, well-tested version.</p>
 </aside>
 
 To verify if `iofogctl` has been installed successfully, run `iofogctl version` to check if the binary is up to date. The version number should be greater than, or equal to, 1.0.0.
@@ -117,6 +128,11 @@ IoFog Controller is the central part of each ioFog stack. `iofogctl` connects to
 
 We can deploy the ioFog stack to a pre-existing Kubernetes cluster with the following command. Make sure to specify the location of our [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) correctly.
 
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> New to Docker for Windows?</h3>
+  <p>Alternatively, `iofoctl` can also be used to deploy a simple containerized ioFog stack on a local machine. Explore the `--local` option when using `iofogctl deploy controller` or `iofogctl deploy agent`.</p>
+</aside>
+
 ```bash
 iofogctl deploy controller my-ctrl --kube-config ~/.kube/conf
 ```
@@ -155,7 +171,9 @@ It is also possible to use a kubeconfig file instead of specifying the Controlle
 iofogctl connect my-ctrl --kube-config ~/.kube/conf --email EMAIL --pass PASSWORD
 ```
 
-## Deploy Agent On The ioFog Stack
+Note that you must specify an empty or non-existent namespace when you use the connect command. This is because each cluster should be in its own namespace.
+
+## Deploy Agent In The ioFog Stack
 
 We can now deploy Agents to a namespace that has a working Controller connected. Here, `my-first-agent` is the agent name, `1.2.3.4` is the external IP that iofogctl can access, and `/home/username/.ssh/agent-key` is the key that needs to be authorized on the agent.
 
@@ -207,3 +225,13 @@ To get more detailed information, we can use the describe command:
 iofogctl describe controller my-ctrl
 iofogctl describe agent my-first-agent
 ```
+
+## Disconnect From ioFog Stack
+
+When you are finished working with the cluster, you can disconnect from it and release the corresponding namespace from `iofogctl`.
+
+```bash
+iofogctl disconnect my-ctrl -n iofog
+```
+
+## Delete ioFog Stack
