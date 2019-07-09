@@ -12,7 +12,7 @@ class Trusted extends Component {
       <section className="container trusted">
         <section className="row">
           <section className="col-md-12">
-            <div className="title">Sponsored by</div>
+            <div className="title">Contributing Organizations</div>
             <div className="trusted__container">
               <div className="trusted__item">
                 <a href="http://edgeworx.io/">
