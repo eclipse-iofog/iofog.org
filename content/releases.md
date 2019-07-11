@@ -1,13 +1,13 @@
-### v1.1.0
+## v1.1.0 - "Training Wheels"
+
+[Get Started with release 1.1.0](/docs/1.1.0/getting-started/core-concepts.html)
 
 #### Agent (v1.1.0)
 
 ##### Features Added
 
 - Added support for setting and passing through environment variables in docker containers at runtime
-
 - Added support for overriding container CMD directives at runtime
-
 - Agent Docker images now build from iofog-docker-images for stability
 
 ##### Bug Fixes
@@ -52,29 +52,22 @@
 ##### Features
 
 - Huge refactoring and consolidation of Demo repo
-
 - Rather than distinct environments, Demo now builds from a single docker-compose environment which is then augmented/decorated
-
 - Updated and refactored docker-compose configurations to support V3 api spec
-
 - Optimized Dockerfiles
-
 - Improved overall user experience, logging and demo output
-
 - Re-worked tutorial workflow to simplify user experience
-
 - All Docker images now build from iofog-base-images for stability
-
 - Added support for integration testing using TestHarness during CI execution
 
 ##### Bug Fixes
 
 - Fixed Agent docker depending on unstable location of Java
 
-### v1.0.0
+## v1.0.0
 
 Our very first release.
 
-[Get Started](/docs/1.0.0/getting-started/core-concepts.html)
+[Get Started with release 1.0.0](/docs/1.0.0/getting-started/core-concepts.html)
 
 - Everything of course!
