@@ -13,7 +13,7 @@ class AboutProject extends Component {
               <div className="sections__header">
                 <h4>About the project</h4>
                 <p>
-                  Eclipse-ioFog<sup>TM</sup> is an{' '}
+                  Eclipse ioFog<sup>TM</sup> is an{' '}
                   <a href="https://projects.eclipse.org/projects/iot.iofog">
                     Eclipse Foundation project
                   </a>{' '}
