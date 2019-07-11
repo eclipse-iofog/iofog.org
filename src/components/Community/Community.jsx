@@ -26,12 +26,11 @@ class Community extends Component {
           <section className="col-md-12">
             <div className="entry__header">
               <h2>
-                Eclipse-ioFog<sup>TM</sup> Community
+                Eclipse ioFog<sup>TM</sup> Community
               </h2>
               <p>
-                Connect with other Eclipse-ioFog<sup>TM</sup> enthusiasts to
-                discuss features, architecture, best practices, and help one
-                another.
+                Connect with other ioFog enthusiasts to discuss features,
+                architecture, best practices, and help one another.
               </p>
               <div style={{ padding: '60px 0' }}>
                 <a
@@ -41,12 +40,10 @@ class Community extends Component {
                   <img srcSet={discourseLogo} alt="Discourse" />
                 </a>
                 <a href="https://discuss.iofog.org/" className="button">
-                  Visit the Eclipse-ioFog<sup>TM</sup> Discussion Forum
+                  Visit the ioFog Discussion Forum
                 </a>
               </div>
-              <p>
-                We at Eclipse-ioFog<sup>TM</sup> take security seriously.
-              </p>
+              <p>We at ioFog take security seriously.</p>
               <div style={{ padding: '60px 0' }}>
                 <a
                   href="https://www.eclipse.org/security/ "
@@ -69,7 +66,10 @@ class Community extends Component {
                 >
                   <img srcSet={slackLogo} alt="Eclipse" />
                 </a>
-                <a href="https://www.eclipse.org/security/ " className="button">
+                <a
+                  href="'https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LWViMThlYTkxYzBhYzYzN2IxZDZjMGYyYjA0OTM2NDZlZTI0ZTUwOTdlYzllYWRlNDgwY2ExZjY3YWVhODM0MzU'"
+                  className="button"
+                >
                   Join Community Slack
                 </a>
               </div>

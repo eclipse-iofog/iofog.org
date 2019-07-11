@@ -15,7 +15,7 @@ class RunSoftwareEdge extends Component {
               <div className="sections__header">
                 <h4>Run software at the edge.</h4>
                 <p>
-                  By installing Eclipse-ioFog<sup>TM</sup> to any device (with
+                  By installing Eclipse ioFog<sup>TM</sup> to any device (with
                   minimal amount of compute) you create a distributed Edge
                   Compute Network (ECN), enabling you to run any microservice on
                   it dynamically, securely, and remotely.

@@ -14,7 +14,7 @@ export default class ReleasesTemplate extends React.Component {
     return (
       <Layout location={slug}>
         <Helmet>
-          <title>Eclipse-ioFog Releases</title>
+          <title>Eclipse ioFog Releases</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div className="container entry">
@@ -28,7 +28,7 @@ export default class ReleasesTemplate extends React.Component {
                 </h3>
                 <p>
                   This page contains a list of releases and their changes, but
-                  installing or upgrading an Eclipse-ioFog<sup>TM</sup> network
+                  installing or upgrading an Eclipse ioFog<sup>TM</sup> network
                   involves multiple components.
                 </p>
                 <p>
@@ -36,7 +36,7 @@ export default class ReleasesTemplate extends React.Component {
                   <a href="/docs/getting-started/setup-your-controllers.html">
                     setup documentation
                   </a>{' '}
-                  to install or upgrade Eclipse-ioFog<sup>TM</sup> .
+                  to install or upgrade ioFog .
                 </p>
               </aside>
               <div
