@@ -110,3 +110,8 @@ This should give us a JSON response containing a list of edge nodes already regi
 Now that we know our way around a bit, let's learn how to manage and launch microservices!
 
 [Continue To Next Step: Manage Our Microservices](manage-our-microservices.html).
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
+  <p>If you ran into an issue, have a question, or just want to get plugged into the community, head over to our <a href="https://discuss.iofog.org/">Discussion Forum</a>. We'd love to have you!</p>
+</aside>

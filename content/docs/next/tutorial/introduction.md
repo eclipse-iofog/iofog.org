@@ -11,8 +11,6 @@ In this tutorial, we'll cover how to create, deploy, and manage our first micros
 
 In this tutorial, we are going to extend on the ioFog demo project we have previously used in [Quickstart](../getting-started/quick-start.html). Please follow the instructions on how to download all prerequisites required for running the demo project.
 
-## Download Tutorial Project
-
 We can skip this section if we have already downloaded the demo project from [Quickstart](../getting-started/quick-start.html).
 
 On Unix based systems, download our tar.gz package.

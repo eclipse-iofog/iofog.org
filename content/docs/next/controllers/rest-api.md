@@ -53,124 +53,6 @@
                 description: FogController server timestamp
           '500':
             description: Internal Server Error
-    '/connector':
-      get:
-        tags:
-        - Connector
-        description: Returns a list of connectors
-        operationId: getConnectors
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        responses:
-          '200':
-            description: List of Connectors
-            schema:
-              $ref: '#/definitions/ConnectorInfoListResponse'
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
-          '500':
-            description: Internal Server Error
-      post:
-        tags:
-        - Connector
-        description: Adds a connector
-        operationId: addConnector
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        - in: body
-          name: ConnectorInfo
-          required: true
-          schema:
-            $ref: '#/definitions/ConnectorInfoRequest'
-        responses:
-          '200':
-            description: Newly created connector
-            schema:
-              $ref: '#/definitions/ConnectorInfoResponse'
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
-          '500':
-            description: Internal Server Error
-      put:
-        tags:
-        - Connector
-        description: Updates a connector
-        operationId: updateConnector
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        - in: body
-          name: ConnectorInfo
-          required: true
-          schema:
-            $ref: '#/definitions/ConnectorInfoRequest'
-        responses:
-          '200':
-            description: Updated connector
-            schema:
-              $ref: '#/definitions/ConnectorInfoResponse'
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
-          '500':
-            description: Internal Server Error
-      delete:
-        tags:
-        - Connector
-        description: Removes a connector
-        operationId: deleteConnector
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        - in: body
-          name: ConnectorDeleteInfo
-          required: true
-          schema:
-            $ref: '#/definitions/ConnectorInfoDeleteRequest'
-        responses:
-          '204':
-            description: Success
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
-          '500':
-            description: Internal Server Error
     '/iofog-list':
       post:
         tags:
@@ -2488,50 +2370,6 @@
           type: array
           items:
             $ref: '#/definitions/IOFogNodeInfoResponse'
-    ConnectorInfoRequest:
-      type: object
-      properties:
-        name: 
-          type: string
-        domain: 
-          type: string
-        publicIp: 
-          type: string
-        cert: 
-          type: string
-        isSelfSignedCert: 
-          type: boolean
-        devMode: 
-          type: boolean
-    ConnectorInfoDeleteRequest:
-      type: object
-      properties:
-        publicIp: 
-          type: string
-    ConnectorInfoListResponse:
-      type: object
-      properties:
-        connectors:
-          type: array
-          items:
-            $ref: '#/definitions/ConnectorInfoResponse'
-    ConnectorInfoResponse:
-      type: object
-      properties:
-        id: 
-          type: integer
-        name: 
-          type: string
-        domain: 
-          type: string
-        publicIp: 
-          type: string
-        cert: 
-          type: string
-        isSelfSignedCert: 
-          type: boolean
-        devMode: 
-          type: boolean
     IOFogNodeInfoResponse:
       type: object
       properties:
@@ -2990,6 +2828,14 @@
           type: boolean
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     ReceiverMicroservices:
       type: array
       items:
@@ -3027,6 +2873,15 @@
         accessMode:
           type: string
           example: rw
+    MicroserviceEnvVars:
+      type: object
+      properties:
+        key:
+          type: string
+          example: ENV_VAR1
+        value:
+          type: string
+          example: some_value
     PortMappingsResponse:
       type: object
       properties:
@@ -3281,6 +3136,14 @@
             $ref: '#/definitions/PortMappingsResponse'
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     NewMicroserviceRequest:
       type: object
       properties:
@@ -3308,6 +3171,14 @@
             $ref: '#/definitions/PortMappingsRequest'
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     UpdateMicroserviceRequest:
       type: object
       required:
@@ -3329,6 +3200,14 @@
           type: array
           items:
             $ref: '#/definitions/VolumeMapping'
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/MicroserviceEnvVars'
+        cmd:
+          type: array
+          items:
+            type: string
     IOFogNodeTunnelStatusInfoResponse:
       type: object
       properties:

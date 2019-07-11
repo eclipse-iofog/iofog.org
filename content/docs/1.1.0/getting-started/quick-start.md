@@ -139,3 +139,8 @@ This should give you a JSON response containing a list of edge nodes already reg
 ## Conclusion
 
 You that you have a local ioFog environment running, you can learn more [about Microservices](../microservices/overview.html), take the [Tutorial](../tutorial/introduction.html), or [setup your production environment](setup-your-controllers.html).
+
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
+  <p>If you ran into an issue, have a question, or just want to get plugged into the community, head over to our <a href="https://discuss.iofog.org/">Discussion Forum</a>. We'd love to have you!</p>
+</aside>
