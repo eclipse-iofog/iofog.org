@@ -61,7 +61,7 @@
     "gh-pages": "^1.1.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
-    "prettier": "1.15.3",
+    "prettier": "^1.15.3",
     "remark-cli": "^5.0.0",
     "remark-preset-lint-recommended": "^3.0.1",
     "stylefmt": "^6.0.0",
