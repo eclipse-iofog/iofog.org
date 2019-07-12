@@ -80,7 +80,7 @@ edge infrastructure.
 
 #### Raspbian Agents
 
-We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0/getting-started/setup-your-agents.html)
+We have a general guide for Agent Setup [**Here.**](./setup-your-agents.html)
 
 ## Download Tutorial Project
 

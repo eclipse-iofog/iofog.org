@@ -40,12 +40,12 @@ Linux users can use deb or rpm packages:
 
 ```bash
 curl -s https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl=1.0.0
+sudo apt-get install iofogctl=1.2.0
 ```
 
 ```bash
 curl -s https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-1.0.0-1.x86_64
+sudo yum install iofogctl-1.2.0-1.x86_64
 ```
 
 For developers and users aiming for the latest features, `iofogctl` can be installed in the usual Go fashion directly from its GitHub repository.
@@ -59,7 +59,7 @@ go get -u github.com/eclipse-iofog/iofogctl/cmd/iofogctl
   <p>Downloading `iofogctl` using `go get ...` will download the latest version of `iofogctl`. This may not be the same as released, well-tested version.</p>
 </aside>
 
-Let's verify if `iofogctl` has been installed successfully. Run `iofogctl version` to check if the binary is up to date. The version number should be greater than, or equal to, 1.0.0.
+Let's verify if `iofogctl` has been installed successfully. Run `iofogctl version` to check if the binary is up to date.
 
 ## Quick Start
 

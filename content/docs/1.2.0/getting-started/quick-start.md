@@ -80,7 +80,7 @@ edge infrastructure.
 
 #### Raspbian Agents
 
-We have a general guide for Agent Setup [**Here.**](https://iofog.org/docs/1.0.0/getting-started/setup-your-agents.html)
+We have a general guide for Agent Setup [**Here.**](./setup-your-agents.html)
 
 ## Download Tutorial Project
 
@@ -90,11 +90,11 @@ On Unix based systems, download our tar.gz package.
 
 ```bash
 cd where/we/want/iofog-demo
-curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.0.0.tar.gz
+curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.2.0.tar.gz
 tar -zxvf demo.tar.gz --strip-components=1
 ```
 
-On windows, [download tutorial .zip package](https://github.com/eclipse-iofog/demo/archive/v1.0.0.zip). Then unzip the contents into a preferred working directory.
+On windows, [download tutorial .zip package](https://github.com/eclipse-iofog/demo/archive/v1.2.0.zip). Then unzip the contents into a preferred working directory.
 
 ## Bootstrap the Project
 

@@ -845,7 +845,7 @@ Authorization (authorization key can be found in /etc/iofog-agent/local-api file
 
 ```json
 {
-  "version": "1.1.0"
+  "version": "1.2.0"
 }
 ```
 
