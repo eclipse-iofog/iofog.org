@@ -38,7 +38,13 @@ Now that our cluster is up and running, we have to prepare the cluster for Helm 
 
 On RBAC enabled Kubernetes clusters (e.g. GKE, AKE), it is necessary to create a service account for Tiller before initializing helm itself. See [helm init instructions](https://helm.sh/docs/using_helm/#tiller-and-role-based-access-control) for more details.
 
-We can create service account for Tiller and bind cluster-admin role.
+In order to create the cluster role binding on GKE, we need to have `roles/container.admin` permission. If our account doesn't have the role, it can be added using the following command or in the GCP Console.
+
+```bash
+gcloud projects add-iam-policy-binding $GCP_PROJECT --member=user:person@company.com --role=roles/container.admin
+```
+
+Then we can create service account for Tiller and bind cluster-admin role.
 
 ```bash
 kubectl create serviceaccount --namespace kube-system tiller-svacc
@@ -61,7 +67,7 @@ Now is the time to use our service account to initialize Helm.
 helm init --service-account tiller-svacc --wait
 ```
 
-Note that for AKE, we will also need to specify node selectors for Tiller.
+Note that on Azure Kubernetes Service (AKS), we will also need to specify node selectors for Tiller.
 
 ```bash
 helm init --service-account tiller-svacc --node-selectors "beta.kubernetes.io/os"="linux" --wait
@@ -69,7 +75,7 @@ helm init --service-account tiller-svacc --node-selectors "beta.kubernetes.io/os
 
 ## Install ioFog Stack
 
-Add this Helm repository and install the ioFog stack and Kubernetes services
+Add this Helm repository to our Helm repository index and install the ioFog stack and Kubernetes services
 
 ```bash
 helm repo add iofog https://eclipse-iofog.github.io/helm
@@ -86,61 +92,22 @@ helm install --name iofog --namespace iofog --set createCustomResource=false iof
 
 Only use this option when the ioFog custom resource exists, either from another Helm installation or manual installation using [iofogctl](https://github.com/eclipse-iofog/iofogctl).
 
-To check if the custom resource exists, run
-
-```bash
-kubectl get crd iofogs.k8s.iofog.org
-```
+To check if the custom resource exists, run `kubectl get crd iofogs.k8s.iofog.org`. If the resource exists, we must use `createCustomResource=false` so that Helm does not try to create it again.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Custom Resource Definitions in Helm</h3>
   <p>Helm's support for Custom Resource Definition (CRD) is a bit reckless. Upon installation of Helm release, the CRDs will be disowned by the release and orphaned. Deleting the release will not get rid of the CRDs. This makes sense, since the definitions are scoped for the whole cluster.</p>
 </aside>
 
-## Testing ioFog Stack With Agent
+## Run Tests
 
-This is a short guide how to run [ioFog smoke tests](https://github.com/eclipse-iofog/test-runner) on our ioFog installation. These tests require one ioFog Agent to be provisioned as well as SSH access to the Agent.
-
-### Credentials For ioFog Agent Tests
-
-In order to test the ioFog stack, we will need access to a single ioFog Agent.
-
-Now is the time to register the agent with the rest of the ioFog stack. For this purpose, we use [iofogctl](https://github.com/eclipse-iofog/iofogctl). Please follow the instruction on how to use `iofogctl` to deploy a new Agent in the [iofogctl tutorial](../iofogctl/iofogctl.html#deploy-agent-on-the-iofog-stack).
-
-Note that this Agent is external to the Kubernetes cluster, but its credentials need to be stored as a secret in the cluster.
-
-We need to create such secret manually, in the same namespace the Helm chart was deployed. This secret only needs to be created or updated when we want to use a different agent for testing purposes. It is not required in any way if we don't need to test the ioFog stack. Here, `1.2.3.4` is the external IP that iofogctl can access, and `/home/username/.ssh/agent-key` is the key that needs to be authorized on the agent.
-
-Note that the arguments for the secret are the same as the credentials we provided for agent deployment.
-
-```bash
-kubectl -n iofog create secret generic agent --from-file=privateKey=/home/username/.ssh/agent-key --from-literal=URI=username@1.2.3.4
-```
-
-The credentials are used by the test runner. We can test them by running `ssh -i /home/username/.ssh/agent-key username@34.66.151.77`. It is also possible to check the secret:
-
-```bash
-kubectl -n iofog get secret agent-credentials -o yaml
-```
-
-When the secret and the agent are available, we need to upgrade our Helm release to reference this secret.
-
-```bash
-helm upgrade iofog --namespace iofog --set createCustomResource=false --set test.credentials=agent-credentials iofog/iofog
-```
-
-### Run Tests
-
-Then run the tests using Helm.
+We can run simple test suite on our newly deployed ioFog stack using helm:
 
 ```bash
 helm test iofog
 ```
 
-<aside class="notifications danger">
-  <h3><img src="/images/icos/ico-danger.svg" alt="">SSH Route Bug GKE</h3>
-  <p>Running Helm commands will fail after an agent has been deployed in any ioFog stack on the cluster. See [#known-issues](Known Issues) for more details. </p>
-</aside>
+To see a detailed output from the tests, we can check test-runner logs using `kubectl -n iofog logs test-runner`. In case we do not expect the need to inspect the logs, using `helm test --cleanup iofog` will remove all test pods after running the tests.
 
 ## Uninstall ioFog Stack
 
@@ -155,14 +122,3 @@ Note that due to Helm's handing of custom resource definitions, all such definit
 ```bash
 kubectl delete crd iofogs.k8s.iofog.org
 ```
-
-## Known Issues
-
-When deploying agent for testing purposes, it is possible to encounter a SSH bug in GKE. This disables Helm completely due to its inability to communicate with Tiller.
-
-```console
-$ helm list
-Error: forwarding ports: error upgrading connection: error dialing backend: No SSH tunnels currently open. Were the targets able to accept an ssh-key for user "gke-0e29ce169876a2a9afc0"?
-```
-
-There is currently no known workaround.
