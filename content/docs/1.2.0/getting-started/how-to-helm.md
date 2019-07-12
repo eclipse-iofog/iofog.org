@@ -1,14 +1,14 @@
 # Helm Guide - How to Install ioFog Using Helm
 
-In this tutorial we will go through deployment of ioFog stack into existing Kubernetes cluster.
+In this tutorial, we will go through the deployment of the ioFog stack into an existing Kubernetes cluster.
 
 ## Prerequisites
 
-First, we need working kubernetes cluster. To setup a cluster on Google Kubernetes Engine (GKE), follow the tutorial [Creating a cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster). Alternative managed cluster providers will work as well, so will custom installations of Kubernetes, e.g. using Minikube.
+First, we need a working Kubernetes cluster. To set up a cluster on the Google Kubernetes Engine (GKE), follow the [Creating a cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster) tutorial. Using alternative managed cluster providers will work as well as custom installations of Kubernetes, e.g. Minikube.
 
-The core ioFog stack installed by Helm does not require any Agents to be setup. Agents are edge nodes where microservices are deployed. In order to leverage all ioFog capabilities, we will need to setup Agents. These can simply be small compute instances from GCP, AWS, Packet, or any other provider.
+The core ioFog stack installed by Helm does not require any Agents to be set up. Agents are edge nodes where microservices are deployed. In order to leverage all ioFog capabilities, we will need to set up Agents. These can simply be small compute instances from Google Cloud Platform (GCP), Amazon Web Services (AWS), Packet, or any other provider.
 
-All ioFog needs from these Agents is SSH access in order to provision them.
+In order to provision these Agents, ioFog needs SSH access.
 
 IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tutorial.html) for more details.
 
