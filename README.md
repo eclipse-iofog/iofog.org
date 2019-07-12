@@ -16,21 +16,28 @@ npm start
 
 ## Publish updates to GitHub Pages (maintainers only)
 
-Builds the Gatsby project and pushes it to GitHub Pages. Should only be used when updating the existing versions of the docs, not when releasing a new version.
+Builds the Gatsby project and pushes it to GitHub Pages. This must be only done from `master` branch on no other!
 
-```sh
+```bash
+git fetch
+git checkout origin/master
 npm run deploy:gh
 ```
 
+You can test the release Gatsby build using `npm run-script build`, and to preview the website locally, follow instructions in [Local Deployment](#local-development).
+
 ## Cut a new major/minor version and publish (maintainers only)
 
-Will ask you for the new version number of ioFog and then handle everything to bump it, including copying `content/docs/next` to a new directory with that number, and then doing a build/deploy to GitHub Pages.
+To create a new version of documentation (usually for new major release), we need to first update the npm package version and then create a new version of the documentation.
+Note that the staging documentation in `content/docs/next` will be used to create the new version.
+If there are any fixed in the previous documentation, it is advisable to propagate them into the staging documentation first before proceeding.
 
-Use this when a new release of major or minor ioFog happens.
-
-```sh
-npm run bump-version
+```bash
+npm version 1.2.0 --no-git-tag-version
+node scripts/copy-docs.js 1.2.0
 ```
+
+After this you are ready to checkin the new version.
 
 ## Serving static files
 
