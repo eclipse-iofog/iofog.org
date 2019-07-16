@@ -18,19 +18,39 @@ tools, such as _platform tools_ for cluster and infrastructure management.
 
 ##### Agent (v1.2.0)
 
+* Send Agent's external IP to Controller
+* Bugfix: Selecting the network interface that has Controller connectivity
+* Bugfix: Use local docker images when offline
+
 ##### Connector (v1.2.0)
+
+* Limit port range to 50 ports in default configuration file
 
 ##### Controller (v1.2.0)
 
+* Return Agent's external IP for Kubelet
+* Add uptime to status endpoint
+* Bugfix: Requests not failing if with additional properties
+
+##### Kubelet (v1.2.0)
+
+* Initial release!
+
 ##### Iofogctl (v1.2.0)
+
+* Initial release!
 
 ##### Helm Chart (v1.2.0)
 
+* Initial release!
+
 ##### Platform Tools (v1.2.0)
 
-##### Test Runner (v1.2.0)
+* Initial release!
 
 ##### Quickstart + Tutorial (v1.2.0)
+
+* 
 
 ### Known Issues
 
