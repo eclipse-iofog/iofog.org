@@ -67,7 +67,7 @@ class Community extends Component {
                   <img srcSet={slackLogo} alt="Eclipse" />
                 </a>
                 <a
-                  href="'https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LWViMThlYTkxYzBhYzYzN2IxZDZjMGYyYjA0OTM2NDZlZTI0ZTUwOTdlYzllYWRlNDgwY2ExZjY3YWVhODM0MzU'"
+                  href="https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LWViMThlYTkxYzBhYzYzN2IxZDZjMGYyYjA0OTM2NDZlZTI0ZTUwOTdlYzllYWRlNDgwY2ExZjY3YWVhODM0MzU"
                   className="button"
                 >
                   Join Community Slack
