@@ -39,6 +39,26 @@ class Footer extends Component {
                       Report Security Issues
                     </a>
                   </div>
+                  <div>
+                    <a href="http://www.eclipse.org/legal/privacy.php">
+                      Privacy Policy
+                    </a>
+                  </div>
+                  <div>
+                    <a href="http://www.eclipse.org/legal/termsofuse.php">
+                      Terms of Use
+                    </a>
+                  </div>
+                  <div>
+                    <a href="http://www.eclipse.org/legal/copyright.php">
+                      Copyright
+                    </a>
+                  </div>
+                  <div>
+                    <a href="http://www.eclipse.org">
+                      Eclipse Foundation
+                    </a>
+                  </div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
                   <h4>Contributing Organizations</h4>
@@ -48,7 +68,7 @@ class Footer extends Component {
                     </a>
                   </div>
                   <div className="item">
-                    <a href="https://projects.eclipse.org/projects/iot.iofog">
+                    <a href="http://www.eclipse.org">
                       <img
                         srcSet={logoEclipse}
                         alt="Eclipse Foundation Small"
