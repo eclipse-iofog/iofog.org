@@ -25,7 +25,7 @@ class Trusted extends Component {
                 </a>
               </div>
               <div className="trusted__item">
-                <a href="https://projects.eclipse.org/projects/iot.iofog">
+                <a href="https://www.eclipse.org/">
                   <img
                     height="50"
                     srcSet={logoEclipse}

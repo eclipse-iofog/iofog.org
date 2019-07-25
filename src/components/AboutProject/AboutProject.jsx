@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import './AboutProject.scss';
 import logoEdgeworx from '../../../static/images/logos/edgeworx.svg';
-import logoIncubationEclipse from '../../../static/images/logos/incubating.svg';
+import logoIncubationEclipse from '../../../static/images/logos/incubating.png';
 
 class AboutProject extends Component {
   render() {
