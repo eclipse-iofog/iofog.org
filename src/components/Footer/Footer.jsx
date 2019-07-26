@@ -24,8 +24,9 @@ class Footer extends Component {
                     <img srcSet={siteLogo} alt="ioFog" />
                   </Link>
                   <p className="description">
-                    Eclipse ioFog<sup>TM</sup> is free, open source, and always
-                    will be.
+                    Eclipse ioFog<sup>TM</sup> is free, open source,
+                    <br />
+                    and always will be.
                   </p>
                   <p className="footer__copyright d-none d-md-block">
                     {copyright}
@@ -67,7 +68,7 @@ class Footer extends Component {
                   </div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
-                  <h4>Contributing Organizations</h4>
+                  <h4>Contributors</h4>
                   <div className="item">
                     <a href="http://edgeworx.io/">
                       <img srcSet={logoEdgeworx} alt="Edgeworx" />
