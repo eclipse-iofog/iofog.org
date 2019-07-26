@@ -13,12 +13,15 @@
   }
 
   &__container {
+    max-width: 800px;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: baseline;
   }
   &__item {
-    margin: 0 40px;
+    width: 33%;
+    text-align: center;
   }
 }
 /* resolution less than 768px */
@@ -30,6 +33,7 @@
     }
     &__item {
       margin-top: 20px;
+      width: 100%;
     }
   }
 }

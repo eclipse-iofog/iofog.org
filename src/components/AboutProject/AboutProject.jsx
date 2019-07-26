@@ -24,7 +24,11 @@ class AboutProject extends Component {
                   Networks.
                 </p>
                 <p>
-                  <img srcSet={logoIncubationEclipse} alt="Eclipse Foundation Incubation Project" />
+                  <img
+                    style={{ maxHeight: '150px' }}
+                    srcSet={logoIncubationEclipse}
+                    alt="Eclipse Foundation Incubation Project"
+                  />
                 </p>
               </div>
             </section>
