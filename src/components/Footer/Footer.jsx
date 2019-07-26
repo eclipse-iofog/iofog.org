@@ -7,6 +7,7 @@ import config from '../../../data/SiteConfig';
 import logoEdgeworx from '../../../static/images/logos/edgeworx.svg';
 import logoEclipse from '../../../static/images/logos/eclipse.svg';
 import siteLogo from '../../../static/images/logos/iofog.svg';
+import logoIoT from '../../../static/images/logos/iot.svg';
 
 class Footer extends Component {
   render() {
@@ -31,13 +32,38 @@ class Footer extends Component {
                   </p>
                 </div>
                 <div className="col-12 col-md-3 footer__links">
+                  <h4>More information</h4>
                   <div>
+                    <span className="chevron right" />
                     <a href="https://www.eclipse.org/legal/">Legal</a>
                   </div>
                   <div>
+                    <span className="chevron right" />
                     <a href="https://www.eclipse.org/security/">
                       Report Security Issues
                     </a>
+                  </div>
+                  <div>
+                    <span className="chevron right" />
+                    <a href="http://www.eclipse.org/legal/privacy.php">
+                      Privacy Policy
+                    </a>
+                  </div>
+                  <div>
+                    <span className="chevron right" />
+                    <a href="http://www.eclipse.org/legal/termsofuse.php">
+                      Terms of Use
+                    </a>
+                  </div>
+                  <div>
+                    <span className="chevron right" />
+                    <a href="http://www.eclipse.org/legal/copyright.php">
+                      Copyright
+                    </a>
+                  </div>
+                  <div>
+                    <span className="chevron right" />
+                    <a href="http://www.eclipse.org">Eclipse Foundation</a>
                   </div>
                 </div>
                 <div className="col-12 col-md-3 footer__by">
@@ -48,7 +74,12 @@ class Footer extends Component {
                     </a>
                   </div>
                   <div className="item">
-                    <a href="https://projects.eclipse.org/projects/iot.iofog">
+                    <a href="https://iot.eclipse.org/">
+                      <img height="30" srcSet={logoIoT} alt="IoT Eclipse" />
+                    </a>
+                  </div>
+                  <div className="item">
+                    <a href="http://www.eclipse.org">
                       <img
                         srcSet={logoEclipse}
                         alt="Eclipse Foundation Small"
