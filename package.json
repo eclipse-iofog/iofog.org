@@ -1,6 +1,6 @@
 {
   "name": "iofog.org",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "ioFog.org documentation website",
   "dependencies": {
     "ajv": "^5.5.2",
@@ -61,7 +61,7 @@
     "gh-pages": "^1.1.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
-    "prettier": "1.15.3",
+    "prettier": "^1.15.3",
     "remark-cli": "^5.0.0",
     "remark-preset-lint-recommended": "^3.0.1",
     "stylefmt": "^6.0.0",
@@ -82,7 +82,6 @@
     "serve": "gatsby serve",
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
-    "bump-version": "./scripts/bump-version.sh",
     "deploy:gh": "npm run clean && npm run build && gh-pages -d public",
     "clean": "rm -rf public && rm -rf .cache",
     "lint:js": "eslint --ext .js,.jsx .",

@@ -24,6 +24,10 @@
           {
             "title": "Setup Your Agents",
             "entry": "./getting-started/setup-your-agents.md"
+          },
+          {
+            "title": "Helm Guide",
+            "entry": "./getting-started/how-to-helm.md"
           }
         ]
       },
@@ -49,6 +53,19 @@
           {
             "title": "Deploy Your Microservice",
             "entry": "./tutorial/deploy-our-microservice.md"
+          }
+        ]
+      },
+      {
+        "title": "Tools",
+        "subMenus": [
+          {
+            "title": "Introduction to iofogctl",
+            "entry": "./tools/iofogctl.md"
+          },
+          {
+            "title": "Platform Tools",
+            "entry": "./tools/platform-tools.md"
           }
         ]
       },
