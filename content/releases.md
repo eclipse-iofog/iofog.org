@@ -63,7 +63,7 @@ tools, such as _platform tools_ for cluster and infrastructure management.
 - API: Issues with /update/delete system microservices
 - Controller Installation: Check if sqlite3 binary exists
 
-## Release 1.1.0 - "Training Wheels"
+## Release 1.1.0
 
 [Get Started with release 1.1.0](/docs/1.1.0/getting-started/core-concepts.html)
 
