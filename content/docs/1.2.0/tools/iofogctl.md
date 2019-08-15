@@ -14,7 +14,7 @@ The following must be installed and configured before performing bootstrap:
 
 In order to use `iofogctl` for non-local deployments, we'll need to provide our own infrastructure. This means we'll need to provision a Kubernetes cluster and a set of edge nodes.
 
-IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to set up a Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tutorial.html).
+IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to set up a Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tools.html).
 
 The following table lists all prerequisites required to deploy or connect to individual ioFog components (Controller, Connector and Agent). Note that `iofogctl` does not expose direct interaction with the connector.
 
