@@ -12,22 +12,31 @@
           {
             "title": "Quick Start",
             "entry": "./getting-started/quick-start.md"
+          }
+        ]
+      },
+      {
+        "title": "Remote Deployment",
+        "subMenus": [
+          {
+            "title": "Prepare Your Remote Hosts",
+            "entry": "./remote-deployment/prepare-your-remote-hosts.md"
           },
           {
-            "title": "Setup Your Controllers",
-            "entry": "./getting-started/setup-your-controllers.md"
+            "title": "Setup Your Control Plane",
+            "entry": "./remote-deployment/setup-your-controlplane.md"
           },
           {
             "title": "Setup Your Connectors",
-            "entry": "./getting-started/setup-your-connectors.md"
+            "entry": "./remote-deployment/setup-your-connectors.md"
           },
           {
             "title": "Setup Your Agents",
-            "entry": "./getting-started/setup-your-agents.md"
+            "entry": "./remote-deployment/setup-your-agents.md"
           },
           {
-            "title": "Helm Guide",
-            "entry": "./getting-started/how-to-helm.md"
+            "title": "Setup All-in-one",
+            "entry": "./remote-deployment/setup-all-in-one.md"
           }
         ]
       },
@@ -61,11 +70,19 @@
         "subMenus": [
           {
             "title": "Introduction to iofogctl",
-            "entry": "./tools/iofogctl.md"
+            "entry": "./tools/iofogctl/usage.md"
+          },
+          {
+            "title": "Iofogctl YAML Specification",
+            "entry": "./tools/iofogctl/yaml-spec.md"
           },
           {
             "title": "Platform Tools",
             "entry": "./tools/platform-tools.md"
+          },
+          {
+            "title": "Helm Guide",
+            "entry": "./tools/how-to-helm.md"
           }
         ]
       },
