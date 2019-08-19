@@ -160,7 +160,7 @@ To get more detailed information, we can use the describe command:
 ```bash
 iofogctl describe controlplane
 iofogctl describe controller <Controller Name>
-iofogctl describe connector <Controller Name>
+iofogctl describe connector <Connector Name>
 iofogctl describe agent <Agent Name>
 ```
 
