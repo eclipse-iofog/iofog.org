@@ -10,7 +10,7 @@ The core ioFog stack installed by Helm does not require any Agents to be set up.
 
 In order to provision these Agents, ioFog needs SSH access.
 
-IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tutorial.html) for more details.
+IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tools.html) for more details.
 
 The tutorial requires installation of `Helm` and `kubectl` executing the deployment.
 
