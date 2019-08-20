@@ -1,6 +1,6 @@
 # Introduction
 
-In this tutorial, we'll cover how to create, deploy, and manage our first microservices using ioFog.
+In this tutorial we will use a tutorial project to set up a local ECN with a set of example Microservices.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Familiar with the Core Concepts?</h3>
@@ -8,10 +8,6 @@ In this tutorial, we'll cover how to create, deploy, and manage our first micros
 </aside>
 
 ## Setup Demo Project
-
-In this tutorial, we are going to extend on the ioFog demo project we have previously used in [Quickstart](../getting-started/quick-start.html). Please follow the instructions on how to download all prerequisites required for running the demo project.
-
-We can skip this section if we have already downloaded the demo project from [Quickstart](../getting-started/quick-start.html).
 
 On Unix based systems, download our tar.gz package.
 
@@ -25,7 +21,7 @@ On windows, [download tutorial .zip package](https://github.com/eclipse-iofog/de
 
 ## Bootstrap the Project
 
-Unlike in the Quickstart, this time we spin up the ioFog stack (Agent, Controller, and Connector) if not already up and additionally we spin up tutorial services on our local machine. We will use the ioFog stack and tutorial microservices later in the tutorial.
+To get going, all we need to do is run:
 
 ```sh
 $ ./start.sh tutorial
