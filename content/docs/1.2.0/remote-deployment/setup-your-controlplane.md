@@ -6,55 +6,50 @@ In this guide, our Control Plane will consist of a single Controller instance. I
 
 There are two flavours of Controller deployments - Vanilla and Kubernetes. If you have a Kubernetes cluster, you can deploy a Controller directly on to it. Otherwise, a Linux remote host will do just fine.
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt="">Have you tried deploying a local ECN first?</h3>
-  <p>In this guide we assume you are up and running with iofogctl. We recommened going through the <a href="https://iofog.org/docs/1.2.0/tools/iofogctl.html">Quick Start Guide</a> before continuing on here. </p>
-</aside>
-
 ## Deploy Controllers on Kubernetes
 
-Create a template of controlplane.yaml like so:
+Create a template of controllers.yaml like so:
 
 ```bash
 echo "---
-iofoguser:
-  name: <First Name>
-  surname: <Surname>
-  email: <Email Address>
-  password: <Password>
 controllers:
 - name: Controller-1
-  kubeconfig: ~/.kube/config" > /tmp/controlplane.yaml
+  kubeconfig: ~/.kube/config
+  iofoguser:
+    name: <First Name>
+    surname: <Surname>
+    email: <Email Address>
+    password: <Password>" > /tmp/controllers.yaml
 ```
 
 Once the templated fields have been edited, we can run:
 
 ```bash
-iofogctl deploy controlplane -f /tmp/controlplane.yaml
+iofogctl deploy controllers -f /tmp/controllers.yaml
 ```
 
 ## Deploy Controllers on Remote Hosts
 
-Create a template of controlplane.yaml like so:
+Create a template of controllers.yaml like so:
 
 ```bash
 echo "---
-iofoguser:
-  name: <First Name>
-  surname: <Surname>
-  email: <Email Address>
-  password: <Password>
 controllers:
 - name: Controller-1
   user: <Remote Username>
   host: <Remote Hostname>
-  keyfile: <~/.ssh/id_rsa>" > /tmp/controlplane.yaml
+  keyfile: <~/.ssh/id_rsa>
+  iofoguser:
+    name: <First Name>
+    surname: <Surname>
+    email: <Email Address>
+    password: <Password>" > /tmp/controllers.yaml
 ```
 
 Once the templated fields have been edited, we can run:
 
 ```bash
-iofogctl deploy controlplane -f /tmp/controlplane.yaml
+iofogctl deploy -f /tmp/controllers.yaml
 ```
 
 ## Verify the Deployment
@@ -66,7 +61,7 @@ iofogctl get controllers
 ```
 
 ```bash
-iofogctl describe controlplane
+iofogctl describe controller Controller-1
 ```
 
-[Continue To Next Step: Setup your Connectors](setup-your-connectors.html).
+[Continue To Next Step: Setup your Agents](setup-your-agents.html).

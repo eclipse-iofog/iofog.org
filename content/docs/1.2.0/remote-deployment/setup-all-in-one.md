@@ -10,23 +10,16 @@ iofogctl deploy -f ecn.yaml
 
 The ecn.yaml file should something look like this:
 ```yaml
-controlplane:
+controllers:
+- name: Controller-1
+  user: <Remote Username>
+  host: <Remote Hostname>
+  keyfile: <~/.ssh/id_rsa>
   iofoguser:
     name: <Fist Name>
     surname: <Surname>
     email: <Email Address>
     password: <Password>
-  controllers:
-  - name: Controller-1
-    user: <Remote Username>
-    host: <Remote Hostname>
-    keyfile: <~/.ssh/id_rsa>
-
-connectors:
-- name: Connector-1
-  user: <Remote Username>
-  host: <Remote Hostname>
-  keyfile: <~/.ssh/id_rsa>
 
 agents:
  - name: Agent-1

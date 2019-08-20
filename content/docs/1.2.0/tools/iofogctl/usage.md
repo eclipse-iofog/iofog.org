@@ -12,11 +12,11 @@ In order to use `iofogctl` to deploy ioFog components on remote environments, we
 
 For Kubernetes clusters, all you need is a valid Kubernetes config file on the machine that `iofogctl` is running.
 
-For remote hosts, please follow these [instructions](../../getting-started/prepare-your-remote-hosts.md).
+For remote hosts, please follow these [instructions](../../remote-deployment/prepare-your-remote-hosts.html).
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Need help setting up infrastructure?</h3>
-  <p>We provide some helpful <a href="../platform/platform-tools.html">tools</a> for setting up your own remote hosts and Kubernetes cluster.</p>
+  <p>We provide some helpful <a href="../platform-tools.html">tools</a> for setting up your own remote hosts and Kubernetes cluster.</p>
 </aside>
 
 ## Install iofogctl
@@ -115,15 +115,6 @@ Next, we will use the default namespace to create new ioFog resources in it.
 iofogctl deploy -f ecn.yaml
 ```
 
-`iofogctl` also allows you to deploy indvidiual components of an ECN from various subcommands.
-
-```bash
-iofogctl deploy controlplane -f controlplane.yaml
-iofogctl deploy connector -f connector.yaml
-iofogctl deploy agent -f agent.yaml
-iofogctl deploy application -f application.yaml
-```
-
 Specifications of the YAML types can be found [here](../iofogctl/yaml-spec.html)
 
 ## Connect to an Existing Edge Compute Network
@@ -150,7 +141,6 @@ Try to display individual resources or all resources within a namespace with the
 
 ```bash
 iofogctl get controllers
-iofogctl get connectors
 iofogctl get agents
 iofogctl get all
 ```
@@ -158,9 +148,7 @@ iofogctl get all
 To get more detailed information, we can use the describe command:
 
 ```bash
-iofogctl describe controlplane
 iofogctl describe controller <Controller Name>
-iofogctl describe connector <Connector Name>
 iofogctl describe agent <Agent Name>
 ```
 
@@ -178,7 +166,6 @@ We can delete resources that we have deployed to free up any associated infrastr
 
 ```bash
 iofogctl delete controller <Name>
-iofogctl delete connector <Name>
 iofogctl delete agent <Name>
 ```
 

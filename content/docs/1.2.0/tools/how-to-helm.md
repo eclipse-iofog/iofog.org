@@ -10,7 +10,7 @@ The core ioFog stack installed by Helm does not require any Agents to be set up.
 
 In order to provision these Agents, ioFog needs SSH access.
 
-IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tools.html) for more details.
+IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](./platform-tools.html) for more details.
 
 The tutorial requires installation of `Helm` and `kubectl` executing the deployment.
 
@@ -51,9 +51,8 @@ kubectl create serviceaccount --namespace kube-system tiller-svacc
 kubectl create clusterrolebinding tiller-crb --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-svacc
 ```
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt="">GKE IAM Roles Needed</h3>
-  <p>In order to create the cluster role binding on GKE, we need to have `cluster.admin` permission.</p>
+In order to create the cluster role binding on GKE, we need to have `cluster.admin` permission.
+
 ```bash
 gcloud projects add-iam-policy-binding $PROJECT --member=user:person@company.com --role=roles/container.admin
 ```
@@ -96,12 +95,12 @@ To check if the custom resource exists, run `kubectl get crd iofogs.k8s.iofog.or
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Custom Resource Definitions in Helm</h3>
-  <p>Helm's support for Custom Resource Definition (CRD) is a bit reckless. Upon installation of Helm release, the CRDs will be disowned by the release and orphaned. Deleting the release will not get rid of the CRDs. This makes sense, since the definitions are scoped for the whole cluster.</p>
+  <p>Managing CRDs with Helm requires a bit of work. Upon installation of Helm release, the CRDs will be disowned by the release and orphaned. Deleting the release will not get rid of the CRDs. This makes sense, since the definitions are scoped for the whole cluster.</p>
 </aside>
 
 ## Run Tests
 
-We can run simple test suite on our newly deployed ioFog stack using helm:
+We can run a simple test suite on our newly deployed ioFog stack using helm:
 
 ```bash
 helm test iofog
