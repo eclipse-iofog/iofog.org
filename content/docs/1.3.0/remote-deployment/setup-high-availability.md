@@ -78,12 +78,14 @@ iofogctl deploy -f ecn.yaml
 
 Earlier in this guide we mentioned there are two flavours of Controllers - Kubernetes and vanilla. A vanilla Controller simply runs on a remote host (rather than as a container in a Kubernete cluster).
 
-With a vanilla Controller we need to provide our own external load balancer in front of our Controller instances. We don't cover how to setup a load balancer in this guide.
+With a vanilla Controller we need to provide our own external load balancer in front of our Controller instances. We don't cover how to setup a load balancer in this guide. Controller's default port is 51121, so make sure your load balancer is configured appropritely.
 
 The ecn.yaml file for a highly available set of vanilla Controller looks very similar to what we have seen before. Note the additional load balancer field which should specify the load balanced endpoint.
 
 ```yaml
 controlplane:
+  loadbalancer:
+    host: 77.23.44.9
   database:
     user: admin
     host: 99.230.43.25
