@@ -23,6 +23,10 @@
             "entry": "./remote-deployment/prepare-your-remote-hosts.md"
           },
           {
+            "title": "Prepare Your Network",
+            "entry": "./remote-deployment/prepare-your-network.md"
+          },
+          {
             "title": "Setup Your Control Plane",
             "entry": "./remote-deployment/setup-your-controlplane.md"
           },
