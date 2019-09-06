@@ -8,7 +8,7 @@ There are two flavours of Controller deployments - Vanilla and Kubernetes. If yo
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">We use YAML to define ioFog resources</h3>
-  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../tools/iofogctl/yaml-spec.html>here</a>.</p>
+  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../tools/iofogctl/stack-yaml-spec.html>here</a>.</p>
 </aside>
 
 ## Deploy Controllers on Kubernetes
@@ -66,9 +66,11 @@ We can use the following commands to verify the Control Plane is up and running:
 ```bash
 iofogctl get controllers
 ```
+
 ```bash
 iofogctl describe controller Controller-A
 ```
+
 ```bash
 iofogctl describe controlplane
 ```

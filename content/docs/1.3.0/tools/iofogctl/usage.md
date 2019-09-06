@@ -93,6 +93,8 @@ Use "iofogctl [command] --help" for more information about a command.
 
 ```
 
+You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/docs/md/iofogctl.md)
+
 ## Work with Namespaces
 
 All actions performed with `iofogctl` are scoped to a single namespace. The default namespace ('default') is used if the user does not specify a namespace explicitly in the command. Note that namespaces in `iofogctl` map to a Kubernetes namespace when deploying to a Kubernetes cluster.
@@ -125,7 +127,8 @@ iofogctl deploy agent -f agent.yaml
 iofogctl deploy application -f application.yaml
 ```
 
-Specifications of the YAML types can be found [here](../iofogctl/yaml-spec.html)
+Specifications of the ioFog stack YAML types can be found [here](../iofogctl/stack-yaml-spec.html)
+Specifications of the ioFog application YAML types can be found [here](../iofogctl/application-yaml-spec.html)
 
 ## Connect to an Existing Edge Compute Network
 
@@ -154,6 +157,8 @@ iofogctl get controllers
 iofogctl get connectors
 iofogctl get agents
 iofogctl get all
+iofogctl get applications
+iofogctl get microservices
 ```
 
 To get more detailed information, we can use the describe command:
@@ -163,6 +168,8 @@ iofogctl describe controlplane
 iofogctl describe controller Controller-A
 iofogctl describe connector Connector-A
 iofogctl describe agent Agent-A
+iofogctl describe application Application-A
+iofogctl describe microservice Microservice-A
 ```
 
 ## Disconnect From Edge Compute Network
@@ -181,6 +188,8 @@ We can delete resources that we have deployed to free up any associated infrastr
 iofogctl delete controller Controller-A
 iofogctl delete connector Connector-A
 iofogctl delete agent Agent-A
+iofogctl delete application Application-A
+iofogctl delete microservice Microservice-A
 ```
 
 To undo a deletion, we can simply re-run the corresponding deploy command for the deleted resource.

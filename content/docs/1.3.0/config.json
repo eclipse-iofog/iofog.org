@@ -81,8 +81,12 @@
             "entry": "./tools/iofogctl/usage.md"
           },
           {
-            "title": "Iofogctl YAML Specification",
-            "entry": "./tools/iofogctl/yaml-spec.md"
+            "title": "Iofogctl ioFog stack YAML Specification",
+            "entry": "./tools/iofogctl/stack-yaml-spec.md"
+          },
+          {
+            "title": "Iofogctl ioFog application YAML Specification",
+            "entry": "./tools/iofogctl/application-yaml-spec.md"
           },
           {
             "title": "Platform Tools",
