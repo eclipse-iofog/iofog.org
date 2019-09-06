@@ -1,9 +1,10 @@
 # Quick Start
 
 In this guide we will:
-* Install the prerequisites and tools required to create and manage ECN's ('Edge Compute Networks')
-* Create an ECN on a local machine to demonstrate the processes and components involved in an ECN
-* Deploy a set of Microservices on our local ECN
+
+- Install the prerequisites and tools required to create and manage ECN's ('Edge Compute Networks')
+- Create an ECN on a local machine to demonstrate the processes and components involved in an ECN
+- Deploy a set of Microservices on our local ECN
 
 ## Prerequisites
 

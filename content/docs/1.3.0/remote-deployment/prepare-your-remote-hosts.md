@@ -11,7 +11,7 @@ ECN's are deployed using `iofogctl`. The following steps will ensure that your r
 
 ## Add your SSH RSA Public Key to the Remote Host
 
-`iofogctl` will SSH into your remote hosts using an RSA SSH key-pair you specify. 
+`iofogctl` will SSH into your remote hosts using an RSA SSH key-pair you specify.
 
 Add the public key of the key-pair that you intend to use with `iofogctl` to the remote host you intend to deploy ECN components onto. For example, you could run a command like this from the host you intend to use `iofogctl` from:
 
@@ -29,7 +29,7 @@ usermod -aG sudo $USER
 
 ## Allow Sudoers to Sudo without Password
 
-In order to prevent interruptions during `iofogctl` SSH sessions, we need to ensure that the sudoers in the remote host can run commands without having to enter a password. 
+In order to prevent interruptions during `iofogctl` SSH sessions, we need to ensure that the sudoers in the remote host can run commands without having to enter a password.
 
 We can achieve this by editing the sudoers file by first running `su visudo` on the remote host. This will open up the sudoers file for editing. Make sure this line is present in the file `%sudo ALL=(ALL) NOPASSWD:ALL`.
 
