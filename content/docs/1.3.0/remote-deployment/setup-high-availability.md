@@ -47,25 +47,25 @@ controlplane:
     email: user@domain.com
     password: iht234g9afhe
   controllers:
-  - name: Controller-A
-    replicas: 3
-    kubeconfig: ~/.kube/config
+    - name: Controller-A
+      replicas: 3
+      kubeconfig: ~/.kube/config
 
 connectors:
-- name: Connector-A
-  user: foo
-  host: 38.101.23.3
-  keyfile: ~/.ssh/id_rsa
+  - name: Connector-A
+    user: foo
+    host: 38.101.23.3
+    keyfile: ~/.ssh/id_rsa
 
 agents:
- - name: Agent-A
-   user: bar
-   host: 77.91.1.37
-   keyfile: ~/.ssh/id_rsa
- - name: Agent-B
-   user: foo
-   host: 77.91.1.38
-   keyfile: ~/.ssh/id_rsa
+  - name: Agent-A
+    user: bar
+    host: 77.91.1.37
+    keyfile: ~/.ssh/id_rsa
+  - name: Agent-B
+    user: foo
+    host: 77.91.1.38
+    keyfile: ~/.ssh/id_rsa
 ```
 
 And we can use our ecn.yaml like this:
@@ -97,30 +97,30 @@ controlplane:
     email: user@domain.com
     password: iht234g9afhe
   controllers:
-  - name: Controller-A
-    user: foo
-    host: 44.171.23.3
-    keyfile: ~/.ssh/id_rsa
-  - name: Controller-B
-    user: foo
-    host: 44.171.23.4
-    keyfile: ~/.ssh/id_rsa
+    - name: Controller-A
+      user: foo
+      host: 44.171.23.3
+      keyfile: ~/.ssh/id_rsa
+    - name: Controller-B
+      user: foo
+      host: 44.171.23.4
+      keyfile: ~/.ssh/id_rsa
 
 connectors:
-- name: Connector-A
-  user: foo
-  host: 38.101.23.3
-  keyfile: ~/.ssh/id_rsa
+  - name: Connector-A
+    user: foo
+    host: 38.101.23.3
+    keyfile: ~/.ssh/id_rsa
 
 agents:
- - name: Agent-A
-   user: bar
-   host: 77.91.1.37
-   keyfile: ~/.ssh/id_rsa
- - name: Agent-B
-   user: foo
-   host: 77.91.1.38
-   keyfile: ~/.ssh/id_rsa
+  - name: Agent-A
+    user: bar
+    host: 77.91.1.37
+    keyfile: ~/.ssh/id_rsa
+  - name: Agent-B
+    user: foo
+    host: 77.91.1.38
+    keyfile: ~/.ssh/id_rsa
 ```
 
 Which we can, ofcourse, run like so:
