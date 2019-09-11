@@ -8,8 +8,12 @@ For a complete documentation of all available `iofogctl` commands, please see [o
 
 An appplication is a set of microservices working together to achieve one specific purpose (I.E: One microservice collecting and formatting data, another one displaying the data in a user friendly way)
 
-An Application can be specified when using `iofogctl deploy application -f application.yaml`
-An Application can be retrieved when using `iofogctl describe application <NAME> [-o application.yaml]`
+An application is defined by a yaml file. This file is passed as a parameter to the deploy command: `iofogctl deploy application -f <path-to-yaml>`
+
+An application yaml file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
+
+Don't panic if this seems like a lot to ingest, the microservice yaml definition is explained in more details further down.
+The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
 
 ```yaml
 # Name of your application
@@ -58,8 +62,11 @@ routes:
 
 ## Microservices
 
-A Microservice can be specified when using `iofogctl deploy microservice -f microservice.yaml`
-A Microservice can be retrieved when using `iofogctl describe microservice <NAME> [-o microservice.yaml]`
+Microservices configuration and set up are defined using yaml files.
+
+Those yaml definitions can be used inside an application yaml file, or by themselves when deploying a microservice to an existing application: `iofogctl deploy microservice -f <path-to-microservice.yaml>`
+
+A microservice yaml definition file can be retrieved using the describe command: `iofogctl describe microservice <NAME> [-o microservice.yaml]`
 
 ```yaml
 # Microservice name
