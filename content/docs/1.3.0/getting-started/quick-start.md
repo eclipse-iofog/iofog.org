@@ -8,11 +8,15 @@ In this guide we will:
 
 ## Prerequisites
 
-- `Docker` is an open platform for developing, shipping, and running applications. Find the installation instructions <a href="https://docs.docker.com/">here</a>.
+- `Docker`:
+  Open platform for developing, shipping, and running applications.
 
-- `iofogctl` is a CLI tool and a one-stop-shop for all your ioFog needs.
+  Find the installation instructions <a href="https://docs.docker.com/">here</a>.
 
-All you need to run `iofogctl` is a Linux or MacOS host.
+- `iofogctl`:
+  CLI tool and a one-stop-shop for all your ioFog needs.
+
+  Find the installation instructions below.
 
 #### Install iofogctl on Mac
 
@@ -201,8 +205,6 @@ To have a quick look at the local ECN, we can run:
 ```bash
 iofogctl get all
 ```
-
-Once the Microservices are up and running, we should now be able to see a graph if we navigate to localhost:5000 in our browser!
 
 ## Teardown
 
