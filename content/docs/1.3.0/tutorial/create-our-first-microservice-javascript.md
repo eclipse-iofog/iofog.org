@@ -86,7 +86,7 @@ const iofog = require('@iofog/nodejs-sdk');
 
 <aside class="notifications danger">
   <h3><img src="/images/icos/ico-danger.svg" alt=""> Use this as our entry point</h3>
-  <p>The callback we provide should be treated for mostly as a pseudo entry point of our microservice. WE have to make sure we don't call any SDK APIs before this function has been called!</p>
+  <p>The callback we provide should be treated for mostly as a pseudo entry point of our microservice. We have to make sure we don't call any SDK APIs before this function has been called!</p>
 </aside>
 
 We now have to register a callback for ioFog once the ioFog SDK has finished initializing. It accepts a number of arguments, but we'll most likely want to pass these defaults. Here we register `main()` function as the init callback.
@@ -261,8 +261,9 @@ const iofog = require('@iofog/nodejs-sdk');
 
 // Used as our in-memory cache of our configuration
 // that will be provided by the Controller
-let config = null;
-
+let config = {
+  maxWindowSize: 150 // Default value in case no config is provided
+};
 function updateConfig() {
   iofog.getConfig({
     onNewConfig: newConfig => {
@@ -353,26 +354,79 @@ Like all build scripts, Dockerfiles can become a bit complex for advanced applic
 
 ```dockerfile
 FROM node:8
-COPY . /moving-average
 WORKDIR /moving-average
+COPY ./package.json .
 RUN npm install --only=production
+COPY index.js .
 CMD node .
 ```
+
+In case you are not familiar with [Dockerfile](https://docs.docker.com/engine/reference/builder/), here is a quick run down of the building steps:
+
+1. Use a [public base image](https://hub.docker.com/_/node) `node:8` to start with
+2. Set the image current working directory to `/moving-average`
+3. Copy `package.json` from the current local folder into `/moving-average` inside the image
+4. Run `npm install --only=production`, which will install all required `node_modules` for production
+5. Copy `index.js` from the current local folder into `/moving-average` inside the image
+6. When a container is run using this image, start the container by running the following command `node .`
 
 ## Build Our Docker Image
 
 With our Dockerfile setup, we can go ahead and build our image:
 
-```bash
+```console
 docker build --tag iofog-tutorial/moving-average:v1 .
+
+Sending build context to Docker daemon    7.8MB
+Step 1/6 : FROM node:8
+8: Pulling from library/node
+092586df9206: Pull complete
+ef599477fae0: Pull complete
+4530c6472b5d: Pull complete
+d34d61487075: Pull complete
+87fc2710b63f: Pull complete
+e83c771c5387: Pull complete
+544e37709f92: Pull complete
+3aaf6653b5f3: Pull complete
+1fed50f6e111: Pull complete
+Digest: sha256:c00557b8634c74012eda82ac95f1813c9ea8c152a82f53ad71c5c9611f6f8c3c
+Status: Downloaded newer image for node:8
+ ---> 7a9afc16a57f
+Step 2/6 : WORKDIR /moving-average
+ ---> Running in 640e44403abe
+Removing intermediate container 640e44403abe
+ ---> 9b9c5c8036d5
+Step 3/6 : COPY ./package.json .
+ ---> ebe7bf4fd2cf
+Step 4/6 : RUN npm install --only=production
+ ---> Running in d2cd4b22f27e
+npm WARN moving-average@1.0.0 No description
+npm WARN moving-average@1.0.0 No repository field.
+
+audited 176 packages in 1.331s
+found 9 vulnerabilities (6 moderate, 3 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container d2cd4b22f27e
+ ---> 7818facf5c9c
+Step 5/6 : COPY index.js .
+ ---> da965f5084b9
+Step 6/6 : CMD node .
+ ---> Running in 91a726deaea4
+Removing intermediate container 91a726deaea4
+ ---> a1b78cc399d1
+Successfully built a1b78cc399d1
+Successfully tagged iofog-tutorial/moving-average:v1
 ```
 
 We'll wait a few minutes while it downloads a default Node.js environment we're using as a base.
 
 Let's double check the images were successfully created. The image name and tag are important in the next step of the tutorial, where we are going to deploy the moving average service.
 
-```bash
+```console
 docker image ls --filter 'reference=*/moving-average'
+
+REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+iofog-tutorial/moving-average   v1                  5bf0943c4cd2        2 minutes ago       904MB
 ```
 
 ## Deploy Our Microservice
