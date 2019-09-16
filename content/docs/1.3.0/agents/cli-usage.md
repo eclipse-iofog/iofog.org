@@ -40,6 +40,7 @@ iofog-agent config defaults
 | **-l number**              | Set the limit, in GiB, of disk space that the log files can consume                                                                                                        |
 | **-ld string**             | Set the directory to use for log file storage, default: `/var/log/iofog-agent`                                                                                             |
 | **-lc number**             | Set the number of log files to evenly split the log storage limit                                                                                                          |
+| **-ll string**             | Set the standard logging levels that can be used to control logging output                                                                                                 |
 | **-sf number**             | Set the status update frequency                                                                                                                                            |
 | **-cf number**             | Set the get changes frequency                                                                                                                                              |
 | **-df number**             | Set the post diagnostics frequency                                                                                                                                         |
@@ -87,6 +88,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <log_disk_consumption_limit>10.0</log_disk_consumption_limit>
   <log_disk_directory>/var/log/iofog-agent/</log_disk_directory>
   <log_file_count>10</log_file_count>
+  <log_level>INFO</log_level>
   <status_update_freq>30</status_update_freq>
   <get_changes_freq>60</get_changes_freq>
   <post_diagnostics_freq>10</post_diagnostics_freq>
@@ -114,6 +116,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <log_disk_consumption_limit>10.0</log_disk_consumption_limit>
   <log_disk_directory>/var/log/iofog-agent/</log_disk_directory>
   <log_file_count>10</log_file_count>
+  <log_level>INFO</log_level>
   <status_update_freq>30</status_update_freq>
   <get_changes_freq>60</get_changes_freq>
   <post_diagnostics_freq>10</post_diagnostics_freq>
@@ -142,6 +145,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <log_disk_consumption_limit>10.0</log_disk_consumption_limit>
   <log_disk_directory>/var/log/iofog-agent/</log_disk_directory>
   <log_file_count>10</log_file_count>
+  <log_level>INFO</log_level>
   <status_update_freq>30</status_update_freq>
   <get_changes_freq>60</get_changes_freq>
   <post_diagnostics_freq>10</post_diagnostics_freq>
