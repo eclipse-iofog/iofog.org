@@ -116,28 +116,27 @@
         ]
       },
       {
-        "title": "Using System Microservices",
+        "title": "Using Microservices Catalog",
         "subMenus": [
           {
-            "title": "Diagnostics",
-            "entry": "./using-system-microservices/diagnostics.md"
+            "title": "Controller microservices overview",
+            "entry": "./microservice-catalog/introduction.md"
           },
           {
-            "title": "Hardware Abstraction Layer",
-            "entry": "./using-system-microservices/hal.md"
+            "title": "System: Diagnostics",
+            "entry": "./microservice-catalog/using-system-microservices/diagnostics.md"
           },
           {
-            "title": "Bluetooth REST API",
-            "entry": "./using-system-microservices/rest-blue.md"
-          }
-        ]
-      },
-      {
-        "title": "Using Public Catalog Microservices",
-        "subMenus": [
+            "title": "System: Hardware Abstraction Layer",
+            "entry": "./microservice-catalog/using-system-microservices/hal.md"
+          },
+          {
+            "title": "System: Bluetooth REST API",
+            "entry": "./microservice-catalog/using-system-microservices/rest-blue.md"
+          },
           {
             "title": "JSON REST API And Open Weather Map",
-            "entry": "./using-public-catalog-microservices/jsonrestapi.md"
+            "entry": "./microservice-catalog/using-public-catalog-microservices/jsonrestapi.md"
           }
         ]
       },

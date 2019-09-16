@@ -8,15 +8,8 @@ In this guide we will:
 
 ## Prerequisites
 
-##### Docker
-
-Find the installation instructions <a href="https://docs.docker.com/">here</a>.
-
-##### iofogctl
-
-CLI tool and a one-stop-shop for all your ioFog needs.
-
-Find the installation instructions below.
+- `Docker 1.10+`: Open platform for developing, shipping, and running applications. ([installation instructions](https://docs.docker.com/install/))
+- `iofogctl 1.3.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](https://github.com/eclipse-iofog/iofogctl/tree/v1.3.0#install))
 
 #### Install iofogctl on Mac
 
