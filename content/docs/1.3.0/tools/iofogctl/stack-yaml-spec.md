@@ -2,8 +2,6 @@
 
 `iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
 
-For a complete documentation of all available `iofogctl` commands, please see [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/docs/md/iofogctl.md)
-
 ## Control Plane
 
 A Control Plane can be specified when using `iofogctl deploy controlplane -f controlplane.yaml`
@@ -28,11 +26,11 @@ loadbalancer:
   port: 51121
 
 controllers:
-  - name: Vanilla-Controller
+  - name: vanilla
     user: foo
     host: 30.40.50.3
     keyfile: ~/.ssh/id_rsa
-  - name: Kubernetes-Controller
+  - name: kubernetes
     replicas: 2
     keyfile: ~/.ssh/id_rsa
 ```
@@ -49,7 +47,7 @@ controllers:
 A Controller can be specified when using `iofogctl deploy controller -f controller.yaml`
 
 ```yaml
-name: Controller-A
+name: alpaca
 
 # Only required for non-K8s deployment
 user: foo
@@ -59,16 +57,17 @@ keyfile: ~/.ssh/id_rsa
 # Only required for K8s deployment
 kubeconfig: ~/.kube/config
 replicas: 1 # Optional, defaults to 1
-kubecontrollerip: 34.23.14.6 # Optional, static IP for LoadBalancer service
+kubecontrollerip: 34.23.14.6 # Optional
 ```
 
 | Field       | Description                                                                                                   |
 | ----------- | ------------------------------------------------------------------------------------------------------------- |
-| Name        | User-defined unique identifier of Controller instance within an iofogctl namespace.                           |
+| Name        | User-defined unique identifier of Controller instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character.                          |
 | User        | Username of remote host that iofogctl must SSH into to install Controller service.                            |
 | Host        | Hostname of remote host that iofogctl must SSH into to install Controller service.                            |
 | Key File    | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Controller service.     |
 | Kube Config | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster. |
+| Kube Controller IP | Pre-existing static IP address for Kuberneretes Load Balancer service to use. |
 | Replicas    | Number of Controller Pods to deploy on Kubernetes cluster.                                                    |
 
 ## Connector
@@ -76,7 +75,7 @@ kubecontrollerip: 34.23.14.6 # Optional, static IP for LoadBalancer service
 A Connector can be specified when using `iofogctl deploy connector -f connector.yaml`
 
 ```yaml
-name: Connector-A
+name: tiger
 
 # Only required for non-K8s deployment
 user: foo
@@ -90,7 +89,7 @@ replicas: 1 # Optional, defaults to 1
 
 | Field       | Description                                                                                                  |
 | ----------- | ------------------------------------------------------------------------------------------------------------ |
-| Name        | User-defined unique identifier of Connector instance within an iofogctl namespace.                           |
+| Name        | User-defined unique identifier of Connector instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character.                          |
 | User        | Username of remote host that iofogctl must SSH into to install Connector service.                            |
 | Host        | Hostname of remote host that iofogctl must SSH into to install Connector service.                            |
 | Key File    | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Connector service.     |
@@ -102,7 +101,7 @@ replicas: 1 # Optional, defaults to 1
 An Agent can be specified when using `iofogctl deploy agent -f agent.yaml`
 
 ```yaml
-name: Agent-A
+name: meerkat
 user: foo
 host: 30.40.50.6
 keyfile: ~/.ssh/id_rsa
@@ -110,7 +109,7 @@ keyfile: ~/.ssh/id_rsa
 
 | Field | Description                                                                    |
 | ----- | ------------------------------------------------------------------------------ |
-| Name  | User-defined unique identifier of Agent instance within an iofogctl namespace. |
+| Name  | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character.|
 | User  | Username of remote host that iofogctl must SSH into to install Agent service.  |
 | Host  | Hostname of remote host that iofogctl must SSH into to install Agent service.  |
 
@@ -126,27 +125,27 @@ controlplane:
     email: serge@edgeworx.io
     password: mysecretpw
   controllers:
-    - name: Controller-A
+    - name: alpaca-1
       user: serge
       host: 30.40.50.3
       keyfile: ~/.ssh/id_rsa
-    - name: Controller-B
+    - name: alpaca-2
       user: serge
       host: 30.40.50.4
       keyfile: ~/.ssh/id_rsa
 
 connectors:
-  - name: Connector-A
+  - name: zebra
     user: serge
     host: 30.40.50.5
     keyfile: ~/.ssh/id_rsa
 
 agents:
-  - name: Agent-A
+  - name: hippo-1
     user: serge
     host: 30.40.50.6
     keyfile: ~/.ssh/id_rsa
-  - name: Agent-B
+  - name: hippo-2
     user: serge
     host: 30.40.50.7
     keyfile: ~/.ssh/id_rsa

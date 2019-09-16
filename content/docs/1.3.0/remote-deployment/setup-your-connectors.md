@@ -10,7 +10,7 @@ Create a template of connectors.yaml like so:
 
 ```bash
 echo "---
-name: Connector-1
+name: meerkat-1
 kubeconfig: ~/.kube/config" > /tmp/connector.yaml
 ```
 
@@ -28,7 +28,7 @@ Create a template of connector.yaml like so:
 
 ```bash
 echo "---
-name: Connector-1
+name: meerkat-1
 user: foo
 host: 38.101.23.3
 keyfile: ~/.ssh/id_rsa" > /tmp/connector.yaml

@@ -102,9 +102,9 @@ All actions performed with `iofogctl` are scoped to a single namespace. The defa
 Try creating, listing, and deleting namespaces now with the following commands.
 
 ```bash
-iofogctl create namespace Namespace-A
+iofogctl create namespace zoo-1
 iofogctl get namespaces
-iofogctl delete namespace Namespace-A
+iofogctl delete namespace zoo-1
 ```
 
 Next, we will use the default namespace while exploring `iofogctl` functionality.
@@ -135,13 +135,13 @@ Specifications of the ioFog application YAML types can be found [here](../iofogc
 Instead of deploying our own ECN, we can connect to an existing one.
 
 ```bash
-iofogctl connect Controller-A --controller 30.40.50.1 --email user@domain.com --pass h9g84q
+iofogctl connect alpaca-1 --controller 30.40.50.1 --email user@domain.com --pass h9g84q
 ```
 
 Or for Kubernetes Controllers:
 
 ```bash
-iofogctl connect Controller-A --kube-config ~/.kube/config --email user@domain.com --pass h9g84q
+iofogctl connect alpaca-2 --kube-config ~/.kube/config --email user@domain.com --pass h9g84q
 ```
 
 Note that we must specify an empty or non-existent namespace when we use the connect command. This is because each cluster should be in its own namespace.
@@ -165,11 +165,11 @@ To get more detailed information, we can use the describe command:
 
 ```bash
 iofogctl describe controlplane
-iofogctl describe controller Controller-A
-iofogctl describe connector Connector-A
-iofogctl describe agent Agent-A
-iofogctl describe application Application-A
-iofogctl describe microservice Microservice-A
+iofogctl describe controller alpaca-1
+iofogctl describe connector meerkat-2
+iofogctl describe agent kiwi-1
+iofogctl describe application health-care-app
+iofogctl describe microservice health-care-ui
 ```
 
 ## Disconnect From Edge Compute Network
@@ -185,11 +185,11 @@ iofogctl disconnect
 We can delete resources that we have deployed to free up any associated infrastructure. Deleting resources like Control Planes, Controllers, Connectors, and Agents will cause any corresponding daemons to be terminated on the remote hosts.
 
 ```bash
-iofogctl delete controller Controller-A
-iofogctl delete connector Connector-A
-iofogctl delete agent Agent-A
-iofogctl delete application Application-A
-iofogctl delete microservice Microservice-A
+iofogctl delete controller alpaca-1
+iofogctl delete connector meerkat-2
+iofogctl delete agent kiwi-1
+iofogctl delete application health-care-app
+iofogctl delete microservice health-case-ui
 ```
 
 To undo a deletion, we can simply re-run the corresponding deploy command for the deleted resource.
@@ -198,4 +198,10 @@ If we want to wipe an entire ECN, we can run:
 
 ```bash
 iofogctl delete all
+```
+
+or, if we also want to delete the namespace, we can run:
+
+```bash
+iofogctl delete namespace zoo-1 --force
 ```

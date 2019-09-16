@@ -24,7 +24,7 @@ microservices:
   # It uses the microservice yaml schema described below
   - name: heart-rate-monitor
     agent:
-      name: Agent-1
+      name: zebra-1
       config:
         bluetoothenabled: true
         abstractedhardwareenabled: false
@@ -40,7 +40,7 @@ microservices:
     env: []
   - name: heart-rate-viewer
     agent:
-      name: Agent-2
+      name: zebra-2
     images:
       x86: edgeworx/healthcare-heart-rate-ui:x86
       arm: edgeworx/healthcare-heart-rate-ui:arm
@@ -75,7 +75,7 @@ name: heart-rate-monitor
 # Agent on which to deploy the microservice
 agent:
   # Agent name
-  name: Agent-1
+  name: zebra-1
   # Optional agent configuration
   config:
     # All fields are optional

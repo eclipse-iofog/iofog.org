@@ -8,7 +8,7 @@ Create a template of agent.yaml like so:
 
 ```bash
 echo "---
-name: Agent-1
+name: zebra-1
 user: foo
 host: 38.101.23.10
 keyfile: ~/.ssh/id_rsa" > /tmp/agent.yaml

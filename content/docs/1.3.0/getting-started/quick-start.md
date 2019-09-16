@@ -8,15 +8,15 @@ In this guide we will:
 
 ## Prerequisites
 
-- `Docker`:
-  Open platform for developing, shipping, and running applications.
+##### Docker
 
-  Find the installation instructions <a href="https://docs.docker.com/">here</a>.
+Find the installation instructions <a href="https://docs.docker.com/">here</a>.
 
-- `iofogctl`:
-  CLI tool and a one-stop-shop for all your ioFog needs.
+##### iofogctl
 
-  Find the installation instructions below.
+CLI tool and a one-stop-shop for all your ioFog needs.
+
+Find the installation instructions below.
 
 #### Install iofogctl on Mac
 
@@ -67,15 +67,15 @@ controlplane:
     email: user@domain.com
     password: q1u45ic9kst563art
   controllers:
-  - name: LocalController
+  - name: local-controller
     host: localhost
 
 connectors:
-- name: LocalConnector
+- name: local-connector
   host: localhost
 
 agents:
- - name: LocalAgent
+ - name: local-agent
    host: localhost" > /tmp/quick-start.yaml
 iofogctl deploy -f /tmp/quick-start.yaml
 ```

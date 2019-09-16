@@ -23,7 +23,7 @@ iofoguser:
   email: user@domain.com
   password: iht234g9afhe
 controllers:
-- name: Controller-A
+- name: alpaca-1
   kubeconfig: ~/.kube/config" > /tmp/controlplane.yaml
 ```
 
@@ -47,7 +47,7 @@ iofoguser:
   email: user@domain.com
   password: iht234g9afhe
 controllers:
-- name: Controller-A
+- name: alpaca-1
   user: bar
   host: 38.101.23.2
   keyfile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
