@@ -40,7 +40,7 @@ The Docker image containing our microservice code is registered with our local i
 
 If you spent some time looking around the folder structure, you might have noticed the file `init/tutorial/config.yaml`
 
-```console
+```yaml
 $ cat init/tutorial/config.yaml
 
 name: tutorial
