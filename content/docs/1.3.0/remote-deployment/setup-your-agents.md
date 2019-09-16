@@ -29,7 +29,7 @@ iofogctl get agents
 ```
 
 ```bash
-iofogctl describe agent Agent-1
+iofogctl describe agent zebra-1
 ```
 
 [Continue To Next Step: Setup High Availability](setup-high-availability.html).

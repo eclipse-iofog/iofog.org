@@ -139,7 +139,7 @@ applications:
     microservices:
     - name: "heart-rate-monitor"
       agent:
-        name: LocalAgent
+        name: local-agent
         config:
           bluetoothEnabled: true # this will install the iofog/restblue microservice
           abstractedHardwareEnabled: false
@@ -153,7 +153,7 @@ applications:
         data_label: "Anonymous Person"
     - name: "heart-rate-viewer"
       agent:
-        name: LocalAgent
+        name: local-agent
       images:
         arm: "edgeworx/healthcare-heart-rate-ui:arm"
         x86: "edgeworx/healthcare-heart-rate-ui:x86"
@@ -190,8 +190,8 @@ Which will output something similar to:
 Every 2.0s: iofogctl get microservices                                                                                                                                                  Alexandres-MacBook-Pro.local: Wed Sep 11 16:17:34 2019
 
 MICROSERVICE            STATUS          AGENT           CONFIG                                                  ROUTES                  VOLUMES         PORTS
-heart-rate-monitor      QUEUED          LocalAgent      {"data_label":"Anonymous Person","test_mode":true}      heart-rate-viewer
-heart-rate-viewer       QUEUED          LocalAgent      {}                                                                              /tmp/msvc:/tmp  5000:80
+heart-rate-monitor      QUEUED          local-agent      {"data_label":"Anonymous Person","test_mode":true}      heart-rate-viewer
+heart-rate-viewer       QUEUED          local-agent      {}                                                                             /tmp/msvc:/tmp  5000:80
 ```
 
 Once both microservice status are 'RUNNING', the microservices have started. You will be able to see the web application on your browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.

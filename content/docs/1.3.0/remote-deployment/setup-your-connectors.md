@@ -49,7 +49,7 @@ iofogctl get connectors
 ```
 
 ```bash
-iofogctl describe connector Connector-1
+iofogctl describe connector meerkat-1
 ```
 
 [Continue To Next Step: Setup your Agents](setup-your-agents.html).

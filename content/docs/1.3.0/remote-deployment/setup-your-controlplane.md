@@ -68,7 +68,7 @@ iofogctl get controllers
 ```
 
 ```bash
-iofogctl describe controller Controller-A
+iofogctl describe controller alpaca-1
 ```
 
 ```bash

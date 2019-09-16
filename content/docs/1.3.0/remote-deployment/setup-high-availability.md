@@ -47,22 +47,22 @@ controlplane:
     email: user@domain.com
     password: iht234g9afhe
   controllers:
-    - name: Controller-A
+    - name: alpaca-1
       replicas: 3
       kubeconfig: ~/.kube/config
 
 connectors:
-  - name: Connector-A
+  - name: meerkat-1
     user: foo
     host: 38.101.23.3
     keyfile: ~/.ssh/id_rsa
 
 agents:
-  - name: Agent-A
+  - name: zebra-1
     user: bar
     host: 77.91.1.37
     keyfile: ~/.ssh/id_rsa
-  - name: Agent-B
+  - name: zebra-2
     user: foo
     host: 77.91.1.38
     keyfile: ~/.ssh/id_rsa
@@ -107,7 +107,7 @@ controlplane:
       keyfile: ~/.ssh/id_rsa
 
 connectors:
-  - name: meerkat
+  - name: meerkat-1
     user: foo
     host: 38.101.23.3
     keyfile: ~/.ssh/id_rsa
