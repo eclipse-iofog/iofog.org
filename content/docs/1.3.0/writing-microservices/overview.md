@@ -31,20 +31,26 @@ But because most Edge Compute Networks contain multiple, sometimes even hundreds
 
 Using [the SDK](sdk.html) microservices can receive any arbitrary custom configuration JSON remotely, from the Controller. This allows you to change configuration of your microservices at runtime through the Controller, but also prevents you from needing to bake secrets and other keys into your microservice.
 
-Updating a microservice's configuration can then be done from the Controller:
+Updating a microservice's configuration can then be done from using `iofogctl`:
 
-```sh
-# Get the microservice's ID if you don't already have it
+```yaml
+# Get the microservice's YAML description file if you don't have it yet:
+# $ iofogctl describe microservice MICROSERVICE_NAME -o my-microservice.yaml
 
-# Use the ID returned from previous command
-iofog-controller microservice update \
-  --microservice-id <id> \
-  --config '
-    {
-      "myCustomValue": true,
-      "someSecretKey": "private-value"
-    }
-  '
+# Edit the YAML file
+name: my-microservice
+agent: ...
+application: my-application
+config:
+  myCustomValue: true
+  someSecretKey: private-value
+ports: []
+```
+
+Then you can redeploy your microservice to update its yaml configuration file:
+
+```console
+$ iofogctl deploy microservice -f my-microservice.yaml
 ```
 
 ## Packaging and Publishing
@@ -63,8 +69,10 @@ The high-level process of creating a new microservice is:
 - Write the microservice app code itself
 - Build the image with [`docker build`](https://docs.docker.com/engine/reference/commandline/build/)
 - Deploy your image to a Docker registry (e.g. Docker Hub or from the ioFog local cache)
-- Add the registered image to your Controller's catalog
-- Start the microservice from your Controller
+- (Optional) Add the registered image to your Controller's catalog
+- Deploy the microservice using iofogctl
+
+It is detailed in our [tutorial](/docs/1.3.0/tutorial/introduction.html)
 
 ```json
 {
