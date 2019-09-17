@@ -1,4 +1,6 @@
-# Connector CLI Usage
+# Legacy Connector CLI Usage
+
+Please see iofogctl for current CLI usage: [iofogctl](http://iofog.org/docs/1.3.0/tools/iofogctl/usage.html)
 
 ```sh
 iofog-connector <command> <options>
