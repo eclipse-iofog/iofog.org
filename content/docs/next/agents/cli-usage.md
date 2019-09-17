@@ -1,4 +1,4 @@
-# Agent CLI Usage
+# Legacy Agent CLI Usage
 
 ```sh
 iofog-agent command --option <argument>

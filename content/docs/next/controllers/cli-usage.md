@@ -1,4 +1,6 @@
-# Controller CLI Usage
+# Legacy Controller CLI Usage
+
+Please see iofogctl for current support CLI usage for this patch:
 
 ```sh
 iofog-controller <command> <action> <options>

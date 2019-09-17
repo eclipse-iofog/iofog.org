@@ -1,4 +1,4 @@
-# Connector CLI Usage
+# Legacy Connector CLI Usage
 
 ```sh
 iofog-connector <command> <options>
