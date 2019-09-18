@@ -16,7 +16,7 @@ variables:
   branchTag: $(Build.SourceBranchName)
 
 jobs:
-  - job: "iofog.org"
+  - job: "ioFog"
     pool:
       vmImage: 'Ubuntu-16.04'
 
