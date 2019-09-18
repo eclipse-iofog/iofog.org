@@ -11,7 +11,7 @@ trigger:
 
 variables:
   group: 'pipelines'
-  repository: 'gcr.io/focal-freedom-236620/iofogorg'
+  repository: 'focal-freedom-236620/iofogorg'
   buildTag: $(Build.BuildId)
   branchTag: $(Build.SourceBranchName)
 
@@ -76,5 +76,5 @@ jobs:
         displayName: 'set up kubectl'
 
       - bash: |
-          kubectl set image deployment/iofog-org iofogorg=$(repository):$(buildTag)
+          ./kubectl set image deployment/iofog-org iofogorg=gcr.io/$(repository):$(buildTag)
         displayName: 'update deployment'
