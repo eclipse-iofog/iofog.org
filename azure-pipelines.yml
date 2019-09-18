@@ -5,7 +5,6 @@ trigger:
   branches:
     include:
       - develop
-      - master
   paths:
     exclude:
       - README.md
@@ -17,7 +16,7 @@ variables:
   branchTag: $(Build.SourceBranchName)
 
 jobs:
-  - job: iofog.org
+  - job: "iofog.org"
     pool:
       vmImage: 'Ubuntu-16.04'
 
