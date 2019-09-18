@@ -1,0 +1,56 @@
+trigger:
+  tags:
+    include:
+      - v*
+  branches:
+    include:
+      - develop
+      - master
+  paths:
+    exclude:
+      - README.md
+
+variables:
+  group: 'pipelines'
+  repository: 'focal-freedom-236620/iofogorg'
+  buildTag: $(Build.BuildId)
+  branchTag: $(Build.SourceBranchName)
+
+jobs:
+  - job: iofog.org
+    pool:
+      vmImage: 'Ubuntu-16.04'
+
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
+
+      - script: |
+          npm install
+        displayName: 'npm install'
+
+      - script: |
+          npm run build
+        displayName: 'npm build'
+
+      - task: Docker@2
+        displayName: 'build docker'
+        inputs:
+          containerRegistry: 'Edgeworx GCP'
+          repository: $(repository)
+          command: 'build'
+          Dockerfile: "Dockerfile"
+          tags: |
+            latest
+
+      - task: Docker@2
+        displayName: 'push docker'
+        inputs:
+          containerRegistry: 'Edgeworx GCP'
+          repository: $(repository)
+          command: 'push'
+          Dockerfile: "Dockerfile"
+          tags: |
+            latest
