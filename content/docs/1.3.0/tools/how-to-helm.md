@@ -79,8 +79,19 @@ Add this Helm repository to our Helm repository index and install the ioFog stac
 
 ```bash
 helm repo add iofog https://eclipse-iofog.github.io/helm
-helm install --name iofog --namespace iofog iofog/iofog
+helm install \
+--set controlPlane.user.email=user@domain.com, controlPlane.user.password=any123password345 \
+--name iofog \
+--namespace iofog iofog/iofog
 ```
+
+Once the installation is complete, you will be able to connect to the ioFog Controller on K8s using [iofogctl](./iofogctl/usage.html).
+
+```bash
+iofogctl connect k8s-ctrl --kube-config ~/.kube/config --email user@domain.com --pass any123password345
+```
+
+Once you are connected, you can use `iofogctl` to deploy edge Agents. Then, you can use `kubectl` or `iofogctl` to deploy microservices to your edge Agents.
 
 ### Multiple Instances of ioFog Stack
 
