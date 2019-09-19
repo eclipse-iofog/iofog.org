@@ -43,6 +43,7 @@ jobs:
           Dockerfile: "Dockerfile"
           tags: |
             $(buildTag)
+        condition: ne(variables['Build.Reason'], 'PullRequest')
 
       - task: Docker@2
         displayName: 'push docker'
@@ -53,11 +54,13 @@ jobs:
           Dockerfile: "Dockerfile"
           tags: |
             $(buildTag)
+        condition: ne(variables['Build.Reason'], 'PullRequest')
 
       - task: DownloadSecureFile@1
         displayName: 'Download secure file'
         inputs:
           secureFile: 'azure-gcp.json'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
 
       - bash: |
           CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
@@ -66,15 +69,18 @@ jobs:
           sudo apt-get update && sudo apt-get install google-cloud-sdk
           gcloud --quiet auth activate-service-account --key-file=$(Agent.TempDirectory)/azure-gcp.json
           gcloud --quiet config set project focal-freedom-236620
-          gcloud --quiet container clusters get-credentials iofog-org-staging --region us-west1-a
+          gcloud --quiet container clusters get-credentials dogfood --region us-west1
           gcloud --quiet auth configure-docker
         displayName: 'set up gcloud'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
 
       - bash: |
           curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
           chmod +x ./kubectl
         displayName: 'set up kubectl'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
 
       - bash: |
           ./kubectl set image deployment/iofog-org iofogorg=gcr.io/$(repository):$(buildTag)
         displayName: 'update deployment'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
