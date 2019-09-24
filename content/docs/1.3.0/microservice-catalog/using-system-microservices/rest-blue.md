@@ -1,8 +1,15 @@
 # Bluetooth REST API (REST-BLUE)
 
-Prerequisites:
+> ##### Prerequisites:
+>
+> as Docker container, it needs to be run with next options to grant access:
+>
+> <pre> --net=host --privileged </pre>
+>
+> in other cases it needs to start under root user
+> You can use the `roothostaccess` field of the [microservice yaml definition](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) to grant root access to the host to your container
 
-- container needs to be run with 2 options to grant access: --net=host --privileged
+##### Description:
 
 Upon startup the container will start scanning if bluetooth is powered on and upon discovering devices it will store them locally and generate an internal ID. In most cases the container will work with this locally stored devices unless the scanning is restarted. If container received command to restart scanning it will delete all previously stored devices and start scanning anew ( which results in generating new local IDs for devices).
 Container will return 'Timeout exception' in case if it didn't get any results of processing.
@@ -384,3 +391,9 @@ http://localhost:10500/status
 
 For Endpoints number 5-18 all the operations will be performed with previously scanned devices (the scanning starts upon container's start).
 For Endpoints numbers 6, 8, 10, 12, 14, 16, 18 (basically the ones with mac parameter to identify device) if add scan=true parameter to url, new device can be searched.
+
+### Launching the Container
+
+The `REST Blue` images will always be available on ioFog Controllers using the catalog item ID `2`.
+
+Please refer to the [catalog overview](../introduction.html) if you don't know yet how to deploy microservices using catalog items.

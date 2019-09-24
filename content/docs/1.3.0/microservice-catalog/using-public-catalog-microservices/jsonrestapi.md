@@ -6,7 +6,31 @@
 
 The **config** for the container should look in the following way:
 
-**{\"buffersize\":3,\"contentdataencoding\":\"utf8\",\"contextdataencoding\":\"utf8\",\"outputfields\":{\"publisher\":\"source\",\"contentdata\":\"temperature\",\"timestamp\":\"time\"}}**
+```json
+{\"buffersize\":3,\"contentdataencoding\":\"utf8\",\"contextdataencoding\":\"utf8\",\"outputfields\":{\"publisher\":\"source\",\"contentdata\":\"temperature\",\"timestamp\":\"time\"}}
+```
+
+Which translates to the following [YAML microservice file](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) :
+
+```yaml
+name: json-rest-api
+agent:
+  name: local-agent
+  ...
+images:
+  catalogid: 7
+config:
+  buffersize: 3
+  contentdataencoding: utf8
+  contextdataencoding: utf8
+  outputfields:
+    publisher: source
+    contentdata: temperature
+    timestamp: time
+ports: []
+...
+application: my-application
+```
 
 **Config explanation:**
 
@@ -24,7 +48,27 @@ E.g. if we route the microservice with Open Weather Map microservice, this will 
 
 The **config** for the container should look in the following way:
 
-**{\"citycode\":\"5391997\",\"apikey\":\"6141811a6136148a00133488eadff0fb\",\"frequency\":1000}**
+```json
+{\"citycode\":\"5391997\",\"apikey\":\"6141811a6136148a00133488eadff0fb\",\"frequency\":1000}
+```
+
+Which translates to the following [YAML microservice file](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) :
+
+```yaml
+name: open-weather-map
+agent:
+  name: local-agent
+  ...
+images:
+  catalogid: 8
+config:
+  citycode: 5391997
+  apikey: 6141811a6136148a00133488eadff0fb
+  frequency: 1000
+ports: []
+...
+application: my-application
+```
 
 **Config explanation:**
 
@@ -34,27 +78,12 @@ _"apikey" - the api key of open weather map_
 
 _"frequency" - the frequency of message sending in millis_
 
-## Launching the Containers
+## Launching the Container
 
-Enter iofog-controller user add -f first-name -l last-name -e email -p password in terminal.
+- The `JSON REST API` images will always be available on ioFog Controllers using the catalog item ID `7`.
+- The `Open Weather Map` images will always be available on ioFog Controllers using the catalog item ID `8`.
 
-Enter iofog-controller flow add -n name -d description -a -u user-id in terminal.
-
-Enter iofog-controller iofog add -n name -l location -t latitude -g longitude -d description -D docker-url -M disk-limit -T disk-directory -m memory-limit -c cpu-limit -G log-limit -Y log-directory -C log-file-count -s status-frequency -F change-frequency -Q device-frequency -B -w -a -y fog-type -u user-id in terminal.
-
-Enter iofog-controller iofog provisioning-key -i node-id in terminal.
-
-Enter iofog-agent provision {provision-key}.
-
-iofog-controller microservice add -n jsonRestApi -c 7 -F flow-id -I iofog-uuid -g '{\"buffersize\":3,\"contentdataencoding\":\"utf8\",\"contextdataencoding\":\"utf8\",\"outputfields\":{\"publisher\":\"source\",\"contentdata\":\"temperature\",\"timestamp\":\"time\"}}' -R -p 80:5555 -u user-id
-
-iofog-controller microservice add -n weather -c 6 -F flow-id -I iofog-uuid -g '{\"citycode\":\"5391997\",\"apikey\":\"6141811a6136148a00133488eadff0fb\",\"frequency\":1000}' -R -u user-id
-
-iofog-controller microservice route-create --route openweather-uuid:jsonrestapi-uuid
-
-> **catalog-id = 7 (JSON REST API)**
->
-> **catalog-id = 6 (Open Weather Map)**
+Please refer to the [catalog overview](../introduction.html) if you don't know yet how to deploy microservices using catalog items.
 
 **Request**
 

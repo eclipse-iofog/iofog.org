@@ -64,26 +64,14 @@ If "report_url" is not provided or is not available then whole output will be lo
 
 ### Launching the Container
 
-Enter iofog-controller user add -f first-name -l last-name -e email -p password in terminal.
+The `Diagnostic` images will always be available on ioFog Controllers using the catalog item ID `4`.
 
-#### catalog-id = 4 for Diagnostics container.
-
-```sh
-iofog-controller user add -f <first_name> -l <last_name> -e <email> -p <password>
-iofog-controller flow add -n <name> -d <description> -a -u <user_id>
-iofog-controller iofog add -n <name> -l <location> -t <latitude> -g <longitude> \
-  -d <description> -D <docker_url> -M <disk_limit> -T <disk_directory> \
-  -m <memory_limit> -c <cpu_limit> -G <log_limit> -Y <log_directory> \
-  -C <log_file_count> -s <status_frequency> -F <change_frequency> \
-  -Q <device_frequency> -B -w -a -y <fog_type> -u <user_id>
-iofog-controller iofog <provisioning_key> -i <node_id>
-iofog-agent provision <provision_key>
-iofog-controller microservice add -n <name> -c <catalog_id> -F <flow_id> \
-  -I <iofog_id> -g <config> -v <volumes> -l <log_size> -r -p <ports> -u <user_id>
-```
+Please refer to the [catalog overview](../introduction.html) if you don't know yet how to deploy microservices using catalog items.
 
 ### Diagnostics output is the detailed logs about system functionality.
 
-1. Go to Terminal.
-2. Get the list of containers with the following command: sudo docker ps in order to use container name for obtaining logs.
-3. See the detailed logs about system functionality with the following command: `sudo docker logs CONTAINER_NAME` (the last value is Container Name taken from the output of sudo docker ps).
+You can retrieve the console logs of any microservice by running `iofogctl logs microservice MICROSERVICE_NAME`
+
+```console
+$ iofogctl logs microservice Diagnostic
+```

@@ -10,6 +10,7 @@ machines.
 > <pre> --net=host --privileged </pre>
 >
 > in other cases it needs to start under root user
+> You can use the `roothostaccess` field of the [microservice yaml definition](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) to grant root access to the host to your container
 
 ## Content
 
@@ -21,6 +22,7 @@ machines.
 - [GPIO](#gpio-abstraction)
 - [USB devices list](#usb-devices-list)
 - [WebSockets](#websockets)
+- [Launching the container](#launching-the-container)
 
 ### LSCPU info
 
@@ -2392,3 +2394,9 @@ All available configuration properties:
 ```json
 { "port": "/dev/ttyUSB0" }
 ```
+
+### Launching the Container
+
+The `HAL` images will always be available on ioFog Controllers using the catalog item ID `3`.
+
+Please refer to the [catalog overview](../introduction.html) if you don't know yet how to deploy microservices using catalog items.
