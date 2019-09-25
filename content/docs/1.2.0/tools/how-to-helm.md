@@ -79,7 +79,7 @@ Add this Helm repository to our Helm repository index and install the ioFog stac
 
 ```bash
 helm repo add iofog https://eclipse-iofog.github.io/helm
-helm install --name iofog --namespace iofog iofog/iofog
+helm install --version 1.2.0 --name iofog --namespace iofog iofog/iofog
 ```
 
 ### Multiple Instances of ioFog Stack
@@ -87,7 +87,7 @@ helm install --name iofog --namespace iofog iofog/iofog
 If we want to have multiple instances of ioFog on the same Kubernetes cluster, it is necessary to tell Helm not to install custom resource definitions. This can be done by overriding the `createCustomResource` (default: `true`) variable.
 
 ```bash
-helm install --name iofog --namespace iofog --set createCustomResource=false iofog/iofog
+helm install --version 1.2.0 --name iofog --namespace iofog --set createCustomResource=false iofog/iofog
 ```
 
 Only use this option when the ioFog custom resource exists, either from another Helm installation or manual installation using [iofogctl](https://github.com/eclipse-iofog/iofogctl).
