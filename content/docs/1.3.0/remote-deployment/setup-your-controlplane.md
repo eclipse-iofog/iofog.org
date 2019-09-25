@@ -2,7 +2,7 @@
 
 Every Edge Compute Network ('ECN') starts with a Control Plane that allows you to manage your ECN's resources.
 
-In this guide, our Control Plane will start off with a single Controller instance. Towards the end of this guide, we will see how to deploy a highly available Control Plane with multiple Controller instances.
+In this guide, our Control Plane will deploy a single Controller instance. Our enterprise solution can be used to deploy multiple, highly available Controller instances within a single Control Plane but that process is not covered here.
 
 There are two flavours of Controller deployments - Vanilla and Kubernetes. If you have a Kubernetes cluster, you can deploy a Controller directly onto it. Otherwise, a Linux remote host will do just fine.
 
@@ -27,7 +27,9 @@ controllers:
   kubeconfig: ~/.kube/config" > /tmp/controlplane.yaml
 ```
 
-Once the templated fields have been edited, we can run:
+Make sure to specify the correct value for the `kubeconfig` field.
+
+Once you have edited the fields to your liking, go ahead an run:
 
 ```bash
 iofogctl deploy controlplane -f /tmp/controlplane.yaml
@@ -53,7 +55,9 @@ controllers:
   keyfile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
 ```
 
-Once the templated fields have been edited, we can run:
+Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+
+Once you have edited the fields to your liking, go ahead an run:
 
 ```bash
 iofogctl deploy controlplane -f /tmp/controlplane.yaml

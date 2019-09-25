@@ -14,7 +14,9 @@ host: 38.101.23.10
 keyfile: ~/.ssh/id_rsa" > /tmp/agent.yaml
 ```
 
-Once the templated fields have been edited, we can run:
+Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+
+Once you have edited the fields to your liking, go ahead an run:
 
 ```bash
 iofogctl deploy agent -f /tmp/agent.yaml
@@ -32,4 +34,6 @@ iofogctl get agents
 iofogctl describe agent zebra-1
 ```
 
-[Continue To Next Step: Setup High Availability](setup-high-availability.html).
+Now you are ready to start deploying Microservices to your new ECN! We explored how to do this in the [Quick Start Guide](../getting-started/quick-start.html). You can try deploying the same microservice on your new ECN.
+
+To get going with your own Microservices, start by looking at the instructions on creating Microservices [here](../writing-microservices/overview.html).

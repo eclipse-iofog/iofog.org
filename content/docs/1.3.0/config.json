@@ -41,10 +41,6 @@
           {
             "title": "Setup Your Agents",
             "entry": "./remote-deployment/setup-your-agents.md"
-          },
-          {
-            "title": "Setup High Availability",
-            "entry": "./remote-deployment/setup-high-availability.md"
           }
         ]
       },

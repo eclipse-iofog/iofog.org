@@ -14,7 +14,7 @@ name: meerkat-1
 kubeconfig: ~/.kube/config" > /tmp/connector.yaml
 ```
 
-Once the templated fields have been edited, we can run:
+To deploy, run:
 
 ```bash
 iofogctl deploy connector -f /tmp/connector.yaml
@@ -34,7 +34,9 @@ host: 38.101.23.3
 keyfile: ~/.ssh/id_rsa" > /tmp/connector.yaml
 ```
 
-Once the templated fields have been edited, we can run:
+Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+
+Once you have edited the fields to your liking, go ahead an run:
 
 ```bash
 iofogctl deploy connector -f /tmp/connector.yaml

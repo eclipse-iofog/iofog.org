@@ -5,7 +5,7 @@
   <p>In this guide we assume you are up and running with iofogctl. We recommened going through the <a href=../getting-started/quick-start.html>Quick Start Guide</a> before continuing on here. </p>
 </aside>
 
-Edge Compute Networks ('ECNs') are complicated things. They are composed of disparate distributed applications (even before you start deploying your own microservices).
+Edge Compute Networks ('ECNs') are complicated things. They are composed of disparate distributed applications even before you start deploying your own microservices.
 
 Setting up and managing an ECN out of an arbitrary set of remote hosts can seem like a daunting task. Thats why we created `iofogctl`.
 
