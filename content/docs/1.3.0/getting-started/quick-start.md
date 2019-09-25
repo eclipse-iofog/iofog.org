@@ -16,7 +16,7 @@ Mac users can use Homebrew:
 
 ```bash
 brew tap eclipse-iofog/iofogctl
-brew install iofogctl
+brew install iofogctl@1.3.0
 ```
 
 #### Install iofogctl on Linux
