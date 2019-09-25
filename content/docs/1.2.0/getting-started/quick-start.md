@@ -25,14 +25,14 @@ The Debian package can be installed like so:
 
 ```bash
 https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt install iofogctl
+sudo apt-get install iofogctl=1.3.0
 ```
 
 And similarly, the RPM package can be installed like so:
 
 ```bash
 https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo apt install iofogctl
+sudo yum install iofogctl-1.2.0-1.x86_64
 ```
 
 #### Verify iofogctl Installation
