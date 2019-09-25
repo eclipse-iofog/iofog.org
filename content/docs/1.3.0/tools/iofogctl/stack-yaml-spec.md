@@ -13,18 +13,6 @@ iofoguser:
   email: user@domain.com
   password: g9hr823rhuoi
 
-# Only required for HA
-database:
-  user: admin
-  password: agh9d8u32orij
-  host: 50.50.40.2
-  port: 5432
-
-# Only required for HA w/o K8s
-loadbalancer:
-  host: 60.20.30.5
-  port: 51121
-
 controllers:
   - name: vanilla
     user: foo
@@ -38,8 +26,6 @@ controllers:
 | Field         | Description                                                                                                                                                                                   |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | IofogUser     | Credentials registered against ioFog Controller REST API.                                                                                                                                     |
-| Database      | External database details and credentials. ioFog Controller uses this database to hold state. Only Postgres currently supported. If not specified, Controller will use local SQLite instance. |
-| Load Balancer | Details of external load balancer that can be used to access multiple Controller instances in HA configuration.                                                                               |
 | Controllers   | List of Controller instances. See Controller section for more details.                                                                                                                        |
 
 ## Controller
@@ -56,8 +42,8 @@ keyfile: ~/.ssh/id_rsa
 
 # Only required for K8s deployment
 kubeconfig: ~/.kube/config
-replicas: 1 # Optional, defaults to 1
 kubecontrollerip: 34.23.14.6 # Optional
+replicas: 1 # Optional, defaults to 1
 ```
 
 | Field       | Description                                                                                                   |
@@ -150,3 +136,5 @@ agents:
     host: 30.40.50.7
     keyfile: ~/.ssh/id_rsa
 ```
+
+You can also use this approach to deploy a subset of the ECN by omitting any of the Control Plane, Connectors, or Agents sections.
