@@ -100,6 +100,8 @@ iofogctl deploy agent -f agent.yaml
 iofogctl deploy application -f application.yaml
 ```
 
+`iofogctl` deploy commands are designed to be idempotent. Feel free to spam these commands as much as you like - the end result will always be the same. If anything goes wrong with your deployment, run the relevant deploy commands again and you should be good to go.
+
 Specifications of the ioFog stack YAML types can be found [here](../iofogctl/stack-yaml-spec.html)
 Specifications of the ioFog application YAML types can be found [here](../iofogctl/application-yaml-spec.html)
 
