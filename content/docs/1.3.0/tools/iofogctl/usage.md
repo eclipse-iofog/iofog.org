@@ -1,54 +1,17 @@
 # ioFog Unified Command Line Interface
 
-In this tutorial, we'll go through the basic functionality of `iofogctl`. This tutorial will get us up and running with `iofogctl` and show how to deploy and operate a live cluster.
-
 `iofogctl` is a CLI tool for installation, configuration, and operation of ioFog Edge Compute Networks (ECNs).
 
 It can be used to remotely manage multiple different clusters from a single host. It is built for an ioFog user and a DevOps engineer who may want to manage ioFog clusters.
 
-## Prerequisites
-
-In order to use `iofogctl` to deploy ioFog components on remote environments, we'll need to provide our own infrastructure. This infrastructure will involve a set of remote hosts and, optionally, a Kubernetes cluster.
-
-For Kubernetes clusters, all you need is a valid Kubernetes config file on the machine that `iofogctl` is running.
-
-For remote hosts, please follow these [instructions](../../remote-deployment/prepare-your-remote-hosts.html).
+This section will explain key aspects of `iofogctl's` design and functionality for the purposes of understanding the CLI in greater detail.
 
 <aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt="">Need help setting up infrastructure?</h3>
-  <p>We provide some helpful <a href=../platform-tools.html>tools</a> for setting up your own remote hosts and Kubernetes cluster.</p>
+  <h3><img src="/images/icos/ico-note.svg" alt="">Have you tried the Quick Start Guide first?</h3>
+  <p>The <a href=../../getting-started/quick-start.html>Quick Start Guide</a> is the best place to get going with iofogctl. It will show you how to install iofogctl and get your first Edge Compute Network up. This section will make alot more sense if you have done that first!</p>
 </aside>
 
-## Install iofogctl
-
-Mac users can use [Homebrew](https://brew.sh/):
-
-```bash
-brew tap eclipse-iofog/iofogctl
-brew install iofogctl
-```
-
-Linux users can use deb or rpm packages:
-
-```bash
-curl -s https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl=1.2.0
-```
-
-```bash
-curl -s https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-1.2.0-1.x86_64
-```
-
-For developers and users aiming for the latest features, `iofogctl` can be installed in the usual Go fashion directly from its GitHub repository.
-
-```bash
-go get -u github.com/eclipse-iofog/iofogctl/cmd/iofogctl
-```
-
-Let's verify if `iofogctl` has been installed successfully. Run `iofogctl version` to check if the binary is up to date.
-
-## Quick Start
+## Getting Familiar
 
 To list all available commands, just run `iofogctl` without any arguments. The available commands should look something like this:
 
@@ -93,11 +56,21 @@ Use "iofogctl [command] --help" for more information about a command.
 
 ```
 
-You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/docs/md/iofogctl.md)
+You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/docs/md/iofogctl.md).
 
-## Work with Namespaces
+Some commands have sub-commands. For example, the `deploy` command has sub-commands `controller`, `agent`, and `connector`. You can use the `--help` flag on every command, including sub-commands, to learn more. Go ahead and try some of the following:
 
-All actions performed with `iofogctl` are scoped to a single namespace. The default namespace ('default') is used if the user does not specify a namespace explicitly in the command. Note that namespaces in `iofogctl` map to a Kubernetes namespace when deploying to a Kubernetes cluster.
+```bash
+iofogctl deploy --help
+iofoctl create --help
+iofogctl connect --help
+iofogctl deploy controller --help
+iofogctl get --help
+```
+
+## Working with Namespaces
+
+All actions performed with `iofogctl` are scoped to a single namespace. The default namespace ('default') is used if the user does not specify a namespace explicitly in the command. Note that namespaces in `iofogctl` map to a Kubernetes namespace when `iofogctl` is used for a Kubernetes deployment of ioFog.
 
 Try creating, listing, and deleting namespaces now with the following commands.
 
@@ -156,9 +129,9 @@ Try to display individual resources or all resources within a namespace with the
 iofogctl get controllers
 iofogctl get connectors
 iofogctl get agents
-iofogctl get all
 iofogctl get applications
 iofogctl get microservices
+iofogctl get all
 ```
 
 To get more detailed information, we can use the describe command:
