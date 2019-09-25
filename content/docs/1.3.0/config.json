@@ -81,10 +81,6 @@
             "entry": "./tools/iofogctl/usage.md"
           },
           {
-            "title": "iofogctl CLI Usage",
-            "entry": "./tools/iofogctl/cli-usage.md"
-          },
-          {
             "title": "Iofogctl ioFog stack YAML Specification",
             "entry": "./tools/iofogctl/stack-yaml-spec.md"
           },
