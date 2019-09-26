@@ -25,19 +25,19 @@ Mac users can use [Homebrew](https://brew.sh/):
 
 ```bash
 brew tap eclipse-iofog/iofogctl
-brew install iofogctl
+brew install iofogctl@1.2.5
 ```
 
 Linux users can use deb or rpm packages:
 
 ```bash
 curl -s https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl=1.2.0
+sudo apt-get install iofogctl=1.2.5
 ```
 
 ```bash
 curl -s https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-1.2.0-1.x86_64
+sudo yum install iofogctl-1.2.5-1.x86_64
 ```
 
 For developers and users aiming for the latest features, `iofogctl` can be installed in the usual Go fashion directly from its GitHub repository.
