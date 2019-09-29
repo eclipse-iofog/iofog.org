@@ -60,6 +60,12 @@ routes:
     to: heart-rate-viewer
 ```
 
+| Field         | Description                                                                                                                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name          | User-defined unique identifier of an Application within an ioFog Controller. Must start and end with lowercase alphanumeric character. Can include '-' character.                                                           |
+| Microservices | List of Microservices. See Microservice section for more details.                                                                                                                                                           |
+| Routes        | List of ioFog Routes. `From` and `To` use microservice name as identifiers. The microservices specified must be part of the application. When deploying an application, prefer this method to the microservice route field. |
+
 ## Microservices
 
 Microservices configuration and set up are defined using yaml files.
@@ -96,11 +102,11 @@ agent:
 
 # Information about the container images to be used
 images:
-  # Optional catalog item id (See Catalog items in the advanced section)
-  catalogid: 0 # 0 is equivalent to not providing the field
   x86: edgeworx/healthcare-heart-rate:x86-v1 # Image to be used on x86 type agents
   arm: edgeworx/healthcare-heart-rate:arm-v1 # Image to be used on arm type agents
   registry: remote # Either 'remote' or 'local' - Remote will pull the image from Dockerhub, local will use the local cache of the agent
+  # Optional catalog item id (See Catalog items in the advanced section)
+  catalogid: 0 # 0 is equivalent to not providing the field
 
 # Microservice configuration
 config:
@@ -138,3 +144,16 @@ routes:
 # Mandatory application name inside which to deploy the microservice
 application: Healthcare Wearable
 ```
+
+| Field            | Description                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Name             | User-defined unique identifier of an Microservice within an ioFog Controller. Must start and end with lowercase alphanumeric character. Can include '-' character.                                                                                                                                                                                                                                           |
+| Agent            | Object describing the name and the required configuration of the ioFog agent the microservice is to be deployed on. All configuration fields are optional only the specified values will be updated.                                                                                                                                                                                                         |
+| Images           | Description of the images to be used by the container running the microservice. `x86` is the image to be used on x86 ioFog Agents. `arm` is the image to be used on ARM ioFog Agents. `Registry` is either `local` or `remote`, remote will pull the image from Dockerhub, local will use the local cache of the ioFog Agent. A catalog ID can be provided in lieu and place of the images and the registry. |
+| Config           | User-defined arbitrary object to be passed to the microservice runtime as its configuration                                                                                                                                                                                                                                                                                                                  |
+| Root host access | Does the container running the microservice requires root access to the host                                                                                                                                                                                                                                                                                                                                 |
+| Ports            | List of port mapping to be provided to the container running the microservice                                                                                                                                                                                                                                                                                                                                |
+| Volumes          | List of volume mapping to be provided to the container running the microservice                                                                                                                                                                                                                                                                                                                              |
+| Env              | List of environment variables to be provided to the container running the microservice                                                                                                                                                                                                                                                                                                                       |
+| Routes           | List of ioFog Routes destination. Use microservice name as identifiers. The microservice specified must be part of the application. Only use this field when updating a microservice in isolation.                                                                                                                                                                                                           |
+| Application      | Unique identifier of the Application the microservice is part of                                                                                                                                                                                                                                                                                                                                             |
