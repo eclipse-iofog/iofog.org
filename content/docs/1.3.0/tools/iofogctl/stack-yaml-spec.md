@@ -23,10 +23,10 @@ controllers:
     keyfile: ~/.ssh/id_rsa
 ```
 
-| Field         | Description                                                                                                                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IofogUser     | Credentials registered against ioFog Controller REST API.                                                                                                                                     |
-| Controllers   | List of Controller instances. See Controller section for more details.                                                                                                                        |
+| Field       | Description                                                            |
+| ----------- | ---------------------------------------------------------------------- |
+| IofogUser   | Credentials registered against ioFog Controller REST API.              |
+| Controllers | List of Controller instances. See Controller section for more details. |
 
 ## Controller
 
@@ -46,15 +46,15 @@ kubecontrollerip: 34.23.14.6 # Optional
 replicas: 1 # Optional, defaults to 1
 ```
 
-| Field       | Description                                                                                                   |
-| ----------- | ------------------------------------------------------------------------------------------------------------- |
-| Name        | User-defined unique identifier of Controller instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character.                          |
-| User        | Username of remote host that iofogctl must SSH into to install Controller service.                            |
-| Host        | Hostname of remote host that iofogctl must SSH into to install Controller service.                            |
-| Key File    | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Controller service.     |
-| Kube Config | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster. |
-| Kube Controller IP | Pre-existing static IP address for Kuberneretes Load Balancer service to use. |
-| Replicas    | Number of Controller Pods to deploy on Kubernetes cluster.                                                    |
+| Field              | Description                                                                                                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Name               | User-defined unique identifier of Controller instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
+| User               | Username of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
+| Host               | Hostname of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
+| Key File           | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                |
+| Kube Config        | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster.                                                            |
+| Kube Controller IP | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
+| Replicas           | Number of Controller Pods to deploy on Kubernetes cluster.                                                                                                               |
 
 ## Connector
 
@@ -73,14 +73,14 @@ kubeconfig: ~/.kube/config
 replicas: 1 # Optional, defaults to 1
 ```
 
-| Field       | Description                                                                                                  |
-| ----------- | ------------------------------------------------------------------------------------------------------------ |
-| Name        | User-defined unique identifier of Connector instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character.                          |
-| User        | Username of remote host that iofogctl must SSH into to install Connector service.                            |
-| Host        | Hostname of remote host that iofogctl must SSH into to install Connector service.                            |
-| Key File    | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Connector service.     |
-| Kube Config | Path to Kubernetes configuration file that iofogctl uses to install Connector service to Kubernetes cluster. |
-| Replicas    | Number of Connector Pods to deploy on Kubernetes cluster.                                                    |
+| Field       | Description                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name        | User-defined unique identifier of Connector instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
+| User        | Username of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
+| Host        | Hostname of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
+| Key File    | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Connector service.                                                                |
+| Kube Config | Path to Kubernetes configuration file that iofogctl uses to install Connector service to Kubernetes cluster.                                                            |
+| Replicas    | Number of Connector Pods to deploy on Kubernetes cluster.                                                                                                               |
 
 ## Agent
 
@@ -93,11 +93,11 @@ host: 30.40.50.6
 keyfile: ~/.ssh/id_rsa
 ```
 
-| Field | Description                                                                    |
-| ----- | ------------------------------------------------------------------------------ |
-| Name  | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character.|
-| User  | Username of remote host that iofogctl must SSH into to install Agent service.  |
-| Host  | Hostname of remote host that iofogctl must SSH into to install Agent service.  |
+| Field | Description                                                                                                                                                         |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name  | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
+| User  | Username of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
+| Host  | Hostname of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
 
 ## Edge Compute Network
 

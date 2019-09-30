@@ -84,13 +84,13 @@ Which should output something similar to:
 NAMESPACE
 default
 
-CONTROLLER       STATUS		AGE		UPTIME		IP		    PORT		
-local-controller online		2m11s   2m14s		0.0.0.0		51121		
+CONTROLLER       STATUS		AGE		UPTIME		IP		    PORT
+local-controller online		2m11s   2m14s		0.0.0.0		51121
 
-CONNECTOR        STATUS		AGE		UPTIME		IP		
-local-connector  online		1m59s   1m59s		0.0.0.0		
+CONNECTOR        STATUS		AGE		UPTIME		IP
+local-connector  online		1m59s   1m59s		0.0.0.0
 
-AGENT            STATUS		AGE		UPTIME		IP	            VERSION		
+AGENT            STATUS		AGE		UPTIME		IP	            VERSION
 local-agent      RUNNING	1m18s   28s         122.60.228.85   1.3.0-rc1
 ```
 
