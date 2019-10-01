@@ -42,3 +42,14 @@ After this you are ready to checkin the new version.
 ## Serving static files
 
 If you need to serve arbitrary static files from the site (e.g. images, zips, etc), place them in the `static/` directory. Anything placed in there will be served, as-is from the root of the domain. e.g. `static/my-file.txt` will be available at `https://iofog.org/my-file.txt`.
+
+## Known Issues
+
+During `npm start` the followin issue may occur:
+
+```text
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+Error: ENOENT: no such file or directory, scandir '/home/lkrcal/edgeworx/iofog.org/node_modules/node-sass/vendor'
+``` 
+
+Workaround is to run `npm rebuild node-sass`
