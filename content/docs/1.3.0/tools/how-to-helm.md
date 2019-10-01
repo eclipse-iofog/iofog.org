@@ -1,25 +1,21 @@
 # Helm Guide - How to Install ioFog Using Helm
 
-In this tutorial, we will go through the deployment of the ioFog stack into an existing Kubernetes cluster.
+In this tutorial, we will go through a deployment of ioFog stack into an existing Kubernetes cluster. The ioFog stack consists of basic services (Controller, Connector) and supplementary Kubernetes ioFog components (Operator, Kubelet). This is the foundation for establishing a complete Edge Compute Network (ECN) with Agents and microservices. See [Core Concepts](../getting-started/core-concepts.html) for more details on ioFog components.
+
+IoFog Helm chart allows users to easily deploy the ioFog stack onto exiting Kubernetes cluster. 
 
 ## Prerequisites
 
-First, we need a working Kubernetes cluster. To set up a cluster on the Google Kubernetes Engine (GKE), follow the [Creating a cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster) tutorial. Using alternative managed cluster providers will work as well as custom installations of Kubernetes, e.g. Minikube.
+First, we need a working Kubernetes cluster. WE can simply set up a cluster on the Google Kubernetes Engine (GKE) by following the [Creating a cluster tutorial](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster). Using any other managed cluster providers works as well, so do custom installations of Kubernetes, e.g. Minikube.
 
-The core ioFog stack installed by Helm does not require any Agents to be set up. Agents are edge nodes where microservices are deployed. In order to leverage all ioFog capabilities, we will need to set up Agents. These can simply be small compute instances from Google Cloud Platform (GCP), Amazon Web Services (AWS), Packet, or any other provider.
-
-In order to provision these Agents, ioFog needs SSH access.
-
-IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup Kubernetes cluster and Agents. Please see [Platform tutorial](../platform/platform-tools.html) for more details.
+IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup a Kubernetes cluster in case we don't have one available. Please see [Platform Tools](./platform-tools.html) for more details.
 
 The tutorial requires installation of `Helm` and `kubectl` executing the deployment.
 
 - [Helm installation instructions](https://helm.sh/docs/using_helm/#installing-helm)
 - [kubectl installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-From now on, we assume we have a running Kubernetes cluster and machines to install ioFog Agents. The Agents don't have to be installed on these machines.
-
-We can verify that our kubernetes cluster is working by running `kubectl cluster-info`. The output of a working cluster will look like this:
+From now on, we assume we have a running Kubernetes cluster. We can verify that our kubernetes cluster is working by running `kubectl cluster-info`. The output of a working cluster will look like this:
 
 ```console
 $ kubectl cluster-info
@@ -100,25 +96,25 @@ helm install \
 
 To list all Helm releases, we can simply run `helm list`. The result should look like this:
 
-```text
+```plain
 NAME      	REVISION	UPDATED                 	STATUS  	CHART          	    APP VERSION	NAMESPACE 
-my-ecn     	1       	Tue Oct  1 21:34:42 2019	DEPLOYED	iofog-1.3.0-beta	1.3.0-beta 	my-ecn      
+my-ecn     	1       	Tue Oct  1 21:34:42 2019	DEPLOYED	iofog-1.3.0-beta	1.3.0-beta 	my-ecn 
 ```
 
 The following is a complete list of all user configurable properties for the ioFog Helm chart. All of the properties are optional and have defaults. Use `--set property.name=value` in `helm install` to parametrize Helm release.
 
 | Property | Default value | Description |
 | --- | --- | --- |
-| createCustomResources | true | See [multiple-edge-compute-networks]() | 
+| createCustomResources | true | See [Multiple Edge Compute Networks](#multiple-edge-compute-networks) | 
 | controlPlane.userfirstName | First | First name of initial user in Controller | 
 | controlPlane.usersurname | Second | Surname of initial user in Controller | 
 | controlPlane.useremail | user@domain.com | Email (login) of initial user in Controller | 
 | controlPlane.userpassword | H23fkidf9hoibf2nlk | Password of initial user in Controller | 
-| controlPlane.database.provider | | No supported in ioFog Community Edition | 
-| controlPlane.database.host | | No supported in ioFog Community Edition | 
-| controlPlane.database.port | 0 | No supported in ioFog Community Edition | 
-| controlPlane.database.password | | No supported in ioFog Community Edition | 
-| controlPlane.database.dbName | | No supported in ioFog Community Edition | 
+| controlPlane.database.provider | | Not supported in ioFog Community Edition | 
+| controlPlane.database.host | | Not supported in ioFog Community Edition | 
+| controlPlane.database.port | 0 | Not supported in ioFog Community Edition | 
+| controlPlane.database.password | | Not supported in ioFog Community Edition | 
+| controlPlane.database.dbName | | Not supported in ioFog Community Edition | 
 | controlPlane.controller.replicas | 1 | Number of replicas of Controller pods | 
 | controlPlane.controller.image | iofog/controller:1.3.0-beta | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags) | 
 | controlPlane.controller.imagePullPolicy | Always | Controller Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) | 
@@ -140,7 +136,7 @@ Once the installation is complete, you will be able to connect to the ioFog Cont
 iofogctl connect k8s-ctrl --kube-config ~/.kube/config --email user@domain.com --pass any123password345
 ```
 
-Once you are connected, you can use `iofogctl` to deploy edge Agents. Then, you can use `kubectl` or `iofogctl` to deploy microservices to your edge Agents.
+Once you are connected, you can use `iofogctl` to deploy edge Agents. Then, you can use `kubectl` or `iofogctl` to deploy microservices to your edge Agents. See [Setup Your Agents](../remote-deployment/setup-your-agents.html) and [Introduction to iofogctl](./iofogctl/usage.html) for more details.
 
 ### Multiple Edge Compute Networks
 
