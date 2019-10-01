@@ -19,7 +19,7 @@ Supported operating systems:
 Requires tools:
 
 - `Docker 1.10+`: Open platform for developing, shipping, and running applications. ([installation instructions](https://docs.docker.com/install/))
-- `iofogctl 1.3.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](https://github.com/eclipse-iofog/iofogctl/tree/v1.3.0#install))
+- `iofogctl 1.3.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](../../getting-started/quick-start.html))
 
 ## Setup Demo Project
 

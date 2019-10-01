@@ -14,7 +14,7 @@ The ioFog demo requires the following tools and one of the following systems to 
 Required tools:
 
 - `Docker and docker-compose 1.10+`: Open platform for developing, shipping, and running applications. ([installation instructions](https://docs.docker.com/install/))
-- `iofogctl 1.2.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](https://github.com/eclipse-iofog/iofogctl/tree/v1.2.5#install))
+- `iofogctl 1.2.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](../../getting-started/quick-start.html))
 
 Supported operating systems:
 
