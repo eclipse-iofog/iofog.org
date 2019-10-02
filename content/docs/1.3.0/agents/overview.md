@@ -1,11 +1,6 @@
 # Agents
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> Need to setup your Agents?</h3>
-  <p>Instructions on how to install the Agent daemon on your fog nodes <a href="../getting-started/setup-your-agents.html">can be found here</a>.</p>
-</aside>
-
-An **Edge Compute Network** (ECN) running ioFog is made up of one or more devices, referred to as **nodes**. Each node runs a daemon service called an **Agent**. Each node's Agent locally handles the starting, stopping, and management of the one or more [**microservices**](../writing-microservices/overview.html) running on that particular node. These microservices are deployed as Linux kernel containers (LXC), commonly using [Docker](https://docs.docker.com/engine/docker-overview/#the-docker-platform).
+An **Edge Compute Network** (ECN) running ioFog is made up of one or more devices, referred to as **nodes**. Each node runs a daemon service called an **Agent**. Each node's Agent locally handles the starting, stopping, and management of the one or more microservices running on that particular node. These microservices are deployed as Linux kernel containers (LXC), commonly using [Docker](https://docs.docker.com/engine/docker-overview/#the-docker-platform).
 
 While the Agent daemon is a CLI, after setting things up a majority of your management tasks—such as starting/stopping microservices—will instead be done using the [Controller](../controllers/overview.html), which controls the Agent on your behalf, remotely. This allows you to deploy and maintain microservices without needing to SSH directly onto every edge node device.
 

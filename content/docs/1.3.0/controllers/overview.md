@@ -1,10 +1,5 @@
 # Controllers
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> Need to setup your Controller?</h3>
-  <p>Instructions on how to install the Controller daemon <a href="../getting-started/setup-your-controllers.html">can be found here</a>.</p>
-</aside>
-
 Since your Edge Compute Network is likely distributed—composed of many different devices across networks, each with potentially differing microservices—a piece of software called the **Controller** is used for orchestration of the different [Agents](../agents/overview.html).
 
 Because the Controller daemon keeps track of all your Agents, even across complicated network configurations, you can use it to maintain the entire fleet, remotely. Small Edge Compute Networks will only need a single Controller, however, running multiple Controllers is also supported for increased resiliency.
