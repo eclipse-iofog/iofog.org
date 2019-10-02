@@ -60,7 +60,7 @@ Use "iofogctl [command] --help" for more information about a command.
 
 ```
 
-You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/docs/md/iofogctl.md).
+You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-beta/docs/md/iofogctl.md).
 
 Some commands have sub-commands. For example, the `deploy` command has sub-commands `controller`, `agent`, and `connector`. You can use the `--help` flag on every command, including sub-commands, to learn more. Go ahead and try some of the following:
 

@@ -2,7 +2,7 @@
 
 `iofogctl` allows users to deploy applications and microservices on ioFog resources using yaml files.
 
-For a complete documentation of all available `iofogctl` commands, please see [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/docs/md/iofogctl.md)
+For a complete documentation of all available `iofogctl` commands, please see [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-beta/docs/md/iofogctl.md)
 
 ## Application
 
