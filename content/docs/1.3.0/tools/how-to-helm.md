@@ -50,14 +50,6 @@ kubectl create clusterrolebinding tiller \
     --serviceaccount=kube-system:tiller
 ```
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt="">GKE IAM Roles Needed</h3>
-  <p>In order to create the cluster role binding on GKE, we need to have `cluster.admin` permission.</p>
-```bash
-gcloud projects add-iam-policy-binding $PROJECT --member=user:person@company.com --role=roles/container.admin
-```
-</aside>
-
 ## Initialize Helm And Install Tiller
 
 Now is the time to use our service account to initialize Helm.
