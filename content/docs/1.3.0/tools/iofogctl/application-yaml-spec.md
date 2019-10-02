@@ -6,13 +6,13 @@ For a complete documentation of all available `iofogctl` commands, please see [o
 
 ## Application
 
-An appplication is a set of microservices working together to achieve one specific purpose (I.E: One microservice collecting and formatting data, another one displaying the data in a user friendly way)
+An application is a set of microservices working together to achieve one specific purpose (I.E: One microservice collecting and formatting data, another one displaying the data in a user friendly way)
 
 An application is defined by a yaml file. This file is passed as a parameter to the deploy command: `iofogctl deploy application -f <path-to-yaml>`
 
 An application yaml file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
 
-Don't panic if this seems like a lot to ingest, the microservice yaml definition is explained in more details further down.
+Don't panic if this seems like a lot to ingest, the [microservice yaml definition](#microservices) is explained in more details further down.
 The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
 
 ```yaml
@@ -110,7 +110,7 @@ images:
 
 # Microservice configuration
 config:
-  # Arbitratry key, value yaml object
+  # Arbitrary key, value yaml object
   data_label: test_mode=false_cross_agent_microservice_routing_aug_27
   test_mode: true
 
@@ -139,7 +139,7 @@ env:
 # List of microservice names to which a route needs to be created
 routes:
   - heart-rate-viewer # This will create a route from 'heart-rate-monitor' to 'heart-rate-viewer'
-# When deploying application, the application level 'routes' field is prefered to this field
+# When deploying application, the application level 'routes' field is preferred to this field
 
 # Mandatory application name inside which to deploy the microservice
 application: Healthcare Wearable

@@ -4,7 +4,7 @@
 
 ## Control Plane
 
-A Control Plane can be specified when using `iofogctl deploy controlplane -f controlplane.yaml`
+A Control Plane can be specified when using `iofogctl deploy controlplane -f controlplane.yaml` or as a part of a complete [ECN](#edge-compute-network) specification. The Control Plane is an overarching component containing specifications for [Controllers](#controller) and ioFog default user.
 
 ```yaml
 iofoguser:
@@ -30,7 +30,7 @@ controllers:
 
 ## Controller
 
-A Controller can be specified when using `iofogctl deploy controller -f controller.yaml`
+A Controller can be specified when using `iofogctl deploy controller -f controller.yaml` or as a part of [Control Plane](#control-plane) specification or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
 name: alpaca
@@ -44,6 +44,7 @@ keyfile: ~/.ssh/id_rsa
 kubeconfig: ~/.kube/config
 kubecontrollerip: 34.23.14.6 # Optional
 replicas: 1 # Optional, defaults to 1
+servicetype: LoadBalancer # Optional, defaults to "LoadBalancer"
 ```
 
 | Field              | Description                                                                                                                                                              |
@@ -55,10 +56,11 @@ replicas: 1 # Optional, defaults to 1
 | Kube Config        | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster.                                                            |
 | Kube Controller IP | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
 | Replicas           | Number of Controller Pods to deploy on Kubernetes cluster.                                                                                                               |
+| LoadBalancer       | Kubernetes service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                                                                                |
 
 ## Connector
 
-A Connector can be specified when using `iofogctl deploy connector -f connector.yaml`
+A Connector can be specified when using `iofogctl deploy connector -f connector.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
 name: tiger
@@ -82,9 +84,11 @@ replicas: 1 # Optional, defaults to 1
 | Kube Config | Path to Kubernetes configuration file that iofogctl uses to install Connector service to Kubernetes cluster.                                                            |
 | Replicas    | Number of Connector Pods to deploy on Kubernetes cluster.                                                                                                               |
 
+Note that at the moment Connector does not support specifying `ServiceType` the same way as Controller does.
+
 ## Agent
 
-An Agent can be specified when using `iofogctl deploy agent -f agent.yaml`
+An Agent can be specified when using `iofogctl deploy agent -f agent.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
 name: meerkat
