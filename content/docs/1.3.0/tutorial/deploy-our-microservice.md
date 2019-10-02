@@ -175,7 +175,7 @@ Once a microservice is up and running, we will probably need to modify it later,
 
 You can either redeploy the entire application using the same steps we just did. Iofogctl is smart enough to only patch the required changes to an existing application.
 
-But you can also directly deploy a microservice ! First, let's use `iofogctl` to retrieve the microservice configuration for our `Moving Average` microservice.
+But you can also directly deploy a microservice! First, let's use `iofogctl` to retrieve the microservice configuration for our `Moving Average` microservice.
 
 ```console
 $ iofogctl describe microservice 'Moving Average' -o moving-average.yaml
@@ -220,7 +220,8 @@ You will notice a few minor changes compared to the description we provided when
 - We now have an `application` field. This is required for iofogctl to know which application the microservice is part of.
 - The microservice routes destinations are listed under a `routes` field.
 - We have many more fields related to the required configuration of the ioFog Agent.
-- etc, etc. Find the complete yaml description [here](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices)
+
+Find the complete yaml description [here](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices)
 
 Now let's say we want to update the configuration of our microservice!
 

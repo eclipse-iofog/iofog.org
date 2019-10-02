@@ -26,7 +26,8 @@ Requires tools:
 On Unix based systems, download our tar.gz package.
 
 ```bash
-cd where/we/want/iofog-demo
+mkdir -p /tmp/iofog/demo
+cd /tmp/iofog/demo
 curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.3.0.tar.gz
 tar -zxvf demo.tar.gz --strip-components=1
 ```
@@ -43,12 +44,6 @@ We can optionally verify the ioFog stack is provisioned correctly. The automated
 
 ```sh
 $ ./test.sh
-```
-
-When we are finished, we can tear down the ioFog stack and all services deployed on it.
-
-```sh
-$ ./stop.sh
 ```
 
 <aside class="notifications note">

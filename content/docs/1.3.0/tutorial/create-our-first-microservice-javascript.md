@@ -67,6 +67,8 @@ The `package.json` file should look something like this now:
 
 ## Using ioFog SDK
 
+Before we start writing the code for our microservice, lets take a look at the SDK's APIs.
+
 The [ioFog Node.js SDK](https://github.com/ioFog/iofog-nodejs-sdk) has a number of APIs, but in this tutorial we're most interested in these ones:
 
 - [`iofog.init()`](#iofoginit)
@@ -175,7 +177,7 @@ iofog.wsSendMessage(output);
 
 ## Putting The Moving Average Together
 
-We're ready to start writing some code! First, fire up our [favorite editor](https://vim-adventures.com/) and open (or create) the `index.js` file we set as our `package.json` "main". This is where we'll place all of our code.
+We're ready to start writing some code! First, lets open (or create) the `index.js` file we set as our `package.json` "main". This is where we'll place all of our code.
 
 Before we begin, let's review our goals for our moving average microservice:
 

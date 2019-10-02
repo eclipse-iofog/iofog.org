@@ -223,7 +223,7 @@ $ docker exec -ti iofog-controller iofog-controller iofog list
 ...
 ```
 
-This should give us a JSON response containing a list of edge nodes already registered with the Controller. In our case we should get a single node, `"name": "local-agent"`. This "node" is the container environment of iofog-agent. Remember that in production, instead of being containers running locally on our machine, these nodes would be real edge hardware as part of our Edge Compute Network (ECN), where oour microservices run.
+This should give us a JSON response containing a list of edge nodes already registered with the Controller. In our case we should get a single node, `"name": "local-agent"`. This "node" is the container environment of iofog-agent. Remember that in production, instead of being containers running locally on our machine, these nodes would be real edge hardware as part of our Edge Compute Network (ECN), where our microservices run.
 
 ## Manage Our Microservices
 

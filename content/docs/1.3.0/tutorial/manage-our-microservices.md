@@ -6,11 +6,6 @@ In this step of the tutorial we're ready to learn the basics of managing microse
 
 The Agent daemon runs microservices on our edge nodes locally, but it is controlled remotely by the Controller. Let's learn some of the most common Controller commands.
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> Production vs. Development</h3>
-  <p>Throughout the rest of this tutorial remember that, while we're running our ioFog network entirely locally using Docker, in production it doesn't have to be--and probably won't. Our Controller and Connector will likely be running on cloud servers and our edge node devices in the wild will each be running their own Agent.</p>
-</aside>
-
 This tutorial includes 3 microservices already running. We can view any configured microservices using `iofogctl`:
 
 ```console
@@ -24,9 +19,7 @@ Freeboard	    RUNNING		local-agent	{}						            10102:80
 
 ```
 
-This returns a list of microservices along with their status, agent it is running on, configuration, routes, volume mapping and port mapping. The most important microservices currently running are:
-
-###### Tutorial Microservices
+This returns a list of microservices along with their status, the agent it is running on, configuration, routes, volume mapping and port mapping.
 
 The tutorial consists of 3 microservices deployed on top of ioFog stack.
 
