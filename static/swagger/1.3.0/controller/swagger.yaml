@@ -3279,6 +3279,21 @@
             $ref: '#/definitions/PortMappingsResponse'
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        status:
+          type: object
+          properties:
+            status:
+              type: string
+            operatingDuration:
+              type: number
+            startTime:
+              type: number
+            cpuUsage:
+              type: number
+            memoryUsage:
+              type: number
+            containerId:
+              type: string
     NewMicroserviceRequest:
       type: object
       properties:
@@ -3288,6 +3303,14 @@
           type: string
         catalogItemId:
           type: integer
+        images:
+          type: array
+          items:
+            properties:
+              containerImage:
+                type: string
+              fogTypeId:
+                type: string
         flowId:
           type: integer
         iofogUuid:
@@ -3327,6 +3350,14 @@
           type: array
           items:
             $ref: '#/definitions/VolumeMapping'
+        images:
+          type: array
+          items:
+            properties:
+              containerImage:
+                type: string
+              fogTypeId:
+                type: string
     IOFogNodeTunnelStatusInfoResponse:
       type: object
       properties:

@@ -30,6 +30,7 @@ In order to setup the infrastructure and then install ECN and Agents, we will ne
 - [Terraform](https://www.terraform.io/) (version 0.12.\*, [installation instructions](https://learn.hashicorp.com/terraform/getting-started/install.html))
 - GCloud SDK ([quickstart guide](https://cloud.google.com/sdk/docs/quickstarts))
 - Kubectl ([installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/))
+
 * [iofogctl](https://github.com/eclipse-iofog/iofogctl) ([installation instructions](../getting-started/quick-start.html))
 
 We don't have to install these tools manually now. Later in the process, we will use a script to download those dependencies and initialise terraform variable file.
@@ -89,29 +90,28 @@ Here we use the GCP service account key we have previously obtained in [Google C
 
 It is also possible to authenticate using a personal GCP account by running `./bootstrap.sh` only, but this is not recommended.
 
-
 ### Modify Configuration File
 
 Edit the file `./my_vars.tfvars`. There are three main sections in the file: general variables, agents list and packet variables. Let's start by modifying the following general variables:
 
-| Variables              | Description                                                  |
-| -----------------------|:------------------------------------------------------------:|
-| `google_application_credentials`           | *Path to [gcloud service account json key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)*                         |
-| `project_id`           | *id of your google platform project*                         |
-| `environment`          | *unique name for your environment*                           |
-| `gcp_region`           | *region to spin up the resources*                            |
-| `controller_image`     | *docker image link for controller setup*                     |
-| `connector_image`      | *docker image link for connector setup*                      |
-| `scheduler_image`      | *docker image link for scheduler setup*                      |
-| `operator_image`       | *docker image link for operator setup*                       |
-| `kubelet_image`        | *docker image link for kubelet setup*                        |
-| `controller_ip`        | *list of edge ips, comma separated to install agent on*      |
-| `iofogUser_name`       | *name for registration with controller*                      |
-| `iofogUser_surname`    | *surname for registration with controller*                   |
-| `iofogUser_email`      | *email to use to register with controller*                   |
-| `iofogUser_password`   | *password(length >=8) for user registeration with controller*|
-| `iofogctl_namespace`   | *namespace to be used with iofogctl commands*                |
-| `agent_list`           | *list of agents to be deployed*                              |
+| Variables                        |                                                      Description                                                      |
+| -------------------------------- | :-------------------------------------------------------------------------------------------------------------------: |
+| `google_application_credentials` | _Path to [gcloud service account json key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)_ |
+| `project_id`                     |                                         _id of your google platform project_                                          |
+| `environment`                    |                                          _unique name for your environment_                                           |
+| `gcp_region`                     |                                           _region to spin up the resources_                                           |
+| `controller_image`               |                                       _docker image link for controller setup_                                        |
+| `connector_image`                |                                        _docker image link for connector setup_                                        |
+| `scheduler_image`                |                                        _docker image link for scheduler setup_                                        |
+| `operator_image`                 |                                        _docker image link for operator setup_                                         |
+| `kubelet_image`                  |                                         _docker image link for kubelet setup_                                         |
+| `controller_ip`                  |                                _list of edge ips, comma separated to install agent on_                                |
+| `iofogUser_name`                 |                                        _name for registration with controller_                                        |
+| `iofogUser_surname`              |                                      _surname for registration with controller_                                       |
+| `iofogUser_email`                |                                      _email to use to register with controller_                                       |
+| `iofogUser_password`             |                             _password(length >=8) for user registeration with controller_                             |
+| `iofogctl_namespace`             |                                     _namespace to be used with iofogctl commands_                                     |
+| `agent_list`                     |                                            _list of agents to be deployed_                                            |
 
 Next, if we want to bring any existing agents, we need to fill in the agent list. The variable `agent_list` contains a list of remote hardware.
 
@@ -129,29 +129,29 @@ agent_list = [
 ]
 ```
 
-| Variables | Description |
-| --- | --- |
-| `name` | Name used to register the agent with the controller |
-| `user` | User name for ssh connection into the resource |
-| `host` | host for ssh connection into the resource |
-| `port` | port for ssh connection into the resource |
+| Variables | Description                                                    |
+| --------- | -------------------------------------------------------------- |
+| `name`    | Name used to register the agent with the controller            |
+| `user`    | User name for ssh connection into the resource                 |
+| `host`    | host for ssh connection into the resource                      |
+| `port`    | port for ssh connection into the resource                      |
 | `keyfile` | Absolute path to the private key used to ssh into the resource |
 
 Last, if we want to spin up any Packet nodes, we need to fill in the Packet related variables.
 
 The platform tools will look for the `packet_auth_token` variable. If it is defined, it will try to spin up Packet nodes according to the other variables. If it is empty or commented, not Packet nodes will be provided.
 
-| Variables              | Description                                                  |
-| -----------------------|:------------------------------------------------------------:|
-| `packet_auth_token`    | *packet [auth token](https://support.packet.com/kb/articles/api-integrations)*                 |
-| `packet_project_id`    | *packet project id to spin agents on packet*                 |
-| `operating_system`     | *operating system for edge nodes on packet*                  |
-| `packet_facility`      | *facilities to use to drop agents*                           |
-| `count_x86`            | *number of x86(make sure your project plan allow)*           |
-| `plan_x86`             | *server plan for device on x86 available on facility chosen* |
-| `count_arm`            | *number of arm agents to spin up*                            |
-| `plan_arm`             | *server plan for device on arm available on facility chosen* |
-| `ssh_key`              | *path to ssh key to be used for accessing packet edge nodes* |
+| Variables           |                                  Description                                   |
+| ------------------- | :----------------------------------------------------------------------------: |
+| `packet_auth_token` | _packet [auth token](https://support.packet.com/kb/articles/api-integrations)_ |
+| `packet_project_id` |                  _packet project id to spin agents on packet_                  |
+| `operating_system`  |                  _operating system for edge nodes on packet_                   |
+| `packet_facility`   |                       _facilities to use to drop agents_                       |
+| `count_x86`         |               _number of x86(make sure your project plan allow)_               |
+| `plan_x86`          |          _server plan for device on x86 available on facility chosen_          |
+| `count_arm`         |                       _number of arm agents to spin up_                        |
+| `plan_arm`          |          _server plan for device on arm available on facility chosen_          |
+| `ssh_key`           |          _path to ssh key to be used for accessing packet edge nodes_          |
 
 ### Deploy and Destroy Infrastructure
 

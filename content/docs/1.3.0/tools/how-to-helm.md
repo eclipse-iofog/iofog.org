@@ -2,7 +2,7 @@
 
 In this tutorial, we will go through a deployment of ioFog stack into an existing Kubernetes cluster. The ioFog stack consists of basic services (Controller, Connector) and supplementary Kubernetes ioFog components (Operator, Kubelet). This is the foundation for establishing a complete Edge Compute Network (ECN) with Agents and microservices. See [Core Concepts](../getting-started/core-concepts.html) for more details on ioFog components.
 
-IoFog Helm chart allows users to easily deploy the ioFog stack onto exiting Kubernetes cluster. 
+IoFog Helm chart allows users to easily deploy the ioFog stack onto exiting Kubernetes cluster.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ helm repo add iofog https://eclipse-iofog.github.io/helm
 
 We can list all available versions of the ioFog Helm chart using `helm search -l iofog/iofog`.
 
-To install a specific version of ioFog, use `helm install`: 
+To install a specific version of ioFog, use `helm install`:
 
 ```bash
 helm install \
@@ -89,36 +89,36 @@ helm install \
 To list all Helm releases, we can simply run `helm list`. The result should look like this:
 
 ```plain
-NAME      	REVISION	UPDATED                 	STATUS  	CHART          	    APP VERSION	NAMESPACE 
-my-ecn     	1       	Tue Oct  1 21:34:42 2019	DEPLOYED	iofog-1.3.0-beta	1.3.0-beta 	my-ecn 
+NAME      	REVISION	UPDATED                 	STATUS  	CHART          	    APP VERSION	NAMESPACE
+my-ecn     	1       	Tue Oct  1 21:34:42 2019	DEPLOYED	iofog-1.3.0-beta	1.3.0-beta 	my-ecn
 ```
 
 The following is a complete list of all user configurable properties for the ioFog Helm chart. All of the properties are optional and have defaults. Use `--set property.name=value` in `helm install` to parametrize Helm release.
 
-| Property | Default value | Description |
-| --- | --- | --- |
-| createCustomResources | true | See [Multiple Edge Compute Networks](#multiple-edge-compute-networks) | 
-| controlPlane.userfirstName | First | First name of initial user in Controller | 
-| controlPlane.usersurname | Second | Surname of initial user in Controller | 
-| controlPlane.useremail | user@domain.com | Email (login) of initial user in Controller | 
-| controlPlane.userpassword | H23fkidf9hoibf2nlk | Password of initial user in Controller | 
-| controlPlane.database.provider | | Not supported in ioFog Community Edition | 
-| controlPlane.database.host | | Not supported in ioFog Community Edition | 
-| controlPlane.database.port | 0 | Not supported in ioFog Community Edition | 
-| controlPlane.database.password | | Not supported in ioFog Community Edition | 
-| controlPlane.database.dbName | | Not supported in ioFog Community Edition | 
-| controlPlane.controller.replicas | 1 | Number of replicas of Controller pods | 
-| controlPlane.controller.image | iofog/controller:1.3.0-beta | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags) | 
-| controlPlane.controller.imagePullPolicy | Always | Controller Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) | 
-| controlPlane.kubeletImage | iofog/iofog-kubelet:1.3.0-beta | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags) | 
-| controlPlane.loadBalancerIP | | Pre-allocated static IP address for Controller | 
-| controlPlane.serviceType | LoadBalancer | Service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`) | 
-| connectors.image | iofog/connector:1.3.0-beta | [Connector Docker image](https://hub.docker.com/r/iofog/connector/tags) | 
-| connectors.serviceType | LoadBalancer | Service type for Connector (one of `LoadBalancer`, `NodePort` or `ClusterIP`) | 
-| connectors.instanceNames | `["first","second"]` | Array of Connector instance names | 
-| operator.replicas | 1 | Number of replicas of Operator pods | 
-| operator.image | iofog/iofog-operator:1.3.0-beta | [OperatorDocker image](https://hub.docker.com/r/iofog/iofog-operator/tags) | 
-| operator.imagePullPolicy | Always | Operator Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) |
+| Property                                | Default value                   | Description                                                                                   |
+| --------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------- |
+| createCustomResources                   | true                            | See [Multiple Edge Compute Networks](#multiple-edge-compute-networks)                         |
+| controlPlane.userfirstName              | First                           | First name of initial user in Controller                                                      |
+| controlPlane.usersurname                | Second                          | Surname of initial user in Controller                                                         |
+| controlPlane.useremail                  | user@domain.com                 | Email (login) of initial user in Controller                                                   |
+| controlPlane.userpassword               | H23fkidf9hoibf2nlk              | Password of initial user in Controller                                                        |
+| controlPlane.database.provider          |                                 | Not supported in ioFog Community Edition                                                      |
+| controlPlane.database.host              |                                 | Not supported in ioFog Community Edition                                                      |
+| controlPlane.database.port              | 0                               | Not supported in ioFog Community Edition                                                      |
+| controlPlane.database.password          |                                 | Not supported in ioFog Community Edition                                                      |
+| controlPlane.database.dbName            |                                 | Not supported in ioFog Community Edition                                                      |
+| controlPlane.controller.replicas        | 1                               | Number of replicas of Controller pods                                                         |
+| controlPlane.controller.image           | iofog/controller:1.3.0-beta     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)                     |
+| controlPlane.controller.imagePullPolicy | Always                          | Controller Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) |
+| controlPlane.kubeletImage               | iofog/iofog-kubelet:1.3.0-beta  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)                     |
+| controlPlane.loadBalancerIP             |                                 | Pre-allocated static IP address for Controller                                                |
+| controlPlane.serviceType                | LoadBalancer                    | Service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                |
+| connectors.image                        | iofog/connector:1.3.0-beta      | [Connector Docker image](https://hub.docker.com/r/iofog/connector/tags)                       |
+| connectors.serviceType                  | LoadBalancer                    | Service type for Connector (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                 |
+| connectors.instanceNames                | `["first","second"]`            | Array of Connector instance names                                                             |
+| operator.replicas                       | 1                               | Number of replicas of Operator pods                                                           |
+| operator.image                          | iofog/iofog-operator:1.3.0-beta | [OperatorDocker image](https://hub.docker.com/r/iofog/iofog-operator/tags)                    |
+| operator.imagePullPolicy                | Always                          | Operator Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/)   |
 
 ### Connection to Installed ioFog
 

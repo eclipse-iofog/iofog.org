@@ -704,6 +704,8 @@ iofog-controller microservice <action> <options>
 | **-t, --routes string[]**    | Microservice route(s) (receiving microservices) |
 | **-e, --env string[]**       | Microservice environemnt variable(s)            |
 | **-C, --cmd string[]**       | Microservice container command and argument(s)  |
+| **-x, --x86-image string**   | x86 docker image name                           |
+| **-a, --arm-image string**   | ARM docker image name                           |
 
 ```sh
 # Single mapping
@@ -745,6 +747,8 @@ iofog-controller microservice add \
 | **-w, --rebuild**                  | Rebuild microservice image on fog agent        |
 | **-e, --env string[]**             | Microservice environemnt variable(s)           |
 | **-C, --cmd string[]**             | Microservice container command and argument(s) |
+| **-x, --x86-image string**         | x86 docker image name                          |
+| **-a, --arm-image string**         | ARM docker image name                          |
 
 ```sh
 iofog-controller update \

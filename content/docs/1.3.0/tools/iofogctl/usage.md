@@ -17,12 +17,12 @@ To list all available commands, just run `iofogctl` without any arguments. The 
 
 ```console
 $ iofogctl
-     _       ____                 __  __    
-    (_)___  / __/___  ____  _____/ /_/ / 	 
-   / / __ \/ /_/ __ \/ __ `/ ___/ __/ /   
-  / / /_/ / __/ /_/ / /_/ / /__/ /_/ /   	 
- /_/\____/_/  \____/\__, /\___/\__/_/  
-                   /____/                   
+     _       ____                 __  __
+    (_)___  / __/___  ____  _____/ /_/ /
+   / / __ \/ /_/ __ \/ __ `/ ___/ __/ /
+  / / /_/ / __/ /_/ / /_/ / /__/ /_/ /
+ /_/\____/_/  \____/\__, /\___/\__/_/
+                   /____/
 
 
 
@@ -119,12 +119,11 @@ Note that we must always specify an empty or non-existent namespace when we use 
 iofogctl connect alpaca-1 --controller 30.40.50.1 --email user@domain.com --pass h9g84q
 ```
 
-Or for Kubernetes Controllers, we can use `--kube-config` to specify the ioFog deployment to connect to. Keep in mind that in `iofogctl --namespace` parameter must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` is unable to find the service. 
+Or for Kubernetes Controllers, we can use `--kube-config` to specify the ioFog deployment to connect to. Keep in mind that in `iofogctl --namespace` parameter must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` is unable to find the service.
 
 ```bash
 iofogctl connect alpaca-2 --kube-config ~/.kube/config --email user@domain.com --pass h9g84q
 ```
-
 
 ## View Edge Compute Network Details
 
