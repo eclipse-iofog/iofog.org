@@ -51,6 +51,6 @@ If your microservices need to communicate with other nodes in your network, ioFo
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Ready for more?</h3>
-  <p>If you're ready to get started you can begin <a href="setup-your-controllers.html">setting up your Controller</a> for production, check out the <a href="quick-start.html">Quick Start guide</a>, or run through a <a href="../tutorial/introduction.html">tutorial</a>.</p>
+  <p>If you're ready to get started you can check out the <a href="quick-start.html">Quick Start guide</a>, or run through a <a href="../tutorial/introduction.html">tutorial</a>.</p>
   <p>You can also dive deeper into <a href="../agents/overview.html">Agents</a>, <a href="../controllers/overview.html">Controllers</a>, <a href="../connectors/overview.html">Connectors</a>.</p>
 </aside>
