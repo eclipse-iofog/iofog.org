@@ -1,8 +1,38 @@
-## Release 1.2.0 - "Kubernetes For The Edge"
+## 1.3.0 Beta
 
-[Get Started with release 1.2.0](/docs/1.1.0/getting-started/core-concepts.html)
+[Get Started with release 1.3.0 Beta](/docs/1.3.0/getting-started/core-concepts.html)
 
-Large ioFog release brings a set of features for seamless integration of Kubernetes and Edge Computing. The release
+1.3.0 brings new quality of life improvements as well as a set of backend changes that extend and unify ioFog's capabilities.
+
+### What's New?
+
+- **ioFog Kubernetes support has been improved** by expanding the ioFog Kubernetes Operator's capabilities. Now orchestration of ioFog Kubernetes is handled by the Operator. Previously, Helm and iofogctl were handling this orchestration themselves, in disparate ways.
+- **ioFog Controller** has been updated to allow for **external databases** to be used instead of the embedded SQLite default database. Helm and iofogctl have been updated to allow users to integrate their external databases during the deployment process.
+- The unified CLI, iofogctl, has been improved to allow users more **granular control over resources like Connectors and Microservices**.
+- iofogctl's YAML specification has been updated to accommodate its new features.
+- Users can now **view realtime deployment status of Microservices through iofogctl** due to improvements to both ioFog Controller and Agent.
+- The **iofog-go-sdk** has been updated to provide an **HTTP client for ioFog Controller's REST API**.
+
+### Changelogs
+
+- [Controller](https://github.com/eclipse-iofog/Controller/blob/v1.3.0-beta/CHANGELOG-1.3.md)
+- [Agent](https://github.com/eclipse-iofog/Agent/blob/v1.3.0-beta/CHANGELOG-1.3.md)
+- [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/v1.3.0-beta/CHANGELOG-1.3.md)
+- [Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/blob/v1.3.0-beta/CHANGELOG-1.3.md)
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-rc3/CHANGELOG-1.3.md)
+- [Helm](https://github.com/eclipse-iofog/helm/blob/release/1.3.0/CHANGELOG.md)
+- [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/v1.3.0-beta/CHANGELOG-1.3.md)
+- [Demo Project](https://github.com/eclipse-iofog/demo/blob/v1.3.0-beta/CHANGELOG-1.3.md)
+
+### Known Issues
+
+- When using iofogctl with a Kubernetes Controller `iofogctl delete agent NAME` gets success from Controller but Controller still has agent in its database
+
+## 1.2.0 - "Kubernetes For The Edge"
+
+[Get Started with release 1.2.0](/docs/1.2.0/getting-started/core-concepts.html)
+
+This release brings a set of features for seamless integration of Kubernetes and Edge Computing. The release
 comes with a new command line interface for Edge Compute Network management called _iofogctl_ and other supplementary
 tools, such as _platform tools_ for cluster and infrastructure management.
 
@@ -18,39 +48,35 @@ tools, such as _platform tools_ for cluster and infrastructure management.
 
 ##### Agent (v1.2.0)
 
-* Send Agent's external IP to Controller
-* Bugfix: Selecting the network interface that has Controller connectivity
-* Bugfix: Use local docker images when offline
+- Send Agent's external IP to Controller
+- Bugfix: Selecting the network interface that has Controller connectivity
+- Bugfix: Use local docker images when offline
 
 ##### Connector (v1.2.0)
 
-* Limit port range to 50 ports in default configuration file
+- Limit port range to 50 ports in default configuration file
 
 ##### Controller (v1.2.0)
 
-* Return Agent's external IP for Kubelet
-* Add uptime to status endpoint
-* Bugfix: Requests not failing if with additional properties
+- Return Agent's external IP for Kubelet
+- Add uptime to status endpoint
+- Bugfix: Requests not failing if with additional properties
 
 ##### Kubelet (v1.2.0)
 
-* Initial release!
+- Initial release!
 
 ##### Iofogctl (v1.2.0)
 
-* Initial release!
+- Initial release!
 
 ##### Helm Chart (v1.2.0)
 
-* Initial release!
+- Initial release!
 
 ##### Platform Tools (v1.2.0)
 
-* Initial release!
-
-##### Quickstart + Tutorial (v1.2.0)
-
-* 
+- Initial release!
 
 ### Known Issues
 
@@ -83,7 +109,7 @@ tools, such as _platform tools_ for cluster and infrastructure management.
 - API: Issues with /update/delete system microservices
 - Controller Installation: Check if sqlite3 binary exists
 
-## Release 1.1.0
+## 1.1.0
 
 [Get Started with release 1.1.0](/docs/1.1.0/getting-started/core-concepts.html)
 
@@ -149,7 +175,7 @@ tools, such as _platform tools_ for cluster and infrastructure management.
 
 - Fixed Agent docker depending on unstable location of Java
 
-## Release 1.0.0
+## 1.0.0
 
 Our very first release.
 

@@ -97,7 +97,13 @@ module.exports = {
       }
     },
     'gatsby-plugin-sharp',
-    'gatsby-plugin-catch-links',
+    'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-catch-links`,
+      options: {
+        excludePattern: /rest-api\.html/
+      }
+    },
     'gatsby-plugin-twitter',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-json',

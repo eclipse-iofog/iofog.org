@@ -41,7 +41,7 @@
         ]
       },
       {
-        "title": "Tutorial",
+        "title": "Tutorial: Developing and deploying microservices",
         "subMenus": [
           {
             "title": "Introduction",
