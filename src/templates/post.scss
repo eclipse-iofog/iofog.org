@@ -94,6 +94,12 @@
       }
     }
 
+    .swagger-ui {
+      table {
+        table-layout: auto !important;
+      }
+    }
+
     table {
       width: 100%;
       margin-bottom: 1rem;

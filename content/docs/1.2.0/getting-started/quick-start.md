@@ -7,9 +7,8 @@ In this guide we will:
 
 ## Prerequisites
 
-`iofogctl` is a CLI tool and a one-stop-shop for all your ioFog needs.
-
-All you need to run `iofogctl` is a Linux or MacOS host.
+- `Docker 1.10+`: Open platform for developing, shipping, and running applications. ([installation instructions](https://docs.docker.com/install/))
+- `iofogctl 1.2.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](https://github.com/eclipse-iofog/iofogctl/tree/v1.2.5#install))
 
 #### Install iofogctl on Mac
 

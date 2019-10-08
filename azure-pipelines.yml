@@ -1,0 +1,86 @@
+trigger:
+  tags:
+    include:
+      - v*
+  branches:
+    include:
+      - develop
+  paths:
+    exclude:
+      - README.md
+
+variables:
+  group: 'pipelines'
+  repository: 'focal-freedom-236620/iofogorg'
+  buildTag: $(Build.BuildId)
+  branchTag: $(Build.SourceBranchName)
+
+jobs:
+  - job: "ioFog"
+    pool:
+      vmImage: 'Ubuntu-16.04'
+
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
+
+      - script: |
+          npm install
+        displayName: 'npm install'
+
+      - script: |
+          npm run build
+        displayName: 'npm build'
+
+      - task: Docker@2
+        displayName: 'build docker'
+        inputs:
+          containerRegistry: 'Edgeworx GCP'
+          repository: $(repository)
+          command: 'build'
+          Dockerfile: "Dockerfile"
+          tags: |
+            $(buildTag)
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+
+      - task: Docker@2
+        displayName: 'push docker'
+        inputs:
+          containerRegistry: 'Edgeworx GCP'
+          repository: $(repository)
+          command: 'push'
+          Dockerfile: "Dockerfile"
+          tags: |
+            $(buildTag)
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+
+      - task: DownloadSecureFile@1
+        displayName: 'Download secure file'
+        inputs:
+          secureFile: 'azure-gcp.json'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+
+      - bash: |
+          CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+          echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+          curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+          sudo apt-get update && sudo apt-get install google-cloud-sdk
+          gcloud --quiet auth activate-service-account --key-file=$(Agent.TempDirectory)/azure-gcp.json
+          gcloud --quiet config set project focal-freedom-236620
+          gcloud --quiet container clusters get-credentials dogfood --region us-west1
+          gcloud --quiet auth configure-docker
+        displayName: 'set up gcloud'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+
+      - bash: |
+          curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+          chmod +x ./kubectl
+        displayName: 'set up kubectl'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+
+      - bash: |
+          ./kubectl set image deployment/iofog-org iofogorg=gcr.io/$(repository):$(buildTag)
+        displayName: 'update deployment'
+        condition: ne(variables['Build.Reason'], 'PullRequest')
