@@ -47,37 +47,43 @@ Routes can be listed from the `iofogctl get microservices` or `iofogctl describe
 ```console
 $ iofogctl describe microservice Sensors
 
-name: Sensors
-agent:
-  name: local-agent
-  config:
-    dockerurl: unix:///var/run/docker.sock
-    disklimit: 50
-    diskdirectory: /var/lib/iofog-agent/
-    memorylimit: 1024
-    cpulimit: 80
-    loglimit: 10
-    logdirectory: /var/log/iofog-agent/
-    logfilecount: 10
-    statusfrequency: 30
-    changefrequency: 60
-    devicescanfrequency: 60
-    bluetoothenabled: false
-    watchdogenabled: false
-    abstractedhardwareenabled: false
-images:
-  catalogid: 0
-  x86: iofog/sensors:latest
-  arm: ""
-  registry: remote
-config: {}
-roothostaccess: false
-ports: []
-volumes: []
-env: []
-routes:
-- Rest API
-application: tutorial
+apiVersion: ""
+kind: Microservice
+metadata:
+  name: Sensors
+  namespace: default
+spec:
+  name: Sensors
+  agent:
+    name: local-agent
+    config:
+      dockerurl: unix:///var/run/docker.sock
+      disklimit: 50
+      diskdirectory: /var/lib/iofog-agent/
+      memorylimit: 1024
+      cpulimit: 80
+      loglimit: 10
+      logdirectory: /var/log/iofog-agent/
+      logfilecount: 10
+      statusfrequency: 30
+      changefrequency: 60
+      devicescanfrequency: 60
+      bluetoothenabled: false
+      watchdogenabled: false
+      abstractedhardwareenabled: false
+  images:
+    catalogid: 0
+    x86: iofog/sensors:latest
+    arm: ""
+    registry: remote
+  config: {}
+  roothostaccess: false
+  ports: []
+  volumes: []
+  env: []
+  routes:
+  - Rest API
+  application: tutorial
 ```
 
 We'll discover later on how to create and remove routes using iofogctl.

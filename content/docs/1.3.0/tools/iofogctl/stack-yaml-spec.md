@@ -4,23 +4,30 @@
 
 ## Control Plane
 
-A Control Plane can be specified when using `iofogctl deploy controlplane -f controlplane.yaml` or as a part of a complete [ECN](#edge-compute-network) specification. The Control Plane is an overarching component containing specifications for [Controllers](#controller) and ioFog default user.
+A Control Plane can be specified when using `iofogctl deploy -f controlplane.yaml` or as a part of a complete [ECN](#edge-compute-network) specification. The Control Plane is an overarching component containing specifications for [Controllers](#controller) and ioFog default user.
 
 ```yaml
-iofoguser:
-  name: Foo
-  surname: Bar
-  email: user@domain.com
-  password: g9hr823rhuoi
+kind: ControlPlane # What are we deploying
+metadata:
+  name: buffalo # Controlplane name
+  namespace: default # (Optional) iofogctl namespace to use
 
-controllers:
-  - name: vanilla
-    user: foo
-    host: 30.40.50.3
-    keyfile: ~/.ssh/id_rsa
-  - name: kubernetes
-    replicas: 2
-    keyfile: ~/.ssh/id_rsa
+# Specifications of the control plane
+spec:
+  iofogUser:
+    name: Foo
+    surname: Bar
+    email: user@domain.com
+    password: g9hr823rhuoi
+
+  controllers:
+    - name: vanilla
+      user: foo
+      host: 30.40.50.3
+      keyFile: ~/.ssh/id_rsa
+    - name: kubernetes
+      replicas: 2
+      keyFile: ~/.ssh/id_rsa
 ```
 
 | Field       | Description                                                            |
@@ -30,21 +37,26 @@ controllers:
 
 ## Controller
 
-A Controller can be specified when using `iofogctl deploy controller -f controller.yaml` or as a part of [Control Plane](#control-plane) specification or as a part of a complete [ECN](#edge-compute-network) specification.
+A Controller can be specified when using `iofogctl deploy -f controller.yaml` or as a part of [Control Plane](#control-plane) specification or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
-name: alpaca
+kind: Controller # What are we deploying
+metadata:
+  name: alpaca # Controller name
+  namespace: default # (Optional) iofogctl namespace to use
 
-# Only required for non-K8s deployment
-user: foo
-host: 30.40.50.5
-keyfile: ~/.ssh/id_rsa
+# Specifications of the controller
+spec:
+  # Only required for non-K8s deployment
+  user: foo
+  host: 30.40.50.5
+  keyFile: ~/.ssh/id_rsa
 
-# Only required for K8s deployment
-kubeconfig: ~/.kube/config
-kubecontrollerip: 34.23.14.6 # Optional
-replicas: 1 # Optional, defaults to 1
-servicetype: LoadBalancer # Optional, defaults to "LoadBalancer"
+  # Only required for K8s deployment
+  kubeConfig: ~/.kube/config
+  kubeControllerIP: 34.23.14.6 # Optional
+  replicas: 1 # Optional, defaults to 1
+  serviceType: LoadBalancer # Optional, defaults to "LoadBalancer"
 ```
 
 | Field              | Description                                                                                                                                                              |
@@ -60,19 +72,24 @@ servicetype: LoadBalancer # Optional, defaults to "LoadBalancer"
 
 ## Connector
 
-A Connector can be specified when using `iofogctl deploy connector -f connector.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
+A Connector can be specified when using `iofogctl deploy -f connector.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
-name: tiger
+kind: Connector # What are we deploying
+metadata:
+  name: tiger # Connector name
+  namespace: default # (Optional) iofogctl namespace to use
 
-# Only required for non-K8s deployment
-user: foo
-host: 30.40.50.5
-keyfile: ~/.ssh/id_rsa
+# Specifications of the connector
+spec:
+  # Only required for non-K8s deployment
+  user: foo
+  host: 30.40.50.5
+  keyFile: ~/.ssh/id_rsa
 
-# Only required for K8s deployment
-kubeconfig: ~/.kube/config
-replicas: 1 # Optional, defaults to 1
+  # Only required for K8s deployment
+  kubeConfig: ~/.kube/config
+  replicas: 1 # Optional, defaults to 1
 ```
 
 | Field       | Description                                                                                                                                                             |
@@ -88,13 +105,19 @@ Note that at the moment Connector does not support specifying `ServiceType` the 
 
 ## Agent
 
-An Agent can be specified when using `iofogctl deploy agent -f agent.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
+An Agent can be specified when using `iofogctl deploy -f agent.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
-name: meerkat
-user: foo
-host: 30.40.50.6
-keyfile: ~/.ssh/id_rsa
+kind: Agent # What are we deploying
+metadata:
+  name: meerkat # Agent name
+  namespace: default # (Optional) iofogctl namespace to use
+
+# Specifications of the agent
+spec:
+  user: foo
+  host: 30.40.50.6
+  keyFile: ~/.ssh/id_rsa
 ```
 
 | Field | Description                                                                                                                                                         |
@@ -105,11 +128,16 @@ keyfile: ~/.ssh/id_rsa
 
 ## Edge Compute Network
 
-An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`.
+An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`. Multiple yaml documents can be chained in the same file using `---` as a separator.
 
 ```yaml
-controlplane:
-  iofoguser:
+---
+kind: ControlPlane
+metadata:
+  name: buffalo
+  namespace: default
+spec:
+  iofogUser:
     name: Serge
     surname: Radinovich
     email: serge@edgeworx.io
@@ -118,27 +146,38 @@ controlplane:
     - name: alpaca-1
       user: serge
       host: 30.40.50.3
-      keyfile: ~/.ssh/id_rsa
+      keyFile: ~/.ssh/id_rsa
     - name: alpaca-2
       user: serge
       host: 30.40.50.4
-      keyfile: ~/.ssh/id_rsa
-
-connectors:
-  - name: zebra
-    user: serge
-    host: 30.40.50.5
-    keyfile: ~/.ssh/id_rsa
-
-agents:
-  - name: hippo-1
-    user: serge
-    host: 30.40.50.6
-    keyfile: ~/.ssh/id_rsa
-  - name: hippo-2
-    user: serge
-    host: 30.40.50.7
-    keyfile: ~/.ssh/id_rsa
+      keyFile: ~/.ssh/id_rsa
+---
+kind: Connector
+metadata:
+  name: zebra
+  namespace: default
+spec:
+  user: serge
+  host: 30.40.50.5
+  keyFile: ~/.ssh/id_rsa
+---
+kind: Agent
+metadata:
+  name: hippo-1
+  namespace: default
+spec:
+  user: serge
+  host: 30.40.50.6
+  keyFile: ~/.ssh/id_rsa
+---
+kind: Agent
+metadata:
+  name: hippo-2
+  namespace: default
+spec:
+  user: serge
+  host: 30.40.50.7
+  keyFile: ~/.ssh/id_rsa
 ```
 
 You can also use this approach to deploy a subset of the ECN by omitting any of the Control Plane, Connectors, or Agents sections.

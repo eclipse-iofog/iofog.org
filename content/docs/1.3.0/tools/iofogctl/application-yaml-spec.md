@@ -8,7 +8,7 @@ For a complete documentation of all available `iofogctl` commands, please see [o
 
 An application is a set of microservices working together to achieve one specific purpose (I.E: One microservice collecting and formatting data, another one displaying the data in a user friendly way)
 
-An application is defined by a yaml file. This file is passed as a parameter to the deploy command: `iofogctl deploy application -f <path-to-yaml>`
+An application is defined by a yaml file. This file is passed as a parameter to the deploy command: `iofogctl deploy -f <path-to-yaml>`
 
 An application yaml file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
 
@@ -16,48 +16,52 @@ Don't panic if this seems like a lot to ingest, the [microservice yaml definitio
 The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
 
 ```yaml
-# Name of your application
-name: Healthcare Wearable
+kind: Application # What are we deploying
+metadata:
+  name: Healthcare Wearable # Application name
+  namespace: default # (Optional) iofogctl namespace to use
 
-# List of microservices composing your application
-microservices:
-  # It uses the microservice yaml schema described below
-  - name: heart-rate-monitor
-    agent:
-      name: zebra-1
+# Specifications of the application
+spec:
+  # List of microservices composing your application
+  microservices:
+    # It uses the microservice yaml schema described below
+    - name: heart-rate-monitor
+      agent:
+        name: zebra-1
+        config:
+          bluetoothEnabled: true
+          abstractedHardwareEnabled: false
+      images:
+        x86: edgeworx/healthcare-heart-rate:x86-v1
+        arm: edgeworx/healthcare-heart-rate:arm-v1
       config:
-        bluetoothenabled: true
-        abstractedhardwareenabled: false
-    images:
-      x86: edgeworx/healthcare-heart-rate:x86-v1
-      arm: edgeworx/healthcare-heart-rate:arm-v1
-    config:
-      data_label: Anonymous Person
-      test_mode: true
-    roothostaccess: false
-    ports: []
-    volumes: []
-    env: []
-  - name: heart-rate-viewer
-    agent:
-      name: zebra-2
-    images:
-      x86: edgeworx/healthcare-heart-rate-ui:x86
-      arm: edgeworx/healthcare-heart-rate-ui:arm
-    config: {}
-    roothostaccess: false
-    ports:
-      - internal: 80
-        external: 5000
-    volumes: []
-    env:
-      - key: BASE_URL
-        value: http://localhost:8080/data
+        data_label: Anonymous Person
+        test_mode: true
+      rootHostAccess: false
+      ports: []
+      volumes: []
+      env: []
+    - name: heart-rate-viewer
+      agent:
+        name: zebra-2
+      images:
+        x86: edgeworx/healthcare-heart-rate-ui:x86
+        arm: edgeworx/healthcare-heart-rate-ui:arm
+      config: {}
+      rootHostAccess: false
+      ports:
+        - internal: 80
+          external: 5000
+      volumes: []
+      env:
+        - key: BASE_URL
+          value: http://localhost:8080/data
 
-# List of route for ioMessages between two microservices inside the same application
-routes:
-  - from: heart-rate-monitor
-    to: heart-rate-viewer
+  # List of route for ioMessages between two microservices inside the same application
+  routes:
+    - from: heart-rate-monitor
+      to: heart-rate-viewer
 ```
 
 | Field         | Description                                                                                                                                                                                                                 |
@@ -75,74 +79,78 @@ Those yaml definitions can be used inside an application yaml file, or by themse
 A microservice yaml definition file can be retrieved using the describe command: `iofogctl describe microservice <NAME> [-o microservice.yaml]`
 
 ```yaml
-# Microservice name
-name: heart-rate-monitor
+kind: Microservice # What are we deploying
+metadata:
+  name: heart-rate-monitor # Microservice name
+  namespace: default # (Optional) iofogctl namespace to use
 
-# Agent on which to deploy the microservice
-agent:
-  # Agent name
-  name: zebra-1
-  # Optional agent configuration
+# Specifications of the microservice
+spec:
+  # Agent on which to deploy the microservice
+  agent:
+    # Agent name
+    name: zebra-1
+    # Optional agent configuration
+    config:
+      # All fields are optional
+      dockerUrl: unix:///var/run/docker.sock
+      diskLimit: 50
+      diskDirectory: /var/lib/iofog-agent/
+      memoryLimit: 4096
+      cpuLimit: 80
+      logLimit: 10
+      logDirectory: /var/log/iofog-agent/
+      logFileCount: 10
+      statusFrequency: 10
+      changeFrequency: 10
+      deviceScanFrequency: 60
+      bluetoothEnabled: true
+      watchdogEnabled: false
+      abstractedHardwareEnabled: false
+
+  # Information about the container images to be used
+  images:
+    x86: edgeworx/healthcare-heart-rate:x86-v1 # Image to be used on x86 type agents
+    arm: edgeworx/healthcare-heart-rate:arm-v1 # Image to be used on arm type agents
+    registry: remote # Either 'remote' or 'local' or the registry ID - Remote will pull the image from Dockerhub, local will use the local cache of the agent
+    # Optional catalog item id (See Catalog items in the advanced section)
+    catalogID: 0 # 0 is equivalent to not providing the field
+
+  # Microservice configuration
   config:
-    # All fields are optional
-    dockerurl: unix:///var/run/docker.sock
-    disklimit: 50
-    diskdirectory: /var/lib/iofog-agent/
-    memorylimit: 4096
-    cpulimit: 80
-    loglimit: 10
-    logdirectory: /var/log/iofog-agent/
-    logfilecount: 10
-    statusfrequency: 10
-    changefrequency: 10
-    devicescanfrequency: 60
-    bluetoothenabled: true
-    watchdogenabled: false
-    abstractedhardwareenabled: false
+    # Arbitrary key, value yaml object
+    data_label: test_mode=false_cross_agent_microservice_routing_aug_27
+    test_mode: true
 
-# Information about the container images to be used
-images:
-  x86: edgeworx/healthcare-heart-rate:x86-v1 # Image to be used on x86 type agents
-  arm: edgeworx/healthcare-heart-rate:arm-v1 # Image to be used on arm type agents
-  registry: remote # Either 'remote' or 'local' or the registry ID - Remote will pull the image from Dockerhub, local will use the local cache of the agent
-  # Optional catalog item id (See Catalog items in the advanced section)
-  catalogid: 0 # 0 is equivalent to not providing the field
+  # Does the microservice container requires root host access on the agent
+  rootHostAccess: false
 
-# Microservice configuration
-config:
-  # Arbitrary key, value yaml object
-  data_label: test_mode=false_cross_agent_microservice_routing_aug_27
-  test_mode: true
+  # Microservice container port mapping list on the agent
+  ports:
+    # This will create a mapping between the port 80 of the microservice container and the port 5000 of the agent
+    - internal: 80
+      external: 5000
 
-# Does the microservice container requires root host access on the agent
-roothostaccess: false
+  # Microservice container volume mapping list on the agent
+  volumes:
+    # This will create a volume mapping between the agent '/tmp/msvc' volume and the microservice container volume '/data'
+    - hostDestination: '/tmp/msvc'
+      containerDestination: '/data'
+      accessMode: 'rw' # ReadWrite access to the mounted volume
 
-# Microservice container port mapping list on the agent
-ports:
-  # This will create a mapping between the port 80 of the microservice container and the port 5000 of the agent
-  - internal: 80
-    external: 5000
+  # Microservice container environment variable list on the agent
+  env:
+    # This will create an environment variable inside the microservice container with the key 'BASE_URL' and the value 'http://localhost:8080/data'
+    - key: BASE_URL
+      value: http://localhost:8080/data
 
-# Microservice container volume mapping list on the agent
-volumes:
-  # This will create a volume mapping between the agent '/tmp/msvc' volume and the microservice container volume '/data'
-  - hostdestination: '/tmp/msvc'
-    containerdestination: '/data'
-    accessmode: 'rw' # ReadWrite access to the mounted volume
+  # List of microservice names to which a route needs to be created
+  routes:
+    - heart-rate-viewer # This will create a route from 'heart-rate-monitor' to 'heart-rate-viewer'
+  # When deploying application, the application level 'routes' field is preferred to this field
 
-# Microservice container environment variable list on the agent
-env:
-  # This will create an environment variable inside the microservice container with the key 'BASE_URL' and the value 'http://localhost:8080/data'
-  - key: BASE_URL
-    value: http://localhost:8080/data
-
-# List of microservice names to which a route needs to be created
-routes:
-  - heart-rate-viewer # This will create a route from 'heart-rate-monitor' to 'heart-rate-viewer'
-# When deploying application, the application level 'routes' field is preferred to this field
-
-# Mandatory application name inside which to deploy the microservice
-application: Healthcare Wearable
+  # Mandatory application name inside which to deploy the microservice
+  application: Healthcare Wearable
 ```
 
 | Field            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |

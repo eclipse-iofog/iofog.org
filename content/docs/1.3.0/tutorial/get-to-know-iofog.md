@@ -81,52 +81,58 @@ Let's start by using `iofogctl` to retrieve a detailed description of our Agent.
 ```console
 $ iofogctl describe agent local-agent
 
-uuid: xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR
-name: local-agent
-location: ""
-latitude: 50.8333
-longitude: 4.3333
-description: ""
-dockerurl: unix:///var/run/docker.sock
-disklimit: 50
-diskdirectory: /var/lib/iofog-agent/
-memorylimit: 1024
-cpulimit: 80
-loglimit: 10
-logdirectory: /var/log/iofog-agent/
-logfilecount: 10
-statusfrequency: 30
-changefrequency: 60
-devicescanfrequency: 60
-bluetoothenabled: false
-watchdogenabled: false
-abstractedhardwareenabled: false
-createdtimerfc3339: "2019-09-13T09:14:13.846Z"
-updatedtimerfc3339: "2019-09-13T10:37:57.424Z"
-lastactive: 1568371077407
-daemonstatus: RUNNING
-uptimems: 5018195
-memoryusage: 177.55567932128906
-diskusage: 0.027621466666460037
-cpuusage: 1.170568585395813
-memoryviolation: "0"
-diskviolation: "0"
-cpuviolation: "0"
-microservicestatus: ""
-repositorycount: 2
-repositorystatus: '[]'
-laststatustimemsutc: 1568371070651
-ipaddress: 172.17.0.4
-ipaddressexternal: 91.178.63.198
-processedmessaged: 124036
-microservicemessagecount: 0
-messagespeed: 86
-lastcommandtimemsutc: 0
-networkinterface: eth0
-version: 1.3.0-beta
-isreadytoupgrade: false
-isreadytorollback: false
-tunnel: ""
+apiVersion: ""
+kind: Agent
+metadata:
+  name: local-agent
+  namespace: default
+spec:
+  uuid: xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR
+  name: local-agent
+  location: ""
+  latitude: 50.8333
+  longitude: 4.3333
+  description: ""
+  dockerurl: unix:///var/run/docker.sock
+  disklimit: 50
+  diskdirectory: /var/lib/iofog-agent/
+  memorylimit: 1024
+  cpulimit: 80
+  loglimit: 10
+  logdirectory: /var/log/iofog-agent/
+  logfilecount: 10
+  statusfrequency: 30
+  changefrequency: 60
+  devicescanfrequency: 60
+  bluetoothenabled: false
+  watchdogenabled: false
+  abstractedhardwareenabled: false
+  createdtimerfc3339: "2019-09-13T09:14:13.846Z"
+  updatedtimerfc3339: "2019-09-13T10:37:57.424Z"
+  lastactive: 1568371077407
+  daemonstatus: RUNNING
+  uptimems: 5018195
+  memoryusage: 177.55567932128906
+  diskusage: 0.027621466666460037
+  cpuusage: 1.170568585395813
+  memoryviolation: "0"
+  diskviolation: "0"
+  cpuviolation: "0"
+  microservicestatus: ""
+  repositorycount: 2
+  repositorystatus: '[]'
+  laststatustimemsutc: 1568371070651
+  ipaddress: 172.17.0.4
+  ipaddressexternal: 91.178.63.198
+  processedmessaged: 124036
+  microservicemessagecount: 0
+  messagespeed: 86
+  lastcommandtimemsutc: 0
+  networkinterface: eth0
+  version: 1.3.0-beta
+  isreadytoupgrade: false
+  isreadytorollback: false
+  tunnel: ""
 ```
 
 Let's see how we can use the `iofog-agent` CLI to find out its status. Note that the first `iofog-agent` in the following command stands for the container name, and the second `iofog-agent` is the executable wrapped in the container.
