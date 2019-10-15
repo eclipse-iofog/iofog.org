@@ -16,7 +16,7 @@ module.exports = {
     github: 'https://github.com/Eclipse-ioFog',
     twitter: 'https://twitter.com/eclipseiofog',
     slack:
-      'https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LWViMThlYTkxYzBhYzYzN2IxZDZjMGYyYjA0OTM2NDZlZTI0ZTUwOTdlYzllYWRlNDgwY2ExZjY3YWVhODM0MzU'
+      'https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LTRhMTE2YjgwNmRhOTg5ZmI3MGQ5OGM0N2E1MDg0OTJmMWYxZTgxZjE2MjA3NzY2MTFlZmEyYzc3OGQ5NmM4ZjI'
   },
   copyright: '© 2019 Eclipse Foundation, Inc.', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#4668fd', // Used for setting manifest and progress theme colors.
