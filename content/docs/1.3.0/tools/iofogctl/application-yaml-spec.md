@@ -151,6 +151,9 @@ spec:
 
   # Mandatory application name inside which to deploy the microservice
   application: Healthcare Wearable
+
+  # Optional. Boolean instructing agent to rebuild the microservice container
+  rebuild: false
 ```
 
 | Field            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -165,3 +168,5 @@ spec:
 | Env              | List of environment variables to be provided to the container running the microservice                                                                                                                                                                                                                                                                                                                                                                                  |
 | Routes           | List of ioFog Routes destination. Use microservice name as identifiers. The microservice specified must be part of the application. Only use this field when updating a microservice in isolation.                                                                                                                                                                                                                                                                      |
 | Application      | Unique identifier of the Application the microservice is part of                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Rebuild          | Boolean instructing the ioFog Agent to rebuild the microservice container after update. Use this flag if you updated the content of the docker image but didn't change the flag.                                                                                                                                                                                                                                                                                        |
+|                  |
