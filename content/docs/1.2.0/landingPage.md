@@ -72,11 +72,13 @@ Through this control plane you can manage multiple ECNs at once, through standar
 
 To get started using iofogctl follow [these instructions](./tools/iofogctl/usage.html)
 
+The following sections can all be handled through iofogctl, however, if you wish to set them up manually, please look at the relevant section below
+
 #### Agent
 
 Agent is your daemon on your edge device. This will setup docker and ioFog, 
-on your device, which you can then connect your your controller. For instructions on setting this up see
-[Agents Overview](/agents/overview.html)
+on your device, which you can then connect your your controller. For instructions on setting this up manually please follow 
+[this guide](./agents/overview.html)
 
 #### Controller
 
@@ -89,6 +91,14 @@ To deploy Controller manually and not through iofogctl, please see [this guide](
 
 Connector will facilitate inter-Agent communication for microservices to send data to each other in a secure fashion.
 
-#### Kubelet
+Connector setup can be done manually by following [this guide](./connectors/overview.html)
 
 #### Platform Tools
+
+**NOTE: THIS IS CURRENTLY IN BETA**
+
+Platform tools are a set of tools built by the ioFog team to make large deployments easier. This includes using terraform, and helm deploys to setup your devices easily.
+
+For Helm instructions, please follow the [how to helm guide](./tools/how-to-helm.html)
+
+For other platform tools, such as terraform, see our [platform tools guide](./tools/how-to-helm.html)
