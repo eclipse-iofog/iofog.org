@@ -5,6 +5,7 @@ All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) com
 The core structure is always as below:
 
 ```yaml
+apiVersion: iofog.org/v1 # YAML API version
 kind: ControlPlane # What resource are we deploying
 metadata:
   name: buffalo # resource name
@@ -16,6 +17,7 @@ spec: ...
 
 | Field              | Description                                                                                                                                                                                |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| API Version        | ioFog YAML schema definition version. Currently `iofog.org/v1`                                                                                                                             |
 | Kind               | String representing what type of resource we want to deploy. The available values are `ControlPlane`, `Controller`, `Connector`, `Agent`, `AgentConfig`, `Application` and `Microservice`. |
 | Metadata           | Object containing metadata about the resource                                                                                                                                              |
 | Metadata.Name      | User defined, unique identifier of the resource in its context.                                                                                                                            |

@@ -26,6 +26,7 @@ Don't panic if this seems like a lot to ingest, the [microservice yaml definitio
 The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
 
 ```yaml
+apiVersion: iofog.org/v1
 kind: Application # What are we deploying
 metadata:
   name: Healthcare Wearable # Application name
@@ -89,6 +90,7 @@ Those yaml definitions can be used inside an application yaml file, or by themse
 A microservice yaml definition file can be retrieved using the describe command: `iofogctl describe microservice <NAME> [-o microservice.yaml]`
 
 ```yaml
+apiVersion: iofog.org/v1
 kind: Microservice # What are we deploying
 metadata:
   name: heart-rate-monitor # Microservice name

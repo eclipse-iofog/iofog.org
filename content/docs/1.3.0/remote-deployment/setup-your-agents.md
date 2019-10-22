@@ -8,10 +8,14 @@ Create a template of agent.yaml like so:
 
 ```bash
 echo "---
-name: zebra-1
-user: foo
-host: 38.101.23.10
-keyfile: ~/.ssh/id_rsa" > /tmp/agent.yaml
+apiVersion: iofog.org/v1
+kind: Agent
+metadata:
+  name: zebra-1
+spec:
+  user: foo
+  host: 38.101.23.10
+  keyFile: ~/.ssh/id_rsa" > /tmp/agent.yaml
 ```
 
 Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.

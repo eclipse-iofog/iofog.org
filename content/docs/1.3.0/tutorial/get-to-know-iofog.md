@@ -81,7 +81,7 @@ Let's start by using `iofogctl` to retrieve a detailed description of our Agent.
 ```console
 $ iofogctl describe agent local-agent
 
-apiVersion: ""
+apiVersion: iofog.org/v1
 kind: Agent
 metadata:
   name: local-agent
@@ -93,20 +93,20 @@ spec:
   latitude: 50.8333
   longitude: 4.3333
   description: ""
-  dockerurl: unix:///var/run/docker.sock
-  disklimit: 50
-  diskdirectory: /var/lib/iofog-agent/
-  memorylimit: 1024
-  cpulimit: 80
-  loglimit: 10
-  logdirectory: /var/log/iofog-agent/
-  logfilecount: 10
-  statusfrequency: 30
-  changefrequency: 60
-  devicescanfrequency: 60
-  bluetoothenabled: false
-  watchdogenabled: false
-  abstractedhardwareenabled: false
+  dockerURL: unix:///var/run/docker.sock
+  diskLimit: 50
+  diskDirectory: /var/lib/iofog-agent/
+  memoryLimit: 1024
+  CPULimit: 80
+  logLimit: 10
+  logDirectory: /var/log/iofog-agent/
+  logFileCount: 10
+  statusFrequency: 30
+  changeFrequency: 60
+  deviceScanFrequency: 60
+  bluetoothEnabled: false
+  watchdogEnabled: false
+  abstractedHardwareEnabled: false
   createdtimerfc3339: "2019-09-13T09:14:13.846Z"
   updatedtimerfc3339: "2019-09-13T10:37:57.424Z"
   lastactive: 1568371077407

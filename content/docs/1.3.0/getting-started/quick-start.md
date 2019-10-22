@@ -52,11 +52,12 @@ Go ahead an paste the following commands into your terminal:
 
 ```bash
 echo "---
+apiVersion: iofog.org/v1
 kind: ControlPlane
 metadata:
   name: ecn
 spec:
-  iofoguser:
+  iofogUser:
     name: Quick
     surname: Start
     email: user@domain.com
@@ -65,12 +66,14 @@ spec:
   - name: local-controller
     host: localhost
 ---
+apiVersion: iofog.org/v1
 kind: Connector
 metadata:
   name: local-connector
 spec:
   host: localhost
 ---
+apiVersion: iofog.org/v1
 kind: Agent
 metadata:
   name: local-agent
@@ -128,6 +131,7 @@ Now that our local ECN is up, lets put it to use. The following commands will de
 
 ```bash
 echo '---
+apiVersion: iofog.org/v1
 kind: Application
 metadata:
   name: HealthcareWearableExample

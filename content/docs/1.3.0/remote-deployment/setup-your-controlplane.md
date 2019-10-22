@@ -17,14 +17,19 @@ Create a template of controlplane.yaml like so:
 
 ```bash
 echo "---
-iofoguser:
-  name: Foo
-  surname: Bar
-  email: user@domain.com
-  password: iht234g9afhe
-controllers:
-- name: alpaca-1
-  kubeconfig: ~/.kube/config" > /tmp/controlplane.yaml
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: albatros-1
+spec:
+  iofogUser:
+    name: Foo
+    surname: Bar
+    email: user@domain.com
+    password: iht234g9afhe
+  controllers:
+  - name: alpaca-1
+    kubeConfig: ~/.kube/config" > /tmp/controlplane.yaml
 ```
 
 Make sure to specify the correct value for the `kubeconfig` field.
@@ -43,16 +48,21 @@ Create a template of controlplane.yaml like so:
 
 ```bash
 echo "---
-iofoguser:
-  name: Foo
-  surname: Bar
-  email: user@domain.com
-  password: iht234g9afhe
-controllers:
-- name: alpaca-1
-  user: bar
-  host: 38.101.23.2
-  keyfile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: albatros
+spec:
+  iofogUser:
+    name: Foo
+    surname: Bar
+    email: user@domain.com
+    password: iht234g9afhe
+  controllers:
+  - name: alpaca-1
+    user: bar
+    host: 38.101.23.2
+    keyFile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
 ```
 
 Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.

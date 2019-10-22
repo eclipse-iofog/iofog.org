@@ -47,7 +47,7 @@ Routes can be listed from the `iofogctl get microservices` or `iofogctl describe
 ```console
 $ iofogctl describe microservice Sensors
 
-apiVersion: ""
+apiVersion: iofog.org/v1
 kind: Microservice
 metadata:
   name: Sensors
