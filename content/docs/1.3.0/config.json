@@ -6,6 +6,10 @@
         "title": "Getting Started",
         "subMenus": [
           {
+            "title": "Landing Page",
+            "entry": "./landing-page.md"
+          },
+          {
             "title": "Core Concepts",
             "entry": "./getting-started/core-concepts.md"
           },
