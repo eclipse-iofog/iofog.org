@@ -17,6 +17,7 @@ An agent configuration can be retrieved using `iofogctl describe agent <AGENT_NA
 An agent configuration can be deployed using `iofogctl deploy -f agent-config.yaml`
 
 ```yaml
+apiVersion: iofog.org/v1
 kind: AgentConfig
 metadata:
   name: agent-1 # ioFog Agent name

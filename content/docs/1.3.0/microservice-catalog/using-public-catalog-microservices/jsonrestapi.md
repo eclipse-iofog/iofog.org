@@ -13,23 +13,27 @@ The **config** for the container should look in the following way:
 Which translates to the following [YAML microservice file](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) :
 
 ```yaml
-name: json-rest-api
-agent:
-  name: local-agent
+apiVersion: iofog.org/v1
+kind: Microservice
+metadata:
+  name: json-rest-api
+spec:
+  agent:
+    name: local-agent
+    ...
+  images:
+    catalogid: 7
+  config:
+    buffersize: 3
+    contentdataencoding: utf8
+    contextdataencoding: utf8
+    outputfields:
+      publisher: source
+      contentdata: temperature
+      timestamp: time
+  ports: []
   ...
-images:
-  catalogid: 7
-config:
-  buffersize: 3
-  contentdataencoding: utf8
-  contextdataencoding: utf8
-  outputfields:
-    publisher: source
-    contentdata: temperature
-    timestamp: time
-ports: []
-...
-application: my-application
+  application: my-application
 ```
 
 **Config explanation:**
@@ -55,19 +59,23 @@ The **config** for the container should look in the following way:
 Which translates to the following [YAML microservice file](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) :
 
 ```yaml
-name: open-weather-map
-agent:
-  name: local-agent
+apiVersion: iofog.org/v1
+kind: Microservice
+metadata:
+  name: open-weather-map
+spec:
+  agent:
+    name: local-agent
+    ...
+  images:
+    catalogid: 8
+  config:
+    citycode: 5391997
+    apikey: 6141811a6136148a00133488eadff0fb
+    frequency: 1000
+  ports: []
   ...
-images:
-  catalogid: 8
-config:
-  citycode: 5391997
-  apikey: 6141811a6136148a00133488eadff0fb
-  frequency: 1000
-ports: []
-...
-application: my-application
+  application: my-application
 ```
 
 **Config explanation:**

@@ -10,8 +10,12 @@ Create a template of connectors.yaml like so:
 
 ```bash
 echo "---
-name: meerkat-1
-kubeconfig: ~/.kube/config" > /tmp/connector.yaml
+apiVersion: iofog.org/v1
+kind: Connector
+metadata:
+  name: meerkat-1
+spec:
+  kubeconfig: ~/.kube/config" > /tmp/connector.yaml
 ```
 
 To deploy, run:
@@ -28,10 +32,14 @@ Create a template of connector.yaml like so:
 
 ```bash
 echo "---
-name: meerkat-1
-user: foo
-host: 38.101.23.3
-keyfile: ~/.ssh/id_rsa" > /tmp/connector.yaml
+apiVersion: iofog.org/v1
+kind: Connector
+metadata:
+  name: meerkat-1
+spec:
+  user: foo
+  host: 38.101.23.3
+  keyFile: ~/.ssh/id_rsa" > /tmp/connector.yaml
 ```
 
 Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.

@@ -13,6 +13,7 @@ All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) com
 A Control Plane can be specified when using `iofogctl deploy -f controlplane.yaml` or as a part of a complete [ECN](#edge-compute-network) specification. The Control Plane is an overarching component containing specifications for [Controllers](#controller) and ioFog default user.
 
 ```yaml
+apiVersion: iofog.org/v1
 kind: ControlPlane # What are we deploying
 metadata:
   name: buffalo # Controlplane name
@@ -46,6 +47,7 @@ spec:
 A Controller can be specified when using `iofogctl deploy -f controller.yaml` or as a part of [Control Plane](#control-plane) specification or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
+apiVersion: iofog.org/v1
 kind: Controller # What are we deploying
 metadata:
   name: alpaca # Controller name
@@ -81,6 +83,7 @@ spec:
 A Connector can be specified when using `iofogctl deploy -f connector.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
+apiVersion: iofog.org/v1
 kind: Connector # What are we deploying
 metadata:
   name: tiger # Connector name
@@ -114,6 +117,7 @@ Note that at the moment Connector does not support specifying `ServiceType` the 
 An Agent can be specified when using `iofogctl deploy -f agent.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
+apiVersion: iofog.org/v1
 kind: Agent # What are we deploying
 metadata:
   name: meerkat # Agent name
@@ -140,6 +144,7 @@ Multiple yaml documents can be chained in the same file using `---` as a separat
 
 ```yaml
 ---
+apiVersion: iofog.org/v1
 kind: ControlPlane
 metadata:
   name: buffalo
@@ -160,6 +165,7 @@ spec:
       host: 30.40.50.4
       keyFile: ~/.ssh/id_rsa
 ---
+apiVersion: iofog.org/v1
 kind: Connector
 metadata:
   name: zebra
@@ -169,6 +175,7 @@ spec:
   host: 30.40.50.5
   keyFile: ~/.ssh/id_rsa
 ---
+apiVersion: iofog.org/v1
 kind: Agent
 metadata:
   name: hippo-1
@@ -178,6 +185,7 @@ spec:
   host: 30.40.50.6
   keyFile: ~/.ssh/id_rsa
 ---
+apiVersion: iofog.org/v1
 kind: Agent
 metadata:
   name: hippo-2

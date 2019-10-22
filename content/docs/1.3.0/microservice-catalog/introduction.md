@@ -37,18 +37,22 @@ So, to deploy a microservice running those images, we can use the following yaml
 
 ```yaml
 $ echo "---
-name: Hello Web Microservice
-agent:
-  name: agent-name
-images:
-  catalogid: 5
-config: {}
-roothostaccess: false
-ports: []
-volumes: []
-env: []
-routes: []
-application: my-application
+apiVersion: iofog.org/v1
+kind: Microservice
+metadata:
+  name: Hello Web Microservice
+spec:
+  agent:
+    name: agent-name
+  images:
+    catalogid: 5
+  config: {}
+  roothostaccess: false
+  ports: []
+  volumes: []
+  env: []
+  routes: []
+  application: my-application
 " > ./hello-web-catalog.yaml
 
 $ iofogctl deploy microservice -f hello-web-catalog.yaml
@@ -61,35 +65,39 @@ We can check that the expected images have been used by using iofogctl to descri
 ```yaml
 $ iofogctl describe microservice 'Hello Web Microservice'
 
-name: Hello Web Microservice
-agent:
-  name: agent-name
-  config:
-    dockerurl: unix:///var/run/docker.sock
-    disklimit: 50
-    diskdirectory: /var/lib/iofog-agent/
-    memorylimit: 4096
-    cpulimit: 80
-    loglimit: 10
-    logdirectory: /var/log/iofog-agent/
-    logfilecount: 10
-    statusfrequency: 30
-    changefrequency: 60
-    devicescanfrequency: 60
-    bluetoothenabled: false
-    watchdogenabled: false
-    abstractedhardwareenabled: false
-images:
-  catalogid: 5
-  x86: iofog/hello-web
-  arm: iofog/hello-web-arm
-  registry: remote
-config: {}
-roothostaccess: false
-ports: []
-volumes: []
-env: []
-application: my-application
+apiVersion: iofog.org/v1
+kind: Microservice
+metadata:
+  name: Hello Web Microservice
+spec:
+  agent:
+    name: agent-name
+    config:
+      dockerURL: unix:///var/run/docker.sock
+      diskLimit: 50
+      diskDirectory: /var/lib/iofog-agent/
+      memoryLimit: 4096
+      cpuLimit: 80
+      logLimit: 10
+      logDirectory: /var/log/iofog-agent/
+      logFileCount: 10
+      statusFrequency: 30
+      changeFrequency: 60
+      deviceScanFrequency: 60
+      bluetoothEnabled: false
+      watchdogEnabled: false
+      abstractedHardwarEenabled: false
+  images:
+    catalogID: 5
+    x86: iofog/hello-web
+    arm: iofog/hello-web-arm
+    registry: remote
+  config: {}
+  rootHostAccess: false
+  ports: []
+  volumes: []
+  env: []
+  application: my-application
 ```
 
 ## Create your own catalog items

@@ -43,6 +43,7 @@ If you spent some time looking around the folder structure, you might have notic
 ```yaml
 $ cat init/tutorial/config.yaml
 ---
+apiVersion: iofog.org/v1
 kind: Application
 metadata:
   name: tutorial
@@ -184,7 +185,7 @@ But you can also directly deploy a microservice! First, let's use `iofogctl` to 
 $ iofogctl describe microservice 'Moving Average' -o moving-average.yaml
 $ cat moving-average.yaml
 
-apiVersion: ""
+apiVersion: iofog.org/v1
 kind: Microservice
 metadata:
   name: Moving Average
@@ -195,7 +196,7 @@ spec:
   agent:
     name: local-agent
     config:
-      dockerUrl: unix:///var/run/docker.sock
+      dockerURL: unix:///var/run/docker.sock
       diskLimit: 50
       diskDirectory: /var/lib/iofog-agent/
       memoryLimit: 1024
@@ -238,7 +239,6 @@ Now let's say we want to update the configuration of our microservice!
 Go ahead and edit the newly created `moving-average.yaml` file, and update the `config` field (Warning: not the `agent:config`, but the root `config` field) to the following:
 
 ```yaml
----
 config:
   maxWindowSize: 100
 ```
