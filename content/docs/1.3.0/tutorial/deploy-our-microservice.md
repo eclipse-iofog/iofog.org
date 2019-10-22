@@ -254,7 +254,8 @@ Sensors		    RUNNING		local-agent	{}			            Moving Average
 
 ## Conclusion
 
-Have a look at new output of the Freeboard at <a href="http://localhost:10102/?load=dashboard.json" target="_blank">http://localhost:10102/?load=dashboard.json</a>. This should now display the values modified by moving average.
+Have a look at new output of the [Freeboard dashboard](http://localhost:10102/?load=dashboard.json). This should now display the values modified by moving average and look similar to this:
+<img src="/images/Freeboard_2.png" style="max-width:100%;border-radius: 0.3em;margin: 35px 0;" />
 
 The magic about microservices and ioFog is that none of those microservice is specifically designed or requires to work with the other microservice. Using ioFog, you can create smart and secure communication channels between independant microservices and easily manage a fleet of Edge devices and microservices.
 

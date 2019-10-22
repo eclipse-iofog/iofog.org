@@ -6,7 +6,7 @@ IoFog Helm chart allows users to easily deploy the ioFog stack onto exiting Kube
 
 ## Prerequisites
 
-First, we need a working Kubernetes cluster. WE can simply set up a cluster on the Google Kubernetes Engine (GKE) by following the [Creating a cluster tutorial](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster). Using any other managed cluster providers works as well, so do custom installations of Kubernetes, e.g. Minikube.
+First, we need a working Kubernetes cluster. We can simply set up a cluster on the Google Kubernetes Engine (GKE) by following the [Creating a cluster tutorial](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster). Using any other managed cluster providers works as well, so do custom installations of Kubernetes, e.g. Minikube.
 
 IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup a Kubernetes cluster in case we don't have one available. Please see [Platform Tools](./platform-tools.html) for more details.
 
@@ -74,7 +74,12 @@ helm repo add iofog https://eclipse-iofog.github.io/helm
 
 We can list all available versions of the ioFog Helm chart using `helm search -l iofog/iofog`.
 
-To install a specific version of ioFog, use `helm install`:
+To install a specific version of ioFog, use `--version <desired-version>` parameter to `helm install`
+
+_Keep in mind if there already is any existing ioFog stack on the cluster, a set of Custom Resource Definitions has probably already been created. In such case, you will need to disable deploying these CRDs as described in [Multiple Edge Compute Networks](#multiple-edge-compute-networks)._
+
+The final `helm install` command to install ioFog with CRDs then looks like this:
+
 
 ```bash
 helm install \
@@ -86,7 +91,9 @@ helm install \
     iofog/iofog
 ```
 
-To list all Helm releases, we can simply run `helm list`. The result should look like this:
+The `--name my-ecn` refers to the Helm release name as shown below, while the `--namespace my-ecn` refers to the namespace taken by the Helm release in the target Kubernetes cluster.
+
+To list all Helm releases (including deployed ioFog stacks), we can simply run `helm list`. The result should look like this:
 
 ```plain
 NAME      	REVISION	UPDATED                 	STATUS  	CHART          	    APP VERSION	NAMESPACE
@@ -98,10 +105,10 @@ The following is a complete list of all user configurable properties for the ioF
 | Property                                | Default value                   | Description                                                                                   |
 | --------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------- |
 | createCustomResources                   | true                            | See [Multiple Edge Compute Networks](#multiple-edge-compute-networks)                         |
-| controlPlane.userfirstName              | First                           | First name of initial user in Controller                                                      |
-| controlPlane.usersurname                | Second                          | Surname of initial user in Controller                                                         |
-| controlPlane.useremail                  | user@domain.com                 | Email (login) of initial user in Controller                                                   |
-| controlPlane.userpassword               | H23fkidf9hoibf2nlk              | Password of initial user in Controller                                                        |
+| controlPlane.user.firstName             | First                           | First name of initial user in Controller                                                      |
+| controlPlane.user.surname               | Second                          | Surname of initial user in Controller                                                         |
+| controlPlane.user.email                 | user@domain.com                 | Email (login) of initial user in Controller                                                   |
+| controlPlane.user.password              | H23fkidf9hoibf2nlk              | Password of initial user in Controller                                                        |
 | controlPlane.database.provider          |                                 | Not supported in ioFog Community Edition                                                      |
 | controlPlane.database.host              |                                 | Not supported in ioFog Community Edition                                                      |
 | controlPlane.database.port              | 0                               | Not supported in ioFog Community Edition                                                      |

@@ -33,6 +33,9 @@ The _REST API_ is a generic microservice that provides a REST API web server, al
 
 _Freeboard_ is the last microservice that provides an HTML dashboard to view the real-time results coming from a rest API data source. In the case of our tutorial, the source of the data is our REST API microservice.
 
+Currently, loading the [freeboard dashboard](http://localhost:10102/?load=dashboard.json) should look similar to this:
+<img src="/images/Freeboard_1.png" style="max-width:100%;border-radius: 0.3em;margin: 35px 0;" />
+
 ## Routes
 
 The Sensors and REST API microservices are generic. They are not hardcoded to talk with each other, instead, the relationship dictating the flow of data was configured with the Controller. This is in the spirit of the microservice architecture, separating concerns into pieces so that we can combine and interchange them.
