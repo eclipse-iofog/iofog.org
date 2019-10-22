@@ -220,16 +220,22 @@ do_install_docker() {
 	set +x
 }
 
-do_install_docker_compose() {
-	echo "# Installing docker-compose..."
+do_install_iofogctl() {
+	echo "# Installing iofogctl..."
 	echo
 	set -x
 
-  if ! hash docker-compose 2>/dev/null; then
-    $sh_c "curl -L 'https://github.com/docker/compose/releases/download/1.22.0/docker-compose-"$(uname -s)"-"$(uname -m)"' -o /usr/local/bin/docker-compose" >/dev/null
-    $sh_c "chmod +x /usr/local/bin/docker-compose"
-    command_status=$?
-  fi
+	{
+		# Try apt
+		$sh_c "curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sh"
+		$sh_c "apt-get install iofogctl=1.3.0-beta"
+		command_status=$?
+	} || {
+		# Try rpm 
+		$sh_c "curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sh"
+		$sh_c "yum install iofogctl-1.3.0-beta-1.x86_64"
+		command_status=$?
+	}
 
 	set +x
 }
@@ -239,8 +245,8 @@ do_install_demo() {
 	echo
 	set -x
 
-  $sh_c "curl -L -o dev.tar.gz https://github.com/ioFog/demo/archive/dev-environment.tar.gz" >/dev/null
-  $sh_c "tar -zxvf dev.tar.gz --strip-components=1"
+  sh -c "curl -L -o dev.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.3.0-beta.tar.gz" >/dev/null
+  sh -c "tar -zxvf dev.tar.gz --strip-components=1"
   command_status=$?
 
 	set +x
@@ -345,8 +351,8 @@ do_install() {
 	do_install_docker
 	check_command_status $command_status "# Docker has been installed successfully" "# Docker installation failed. Please proceed with installation manually" "# Docker is already installed"
 
-	do_install_docker_compose
-	check_command_status $command_status "# docker-compose has been installed successfully" "# docker-compose installation failed. Please proceed with installation manually" "# docker-compose is already installed"
+	do_install_iofogctl
+	check_command_status $command_status "# Iofogctl has been installed successfully" "# Iofogctl installation failed. Please proceed with installation manually" "# Iofogctl is already installed"
 
 	do_install_demo
 	check_command_status $command_status "# Demo repository has been cloned successfully" "# Cloning demo repository failed. Please proceed with installation manually" ""
