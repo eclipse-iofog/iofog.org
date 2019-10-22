@@ -1,6 +1,12 @@
-# Iofogctl ioFog stack yaml Specification
+# Iofogctl ioFog stack yaml specification
 
 `iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
+
+## Header
+
+All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
+
+[More information](../iofogctl/header.html)
 
 ### Note for those upgrading from a previous version
 
@@ -13,6 +19,7 @@ To translate your yml files to the new spec, please see these [quick changes](./
 A Control Plane can be specified when using `iofogctl deploy -f controlplane.yaml` or as a part of a complete [ECN](#edge-compute-network) specification. The Control Plane is an overarching component containing specifications for [Controllers](#controller) and ioFog default user.
 
 ```yaml
+
 kind: ControlPlane # What are we deploying
 metadata:
   name: buffalo # Controlplane name
@@ -46,6 +53,7 @@ spec:
 A Controller can be specified when using `iofogctl deploy -f controller.yaml` or as a part of [Control Plane](#control-plane) specification or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
+
 kind: Controller # What are we deploying
 metadata:
   name: alpaca # Controller name
@@ -81,6 +89,7 @@ spec:
 A Connector can be specified when using `iofogctl deploy -f connector.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
+
 kind: Connector # What are we deploying
 metadata:
   name: tiger # Connector name
@@ -114,6 +123,7 @@ Note that at the moment Connector does not support specifying `ServiceType` the 
 An Agent can be specified when using `iofogctl deploy -f agent.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
 
 ```yaml
+
 kind: Agent # What are we deploying
 metadata:
   name: meerkat # Agent name
@@ -134,9 +144,12 @@ spec:
 
 ## Edge Compute Network
 
-An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`. Multiple yaml documents can be chained in the same file using `---` as a separator.
+An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`.
+
+Multiple yaml documents can be chained in the same file using `---` as a separator.
 
 ```yaml
+
 ---
 kind: ControlPlane
 metadata:

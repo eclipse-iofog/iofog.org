@@ -1,8 +1,12 @@
-# Iofogctl application yaml Specification
+# Iofogctl application yaml specification
 
-`iofogctl` allows users to deploy applications and microservices on ioFog resources using yaml files.
+`iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
 
-For a complete documentation of all available `iofogctl` commands, please see [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-beta/docs/md/iofogctl.md)
+## Header
+
+All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
+
+[More information](../iofogctl/header.html)
 
 ### Note for those upgrading from a previous version
 
