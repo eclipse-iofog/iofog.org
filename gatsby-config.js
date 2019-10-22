@@ -39,6 +39,16 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          // https://github.com/jtstodola/gatsby-remark-embed-markdown/issues/1
+          // We need gatsby-remark-prismjs on embedded markdown
+          // {
+          //   resolve: "gatsby-remark-embed-markdown",
+          //   options: {
+          //     // Example code links are relative to this dir.
+          //     // eg examples/path/to/file.js
+          //     directory: `${__dirname}/templates/`,
+          //   }
+          // },
           {
             resolve: 'gatsby-remark-images',
             options: {

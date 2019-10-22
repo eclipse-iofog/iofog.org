@@ -1,6 +1,12 @@
-# Iofogctl ioFog stack yaml Specification
+# Iofogctl ioFog stack yaml specification
 
 `iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
+
+## Header
+
+All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
+
+[More information](../iofogctl/header.html)
 
 ## Control Plane
 
@@ -128,7 +134,9 @@ spec:
 
 ## Edge Compute Network
 
-An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`. Multiple yaml documents can be chained in the same file using `---` as a separator.
+An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`.
+
+Multiple yaml documents can be chained in the same file using `---` as a separator.
 
 ```yaml
 ---

@@ -70,20 +70,33 @@
         ]
       },
       {
-        "title": "Tools",
+        "title": "iofogctl",
         "subMenus": [
           {
             "title": "Introduction to iofogctl",
-            "entry": "./tools/iofogctl/usage.md"
+            "entry": "./iofogctl/usage.md"
           },
           {
-            "title": "Iofogctl ioFog stack YAML Specification",
-            "entry": "./tools/iofogctl/stack-yaml-spec.md"
+            "title": "YAML Specification Header",
+            "entry": "./iofogctl/header.md"
           },
           {
-            "title": "Iofogctl ioFog application YAML Specification",
-            "entry": "./tools/iofogctl/application-yaml-spec.md"
+            "title": "Stack YAML Specification",
+            "entry": "./iofogctl/stack-yaml-spec.md"
           },
+          {
+            "title": "Agent configuration YAML Specification",
+            "entry": "./iofogctl/agent-config-yaml-spec.md"
+          },
+          {
+            "title": "Application YAML Specification",
+            "entry": "./iofogctl/application-yaml-spec.md"
+          }
+        ]
+      },
+      {
+        "title": "Tools",
+        "subMenus": [
           {
             "title": "Platform Tools",
             "entry": "./tools/platform-tools.md"

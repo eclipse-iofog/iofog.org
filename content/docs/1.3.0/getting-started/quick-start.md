@@ -52,7 +52,10 @@ Go ahead an paste the following commands into your terminal:
 
 ```bash
 echo "---
-controlplane:
+kind: ControlPlane
+metadata:
+  name: ecn
+spec:
   iofoguser:
     name: Quick
     surname: Start
@@ -61,14 +64,18 @@ controlplane:
   controllers:
   - name: local-controller
     host: localhost
-
-connectors:
-- name: local-connector
+---
+kind: Connector
+metadata:
+  name: local-connector
+spec:
   host: localhost
-
-agents:
- - name: local-agent
-   host: localhost" > /tmp/quick-start.yaml
+---
+kind: Agent
+metadata:
+  name: local-agent
+spec:
+  host: localhost" > /tmp/quick-start.yaml
 iofogctl deploy -f /tmp/quick-start.yaml
 ```
 
@@ -121,43 +128,37 @@ Now that our local ECN is up, lets put it to use. The following commands will de
 
 ```bash
 echo '---
-applications:
-  - name: "HealthcareWearableExample"
-    microservices:
-    - name: "heart-rate-monitor"
-      agent:
-        name: local-agent
-        config:
-          bluetoothEnabled: true # this will install the iofog/restblue microservice
-          abstractedHardwareEnabled: false
-      images: # Microservice docker images
-        arm: "edgeworx/healthcare-heart-rate:arm-v1"
-        x86: "edgeworx/healthcare-heart-rate:x86-v1"
-      roothostaccess: false
-      ports: []
-      config:
-        test_mode: true
-        data_label: "Anonymous Person"
-    - name: "heart-rate-viewer"
-      agent:
-        name: local-agent
-      images:
-        arm: "edgeworx/healthcare-heart-rate-ui:arm"
-        x86: "edgeworx/healthcare-heart-rate-ui:x86"
-      roothostaccess: false
-      ports:
-        - external: 5000
-          internal: 80
-      volumes:
-        - hostdestination: /tmp/msvc
-          containerdestination: /tmp
-          accessmode: rw # access mode
-      env:
-        - key: "BASE_URL"
-          value: "http://localhost:8080/data"
-    routes:
-    - from: "heart-rate-monitor"
-      to: "heart-rate-viewer"' > /tmp/quick-start-app.yaml
+kind: Application
+metadata:
+  name: HealthcareWearableExample
+spec:
+  microservices:
+  - name: "heart-rate-monitor"
+    agent:
+      name: local-agent
+    images: # Microservice docker images
+      arm: "edgeworx/healthcare-heart-rate:arm-v1"
+      x86: "edgeworx/healthcare-heart-rate:x86-v1"
+    ports: []
+    config:
+      test_mode: true
+      data_label: "Anonymous Person"
+  - name: "heart-rate-viewer"
+    agent:
+      name: local-agent
+    images:
+      arm: "edgeworx/healthcare-heart-rate-ui:arm"
+      x86: "edgeworx/healthcare-heart-rate-ui:x86"
+    ports:
+      - external: 5000
+        internal: 80
+    volumes: []
+    env:
+      - key: "BASE_URL"
+        value: "http://localhost:8080/data"
+  routes:
+  - from: "heart-rate-monitor"
+    to: "heart-rate-viewer"' > /tmp/quick-start-app.yaml
 iofogctl deploy -f /tmp/quick-start-app.yaml
 ```
 
@@ -177,8 +178,8 @@ Which will output something similar to:
 Every 2.0s: iofogctl get microservices                                                                                                                                                  Alexandres-MacBook-Pro.local: Wed Sep 11 16:17:34 2019
 
 MICROSERVICE            STATUS          AGENT           CONFIG                                                  ROUTES                  VOLUMES         PORTS
-heart-rate-monitor      QUEUED          local-agent      {"data_label":"Anonymous Person","test_mode":true}      heart-rate-viewer
-heart-rate-viewer       QUEUED          local-agent      {}                                                                             /tmp/msvc:/tmp  5000:80
+heart-rate-monitor      QUEUED          local-agent     {"data_label":"Anonymous Person","test_mode":true}      heart-rate-viewer
+heart-rate-viewer       QUEUED          local-agent     {}                                                                                              5000:80
 ```
 
 Once both microservice status are 'RUNNING', the microservices have started. You will be able to see the web application on your browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.
