@@ -11,6 +11,33 @@ This section will explain key aspects of `iofogctl's` design and functionality f
   <p>The <a href=../../getting-started/quick-start.html>Quick Start Guide</a> is the best place to get going with iofogctl. It will show you how to install iofogctl and get your first Edge Compute Network up. This section will make alot more sense if you have done that first!</p>
 </aside>
 
+## Installation
+
+#### Install iofogctl on Mac
+
+Mac users can use Homebrew:
+
+```bash
+brew tap eclipse-iofog/iofogctl
+brew install iofogctl@1.3
+```
+
+#### Install iofogctl on Linux
+
+The Debian package can be installed like so:
+
+```bash
+curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
+sudo apt-get install iofogctl=1.3.0-beta
+```
+
+And similarly, the RPM package can be installed like so:
+
+```bash
+curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
+sudo yum install iofogctl-1.3.0-beta-1.x86_64
+```
+
 ## Getting Familiar
 
 To list all available commands, just run `iofogctl` without any arguments. The available commands should look something like this:
@@ -97,11 +124,11 @@ iofogctl deploy -f ecn.yaml
 `iofogctl` also allows you to deploy indvidiual components of an ECN from various subcommands.
 
 ```bash
-iofogctl deploy controlplane -f controlplane.yaml
-iofogctl deploy controller -f controller.yaml
-iofogctl deploy connector -f connector.yaml
-iofogctl deploy agent -f agent.yaml
-iofogctl deploy application -f application.yaml
+iofogctl deploy -f controlplane.yaml
+iofogctl deploy -f controller.yaml
+iofogctl deploy -f connector.yaml
+iofogctl deploy -f agent.yaml
+iofogctl deploy -f application.yaml
 ```
 
 `iofogctl` deploy commands are designed to be idempotent. Feel free to spam these commands as much as you like - the end result will always be the same. If anything goes wrong with your deployment, run the relevant deploy commands again and you should be good to go.
@@ -116,13 +143,37 @@ Instead of deploying our own ECN, we can connect to an existing one.
 Note that we must always specify an empty or non-existent namespace when we use the connect command. This is because each cluster should be in its own namespace. Don't forget that not specifying the namespace default to `default` namespace.
 
 ```bash
-iofogctl connect alpaca-1 --controller 30.40.50.1 --email user@domain.com --pass h9g84q
+echo "---
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: albatros
+spec:
+  iofogUser:
+    email: user@domain.com
+    password: h9g84q
+  controllers:
+  - name: alpaca-1
+    host: 30.40.50.1" > /tmp/remote-controlplane.yaml
+iofogctl connect -f /tmp/remote-controlplane.yaml
 ```
 
-Or for Kubernetes Controllers, we can use `--kube-config` to specify the ioFog deployment to connect to. Keep in mind that in `iofogctl --namespace` parameter must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` is unable to find the service.
+Or for Kubernetes Controllers, we can use `kubeConfig` to specify the ioFog deployment to connect to. Keep in mind that in `iofogctl --namespace` parameter must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` is unable to find the service.
 
 ```bash
-iofogctl connect alpaca-2 --kube-config ~/.kube/config --email user@domain.com --pass h9g84q
+echo "---
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: albatros
+spec:
+  iofogUser:
+    email: user@domain.com
+    password: h9g84q
+  controllers:
+  - name: alpaca-1
+    kubeConfig: ~/.kube/config" > /tmp/k8s-controlplane.yaml
+iofogctl connect -f /tmp/k8s-controlplane.yaml
 ```
 
 ## View Edge Compute Network Details
