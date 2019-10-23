@@ -354,13 +354,13 @@ We now to need to package up our code as a Docker image, so that we can deploy i
 
 Like all build scripts, Dockerfiles can become a bit complex for advanced applications, but fortunately, ours is fairly simple:
 
-```dockerfile
-FROM node:8
+```console
+echo "FROM node:8
 WORKDIR /moving-average
 COPY ./package.json .
 RUN npm install --only=production
 COPY index.js .
-CMD node .
+CMD node ." > Dockerfile
 ```
 
 In case you are not familiar with [Dockerfile](https://docs.docker.com/engine/reference/builder/), here is a quick run down of the building steps:
