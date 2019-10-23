@@ -191,12 +191,12 @@ metadata:
   name: Moving Average
   namespace: default
 spec:
-  uuid: jFPVnxhz7JQJC9tBdnmMjvRpZGFt2GR4
+  uuid: H3cZ2LQ9hxyM6X7X6xV2q2w6mH3zp7Wc
   name: Moving Average
   agent:
     name: local-agent
     config:
-      dockerURL: unix:///var/run/docker.sock
+      dockerUrl: unix:///var/run/docker.sock
       diskLimit: 50
       diskDirectory: /var/lib/iofog-agent/
       memoryLimit: 1024
@@ -246,7 +246,7 @@ config:
 Then you can use iofogctl to deploy your microservice
 
 ```console
-$ iofogctl deploy microservice -f moving-average.yaml
+$ iofogctl deploy -f moving-average.yaml
 ```
 
 And see the result with

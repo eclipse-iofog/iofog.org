@@ -104,6 +104,8 @@ AGENT            STATUS		AGE		UPTIME		IP	            VERSION
 local-agent      RUNNING	1m18s   28s         122.60.228.85   1.3.0-beta
 ```
 
+**NB:** The Agent status might say `UNKNOWN` for up to 30s. It is the time for the agent to report back its liveness to the controller.
+
 The `Controller` acts as a control plane, it will be your main point of access and communication with your ECN. If you want to find out more about Controller, please read <a href="../controllers/overview.html">this</a>.
 
 The `Connector` enables secure and private peer-to-peer communication between microservices. If you want to find out more about Connector, please read <a href="../connectors/overview.html">this</a>.
@@ -200,4 +202,4 @@ iofogctl delete all
 
 Now that you have seen what ioFog is about, you can create a real ECN with remote hosts. Instructions are found [here](../remote-deployment/introduction.html).
 
-You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html).
+You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).

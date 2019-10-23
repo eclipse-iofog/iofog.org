@@ -38,7 +38,7 @@ Currently, loading the [freeboard dashboard](http://localhost:10102/?load=dashbo
 
 ## Routes
 
-The Sensors and REST API microservices are generic. They are not hardcoded to talk with each other, instead, the relationship dictating the flow of data was configured with the Controller. This is in the spirit of the microservice architecture, separating concerns into pieces so that we can combine and interchange them.
+The Sensors and REST API microservices are generic. They are not hardcoded to talk with each other, instead, the relationship dictating the flow of data was configured through the Controller. This is in the spirit of the microservice architecture, separating concerns into pieces so that we can combine and interchange them.
 
 To connect microservices together, the Controller has the concept of routes.
 
@@ -46,38 +46,38 @@ Routes can be listed from the `iofogctl get microservices` or `iofogctl describe
 
 ```console
 $ iofogctl describe microservice Sensors
-
 apiVersion: iofog.org/v1
 kind: Microservice
 metadata:
   name: Sensors
   namespace: default
 spec:
+  uuid: cHttwNHmDnj2rYcX6qypgcr9JDpV2CNR
   name: Sensors
   agent:
     name: local-agent
     config:
-      dockerurl: unix:///var/run/docker.sock
-      disklimit: 50
-      diskdirectory: /var/lib/iofog-agent/
-      memorylimit: 1024
-      cpulimit: 80
-      loglimit: 10
-      logdirectory: /var/log/iofog-agent/
-      logfilecount: 10
-      statusfrequency: 30
-      changefrequency: 60
-      devicescanfrequency: 60
-      bluetoothenabled: false
-      watchdogenabled: false
-      abstractedhardwareenabled: false
+      dockerUrl: unix:///var/run/docker.sock
+      diskLimit: 50
+      diskDirectory: /var/lib/iofog-agent/
+      memoryLimit: 1024
+      cpuLimit: 80
+      logLimit: 10
+      logDirectory: /var/log/iofog-agent/
+      logFileCount: 10
+      statusFrequency: 30
+      changeFrequency: 60
+      deviceScanFrequency: 60
+      bluetoothEnabled: false
+      watchdogEnabled: false
+      abstractedHardwareEnabled: false
   images:
-    catalogid: 0
+    catalogID: 0
     x86: iofog/sensors:latest
     arm: ""
     registry: remote
   config: {}
-  roothostaccess: false
+  rootHostAccess: false
   ports: []
   volumes: []
   env: []
