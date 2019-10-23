@@ -23,7 +23,7 @@ Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with th
 Once you have edited the fields to your liking, go ahead an run:
 
 ```bash
-iofogctl deploy agent -f /tmp/agent.yaml
+iofogctl deploy -f /tmp/agent.yaml
 ```
 
 ## Verify the Deployment
