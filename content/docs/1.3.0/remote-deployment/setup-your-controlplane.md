@@ -37,7 +37,7 @@ Make sure to specify the correct value for the `kubeconfig` field.
 Once you have edited the fields to your liking, go ahead an run:
 
 ```bash
-iofogctl deploy controlplane -f /tmp/controlplane.yaml
+iofogctl deploy -f /tmp/controlplane.yaml
 ```
 
 The next section covers how to do the same thing we just did, but on a remote host instead of a Kubernetes cluster. We can <a href=#verify-the-deployment>skip ahead</a>.
@@ -70,7 +70,7 @@ Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with th
 Once you have edited the fields to your liking, go ahead an run:
 
 ```bash
-iofogctl deploy controlplane -f /tmp/controlplane.yaml
+iofogctl deploy -f /tmp/controlplane.yaml
 ```
 
 ## Verify the Deployment
