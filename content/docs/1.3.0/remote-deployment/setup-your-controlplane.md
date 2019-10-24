@@ -34,7 +34,7 @@ spec:
 
 Make sure to specify the correct value for the `kubeconfig` field.
 
-Once you have edited the fields to your liking, go ahead an run:
+Once you have edited the fields to your liking, go ahead and run:
 
 ```bash
 iofogctl deploy -f /tmp/controlplane.yaml
@@ -67,7 +67,7 @@ spec:
 
 Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
 
-Once you have edited the fields to your liking, go ahead an run:
+Once you have edited the fields to your liking, go ahead and run:
 
 ```bash
 iofogctl deploy -f /tmp/controlplane.yaml
