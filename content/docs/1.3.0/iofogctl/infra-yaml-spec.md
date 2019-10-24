@@ -1,4 +1,4 @@
-# Iofogctl ioFog stack yaml specification
+# Iofogctl ioFog stack YAML specification
 
 `iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
 
@@ -140,7 +140,7 @@ spec:
 
 An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`.
 
-Multiple yaml documents can be chained in the same file using `---` as a separator.
+Multiple YAML documents can be chained in the same file using `---` as a separator.
 
 ```yaml
 ---

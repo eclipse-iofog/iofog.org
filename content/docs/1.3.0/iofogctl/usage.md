@@ -62,19 +62,18 @@ Use "iofogctl [command] --help" for more information about a command.
 
 You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-beta/docs/md/iofogctl.md).
 
-Some commands have sub-commands. For example, the `deploy` command has sub-commands `controller`, `agent`, and `connector`. You can use the `--help` flag on every command, including sub-commands, to learn more. Go ahead and try some of the following:
+You can use the `--help` flag on every command to learn more. Go ahead and try some of the following:
 
 ```bash
 iofogctl deploy --help
 iofogctl create --help
 iofogctl connect --help
-iofogctl deploy controller --help
 iofogctl get --help
 ```
 
 ## Working with Namespaces
 
-All actions performed with `iofogctl` are scoped to a single namespace. The default namespace ('default') is used if the user does not specify a namespace explicitly in the command. Note that namespaces in `iofogctl` map to a Kubernetes namespace when `iofogctl` is used for a Kubernetes deployment of ioFog.
+All actions performed with `iofogctl` are scoped to a single namespace. The default namespace ('default') is used if the user does not specify a namespace explicitly in the command. Note that namespaces in `iofogctl` map to a Kubernetes namespace when `iofogctl` is used to deploy an Edge Compute Network's ('ECN') Control Plane on Kubernetes.
 
 Try creating, listing, and deleting namespaces now with the following commands.
 
@@ -88,13 +87,13 @@ Next, we will use the default namespace while exploring `iofogctl` functionality
 
 ## Deploying New Edge Compute Networks
 
-`iofogctl` allows you to deploy entire Edge Compute Networks ('ECN') from a single command.
+`iofogctl` allows you to deploy an entire ECN from a single command and YAML file.
 
 ```bash
 iofogctl deploy -f ecn.yaml
 ```
 
-`iofogctl` also allows you to deploy indvidiual components of an ECN from various subcommands.
+`iofogctl` also allows you to deploy indvidiual components of an ECN using the same command but different YAML files.
 
 ```bash
 iofogctl deploy -f controlplane.yaml
@@ -106,14 +105,14 @@ iofogctl deploy -f application.yaml
 
 `iofogctl` deploy commands are designed to be idempotent. Feel free to spam these commands as much as you like - the end result will always be the same. If anything goes wrong with your deployment, run the relevant deploy commands again and you should be good to go.
 
-Specifications of the ioFog stack YAML types can be found [here](../iofogctl/stack-yaml-spec.html)
+Specifications of the ioFog infrastructure YAML types can be found [here](../iofogctl/infra-yaml-spec.html).
 Specifications of the ioFog application YAML types can be found [here](../iofogctl/application-yaml-spec.html)
 
 ## Connect to an Existing Edge Compute Network
 
 Instead of deploying our own ECN, we can connect to an existing one.
 
-Note that we must always specify an empty or non-existent namespace when we use the connect command. This is because each cluster should be in its own namespace. Don't forget that not specifying the namespace default to `default` namespace.
+Note that we must always specify an empty or non-existent namespace when we use the connect command. This is because each cluster should be in its own namespace. Don't forget that not specifying the namespace means iofogctl will use the `default` namespace.
 
 ```bash
 echo "---
@@ -131,7 +130,7 @@ spec:
 iofogctl connect -f /tmp/remote-controlplane.yaml
 ```
 
-Or for Kubernetes Controllers, we can use `kubeConfig` to specify the ioFog deployment to connect to. Keep in mind that in `iofogctl --namespace` parameter must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` is unable to find the service.
+Or for Kubernetes Control Planes, we can use `kubeConfig` to connect. Keep in mind that the `iofogctl --namespace` flag must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` will be unable to find the deployment.
 
 ```bash
 echo "---
