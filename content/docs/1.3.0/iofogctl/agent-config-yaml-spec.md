@@ -1,16 +1,16 @@
-# Iofogctl agent configuration yaml specification
+# Iofogctl agent configuration YAML specification
 
-`iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
+`iofogctl` allows users to deploy ioFog resources that are specified in YAML files.
 
 ## Header
 
-All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
+All YAML documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
 
 [More information](../iofogctl/header.html)
 
 ## Agent configuration
 
-Agent configuration yaml files let you configure an ioFog Agent provisioned with your Controller.
+Agent configuration YAML files let you configure an ioFog Agent provisioned with your Controller.
 
 An agent configuration can be retrieved using `iofogctl describe agent <AGENT_NAME>`
 

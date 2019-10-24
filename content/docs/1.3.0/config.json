@@ -81,8 +81,8 @@
             "entry": "./iofogctl/header.md"
           },
           {
-            "title": "Stack YAML Specification",
-            "entry": "./iofogctl/stack-yaml-spec.md"
+            "title": "Infrastructure YAML Specification",
+            "entry": "./iofogctl/infra-yaml-spec.md"
           },
           {
             "title": "Agent configuration YAML Specification",

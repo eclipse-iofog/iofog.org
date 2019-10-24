@@ -1,10 +1,10 @@
-# Iofogctl application yaml specification
+# Iofogctl application YAML specification
 
 `iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
 
 ## Header
 
-All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
+All YAML documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
 
 [More information](../iofogctl/header.html)
 
@@ -18,9 +18,9 @@ To translate your yml files to the new spec, please see these [quick changes](./
 
 An application is a set of microservices working together to achieve one specific purpose (I.E: One microservice collecting and formatting data, another one displaying the data in a user friendly way)
 
-An application is defined by a yaml file. This file is passed as a parameter to the deploy command: `iofogctl deploy -f <path-to-yaml>`
+An application is defined by a YAML file. This file is passed as a parameter to the deploy command: `iofogctl deploy -f <path-to-yaml>`
 
-An application yaml file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
+An application YAML file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
 
 Don't panic if this seems like a lot to ingest, the [microservice yaml definition](#microservices) is explained in more details further down.
 The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
@@ -36,7 +36,7 @@ metadata:
 spec:
   # List of microservices composing your application
   microservices:
-    # It uses the microservice yaml schema described below
+    # It uses the microservice YAML schema described below
     - name: heart-rate-monitor
       agent:
         name: zebra-1
@@ -83,11 +83,11 @@ spec:
 
 ## Microservices
 
-Microservices configuration and set up are defined using yaml files.
+Microservices configuration and set up are defined using YAML files.
 
-Those yaml definitions can be used inside an application yaml file, or by themselves when deploying a microservice to an existing application: `iofogctl deploy microservice -f <path-to-microservice.yaml>`
+Those YAML definitions can be used inside an application YAML file, or by themselves when deploying a microservice to an existing application: `iofogctl deploy microservice -f <path-to-microservice.yaml>`
 
-A microservice yaml definition file can be retrieved using the describe command: `iofogctl describe microservice <NAME> [-o microservice.yaml]`
+A microservice YAML definition file can be retrieved using the describe command: `iofogctl describe microservice <NAME> [-o microservice.yaml]`
 
 ```yaml
 apiVersion: iofog.org/v1
@@ -130,7 +130,7 @@ spec:
 
   # Microservice configuration
   config:
-    # Arbitrary key, value yaml object
+    # Arbitrary key, value YAML object
     data_label: test_mode=false_cross_agent_microservice_routing_aug_27
     test_mode: true
 
