@@ -8,7 +8,7 @@ There are two flavours of Controller deployments - Vanilla and Kubernetes. If yo
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">We use YAML to define ioFog resources</h3>
-  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../tools/iofogctl/stack-yaml-spec.html>here</a>.</p>
+  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../tools/iofogctl/platform-yaml-spec.html>here</a>.</p>
 </aside>
 
 ## Deploy Controllers on Kubernetes
