@@ -1,32 +1,23 @@
-# Iofogctl ioFog stack YAML specification
+# Iofogctl Platform YAML Specification
 
-`iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
-
-## Header
-
-All yaml documents are structured to be [Kubernetes](https://kubernetes.io/) compliants.
-
-[More information](../iofogctl/header.html)
+`iofogctl` allows users to deploy Edge Compute Networks ('ECNs'). The various resources which constitute an ECN are specified within YAML files for iofogctl to consume.
 
 ## Control Plane
 
-A Control Plane can be specified when using `iofogctl deploy -f controlplane.yaml` or as a part of a complete [ECN](#edge-compute-network) specification. The Control Plane is an overarching component containing specifications for [Controllers](#controller) and ioFog default user.
+The Control Plane is the overarching component containing specifications for [Controllers](#controller) and associated credentials.
 
 ```yaml
 apiVersion: iofog.org/v1
-kind: ControlPlane # What are we deploying
+kind: ControlPlane
 metadata:
-  name: buffalo # Controlplane name
-  namespace: default # (Optional) iofogctl namespace to use
-
-# Specifications of the control plane
+  name: buffalo
+  namespace: default
 spec:
   iofogUser:
     name: Foo
     surname: Bar
     email: user@domain.com
     password: g9hr823rhuoi
-
   controllers:
     - name: vanilla
       user: foo
@@ -44,22 +35,19 @@ spec:
 
 ## Controller
 
-A Controller can be specified when using `iofogctl deploy -f controller.yaml` or as a part of [Control Plane](#control-plane) specification or as a part of a complete [ECN](#edge-compute-network) specification.
+Controllers are components of an ECN responsible for executing the workload of the Control Plane. You can define individuals Controllers for the purposes of expanding your Control Plane. Most of the time, however, you will deploy your Controllers through the Control Plane spec.
 
 ```yaml
 apiVersion: iofog.org/v1
-kind: Controller # What are we deploying
+kind: Controller
 metadata:
-  name: alpaca # Controller name
-  namespace: default # (Optional) iofogctl namespace to use
-
-# Specifications of the controller
+  name: alpaca
+  namespace: default # Optional, iofogctl namespace to use
 spec:
   # Only required for non-K8s deployment
   user: foo
   host: 30.40.50.5
   keyFile: ~/.ssh/id_rsa
-
   # Only required for K8s deployment
   kubeConfig: ~/.kube/config
   kubeControllerIP: 34.23.14.6 # Optional
@@ -72,7 +60,7 @@ spec:
 | Name               | User-defined unique identifier of Controller instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
 | User               | Username of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
 | Host               | Hostname of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
-| Key File           | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                |
+| Key File           | Path to private SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                |
 | Kube Config        | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster.                                                            |
 | Kube Controller IP | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
 | Replicas           | Number of Controller Pods to deploy on Kubernetes cluster.                                                                                                               |
@@ -80,22 +68,19 @@ spec:
 
 ## Connector
 
-A Connector can be specified when using `iofogctl deploy -f connector.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
+Connectors are components of an ECN responsible for handling messaging between Microservices.
 
 ```yaml
 apiVersion: iofog.org/v1
-kind: Connector # What are we deploying
+kind: Connector
 metadata:
-  name: tiger # Connector name
-  namespace: default # (Optional) iofogctl namespace to use
-
-# Specifications of the connector
+  name: tiger
+  namespace: default # Optional, iofogctl namespace to use
 spec:
   # Only required for non-K8s deployment
   user: foo
   host: 30.40.50.5
   keyFile: ~/.ssh/id_rsa
-
   # Only required for K8s deployment
   kubeConfig: ~/.kube/config
   replicas: 1 # Optional, defaults to 1
@@ -106,7 +91,7 @@ spec:
 | Name        | User-defined unique identifier of Connector instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
 | User        | Username of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
 | Host        | Hostname of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
-| Key File    | Path to private RSA SSH key that iofogctl must use to SSH into remote host to install Connector service.                                                                |
+| Key File    | Path to private SSH key that iofogctl must use to SSH into remote host to install Connector service.                                                                |
 | Kube Config | Path to Kubernetes configuration file that iofogctl uses to install Connector service to Kubernetes cluster.                                                            |
 | Replicas    | Number of Connector Pods to deploy on Kubernetes cluster.                                                                                                               |
 
@@ -114,16 +99,14 @@ Note that at the moment Connector does not support specifying `ServiceType` the 
 
 ## Agent
 
-An Agent can be specified when using `iofogctl deploy -f agent.yaml` or as a part of a complete [ECN](#edge-compute-network) specification.
+Agents are components of an ECN which run on edge nodes. They communicate with Connectors and Controllers to allow your edge nodes to host Microservices.
 
 ```yaml
 apiVersion: iofog.org/v1
-kind: Agent # What are we deploying
+kind: Agent
 metadata:
-  name: meerkat # Agent name
-  namespace: default # (Optional) iofogctl namespace to use
-
-# Specifications of the agent
+  name: meerkat
+  namespace: default # Optional, iofogctl namespace to use
 spec:
   user: foo
   host: 30.40.50.6
@@ -135,12 +118,13 @@ spec:
 | Name  | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
 | User  | Username of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
 | Host  | Hostname of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
+| Key File    | Path to private SSH key that iofogctl must use to SSH into remote host to install Agent service.                                                                |
 
 ## Edge Compute Network
 
-An entire Edge Compute Network ('ECN') can be specified when using `iofogctl deploy -f ecn.yaml`.
+An entire ECN can be specified within a single YAML file.
 
-Multiple YAML documents can be chained in the same file using `---` as a separator.
+Multiple resources can be incorporated into a single YAML file using `---` as a separator.
 
 ```yaml
 ---

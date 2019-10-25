@@ -127,7 +127,7 @@ Try running `kubectl get no` to list all nodes available to the cluster. These w
 
 Now that the infrastructure is up, we can deploy our first ECN on the infrastructure. We are going to use `iofogctl` for this purpose.
 
-We start by editing the generated `ecn.yaml` file according to [iofogctl specification](../tools/iofogctl/stack-yaml-spec.md). Most important are `kubeconfig` and `keyfile` parameters. The `kubeconfig` variable is the same as in [Interact With Newly Deployed Infrastructure](#interact-with-newly-deployed-infrastructure). `keyfile` refers to a private SSH key to access the given agent. For Packet agents, these must be uploaded to Packet according to [Packet Setup (Optional)](#packet-setup-optional). This is also where we can add additional agents (outside of the new infrastructure).
+We start by editing the generated `ecn.yaml` file according to [iofogctl specification](../tools/iofogctl/platform-yaml-spec.md). Most important are `kubeconfig` and `keyfile` parameters. The `kubeconfig` variable is the same as in [Interact With Newly Deployed Infrastructure](#interact-with-newly-deployed-infrastructure). `keyfile` refers to a private SSH key to access the given agent. For Packet agents, these must be uploaded to Packet according to [Packet Setup (Optional)](#packet-setup-optional). This is also where we can add additional agents (outside of the new infrastructure).
 
 ```yaml
 controlplane:

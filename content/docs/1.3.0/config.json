@@ -77,12 +77,12 @@
             "entry": "./iofogctl/usage.md"
           },
           {
-            "title": "YAML Specification Header",
+            "title": "Common Header YAML Specification",
             "entry": "./iofogctl/header.md"
           },
           {
-            "title": "Infrastructure YAML Specification",
-            "entry": "./iofogctl/infra-yaml-spec.md"
+            "title": "Platform YAML Specification",
+            "entry": "./iofogctl/platform-yaml-spec.md"
           },
           {
             "title": "Agent configuration YAML Specification",
