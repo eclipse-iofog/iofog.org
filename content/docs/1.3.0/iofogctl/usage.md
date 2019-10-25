@@ -127,6 +127,11 @@ spec:
   controllers:
   - name: alpaca-1
     host: 30.40.50.1" > /tmp/remote-controlplane.yaml
+```
+
+After editing the email, password, and host fields, we can go ahead and connect.
+
+```bash
 iofogctl connect -f /tmp/remote-controlplane.yaml
 ```
 
@@ -145,6 +150,11 @@ spec:
   controllers:
   - name: alpaca-1
     kubeConfig: ~/.kube/config" > /tmp/k8s-controlplane.yaml
+```
+
+After editing the email, password, and kube config fields, we can go ahead and connect.
+
+```bash
 iofogctl connect -f /tmp/k8s-controlplane.yaml
 ```
 
