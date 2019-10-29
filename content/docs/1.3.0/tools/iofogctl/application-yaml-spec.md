@@ -4,6 +4,12 @@
 
 For a complete documentation of all available `iofogctl` commands, please see [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-beta/docs/md/iofogctl.md)
 
+### Note for those upgrading from a previous version
+
+We have updated the yml spec significantly, and while these are small changes in practice, your current yml files will fail to deploy on 1.3.0
+
+To translate your yml files to the new spec, please see these [quick changes](./translating.html)
+
 ## Application
 
 An application is a set of microservices working together to achieve one specific purpose (I.E: One microservice collecting and formatting data, another one displaying the data in a user friendly way)
