@@ -184,3 +184,27 @@ or, if we also want to delete the namespace, we can run:
 ```bash
 iofogctl delete namespace zoo-1 --force
 ```
+
+## Using Legacy Commands
+
+To use legacy commands from iofogctl, preface any legacy command you want with:
+
+```bash
+iofogctl legacy <component> <component-name> command -n <namespace of component>
+```
+
+e.g.
+
+```bash
+iofogctl legacy agent iofog-agent config -n default
+```
+
+where I want to get the output of the config command from my agent, named iofog-agent
+
+To determine what legacy commands you wish to use, please see the legacy cli documentation for each component at the following links:
+
+[Agent](../../agents/cli-usage.html)
+
+[Connector](../../connectors/cli-usage.html)
+
+[Controller](../../controllers/cli-usage.html)
