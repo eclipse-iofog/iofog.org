@@ -80,7 +80,6 @@ _Keep in mind if there already is any existing ioFog stack on the cluster, a set
 
 The final `helm install` command to install ioFog with CRDs then looks like this:
 
-
 ```bash
 helm install \
     --set controlPlane.user.email=user@domain.com \
