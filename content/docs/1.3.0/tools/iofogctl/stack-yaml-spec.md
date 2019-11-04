@@ -2,6 +2,12 @@
 
 `iofogctl` allows users to deploy ioFog resources that are specified in yaml files.
 
+### Note for those upgrading from a previous version
+
+We have updated the yml spec significantly, and while these are small changes in practice, your current yml files will fail to deploy on 1.3.0
+
+To translate your yml files to the new spec, please see these [quick changes](./translating.html)
+
 ## Control Plane
 
 A Control Plane can be specified when using `iofogctl deploy controlplane -f controlplane.yaml` or as a part of a complete [ECN](#edge-compute-network) specification. The Control Plane is an overarching component containing specifications for [Controllers](#controller) and ioFog default user.
