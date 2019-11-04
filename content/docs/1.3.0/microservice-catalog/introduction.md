@@ -45,9 +45,9 @@ spec:
   agent:
     name: agent-name
   images:
-    catalogid: 5
+    catalogID: 5
   config: {}
-  roothostaccess: false
+  rootHostAccess: false
   ports: []
   volumes: []
   env: []
@@ -114,4 +114,4 @@ $ iofogctl get catalog | grep 'Postgresql'
 15		Postgresql	Postgresql database		remote		postgres:latest			postgres:latest
 ```
 
-We used grep to filter the ouput, but the columns are the same as above. You can now use the `images:catalogid` field set to 15 in order to deploy postgres databases on your agents.
+We used grep to filter the ouput, but the columns are the same as above. You can now use the `images:catalogID` field set to 15 in order to deploy postgres databases on your agents.
