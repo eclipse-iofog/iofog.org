@@ -9,6 +9,7 @@ All of our current top level fields in 1.2.x will now be handled under spec.
 1.2.x YAML:
 
 ```yaml
+
 ---
 controllers:
   - name: LocalController
@@ -27,6 +28,7 @@ agents:
 Current Spec:
 
 ```yaml
+
 ---
 apiVersion: iofog.org/v1
 kind: ControlPlane
@@ -66,7 +68,7 @@ spec:
   keyFile: ~/.ssh/id_rsa
 ```
 
-Note: we seperate kinds by three dashes, this allows you to use a single file, to deploy all your infrastructure and keep it legible.
+Note: we separate kinds by three dashes, this allows you to use a single file, to deploy all your infrastructure and keep it legible.
 
 As you can see, the top fields are now standard for whatever you want to deploy, which you simply identify in the `kind` field.
 The name and namespaces you were operating in are now handled under the metadata tag, and the spec tag, while different for each kind, contains
