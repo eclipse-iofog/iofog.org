@@ -80,53 +80,58 @@ Let's start by using `iofogctl` to retrieve a detailed description of our Agent.
 
 ```console
 $ iofogctl describe agent local-agent
-
-uuid: xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR
-name: local-agent
-location: ""
-latitude: 50.8333
-longitude: 4.3333
-description: ""
-dockerurl: unix:///var/run/docker.sock
-disklimit: 50
-diskdirectory: /var/lib/iofog-agent/
-memorylimit: 1024
-cpulimit: 80
-loglimit: 10
-logdirectory: /var/log/iofog-agent/
-logfilecount: 10
-statusfrequency: 30
-changefrequency: 60
-devicescanfrequency: 60
-bluetoothenabled: false
-watchdogenabled: false
-abstractedhardwareenabled: false
-createdtimerfc3339: "2019-09-13T09:14:13.846Z"
-updatedtimerfc3339: "2019-09-13T10:37:57.424Z"
-lastactive: 1568371077407
-daemonstatus: RUNNING
-uptimems: 5018195
-memoryusage: 177.55567932128906
-diskusage: 0.027621466666460037
-cpuusage: 1.170568585395813
-memoryviolation: "0"
-diskviolation: "0"
-cpuviolation: "0"
-microservicestatus: ""
-repositorycount: 2
-repositorystatus: '[]'
-laststatustimemsutc: 1568371070651
-ipaddress: 172.17.0.4
-ipaddressexternal: 91.178.63.198
-processedmessaged: 124036
-microservicemessagecount: 0
-messagespeed: 86
-lastcommandtimemsutc: 0
-networkinterface: eth0
-version: 1.3.0-beta
-isreadytoupgrade: false
-isreadytorollback: false
-tunnel: ""
+apiVersion: iofog.org/v1
+kind: AgentConfig
+metadata:
+  name: local-agent
+  namespace: default
+spec:
+  uuid: 62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq
+  name: local-agent
+  location: ""
+  latitude: -36.8486
+  longitude: 174.754
+  description: ""
+  dockerUrl: unix:///var/run/docker.sock
+  diskLimit: 50
+  diskDirectory: /var/lib/iofog-agent/
+  memoryLimit: 1024
+  cpuLimit: 80
+  logLimit: 10
+  logDirectory: /var/log/iofog-agent/
+  logFileCount: 10
+  statusFrequency: 30
+  changeFrequency: 60
+  deviceScanFrequency: 60
+  bluetoothEnabled: false
+  watchdogEnabled: false
+  abstractedHardwareEnabled: false
+  created: "2019-10-23T03:17:31.762Z"
+  updated: "2019-10-23T03:29:28.763Z"
+  lastActive: 1571801368750
+  daemonStatus: RUNNING
+  uptime: 701589
+  memoryUsage: 220.4407958984375
+  diskUsage: 0.01359470933675766
+  cpuUsage: 4.0069684982299805
+  memoryViolation: "0"
+  diskViolation: "0"
+  cpuViolation: "0"
+  microserviceStatus: ""
+  repositoryCount: 2
+  repositoryStatus: '[]'
+  LastStatusTime: 1571801352435
+  ipAddress: 172.17.0.4
+  ipAddressExternal: 91.178.63.198
+  ProcessedMessages: 60998
+  microserviceMessageCount: 0
+  messageSpeed: 91
+  lastCommandTime: 0
+  networkInterface: eth0
+  version: 1.3.0-beta
+  isReadyToUpgrade: false
+  isReadyToRollback: false
+  tunnel: ""
 ```
 
 Let's see how we can use the `iofog-agent` CLI to find out its status. Note that the first `iofog-agent` in the following command stands for the container name, and the second `iofog-agent` is the executable wrapped in the container.
@@ -135,16 +140,16 @@ Let's see how we can use the `iofog-agent` CLI to find out its status. Note that
 $ docker exec -ti iofog-agent iofog-agent status
 
 ioFog daemon                : RUNNING
-Memory Usage                : about 304.26 MiB
-Disk Usage                  : about 33.06 MiB
-CPU Usage                   : about 0.84 %
+Memory Usage                : about 248.96 MiB
+Disk Usage                  : about 17.91 MiB
+CPU Usage                   : about 3.38 %
 Running Microservices       : 3
 Connection to Controller    : ok
-Messages Processed          : about 144,638
-System Time                 : 13/09/2019 10:41 AM
-System Available Disk       : 43992.22 MB
-System Available Memory     : 862.21 MB
-System Total CPU            : 1.30 %
+Messages Processed          : about 78,496
+System Time                 : 23/10/2019 03:31 AM
+System Available Disk       : 43598.10 MB
+System Available Memory     : 763.71 MB
+System Total CPU            : 0.28 %
 ```
 
 There's also `iofog-agent info`, used to view this Agent's settings:
@@ -152,7 +157,7 @@ There's also `iofog-agent info`, used to view this Agent's settings:
 ```console
 $ docker exec -ti iofog-agent iofog-agent info
 
-Iofog UUID                               : xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR
+Iofog UUID                               : 62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq
 IP Address                               : 172.17.0.4
 Network Interface                        : eth0(dynamic)
 Developer's Mode                         : on
@@ -166,15 +171,16 @@ CPU Usage Limit                          : 80.00%
 Log Disk Limit                           : 10.00 GiB
 Log File Directory                       : /var/log/iofog-agent/
 Log Rolling File Count                   : 10
-null : INFO
+Log Level                                : INFO
 Status Update Frequency                  : 30
 Get Changes Frequency                    : 60
 Scan Devices Frequency                   : 60
 Post Diagnostics Frequency               : 10
 Isolated Docker Containers Mode          : off
 GPS mode                                 : auto
-GPS coordinates(lat,lon)                 : 50.8333,4.3333
+GPS coordinates(lat,lon)                 : -36.8486,174.754
 Fog type                                 : intel_amd
+
 ```
 
 <aside class="notifications note">
@@ -217,7 +223,7 @@ $ docker exec -ti iofog-controller iofog-controller iofog list
       "messageSpeed": 86,
       "lastCommandTime": 0,
       "logFileCount": 10,
-      "uuid": "xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR",
+      "uuid": "62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq",
       "name": "local-agent",
 
 ...

@@ -48,12 +48,16 @@ You can use `iofogctl deploy` to install and provision ioFog software. Now we wi
   <p>We aren't going into detail about iofogctl here because we want to show you how simple it can be to get going with ioFog. Please make sure to check out the full iofogctl documentation <a href="../tools/iofogctl/usage.html">here</a>.</p>
 </aside>
 
-Go ahead an paste the following commands into your terminal:
+Go ahead and paste the following commands into your terminal:
 
 ```bash
 echo "---
-controlplane:
-  iofoguser:
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: ecn
+spec:
+  iofogUser:
     name: Quick
     surname: Start
     email: user@domain.com
@@ -61,14 +65,20 @@ controlplane:
   controllers:
   - name: local-controller
     host: localhost
-
-connectors:
-- name: local-connector
+---
+apiVersion: iofog.org/v1
+kind: Connector
+metadata:
+  name: local-connector
+spec:
   host: localhost
-
-agents:
- - name: local-agent
-   host: localhost" > /tmp/quick-start.yaml
+---
+apiVersion: iofog.org/v1
+kind: Agent
+metadata:
+  name: local-agent
+spec:
+  host: localhost" > /tmp/quick-start.yaml
 iofogctl deploy -f /tmp/quick-start.yaml
 ```
 
@@ -93,6 +103,8 @@ local-connector  online		1m59s   1m59s		0.0.0.0
 AGENT            STATUS		AGE		UPTIME		IP	            VERSION
 local-agent      RUNNING	1m18s   28s         122.60.228.85   1.3.0-beta
 ```
+
+**NB:** The Agent status might say `UNKNOWN` for up to 30s. It is the time for the agent to report back its liveness to the controller.
 
 The `Controller` acts as a control plane, it will be your main point of access and communication with your ECN. If you want to find out more about Controller, please read <a href="../controllers/overview.html">this</a>.
 
@@ -121,43 +133,38 @@ Now that our local ECN is up, lets put it to use. The following commands will de
 
 ```bash
 echo '---
-applications:
-  - name: "HealthcareWearableExample"
-    microservices:
-    - name: "heart-rate-monitor"
-      agent:
-        name: local-agent
-        config:
-          bluetoothEnabled: true # this will install the iofog/restblue microservice
-          abstractedHardwareEnabled: false
-      images: # Microservice docker images
-        arm: "edgeworx/healthcare-heart-rate:arm-v1"
-        x86: "edgeworx/healthcare-heart-rate:x86-v1"
-      roothostaccess: false
-      ports: []
-      config:
-        test_mode: true
-        data_label: "Anonymous Person"
-    - name: "heart-rate-viewer"
-      agent:
-        name: local-agent
-      images:
-        arm: "edgeworx/healthcare-heart-rate-ui:arm"
-        x86: "edgeworx/healthcare-heart-rate-ui:x86"
-      roothostaccess: false
-      ports:
-        - external: 5000
-          internal: 80
-      volumes:
-        - hostdestination: /tmp/msvc
-          containerdestination: /tmp
-          accessmode: rw # access mode
-      env:
-        - key: "BASE_URL"
-          value: "http://localhost:8080/data"
-    routes:
-    - from: "heart-rate-monitor"
-      to: "heart-rate-viewer"' > /tmp/quick-start-app.yaml
+apiVersion: iofog.org/v1
+kind: Application
+metadata:
+  name: HealthcareWearableExample
+spec:
+  microservices:
+  - name: "heart-rate-monitor"
+    agent:
+      name: local-agent
+    images: # Microservice docker images
+      arm: "edgeworx/healthcare-heart-rate:arm-v1"
+      x86: "edgeworx/healthcare-heart-rate:x86-v1"
+    ports: []
+    config:
+      test_mode: true
+      data_label: "Anonymous Person"
+  - name: "heart-rate-viewer"
+    agent:
+      name: local-agent
+    images:
+      arm: "edgeworx/healthcare-heart-rate-ui:arm"
+      x86: "edgeworx/healthcare-heart-rate-ui:x86"
+    ports:
+      - external: 5000
+        internal: 80
+    volumes: []
+    env:
+      - key: "BASE_URL"
+        value: "http://localhost:8080/data"
+  routes:
+  - from: "heart-rate-monitor"
+    to: "heart-rate-viewer"' > /tmp/quick-start-app.yaml
 iofogctl deploy -f /tmp/quick-start-app.yaml
 ```
 
@@ -177,8 +184,8 @@ Which will output something similar to:
 Every 2.0s: iofogctl get microservices                                                                                                                                                  Alexandres-MacBook-Pro.local: Wed Sep 11 16:17:34 2019
 
 MICROSERVICE            STATUS          AGENT           CONFIG                                                  ROUTES                  VOLUMES         PORTS
-heart-rate-monitor      QUEUED          local-agent      {"data_label":"Anonymous Person","test_mode":true}      heart-rate-viewer
-heart-rate-viewer       QUEUED          local-agent      {}                                                                             /tmp/msvc:/tmp  5000:80
+heart-rate-monitor      QUEUED          local-agent     {"data_label":"Anonymous Person","test_mode":true}      heart-rate-viewer
+heart-rate-viewer       QUEUED          local-agent     {}                                                                                              5000:80
 ```
 
 Once both microservice status are 'RUNNING', the microservices have started. You will be able to see the web application on your browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.
@@ -195,4 +202,4 @@ iofogctl delete all
 
 Now that you have seen what ioFog is about, you can create a real ECN with remote hosts. Instructions are found [here](../remote-deployment/introduction.html).
 
-You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html).
+You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).

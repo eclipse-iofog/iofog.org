@@ -10,14 +10,18 @@ Create a template of connectors.yaml like so:
 
 ```bash
 echo "---
-name: meerkat-1
-kubeconfig: ~/.kube/config" > /tmp/connector.yaml
+apiVersion: iofog.org/v1
+kind: Connector
+metadata:
+  name: meerkat-1
+spec:
+  kubeConfig: ~/.kube/config" > /tmp/connector.yaml
 ```
 
 To deploy, run:
 
 ```bash
-iofogctl deploy connector -f /tmp/connector.yaml
+iofogctl deploy -f /tmp/connector.yaml
 ```
 
 The next section covers how to do the same thing we just did, but on a remote host instead of a Kubernetes cluster. We can <a href=#verify-the-deployment>skip ahead</a>.
@@ -28,23 +32,27 @@ Create a template of connector.yaml like so:
 
 ```bash
 echo "---
-name: meerkat-1
-user: foo
-host: 38.101.23.3
-keyfile: ~/.ssh/id_rsa" > /tmp/connector.yaml
+apiVersion: iofog.org/v1
+kind: Connector
+metadata:
+  name: meerkat-1
+spec:
+  user: foo
+  host: 38.101.23.3
+  keyFile: ~/.ssh/id_rsa" > /tmp/connector.yaml
 ```
 
 Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
 
-Once you have edited the fields to your liking, go ahead an run:
+Once you have edited the fields to your liking, go ahead and run:
 
 ```bash
-iofogctl deploy connector -f /tmp/connector.yaml
+iofogctl deploy -f /tmp/connector.yaml
 ```
 
 ## Verify the Deployment
 
-We can use the following commands to verify the Connector is up an running:
+We can use the following commands to verify the Connector is up and running:
 
 ```bash
 iofogctl get connectors

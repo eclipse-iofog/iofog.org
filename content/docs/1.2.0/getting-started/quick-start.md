@@ -48,7 +48,7 @@ You can use `iofogctl deploy` to install and provision ioFog software. Now we wi
   <p>We aren't going into detail about iofogctl here because we want to show you how simple it can be to get going with ioFog. Please make sure to check out the full iofogctl documentation <a href="../tools/iofogctl/usage.html">here</a>.</p>
 </aside>
 
-Go ahead an paste the following commands into your terminal:
+Go ahead and paste the following commands into your terminal:
 
 ```bash
 echo "---

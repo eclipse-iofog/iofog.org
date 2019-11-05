@@ -42,46 +42,50 @@ If you spent some time looking around the folder structure, you might have notic
 
 ```yaml
 $ cat init/tutorial/config.yaml
-
-name: tutorial
-microservices:
-- name: Sensors
-  agent:
-    name: local-agent
-  config: {}
-  images:
-    x86: iofog/sensors:latest
-    registry: remote
-  volumes: []
-  ports: []
-  env: []
-- name: Rest API
-  agent:
-    name: local-agent
-  config: {}
-  images:
-    x86: iofog/freeboard-api:latest
-    registry: remote
-  volumes: []
-  ports:
-    - internal: 80
-      external: 10101
-  env: []
-- name: Freeboard
-  agent:
-    name: local-agent
-  config: {}
-  images:
-    x86: iofog/freeboard:latest
-    registry: remote
-  volumes: []
-  ports:
-    - internal: 80
-      external: 10102
-  env: []
-routes:
-- from: Sensors
-  to: Rest API
+---
+apiVersion: iofog.org/v1
+kind: Application
+metadata:
+  name: tutorial
+spec:
+  microservices:
+    - name: Sensors
+      agent:
+        name: local-agent
+      config: {}
+      images:
+        x86: iofog/sensors:latest
+        registry: remote
+      volumes: []
+      ports: []
+      env: []
+    - name: Rest API
+      agent:
+        name: local-agent
+      config: {}
+      images:
+        x86: iofog/freeboard-api:latest
+        registry: remote
+      volumes: []
+      ports:
+        - internal: 80
+          external: 10101
+      env: []
+    - name: Freeboard
+      agent:
+        name: local-agent
+      config: {}
+      images:
+        x86: iofog/freeboard:latest
+        registry: remote
+      volumes: []
+      ports:
+        - internal: 80
+          external: 10102
+      env: []
+  routes:
+    - from: Sensors
+      to: Rest API
 ```
 
 This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html), but for now let's focus on the main parts.
@@ -181,38 +185,45 @@ But you can also directly deploy a microservice! First, let's use `iofogctl` to 
 $ iofogctl describe microservice 'Moving Average' -o moving-average.yaml
 $ cat moving-average.yaml
 
-name: Moving Average
-agent:
-  name: local-agent
+apiVersion: iofog.org/v1
+kind: Microservice
+metadata:
+  name: Moving Average
+  namespace: default
+spec:
+  uuid: H3cZ2LQ9hxyM6X7X6xV2q2w6mH3zp7Wc
+  name: Moving Average
+  agent:
+    name: local-agent
+    config:
+      dockerUrl: unix:///var/run/docker.sock
+      diskLimit: 50
+      diskDirectory: /var/lib/iofog-agent/
+      memoryLimit: 1024
+      cpuLimit: 80
+      logLimit: 10
+      logDirectory: /var/log/iofog-agent/
+      logFileCount: 10
+      statusFrequency: 30
+      changeFrequency: 60
+      deviceScanFrequency: 60
+      bluetoothEnabled: false
+      watchdogEnabled: false
+      abstractedHardwareEnabled: false
+  images:
+    catalogID: 0
+    x86: iofog-tutorial/moving-average:v1
+    arm: ""
+    registry: local
   config:
-    dockerurl: unix:///var/run/docker.sock
-    disklimit: 50
-    diskdirectory: /var/lib/iofog-agent/
-    memorylimit: 1024
-    cpulimit: 80
-    loglimit: 10
-    logdirectory: /var/log/iofog-agent/
-    logfilecount: 10
-    statusfrequency: 30
-    changefrequency: 60
-    devicescanfrequency: 60
-    bluetoothenabled: false
-    watchdogenabled: false
-    abstractedhardwareenabled: false
-images:
-  catalogid: 0
-  x86: iofog-tutorial/moving-average:v1
-  arm: ""
-  registry: local
-config:
-  maxWindowSize: 40
-roothostaccess: false
-ports: []
-volumes: []
-env: []
-routes:
-- Rest API
-application: tutorial
+    maxWindowSize: 40
+  rootHostAccess: false
+  ports: []
+  volumes: []
+  env: []
+  routes:
+  - Rest API
+  application: tutorial
 ```
 
 You will notice a few minor changes compared to the description we provided when we deployed the microservice as part of our application:
@@ -228,7 +239,6 @@ Now let's say we want to update the configuration of our microservice!
 Go ahead and edit the newly created `moving-average.yaml` file, and update the `config` field (Warning: not the `agent:config`, but the root `config` field) to the following:
 
 ```yaml
----
 config:
   maxWindowSize: 100
 ```
@@ -236,7 +246,7 @@ config:
 Then you can use iofogctl to deploy your microservice
 
 ```console
-$ iofogctl deploy microservice -f moving-average.yaml
+$ iofogctl deploy -f moving-average.yaml
 ```
 
 And see the result with
