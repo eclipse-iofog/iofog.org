@@ -27,12 +27,15 @@ spec:
     password: g9hr823rhuoi
   controllers:
     - name: vanilla
-      user: foo
       host: 30.40.50.3
-      keyFile: ~/.ssh/id_rsa
+      ssh:
+        user: foo
+        keyFile: ~/.ssh/id_rsa
+        port: 22
     - name: kubernetes
-      replicas: 2
-      keyFile: ~/.ssh/id_rsa
+      kube:
+        config: ~/.kube/config
+        replicas: 2
 ```
 
 | Field       | Description                                                            |
@@ -53,24 +56,28 @@ metadata:
   namespace: default # Optional, iofogctl namespace to use
 spec:
   # Only required for non-K8s deployment
-  user: foo
   host: 30.40.50.5
-  keyFile: ~/.ssh/id_rsa
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa
+    port: 22 # Optional, defaults to 22
   # Only required for K8s deployment
-  kubeConfig: ~/.kube/config
-  kubeControllerIP: 34.23.14.6 # Optional
-  replicas: 1 # Optional, defaults to 1
-  serviceType: LoadBalancer # Optional, defaults to "LoadBalancer"
+  kube:
+    config: ~/.kube/config
+    staticIP: 34.23.14.6 # Optional
+    replicas: 1 # Optional, defaults to 1
+    serviceType: LoadBalancer # Optional, defaults to "LoadBalancer"
 ```
 
 | Field              | Description                                                                                                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Name               | User-defined unique identifier of Controller instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
-| User               | Username of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
 | Host               | Hostname of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
+| User               | Username of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
 | Key File           | Path to private SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                |
+| Port | Port to use with SSH |
 | Kube Config        | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster.                                                            |
-| Kube Controller IP | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
+| Static IP | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
 | Replicas           | Number of Controller Pods to deploy on Kubernetes cluster.                                                                                                               |
 | LoadBalancer       | Kubernetes service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                                                                                |
 
@@ -87,24 +94,26 @@ metadata:
   namespace: default # Optional, iofogctl namespace to use
 spec:
   # Only required for non-K8s deployment
-  user: foo
   host: 30.40.50.5
-  keyFile: ~/.ssh/id_rsa
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa
+    port: 22 # Optional, defaults to 22
   # Only required for K8s deployment
-  kubeConfig: ~/.kube/config
-  replicas: 1 # Optional, defaults to 1
+  kube:
+    config: ~/.kube/config
 ```
 
 | Field       | Description                                                                                                                                                             |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name        | User-defined unique identifier of Connector instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
-| User        | Username of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
 | Host        | Hostname of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
+| User        | Username of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
 | Key File    | Path to private SSH key that iofogctl must use to SSH into remote host to install Connector service.                                                                |
+| Port | Port to use with SSH |
 | Kube Config | Path to Kubernetes configuration file that iofogctl uses to install Connector service to Kubernetes cluster.                                                            |
-| Replicas    | Number of Connector Pods to deploy on Kubernetes cluster.                                                                                                               |
 
-Note that at the moment Connector does not support specifying `ServiceType` the same way as Controller does.
+Note that at the moment Connector does not support specifying `Replicas` or `ServiceType` the same way as Controller does.
 
 ## Agent
 
@@ -118,9 +127,11 @@ metadata:
   name: meerkat
   namespace: default # Optional, iofogctl namespace to use
 spec:
-  user: foo
   host: 30.40.50.6
-  keyFile: ~/.ssh/id_rsa
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa
+    port: 22 # Optional, defaults to 22
 ```
 
 | Field | Description                                                                                                                                                         |
@@ -129,6 +140,7 @@ spec:
 | User  | Username of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
 | Host  | Hostname of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
 | Key File    | Path to private SSH key that iofogctl must use to SSH into remote host to install Agent service.                                                                |
+| Port | Port to use with SSH |
 
 ## Edge Compute Network
 
@@ -152,13 +164,15 @@ spec:
     password: mysecretpw
   controllers:
     - name: alpaca-1
-      user: serge
       host: 30.40.50.3
-      keyFile: ~/.ssh/id_rsa
+      ssh:
+        user: serge
+        keyFile: ~/.ssh/id_rsa
     - name: alpaca-2
-      user: serge
       host: 30.40.50.4
-      keyFile: ~/.ssh/id_rsa
+      ssh:
+        user: serge
+        keyFile: ~/.ssh/id_rsa
 ---
 apiVersion: iofog.org/v1
 kind: Connector
@@ -166,9 +180,10 @@ metadata:
   name: zebra
   namespace: default
 spec:
-  user: serge
   host: 30.40.50.5
-  keyFile: ~/.ssh/id_rsa
+  ssh:
+    user: serge
+    keyFile: ~/.ssh/id_rsa
 ---
 apiVersion: iofog.org/v1
 kind: Agent
@@ -176,9 +191,10 @@ metadata:
   name: hippo-1
   namespace: default
 spec:
-  user: serge
   host: 30.40.50.6
-  keyFile: ~/.ssh/id_rsa
+  ssh:
+    user: serge
+    keyFile: ~/.ssh/id_rsa
 ---
 apiVersion: iofog.org/v1
 kind: Agent
@@ -186,9 +202,10 @@ metadata:
   name: hippo-2
   namespace: default
 spec:
-  user: serge
   host: 30.40.50.7
-  keyFile: ~/.ssh/id_rsa
+  ssh:
+    user: serge
+    keyFile: ~/.ssh/id_rsa
 ```
 
 You can also use this approach to deploy a subset of the ECN by omitting any of the Control Plane, Connectors, or Agents sections.

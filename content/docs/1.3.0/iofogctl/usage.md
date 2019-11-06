@@ -149,13 +149,45 @@ spec:
     password: h9g84q
   controllers:
   - name: alpaca-1
-    kubeConfig: ~/.kube/config" > /tmp/k8s-controlplane.yaml
+    kube:
+      config: ~/.kube/config" > /tmp/k8s-controlplane.yaml
 ```
 
 After editing the email, password, and kube config fields, we can go ahead and connect.
 
 ```bash
 iofogctl connect -f /tmp/k8s-controlplane.yaml
+```
+
+We can use the above approach to connect to a large ECN with many agents described in a single YAML file. The benefit of this is that we can provide SSH details to Controllers, Connectors, and Agents deployed on remote hosts while we connect.
+
+We can also connect to an ECN without providing a YAML file (and without configuring SSH details automatically).
+
+For Vanilla Controllers we can run the following command and connect via the Controller endpoint.
+
+```bash
+iofogctl connect --endpoint 40.50.60.70 --name albatros --email user@domain.com --pass h9g84q
+```
+
+For Kubernetes Controllers we can run the same command but provide the Kubernetes config file instead of a Controller endpoint.
+
+```bash
+iofogctl connect --kube ~/.kube/config --name albatros --email user@domain.com --pass h9g84q
+```
+
+After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once.
+
+```bash
+iofogctl configure controller NAME --host HOST --user USER --key KEYFILE --port PORTNUM
+iofogctl configure connector NAME --host HOST --user USER --key KEYFILE --port PORTNUM
+iofogctl configure controller NAME --kube KUBECONFIG
+iofogctl configure connector NAME --kube KUBECONFIG
+iofogctl configure agent NAME --user USER --key KEYFILE --port PORTNUM
+
+iofogctl configure all --user USER --key KEYFILE --port PORTNUM
+iofogctl configure controllers --host HOST NAME --user USER --key KEYFILE --port PORTNUM
+iofogctl configure connectors --host HOST --user USER --key KEYFILE --port PORTNUM
+iofogctl configure agents --user USER --key KEYFILE --port PORTNUM
 ```
 
 ## View Edge Compute Network Details

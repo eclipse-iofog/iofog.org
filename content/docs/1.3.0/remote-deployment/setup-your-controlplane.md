@@ -29,10 +29,11 @@ spec:
     password: iht234g9afhe
   controllers:
   - name: alpaca-1
-    kubeConfig: ~/.kube/config" > /tmp/controlplane.yaml
+    kube:
+      config: ~/.kube/config" > /tmp/controlplane.yaml
 ```
 
-Make sure to specify the correct value for the `kubeconfig` field.
+Make sure to specify the correct value for the `kube.config` field.
 
 Once you have edited the fields to your liking, go ahead and run:
 
@@ -60,12 +61,13 @@ spec:
     password: iht234g9afhe
   controllers:
   - name: alpaca-1
-    user: bar
     host: 38.101.23.2
-    keyFile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
+    ssh:
+      user: bar
+      keyFile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
 ```
 
-Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+Make sure to edit the `host`, `ssh.user`, and `ssh.keyFile` fields to correspond with the remote host you are deploying to.
 
 Once you have edited the fields to your liking, go ahead and run:
 

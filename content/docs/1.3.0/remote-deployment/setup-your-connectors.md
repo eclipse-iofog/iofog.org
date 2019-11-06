@@ -15,7 +15,8 @@ kind: Connector
 metadata:
   name: meerkat-1
 spec:
-  kubeConfig: ~/.kube/config" > /tmp/connector.yaml
+  kube:
+    config: ~/.kube/config" > /tmp/connector.yaml
 ```
 
 To deploy, run:
@@ -37,12 +38,13 @@ kind: Connector
 metadata:
   name: meerkat-1
 spec:
-  user: foo
   host: 38.101.23.3
-  keyFile: ~/.ssh/id_rsa" > /tmp/connector.yaml
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa" > /tmp/connector.yaml
 ```
 
-Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+Make sure to edit the `host`, `ssh.user`, and `ssh.keyFile` fields to correspond with the remote host you are deploying to.
 
 Once you have edited the fields to your liking, go ahead and run:
 

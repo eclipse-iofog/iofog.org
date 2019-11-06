@@ -4,7 +4,7 @@ There are a couple quick changes you can do to your current yml file to make the
 
 We now follow a more k8s style formatting by using apiVersions, kinds, metadata and spec top level keys.
 
-All of our current top level fields in 1.2.x will now be handled under spec.
+All of our current top level fields in 1.2.x will now be handled under spec. Also, some of the fields have become nested where they were flat before.
 
 1.2.x YAML:
 
@@ -41,21 +41,38 @@ spec:
     surname: user
     email: host@domain.com
     password: mysecretpw
+  # 3 types of controllers shown for example only
   controllers:
-    - name: controller
-      user: default
+    - name: vanilla
       host: xxx.xxx.x.xxx #(ip address)
-      keyFile: ~/.ssh/id_rsa
+      ssh:
+        user: default
+        keyFile: ~/.ssh/id_rsa
+    - name: kubernetes
+      kube:
+        config: ~/.kube/config
+    - name: local
+      host: localhost
 ---
 apiVersion: iofog.org/v1
 kind: Connector
 metadata:
-  name: metdata
+  name: vanilla
   namespace: default
 spec:
-  user: connector
   host: xxx.xxx.x.xxx #(ip address)
-  keyfile: ~/.ssh/id_rsa
+  ssh:
+    user: connector
+    keyfile: ~/.ssh/id_rsa
+---
+apiVersion: iofog.org/v1
+kind: Connector
+metadata:
+  name: kubernetes
+  namespace: default
+spec:
+  kube:
+    config: ~/.kube/config
 ---
 apiVersion: iofog.org/v1
 kind: Agent
@@ -63,9 +80,10 @@ metadata:
   name: agent-name
   namespace: default
 spec:
-  user: agent
   host: xxx.xxx.x.xxx #(ip address)
-  keyFile: ~/.ssh/id_rsa
+  ssh:
+    user: agent
+    keyFile: ~/.ssh/id_rsa
 ```
 
 Note: we separate kinds by three dashes, this allows you to use a single file, to deploy all your infrastructure and keep it legible.
@@ -85,9 +103,9 @@ metadata:
 spec:
 ```
 
-and simply move the microservices and routes sections from 1.2.x under spec
+and simply move the microservices and routes sections from 1.2.x under spec. Take care to use the new `ssh` and `kube` fields also.
 
-Otherwise, we have also adopted `camelCase` as standard, so many of your fields under spec, will need to be changed
+We have also adopted `camelCase` as standard, so many of your fields under spec, will need to be changed
 to follow the spec. This will impact both application and platform specifications, to follow k8s standard.
 
 Thank you, and if you have any questions, please come ask

@@ -13,12 +13,13 @@ kind: Agent
 metadata:
   name: zebra-1
 spec:
-  user: foo
   host: 38.101.23.10
-  keyFile: ~/.ssh/id_rsa" > /tmp/agent.yaml
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa" > /tmp/agent.yaml
 ```
 
-Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+Make sure to edit the `host`, `ssh.user`, and `ssh.keyFile` fields to correspond with the remote host you are deploying to.
 
 Once you have edited the fields to your liking, go ahead and run:
 
