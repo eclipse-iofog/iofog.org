@@ -25,14 +25,14 @@ The Debian package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl=1.3.0-beta
+sudo apt-get install iofogctl=1.3.0-rc1
 ```
 
 And similarly, the RPM package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-1.3.0-beta-1.x86_64
+sudo yum install iofogctl-1.3.0-rc1-1.x86_64
 ```
 
 #### Verify iofogctl Installation
@@ -101,7 +101,7 @@ CONNECTOR        STATUS		AGE		UPTIME		IP
 local-connector  online		1m59s   1m59s		0.0.0.0
 
 AGENT            STATUS		AGE		UPTIME		IP	            VERSION
-local-agent      RUNNING	1m18s   28s         122.60.228.85   1.3.0-beta
+local-agent      RUNNING	1m18s   28s         122.60.228.85   1.3.0-rc1
 ```
 
 **NB:** The Agent status might say `UNKNOWN` for up to 30s. It is the time for the agent to report back its liveness to the controller.

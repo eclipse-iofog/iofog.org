@@ -84,7 +84,7 @@ The final `helm install` command to install ioFog with CRDs then looks like this
 helm install \
     --set controlPlane.user.email=user@domain.com \
     --set controlPlane.user.password=any123password345 \
-    --version 1.3.0-beta \
+    --version 1.3.0-rc1 \
     --namespace my-ecn \
     --name my-ecn \
     iofog/iofog
@@ -96,7 +96,7 @@ To list all Helm releases (including deployed ioFog stacks), we can simply run `
 
 ```plain
 NAME      	REVISION	UPDATED                 	STATUS  	CHART          	    APP VERSION	NAMESPACE
-my-ecn     	1       	Tue Oct  1 21:34:42 2019	DEPLOYED	iofog-1.3.0-beta	1.3.0-beta 	my-ecn
+my-ecn     	1       	Tue Oct  1 21:34:42 2019	DEPLOYED	iofog-1.3.0-rc1	1.3.0-rc1 	my-ecn
 ```
 
 The following is a complete list of all user configurable properties for the ioFog Helm chart. All of the properties are optional and have defaults. Use `--set property.name=value` in `helm install` to parametrize Helm release.
@@ -114,16 +114,16 @@ The following is a complete list of all user configurable properties for the ioF
 | controlPlane.database.password          |                                 | Not supported in ioFog Community Edition                                                      |
 | controlPlane.database.dbName            |                                 | Not supported in ioFog Community Edition                                                      |
 | controlPlane.controller.replicas        | 1                               | Number of replicas of Controller pods                                                         |
-| controlPlane.controller.image           | iofog/controller:1.3.0-beta     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)                     |
+| controlPlane.controller.image           | iofog/controller:1.3.0-rc1     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)                     |
 | controlPlane.controller.imagePullPolicy | Always                          | Controller Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) |
-| controlPlane.kubeletImage               | iofog/iofog-kubelet:1.3.0-beta  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)                     |
+| controlPlane.kubeletImage               | iofog/iofog-kubelet:1.3.0-rc1  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)                     |
 | controlPlane.loadBalancerIP             |                                 | Pre-allocated static IP address for Controller                                                |
 | controlPlane.serviceType                | LoadBalancer                    | Service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                |
-| connectors.image                        | iofog/connector:1.3.0-beta      | [Connector Docker image](https://hub.docker.com/r/iofog/connector/tags)                       |
+| connectors.image                        | iofog/connector:1.3.0-rc1      | [Connector Docker image](https://hub.docker.com/r/iofog/connector/tags)                       |
 | connectors.serviceType                  | LoadBalancer                    | Service type for Connector (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                 |
 | connectors.instanceNames                | `["first","second"]`            | Array of Connector instance names                                                             |
 | operator.replicas                       | 1                               | Number of replicas of Operator pods                                                           |
-| operator.image                          | iofog/iofog-operator:1.3.0-beta | [OperatorDocker image](https://hub.docker.com/r/iofog/iofog-operator/tags)                    |
+| operator.image                          | iofog/iofog-operator:1.3.0-rc1 | [OperatorDocker image](https://hub.docker.com/r/iofog/iofog-operator/tags)                    |
 | operator.imagePullPolicy                | Always                          | Operator Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/)   |
 
 ### Connection to Installed ioFog
@@ -145,7 +145,7 @@ helm install \
     --set createCustomResources=false \
     --set controlPlane.user.email=user@domain.com \
     --set controlPlane.user.password=any123password345 \
-    --version 1.3.0-beta \
+    --version 1.3.0-rc1 \
     --namespace second-ecn \
     --name second-ecn \
     iofog/iofog

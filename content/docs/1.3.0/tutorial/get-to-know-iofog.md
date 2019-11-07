@@ -25,7 +25,7 @@ CONNECTOR	    STATUS		AGE		    UPTIME	    IP
 local-connector	online		1h4m		1h4m		0.0.0.0
 
 AGENT		STATUS		AGE		    UPTIME		IP		        VERSION
-local-agent	RUNNING		1h4m		1h3m		91.178.63.198	1.3.0-beta
+local-agent	RUNNING		1h4m		1h3m		91.178.63.198	1.3.0-rc1
 
 APPLICATION	STATUS		MICROSERVICES
 tutorial	RUNNING		Sensors, Rest API, Freeboard
@@ -128,7 +128,7 @@ spec:
   messageSpeed: 91
   lastCommandTime: 0
   networkInterface: eth0
-  version: 1.3.0-beta
+  version: 1.3.0-rc1
   isReadyToUpgrade: false
   isReadyToRollback: false
   tunnel: ""
@@ -199,7 +199,7 @@ NAMESPACE
 default
 
 AGENT		STATUS		AGE		    UPTIME		IP		        VERSION
-local-agent	RUNNING		1h26m		1h25m		91.178.63.198	1.3.0-beta
+local-agent	RUNNING		1h26m		1h25m		91.178.63.198	1.3.0-rc1
 
 
 ```
