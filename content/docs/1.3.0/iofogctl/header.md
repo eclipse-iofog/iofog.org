@@ -14,9 +14,9 @@ spec:
 
 | Field              | Description                                                                                                                                                                                |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| API Version        | ioFog YAML schema version. Currently `iofog.org/v1`                                                                                                                             |
-| Kind               | String representing what type of resource we want to deploy. The available values are `ControlPlane`, `Controller`, `Connector`, `Agent`, `AgentConfig`, `Application` and `Microservice`. |
-| Metadata           | Object containing metadata about the resource                                                                                                                                              |
-| Metadata.Name      | User defined, unique identifier of the resource in its namespace.                                                                                                                            |
-| Metadata.Namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                         |
-| Spec               | Object containing the deployment specifications, different for each resource                                                                                                               |
+| apiVersion        | ioFog YAML schema version. Currently `iofog.org/v1`                                                                                                                             |
+| kind               | String representing what type of resource we want to deploy. The available values are `ControlPlane`, `Controller`, `Connector`, `Agent`, `AgentConfig`, `Application` and `Microservice`. |
+| metadata           | Object containing metadata about the resource                                                                                                                                              |
+| metadata.name      | User defined, unique identifier of the resource in its namespace.                                                                                                                            |
+| metadata.namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                         |
+| spec               | Object containing the deployment specifications, different for each resource                                                                                                               |
