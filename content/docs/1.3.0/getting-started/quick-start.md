@@ -45,7 +45,7 @@ You can use `iofogctl deploy` to install and provision ioFog software. Now we wi
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about iofogctl?</h3>
-  <p>We aren't going into detail about iofogctl here because we want to show you how simple it can be to get going with ioFog. Please make sure to check out the full iofogctl documentation <a href="../tools/iofogctl/usage.html">here</a>.</p>
+  <p>We aren't going into detail about iofogctl here because we want to show you how simple it can be to get going with ioFog. Please make sure to check out the full iofogctl documentation <a href="../iofogctl/usage.html">here</a>.</p>
 </aside>
 
 Go ahead and paste the following commands into your terminal:
