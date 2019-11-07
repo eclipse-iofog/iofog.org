@@ -42,10 +42,11 @@ The Sensors and REST API microservices are generic. They are not hardcoded to ta
 
 To connect microservices together, the Controller has the concept of routes.
 
-Routes can be listed from the `iofogctl get microservices` or `iofogctl describe microservice <microservice_name>` commands. We can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
+Routes can be listed from the `iofogctl get microservices` or `iofogctl describe microservice <name>` commands. We can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
 
 ```console
 $ iofogctl describe microservice Sensors
+
 apiVersion: iofog.org/v1
 kind: Microservice
 metadata:

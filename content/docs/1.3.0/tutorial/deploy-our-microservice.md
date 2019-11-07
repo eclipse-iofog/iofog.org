@@ -88,7 +88,7 @@ spec:
       to: Rest API
 ```
 
-This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html), but for now let's focus on the main parts.
+This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](/docs/1.3.0/iofogctl/application-yaml-spec.html), but for now let's focus on the main parts.
 
 - The file describes an application, named `tutorial`.
 - It has 3 microservices.
@@ -101,30 +101,17 @@ To add our new microservice, go ahead and edit this file by adding our new micro
 
 ```yaml
 ...
-- name: Freeboard
-  agent:
-    name: local-agent
-  config: {}
-  images:
-    x86: iofog/freeboard:latest
-    registry: remote
-  volumes: []
-  ports:
-    - internal: 80
-      external: 10102
-  env: []
-- name: Moving Average
-  agent:
-    name: local-agent
-  config:
-    maxWindowSize: 40
-  images:
-    x86: iofog-tutorial/moving-average:v1
-    registry: local
-  volumes: []
-  ports: []
-  env: []
-routes:
+    - name: Moving Average
+      agent:
+        name: local-agent
+      config:
+        maxWindowSize: 40
+      images:
+        x86: iofog-tutorial/moving-average:v1
+        registry: local
+      volumes: []
+      ports: []
+      env: []
 ...
 ```
 
@@ -168,10 +155,7 @@ Sensors		    RUNNING		local-agent	{}		              Moving Average
 
 It will take some time for the ioFog Agent to spin up the new microservice. You can monitor the status of our newly created microservice using `iofogctl get microservices`.
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> You don't have the application YAML file?</h3>
-  <p>If you don't have access to the YAML file describing your application, you can always retrieve it using iofogctl and running: `iofogctl describe application APPLICATION_NAME [-o config.yaml]`</p>
-</aside>
+If you don't have access to the YAML file describing your application, you can always retrieve it using iofogctl and running: `iofogctl describe application APPLICATION_NAME [-o config.yaml]`
 
 ## Update a Microservice
 
@@ -232,7 +216,7 @@ You will notice a few minor changes compared to the description we provided when
 - The microservice routes destinations are listed under a `routes` field.
 - We have many more fields related to the required configuration of the ioFog Agent.
 
-Find the complete yaml description [here](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices)
+Find the complete yaml description [here](/docs/1.3.0/iofogctl/application-yaml-spec.html#microservices)
 
 Now let's say we want to update the configuration of our microservice!
 
@@ -269,7 +253,7 @@ Have a look at new output of the [Freeboard dashboard](http://localhost:10102/?l
 
 The magic about microservices and ioFog is that none of those microservice is specifically designed or requires to work with the other microservice. Using ioFog, you can create smart and secure communication channels between independant microservices and easily manage a fleet of Edge devices and microservices.
 
-Congratulations! You've now have the fundamentals of ioFog. Once you're feeling more comfortable you can start setting up [ioFog in production](../getting-started/setup-your-controllers.html).
+Congratulations! You've now have the fundamentals of ioFog. Next, try developing Microservices on an ECN deployed on remote hosts. See this [guide](../remote-deployment/introduction.html) for deploying remotely.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
