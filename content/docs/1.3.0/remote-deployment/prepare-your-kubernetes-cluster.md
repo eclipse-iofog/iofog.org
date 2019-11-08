@@ -20,14 +20,15 @@ In order for `iofogctl` to do its thing with our Kubernetes cluster, we will hav
 
 The way we add these permissions will depend on our respective Kubernetes provider. Ultimately, we need the User Account associated with our `~/.kube/config` configuration file to have permission to use all verbs against the following resources:
 
-* rolebindings.rbac.authorization.k8s.io
-* roles.rbac.authorization.k8s.io
+* roles
+* clusterroles
+* rolebindings
+* clusterrolebindings
 * services
-* deployments.apps
-* statefulsets.apps
-* bindings
+* deployments
+* statefulsets
+* pods
 * namespaces
-* pods/log
 
 If in doubt, we can use the default cluster role `admin`.
 
