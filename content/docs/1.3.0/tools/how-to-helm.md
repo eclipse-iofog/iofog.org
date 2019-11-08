@@ -108,11 +108,6 @@ The following is a complete list of all user configurable properties for the ioF
 | controlPlane.user.surname               | Second                          | Surname of initial user in Controller                                                         |
 | controlPlane.user.email                 | user@domain.com                 | Email (login) of initial user in Controller                                                   |
 | controlPlane.user.password              | H23fkidf9hoibf2nlk              | Password of initial user in Controller                                                        |
-| controlPlane.database.provider          |                                 | Not supported in ioFog Community Edition                                                      |
-| controlPlane.database.host              |                                 | Not supported in ioFog Community Edition                                                      |
-| controlPlane.database.port              | 0                               | Not supported in ioFog Community Edition                                                      |
-| controlPlane.database.password          |                                 | Not supported in ioFog Community Edition                                                      |
-| controlPlane.database.dbName            |                                 | Not supported in ioFog Community Edition                                                      |
 | controlPlane.controller.replicas        | 1                               | Number of replicas of Controller pods                                                         |
 | controlPlane.controller.image           | iofog/controller:1.3.0-rc1     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)                     |
 | controlPlane.controller.imagePullPolicy | Always                          | Controller Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) |
@@ -128,13 +123,13 @@ The following is a complete list of all user configurable properties for the ioF
 
 ### Connection to Installed ioFog
 
-Once the installation is complete, you will be able to connect to the ioFog Controller on K8s using [iofogctl](./iofogctl/usage.html).
+Once the installation is complete, you will be able to connect to the ioFog Controller on K8s using [iofogctl](../iofogctl/usage.html).
 
 ```bash
-iofogctl connect k8s-ctrl --kube-config ~/.kube/config --email user@domain.com --pass any123password345
+iofogctl connect --kube ~/.kube/config --name k8s-ctrl --email user@domain.com --pass any123password345 -n my-ecn
 ```
 
-Once you are connected, you can use `iofogctl` to deploy edge Agents. Then, you can use `kubectl` or `iofogctl` to deploy microservices to your edge Agents. See [Setup Your Agents](../remote-deployment/setup-your-agents.html) and [Introduction to iofogctl](./iofogctl/usage.html) for more details.
+Once you are connected, you can use `iofogctl` to deploy edge Agents. Then, you can use `kubectl` or `iofogctl` to deploy microservices to your edge Agents. See [Setup Your Agents](../remote-deployment/setup-your-agents.html) and [Introduction to iofogctl](../iofogctl/usage.html) for more details.
 
 ### Multiple Edge Compute Networks
 
