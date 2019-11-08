@@ -24,10 +24,6 @@
 - [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/v1.3.0-rc1/CHANGELOG-1.3.md)
 - [Demo Project](https://github.com/eclipse-iofog/demo/blob/v1.3.0-rc1/CHANGELOG-1.3.md)
 
-### Known Issues
-
-- When using iofogctl with a Kubernetes Controller `iofogctl delete agent NAME` gets success from Controller but Controller still has agent in its database
-
 ## 1.2.0 - "Kubernetes For The Edge"
 
 [Get Started with release 1.2.0](/docs/1.2.0/getting-started/core-concepts.html)
