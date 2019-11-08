@@ -249,11 +249,8 @@ do_install_demo() {
   set +x
 }
 
-#
-# Check between apt or yum
-#
 install_iofogctl_linux() {
-  echoInfo "# Installing iofogctl..."
+  echo "# Installing iofogctl..."
   case "$lsb_dist" in
   ubuntu | debian | raspbian)
     $sh_c "curl -s https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash"
@@ -267,8 +264,8 @@ install_iofogctl_linux() {
     ;;
   esac
   if [ -z "$(command -v iofogctl)" ]; then
-    echoInfo "Could not detect package installation system"
-    echoInfo "Please follow github instructions to install iofogctl: https://github.com/eclipse-iofog/iofogctl"
+    echo "Could not detect package installation system"
+    echo "Please follow github instructions to install iofogctl: https://github.com/eclipse-iofog/iofogctl"
     return 1
   else
     echo "iofogctl installed!"
@@ -278,79 +275,23 @@ install_iofogctl_linux() {
   fi
 }
 
-getSystemInfo() {
-  lowercase() {
-    echo "$1" | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"
+do_install_iofogctl() {
+  versionCompare() {
+    test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"
   }
-  OS=$(lowercase "$(uname)")
-  KERNEL=$(uname -r)
-  MACH=$(uname -m)
-
-  if [ "${OS}" = "windowsnt" ]; then
-    OS=windows
-  elif [ "${OS}" = "darwin" ]; then
-    OS=mac
-  else
-    OS=$(uname)
-    if [ "${OS}" = "SunOS" ]; then
-      OS=Solaris
-      ARCH=$(uname -p)
-      OSSTR="${OS} ${REV}(${ARCH} $(uname -v))"
-    elif [ "${OS}" = "AIX" ]; then
-      OSSTR="${OS} $(oslevel) ($(oslevel -r))"
-    elif [ "${OS}" = "Linux" ]; then
-      if [ -f /etc/redhat-release ]; then
-        DistroBasedOn='RedHat'
-        DIST=$(sed s/\ release.*// </etc/redhat-release)
-        PSUEDONAME=$(sed s/.*\(// </etc/redhat-release | sed s/\)//)
-        REV=$(sed s/.*release\ // </etc/redhat-release | sed s/\ .*//)
-      elif [ -f /etc/SuSE-release ]; then
-        DistroBasedOn='SuSe'
-        PSUEDONAME=$(tr "\n" ' ' </etc/SuSE-release | sed s/VERSION.*//)
-        REV=$(tr "\n" ' ' </etc/SuSE-release | sed s/.*=\ //)
-      elif [ -f /etc/mandrake-release ]; then
-        DistroBasedOn='Mandrake'
-        PSUEDONAME=$(sed s/.*\(// </etc/mandrake-release | sed s/\)//)
-        REV=$(sed s/.*release\ // </etc/mandrake-release | sed s/\ .*//)
-      elif [ -f /etc/debian_version ]; then
-        DistroBasedOn='Debian'
-        if [ -f /etc/lsb-release ]; then
-          DIST=$(grep '^DISTRIB_ID' /etc/lsb-release | awk -F= '{ print $2 }')
-          PSUEDONAME=$(grep '^DISTRIB_CODENAME' /etc/lsb-release | awk -F= '{ print $2 }')
-          REV=$(grep '^DISTRIB_RELEASE' /etc/lsb-release | awk -F= '{ print $2 }')
-        fi
-      fi
-      if [ -f /etc/UnitedLinux-release ]; then
-        DIST="${DIST}[$(tr "\n" ' ' </etc/UnitedLinux-release | sed s/VERSION.*//)]"
-      fi
-      OS=$(lowercase $OS)
-      DistroBasedOn=$(lowercase $DistroBasedOn)
-      readonly OS
-      readonly OSSTR
-      readonly DIST
-      readonly DistroBasedOn
-      readonly PSUEDONAME
-      readonly REV
-      readonly KERNEL
-      readonly MACH
-    fi
-
-  fi
-}
-
-check_iofogctl() {
   if [ -z "$(command -v iofogctl)" ]; then
-    echoError "iofogctl not found!"
-    if [ "${VERIFY}" -eq 1 ]; then
-      command_status=1
-      return 1
-    else
-      install_iofogctl_linux
-      command_status=$?
-      return $command_status
-    fi
+    echo "iofogctl not found!"
+    install_iofogctl_linux
+    command_status=$?
+    return $command_status
   else
     echo "iofogctl found in path!"
+    IOFOGCTL_VERSION=$(iofogctl version | sed -n 's/version: \([0-9]*\.[0-9]*\.[0-9]*\).*/\1/p')
+    if versionCompare "1.3.0" "${IOFOGCTL_VERSION}"; then
+      echo "iofogctl version not sufficient! Please uninstall iofogctl."
+      command_status=1
+      exit 1
+    fi
     iofogctl version
     echo ""
     command_status=777
@@ -433,9 +374,6 @@ do_install() {
   # Check if this is a forked Linux distro
   check_forked
 
-  echo "lsb_dist: $lsb_dist"
-  echo "dist_version: $dist_version"
-
   # Check if we actually support this configuration
   if ! echo "$SUPPORT_MAP" | grep "$(uname -m)-$lsb_dist-$dist_version" >/dev/null; then
     cat >&2 <<-'EOF'
@@ -481,7 +419,7 @@ do_install() {
     "# Demo repository has been cloned successfully" \
     "# Cloning demo repository failed. Please proceed with installation manually" ""
 
-  check_iofogctl
+  do_install_iofogctl
   check_command_status $command_status \
     "# Iofogctl has been installed successfully" \
     "# Iofogctl installation failed, please install iofogctl manually. See https://iofog.org/docs/1.3.0/getting-started/quick-start.html for details." \
