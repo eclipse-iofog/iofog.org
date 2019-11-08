@@ -10,10 +10,10 @@ With our Docker image from the previous step in hand, it's time to publish it to
 
 While we can use a custom registry (or the public [Docker Hub](https://hub.docker.com/)), the Controller also comes with a built-in private registry that represents the local cache on the ioFog edge compute nodes.
 
-To get a list of the container registries, we can use the ioFog Controller CLI `registry list` command:
+To get a list of the container registries, we can use the legacy Controller CLI `registry list` command:
 
 ```bash
-docker exec -it iofog-controller iofog-controller registry list
+iofogctl legacy controller local-controller registry list
 ```
 
 We should see two registries. The first is [Docker Hub](https://hub.docker.com/) and the second is the built-in private registry, which we're going to use.
@@ -166,8 +166,7 @@ You can either redeploy the entire application using the same steps we just did.
 But you can also directly deploy a microservice! First, let's use `iofogctl` to retrieve the microservice configuration for our `Moving Average` microservice.
 
 ```console
-$ iofogctl describe microservice 'Moving Average' -o moving-average.yaml
-$ cat moving-average.yaml
+$ iofogctl describe microservice 'Moving Average' -o moving-average.yaml && cat moving-average.yaml
 
 apiVersion: iofog.org/v1
 kind: Microservice
