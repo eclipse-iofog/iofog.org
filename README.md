@@ -50,10 +50,9 @@ During `npm start` the followin issue may occur:
 ```text
 Module build failed (from ./node_modules/sass-loader/lib/loader.js):
 Error: ENOENT: no such file or directory, scandir '/home/lkrcal/edgeworx/iofog.org/node_modules/node-sass/vendor'
-``` 
+```
 
 Workaround is to run `npm rebuild node-sass`
-
 ## Staging deployment of iofog.org
 
 The staging deployment and update is done automatically in Azure pipeline. The cluster for the deployment is defined in azure-pipelines.yaml using `stagingCluster` and `stagingClusterRegion` variables. The deployment itself is specified in deploy/staging.yaml.

@@ -25,7 +25,7 @@ Mac users can use [Homebrew](https://brew.sh/):
 
 ```bash
 brew tap eclipse-iofog/iofogctl
-brew install iofogctl@1.2.5
+brew install iofogctl@1.2
 ```
 
 Linux users can use deb or rpm packages:
