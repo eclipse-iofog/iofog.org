@@ -27,6 +27,10 @@
             "entry": "./remote-deployment/prepare-your-remote-hosts.md"
           },
           {
+            "title": "Prepare Your Kubernetes Cluster",
+            "entry": "./remote-deployment/prepare-your-kubernetes-cluster.md"
+          },
+          {
             "title": "Prepare Your Network",
             "entry": "./remote-deployment/prepare-your-network.md"
           },

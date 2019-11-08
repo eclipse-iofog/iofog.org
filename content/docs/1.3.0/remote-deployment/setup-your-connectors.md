@@ -25,6 +25,13 @@ To deploy, run:
 iofogctl deploy -f /tmp/connector.yaml
 ```
 
+Naturally, we can also use `kubectl` to see what is happening on the Kubernetes cluster.
+
+```bash
+kubectl get pods
+kubectl get services
+```
+
 The next section covers how to do the same thing we just did, but on a remote host instead of a Kubernetes cluster. We can <a href=#verify-the-deployment>skip ahead</a>.
 
 ## Deploy Connectors on Remote Hosts
