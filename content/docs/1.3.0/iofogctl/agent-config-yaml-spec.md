@@ -22,11 +22,11 @@ spec:
   latitude: 46.204391
   longitude: 6.143158
   agentType: auto
-  dockerURL: unix:///var/run/docker.sock
+  dockerUrl: unix:///var/run/docker.sock
   diskLimit: 50
   diskDirectory: /var/lib/iofog-agent/
   memoryLimit: 4096
-  CPULimit: 80
+  cpuLimit: 80
   logLimit: 10
   logDirectory: /var/log/iofog-agent/
   logFileCount: 10
@@ -45,11 +45,11 @@ spec:
 | latitude                    | Latitude coordinate of the agent. The ioFog Agent will automatically try to detect its own latitude if it has access to the internet                                                                                                                                                                         |
 | longitude                   | Longitude coordinate of the agent. The ioFog Agent will automatically try to detect its own longitude if it has access to the internet                                                                                                                                                                       |
 | agentType                  | Architecture type of agent. It will be used to determine which image gets deployed. The accepted values are `auto`, `x86` and `arm`. `auto` will have the ioFog agent detect the architecture it is running on, and report it to the ioFog controller. It defaults to `auto` if it fails to parse the value. |
-| dockerURL                  | Docker engine socket                                                                                                                                                                                                                                                                                         |
+| dockerUrl                  | Docker engine socket                                                                                                                                                                                                                                                                                         |
 | diskLimit                  | Limit, in GiB, of disk space that the software is allowed to use                                                                                                                                                                                                                                             |
 | diskDirectory              | Set the directory to use for disk storage                                                                                                                                                                                                                                                                    |
 | memoryLimit                | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages                                                                                                                                                                                                                        |
-| CPULimit                   | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                                                                                                                                                                |
+| cpuLimit                   | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                                                                                                                                                                |
 | logLimit                   | Set the limit, in GiB, of disk space that the log files can consume                                                                                                                                                                                                                                          |
 | logDirectory               | Set the directory to use for log file storage                                                                                                                                                                                                                                                                |
 | logFileCount | Set the number of log files to evenly split the log storage limit                                                                                                                                                                                                                                            |

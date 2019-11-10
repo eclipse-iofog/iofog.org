@@ -22,7 +22,7 @@ spec:
     name: local-agent
     ...
   images:
-    catalogID: 7
+    catalogId: 7
   config:
     buffersize: 3
     contentdataencoding: utf8
@@ -68,7 +68,7 @@ spec:
     name: local-agent
     ...
   images:
-    catalogID: 8
+    catalogId: 8
   config:
     citycode: 5391997
     apikey: 6141811a6136148a00133488eadff0fb

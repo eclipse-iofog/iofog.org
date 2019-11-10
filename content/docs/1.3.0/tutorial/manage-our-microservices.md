@@ -73,7 +73,7 @@ spec:
       watchdogEnabled: false
       abstractedHardwareEnabled: false
   images:
-    catalogID: 0
+    catalogId: 0
     x86: iofog/sensors:latest
     arm: ""
     registry: remote

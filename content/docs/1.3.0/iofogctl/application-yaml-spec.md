@@ -120,7 +120,7 @@ spec:
     arm: edgeworx/healthcare-heart-rate:arm-v1 # Image to be used on arm type agents
     registry: remote # Either 'remote' or 'local' or the registry ID - Remote will pull the image from Dockerhub, local will use the local cache of the agent
     # Optional catalog item id (See Catalog items in the advanced section)
-    catalogID: 0 # 0 is equivalent to not providing the field
+    catalogId: 0 # 0 is equivalent to not providing the field
 
   # Microservice configuration
   config:

@@ -1,11 +1,11 @@
-### Translating your yml files to the 1.3.0 standard
+### Translating your YAML files to the 1.3.0 standard
 
-There are a couple quick changes you can do to your current yml file to make them 1.3.0 compatible if you are using the 1.2.x standard.
+There are a couple quick changes you can do to your current YAML file to make them 1.3.0 compatible if you are using the 1.2.x standard.
 
 * We now follow Kubernetes-style by using `apiVersion`, `kind`, `metadata` and `spec` top level keys.
 * All of the top level fields in 1.2.x will now be handled under `spec`. 
 * Some of the fields have become nested where they were flat before (e.g. ssh and kube details).
-* All fields must now be `camelCase`. Regarding abbreviations, follow these examples: `htmlExample`, `exampleHTML`, `htmlXMLExample`.
+* All fields must now be `camelCase`. Regarding abbreviations, follow these examples: `apiVersion` and `dockerUrl`.
 
 
 #### 1.2.x YAML
@@ -44,7 +44,7 @@ agents:
 apiVersion: iofog.org/v1
 kind: ControlPlane
 metadata:
-  name: ymlspec
+  name: any
   namespace: default
 spec:
   iofogUser:

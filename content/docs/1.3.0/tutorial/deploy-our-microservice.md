@@ -194,7 +194,7 @@ spec:
       watchdogEnabled: false
       abstractedHardwareEnabled: false
   images:
-    catalogID: 0
+    catalogId: 0
     x86: iofog-tutorial/moving-average:v1
     arm: ""
     registry: local

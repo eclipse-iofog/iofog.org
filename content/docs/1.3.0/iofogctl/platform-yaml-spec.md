@@ -64,7 +64,7 @@ spec:
   # Only required for K8s deployment
   kube:
     config: ~/.kube/config
-    staticIP: 34.23.14.6 # Optional
+    staticIp: 34.23.14.6 # Optional
     replicas: 1 # Optional, defaults to 1
     serviceType: LoadBalancer # Optional, defaults to "LoadBalancer"
 ```
@@ -77,7 +77,7 @@ spec:
 | ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                |
 | ssh.port | Port to use with SSH |
 | kube.config        | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster.                                                            |
-| kube.staticIP | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
+| kube.staticIp | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
 | kube.replicas           | Number of Controller Pods to deploy on Kubernetes cluster.                                                                                                               |
 | kube.serviceType       | Kubernetes service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                                                                                |
 

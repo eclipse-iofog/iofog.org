@@ -45,7 +45,7 @@ spec:
   agent:
     name: agent-name
   images:
-    catalogID: 5
+    catalogId: 5
   config: {}
   rootHostAccess: false
   ports: []
@@ -73,7 +73,7 @@ spec:
   agent:
     name: agent-name
     config:
-      dockerURL: unix:///var/run/docker.sock
+      dockerUrl: unix:///var/run/docker.sock
       diskLimit: 50
       diskDirectory: /var/lib/iofog-agent/
       memoryLimit: 4096
@@ -88,7 +88,7 @@ spec:
       watchdogEnabled: false
       abstractedHardwarEenabled: false
   images:
-    catalogID: 5
+    catalogId: 5
     x86: iofog/hello-web
     arm: iofog/hello-web-arm
     registry: remote
@@ -114,4 +114,4 @@ $ iofogctl get catalog | grep 'Postgresql'
 15		Postgresql	Postgresql database		remote		postgres:latest			postgres:latest
 ```
 
-We used grep to filter the ouput, but the columns are the same as above. You can now use the `images:catalogID` field set to 15 in order to deploy postgres databases on your agents.
+We used grep to filter the ouput, but the columns are the same as above. You can now use the `images:catalogId` field set to 15 in order to deploy postgres databases on your agents.
