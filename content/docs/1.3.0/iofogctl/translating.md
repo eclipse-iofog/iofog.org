@@ -2,33 +2,44 @@
 
 There are a couple quick changes you can do to your current yml file to make them 1.3.0 compatible if you are using the 1.2.x standard.
 
-We now follow a more k8s style formatting by using apiVersions, kinds, metadata and spec top level keys.
+* We now follow Kubernetes-style by using `apiVersion`, `kind`, `metadata` and `spec` top level keys.
+* All of the top level fields in 1.2.x will now be handled under `spec`. 
+* Some of the fields have become nested where they were flat before (e.g. ssh and kube details).
+* All fields must now be `camelCase`. Regarding abbreviations, follow these examples: `htmlExample`, `exampleHTML`, `htmlXMLExample`.
 
-All of our current top level fields in 1.2.x will now be handled under spec. Also, some of the fields have become nested where they were flat before.
 
-1.2.x YAML:
+#### 1.2.x YAML
 
-```yaml
-
----
+```YAML
+# Vanilla and Kubernetes Controllers shown for example
 controllers:
-  - name: LocalController
-    host: localhost
-    iofoguser:
-      name: Quick
-      surname: Start
-      email: user@domain.com
-      password: q1u45ic9kst563art
+- name: Controller-1
+  user: serge
+  host: 30.40.50.5
+  keyfile: ~/.ssh/id_rsa
+  iofoguser:
+    name: Quick
+    surname: Start
+    email: user@domain.com
+    password: q1u45ic9kst563art
+- name: Controller-2
+  kubeconfig: ~/.kube/config
+  iofoguser:
+    name: Quick
+    surname: Start
+    email: user@domain.com
+    password: q1u45ic9kst563art
 
 agents:
-  - name: LocalAgent
-    host: localhost
+- name: Agent-1
+  user: serge
+  host: 30.40.50.7
+  keyfile: ~/.ssh/id_rsa
 ```
 
-Current Spec:
+#### 1.3.x YAML
 
 ```yaml
-
 ---
 apiVersion: iofog.org/v1
 kind: ControlPlane
@@ -40,11 +51,11 @@ spec:
     name: iofog
     surname: user
     email: host@domain.com
-    password: mysecretpw
+    password: 89ghuiwfg80
   # 3 types of controllers shown for example only
   controllers:
     - name: vanilla
-      host: xxx.xxx.x.xxx #(ip address)
+      host: 30.40.50.60
       ssh:
         user: default
         keyFile: ~/.ssh/id_rsa
@@ -60,7 +71,7 @@ metadata:
   name: vanilla
   namespace: default
 spec:
-  host: xxx.xxx.x.xxx #(ip address)
+  host: 30.40.50.61
   ssh:
     user: connector
     keyfile: ~/.ssh/id_rsa
@@ -80,7 +91,7 @@ metadata:
   name: agent-name
   namespace: default
 spec:
-  host: xxx.xxx.x.xxx #(ip address)
+  host: 30.40.50.62
   ssh:
     user: agent
     keyFile: ~/.ssh/id_rsa
@@ -99,14 +110,11 @@ adding the following to the top of your deployment file for each application tha
 apiVersion: iofog.org/v1
 kind: Application
 metadata:
-  name: "YourOldName"
+  name: "old-resource-name"
 spec:
 ```
 
 and simply move the microservices and routes sections from 1.2.x under spec. Take care to use the new `ssh` and `kube` fields also.
-
-We have also adopted `camelCase` as standard, so many of your fields under spec, will need to be changed
-to follow the spec. This will impact both application and platform specifications, to follow k8s standard.
 
 Thank you, and if you have any questions, please come ask
 on [Slack](https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LTRhMTE2YjgwNmRhOTg5ZmI3MGQ5OGM0N2E1MDg0OTJmMWYxZTgxZjE2MjA3NzY2MTFlZmEyYzc3OGQ5NmM4ZjI)
