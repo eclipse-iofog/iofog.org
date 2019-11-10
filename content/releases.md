@@ -1,17 +1,19 @@
-## 1.3.0 Beta
+## 1.3.0 Release Candidate
 
-[Get Started with release 1.3.0 Beta](/docs/1.3.0/getting-started/core-concepts.html)
+[Get Started with release 1.3.0 Release Candidate](/docs/1.3.0/getting-started/core-concepts.html)
 
 1.3.0 brings new quality of life improvements as well as a set of backend changes that extend and unify ioFog's capabilities.
 
 ### What's New?
 
-- **ioFog Kubernetes support has been improved** by expanding the ioFog Kubernetes Operator's capabilities. Now orchestration of ioFog Kubernetes is handled by the Operator. Previously, Helm and iofogctl were handling this orchestration themselves, in disparate ways.
-- **ioFog Controller** has been updated to allow for **external databases** to be used instead of the embedded SQLite default database. Helm and iofogctl have been updated to allow users to integrate their external databases during the deployment process.
-- The unified CLI, iofogctl, has been improved to allow users more **granular control over resources like Connectors and Microservices**.
-- iofogctl's YAML specification has been updated to accommodate its new features.
-- Users can now **view realtime deployment status of Microservices through iofogctl** due to improvements to both ioFog Controller and Agent.
-- The **iofog-go-sdk** has been updated to provide an **HTTP client for ioFog Controller's REST API**.
+- Improved **stability** of all major components
+- Improved **quality of life** of **iofogctl** and **Helm** with respect to **platform deployment**
+- Improved support for **microservice** deployment using **iofogctl**
+- Unification of **ioFog Kubernetes** procedures by expanding capabilities of the **Operator** for use with both **iofogctl** and **Helm**
+- Changes to **iofogctl's YAML specification** in order to, amongst other things, conform with the Kubernetes-style *Object Metadata* and *Specification* structures. See [here](docs/1.3.0/iofogctl/translating.html) for instructions on how to convert from 1.2.x to 1.3.x YAML.
+- Support for **Highly Available** ioFog platform deployments has been added in anticipation of **ioFog Enterprise Edition**
+- Ability to **view realtime deployment status of Microservices through iofogctl** due to improvements to both ioFog Controller and Agent.
+- Updates to the **iofog-go-sdk** to provide an **HTTP client for ioFog Controller's REST API**.
 
 ### Changelogs
 
