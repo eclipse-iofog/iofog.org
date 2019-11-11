@@ -112,7 +112,7 @@ The following is a complete list of all user configurable properties for the ioF
 | controlPlane.controller.image           | iofog/controller:1.3.0-rc1     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)                     |
 | controlPlane.controller.imagePullPolicy | Always                          | Controller Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) |
 | controlPlane.kubeletImage               | iofog/iofog-kubelet:1.3.0-rc1  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)                     |
-| controlPlane.loadBalancerIP             |                                 | Pre-allocated static IP address for Controller                                                |
+| controlPlane.loadBalancerIp             |                                 | Pre-allocated static IP address for Controller                                                |
 | controlPlane.serviceType                | LoadBalancer                    | Service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                |
 | connectors.image                        | iofog/connector:1.3.0-rc1      | [Connector Docker image](https://hub.docker.com/r/iofog/connector/tags)                       |
 | connectors.serviceType                  | LoadBalancer                    | Service type for Connector (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                 |
