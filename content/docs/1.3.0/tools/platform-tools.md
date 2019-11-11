@@ -22,7 +22,7 @@ In order to setup the infrastructure and then install ECN and Agents, we will ne
 
 To then install a complete EdgeCompute Network (ECN), we will also need `iofogctl`:
 
-- [iofogctl](https://github.com/eclipse-iofog/iofogctl/tree/v1.3.0-rc1) ([installation instructions](../getting-started/quick-start.html))
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/tree/v1.3.0-rc2) ([installation instructions](../getting-started/quick-start.html))
 
 We don't have to install these tools manually now. Later in the process, we will use a script to download those dependencies and initialise terraform variable file.
 

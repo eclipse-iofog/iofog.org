@@ -60,7 +60,7 @@ Use "iofogctl [command] --help" for more information about a command.
 
 ```
 
-You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-rc1/docs/md/iofogctl.md).
+You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-rc2/docs/md/iofogctl.md).
 
 You can use the `--help` flag on every command to learn more. Go ahead and try some of the following:
 
