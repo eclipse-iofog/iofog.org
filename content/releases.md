@@ -11,7 +11,7 @@
 - Improved support for **microservice** deployment using **iofogctl**
 - Unification of **ioFog Kubernetes** procedures by expanding capabilities of the **Operator** for use with both **iofogctl** and **Helm**
 - Changes to **iofogctl's YAML specification** in order to, amongst other things, conform with the Kubernetes-style *Object Metadata* and *Specification* structures. See [here](docs/1.3.0/iofogctl/translating.html) for instructions on how to convert from 1.2.x to 1.3.x YAML.
-- Support for **Highly Available** ioFog platform deployments has been added in anticipation of **ioFog Enterprise Edition**
+- Added **plugin system to Controller** for **database clients** in order to support **highly available** Control Plane deployments
 - Ability to **view realtime deployment status of Microservices through iofogctl** due to improvements to both ioFog Controller and Agent.
 - Updates to the **iofog-go-sdk** to provide an **HTTP client for ioFog Controller's REST API**.
 
