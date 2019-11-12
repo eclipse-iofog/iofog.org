@@ -1,6 +1,6 @@
 [
   {
-    "version": "1.3.0-beta",
+    "version": "1.3.0 Release Candidate",
     "menus": [
       {
         "title": "Getting Started",
@@ -16,7 +16,7 @@
         ]
       },
       {
-        "title": "Remote Deployment",
+        "title": "Platform Deployment",
         "subMenus": [
           {
             "title": "Introduction",
@@ -25,6 +25,10 @@
           {
             "title": "Prepare Your Remote Hosts",
             "entry": "./remote-deployment/prepare-your-remote-hosts.md"
+          },
+          {
+            "title": "Prepare Your Kubernetes Cluster",
+            "entry": "./remote-deployment/prepare-your-kubernetes-cluster.md"
           },
           {
             "title": "Prepare Your Network",
@@ -45,7 +49,7 @@
         ]
       },
       {
-        "title": "Tutorial: Developing and deploying microservices",
+        "title": "Microservice Development and Deployment",
         "subMenus": [
           {
             "title": "Introduction",
@@ -70,20 +74,33 @@
         ]
       },
       {
-        "title": "Tools",
+        "title": "iofogctl",
         "subMenus": [
           {
             "title": "Introduction to iofogctl",
-            "entry": "./tools/iofogctl/usage.md"
+            "entry": "./iofogctl/usage.md"
           },
           {
-            "title": "Iofogctl ioFog stack YAML Specification",
-            "entry": "./tools/iofogctl/stack-yaml-spec.md"
+            "title": "Common Header YAML Specification",
+            "entry": "./iofogctl/header.md"
           },
           {
-            "title": "Iofogctl ioFog application YAML Specification",
-            "entry": "./tools/iofogctl/application-yaml-spec.md"
+            "title": "Platform YAML Specification",
+            "entry": "./iofogctl/platform-yaml-spec.md"
           },
+          {
+            "title": "Agent configuration YAML Specification",
+            "entry": "./iofogctl/agent-config-yaml-spec.md"
+          },
+          {
+            "title": "Application YAML Specification",
+            "entry": "./iofogctl/application-yaml-spec.md"
+          }
+        ]
+      },
+      {
+        "title": "Tools",
+        "subMenus": [
           {
             "title": "Platform Tools",
             "entry": "./tools/platform-tools.md"

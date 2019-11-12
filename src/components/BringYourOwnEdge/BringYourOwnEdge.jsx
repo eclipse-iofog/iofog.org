@@ -21,18 +21,15 @@ class BringYourOwnEdge extends Component {
               <div className="holder">
                 <div className="code__content">
                   <p className="code__comment code__noselect">
-                    # Linux development environment
-                  </p>
-                  <p className="code__comment code__noselect">
-                    # See the Quick Start guide for macOS or Windows
+                    # Deploy an entire Edge Compute Network with ease
                   </p>
                   <p>
                     <span className="code__noselect">$ </span>
-                    curl -sSf https://iofog.org/quick-start/linux.sh | sh
+                    iofogctl deploy -f platform.yaml
                   </p>
                   <p>
                     <span className="code__noselect">$ </span>
-                    ./start.sh
+                    iofogctl deploy -f microservices.yaml
                   </p>
                 </div>
                 <Link to="/docs/getting-started/quick-start.html">

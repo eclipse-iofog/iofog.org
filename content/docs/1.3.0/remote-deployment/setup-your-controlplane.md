@@ -8,7 +8,7 @@ There are two flavours of Controller deployments - Vanilla and Kubernetes. If yo
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">We use YAML to define ioFog resources</h3>
-  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../tools/iofogctl/stack-yaml-spec.html>here</a>.</p>
+  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../iofogctl/platform-yaml-spec.html>here</a>.</p>
 </aside>
 
 ## Deploy Controllers on Kubernetes
@@ -17,22 +17,35 @@ Create a template of controlplane.yaml like so:
 
 ```bash
 echo "---
-iofoguser:
-  name: Foo
-  surname: Bar
-  email: user@domain.com
-  password: iht234g9afhe
-controllers:
-- name: alpaca-1
-  kubeconfig: ~/.kube/config" > /tmp/controlplane.yaml
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: albatros-1
+spec:
+  iofogUser:
+    name: Foo
+    surname: Bar
+    email: user@domain.com
+    password: iht234g9afhe
+  controllers:
+  - name: alpaca-1
+    kube:
+      config: ~/.kube/config" > /tmp/controlplane.yaml
 ```
 
-Make sure to specify the correct value for the `kubeconfig` field.
+Make sure to specify the correct value for the `kube.config` field.
 
-Once you have edited the fields to your liking, go ahead an run:
+Once you have edited the fields to your liking, go ahead and run:
 
 ```bash
-iofogctl deploy controlplane -f /tmp/controlplane.yaml
+iofogctl deploy -f /tmp/controlplane.yaml
+```
+
+Naturally, we can also use `kubectl` to see what is happening on the Kubernetes cluster.
+
+```bash
+kubectl get pods
+kubectl get services
 ```
 
 The next section covers how to do the same thing we just did, but on a remote host instead of a Kubernetes cluster. We can <a href=#verify-the-deployment>skip ahead</a>.
@@ -43,24 +56,30 @@ Create a template of controlplane.yaml like so:
 
 ```bash
 echo "---
-iofoguser:
-  name: Foo
-  surname: Bar
-  email: user@domain.com
-  password: iht234g9afhe
-controllers:
-- name: alpaca-1
-  user: bar
-  host: 38.101.23.2
-  keyfile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: albatros
+spec:
+  iofogUser:
+    name: Foo
+    surname: Bar
+    email: user@domain.com
+    password: iht234g9afhe
+  controllers:
+  - name: alpaca-1
+    host: 38.101.23.2
+    ssh:
+      user: bar
+      keyFile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
 ```
 
-Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+Make sure to edit the `host`, `ssh.user`, and `ssh.keyFile` fields to correspond with the remote host you are deploying to.
 
-Once you have edited the fields to your liking, go ahead an run:
+Once you have edited the fields to your liking, go ahead and run:
 
 ```bash
-iofogctl deploy controlplane -f /tmp/controlplane.yaml
+iofogctl deploy -f /tmp/controlplane.yaml
 ```
 
 ## Verify the Deployment

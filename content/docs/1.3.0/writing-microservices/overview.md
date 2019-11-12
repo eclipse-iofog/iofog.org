@@ -31,26 +31,30 @@ But because most Edge Compute Networks contain multiple, sometimes even hundreds
 
 Using [the SDK](sdk.html) microservices can receive any arbitrary custom configuration JSON remotely, from the Controller. This allows you to change configuration of your microservices at runtime through the Controller, but also prevents you from needing to bake secrets and other keys into your microservice.
 
-Updating a microservice's configuration can then be done from using `iofogctl`:
+Updating a microservice's configuration can then be done using `iofogctl`:
 
 ```yaml
 # Get the microservice's YAML description file if you don't have it yet:
 # $ iofogctl describe microservice MICROSERVICE_NAME -o my-microservice.yaml
 
 # Edit the YAML file
-name: my-microservice
-agent: ...
-application: my-application
-config:
-  myCustomValue: true
-  someSecretKey: private-value
-ports: []
+apiVersion: iofog.org/v1
+kind: Microservice
+metadata:
+  name: my-microservice
+spec:
+  agent: ...
+  application: my-application
+  config:
+    myCustomValue: true
+    someSecretKey: private-value
+  ports: []
 ```
 
 Then you can redeploy your microservice to update its yaml configuration file:
 
 ```console
-$ iofogctl deploy microservice -f my-microservice.yaml
+$ iofogctl deploy -f my-microservice.yaml
 ```
 
 ## Packaging and Publishing

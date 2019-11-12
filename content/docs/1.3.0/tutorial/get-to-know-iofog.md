@@ -25,7 +25,7 @@ CONNECTOR	    STATUS		AGE		    UPTIME	    IP
 local-connector	online		1h4m		1h4m		0.0.0.0
 
 AGENT		STATUS		AGE		    UPTIME		IP		        VERSION
-local-agent	RUNNING		1h4m		1h3m		91.178.63.198	1.3.0-beta
+local-agent	RUNNING		1h4m		1h3m		91.178.63.198	1.3.0-rc1
 
 APPLICATION	STATUS		MICROSERVICES
 tutorial	RUNNING		Sensors, Rest API, Freeboard
@@ -52,7 +52,15 @@ cf378c878cdf        iofog/connector:latest                          "sh /start.s
 
 We can also see that in the PORTS column some of these containers have published [port mappings](https://docs.docker.com/config/containers/container-networking/):
 
-For example, there's a microservice running an instance of [Freeboard](https://github.com/Freeboard/freeboard), an open source visualization dashboard for IoT devices. It's running a web server that serves the dashboard. Go ahead and try it out at http://localhost:10102/?load=dashboard.json
+For example, there's a microservice running an instance of [Freeboard](https://github.com/Freeboard/freeboard), an open source visualization dashboard for IoT devices. It's running a web server that serves the dashboard. 
+
+Wait for the microservices to be in a `RUNNING` state. It may take a few minutes as the images need to be pulled.
+
+```bash
+watch iofogctl get microservices
+```
+
+Go ahead and try the web app out at http://localhost:10102/?load=dashboard.json
 
 The Freeboard microservice doesn't know it's running locally, so it could just as well be running on real edge node hardware!
 
@@ -60,19 +68,19 @@ The Freeboard microservice doesn't know it's running locally, so it could just a
 
 Our tutorial environment has three ioFog containers:
 
-- iofog-agent (see [Agents](../agents/overview.html))
-- iofog-controller (see [Controller](../controllers/overview.html))
-- iofog-connector (see [Connector](../connectors/overview.html)
+- [Agents](../agents/overview.html)
+- [Controllers](../controllers/overview.html)
+- [Connectors](../connectors/overview.html)
 
-We can think of each of these containers as if they were deployed on separate devices. In production, our Controller is most often running on a cloud server and our Agents are each running on individual edge hardware nodes in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away, and the Connector can broker communication between any microservices we run.
+We can think of each of these containers as if they were deployed on separate devices. In production, our Controller is most often running on a cloud server and our Agents are each running on individual edge devices in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away, and the Connector can broker communication between any microservices we run.
 
-To interact with our containers we can use the [`docker exec -ti`](https://docs.docker.com/engine/reference/commandline/exec/) command.
-
-### Iofogctl vs component CLIs
+### iofogctl vs component CLIs
 
 We are currently in the process of migrating all our management system into one tool to rule them all: `iofogctl` !
 
-However, this process is still ongoing and eventhough you can do everything you need for this tutorial (and much more...) in iofogctl, you must know that every ioFog component (Agent, Controller, and Connector) has its local CLI (iofog-agent, iofog-controller, and iofog-connector) that can prove itself usefull.
+However, this process is still ongoing and even though you can do everything you need for this tutorial (and much more...) in iofogctl, you must know that every ioFog component (Agent, Controller, and Connector) has its local CLI (iofog-agent, iofog-controller, and iofog-connector) that can prove itself useful.
+
+In the following sections we will us `iofogctl legacy ...` commands to use the older component CLIs. Note that, because we have a local ECN, we could also use `docker exec` instead.
 
 #### Agent's Container
 
@@ -80,79 +88,48 @@ Let's start by using `iofogctl` to retrieve a detailed description of our Agent.
 
 ```console
 $ iofogctl describe agent local-agent
-
-uuid: xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR
-name: local-agent
-location: ""
-latitude: 50.8333
-longitude: 4.3333
-description: ""
-dockerurl: unix:///var/run/docker.sock
-disklimit: 50
-diskdirectory: /var/lib/iofog-agent/
-memorylimit: 1024
-cpulimit: 80
-loglimit: 10
-logdirectory: /var/log/iofog-agent/
-logfilecount: 10
-statusfrequency: 30
-changefrequency: 60
-devicescanfrequency: 60
-bluetoothenabled: false
-watchdogenabled: false
-abstractedhardwareenabled: false
-createdtimerfc3339: "2019-09-13T09:14:13.846Z"
-updatedtimerfc3339: "2019-09-13T10:37:57.424Z"
-lastactive: 1568371077407
-daemonstatus: RUNNING
-uptimems: 5018195
-memoryusage: 177.55567932128906
-diskusage: 0.027621466666460037
-cpuusage: 1.170568585395813
-memoryviolation: "0"
-diskviolation: "0"
-cpuviolation: "0"
-microservicestatus: ""
-repositorycount: 2
-repositorystatus: '[]'
-laststatustimemsutc: 1568371070651
-ipaddress: 172.17.0.4
-ipaddressexternal: 91.178.63.198
-processedmessaged: 124036
-microservicemessagecount: 0
-messagespeed: 86
-lastcommandtimemsutc: 0
-networkinterface: eth0
-version: 1.3.0-beta
-isreadytoupgrade: false
-isreadytorollback: false
-tunnel: ""
+apiVersion: iofog.org/v1
+kind: AgentConfig
+metadata:
+  name: local-agent
+  namespace: default
+spec:
+  uuid: 62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq
+  name: local-agent
+  location: ""
+  latitude: -36.8486
+  longitude: 174.754
+  description: ""
+  dockerUrl: unix:///var/run/docker.sock
+  diskLimit: 50
+  diskDirectory: /var/lib/iofog-agent/
+...
 ```
 
-Let's see how we can use the `iofog-agent` CLI to find out its status. Note that the first `iofog-agent` in the following command stands for the container name, and the second `iofog-agent` is the executable wrapped in the container.
+Let's see how we can use the legacy `iofog-agent` CLI to find out its status.
 
 ```console
-$ docker exec -ti iofog-agent iofog-agent status
+$ iofogctl legacy agent local-agent status
 
 ioFog daemon                : RUNNING
-Memory Usage                : about 304.26 MiB
-Disk Usage                  : about 33.06 MiB
-CPU Usage                   : about 0.84 %
+Memory Usage                : about 248.96 MiB
+Disk Usage                  : about 17.91 MiB
+CPU Usage                   : about 3.38 %
 Running Microservices       : 3
 Connection to Controller    : ok
-Messages Processed          : about 144,638
-System Time                 : 13/09/2019 10:41 AM
-System Available Disk       : 43992.22 MB
-System Available Memory     : 862.21 MB
-System Total CPU            : 1.30 %
+Messages Processed          : about 78,496
+System Time                 : 23/10/2019 03:31 AM
+System Available Disk       : 43598.10 MB
+System Available Memory     : 763.71 MB
+System Total CPU            : 0.28 %
 ```
 
-There's also `iofog-agent info`, used to view this Agent's settings:
+There's also the legacy `info` command, used to view this Agent's settings:
 
 ```console
-$ docker exec -ti iofog-agent iofog-agent info
+$ iofogctl legacy agent local-agent info
 
-Iofog UUID                               : xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR
+Iofog UUID                               : 62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq
 IP Address                               : 172.17.0.4
 Network Interface                        : eth0(dynamic)
 Developer's Mode                         : on
@@ -166,15 +143,16 @@ CPU Usage Limit                          : 80.00%
 Log Disk Limit                           : 10.00 GiB
 Log File Directory                       : /var/log/iofog-agent/
 Log Rolling File Count                   : 10
-null : INFO
+Log Level                                : INFO
 Status Update Frequency                  : 30
 Get Changes Frequency                    : 60
 Scan Devices Frequency                   : 60
 Post Diagnostics Frequency               : 10
 Isolated Docker Containers Mode          : off
 GPS mode                                 : auto
-GPS coordinates(lat,lon)                 : 50.8333,4.3333
+GPS coordinates(lat,lon)                 : -36.8486,174.754
 Fog type                                 : intel_amd
+
 ```
 
 <aside class="notifications note">
@@ -193,7 +171,7 @@ NAMESPACE
 default
 
 AGENT		STATUS		AGE		    UPTIME		IP		        VERSION
-local-agent	RUNNING		1h26m		1h25m		91.178.63.198	1.3.0-beta
+local-agent	RUNNING		1h26m		1h25m		91.178.63.198	1.3.0-rc1
 
 
 ```
@@ -201,7 +179,7 @@ local-agent	RUNNING		1h26m		1h25m		91.178.63.198	1.3.0-beta
 Now, let's try listing all the preconfigured ioFog nodes using the Controller CLI.
 
 ```console
-$ docker exec -ti iofog-controller iofog-controller iofog list
+$ iofogctl legacy controller local-controller iofog list
 {
   "fogs": [
     {
@@ -217,9 +195,8 @@ $ docker exec -ti iofog-controller iofog-controller iofog list
       "messageSpeed": 86,
       "lastCommandTime": 0,
       "logFileCount": 10,
-      "uuid": "xPqLmbQxXpZj6VbTZMcTDbbBgCNLyhkR",
+      "uuid": "62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq",
       "name": "local-agent",
-
 ...
 ```
 

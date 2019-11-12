@@ -1,6 +1,6 @@
 # Platform Tools
 
-In this guide we will go through the ioFog platform supporting tools. By the end of this guide we will have a set infrastructure necessary for deployment of Edge Compute Networks (ECNs) including machines for ioFog Agents. This guide is tied to [ioFog platform repository](https://github.com/eclipse-iofog/platform).
+In this guide we will go through the ioFog platform supporting tools. By the end of this guide we will have a set infrastructure necessary for deployment of Edge Compute Networks (ECNs) including machines for ioFog Agents. This guide is tied to [ioFog platform repository](https://github.com/eclipse-iofog/platform/tree/v1.3.0-rc1).
 
 We use [Terraform](https://www.terraform.io/) to deploy all infrastructure and iofogctl to configure remote edge nodes to install agent software on. The infrastructure uses
 
@@ -10,7 +10,7 @@ The platform project spins up an infrastructure stack which consists of:
 - Google Kubernetes Engine on GPC
 - Edge nodes (x86 and arm64) on Packet (optional)
 
-After the infrastructure setup, we can deploy Edge Compute Network (ECN) on the GKE cluster using [iofogctl](./iofogctl/usage.html).
+After the infrastructure setup, we can deploy Edge Compute Network (ECN) on the GKE cluster using [iofogctl](../iofogctl/usage.html).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ In order to setup the infrastructure and then install ECN and Agents, we will ne
 
 To then install a complete EdgeCompute Network (ECN), we will also need `iofogctl`:
 
-- [iofogctl](https://github.com/eclipse-iofog/iofogctl) ([installation instructions](../getting-started/quick-start.html))
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/tree/v1.3.0-rc2) ([installation instructions](../getting-started/quick-start.html))
 
 We don't have to install these tools manually now. Later in the process, we will use a script to download those dependencies and initialise terraform variable file.
 
@@ -127,29 +127,55 @@ Try running `kubectl get no` to list all nodes available to the cluster. These w
 
 Now that the infrastructure is up, we can deploy our first ECN on the infrastructure. We are going to use `iofogctl` for this purpose.
 
-We start by editing the generated `ecn.yaml` file according to [iofogctl specification](../tools/iofogctl/stack-yaml-spec.md). Most important are `kubeconfig` and `keyfile` parameters. The `kubeconfig` variable is the same as in [Interact With Newly Deployed Infrastructure](#interact-with-newly-deployed-infrastructure). `keyfile` refers to a private SSH key to access the given agent. For Packet agents, these must be uploaded to Packet according to [Packet Setup (Optional)](#packet-setup-optional). This is also where we can add additional agents (outside of the new infrastructure).
+We start by editing the generated `ecn.yaml` file according to [iofogctl specification](../iofogctl/platform-yaml-spec.md). Most important are `kubeconfig` and `keyfile` parameters. The `kubeconfig` variable is the same as in [Interact With Newly Deployed Infrastructure](#interact-with-newly-deployed-infrastructure). `keyfile` refers to a private SSH key to access the given agent. For Packet agents, these must be uploaded to Packet according to [Packet Setup (Optional)](#packet-setup-optional). This is also where we can add additional agents (outside of the new infrastructure).
 
 ```yaml
-controlplane:
-  iofoguser:
+---
+apiVersion: iofog.org/v1
+kind: ControlPlane
+metadata:
+  name: albatros
+spec:
+  iofogUser:
     name: John
     surname: Doe
     email: john.doe@edgeworx.io
     password: '#Bugs4Fun'
   controllers:
     - name: ctrl
-      kubeconfig: kubeconfig
-      replicas: 1
-      servicetype: LoadBalancer
-connectors:
-  - name: connector
-    kubeconfig: kubeconfig
+      kube:
+        config: infrastructure/gcp/release-1-3-0.kubeconfig
+        replicas: 1
+        serviceType: LoadBalancer
+---
+apiVersion: iofog.org/v1
+kind: Connector
+metadata:
+  name: connector
+spec:
+  kube:
+    config: infrastructure/gcp/release-1-3-0.kubeconfig
     replicas: 1
-agents:
-  - name: agent1
+---
+apiVersion: iofog.org/v1
+kind: Agent
+metadata:
+  name: agent-0
+spec:
+  host: 147.75.197.35
+  ssh:
     user: root
-    host: 139.178.90.1
-    keyfile: ~/.ssh/id_ecdsa
+    keyFile: ~/.ssh/id_ecdsa
+---
+apiVersion: iofog.org/v1
+kind: Agent
+metadata:
+  name: agent-1
+spec:
+  host: 139.178.69.162
+  ssh:
+    user: root
+    keyFile: ~/.ssh/id_ecdsa
 ```
 
 Once we are happy with the file, we can deploy the ECN:

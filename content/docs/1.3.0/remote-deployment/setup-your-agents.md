@@ -8,23 +8,28 @@ Create a template of agent.yaml like so:
 
 ```bash
 echo "---
-name: zebra-1
-user: foo
-host: 38.101.23.10
-keyfile: ~/.ssh/id_rsa" > /tmp/agent.yaml
+apiVersion: iofog.org/v1
+kind: Agent
+metadata:
+  name: zebra-1
+spec:
+  host: 38.101.23.10
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa" > /tmp/agent.yaml
 ```
 
-Make sure to edit the `user`, `host`, and `keyfile` fields to correspond with the remote host you are deploying to.
+Make sure to edit the `host`, `ssh.user`, and `ssh.keyFile` fields to correspond with the remote host you are deploying to.
 
-Once you have edited the fields to your liking, go ahead an run:
+Once you have edited the fields to your liking, go ahead and run:
 
 ```bash
-iofogctl deploy agent -f /tmp/agent.yaml
+iofogctl deploy -f /tmp/agent.yaml
 ```
 
 ## Verify the Deployment
 
-We can use the following commands to verify the Agent is up an running:
+We can use the following commands to verify the Agent is up and running:
 
 ```bash
 iofogctl get agents

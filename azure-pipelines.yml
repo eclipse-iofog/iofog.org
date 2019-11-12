@@ -11,6 +11,8 @@ trigger:
 
 variables:
   group: 'pipelines'
+  stagingCluster: 'iofogctl-ci'
+  stagingClusterRegion: 'us-west2-a'
   repository: 'focal-freedom-236620/iofogorg'
   buildTag: $(Build.BuildId)
   branchTag: $(Build.SourceBranchName)
@@ -69,7 +71,7 @@ jobs:
           sudo apt-get update && sudo apt-get install google-cloud-sdk
           gcloud --quiet auth activate-service-account --key-file=$(Agent.TempDirectory)/azure-gcp.json
           gcloud --quiet config set project focal-freedom-236620
-          gcloud --quiet container clusters get-credentials dogfood --region us-west1
+          gcloud --quiet container clusters get-credentials $(stagingCluster) --region $(stagingClusterRegion)
           gcloud --quiet auth configure-docker
         displayName: 'set up gcloud'
         condition: ne(variables['Build.Reason'], 'PullRequest')
@@ -81,6 +83,6 @@ jobs:
         condition: ne(variables['Build.Reason'], 'PullRequest')
 
       - bash: |
-          ./kubectl set image deployment/iofog-org iofogorg=gcr.io/$(repository):$(buildTag)
+          sed "s/{{BUILD_NUMBER}}/$(buildTag)/g" "deploy/staging.yaml" | ./kubectl apply -f -
         displayName: 'update deployment'
         condition: ne(variables['Build.Reason'], 'PullRequest')
