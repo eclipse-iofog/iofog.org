@@ -250,6 +250,24 @@ or, if we also want to delete the namespace, we can run:
 iofogctl delete namespace zoo-1 --force
 ```
 
+## Check the log output of components
+
+Note: You will need ssh access to the specified resource to use this feature
+
+To check the log output of any resource, use `logs` e.g.
+
+```bash
+Usage:
+  iofogctl logs RESOURCE NAME [flags]
+
+Examples:
+iofogctl logs controller NAME
+iofogctl logs agent NAME
+iofogctl logs microservice NAME
+```
+
+This will return either the log file from the machine, or the docker logs output of the running microservice.
+
 ## Using Legacy Commands
 
 To use legacy commands from iofogctl, preface any legacy command you want with:
