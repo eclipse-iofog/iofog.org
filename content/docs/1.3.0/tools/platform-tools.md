@@ -1,6 +1,6 @@
 # Platform Tools
 
-In this guide we will go through the ioFog platform supporting tools. By the end of this guide we will have a set infrastructure necessary for deployment of Edge Compute Networks (ECNs) including machines for ioFog Agents. This guide is tied to [ioFog platform repository](https://github.com/eclipse-iofog/platform/tree/v1.3.0-rc1).
+In this guide we will go through the ioFog platform supporting tools. By the end of this guide we will have a set infrastructure necessary for deployment of Edge Compute Networks (ECNs) including machines for ioFog Agents. This guide is tied to [ioFog platform repository](https://github.com/eclipse-iofog/platform/tree/v1.3.0).
 
 We use [Terraform](https://www.terraform.io/) to deploy all infrastructure and iofogctl to configure remote edge nodes to install agent software on. The infrastructure uses
 
@@ -22,7 +22,7 @@ In order to setup the infrastructure and then install ECN and Agents, we will ne
 
 To then install a complete EdgeCompute Network (ECN), we will also need `iofogctl`:
 
-- [iofogctl](https://github.com/eclipse-iofog/iofogctl/tree/v1.3.0-rc2) ([installation instructions](../getting-started/quick-start.html))
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/tree/v1.3.0) ([installation instructions](../getting-started/quick-start.html))
 
 We don't have to install these tools manually now. Later in the process, we will use a script to download those dependencies and initialise terraform variable file.
 

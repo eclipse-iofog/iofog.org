@@ -1,6 +1,6 @@
-## 1.3.0 Release Candidate
+## 1.3.0
 
-[Get Started with release 1.3.0 Release Candidate](/docs/1.3.0/getting-started/core-concepts.html)
+[Get Started with release 1.3.0](/docs/1.3.0/getting-started/core-concepts.html)
 
 1.3.0 brings new quality of life improvements as well as a set of backend changes that extend and unify ioFog's capabilities.
 
@@ -17,14 +17,14 @@
 
 ### Changelogs
 
-- [Controller](https://github.com/eclipse-iofog/Controller/blob/v1.3.0-rc3/CHANGELOG-1.3.md)
-- [Agent](https://github.com/eclipse-iofog/Agent/blob/v1.3.0-rc1/CHANGELOG-1.3.md)
-- [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/v1.3.0-rc2/CHANGELOG-1.3.md)
-- [Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/blob/v1.3.0-rc2/CHANGELOG-1.3.md)
-- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-rc2/CHANGELOG-1.3.md)
-- [Helm](https://github.com/eclipse-iofog/helm/blob/v1.3.0-rc1/CHANGELOG.md)
-- [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/v1.3.0-rc2/CHANGELOG-1.3.md)
-- [Demo Project](https://github.com/eclipse-iofog/demo/blob/v1.3.0-rc1/CHANGELOG-1.3.md)
+- [Controller](https://github.com/eclipse-iofog/Controller/blob/v1.3.1/CHANGELOG-1.3.md)
+- [Agent](https://github.com/eclipse-iofog/Agent/blob/v1.3.0/CHANGELOG-1.3.md)
+- [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/v1.3.0/CHANGELOG-1.3.md)
+- [Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/blob/v1.3.0/CHANGELOG-1.3.md)
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/CHANGELOG-1.3.md)
+- [Helm](https://github.com/eclipse-iofog/helm/blob/v1.3.0/CHANGELOG.md)
+- [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/v1.3.0/CHANGELOG-1.3.md)
+- [Demo Project](https://github.com/eclipse-iofog/demo/blob/v1.3.0/CHANGELOG-1.3.md)
 
 ## 1.2.0 - "Kubernetes For The Edge"
 
