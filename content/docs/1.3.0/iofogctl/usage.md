@@ -252,7 +252,7 @@ iofogctl delete namespace zoo-1 --force
 
 ## Check the log output of components
 
-Note: You will need ssh access to the specified resource to use this feature
+Note: You will need ssh access to any remote resources to use this feature.
 
 To check the log output of any resource, use `logs` e.g.
 
