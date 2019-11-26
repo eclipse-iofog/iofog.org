@@ -257,10 +257,6 @@ Note: You will need ssh access to the specified resource to use this feature
 To check the log output of any resource, use `logs` e.g.
 
 ```bash
-Usage:
-  iofogctl logs RESOURCE NAME [flags]
-
-Examples:
 iofogctl logs controller NAME
 iofogctl logs agent NAME
 iofogctl logs microservice NAME
