@@ -242,7 +242,7 @@ do_install_demo() {
   echo
   set -x
 
-  $sh_c "curl -L -o dev.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.3.0-rc1.tar.gz" >/dev/null
+  $sh_c "curl -L -o dev.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.3.0.tar.gz" >/dev/null
   $sh_c "tar -zxvf dev.tar.gz --strip-components=1"
   command_status=$?
 
