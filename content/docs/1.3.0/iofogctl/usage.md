@@ -60,7 +60,7 @@ Use "iofogctl [command] --help" for more information about a command.
 
 ```
 
-You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0-rc2/docs/md/iofogctl.md).
+You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/docs/md/iofogctl.md).
 
 You can use the `--help` flag on every command to learn more. Go ahead and try some of the following:
 
@@ -249,6 +249,20 @@ or, if we also want to delete the namespace, we can run:
 ```bash
 iofogctl delete namespace zoo-1 --force
 ```
+
+## Check the log output of components
+
+Note: You will need ssh access to any remote resources to use this feature.
+
+To check the log output of any resource, use `logs` e.g.
+
+```bash
+iofogctl logs controller NAME
+iofogctl logs agent NAME
+iofogctl logs microservice NAME
+```
+
+This will return either the log file from the machine, or the docker logs output of the running microservice.
 
 ## Using Legacy Commands
 
