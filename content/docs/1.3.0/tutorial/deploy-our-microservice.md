@@ -100,19 +100,18 @@ This yaml file has been used to describe to `iofogctl` what our set of microserv
 To add our new microservice, go ahead and edit this file by adding our new microservice to the list of microservices:
 
 ```yaml
-...
-    - name: Moving Average
-      agent:
-        name: local-agent
-      config:
-        maxWindowSize: 40
-      images:
-        x86: iofog-tutorial/moving-average:v1
-        registry: local
-      volumes: []
-      ports: []
-      env: []
-...
+---
+- name: Moving Average
+  agent:
+    name: local-agent
+  config:
+    maxWindowSize: 40
+  images:
+    x86: iofog-tutorial/moving-average:v1
+    registry: local
+  volumes: []
+  ports: []
+  env: []
 ```
 
 It is very important to note that we are specifying `local` as the value for `images:registry` (instead of `remote` for the other microservices), this instructs the ioFog Agent to use its local cache, and not Docker hub.

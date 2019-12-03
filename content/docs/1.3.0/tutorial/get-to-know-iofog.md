@@ -52,7 +52,7 @@ cf378c878cdf        iofog/connector:latest                          "sh /start.s
 
 We can also see that in the PORTS column some of these containers have published [port mappings](https://docs.docker.com/config/containers/container-networking/):
 
-For example, there's a microservice running an instance of [Freeboard](https://github.com/Freeboard/freeboard), an open source visualization dashboard for IoT devices. It's running a web server that serves the dashboard. 
+For example, there's a microservice running an instance of [Freeboard](https://github.com/Freeboard/freeboard), an open source visualization dashboard for IoT devices. It's running a web server that serves the dashboard.
 
 Wait for the microservices to be in a `RUNNING` state. It may take a few minutes as the images need to be pulled.
 

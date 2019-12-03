@@ -2,7 +2,6 @@
 
 Some components of an Edge Compute Network ('ECN') can be deployed on Kubernetes. These components include Controllers and Connectors. `iofogctl` will also install ioFog Operator and Kubelet to assist in the Kubernetes-deploy Control Plane.
 
-
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Not interested in using Kubernetes?</h3>
   <p>If you don't want to bother with Kubernetes, you can skip this step and go straight to <a href=prepare-your-network.html>preparing your network</a>.</p>
@@ -20,15 +19,15 @@ In order for `iofogctl` to do its thing with our Kubernetes cluster, we will hav
 
 The way we add these permissions will depend on our respective Kubernetes provider. Ultimately, we need the User Account associated with our `~/.kube/config` configuration file to have permission to use all verbs against the following resources:
 
-* roles
-* clusterroles
-* rolebindings
-* clusterrolebindings
-* services
-* deployments
-* statefulsets
-* pods
-* namespaces
+- roles
+- clusterroles
+- rolebindings
+- clusterrolebindings
+- services
+- deployments
+- statefulsets
+- pods
+- namespaces
 
 If in doubt, we can use the default cluster role `admin`.
 
