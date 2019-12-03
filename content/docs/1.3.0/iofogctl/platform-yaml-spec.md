@@ -13,7 +13,6 @@ To translate your yml files to the new spec, please see these [quick changes](./
 The Control Plane is the overarching component containing specifications for [Controllers](#controller) and associated credentials.
 
 ```yaml
-
 apiVersion: iofog.org/v1
 kind: ControlPlane # What are we deploying
 metadata:
@@ -48,7 +47,6 @@ spec:
 Controllers are components of an ECN responsible for executing the workload of the Control Plane. You can define individuals Controllers for the purposes of expanding your Control Plane. Most of the time, however, you will deploy your Controllers through the Control Plane spec.
 
 ```yaml
-
 apiVersion: iofog.org/v1
 kind: Controller # What are we deploying
 metadata:
@@ -69,24 +67,23 @@ spec:
     serviceType: LoadBalancer # Optional, defaults to "LoadBalancer"
 ```
 
-| Field              | Description                                                                                                                                                              |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| name               | User-defined unique identifier of Controller instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
-| host               | Hostname of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
-| ssh.user               | Username of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
-| ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                |
-| ssh.port | Port to use with SSH |
-| kube.config        | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster.                                                            |
-| kube.staticIp | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
-| kube.replicas           | Number of Controller Pods to deploy on Kubernetes cluster.                                                                                                               |
-| kube.serviceType       | Kubernetes service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                                                                                |
+| Field            | Description                                                                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| name             | User-defined unique identifier of Controller instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
+| host             | Hostname of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
+| ssh.user         | Username of remote host that iofogctl must SSH into to install Controller service.                                                                                       |
+| ssh.keyFile      | Path to private SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                    |
+| ssh.port         | Port to use with SSH                                                                                                                                                     |
+| kube.config      | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster.                                                            |
+| kube.staticIp    | Pre-existing static IP address for Kuberneretes Load Balancer service to use.                                                                                            |
+| kube.replicas    | Number of Controller Pods to deploy on Kubernetes cluster.                                                                                                               |
+| kube.serviceType | Kubernetes service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                                                                                |
 
 ## Connector
 
 Connectors are components of an ECN responsible for handling messaging between Microservices.
 
 ```yaml
-
 apiVersion: iofog.org/v1
 kind: Connector # What are we deploying
 metadata:
@@ -108,9 +105,9 @@ spec:
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name        | User-defined unique identifier of Connector instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
 | host        | Hostname of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
-| ssh.user        | Username of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
-| ssh.keyFile    | Path to private SSH key that iofogctl must use to SSH into remote host to install Connector service.                                                                |
-| ssh.port | Port to use with SSH |
+| ssh.user    | Username of remote host that iofogctl must SSH into to install Connector service.                                                                                       |
+| ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Connector service.                                                                    |
+| ssh.port    | Port to use with SSH                                                                                                                                                    |
 | kube.config | Path to Kubernetes configuration file that iofogctl uses to install Connector service to Kubernetes cluster.                                                            |
 
 Note that at the moment Connector does not support specifying `Replicas` or `ServiceType` the same way as Controller does.
@@ -120,7 +117,6 @@ Note that at the moment Connector does not support specifying `Replicas` or `Ser
 Agents are components of an ECN which run on edge nodes. They communicate with Connectors and Controllers to allow your edge nodes to host Microservices.
 
 ```yaml
-
 apiVersion: iofog.org/v1
 kind: Agent # What are we deploying
 metadata:
@@ -134,13 +130,13 @@ spec:
     port: 22 # Optional, defaults to 22
 ```
 
-| Field | Description                                                                                                                                                         |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name  | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
-| host  | Hostname of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
-| ssh.user  | Username of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
-| ssh.keyFile    | Path to private SSH key that iofogctl must use to SSH into remote host to install Agent service.                                                                |
-| ssh.port | Port to use with SSH |
+| Field       | Description                                                                                                                                                         |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name        | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
+| host        | Hostname of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
+| ssh.user    | Username of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
+| ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Agent service.                                                                    |
+| ssh.port    | Port to use with SSH                                                                                                                                                |
 
 ## Edge Compute Network
 
@@ -149,7 +145,6 @@ An entire ECN can be specified within a single YAML file.
 Multiple resources can be incorporated into a single YAML file using `---` as a separator.
 
 ```yaml
-
 ---
 apiVersion: iofog.org/v1
 kind: ControlPlane

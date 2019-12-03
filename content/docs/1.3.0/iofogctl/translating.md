@@ -2,11 +2,10 @@
 
 There are a couple quick changes you can do to your current YAML file to make them 1.3.0 compatible if you are using the 1.2.x standard.
 
-* We now follow Kubernetes-style by using `apiVersion`, `kind`, `metadata` and `spec` top level keys.
-* All of the top level fields in 1.2.x will now be handled under `spec`. 
-* Some of the fields have become nested where they were flat before (e.g. ssh and kube details).
-* All fields must now be `camelCase`. Regarding abbreviations, follow these examples: `apiVersion` and `dockerUrl`.
-
+- We now follow Kubernetes-style by using `apiVersion`, `kind`, `metadata` and `spec` top level keys.
+- All of the top level fields in 1.2.x will now be handled under `spec`.
+- Some of the fields have become nested where they were flat before (e.g. ssh and kube details).
+- All fields must now be `camelCase`. Regarding abbreviations, follow these examples: `apiVersion` and `dockerUrl`.
 
 #### 1.2.x YAML
 
