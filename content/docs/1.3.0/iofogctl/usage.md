@@ -166,7 +166,7 @@ We can also connect to an ECN without providing a YAML file (and without configu
 For Vanilla Controllers we can run the following command and connect via the Controller endpoint.
 
 ```bash
-iofogctl connect --endpoint 40.50.60.70 --name albatros --email user@domain.com --pass h9g84q
+iofogctl connect --ecn-addr 40.50.60.70 --name albatros --email user@domain.com --pass h9g84q
 ```
 
 For Kubernetes Controllers we can run the same command but provide the Kubernetes config file instead of a Controller endpoint.
