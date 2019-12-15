@@ -29,6 +29,14 @@ The way we add these permissions will depend on our respective Kubernetes provid
 - pods
 - namespaces
 
-If in doubt, we can use the default cluster role `admin`.
+If in doubt, we can use the default cluster role `cluster-admin`.
+
+## Using Google Kubernetes Engine
+
+When using GKE to host our Kubernetes cluster, we need to ensure the [gcloud](https://cloud.google.com/sdk/gcloud/) CLI tool is installed. Once installed, we can connect to our cluster and get the requisite `~/.kube/config` file by running:
+
+```bash
+gcloud container clusters get-credentials <NAME> --region <REGION>
+```
 
 [Continue To Next Step: Prepare your Network](prepare-your-network.html).
