@@ -19,6 +19,10 @@ brew tap eclipse-iofog/iofogctl
 brew install iofogctl@1.3
 ```
 
+#### Install iofogctl on Windows
+
+The Windows binary can be downloaded from https://storage.googleapis.com/iofogctl/win/1.3/iofogctl.exe.
+
 #### Install iofogctl on Linux
 
 The Debian package can be installed like so:
