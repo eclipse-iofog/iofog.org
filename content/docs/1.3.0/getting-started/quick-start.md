@@ -27,9 +27,9 @@ The Windows binary can be downloaded from https://storage.googleapis.com/iofogct
 
 In order to use `iofogctl` to deploy ioFog locally (as this quick-start guide does), we will need to follow a few steps to enable Docker to be able to run Linux containers within Windows:
 
-* Install [docker desktop for windows](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
-* Enable Hyper-V in Powershell `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
-* Ensure that docker is running with [Linux containers mode](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+- Install [docker desktop for windows](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
+- Enable Hyper-V in Powershell `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
+- Ensure that docker is running with [Linux containers mode](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 #### Install iofogctl on Linux
 
@@ -44,7 +44,7 @@ And similarly, the RPM package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-1.x86_64
+sudo yum install iofogctl
 ```
 
 #### Verify iofogctl Installation
