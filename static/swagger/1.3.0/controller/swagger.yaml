@@ -286,6 +286,15 @@
           description: User token
           required: true
           type: string
+        - in: body
+          name: WithCleanupOption
+          description: Prune option
+          required: false
+          schema:
+            type: object
+            properties:
+              withCleanup:
+                type: boolean
         responses:
           '202':
             description: Accepted
