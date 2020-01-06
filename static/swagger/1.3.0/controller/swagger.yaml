@@ -2504,7 +2504,7 @@
     ConnectorInfoDeleteRequest:
       type: object
       properties:
-        publicIp: 
+        name: 
           type: string
     ConnectorInfoListResponse:
       type: object
