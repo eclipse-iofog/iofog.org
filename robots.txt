@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: */tags/
-Disallow: */categories/
-
-sitemap: link to site map
+Allow: /
+Sitemap: https://iofog.org/sitemap.xml
+Host: https://iofog.org
