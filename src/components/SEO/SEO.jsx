@@ -6,7 +6,7 @@ import siteLogo from '../../../static/images/logos/iofog.png';
 
 class SEO extends Component {
   render() {
-    const { title, postNode, postPath } = this.props;
+    const { title, description, postNode, postPath } = this.props;
     const siteUrl = typeof window !== 'undefined' ? window.location.origin : '';
     const url = config.siteUrl + postPath;
 
@@ -23,6 +23,7 @@ class SEO extends Component {
       <Helmet>
         {/* General tags */}
         <meta name="image" content={siteLogo} />
+        <meta name="description" content={description} />
 
         {/* Schema.org tags */}
         <script type="application/ld+json">

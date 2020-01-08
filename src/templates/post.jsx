@@ -10,16 +10,19 @@ import DocsSidebar from '../components/DocsSidebar/DocsSidebar';
 import Edgeworx from '../components/Egdeworx/Edgeworx';
 
 export default class PostTemplate extends React.Component {
-  findTitle(menus, activePath) {
+  findTitleAndDescription(menus, activePath) {
     for (const menu of menus) {
       for (const sub of menu.subMenus) {
         if (sub.entry.childMarkdownRemark.fields.slug === activePath) {
-          return `${sub.title} | ${menu.title} | ${config.siteTitle}`;
+          return {
+            title: `${sub.title} | ${menu.title} | ${config.siteTitle}`,
+            description: sub.description || config.siteDescription
+          };
         }
       }
     }
 
-    return config.siteTitle;
+    return { title: config.siteTitle, description: config.siteDescription };
   }
 
   componentDidMount() {
@@ -39,14 +42,23 @@ export default class PostTemplate extends React.Component {
       return activePath.startsWith(fields.path);
     });
 
-    const title = this.findTitle(activeVersion.node.menus, activePath);
+    const { title, description } = this.findTitleAndDescription(
+      activeVersion.node.menus,
+      activePath
+    );
 
     return (
       <Layout location={activePath}>
         <Helmet>
           <title>{title}</title>
         </Helmet>
-        <SEO title={title} postPath={activePath} postNode={postNode} postSEO />
+        <SEO
+          title={title}
+          description={description}
+          postPath={activePath}
+          postNode={postNode}
+          postSEO
+        />
         <div className="container-fluid">
           <div className="row post">
             <div className="menu-list col-12 col-lg-3">
@@ -92,6 +104,7 @@ export const pageQuery = graphql`
             title
             subMenus {
               title
+              description
               entry {
                 ...menuEntry
               }

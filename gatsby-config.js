@@ -4,7 +4,7 @@ const urljoin = require('url-join');
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
-    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
+    siteUrl: config.siteUrl,
     rssMetadata: {
       site_url: urljoin(config.siteUrl, config.pathPrefix),
       feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
@@ -18,6 +18,22 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: config.siteUrl,
+        sitemap: urljoin(config.siteUrl, 'sitemap.xml'),
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        exclude: ['/docs/1.2.0/**', '/docs/1.1.0/**', '/docs/1.0.0/**']
+      }
+    },
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
@@ -115,7 +131,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-twitter',
-    'gatsby-plugin-sitemap',
     'gatsby-transformer-json',
     {
       resolve: 'gatsby-plugin-manifest',
