@@ -14,6 +14,11 @@
             "title": "Quick Start",
             "entry": "./getting-started/quick-start.md",
             "description": "Getting started with iofog, iofogctl by deploying an ioFog local stack."
+          },
+          {
+            "title": "Minikube and Vagrant, the Kubernetes local stack",
+            "entry": "./getting-started/minikube.md",
+            "description": "Getting started with iofog, iofogctl by deploying an ioFog local stack on Kubernetes minikube."
           }
         ]
       },

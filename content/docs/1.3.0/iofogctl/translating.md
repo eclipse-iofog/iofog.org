@@ -109,7 +109,7 @@ adding the following to the top of your deployment file for each application tha
 apiVersion: iofog.org/v1
 kind: Application
 metadata:
-  name: "old-resource-name"
+  name: 'old-resource-name'
 spec:
 ```
 
