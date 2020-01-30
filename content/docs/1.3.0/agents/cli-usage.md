@@ -17,6 +17,7 @@ iofog-agent command --option <argument>
 | [deprovision](#deprovision) | Detach this software from all ioFog controllers.                            |
 | [status](#status)           | Display current status information about the software.                      |
 | [version](#version)         | Display the software version and license information.                       |
+| [prune](#prune)             | Prune docker images.                                                        |
 | [help](#help)               | Display the help and usage information.                                     |
 
 ## config
@@ -47,6 +48,8 @@ iofog-agent config defaults
 | **-cf number**             | Set the get changes frequency                                                                                                                                              |
 | **-df number**             | Set the post diagnostics frequency                                                                                                                                         |
 | **-sd number**             | Set the scan devices frequency                                                                                                                                             |
+| **-pf number**             | Set the docker pruning frequency                                                                                                                                           |
+| **-dt number**             | Set the available disk threshold                                                                                                                                           |
 | **-idc on/off**            | Set the mode on which any not registered docker container will be shut down                                                                                                |
 | **-gps auto/off/number**   | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |
 | **-ft auto/intel_amd/arm** | Set fog type. Use auto to detect fog type by system commands, use arm or intel_amd to set it manually                                                                      |
@@ -72,7 +75,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
 
 #### config.xml
 
-````xml
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <config>
   <access_token/>
@@ -96,11 +99,15 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <post_diagnostics_freq>10</post_diagnostics_freq>
   <scan_devices_freq>60</scan_devices_freq>
   <gps>auto</gps>
+  <gps_coordinates>0,0</gps_coordinates>
+  <isolated_docker_container>off</isolated_docker_container>
+  <docker_pruning_freq>60</docker_pruning_freq>
+  <available_disk_threshold>90</available_disk_threshold>
 </config>
+
 
 #### config-development.xml
 
-```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <config>
   <access_token/>
@@ -124,8 +131,12 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <post_diagnostics_freq>10</post_diagnostics_freq>
   <scan_devices_freq>60</scan_devices_freq>
   <gps>auto</gps>
+  <gps_coordinates>0,0</gps_coordinates>
+  <isolated_docker_container>off</isolated_docker_container>
+  <docker_pruning_freq>60</docker_pruning_freq>
+  <available_disk_threshold>90</available_disk_threshold>
 </config>
-````
+```
 
 #### config-production.xml
 
@@ -153,6 +164,10 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <post_diagnostics_freq>10</post_diagnostics_freq>
   <scan_devices_freq>60</scan_devices_freq>
   <gps>auto</gps>
+  <gps_coordinates>0,0</gps_coordinates>
+  <isolated_docker_container>off</isolated_docker_container>
+  <docker_pruning_freq>60</docker_pruning_freq>
+  <available_disk_threshold>90</available_disk_threshold>
 </config>
 ```
 
@@ -194,6 +209,14 @@ Display the software version and license information.
 
 ```sh
 iofog-agent version
+```
+
+## prune
+
+Prune docker images.
+
+```sh
+iofog-agent prune
 ```
 
 ## help
