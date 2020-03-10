@@ -12,7 +12,7 @@ trigger:
 variables:
   group: 'pipelines'
   stagingCluster: 'iofogctl-ci'
-  stagingClusterRegion: 'us-west2-a'
+  stagingClusterRegion: 'us-central1-a'
   repository: 'focal-freedom-236620/iofogorg'
   buildTag: $(Build.BuildId)
   branchTag: $(Build.SourceBranchName)
