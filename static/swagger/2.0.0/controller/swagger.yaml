@@ -1,7 +1,7 @@
 
   swagger: '2.0'
   info:
-    version: 1.3.0
+    version: 2.0.0
     title: ioFog Controller
   consumes:
   - application/json
@@ -49,124 +49,6 @@
               X-Timestamp:
                 type: number
                 description: FogController server timestamp
-          '500':
-            description: Internal Server Error
-    '/connector':
-      get:
-        tags:
-        - Connector
-        summary: Returns a list of connectors
-        operationId: getConnectors
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        responses:
-          '200':
-            description: List of Connectors
-            schema:
-              $ref: '#/definitions/ConnectorInfoListResponse'
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
-          '500':
-            description: Internal Server Error
-      post:
-        tags:
-        - Connector
-        summary: Adds a connector
-        operationId: addConnector
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        - in: body
-          name: ConnectorInfo
-          required: true
-          schema:
-            $ref: '#/definitions/ConnectorInfoRequest'
-        responses:
-          '200':
-            description: Newly created connector
-            schema:
-              $ref: '#/definitions/ConnectorInfoResponse'
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
-          '500':
-            description: Internal Server Error
-      put:
-        tags:
-        - Connector
-        summary: Updates a connector
-        operationId: updateConnector
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        - in: body
-          name: ConnectorInfo
-          required: true
-          schema:
-            $ref: '#/definitions/ConnectorInfoRequest'
-        responses:
-          '200':
-            description: Updated connector
-            schema:
-              $ref: '#/definitions/ConnectorInfoResponse'
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
-          '500':
-            description: Internal Server Error
-      delete:
-        tags:
-        - Connector
-        summary: Removes a connector
-        operationId: deleteConnector
-        parameters:
-        - in: header
-          name: Authorization
-          description: User token
-          required: true
-          type: string
-        - in: body
-          name: ConnectorDeleteInfo
-          required: true
-          schema:
-            $ref: '#/definitions/ConnectorInfoDeleteRequest'
-        responses:
-          '204':
-            description: Success
-            headers:
-              X-Timestamp:
-                type: number
-                description: FogController server timestamp
-          '400':
-            description: Bad Request
-          '401':
-            description: Not Authorized
           '500':
             description: Internal Server Error
     '/iofog-list':
@@ -430,6 +312,34 @@
             description: Not Authorized
           500:
             description: Internal Server Error
+    '/iofog/{uuid}/prune':
+      post:
+        tags:
+        - ioFog
+        summary: prune reboot fog agent
+        operationId: setPruneCommand
+        parameters:
+        - in: header
+          name: Authorization
+          description: User Token
+          required: true
+          type: string
+        - in: path
+          name: uuid
+          description: ioFog node id
+          required: true
+          type: string
+        responses:
+          204:
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          401:
+            description: Not Authorized
+          500:
+            description: Internal Server Error        
     '/iofog/{uuid}/hal/hw':
       get:
         tags:
@@ -2486,50 +2396,6 @@
           type: array
           items:
             $ref: '#/definitions/IOFogNodeInfoResponse'
-    ConnectorInfoRequest:
-      type: object
-      properties:
-        name: 
-          type: string
-        domain: 
-          type: string
-        publicIp: 
-          type: string
-        cert: 
-          type: string
-        isSelfSignedCert: 
-          type: boolean
-        devMode: 
-          type: boolean
-    ConnectorInfoDeleteRequest:
-      type: object
-      properties:
-        name: 
-          type: string
-    ConnectorInfoListResponse:
-      type: object
-      properties:
-        connectors:
-          type: array
-          items:
-            $ref: '#/definitions/ConnectorInfoResponse'
-    ConnectorInfoResponse:
-      type: object
-      properties:
-        id: 
-          type: integer
-        name: 
-          type: string
-        domain: 
-          type: string
-        publicIp: 
-          type: string
-        cert: 
-          type: string
-        isSelfSignedCert: 
-          type: boolean
-        devMode: 
-          type: boolean
     IOFogNodeInfoResponse:
       type: object
       properties:
@@ -2635,6 +2501,12 @@
           type: string
         type:
           $ref: '#/definitions/IOFogType'
+        dockerPruningFrequency:
+          type: number
+        diskThreshold:
+          type: number
+        logLevel: 
+          type: string
     UpdateIOFogNodeRequestBody:
       type: object
       properties:
@@ -2698,6 +2570,36 @@
           default: false
         fogType:
           type: number
+        dockerPruningFrequency:
+          type: number
+        diskThreshold:
+          type: number
+        logLevel: 
+          type: string
+          default: info
+        isSystem:
+          type: boolean
+        routerMode:
+          type: string
+          default: edge
+          enum:
+          - none
+          - edge
+          - interior
+        messagingPort: 
+          type: number
+        interRouterPort:
+          type: number
+        edgeRouterPort:
+          type: number
+        host:
+          type: string
+        upstreamRouters:
+          type: array
+          items:
+            type: string
+        networkRouter:
+          type: string
     NewIOFogNodeResponse:
       type: object
       properties:
@@ -2768,6 +2670,8 @@
         diagnostics:
           type: boolean
         isImageSnapshot:
+          type: boolean
+        prune:
           type: boolean
     IOFogNodeConfig:
       type: object
@@ -3533,8 +3437,6 @@
   tags:
   - name: Controller
     description: Manage your controller
-  - name: Connector
-    description: Manage your connectors
   - name: ioFog
     description: Manage your agents
   - name: Catalog
