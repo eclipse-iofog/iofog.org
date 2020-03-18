@@ -18,10 +18,10 @@
 ### Changelogs
 
 - [Controller](https://github.com/eclipse-iofog/Controller/blob/v1.3.1/CHANGELOG-1.3.md)
-- [Agent](https://github.com/eclipse-iofog/Agent/blob/v1.3.0/CHANGELOG-1.3.md)
+- [Agent](https://github.com/eclipse-iofog/Agent/blob/v2.0.0-beta/CHANGELOG-2.0.md)
 - [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/v1.3.0/CHANGELOG-1.3.md)
 - [Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/blob/v1.3.0/CHANGELOG-1.3.md)
-- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/v1.3.0/CHANGELOG-1.3.md)
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/develop/2.0.0-beta.release.md)
 - [Helm](https://github.com/eclipse-iofog/helm/blob/v1.3.0/CHANGELOG.md)
 - [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/v1.3.0/CHANGELOG-1.3.md)
 - [Demo Project](https://github.com/eclipse-iofog/demo/blob/v1.3.0/CHANGELOG-1.3.md)
