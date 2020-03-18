@@ -21,9 +21,6 @@ default
 CONTROLLER	      STATUS		AGE		    UPTIME		IP		    PORT
 local-controller  online		1h4m		1h4m		0.0.0.0		51121
 
-CONNECTOR	    STATUS		AGE		    UPTIME	    IP
-local-connector	online		1h4m		1h4m		0.0.0.0
-
 AGENT		STATUS		AGE		    UPTIME		IP		        VERSION
 local-agent	RUNNING		1h4m		1h3m		91.178.63.198	1.3.0
 
@@ -46,7 +43,6 @@ CONTAINER ID        IMAGE                                           COMMAND     
 fba02fc87010        iofog/freeboard-api:latest                      "node /src/index.js"     2 minutes ago       Up 2 minutes        0.0.0.0:10101->80/tcp                            iofog_tjG2LcvVkJtrzP9FHLqyGmBXptKZRxFT
 b151f2e4946a        iofog/sensors:latest                            "node /sensors/index"    2 minutes ago       Up 2 minutes                                                         iofog_zL3qwCBhX9NBK4yWLjbkZY7QhKcJkChd
 0789e92dd6d7        iofog/agent:latest                              "sh /start.sh"           About an hour ago   Up About an hour    0.0.0.0:54321->54321/tcp, 0.0.0.0:8081->22/tcp   iofog-agent
-cf378c878cdf        iofog/connector:latest                          "sh /start.sh"           About an hour ago   Up About an hour    0.0.0.0:8080->8080/tcp                           iofog-connector
 966ccd2092b8        iofog/controller:latest                         "sh /start.sh"           About an hour ago   Up About an hour    0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp   iofog-controller
 ```
 
@@ -66,19 +62,18 @@ The Freeboard microservice doesn't know it's running locally, so it could just a
 
 ## ioFog Containers
 
-Our tutorial environment has three ioFog containers:
+Our tutorial environment has two ioFog containers:
 
 - [Agents](../agents/overview.html)
 - [Controllers](../controllers/overview.html)
-- [Connectors](../connectors/overview.html)
 
-We can think of each of these containers as if they were deployed on separate devices. In production, our Controller is most often running on a cloud server and our Agents are each running on individual edge devices in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away, and the Connector can broker communication between any microservices we run.
+We can think of each of these containers as if they were deployed on separate devices. In production, our Controller is most often running on a cloud server and our Agents are each running on individual edge devices in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away.
 
 ### iofogctl vs component CLIs
 
 We are currently in the process of migrating all our management system into one tool to rule them all: `iofogctl` !
 
-However, this process is still ongoing and even though you can do everything you need for this tutorial (and much more...) in iofogctl, you must know that every ioFog component (Agent, Controller, and Connector) has its local CLI (iofog-agent, iofog-controller, and iofog-connector) that can prove itself useful.
+However, this process is still ongoing and even though you can do everything you need for this tutorial (and much more...) in iofogctl, you must know that every ioFog component (Agent and Controller) has its local CLI (iofog-agent, iofog-controller) that can prove itself useful.
 
 In the following sections we will us `iofogctl legacy ...` commands to use the older component CLIs. Note that, because we have a local ECN, we could also use `docker exec` instead.
 

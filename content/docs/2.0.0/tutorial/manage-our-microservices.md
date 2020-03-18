@@ -23,7 +23,7 @@ This returns a list of microservices along with their status, the agent it is ru
 
 The tutorial consists of 3 microservices deployed on top of ioFog stack.
 
-The _Sensors_ microservice pretends to be reading data from a local hardware sensor. The data it produces is published with [the SDK](../writing-microservices/sdk.html) and routed through the [Connector](../connectors/overview.html) to the REST API microservice, so that it can be read by other microservices that only understand REST API.
+The _Sensors_ microservice pretends to be reading data from a local hardware sensor. The data it produces is published with [the SDK](../writing-microservices/sdk.html) and routed through an AQMP Dispatch Router to the REST API microservice, so that it can be read by other microservices that only understand REST API.
 
 [Sensors microservice source code on Github](https://github.com/ioFog/example-microservices/tree/master/sensors-data)
 

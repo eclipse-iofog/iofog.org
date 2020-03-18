@@ -19,7 +19,7 @@ Supported operating systems:
 Required tools:
 
 - `Docker 1.10+`: Open platform for developing, shipping, and running applications. ([installation instructions](https://docs.docker.com/install/))
-- `iofogctl 1.3.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](../../getting-started/quick-start.html))
+- `iofogctl 2.0.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](../../getting-started/quick-start.html))
 
 Make sure to follow the Docker [post-installation instructions](https://docs.docker.com/install/linux/linux-postinstall/) so that the Docker daemon can work without `sudo`. Otherwise, the commands in this guide will not work.
 
@@ -30,7 +30,7 @@ On Unix based systems, download our tar.gz package.
 ```bash
 mkdir -p /tmp/iofog/demo
 cd /tmp/iofog/demo
-curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v1.3.0.tar.gz
+curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v2.0.0-beta.tar.gz
 tar -zxvf demo.tar.gz --strip-components=1
 ```
 

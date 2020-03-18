@@ -10,7 +10,19 @@ With our Docker image from the previous step in hand, it's time to publish it to
 
 While we can use a custom registry (or the public [Docker Hub](https://hub.docker.com/)), the Controller also comes with a built-in private registry that represents the local cache on the ioFog edge compute nodes.
 
-To get a list of the container registries, we can use the legacy Controller CLI `registry list` command:
+To get a list of the container registries, we can use `iofogctl get registries`
+
+```bash
+$> iofogctl get registries
+NAMESPACE
+default
+
+ID              URL                     USERNAME        PRIVATE         SECURE
+1               registry.hub.docker.com                 false           true
+2               from_cache                              false           true
+```
+
+or the legacy Controller CLI `registry list` command:
 
 ```bash
 iofogctl legacy controller local-controller registry list
@@ -56,9 +68,10 @@ spec:
       images:
         x86: iofog/sensors:latest
         registry: remote
-      volumes: []
-      ports: []
-      env: []
+      container:
+        volumes: []
+        ports: []
+        env: []
     - name: Rest API
       agent:
         name: local-agent
@@ -66,11 +79,12 @@ spec:
       images:
         x86: iofog/freeboard-api:latest
         registry: remote
-      volumes: []
-      ports:
-        - internal: 80
-          external: 10101
-      env: []
+      container:
+        volumes: []
+        ports:
+          - internal: 80
+            external: 10101
+        env: []
     - name: Freeboard
       agent:
         name: local-agent
@@ -78,11 +92,12 @@ spec:
       images:
         x86: iofog/freeboard:latest
         registry: remote
-      volumes: []
-      ports:
-        - internal: 80
-          external: 10102
-      env: []
+      container:
+        volumes: []
+        ports:
+          - internal: 80
+            external: 10102
+        env: []
   routes:
     - from: Sensors
       to: Rest API
@@ -109,9 +124,10 @@ To add our new microservice, go ahead and edit this file by adding our new micro
   images:
     x86: iofog-tutorial/moving-average:v1
     registry: local
-  volumes: []
-  ports: []
-  env: []
+  container:
+    volumes: []
+    ports: []
+    env: []
 ```
 
 It is very important to note that we are specifying `local` as the value for `images:registry` (instead of `remote` for the other microservices), this instructs the ioFog Agent to use its local cache, and not Docker hub.
@@ -199,10 +215,11 @@ spec:
     registry: local
   config:
     maxWindowSize: 40
-  rootHostAccess: false
-  ports: []
-  volumes: []
-  env: []
+  container:
+    rootHostAccess: false
+    ports: []
+    volumes: []
+    env: []
   routes:
   - Rest API
   application: tutorial
