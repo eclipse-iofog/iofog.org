@@ -40,7 +40,7 @@ agents:
 
 ```yaml
 ---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: ControlPlane
 metadata:
   name: any
@@ -64,27 +64,7 @@ spec:
     - name: local
       host: localhost
 ---
-apiVersion: iofog.org/v1
-kind: Connector
-metadata:
-  name: vanilla
-  namespace: default
-spec:
-  host: 30.40.50.61
-  ssh:
-    user: connector
-    keyfile: ~/.ssh/id_rsa
----
-apiVersion: iofog.org/v1
-kind: Connector
-metadata:
-  name: kubernetes
-  namespace: default
-spec:
-  kube:
-    config: ~/.kube/config
----
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Agent
 metadata:
   name: agent-name
@@ -106,7 +86,7 @@ This also carries over to your microservices. If you wish to deploy your service
 adding the following to the top of your deployment file for each application that file containers:
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Application
 metadata:
   name: 'old-resource-name'

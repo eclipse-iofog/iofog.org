@@ -4,7 +4,7 @@
 
 ### Note for those upgrading from a previous version
 
-We have updated the yml spec significantly, and while these are small changes in practice, your current yml files will fail to deploy on 1.3.0
+We have updated the yml spec significantly, and while these are small changes in practice, your current yml files will fail to deploy on 2.0.0
 
 To translate your yml files to the new spec, please see these [quick changes](./translating.html)
 
@@ -20,7 +20,7 @@ Don't panic if this seems like a lot to digest, the [microservice yaml definitio
 The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Application # What are we deploying
 metadata:
   name: Healthcare Wearable # Application name
@@ -30,47 +30,49 @@ metadata:
 spec:
   # List of microservices composing your application
   microservices:
-    # It uses the microservice YAML schema described below
-    - name: heart-rate-monitor
+    #  # It uses the microservice YAML schema described below
+    - name: 'heart-rate-monitor'
       agent:
-        name: zebra-1
-        config:
-          bluetoothEnabled: true
-          abstractedHardwareEnabled: false
+        name: 'horse-1'
       images:
-        x86: edgeworx/healthcare-heart-rate:x86-v1
-        arm: edgeworx/healthcare-heart-rate:arm-v1
+        arm: 'edgeworx/healthcare-heart-rate:arm-v1'
+        x86: 'edgeworx/healthcare-heart-rate:x86-v1'
+        # registry: remote
       container:
         rootHostAccess: false
         ports: []
-        volumes: []
-        env: []
-        commands: []
       config:
-        data_label: Anonymous Person
         test_mode: true
-    - name: heart-rate-viewer
+        data_label: 'Anonymous Person'
+        nested_object:
+          key: 42
+          deep_nested:
+            foo: bar
+    # Simple JSON viewer for the heart rate output
+    - name: 'heart-rate-viewer'
       agent:
-        name: zebra-2
+        name: 'horse-1'
       images:
-        x86: edgeworx/healthcare-heart-rate-ui:x86
-        arm: edgeworx/healthcare-heart-rate-ui:arm
+        arm: 'edgeworx/healthcare-heart-rate-ui:arm'
+        x86: 'edgeworx/healthcare-heart-rate-ui:x86'
+        registry: remote
       container:
         rootHostAccess: false
         ports:
-          - internal: 80
-            external: 5000
-        volumes: []
-        commands: []
+          # The ui will be listening on port 80 (internal).
+          - external: 5000 # You will be able to access the ui on <AGENT_IP>:5000
+            internal: 80 # The ui is listening on port 80.
+            publicMode: false
         env:
-          - key: BASE_URL
-            value: http://localhost:8080/data
-      config: {}
-
-  # List of route for ioMessages between two microservices inside the same application
+          - key: 'BASE_URL'
+            value: 'http://localhost:8080/data'
+      config:
+        test: 54
   routes:
-    - from: heart-rate-monitor
-      to: heart-rate-viewer
+    # Use this section to configure route between microservices
+    # Use microservice name
+    - from: 'heart-rate-monitor'
+      to: 'heart-rate-viewer'
 ```
 
 | Field         | Description                                                                                                                                                                                                                 |
@@ -88,7 +90,7 @@ Those YAML definitions can be used inside an application YAML file, or by themse
 A microservice YAML definition file can be retrieved using the describe command: `iofogctl describe microservice <NAME> [-o microservice.yaml]`
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Microservice # What are we deploying
 metadata:
   name: heart-rate-monitor # Microservice name
@@ -117,6 +119,17 @@ spec:
       bluetoothEnabled: true
       watchdogEnabled: false
       abstractedHardwareEnabled: false
+      upstreamRouters: ['default-router']
+      networkRouter: ''
+      host: horse-1
+      routerConfig:
+        routerMode: edge
+        messagingPort: 5672
+        edgeRouterPort: 56721
+        interRouterPort: 56722
+      dockerPruningFrequency: 1
+      logLevel: INFO
+      availableDiskThreshold: 90
 
   # Information about the container images to be used
   images:
