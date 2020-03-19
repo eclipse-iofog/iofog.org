@@ -20,7 +20,7 @@ platform.yaml:
 
 ```yaml
 ---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: ControlPlane
 metadata:
   name: ecn
@@ -34,14 +34,6 @@ spec:
     - name: minikube-controller
       kube:
         config: ~/.kube/config
----
-apiVersion: iofog.org/v1
-kind: Connector
-metadata:
-  name: minikube-connector
-spec:
-  kube:
-    config: ~/.kube/config
 ```
 
 - Run `iofogctl deploy -f platform.yaml`
@@ -122,7 +114,7 @@ agent.yaml
 
 ```yaml
 ---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Agent
 metadata:
   name: local-agent
