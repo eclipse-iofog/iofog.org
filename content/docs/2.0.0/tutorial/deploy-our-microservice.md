@@ -103,7 +103,7 @@ spec:
       to: Rest API
 ```
 
-This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](/docs/1.3.0/iofogctl/application-yaml-spec.html), but for now let's focus on the main parts.
+This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](../iofogctl/application-yaml-spec.html), but for now let's focus on the main parts.
 
 - The file describes an application, named `tutorial`.
 - It has 3 microservices.
@@ -231,7 +231,7 @@ You will notice a few minor changes compared to the description we provided when
 - The microservice routes destinations are listed under a `routes` field.
 - We have many more fields related to the required configuration of the ioFog Agent.
 
-Find the complete yaml description [here](/docs/1.3.0/iofogctl/application-yaml-spec.html#microservices)
+Find the complete yaml description [here](../iofogctl/application-yaml-spec.html#microservices)
 
 Now let's say we want to update the configuration of our microservice!
 

@@ -1,6 +1,6 @@
 # Core concept
 
-During the [Quickstart](/docs/1.3.0/getting-started/quick-start.html) and the [tutorial](/docs/1.3.0/tutorial/introduction.html), we specified the images to be used for each microservice, for each type of agent.
+During the [Quickstart](../getting-started/quick-start.html) and the [tutorial](../tutorial/introduction.html), we specified the images to be used for each microservice, for each type of agent.
 
 That was nice and easy, but what if you need to deploy the same code on a lot of agents ? You'd need to specify the images for each microservice. Wouldn't it be nice to have a way to specify the images to be used for each type of agent once for all, then reuse this configuration ?
 

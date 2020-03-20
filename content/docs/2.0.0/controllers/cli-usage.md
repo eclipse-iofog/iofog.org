@@ -1,6 +1,6 @@
 # Legacy Controller CLI Usage
 
-Please see iofogctl for current CLI usage: [iofogctl](/docs/1.3.0/tools/iofogctl/usage.html)
+Please see iofogctl for current CLI usage: [iofogctl](../tools/iofogctl/usage.html)
 
 ```sh
 iofog-controller <command> <action> <options>

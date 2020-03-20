@@ -76,7 +76,7 @@ The high-level process of creating a new microservice is:
 - (Optional) Add the registered image to your Controller's catalog
 - Deploy the microservice using iofogctl
 
-It is detailed in our [tutorial](/docs/1.3.0/tutorial/introduction.html)
+It is detailed in our [tutorial](../tutorial/introduction.html)
 
 ```json
 {

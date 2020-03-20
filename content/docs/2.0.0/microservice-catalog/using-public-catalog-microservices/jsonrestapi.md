@@ -10,7 +10,7 @@ The **config** for the container should look in the following way:
 {\"buffersize\":3,\"contentdataencoding\":\"utf8\",\"contextdataencoding\":\"utf8\",\"outputfields\":{\"publisher\":\"source\",\"contentdata\":\"temperature\",\"timestamp\":\"time\"}}
 ```
 
-Which translates to the following [YAML microservice file](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) :
+Which translates to the following [YAML microservice file](../../tools/iofogctl/application-yaml-spec.html#microservices) :
 
 ```yaml
 apiVersion: iofog.org/v1
@@ -56,7 +56,7 @@ The **config** for the container should look in the following way:
 {\"citycode\":\"5391997\",\"apikey\":\"6141811a6136148a00133488eadff0fb\",\"frequency\":1000}
 ```
 
-Which translates to the following [YAML microservice file](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) :
+Which translates to the following [YAML microservice file](../../tools/iofogctl/application-yaml-spec.html#microservices) :
 
 ```yaml
 apiVersion: iofog.org/v1

@@ -7,7 +7,7 @@
 > <pre> --net=host --privileged </pre>
 >
 > in other cases it needs to start under root user
-> You can use the `rootHostAccess` field of the [microservice yaml definition](/docs/1.3.0/tools/iofogctl/application-yaml-spec.html#microservices) to grant root access to the host to your container
+> You can use the `rootHostAccess` field of the [microservice yaml definition](../../tools/iofogctl/application-yaml-spec.html#microservices) to grant root access to the host to your container
 
 ##### Description:
 
