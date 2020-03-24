@@ -4,10 +4,9 @@ Once we have a set of remote hosts (and/or a Kubernetes cluster) we need to make
 
 The following is an exhaustive list of the ingress firewall rules required for any ioFog Edge Compute Network.
 
-| Component  | Protocol/Port       | Description                                             |
-| ---------- | ------------------- | ------------------------------------------------------- |
-| Controller | tcp:51121, 80       | Controller API and ECN Viewer.                          |
-| Connector  | tcp:8080, 6000-6050 | Connector API and ioMessage ports.                      |
-| iofogctl   | tcp:22              | SSH access to install ioFog components on remote hosts. |
+| Component  | Protocol/Port | Description                                             |
+| ---------- | ------------- | ------------------------------------------------------- |
+| Controller | tcp:51121, 80 | Controller API and ECN Viewer.                          |
+| iofogctl   | tcp:22        | SSH access to install ioFog components on remote hosts. |
 
 [Continue To Next Step: Setup your Control Plane](setup-your-controlplane.html).

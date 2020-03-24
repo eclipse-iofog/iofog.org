@@ -1,6 +1,6 @@
 # Setup Your Agents
 
-The actual 'edge' of your Edge Compute Network ('ECN') is composed of Agents. The other components (the Controllers and Connectors) can be deployed anywhere, including cloud infrastructure.
+The actual 'edge' of your Edge Compute Network ('ECN') is composed of Agents. The other component (the Controllers) can be deployed anywhere, including cloud infrastructure.
 
 ## Deploy Agents on Remote Hosts
 
@@ -8,7 +8,7 @@ Create a template of agent.yaml like so:
 
 ```bash
 echo "---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Agent
 metadata:
   name: zebra-1

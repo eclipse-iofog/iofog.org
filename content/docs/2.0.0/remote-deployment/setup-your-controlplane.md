@@ -17,7 +17,7 @@ Create a template of controlplane.yaml like so:
 
 ```bash
 echo "---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: ControlPlane
 metadata:
   name: albatros-1
@@ -56,7 +56,7 @@ Create a template of controlplane.yaml like so:
 
 ```bash
 echo "---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: ControlPlane
 metadata:
   name: albatros
