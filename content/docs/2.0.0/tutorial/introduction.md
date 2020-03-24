@@ -49,7 +49,7 @@ $ ./test.sh
 ```
 
 <aside class="notifications note">
-  <p>Under the hood, those shell scripts are using iofogctl and YAML files to set up your environment. You'll get to use iofogctl directly in the next few sections. Impatient to know more? Dive directly into its <a href="/docs/1.3.0/iofogctl/usage.html#quick-start" target="_blank">documentation</a>.</p>
+  <p>Under the hood, those shell scripts are using iofogctl and YAML files to set up your environment. You'll get to use iofogctl directly in the next few sections. Impatient to know more? Dive directly into its <a href="/docs/2.0.0/iofogctl/usage.html#quick-start" target="_blank">documentation</a>.</p>
 </aside>
 
 ## Get To Know ioFog
