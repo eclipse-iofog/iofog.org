@@ -1,6 +1,6 @@
 # Prepare Your Remote Hosts
 
-An ioFog Edge Compute Network ('ECN') is composed of a set of ioFog Controllers, Connectors, and Agents. A typical ECN will have each instance of the various components deployed on a different remote host.
+An ioFog Edge Compute Network ('ECN') is composed of a set of ioFog Controllers and Agents. A typical ECN will have each instance of the various components deployed on a different remote host.
 
 ECN's are deployed using `iofogctl`. The following steps will ensure that your remote hosts are ready to have `iofogctl` deploy ECN components onto them remotely.
 
