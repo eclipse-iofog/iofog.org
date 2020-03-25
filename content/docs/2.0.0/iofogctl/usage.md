@@ -36,21 +36,29 @@ Usage:
   iofogctl [command]
 
 Available Commands:
+  attach        Attach an existing ioFog resource to an ECN
+  configure     Configure iofogctl or SSH details an existing resource
   connect       Connect to an existing ioFog cluster
   create        Create a resource
   delete        Delete an existing ioFog resource
   deploy        Deploy ioFog platform or components on existing infrastructure
   describe      Get detailed information of existing resources
+  detach        Detach an existing ioFog resource from its ECN
   disconnect    Disconnect from an ioFog cluster
   get           Get information of existing resources
   help          Help about any command
   legacy        Execute commands using legacy CLI
   logs          Get log contents of deployed resource
-  update        Update an existing ioFog resource
+  move          Move an existing resources inside the current ECN
+  prune         prune ioFog resources
+  rename        Rename the iofog resources that are currently deployed
+  start         Starts a resource
+  stop          Stops a resource
   version       Get CLI application version
+  view          Open ECN Viewer
 
 Flags:
-      --config string      CLI configuration file (default is ~/.iofog/config.yaml)
+      --detached           Use/Show detached resources
   -h, --help               help for iofogctl
       --http-verbose       Toggle for displaying verbose output of API client
   -n, --namespace string   Namespace to execute respective command within (default "default")
@@ -69,6 +77,7 @@ iofogctl deploy --help
 iofogctl create --help
 iofogctl connect --help
 iofogctl get --help
+iofogctl attach --help
 ```
 
 ## Working with Namespaces
@@ -98,8 +107,8 @@ iofogctl deploy -f ecn.yaml
 ```bash
 iofogctl deploy -f controlplane.yaml
 iofogctl deploy -f controller.yaml
-iofogctl deploy -f connector.yaml
 iofogctl deploy -f agent.yaml
+iofogctl deploy -f agentConfig.yaml
 iofogctl deploy -f application.yaml
 ```
 
@@ -116,7 +125,7 @@ Note that we must always specify an empty or non-existent namespace when we use 
 
 ```bash
 echo "---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: ControlPlane
 metadata:
   name: albatros
@@ -139,7 +148,7 @@ Or for Kubernetes Control Planes, we can use `kubeConfig` to connect. Keep in mi
 
 ```bash
 echo "---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: ControlPlane
 metadata:
   name: albatros
@@ -159,7 +168,7 @@ After editing the email, password, and kube config fields, we can go ahead and c
 iofogctl connect -f /tmp/k8s-controlplane.yaml
 ```
 
-We can use the above approach to connect to a large ECN with many agents described in a single YAML file. The benefit of this is that we can provide SSH details to Controllers, Connectors, and Agents deployed on remote hosts while we connect.
+We can use the above approach to connect to a large ECN with many agents described in a single YAML file. The benefit of this is that we can provide SSH details to Controllers, and Agents deployed on remote hosts while we connect.
 
 We can also connect to an ECN without providing a YAML file (and without configuring SSH details automatically).
 
@@ -175,18 +184,17 @@ For Kubernetes Controllers we can run the same command but provide the Kubernete
 iofogctl connect --kube ~/.kube/config --name albatros --email user@domain.com --pass h9g84q
 ```
 
-After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once.
+After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once. We can also configure which namespace is used as a default namespace.
 
 ```bash
 iofogctl configure controller NAME --host HOST --user USER --key KEYFILE --port PORTNUM
-iofogctl configure connector NAME --host HOST --user USER --key KEYFILE --port PORTNUM
 iofogctl configure controller NAME --kube KUBECONFIG
-iofogctl configure connector NAME --kube KUBECONFIG
 iofogctl configure agent NAME --user USER --key KEYFILE --port PORTNUM
+
+iofogctl configure default-namespace NAMESPACE
 
 iofogctl configure all --user USER --key KEYFILE --port PORTNUM
 iofogctl configure controllers --host HOST NAME --user USER --key KEYFILE --port PORTNUM
-iofogctl configure connectors --host HOST --user USER --key KEYFILE --port PORTNUM
 iofogctl configure agents --user USER --key KEYFILE --port PORTNUM
 ```
 
@@ -198,7 +206,6 @@ Try to display individual resources or all resources within a namespace with the
 
 ```bash
 iofogctl get controllers
-iofogctl get connectors
 iofogctl get agents
 iofogctl get applications
 iofogctl get microservices
@@ -210,7 +217,6 @@ To get more detailed information, we can use the describe command:
 ```bash
 iofogctl describe controlplane
 iofogctl describe controller alpaca-1
-iofogctl describe connector meerkat-2
 iofogctl describe agent kiwi-1
 iofogctl describe application health-care-app
 iofogctl describe microservice health-care-ui
@@ -226,11 +232,10 @@ iofogctl disconnect
 
 ## Delete Components of Edge Compute Networks
 
-We can delete resources that we have deployed to free up any associated infrastructure. Deleting resources like Control Planes, Controllers, Connectors, and Agents will cause any corresponding daemons to be terminated on the remote hosts.
+We can delete resources that we have deployed to free up any associated infrastructure. Deleting resources like Control Planes, Controllers and Agents will cause any corresponding daemons to be terminated on the remote hosts.
 
 ```bash
 iofogctl delete controller alpaca-1
-iofogctl delete connector meerkat-2
 iofogctl delete agent kiwi-1
 iofogctl delete application health-care-app
 iofogctl delete microservice health-case-ui
@@ -264,6 +269,48 @@ iofogctl logs microservice NAME
 
 This will return either the log file from the machine, or the docker logs output of the running microservice.
 
+## Move microservices to another Agent
+
+```bash
+iofogctl move microservice NAME AGENT_NAME
+iofogctl move microservice health-case-ui zebra-1
+```
+
+## Prune Docker on an Agent
+
+We can now manually prune the docker images on our Agents, if our Agent is running out of diskspace.
+
+```bash
+iofogctl prune agent AGENT_NAME
+```
+
+## Detach / Attach an Agent
+
+We can transfer an Agent from one ECN to another by detaching the agent and attaching it to another ECN.
+Note: detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
+
+```bash
+iofogctl detach agent AGENT_NAME
+```
+
+Switch to another ECN / namespace
+
+```bash
+iofogctl attach agent AGENT_NAME
+```
+
+To display all resources in dettached state with the get command
+
+```bash
+iofogctl get all --detached
+```
+
+If we have an Agent ready and running on a remote host, we can also attach it directly using host and ssh credentials:
+
+```bash
+iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
+```
+
 ## Using Legacy Commands
 
 To use legacy commands from iofogctl, preface any legacy command you want with:
@@ -283,7 +330,5 @@ where I want to get the output of the config command from my agent, named iofog-
 To determine what legacy commands you wish to use, please see the legacy cli documentation for each component at the following links:
 
 [Agent](../agents/cli-usage.html)
-
-[Connector](../connectors/cli-usage.html)
 
 [Controller](../controllers/cli-usage.html)

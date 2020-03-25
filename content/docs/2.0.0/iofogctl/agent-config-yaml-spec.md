@@ -36,6 +36,17 @@ spec:
   bluetoothEnabled: true
   watchdogEnabled: false
   abstractedHardwareEnabled: false
+  upstreamRouters: ['default-router']
+  networkRouter: ''
+  host: <Agent_host>
+  routerConfig:
+    routerMode: edge
+    messagingPort: 5672
+    edgeRouterPort: 56721
+    interRouterPort: 56722
+  dockerPruningFrequency: 1
+  logLevel: INFO
+  availableDiskThreshold: 90
 ```
 
 | Field                     | Description                                                                                                                                                                                                                                                                                                  |
@@ -59,3 +70,15 @@ spec:
 | bluetoothEnabled          | Boolean. Set on/off for the [bluetooth service](../microservice-catalog/using-system-microservices/rest-blue.html). If ON, this will install the restblue microservice                                                                                                                                       |
 | watchdogEnabled           | Boolean. If enabled, watchdog will kill all docker containers running on the agent if they are not part of the microservices deployed by ioFog. If enabled, only docker containers started by the agent process will be allowed to run                                                                       |
 | abstractedHardwareEnabled | Boolean. Set on/off the [HAL services](../microservice-catalog/using-system-microservices/hal.html). If ON, this will install the HAL microservice                                                                                                                                                           |
+| upstreamRouters           | Set the upstream routers                                                                                                                                                                                                                                                                                     |
+|                           |
+| networkRouter             | Set the network router                                                                                                                                                                                                                                                                                       |
+|                           |
+| host                      | Set the host Ip used by iofogctl to deploy agent                                                                                                                                                                                                                                                             |
+|                           |
+| routerConfig              | Set the router configuration                                                                                                                                                                                                                                                                                 |
+|                           |
+| logLevel                  | Set the standard logging levels that can be used to control logging output                                                                                                                                                                                                                                   |
+|                           |
+| dockerPruningFrequency    | Set the docker pruning frequency in hours                                                                                                                                                                                                                                                                    |
+| availableDiskThreshold    | Set the available disk threshold                                                                                                                                                                                                                                                                             |
