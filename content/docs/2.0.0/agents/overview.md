@@ -10,3 +10,11 @@ For full usage details see the [Agent CLI Usage](cli-usage.html) page.
   <h3><img src="/images/icos/ico-note.svg" alt=""> Learn more about microservices</h3>
   <p>The Agent is what gives your edge nodes the ability to spawn microservices. If you'd like to learn more about them, check out the <a href="../writing-microservices/overview.html">Microservices Overview</a></p>
 </aside>
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/agents/overview.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>

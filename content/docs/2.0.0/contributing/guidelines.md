@@ -48,3 +48,11 @@ You can find the source code for iofog.org (this site) here: <https://github.com
 Improvements to the documentation are always welcome. Currently it is powered by Gatsby, which is a static site builder that uses React.
 
 :shipit:
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/contributing/guidelines.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>

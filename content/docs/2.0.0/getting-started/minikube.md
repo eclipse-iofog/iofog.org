@@ -128,3 +128,11 @@ spec:
 - Run `iofogctl deploy -f agent.yaml`
 
 Congratulations, you are all set to deploy applications on your local minikube and vagrant setup ! Keep in mind that there is absolutely no difference, as far as ioFog and iofogctl are concerned, between this local setup and an actual production setup on a cloud based Kubernetes cluster and an Agent running on a remote device !
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/getting-started/minikube.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>

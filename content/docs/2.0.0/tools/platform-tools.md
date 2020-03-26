@@ -193,3 +193,11 @@ To destroy the infrastructure (and all deployed ECNs), run:
 ```
 
 Make sure the `tfvars` file is the same for both deploy and destroy invocations.
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/tools/platform-tools.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>
