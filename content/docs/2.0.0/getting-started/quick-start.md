@@ -66,16 +66,25 @@ Go ahead and paste the following commands into your terminal:
 echo "---
 apiVersion: iofog.org/v2
 kind: LocalControlPlane
+metadata:
+  name: ecn
 spec:
   iofogUser:
     name: Quick
     surname: Start
     email: user@domain.com
     password: q1u45ic9kst563art
+  controller:
+    container:
+      image: iofog/controller:2.0.0-beta
 ---
 apiVersion: iofog.org/v2
 kind: LocalAgent
+metadata:
+  name: local
 spec:
+  container:
+    image: iofog/agent:2.0.0-beta
 " > /tmp/quick-start.yaml
 iofogctl deploy -f /tmp/quick-start.yaml
 ```
