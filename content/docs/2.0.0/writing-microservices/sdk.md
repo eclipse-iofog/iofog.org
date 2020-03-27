@@ -17,3 +17,11 @@ The ioFog SDK is an _optional_ library. Together with your [Connector](../connec
   <p>Alternatively, you might be able to abstract your node-to-node communication into a purpose-built microservice in one of the languages above.</p>
   <p>For example, let's say you wanted to use Ruby for most of your service development. You could write a small microservice in JavaScript using the SDK and have it make requests on behalf of your Ruby microservice.</p>
 </aside>
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/writing-microservices/sdk.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>

@@ -62,3 +62,11 @@ With a working ioFog environment set up, we're now ready to get to know ioFog.
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
   <p>If you run into an issue, have a question, or just want to get plugged into the community, head over to our <a href="https://discuss.iofog.org/">Discussion Forum</a>. We'd love to have you!</p>
 </aside>
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/tutorial/introduction.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>

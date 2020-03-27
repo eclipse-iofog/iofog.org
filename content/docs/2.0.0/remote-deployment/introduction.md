@@ -12,3 +12,11 @@ Setting up and managing an ECN out of an arbitrary set of remote hosts can seem 
 `iofogctl` is a CLI that simplifies the orchestration of ECNs as well as the deployment of microservices on those ECNs. In this guide, we will step through the process of creating a real, distributed ECN across a set of remote hosts; all from the comfort of your terminal.
 
 [Continue To Next Step: Prepare Your Remote Hosts](prepare-your-remote-hosts.html).
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/remote-deployment/introduction.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>

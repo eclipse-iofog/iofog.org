@@ -98,3 +98,11 @@ and simply move the microservices and routes sections from 1.2.x under spec. Tak
 Thank you, and if you have any questions, please come ask
 on [Slack](https://join.slack.com/t/iofog/shared_invite/enQtNTQxMDczNjE0Mjc5LTRhMTE2YjgwNmRhOTg5ZmI3MGQ5OGM0N2E1MDg0OTJmMWYxZTgxZjE2MjA3NzY2MTFlZmEyYzc3OGQ5NmM4ZjI)
 or [Discourse](https://discuss.iofog.org/)
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/iofogctl/translating.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>

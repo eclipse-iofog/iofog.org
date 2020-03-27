@@ -9,3 +9,11 @@ The Controller can run on any compatible hardware that is network accessible by 
 Once your Edge Compute Network running ioFog is up and running, you'll use your Controller as the primary interface to maintaining your microservices and the nodes they run on.
 
 For full usage details see the [Controller CLI Usage](cli-usage.html) page.
+
+<aside class="notifications note">
+  <b>See anything wrong with the document? Help us improve it!</b>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/controllers/overview.md"
+    target="_blank">
+    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+  </a>
+</aside>
