@@ -2,7 +2,7 @@
 
 In this guide we will:
 
-- Install the prerequisites and tools required to create and manage ECN's ('Edge Compute Networks')
+- Install the prerequisites and tools required to create and manage Edge Compute Networks ('ECNs')
 - Create an ECN on a local machine to demonstrate the processes and components involved in an ECN
 - Deploy a set of Microservices on our local ECN
 
@@ -25,7 +25,7 @@ The Windows binary can be downloaded from https://storage.googleapis.com/iofogct
 
 ##### Prepare Windows
 
-In order to use `iofogctl` to deploy ioFog locally (as this quick-start guide does), we will need to follow a few steps to enable Docker to be able to run Linux containers within Windows:
+In order to use `iofogctl` to deploy an ECN locally on Windows we will need to configure Docker to run Linux containers:
 
 - Install [docker desktop for windows](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
 - Enable Hyper-V in Powershell `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
@@ -53,7 +53,7 @@ Run `iofogctl version` to verify you have successfully installed the CLI.
 
 ## Deploy ioFog Locally
 
-You can use `iofogctl deploy` to install and provision ioFog software. Now we will deploy ioFog locally by specifying localhost in the `host` fields of our yaml file.
+You can use `iofogctl deploy` to install and provision ECN components. Here we will deploy a containerized ECN locally.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about iofogctl?</h3>
@@ -65,25 +65,18 @@ Go ahead and paste the following commands into your terminal:
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: ControlPlane
-metadata:
-  name: ecn
+kind: LocalControlPlane
 spec:
   iofogUser:
     name: Quick
     surname: Start
     email: user@domain.com
     password: q1u45ic9kst563art
-  controllers:
-  - name: local-controller
-    host: localhost
 ---
 apiVersion: iofog.org/v2
-kind: Agent
-metadata:
-  name: local-agent
+kind: LocalAgent
 spec:
-  host: localhost" > /tmp/quick-start.yaml
+" > /tmp/quick-start.yaml
 iofogctl deploy -f /tmp/quick-start.yaml
 ```
 
@@ -95,19 +88,21 @@ iofogctl get all
 
 Which should output something similar to:
 
-```bash
+```plain
 NAMESPACE
 default
 
-CONTROLLER	STATUS		AGE		UPTIME		ADDR		PORT
-local-controlleronline		2h26m		1h16m		http://0.0.0.0	51121
+CONTROLLER    STATUS    AGE               UPTIME         ADDR             PORT
+local         online    2h26m             1h16m          http://0.0.0.0   51121
 
-AGENT		STATUS		AGE		UPTIME		ADDR		VERSION
-local-agent	RUNNING				2h26m		150.107.172.240	2.0.0-beta
+AGENT         STATUS    AGE               UPTIME         ADDR             VERSION
+local         RUNNING   2h26m             1h15m          150.107.172.240  2.0.0-beta
 
-APPLICATION	STATUS		MICROSERVICES
+APPLICATION	  STATUS    MICROSERVICES
 
-MICROSERVICE	STATUS		AGENT		CONFIG		ROUTES		VOLUMES		PORTS
+MICROSERVICE  STATUS    AGENT             CONFIG         ROUTES           VOLUMES      PORTS
+
+VOLUME        SOURCE    DESTIONATION      PERMISSIONS    AGENTS
 ```
 
 **NB:** The Agent status might say `UNKNOWN` for up to 30s. It is the time for the agent to report back its liveness to the controller.
@@ -124,7 +119,7 @@ docker ps
 
 Which should output something similar to:
 
-```bash
+```plain
 CONTAINER ID        IMAGE                                          COMMAND                  CREATED             STATUS              PORTS                                            NAMES
 4eaaf8c38191        quay.io/interconnectedcloud/qdrouterd:latest   "/home/qdrouterd/bin…"   18 minutes ago      Up 18 minutes       5671/tcp, 55672/tcp, 0.0.0.0:5672->5672/tcp      iofog_zxK6zpnQGmy8Jd8X4Wt8ckpBfxFf6cH9
 30dcb7430f04        iofog/agent:2.0.0-beta                         "sh /start.sh"           18 minutes ago      Up 18 minutes       0.0.0.0:54321->54321/tcp, 0.0.0.0:8081->22/tcp   iofog-agent
@@ -205,7 +200,7 @@ watch iofogctl get microservices
 
 Which will output something similar to:
 
-```bash
+```plain
 Every 2.0s: iofogctl get microservices                                                                                                                                                       Nehas-MacBook-Pro.local: Mon Mar 16 20:27:38 2020
 
 MICROSERVICE            STATUS          AGENT           CONFIG                                                  ROUTES                  VOLUMES         PORTS
