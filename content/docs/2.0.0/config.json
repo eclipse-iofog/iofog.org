@@ -11,6 +11,11 @@
             "description": "iofog core concepts and introduction."
           },
           {
+            "title": "Architecture",
+            "entry": "./getting-started/architecture.md",
+            "description": "Overview of ioFog architecture."
+          },
+          {
             "title": "Quick Start",
             "entry": "./getting-started/quick-start.md",
             "description": "Getting started with iofog, iofogctl by deploying an ioFog local stack."

@@ -1,12 +1,3 @@
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt=""> Already know the concepts?</h3>
-  <ul>
-    <li><a href="../tutorial/introduction.html">Learn how to use ioFog and build microservices</a></li>
-    <li><a href="quick-start.html">Create a local development environment with our Quick Start</a></li>
-    <li><a href="../remote-deployment/introduction.html">Setup your production ioFog environment</a></li>
-  </ul>
-</aside>
-
 # Core Concepts
 
 Imagine a world where you can choose self-contained pieces of code (called microservices) and make them run anywhere you want at the push of a button. Where you can remotely control the code that is running on twenty iPhones in workers' pockets, thirty servers running in a factory building, and ten computers running in the trucks that ship your products. And you can do it all with the same technology. Where you move the processing close to where the data is generated, and where you can finally separate streams of information from the end applications that use them. This world will be brought to life by **Edge Computing** (also known as Fog Computing) with ioFog.
@@ -51,8 +42,9 @@ If your microservices need to communicate with other nodes in your network, ioFo
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Ready for more?</h3>
-  <p>If you're ready to get started you can check out the <a href="quick-start.html">Quick Start guide</a>, or run through a <a href="../tutorial/introduction.html">tutorial</a>.</p>
-  <p>You can also dive deeper into <a href="../agents/overview.html">Agents</a>, <a href="../controllers/overview.html">Controllers</a>.</p>
+  <p>If you want to know more about all the ioFog components and learn how ioFog Edge Compute Network work, head to <a href="architecture.html">Architecture overview</a>.</p>
+  <p>If instead you want to get started right away, you can check out the <a href="quick-start.html">Quick Start guide</a> to deploy ioFog locally on your computer, or go through production deployment in <a href="../platform-deployment-remote/control-plane.html">Remote deployment</a> or <a href="../platform-deployment-kubernetes/overview.html">Kubernetes deployment</a>.</p>
+  <p>You can also head to our tutorial for developers to <a href="../tutorial/introduction.html">Learn how to use ioFog and build microservices</a></p>
 </aside>
 
 <aside class="notifications note">

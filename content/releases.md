@@ -8,7 +8,7 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 
 ### What's New?
 
-- [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager), see [Architecture Concepts](/docs/2.0.0/getting-started/architecture-concepts.html) article for details
+- [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager), see [Architecture Concepts](/docs/2.0.0/getting-started/architecture.html) article for details
 - Improved [registry and catalog items management](/docs/2.0.0/microservice-catalog/introduction.html) in ioFog Controller
 - [Exposing public ports](/docs/2.0.0/microservice-management/exposing-microservices.html) for deployed microservices
 - [Docker image pruning](/docs/2.0.0/agent-management/docker-image-pruning.html) feature for ioFog Agent
