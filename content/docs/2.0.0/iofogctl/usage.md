@@ -126,7 +126,7 @@ Note that we must always specify an empty or non-existent namespace when we use 
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: ControlPlane
+kind: RemoteControlPlane
 metadata:
   name: albatros
 spec:
@@ -144,22 +144,19 @@ After editing the email, password, and host fields, we can go ahead and connect.
 iofogctl connect -f /tmp/remote-controlplane.yaml
 ```
 
-Or for Kubernetes Control Planes, we can use `kubeConfig` to connect. Keep in mind that the `iofogctl --namespace` flag must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` will be unable to find the deployment.
+Or for Kubernetes Control Planes, we can use Kube Config to connect. Keep in mind that the `iofogctl --namespace` flag must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` will be unable to find the deployment.
 
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: ControlPlane
+kind: KubernetesControlPlane
 metadata:
   name: albatros
 spec:
   iofogUser:
     email: user@domain.com
     password: h9g84q
-  controllers:
-  - name: alpaca-1
-    kube:
-      config: ~/.kube/config" > /tmp/k8s-controlplane.yaml
+  config: ~/.kube/config" > /tmp/k8s-controlplane.yaml
 ```
 
 After editing the email, password, and kube config fields, we can go ahead and connect.

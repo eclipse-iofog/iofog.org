@@ -55,7 +55,7 @@ If you spent some time looking around the folder structure, you might have notic
 ```yaml
 $ cat init/tutorial/config.yaml
 ---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Application
 metadata:
   name: tutorial
@@ -183,7 +183,7 @@ But you can also directly deploy a microservice! First, let's use `iofogctl` to 
 ```console
 $ iofogctl describe microservice 'Moving Average' -o moving-average.yaml && cat moving-average.yaml
 
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
   name: Moving Average

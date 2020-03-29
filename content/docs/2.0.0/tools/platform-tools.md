@@ -167,7 +167,7 @@ spec:
     user: root
     keyFile: ~/.ssh/id_ecdsa
 ---
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Agent
 metadata:
   name: agent-1

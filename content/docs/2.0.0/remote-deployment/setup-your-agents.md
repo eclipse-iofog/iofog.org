@@ -9,7 +9,7 @@ Create a template of agent.yaml like so:
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: Agent
+kind: RemoteAgent
 metadata:
   name: zebra-1
 spec:

@@ -13,7 +13,7 @@ The **config** for the container should look in the following way:
 Which translates to the following [YAML microservice file](../../tools/iofogctl/application-yaml-spec.html#microservices) :
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
   name: json-rest-api
@@ -59,7 +59,7 @@ The **config** for the container should look in the following way:
 Which translates to the following [YAML microservice file](../../tools/iofogctl/application-yaml-spec.html#microservices) :
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
   name: open-weather-map

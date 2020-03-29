@@ -38,7 +38,7 @@ Updating a microservice's configuration can then be done using `iofogctl`:
 # $ iofogctl describe microservice MICROSERVICE_NAME -o my-microservice.yaml
 
 # Edit the YAML file
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
   name: my-microservice

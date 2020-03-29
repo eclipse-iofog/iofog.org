@@ -83,7 +83,7 @@ Let's start by using `iofogctl` to retrieve a detailed description of our Agent.
 
 ```console
 $ iofogctl describe agent local-agent
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: AgentConfig
 metadata:
   name: local-agent

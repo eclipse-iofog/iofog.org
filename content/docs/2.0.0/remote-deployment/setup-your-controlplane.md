@@ -4,7 +4,7 @@ Every Edge Compute Network ('ECN') starts with a Control Plane that allows you t
 
 In this guide, our Control Plane will deploy a single Controller instance. Our enterprise solution can be used to deploy multiple, highly available Controller instances within a single Control Plane but that process is not covered here.
 
-There are two flavours of Controller deployments - Vanilla and Kubernetes. If you have a Kubernetes cluster, you can deploy a Controller directly onto it. Otherwise, a Linux remote host will do just fine.
+There are two flavours of Controller deployments - Remote and Kubernetes. If you have a Kubernetes cluster, you can deploy a Controller directly onto it. Otherwise, a Linux remote host will do just fine.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">We use YAML to define ioFog resources</h3>
@@ -18,7 +18,7 @@ Create a template of controlplane.yaml like so:
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: ControlPlane
+kind: KubernetesControlPlane
 metadata:
   name: albatros-1
 spec:
@@ -27,13 +27,10 @@ spec:
     surname: Bar
     email: user@domain.com
     password: iht234g9afhe
-  controllers:
-  - name: alpaca-1
-    kube:
-      config: ~/.kube/config" > /tmp/controlplane.yaml
+  config: ~/.kube/config" > /tmp/controlplane.yaml
 ```
 
-Make sure to specify the correct value for the `kube.config` field.
+Make sure to specify the correct value for the `config` field. Here we implicitly use the default namespace. Note that iofogctl will deploy to the Kubernetes namespace that it is configured to use through the `-n` flag or to the default namespace you set via `iofogctl configure default-namespace ...`
 
 Once you have edited the fields to your liking, go ahead and run:
 
@@ -44,8 +41,7 @@ iofogctl deploy -f /tmp/controlplane.yaml
 Naturally, we can also use `kubectl` to see what is happening on the Kubernetes cluster.
 
 ```bash
-kubectl get pods
-kubectl get services
+kubectl get all
 ```
 
 The next section covers how to do the same thing we just did, but on a remote host instead of a Kubernetes cluster. We can <a href=#verify-the-deployment>skip ahead</a>.
@@ -57,7 +53,7 @@ Create a template of controlplane.yaml like so:
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: ControlPlane
+kind: RemoteControlPlane
 metadata:
   name: albatros
 spec:

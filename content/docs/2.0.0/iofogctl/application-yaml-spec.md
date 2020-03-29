@@ -2,12 +2,6 @@
 
 `iofogctl` allows users to deploy sets of Microservices to Edge Compute Networks ('ECNs'). The various components of Microservices are specified within YAML files for `iofogctl` to consume.
 
-### Note for those upgrading from a previous version
-
-We have updated the yml spec significantly, and while these are small changes in practice, your current yml files will fail to deploy on 2.0.0
-
-To translate your yml files to the new spec, please see these [quick changes](./translating.html)
-
 ## Application
 
 An application is a set of Microservices working together to achieve one specific purpose.
