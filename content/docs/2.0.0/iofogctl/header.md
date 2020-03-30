@@ -4,7 +4,7 @@ The most important commands of `iofogctl` consume YAML files as input. A YAML fi
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: ControlPlane
+kind: RemoteControlPlane
 metadata:
   name: buffalo
   namespace: default # Optional, defaults to value specified by iofogctl namespace flag

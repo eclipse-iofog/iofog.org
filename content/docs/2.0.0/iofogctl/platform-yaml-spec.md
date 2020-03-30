@@ -37,7 +37,7 @@ The Remote Control Plane component specifies all the resources required to deplo
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: ControlPlane
+kind: RemoteControlPlane
 metadata:
   name: buffalo
   namespace: default
