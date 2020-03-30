@@ -1,3 +1,5 @@
+# Kinds of Resources
+
 # Common Header YAML Specification
 
 The most important commands of `iofogctl` consume YAML files as input. A YAML file consists of one or more resources. Every resource contains a header section and a spec section. The header section contains fields common to all resources defined within the spec section.

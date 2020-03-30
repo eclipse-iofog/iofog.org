@@ -229,7 +229,7 @@ iofogctl delete all
 
 ## Next Steps
 
-Now that you have seen what ioFog is about, you can create a real ECN with remote hosts. Instructions are found [here](../remote-deployment/introduction.html).
+Now that you have seen what ioFog is about, you can create a real ECN with remote hosts. Instructions are found [here](content/docs/2.0.0/platform-deployment/introduction.html).
 
 You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).
 

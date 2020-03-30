@@ -326,9 +326,9 @@ where I want to get the output of the config command from my agent, named iofog-
 
 To determine what legacy commands you wish to use, please see the legacy cli documentation for each component at the following links:
 
-[Agent](../agents/cli-usage.html)
+[Agent](content/docs/2.0.0/reference-agent/cli-usage.html)
 
-[Controller](../controllers/cli-usage.html)
+[Controller](content/docs/2.0.0/reference-controller/cli-usage.html)
 
 <aside class="notifications note">
   <b>See anything wrong with the document? Help us improve it!</b>

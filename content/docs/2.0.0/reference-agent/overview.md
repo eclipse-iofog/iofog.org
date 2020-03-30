@@ -2,7 +2,7 @@
 
 An **Edge Compute Network** (ECN) running ioFog is made up of one or more devices, referred to as **nodes**. Each node runs a daemon service called an **Agent**. Each node's Agent locally handles the starting, stopping, and management of the one or more microservices running on that particular node. These microservices are deployed as Linux kernel containers (LXC), commonly using [Docker](https://docs.docker.com/engine/docker-overview/#the-docker-platform).
 
-While the Agent daemon is a CLI, after setting things up a majority of your management tasks—such as starting/stopping microservices—will instead be done using the [Controller](../controllers/overview.html), which controls the Agent on your behalf, remotely. This allows you to deploy and maintain microservices without needing to SSH directly onto every edge node device.
+While the Agent daemon is a CLI, after setting things up a majority of your management tasks—such as starting/stopping microservices—will instead be done using the [Controller](content/docs/2.0.0/reference-controller/overview.html), which controls the Agent on your behalf, remotely. This allows you to deploy and maintain microservices without needing to SSH directly onto every edge node device.
 
 For full usage details see the [Agent CLI Usage](cli-usage.html) page.
 

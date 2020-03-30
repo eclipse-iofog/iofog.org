@@ -6,6 +6,11 @@
         "title": "Getting Started",
         "subMenus": [
           {
+            "title": "What's New in ioFog 2?",
+            "entry": "./getting-started/whats-new.md",
+            "description": "List of features in ioFog 2 and their impact to users."
+          },
+          {
             "title": "Core Concepts",
             "entry": "./getting-started/core-concepts.md",
             "description": "iofog core concepts and introduction."
@@ -17,13 +22,43 @@
           },
           {
             "title": "Quick Start",
-            "entry": "./getting-started/quick-start.md",
+            "entry": "./getting-started/quick-start-local.md",
             "description": "Getting started with iofog, iofogctl by deploying an ioFog local stack."
           },
           {
             "title": "Minikube and Vagrant, the Kubernetes local stack",
-            "entry": "./getting-started/minikube.md",
+            "entry": "./getting-started/quick-start-minikube.md",
             "description": "Getting started with iofog, iofogctl by deploying an ioFog local stack on Kubernetes minikube."
+          }
+        ]
+      },
+      {
+        "title": "iofogctl",
+        "subMenus": [
+          {
+            "title": "Introduction to iofogctl",
+            "entry": "./iofogctl/introduction.md",
+            "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
+          },
+          {
+            "title": "Download iofogctl",
+            "entry": "./iofogctl/download.md",
+            "description": ""
+          },
+          {
+            "title": "Managing Resources",
+            "entry": "./iofogctl/resource-management.md",
+            "description": ""
+          },
+          {
+            "title": "Connect & Disconnect",
+            "entry": "./iofogctl/connect-disconnect.md",
+            "description": ""
+          },
+          {
+            "title": "Legacy Commands",
+            "entry": "./iofogctl/legacy.md",
+            "description": ""
           }
         ]
       },
@@ -32,38 +67,118 @@
         "subMenus": [
           {
             "title": "Introduction",
-            "entry": "./remote-deployment/introduction.md",
+            "entry": "./platform-deployment/introduction.md",
             "description": "Introduction to remote deployment of iofog using iofogctl"
           },
           {
-            "title": "Prepare Your Remote Hosts",
-            "entry": "./remote-deployment/prepare-your-remote-hosts.md",
-            "description": "Set up remote hosts to be accessible by iofogctl in order to deploy iofog components"
+            "title": "Remote - Prepare Controller Host",
+            "entry": "./platform-deployment/remote-prepare-controller-host.md",
+            "description": "Set up remote hosts to be accessible by iofogctl in order to deploy iofog Controller"
           },
           {
-            "title": "Prepare Your Kubernetes Cluster",
-            "entry": "./remote-deployment/prepare-your-kubernetes-cluster.md",
+            "title": "Remote - Deploy Control Plane",
+            "entry": "./platform-deployment/remote-control-plane.md",
+            "description": "Deploy ioFog Controller"
+          },
+          {
+            "title": "Kubernetes - Overview",
+            "entry": "./platform-deployment/kubernetes-overview.md",
+            "description": ""
+          },
+          {
+            "title": "Kubernetes - Prepare Your Cluster",
+            "entry": "./platform-deployment/kubernetes-prepare-cluster.md",
             "description": "Set up Kubernetes cluster to be accessible by iofogctl in order to deploy iofog components"
           },
           {
-            "title": "Prepare Your Network",
-            "entry": "./remote-deployment/prepare-your-network.md",
+            "title": "Kubernetes - Prepare Your Network",
+            "entry": "./platform-deployment/kubernetes-prepare-network.md",
             "description": "Set up ingress and outgress rules for iofog and iofogctl"
           },
           {
-            "title": "Setup Your Control Plane",
-            "entry": "./remote-deployment/setup-your-controlplane.md",
+            "title": "Kubernetes - Deploy Control Plane Using iofogctl",
+            "entry": "./platform-deployment/kubernetes-iofogctl.md",
             "description": "How to deploy a control plane (ioFog Controller) using iofogctl"
           },
           {
-            "title": "Setup Your Agents",
-            "entry": "./remote-deployment/setup-your-agents.md",
-            "description": "How to deploy ioFog Agents using iofogctl"
+            "title": "Kubernetes - Deploy Control Plane Using Helm",
+            "entry": "./platform-deployment/kubernetes-helm.md",
+            "description": "How to deploy a control plane (ioFog Controller) using Helm"
           }
         ]
       },
       {
-        "title": "Microservice Development and Deployment",
+        "title": "Microservice Management",
+        "subMenus": [
+          {
+            "title": "Applications",
+            "entry": "./microservices/applications.md",
+            "description": ""
+          },
+          {
+            "title": "Deployment",
+            "entry": "./microservices/microservice-deployment.md",
+            "description": ""
+          },
+          {
+            "title": "Exposing Public Ports",
+            "entry": "./microservices/microservice-exposing.md",
+            "description": ""
+          },
+          {
+            "title": "Move and Rename",
+            "entry": "./microservices/microservice-move-rename.md",
+            "description": ""
+          },
+          {
+            "title": "Updates and Lifecycle",
+            "entry": "./microservices/microservice-lifecycle-management.md",
+            "description": ""
+          },
+          {
+            "title": "Registry and Catalog",
+            "entry": "./microservices/microservice-registry-catalog.md",
+            "description": ""
+          },
+          {
+            "title": "Logs",
+            "entry": "./microservices/microservice-logs.md",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "title": "Writing Microservices",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./writing-microservices/overview.md",
+            "description": "How to write and deploy an iofog microservice"
+          },
+          {
+            "title": "SDK",
+            "entry": "./writing-microservices/sdk.md",
+            "description": "iofog SDKs available to write microservices"
+          },
+          {
+            "title": "Debugging",
+            "entry": "./writing-microservices/debugging.md",
+            "description": "How to debug an iofog microservice"
+          }
+        ]
+      },
+      {
+        "title": "Volumes",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./volumes/volumes.md",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "title": "Tutorial - Your First Microservice",
         "subMenus": [
           {
             "title": "Introduction",
@@ -93,137 +208,147 @@
         ]
       },
       {
-        "title": "iofogctl",
+        "title": "Developing Microservices",
         "subMenus": [
           {
-            "title": "Introduction to iofogctl",
-            "entry": "./iofogctl/usage.md",
-            "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
+            "title": "Overview",
+            "entry": "./developing-microservices/overview.md",
+            "description": ""
           },
           {
-            "title": "Common Header YAML Specification",
-            "entry": "./iofogctl/header.md",
-            "description": "iofogctl YAML structure. Common header, Kubernetes style"
+            "title": "SDK",
+            "entry": "./developing-microservices/sdk.md",
+            "description": ""
           },
           {
-            "title": "Platform YAML Specification",
-            "entry": "./iofogctl/platform-yaml-spec.md",
+            "title": "Debugging",
+            "entry": "./developing-microservices/debugging.md",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "title": "Reference - iofogctl",
+        "subMenus": [
+          {
+            "title": "Overview of Kinds",
+            "entry": "./reference-iofogctl/reference-kinds.md",
+            "description": ""
+          },
+          {
+            "title": "Control Plane YAML Specification",
+            "entry": "./reference-iofogctl/reference-control-plane.md",
             "description": "iofogctl YAML structure and specifications for platform (Controller, Connector and Agent)"
           },
           {
             "title": "Agent configuration YAML Specification",
-            "entry": "./iofogctl/agent-config-yaml-spec.md",
+            "entry": "./reference-iofogctl/reference-agent.md",
             "description": "iofogctl YAML structure and specifications for configuring an ioFog Agent"
           },
           {
             "title": "Application YAML Specification",
-            "entry": "./iofogctl/application-yaml-spec.md",
+            "entry": "./reference-iofogctl/reference-application.md",
             "description": "iofogctl YAML structure and specification for deploy an application"
-          }
-        ]
-      },
-      {
-        "title": "Tools",
-        "subMenus": [
-          {
-            "title": "Platform Tools",
-            "entry": "./tools/platform-tools.md",
-            "description": "How to set up a complete infrastructure supporting iofog using Terraform"
           },
           {
-            "title": "Helm Guide",
-            "entry": "./tools/how-to-helm.md",
-            "description": "How to set up a complete infrastructure running iofog using Helm"
+            "title": "CatalogItem YAML Specification",
+            "entry": "./reference-iofogctl/reference-catalog.md",
+            "description": ""
           }
         ]
       },
       {
-        "title": "Writing Microservices",
+        "title": "Reference - Controller",
         "subMenus": [
           {
             "title": "Overview",
-            "entry": "./writing-microservices/overview.md",
-            "description": "How to write and deploy an iofog microservice"
-          },
-          {
-            "title": "SDK",
-            "entry": "./writing-microservices/sdk.md",
-            "description": "iofog SDKs available to write microservices"
-          },
-          {
-            "title": "Debugging",
-            "entry": "./writing-microservices/debugging.md",
-            "description": "How to debug an iofog microservice"
-          }
-        ]
-      },
-      {
-        "title": "Using Microservices Catalog",
-        "subMenus": [
-          {
-            "title": "Controller microservices overview",
-            "entry": "./microservice-catalog/introduction.md",
-            "description": "What is iofog microservice catalog and how to use it."
-          },
-          {
-            "title": "System: Diagnostics",
-            "entry": "./microservice-catalog/using-system-microservices/diagnostics.md",
-            "description": "Prebuilt iofog system microservice. Diagnostic basic functionalities on your edge device"
-          },
-          {
-            "title": "System: Hardware Abstraction Layer",
-            "entry": "./microservice-catalog/using-system-microservices/hal.md",
-            "description": "Prebuilt iofog system microservice. Hardware interactions on your edge device"
-          },
-          {
-            "title": "System: Bluetooth REST API",
-            "entry": "./microservice-catalog/using-system-microservices/rest-blue.md",
-            "description": "Prebuilt iofog system microservice. Enable/Disable bluetooth on your edge device"
-          },
-          {
-            "title": "JSON REST API And Open Weather Map",
-            "entry": "./microservice-catalog/using-public-catalog-microservices/jsonrestapi.md",
-            "description": "Prebuilt iofog system microservice. Transform into JSON data generated by your edge device"
-          }
-        ]
-      },
-      {
-        "title": "Controllers",
-        "subMenus": [
-          {
-            "title": "Overview",
-            "entry": "./controllers/overview.md",
+            "entry": "./reference-controller/overview.md",
             "description": "What is the ioFog Controller"
           },
           {
             "title": "Legacy CLI Usage",
-            "entry": "./controllers/cli-usage.md",
+            "entry": "./reference-controller/cli-usage.md",
             "description": "How to use iofog-controller CLI"
           },
           {
             "title": "REST API Reference",
-            "entry": "./controllers/rest-api.md",
+            "entry": "./reference-controller/rest-api.md",
             "description": "ioFog Controller REST API"
+          },
+          {
+            "title": "Configuration",
+            "entry": "./reference-controller/configuration.md",
+            "description": ""
+          },
+          {
+            "title": "Debugging",
+            "entry": "./reference-controller/debugging.md",
+            "description": ""
           }
         ]
       },
       {
-        "title": "Agents",
+        "title": "Reference - Agent",
         "subMenus": [
           {
             "title": "Overview",
-            "entry": "./agents/overview.md",
+            "entry": "./reference-agent/overview.md",
             "description": "What is the ioFog Agent"
           },
           {
             "title": "Legacy CLI Usage",
-            "entry": "./agents/cli-usage.md",
+            "entry": "./reference-agent/cli-usage.md",
             "description": "How to use iofog-agent CLI"
           },
           {
             "title": "Local API Reference",
-            "entry": "./agents/local-api.md",
+            "entry": "./reference-agent/rest-api.md",
             "description": "ioFog Agent REST API"
+          },
+          {
+            "title": "Configuration",
+            "entry": "./reference-agent/configuration.md",
+            "description": ""
+          },
+          {
+            "title": "Debugging",
+            "entry": "./reference-agent/debugging.md",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "title": "Reference - Router",
+        "subMenus": [
+          {
+            "title": "Overview",
+            "entry": "./reference-router/overview.md",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "title": "Reference - Catalog Microservices",
+        "subMenus": [
+          {
+            "title": "System: Diagnostics",
+            "entry": "./reference-microserivces-catalog/diagnostics.md",
+            "description": "Prebuilt iofog system microservice. Diagnostic basic functionalities on your edge device"
+          },
+          {
+            "title": "System: Hardware Abstraction Layer",
+            "entry": "./reference-microserivces-catalog/hal.md",
+            "description": "Prebuilt iofog system microservice. Hardware interactions on your edge device"
+          },
+          {
+            "title": "System: Bluetooth REST API",
+            "entry": "./reference-microserivces-catalog/rest-blue.md",
+            "description": "Prebuilt iofog system microservice. Enable/Disable bluetooth on your edge device"
+          },
+          {
+            "title": "JSON REST API And Open Weather Map",
+            "entry": "./reference-microserivces-catalog/jsonrestapi.md",
+            "description": "Prebuilt iofog system microservice. Transform into JSON data generated by your edge device"
           }
         ]
       },

@@ -268,7 +268,7 @@ Have a look at new output of the [Freeboard dashboard](http://localhost:10102/?l
 
 The magic about microservices and ioFog is that none of those microservice is specifically designed or requires to work with the other microservice. Using ioFog, you can create smart and secure communication channels between independant microservices and easily manage a fleet of Edge devices and microservices.
 
-Congratulations! You've now have the fundamentals of ioFog. Next, try developing Microservices on an ECN deployed on remote hosts. See this [guide](../remote-deployment/introduction.html) for deploying remotely.
+Congratulations! You've now have the fundamentals of ioFog. Next, try developing Microservices on an ECN deployed on remote hosts. See this [guide](content/docs/2.0.0/platform-deployment/introduction.html) for deploying remotely.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
