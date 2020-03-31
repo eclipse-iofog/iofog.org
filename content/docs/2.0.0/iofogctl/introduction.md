@@ -94,107 +94,6 @@ iofogctl delete namespace zoo-1
 
 Next, we will use the default namespace while exploring `iofogctl` functionality.
 
-## Deploying New Edge Compute Networks
-
-`iofogctl` allows you to deploy an entire ECN from a single command and YAML file.
-
-```bash
-iofogctl deploy -f ecn.yaml
-```
-
-`iofogctl` also allows you to deploy indvidiual components of an ECN using the same command but different YAML files.
-
-```bash
-iofogctl deploy -f controlplane.yaml
-iofogctl deploy -f controller.yaml
-iofogctl deploy -f agent.yaml
-iofogctl deploy -f agentConfig.yaml
-iofogctl deploy -f application.yaml
-```
-
-`iofogctl` deploy commands are designed to be idempotent. Feel free to spam these commands as much as you like - the end result will always be the same. If anything goes wrong with your deployment, run the relevant deploy commands again and you should be good to go.
-
-Specifications of the ioFog platform YAML types can be found [here](../iofogctl/platform-yaml-spec.html).
-Specifications of the ioFog application YAML types can be found [here](../iofogctl/application-yaml-spec.html)
-
-## Connect to an Existing Edge Compute Network
-
-Instead of deploying our own ECN, we can connect to an existing one.
-
-Note that we must always specify an empty or non-existent namespace when we use the connect command. This is because each cluster should be in its own namespace. Don't forget that not specifying the namespace means iofogctl will use the `default` namespace.
-
-```bash
-echo "---
-apiVersion: iofog.org/v2
-kind: RemoteControlPlane
-metadata:
-  name: albatros
-spec:
-  iofogUser:
-    email: user@domain.com
-    password: h9g84q
-  controllers:
-  - name: alpaca-1
-    host: 30.40.50.1" > /tmp/remote-controlplane.yaml
-```
-
-After editing the email, password, and host fields, we can go ahead and connect.
-
-```bash
-iofogctl connect -f /tmp/remote-controlplane.yaml
-```
-
-Or for Kubernetes Control Planes, we can use Kube Config to connect. Keep in mind that the `iofogctl --namespace` flag must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` will be unable to find the deployment.
-
-```bash
-echo "---
-apiVersion: iofog.org/v2
-kind: KubernetesControlPlane
-metadata:
-  name: albatros
-spec:
-  iofogUser:
-    email: user@domain.com
-    password: h9g84q
-  config: ~/.kube/config" > /tmp/k8s-controlplane.yaml
-```
-
-After editing the email, password, and kube config fields, we can go ahead and connect.
-
-```bash
-iofogctl connect -f /tmp/k8s-controlplane.yaml
-```
-
-We can use the above approach to connect to a large ECN with many agents described in a single YAML file. The benefit of this is that we can provide SSH details to Controllers, and Agents deployed on remote hosts while we connect.
-
-We can also connect to an ECN without providing a YAML file (and without configuring SSH details automatically).
-
-For Vanilla Controllers we can run the following command and connect via the Controller endpoint.
-
-```bash
-iofogctl connect --ecn-addr 40.50.60.70 --name albatros --email user@domain.com --pass h9g84q
-```
-
-For Kubernetes Controllers we can run the same command but provide the Kubernetes config file instead of a Controller endpoint.
-
-```bash
-iofogctl connect --kube ~/.kube/config --name albatros --email user@domain.com --pass h9g84q
-```
-
-After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once. We can also configure which namespace is used as a default namespace.
-
-```bash
-iofogctl configure controller NAME --host HOST --user USER --key KEYFILE --port PORTNUM
-iofogctl configure controller NAME --kube KUBECONFIG
-iofogctl configure agent NAME --user USER --key KEYFILE --port PORTNUM
-
-iofogctl configure default-namespace NAMESPACE
-
-iofogctl configure all --user USER --key KEYFILE --port PORTNUM
-iofogctl configure controllers --host HOST NAME --user USER --key KEYFILE --port PORTNUM
-iofogctl configure agents --user USER --key KEYFILE --port PORTNUM
-```
-
 ## View Edge Compute Network Details
 
 Once we are connected to a live ECN, we can go ahead and do some introspection.
@@ -217,39 +116,6 @@ iofogctl describe controller alpaca-1
 iofogctl describe agent kiwi-1
 iofogctl describe application health-care-app
 iofogctl describe microservice health-care-ui
-```
-
-## Disconnect From Edge Compute Network
-
-When we are finished working with the cluster, we can disconnect from it and release the corresponding namespace from `iofogctl`.
-
-```bash
-iofogctl disconnect
-```
-
-## Delete Components of Edge Compute Networks
-
-We can delete resources that we have deployed to free up any associated infrastructure. Deleting resources like Control Planes, Controllers and Agents will cause any corresponding daemons to be terminated on the remote hosts.
-
-```bash
-iofogctl delete controller alpaca-1
-iofogctl delete agent kiwi-1
-iofogctl delete application health-care-app
-iofogctl delete microservice health-case-ui
-```
-
-To undo a deletion, we can simply re-run the corresponding deploy command for the deleted resource.
-
-If we want to wipe an entire ECN, we can run:
-
-```bash
-iofogctl delete all
-```
-
-or, if we also want to delete the namespace, we can run:
-
-```bash
-iofogctl delete namespace zoo-1 --force
 ```
 
 ## Check the log output of components
@@ -308,31 +174,9 @@ If we have an Agent ready and running on a remote host, we can also attach it di
 iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
 ```
 
-## Using Legacy Commands
-
-To use legacy commands from iofogctl, preface any legacy command you want with:
-
-```bash
-iofogctl legacy <component> <component-name> command -n <namespace of component>
-```
-
-e.g.
-
-```bash
-iofogctl legacy agent iofog-agent config -n default
-```
-
-where I want to get the output of the config command from my agent, named iofog-agent
-
-To determine what legacy commands you wish to use, please see the legacy cli documentation for each component at the following links:
-
-[Agent](content/docs/2.0.0/reference-agent/cli-usage.html)
-
-[Controller](content/docs/2.0.0/reference-controller/cli-usage.html)
-
 <aside class="notifications note">
   <b>See anything wrong with the document? Help us improve it!</b>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/iofogctl/usage.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/iofogctl/introduction.md"
     target="_blank">
     <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
   </a>
