@@ -108,6 +108,36 @@
         ]
       },
       {
+        "title": "Agent Management",
+        "subMenus": [
+          {
+            "title": "Agent Configuration",
+            "entry": "./agent-management/agent-configuration.md",
+            "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
+          },
+          {
+            "title": "Attach / Detach Agent",
+            "entry": "./agent-management/attach-detach.md",
+            "description": ""
+          },
+          {
+            "title": "Docker Image Pruning",
+            "entry": "./agent-management/docker-image-pruning.md",
+            "description": ""
+          },
+          {
+            "title": "Prepare Agent Host",
+            "entry": "./agent-management/prepare-agent-host.md",
+            "description": ""
+          },
+          {
+            "title": "Setup Your Agents",
+            "entry": "./agent-management/setup-your-agents.md",
+            "description": ""
+          }
+        ]
+      },
+      {
         "title": "Microservice Management",
         "subMenus": [
           {
