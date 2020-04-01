@@ -5,25 +5,9 @@
 
 # ioFog Architecture
 
-The ioFog architecture consists of several basic building blocks. We are going to introduce all of these one by one and show what capabilities they bring into the system, and how they are commonly deployed.
+The ioFog architecture consists of several basic building blocks. We are going to introduce all of these one by one and show what capabilities they bring into the system, and how they are commonly deployed. Instances of these ioFog components form a logical component called Edge Compute Network (ECN). We will gradually build up the definition of ioFog ECN from a bare bone ECN to a more robust, even heterogeneous ECN.
 
-If you are interested in deeper dive into any of these components, and figuring out how to use them, here is the overview, with links to documentation and their repositories.
-
-- Controller - [reference docs](/docs/2.0.0/iofog-engine-controller/overview.html), [github repo](https://github.com/eclipse-iofog/Controller)
-- Agent - [refernce docs](/docs/2.0.0/iofog-engine-controller/overview.html), [github repo](https://github.com/eclipse-iofog/Agent)
-- Router - [refernce docs](/docs/2.0.0/iofog-engine-router/overview.html), [github repo](https://github.com/eclipse-iofog/router)
-- Proxy - [github repo](https://github.com/eclipse-iofog/skupper-proxy)
-- Microservices - [github repo with examples](https://github.com/eclipse-iofog/example-microservices)
-- Applications
-- Operator - [github repo](https://github.com/eclipse-iofog/iofog-operator)
-- Kubelet - [github repo](https://github.com/eclipse-iofog/iofog-kubelet)
-- Port Manager - [github repo](https://github.com/eclipse-iofog/port-manager)
-- iofogctl - [reference docs](/docs/2.0.0/iofogctl/introduction.html), [github repo](https://github.com/eclipse-iofog/iofogctl)
-- Helm - [github repo](https://github.com/eclipse-iofog/helm)
-- ioFog Go SDK - [github repo](https://github.com/eclipse-iofog/iofog-go-sdk)
-- Demo Project - [github repo](https://github.com/eclipse-iofog/demo)
-
-Instances of these ioFog components form a logical component called Edge Compute Network (ECN). We will gradually build up the definition of ioFog ECN from a bare bone ECN to a more robust, even heterogeneous ECN.
+If you are interested in deeper dive into any of these components, and figuring out how to use them, there are links to documentation and their repositories in all the relevant sections.
 
 ## Controller
 
