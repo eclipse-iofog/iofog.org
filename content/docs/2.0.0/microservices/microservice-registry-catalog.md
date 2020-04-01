@@ -139,10 +139,10 @@ $ iofogctl get catalog | grep my-multiplatform-microservice
 
 We used grep to filter the ouput, but the columns are the same as above. You can now use the `spec.images.catalogId` field on `Microservice` kind set to 17 in order to deploy you microservice.
 
-<aside class="notifications note">
-  <b>See anything wrong with the document? Help us improve it!</b>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/microservice-catalog/introduction.md"
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/microservices/microservice-registry-catalog.md"
     target="_blank">
-    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+    <p>Edit this page on Github!</p>
   </a>
 </aside>

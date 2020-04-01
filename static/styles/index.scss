@@ -292,6 +292,11 @@ aside.notifications {
     background-color: #fef6e9;
   }
 
+  &.contribute {
+    border-left: 6px solid #24292e;
+    background-color: #f0efef;
+  }
+
   ul:last-child {
     margin-bottom: 0;
   }

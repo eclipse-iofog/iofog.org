@@ -233,10 +233,10 @@ Now that you have seen what ioFog is about, you can create a real ECN with remot
 
 You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).
 
-<aside class="notifications note">
-  <b>See anything wrong with the document? Help us improve it!</b>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/getting-started/quick-start.md"
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/getting-started/quick-start-local.md"
     target="_blank">
-    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+    <p>Edit this page on Github!</p>
   </a>
 </aside>

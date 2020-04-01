@@ -31,10 +31,10 @@ spec:
 
 Note that the `configExample` field is a yaml map specifying the key value pairs, but it is internally stored a stringified JSON object of these values, similarly to how configuration is sent to microservices.
 
-<aside class="notifications note">
-  <b>See anything wrong with the document? Help us improve it!</b>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/iofogctl/catalog-item-yaml-spec.md"
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/reference-iofogctl/reference-catalog.md"
     target="_blank">
-    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+    <p>Edit this page on Github!</p>
   </a>
 </aside>

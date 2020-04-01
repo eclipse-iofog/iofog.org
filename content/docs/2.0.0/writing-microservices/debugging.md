@@ -8,10 +8,10 @@ If your language and IDE have support for live debugging, you'll need to make su
 
 The Docker folks have several wonderful tutorials on debugging, e.g. [a Node.js app](https://blog.docker.com/2016/07/live-debugging-docker/) or [a Java app](https://blog.docker.com/2016/09/java-development-using-docker/) in Docker.
 
-<aside class="notifications note">
-  <b>See anything wrong with the document? Help us improve it!</b>
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
   <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/writing-microservices/debugging.md"
     target="_blank">
-    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+    <p>Edit this page on Github!</p>
   </a>
 </aside>

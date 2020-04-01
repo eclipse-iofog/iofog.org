@@ -24,10 +24,10 @@ To determine what legacy commands you wish to use, please see the legacy cli doc
 
 [Controller](content/docs/2.0.0/reference-controller/cli-usage.html)
 
-<aside class="notifications note">
-  <b>See anything wrong with the document? Help us improve it!</b>
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
   <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/iofogctl/legacy.md"
     target="_blank">
-    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+    <p>Edit this page on Github!</p>
   </a>
 </aside>

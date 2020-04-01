@@ -35,10 +35,10 @@ We can achieve this by editing the sudoers file by first running `su visudo` on 
 
 [Continue To Next Step: Prepare your Kubernetes Cluster](prepare-your-kubernetes-cluster.html).
 
-<aside class="notifications note">
-  <b>See anything wrong with the document? Help us improve it!</b>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/remote-deployment/prepare-your-remote-hosts.md"
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/platform-deployment/remote-prepare-controller-host.md"
     target="_blank">
-    <p style="text-align:left">Edit on Github <img src="/images/icos/ico-github.svg" alt=""></p>
+    <p>Edit this page on Github!</p>
   </a>
 </aside>

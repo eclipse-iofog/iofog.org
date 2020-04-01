@@ -211,3 +211,11 @@ Using the `AgentConfig` kind, it is possible to define your own network topology
 When the network topology is customised, it allows for direct communication between Agents on the same network, without going back to the cloud.
 
 If you want to know more about this, please contact us on Slack and a member of our team will take the time of helping you through setting up your own network topology.
+
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/getting-started/whats-new.md"
+    target="_blank">
+    <p>Edit this page on Github!</p>
+  </a>
+</aside>
