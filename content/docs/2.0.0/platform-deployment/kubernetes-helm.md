@@ -72,7 +72,7 @@ The following is a complete list of all user configurable properties for the ioF
 Once the installation is complete, you will be able to connect to the ioFog Controller on K8s using [iofogctl](../iofogctl/usage.html).
 
 ```bash
-iofogctl connect --kube ~/.kube/config --name k8s-ctrl --email user@domain.com --pass any123password345 -n default
+iofogctl connect --kube ~/.kube/config --email user@domain.com --pass any123password345 -n default
 ```
 
 Once you are connected, you can use `iofogctl` to deploy edge Agents. Then, you can use `kubectl` or `iofogctl` to deploy microservices to your edge Agents. See [Setup Your Agents](content/docs/2.0.0/platform-deployment/setup-your-agents.html) and [Introduction to iofogctl](../iofogctl/usage.html) for more details.

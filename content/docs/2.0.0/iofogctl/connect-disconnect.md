@@ -2,8 +2,6 @@
 
 Instead of deploying our own ECN, we can connect to an existing one.
 
-## Connect to an Existing Edge Compute Network
-
 Note that we must always specify an empty or non-existent namespace when we use the connect command. This is because each cluster should be in its own namespace. Don't forget that not specifying the namespace means iofogctl will use the `default` namespace.
 
 ```bash
@@ -27,7 +25,7 @@ After editing the email, password, and host fields, we can go ahead and connect.
 iofogctl connect -f /tmp/remote-controlplane.yaml
 ```
 
-Or for Kubernetes Control Planes, we can use Kube Config to connect. Keep in mind that the `iofogctl --namespace` flag must match the Kubernetes namespace where the Controller is deployed, otherwise `iofogctl` will be unable to find the deployment.
+Or for Kubernetes Control Planes, we can use Kube Config to connect. Keep in mind that the `iofogctl --namespace` flag must match the Kubernetes namespace where the Control Plane is deployed, otherwise `iofogctl` will be unable to find the deployment.
 
 ```bash
 echo "---
@@ -48,33 +46,30 @@ After editing the email, password, and kube config fields, we can go ahead and c
 iofogctl connect -f /tmp/k8s-controlplane.yaml
 ```
 
-We can use the above approach to connect to a large ECN with many agents described in a single YAML file. The benefit of this is that we can provide SSH details to Controllers, and Agents deployed on remote hosts while we connect.
-
 We can also connect to an ECN without providing a YAML file (and without configuring SSH details automatically).
 
-For Vanilla Controllers we can run the following command and connect via the Controller endpoint.
+For Remote Control Planes (i.e. not on Kubernetes) we can run the following command and connect via the Controller endpoint.
 
 ```bash
 iofogctl connect --ecn-addr 40.50.60.70 --name albatros --email user@domain.com --pass h9g84q
 ```
 
-For Kubernetes Controllers we can run the same command but provide the Kubernetes config file instead of a Controller endpoint.
+For Kubernetes Control Planes we can run the same command but provide the Kubernetes config file instead of a Controller endpoint.
 
 ```bash
-iofogctl connect --kube ~/.kube/config --name albatros --email user@domain.com --pass h9g84q
+iofogctl connect --kube ~/.kube/config --email user@domain.com --pass h9g84q
 ```
 
 After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once. We can also configure which namespace is used as a default namespace.
 
 ```bash
-iofogctl configure controller NAME --host HOST --user USER --key KEYFILE --port PORTNUM
-iofogctl configure controller NAME --kube KUBECONFIG
+iofogctl configure controlplane --kube KUBECONFIG
+iofogctl configure controller NAME --user USER --key KEYFILE --port PORTNUM
 iofogctl configure agent NAME --user USER --key KEYFILE --port PORTNUM
 
 iofogctl configure default-namespace NAMESPACE
 
-iofogctl configure all --user USER --key KEYFILE --port PORTNUM
-iofogctl configure controllers --host HOST NAME --user USER --key KEYFILE --port PORTNUM
+iofogctl configure controllers --user USER --key KEYFILE --port PORTNUM
 iofogctl configure agents --user USER --key KEYFILE --port PORTNUM
 ```
 
