@@ -36,13 +36,18 @@
         "title": "iofogctl",
         "subMenus": [
           {
-            "title": "Introduction to iofogctl",
+            "title": "Introduction",
             "entry": "./iofogctl/introduction.md",
             "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
           },
           {
-            "title": "Download iofogctl",
+            "title": "Installation",
             "entry": "./iofogctl/download.md",
+            "description": ""
+          },
+          {
+            "title": "Getting Familiar",
+            "entry": "./iofogctl/getting-familiar.md",
             "description": ""
           },
           {
