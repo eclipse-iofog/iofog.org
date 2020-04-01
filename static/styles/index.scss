@@ -296,3 +296,15 @@ aside.notifications {
     margin-bottom: 0;
   }
 }
+
+figure {
+  margin: 3rem 0 3rem 2rem;
+}
+
+figure > img {
+  margin: 0 0 1rem 0;
+}
+
+figure > figcaption {
+  font-style: italic;
+}

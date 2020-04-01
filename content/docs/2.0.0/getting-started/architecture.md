@@ -55,7 +55,10 @@ The last absolutely essential components in edge computing are microservices. Th
 
 We are now able to have a very basic version of ioFog ECN. All we need is to deploy a Controller and an Agent, where the Agent must be able to access the Controller.
 
-<p><img src="/images/docs/iofog-architecture-ecn.png" alt=""></p>
+<figure>
+  <img src="/images/docs/iofog-architecture-ecn.png" alt="">
+  <figcaption>Simple Edge Compute Network (ECN) deployed with one Controller and Agent.</figcaption>
+</figure>
 
 In this simple ECN, we have one self hosted ioFog Controller, and one ioFog Agent deployed on an edge device. The Agent is running two microservices. These microservices are exported to their end users using the Agent, and therefore in this scenario, the Agent has to be accessible to the end users.
 
@@ -90,8 +93,11 @@ When exposing a microservice, one Proxy will be created on the router, where the
 
 Having introduced the Router and Proxy, we can now extend our ECN from the previous example with microservice communication and microservice public port exposure.
 
-<p><img src="/images/docs/iofog-architecture-ecn-router.png" alt=""></p>
-   
+<figure>
+  <img src="/images/docs/iofog-architecture-ecn-router.png" alt="">
+  <figcaption>Edge Compute Network showing default Router layout and communication pattern between microservices deployed on two different Agents.</figcaption>
+</figure>
+
 In this example, we have two Agents, each running one microservice. Each Agent, by default, has its own Edge Router, which is connected to the Interior Router co-hosted with the Controller.
 
 All communication between routers is using AMQP protocol, and where necessary, gets translated to HTTP using the Proxy microservices co-located with their respective routers.
@@ -135,7 +141,10 @@ The last example we are going to show is ioFog ECN deployed on Kubernetes. In fa
 
 Note that there is currently no way in ioFog to schedule microservices on the Kubernetes cluster itself, i.e. the cluster nodes acting as ioFog agents.
 
-<p><img src="/images/docs/iofog-architecture-k8s.png" alt=""></p>
+<figure>
+  <img src="/images/docs/iofog-architecture-k8s.png" alt="">
+  <figcaption>Edge Compute Network with the control plane deployed exclusively on Kubernetes.</figcaption>
+</figure>
 
 And that should be it for the basic ioFog architecture. There are of course more ways ioFog can be deployed in production environments, however these are power user features and the available options are documented in the rest of the documentation.
 
@@ -145,7 +154,10 @@ So far we have assumed that control over ioFog is only handled using Controller'
 
 Iofogctl works by interacting directly with Controller using REST API, with Agents over SSH, or with Kubernetes clusters using `kubeconfig` access configuration, similarly to how `kubectl` handles connections to Kubernetes clusters.
 
-<p><img src="/images/docs/iofog-architecture-iofogctl.png" alt=""></p>
+<figure>
+  <img src="/images/docs/iofog-architecture-iofogctl.png" alt="">
+  <figcaption>Iofogctl interacts with hosts via SSH or with Kubernetes to install ioFog components, and then directly with Controller to manage ECNs.</figcaption>
+</figure>
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about iofogctl?</h3>
