@@ -71,8 +71,13 @@
             "description": "Introduction to remote deployment of iofog using iofogctl"
           },
           {
-            "title": "Remote - Prepare Controller Host",
-            "entry": "./platform-deployment/remote-prepare-controller-host.md",
+            "title": "Prepare Your Network",
+            "entry": "./platform-deployment/prepare-your-network.md",
+            "description": "Set up ingress and outgress rules for iofog and iofogctl"
+          },
+          {
+            "title": "Prepare Your Remote Hosts",
+            "entry": "./platform-deployment/prepare-your-remote-hosts.md",
             "description": "Set up remote hosts to be accessible by iofogctl in order to deploy iofog Controller"
           },
           {
@@ -81,19 +86,9 @@
             "description": "Deploy ioFog Controller"
           },
           {
-            "title": "Kubernetes - Overview",
-            "entry": "./platform-deployment/kubernetes-overview.md",
-            "description": ""
-          },
-          {
             "title": "Kubernetes - Prepare Your Cluster",
             "entry": "./platform-deployment/kubernetes-prepare-cluster.md",
             "description": "Set up Kubernetes cluster to be accessible by iofogctl in order to deploy iofog components"
-          },
-          {
-            "title": "Kubernetes - Prepare Your Network",
-            "entry": "./platform-deployment/kubernetes-prepare-network.md",
-            "description": "Set up ingress and outgress rules for iofog and iofogctl"
           },
           {
             "title": "Kubernetes - Deploy Control Plane Using iofogctl",
@@ -104,6 +99,11 @@
             "title": "Kubernetes - Deploy Control Plane Using Helm",
             "entry": "./platform-deployment/kubernetes-helm.md",
             "description": "How to deploy a control plane (ioFog Controller) using Helm"
+          },
+          {
+            "title": "Setup Your Agents",
+            "entry": "./platform-deployment/setup-your-agents.md",
+            "description": ""
           }
         ]
       },
@@ -128,11 +128,6 @@
           {
             "title": "Prepare Agent Host",
             "entry": "./agent-management/prepare-agent-host.md",
-            "description": ""
-          },
-          {
-            "title": "Setup Your Agents",
-            "entry": "./agent-management/setup-your-agents.md",
             "description": ""
           }
         ]

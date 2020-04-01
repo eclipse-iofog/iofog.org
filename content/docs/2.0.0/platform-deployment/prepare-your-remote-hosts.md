@@ -33,7 +33,13 @@ In order to prevent interruptions during `iofogctl` SSH sessions, we need to ens
 
 We can achieve this by editing the sudoers file by first running `su visudo` on the remote host. This will open up the sudoers file for editing. Make sure this line is present in the file `%sudo ALL=(ALL) NOPASSWD:ALL`.
 
-[Continue To Next Step: Prepare your Kubernetes Cluster](prepare-your-kubernetes-cluster.html).
+#### Continue with Remote Control Plane
+
+[Next Step: Deploy Remote Control Plane](remote-control-plane.html).
+
+#### Continue with Kubernetes Control Plane
+
+[Next Step: Prepare your Kubernetes Cluster](kubernetes-prepare-cluster.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

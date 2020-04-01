@@ -62,7 +62,7 @@ iofogctl connect --kube ~/.kube/config --email user@domain.com --pass h9g84q
 
 After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once. We can also configure which namespace is used as a default namespace.
 
-```bash
+```plain
 iofogctl configure controlplane --kube KUBECONFIG
 iofogctl configure controller NAME --user USER --key KEYFILE --port PORTNUM
 iofogctl configure agent NAME --user USER --key KEYFILE --port PORTNUM

@@ -9,7 +9,7 @@ The following is an exhaustive list of the ingress firewall rules required for a
 | Controller | tcp:51121, 80 | Controller API and ECN Viewer.                          |
 | iofogctl   | tcp:22        | SSH access to install ioFog components on remote hosts. |
 
-[Continue To Next Step: Setup your Control Plane](setup-your-controlplane.html).
+[Continue To Next Step: Prepare Your Remote Hosts](prepare-your-remote-hosts.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
