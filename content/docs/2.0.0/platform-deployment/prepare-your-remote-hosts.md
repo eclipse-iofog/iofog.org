@@ -4,11 +4,6 @@ An ioFog Edge Compute Network ('ECN') is composed of a set of ioFog Controllers 
 
 ECN's are deployed using `iofogctl`. The following steps will ensure that your remote hosts are ready to have `iofogctl` deploy ECN components onto them remotely.
 
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt="">Need help creating some VMs to work with?</h3>
-  <p>In this guide we assume your remote hosts already exist. If you need help setting up some VMs, try out our <a href=../tools/platform-tools.html>Platform Tools</a>.</p>
-</aside>
-
 ## Add your SSH RSA Public Key to the Remote Host
 
 `iofogctl` will SSH into your remote hosts using an RSA SSH key-pair you specify.

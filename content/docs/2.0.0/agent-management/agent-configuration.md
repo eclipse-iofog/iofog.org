@@ -1,10 +1,6 @@
-# Iofogctl agent configuration YAML specification
+# Agent Configuration
 
-`iofogctl` allows users to deploy ioFog resources that are specified in YAML files.
-
-## Agent configuration
-
-Agent configuration YAML files let you configure an ioFog Agent provisioned with your Controller.
+`iofogctl` provides an `AgentConfig` resource for the management of Agent configuration.
 
 An agent configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`
 

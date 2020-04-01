@@ -1,6 +1,6 @@
 # Prune Docker on an Agent
 
-Your agent is running out of diskspace ? You can now manually run a pruning of the docker images on your Agent by using iofogctl:
+Agent disk space is a previous resource. We can reclaim disk space by pruning Docker images from our Agents:
 
 ```bash
 $> iofogctl prune agent NAME

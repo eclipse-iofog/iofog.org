@@ -116,6 +116,11 @@
         "title": "Agent Management",
         "subMenus": [
           {
+            "title": "Introduction",
+            "entry": "./agent-management/introduction.md",
+            "description": ""
+          },
+          {
             "title": "Agent Configuration",
             "entry": "./agent-management/agent-configuration.md",
             "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
@@ -128,11 +133,6 @@
           {
             "title": "Docker Image Pruning",
             "entry": "./agent-management/docker-image-pruning.md",
-            "description": ""
-          },
-          {
-            "title": "Prepare Agent Host",
-            "entry": "./agent-management/prepare-agent-host.md",
             "description": ""
           }
         ]
