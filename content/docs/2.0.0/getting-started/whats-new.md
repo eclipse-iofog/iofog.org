@@ -12,15 +12,15 @@
 
 Following is a list of API breakages and other important changes to user interaction, mostly on the `iofogctl` usage.
 
-## Small change to the microservice yaml structure
+## Small changes to the Microservice YAML structure
 
-We realised that the specification for microservices were a bit confusing, so we have added a new `container` key in the spec. The container key contains all configuration related to the actual Docker container running on the Agent.
+We realised that the specification for microservices was a bit confusing, so we have added a new `container` key in the spec. The container key contains all configuration related to the actual Docker container running on the Agent.
 
 Before:
 
 ```yaml
 apiVersion: iofog.org/v1
-kind: Microservice # Or application, as application uses the same spec for its microservices
+kind: Microservice
 metadata:
   name: my-msvc
 spec:
@@ -49,16 +49,16 @@ After:
 
 ```yaml
 apiVersion: iofog.org/v1
-kind: Microservice # Or application, as application uses the same spec for its microservices
+kind: Microservice
 metadata:
   name: my-msvc
 spec:
   agent:
-    name: agent-name
+    name: alpaca-1
     config: {}
   images:
     x86: hello-world
-  container:
+  container: # This is the new key
     env:
       - key: MY_ENV
         value: 42
@@ -77,55 +77,53 @@ spec:
 
 This should make clearer what relates to the ioFog microservice, and what relates to the configuration of the actual container running on the Agent.
 
-## Configure default namespace
+## Configure Default Namespace
 
-You don't need to add `-n <namespace>` after each command if you want to use namespaces.
 You can now configure which namespace is used as the default one by running:
 
 ```bash
-$> iofogctl configure default-namespace NAMESPACE
+iofogctl configure default-namespace NAMESPACE
 ```
+
+This allows you to use any namespace when omitting the `--namespace` flag from iofogctl commands.
 
 ## Prune Docker on an Agent
 
-Your agent is running out of diskspace ? You can now manually run a pruning of the docker images on your Agent by using iofogctl:
+Agent disk space is a precious resource. We can reclaim disk space by pruning Docker images from our Agents:
 
 ```bash
-$> iofogctl prune agent NAME
+iofogctl prune agent NAME
 ```
 
 **Soon to come:**
-You can also configure a automated pruning frequency using the `AgentConfig` kind
+You can also configure an automated pruning frequency using the `AgentConfig` kind
 
 ```yaml
 apiVersion: iofog.org/v1
 kind: AgentConfig
 metadata:
-  name: <agent_name>
+  name: alpaca-1
 spec:
   pruningFrequency: 300 # Prune every 300 seconds
 ```
 
 ## Move a microservice to another Agent
 
-Up until now, if you needed to move a microservice to another agent, you had to update its deployment yaml file, and redeploy the microservice.
+Up until now, if you needed to move a microservice to another agent, you had to update its deployment YAML file, and redeploy the microservice.
 
-Now, you can simple use:
+Now, you can simply use:
 
 ```bash
-$> iofogctl move microservice NAME AGENT_NAME
+iofogctl move microservice NAME AGENT_NAME
 ```
 
 ## Detach / Attach an Agent
 
-Ever wondered how to transfer an Agent from one ECN to another ? It's very simple:
+Ever wondered how to transfer an Agent from one ECN to another? It's very simple:
 
 ```bash
-$> iofogctl detach agent NAME
-## ...
-## Switch to another ECN / namespace
-## ...
-$> iofogctl attach agent NAME
+iofogctl detach agent NAME -n NAMESPACE_A
+iofogctl attach agent NAME -n NAMESPACE_B
 ```
 
 Keep in mind that detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
@@ -133,12 +131,12 @@ Keep in mind that detaching an agent will delete its connection with the Control
 If you have an Agent ready and running on a remote host, you can also attach it directly using host and ssh credentials:
 
 ```bash
-$> iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
+iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
 ```
 
-## New Volume deployment kind
+## New Volume Kind
 
-Does your microservice requires some secret files, or initialisation data ?
+Does your microservice require some secret files, or initialisation data?
 
 You have always been able to use volume mappings to mount agent folders into your microservice container. However, until now there was no way to send those files/folders to your Agent using iofgoctl.
 
@@ -158,19 +156,17 @@ spec:
 
 This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and will copy the contents of `/tmp/` of the computer running iofogctl into it.
 
-This is still very much a work in progress, a first naive implementation, and all feedback is appreciated.
+## Microservice Public Ports
 
-## Microservice public ports
-
-Your Agent is behind a firewall, in a private network, not accessible from another Agent, etc. but you need to be able to access a specific port exposed by a microservice ? Let us introduce "Public ports" !
+Public Ports allow your microservices to securely expose public endpoints without opening ports on your Agents.
 
 When deploying applications and microservices, you can now specify extra fields (`public`, `host` and `protocol`) when configuring the port mappings of your container.
 
 If `public` is specified, this will open a tunnel that will forward all traffic incoming onto the port exposed by the container.
 
-`host` allows you to specify the Agent that will open the public port, the default value being that the public port is opened alongside your Controller (Same host for a Vanilla Controller, as a separate Load Balancer for a K8s deployment)
+`host` allows you to specify the Agent that will open the public port, the default value being that the public port is opened alongside your Controller (same host for a Vanilla Controller, as a separate Load Balancer for a K8s deployment).
 
-`protocol` let you decide between `http` and `tcp`. It tells the public port which type of traffic to forward. the default value is `http`.
+`protocol` lets you decide between `http` and `tcp`. It tells the public port which type of traffic to forward. the default value is `http`.
 
 ```yaml
 ...
@@ -192,23 +188,22 @@ Deploying such a configuration would result in port 5001 being opened on the Con
 The public address can be retrieved using:
 
 ```bash
-$> iofogctl describe microservice NAME
+iofogctl describe microservice NAME
 ```
 
-The outputted yaml will contain a `publicLink` key, with the value set to the URL of the public port.
+The outputted YAML will contain a `publicLink` key, with the value set to the URL of the public port.
 
-## Connector is dead, long live Skupper routers!
+## Connector has been Replaced with AMQP Routers
 
-This would probably require an entire document to explain everything, but here is the gist of it !
-We have removed Connector from ioFog, you can now remove all `Connector` kind schema from your deployments files.
+We have removed Connector from ioFog altogether.
 
-The communication between Agents, the transmission of ioMessages and the public port tunneling is done using Skupper AMQP Dispatch routers.
+The communication between Agents, the transmission of ioMessages, and the public port tunneling is done using AMQP routers.
 
-By default, when deploying a Controller, an interior dispatch router gets deployed next to it. If not specified otherwise at deploy time, each Agent will run an edge dispatch router, connected to the main interior router.
+By default, when deploying a Controller, an interior router gets deployed next to it. If not specified otherwise at deploy time, each Agent will run an edge router, connected to the main interior router.
 
 Using the `AgentConfig` kind, it is possible to define your own network topology, and run an interior router on an Agent, or have an Agent that does not run any router but connects to the edge router of another accessible Agent on its network.
 
-When the network topology is customised, it allows for direct communication between Agents on the same network, without going back to the cloud.
+When the network topology is customised, it allows for direct communication between Agents on the same network, without going back upstream to the default interior router.
 
 If you want to know more about this, please contact us on Slack and a member of our team will take the time of helping you through setting up your own network topology.
 
