@@ -131,6 +131,11 @@
             "description": ""
           },
           {
+            "title": "Volumes",
+            "entry": "./agent-management/volumes.md",
+            "description": ""
+          },
+          {
             "title": "Docker Image Pruning",
             "entry": "./agent-management/docker-image-pruning.md",
             "description": ""

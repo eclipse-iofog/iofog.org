@@ -1,11 +1,11 @@
 # What's New in ioFog 2.0?
 
 - [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager), see [Architecture Concepts](/docs/2.0.0/getting-started/architecture.html) article for details
-- Improved [registry and catalog items management](/docs/2.0.0/microservice-catalog/introduction.html) in ioFog Controller
-- [Exposing public ports](/docs/2.0.0/microservice-management/exposing-microservices.html) for deployed microservices
+- Improved [registry and catalog items management](/docs/2.0.0/microservices/microservice-registry-catalog.html) in ioFog Controller
+- [Exposing public ports](/docs/2.0.0/microservices/microservice-exposing.html) for deployed microservices
 - [Docker image pruning](/docs/2.0.0/agent-management/docker-image-pruning.html) feature for ioFog Agent
-- [Attach and detach](/docs/2.0.0/microserivce-management/attach-detach.html) ioFog Agents between ECNs
-- [Volume management](/docs/2.0.0/volume-management/overview.html) for mounting volume on ioFog Agent in a microservice
+- [Attach and detach](/docs/2.0.0/agent-management/attach-detach.html) ioFog Agents between ECNs
+- [Volume management](/docs/2.0.0/agent-management/volumes.html) for pushing Microservice data to Agents
 - [Moving and renaming microservices](/docs/2.0.0/microservice-management/move-and-rename.html) support in iofogctl
 - [Default namespace](/docs/2.0.0/iofogctl/namespaces) support in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](/docs/2.0.0/platform-deployment-kubernetes/prepare-kubernetes-cluster.html)
