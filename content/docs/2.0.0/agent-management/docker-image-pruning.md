@@ -3,7 +3,7 @@
 Agent disk space is a precious resource. We can reclaim disk space by pruning Docker images from our Agents:
 
 ```bash
-$> iofogctl prune agent NAME
+iofogctl prune agent NAME
 ```
 
 <aside class="notifications contribute">
