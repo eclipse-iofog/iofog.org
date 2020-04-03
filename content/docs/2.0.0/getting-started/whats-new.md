@@ -19,7 +19,7 @@ We realised that the specification for microservices was a bit confusing, so we 
 Before:
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
   name: my-msvc
