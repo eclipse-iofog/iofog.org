@@ -13,8 +13,8 @@ spec:
   destination: /tmp/secrets/
   permissions: 666
   agents:
-    - name: agent-1
-    - name: agent-2
+    - agent-1
+    - agent-2
 ```
 
 To push the data to our Agents, we run:

@@ -10,7 +10,7 @@ An application is defined by a YAML file. This file is passed as a parameter to 
 
 An application YAML file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
 
-Don't panic if this seems like a lot to digest, the [microservice yaml definition](#microservices) is explained in more details further down.
+Don't panic if this seems like a lot to digest, the [microservice YAML definition](#microservices) is explained in more details further down.
 The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
 
 ```yaml

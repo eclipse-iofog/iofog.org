@@ -51,7 +51,7 @@ spec:
   ports: []
 ```
 
-Then you can redeploy your microservice to update its yaml configuration file:
+Then you can redeploy your microservice to update its YAML configuration file:
 
 ```console
 $ iofogctl deploy -f my-microservice.yaml

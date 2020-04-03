@@ -151,8 +151,8 @@ spec:
   destination: /tmp/secrets/
   permissions: 666
   agents:
-    - name: agent-1
-    - name: agent-2
+    - agent-1
+    - agent-2
 ```
 
 This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and will copy the contents of `/tmp/` of the computer running iofogctl into it.

@@ -29,7 +29,7 @@ spec:
 | registry      | Registry to use to fetch Docker images, options: {local, remote}               |
 | configExample | Json object with key-value pairs indicating example microservice configuration |
 
-Note that the `configExample` field is a yaml map specifying the key value pairs, but it is internally stored a stringified JSON object of these values, similarly to how configuration is sent to microservices.
+Note that the `configExample` field is a YAML map specifying the key value pairs, but it is internally stored a stringified JSON object of these values, similarly to how configuration is sent to microservices.
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

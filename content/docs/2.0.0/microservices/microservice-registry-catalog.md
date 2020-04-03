@@ -63,7 +63,7 @@ spec:
 $ iofogctl deploy microservice -f ./hello-web-catalog.yaml
 ```
 
-Note that this yaml snippet assumes you have an iofogctl stack running, with an agent called `agent-name`. Please replace Agent name accordingly. Once done, we can check that the expected images have been used by using iofogctl to describe our newly created microservice:
+Note that this YAML snippet assumes you have an iofogctl stack running, with an agent called `agent-name`. Please replace Agent name accordingly. Once done, we can check that the expected images have been used by using iofogctl to describe our newly created microservice:
 
 ```console
 $ iofogctl describe microservice 'hello-web'
@@ -110,7 +110,7 @@ spec:
 
 ## Create your own catalog items
 
-You can also use iofogctl to create your own catalog items. Please see the [iofogctl yaml documentation](../iofogctl/catalogitem-yaml-spec.md) for comprehensive specification of the yaml kinds.
+You can also use iofogctl to create your own catalog items. Please see the [iofogctl YAML documentation](../iofogctl/catalogitem-yaml-spec.md) for comprehensive specification of the YAML kinds.
 
 ```console
 $ echo "---
