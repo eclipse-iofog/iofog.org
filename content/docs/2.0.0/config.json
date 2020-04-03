@@ -343,7 +343,7 @@
           {
             "title": "Configuration",
             "entry": "./reference-agent/configuration.md",
-            "description": ""
+            "description": "ioFog Agent Configurations"
           },
           {
             "title": "Debugging",
