@@ -5,7 +5,8 @@ Here we'll see how to remotely debug our Agent. This assumes we have an IntelliJ
 - Open the IntelliJ IDEA IDE and click on Run Configurations (top right)
 
 <figure>
-    <img src="/images/edit-configuration.png" alt="" height="80px" width="500px"> 
+    <img src="/images/edit-configuration.png" alt="" height="80px" width="500px">
+    <figcaption>Intellij edit configuration</figcaption>
 </figure>
 
 - Click on the green plus (top left) and select Remote to add a new configuration for a remote app.
@@ -14,6 +15,7 @@ Here we'll see how to remotely debug our Agent. This assumes we have an IntelliJ
 
 <figure>
     <img src="/images/add-remote-agent.png" alt="" height="400px" width="500px">
+    <figcaption>Step to add remote agent</figcaption>
 </figure>
 
 - Change the port number to 5005.
@@ -27,9 +29,12 @@ Here we'll see how to remotely debug our Agent. This assumes we have an IntelliJ
 
 <figure>
     <img src="/images/run-debug.png" alt="" height="80px" width="400px">
+    <figcaption>Step to run the debugging</figcaption>
 </figure>
 
 The project starts running and generating all the log messages of a regular launch in the terminal window. IntelliJ IDEA will intercept the execution at the breakpoint. From here the management is the same as for a regular Java application using your preferred IDE.
+
+Default log file storage location: `/var/log/iofog-agent`
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
