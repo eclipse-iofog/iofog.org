@@ -146,6 +146,7 @@ We have now introduced a new `Volume` kind that, when deployed, will let iofogct
 apiVersion: iofog.org/v2
 kind: Volume
 spec:
+  name: secret
   source: /tmp/
   destination: /tmp/secrets/
   permissions: 666

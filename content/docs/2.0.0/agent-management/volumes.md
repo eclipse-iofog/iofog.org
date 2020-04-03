@@ -8,6 +8,7 @@ With iofogctl, we can push directories to our Agents so that they can be mounted
 apiVersion: iofog.org/v2
 kind: Volume
 spec:
+  name: secret
   source: /tmp/
   destination: /tmp/secrets/
   permissions: 666
