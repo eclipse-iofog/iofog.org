@@ -48,7 +48,7 @@ spec:
 After:
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
   name: my-msvc
@@ -99,7 +99,7 @@ iofogctl prune agent NAME
 You can also configure an automated pruning frequency using the `AgentConfig` kind
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: AgentConfig
 metadata:
   name: alpaca-1
@@ -143,7 +143,7 @@ You have always been able to use volume mappings to mount agent folders into you
 We have now introduced a new `Volume` kind that, when deployed, will let iofogctl copy folders over to your Agents, using SSH connections.
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Volume
 spec:
   source: /tmp/

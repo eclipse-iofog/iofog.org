@@ -5,7 +5,7 @@ Often our Microservices will require some external data to be mounted into their
 With iofogctl, we can push directories to our Agents so that they can be mounted into Microservice containers as volumes. To do this, we can specify a Volume in YAML like so:
 
 ```yaml
-apiVersion: iofog.org/v1
+apiVersion: iofog.org/v2
 kind: Volume
 spec:
   source: /tmp/
