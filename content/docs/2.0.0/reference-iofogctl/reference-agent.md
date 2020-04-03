@@ -6,9 +6,9 @@
 
 Agent configuration YAML files let you configure an ioFog Agent provisioned with your Controller.
 
-An agent configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`
+An Agent configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`
 
-An agent configuration can be deployed using `iofogctl deploy -f agent-config.yaml`
+An Agent configuration can be deployed using `iofogctl deploy -f agent-config.yaml`
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -71,15 +71,10 @@ spec:
 | watchdogEnabled           | Boolean. If enabled, watchdog will kill all docker containers running on the agent if they are not part of the microservices deployed by ioFog. If enabled, only docker containers started by the agent process will be allowed to run                                                                       |
 | abstractedHardwareEnabled | Boolean. Set on/off the [HAL services](content/docs/2.0.0/reference-microserivces-catalog/hal.html). If ON, this will install the HAL microservice                                                                                                                                                           |
 | upstreamRouters           | Set the upstream routers                                                                                                                                                                                                                                                                                     |
-|                           |
 | networkRouter             | Set the network router                                                                                                                                                                                                                                                                                       |
-|                           |
 | host                      | Set the host Ip used by iofogctl to deploy agent                                                                                                                                                                                                                                                             |
-|                           |
 | routerConfig              | Set the router configuration                                                                                                                                                                                                                                                                                 |
-|                           |
 | logLevel                  | Set the standard logging levels that can be used to control logging output                                                                                                                                                                                                                                   |
-|                           |
 | dockerPruningFrequency    | Set the docker pruning frequency in hours                                                                                                                                                                                                                                                                    |
 | availableDiskThreshold    | Set the available disk threshold                                                                                                                                                                                                                                                                             |
 

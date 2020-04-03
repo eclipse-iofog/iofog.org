@@ -94,7 +94,7 @@ spec:
 
 ## Remote Agent
 
-Agents are components of an ECN which run on edge nodes. They communicate with Connectors and Controllers to allow your edge nodes to host Microservices.
+Agents are components of an ECN which run on edge nodes. They communicate with Controllers to allow your edge nodes to host Microservices.
 
 ```yaml
 apiVersion: iofog.org/v2
