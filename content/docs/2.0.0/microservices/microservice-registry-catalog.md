@@ -1,16 +1,16 @@
 # Registry and Catalog Management
 
-During the [Quickstart](../getting-started/quick-start.html) and the [tutorial](../tutorial/introduction.html), we specified images to be used for each microservice, for each type of agent.
+During the [Quickstart](../getting-started/quick-start.html) and the [tutorial](../tutorial/introduction.html), we specified images to be used for each Microservice, for each type of Agent.
 
-That was nice and easy, but what if you need to deploy the same code on a lot of agents? You'd need to specify the images for each microservice. Wouldn't it be nice to have a way to specify the images to be used for each type of agent once for all, then reuse this configuration ?
+That was nice and easy, but what if we need to deploy the same code on a lot of Agents? We would need to specify the images for each Microservice. Wouldn't it be nice to have a way to specify the images to be used for each type of Agent once and then reuse this configuration? That's where the Controller Microservice catalog comes into play!
 
-That's where the Controller microservice catalog comes into play!
+Each ioFog Controller comes with a built-in microservice catalog. You can see the list of preconfigured Microservices images using `iofogctl`:
 
-Each ioFog Controller comes with a built-in microservice catalog. You can see the list of preconfigured microservices images using `iofogctl`:
+```bash
+iofogctl get catalog
+```
 
 ```console
-$ iofogctl get catalog
-
 NAMESPACE
 default
 
@@ -29,10 +29,10 @@ ID		NAME				            DESCRIPTION											                                  
 
 ```
 
-Instead of specifying the images for each agent type, you can refer to catalog ID in your Microservice specification. We can see that there is a `Hello Web Demo` catalog item that is configured with the `iofog/hello-web` image for x86 agents, and `iofog/hello-web-arm` for arm agents. So, to deploy a microservice running those images, we can use the following yaml:
+Instead of specifying the images for each Agent type, we can refer to catalog ID in your Microservice specification. We can see that there is a `Hello Web Demo` catalog item that is configured with the `iofog/hello-web` image for x86 Agents, and `iofog/hello-web-arm` for ARM Agents. So, to deploy a Microservice running those images, we can use the following YAML:
 
-```console
-$ echo "---
+```bash
+echo "---
 apiVersion: 'iofog.org/v2'
 kind: Application
 metadata:
@@ -58,16 +58,19 @@ spec:
   config: {}
   application: hello-web
   routes: []
-" > ./hello-web-catalog.yaml
-
-$ iofogctl deploy microservice -f ./hello-web-catalog.yaml
+" > /tmp/hello-web-catalog.yaml
+iofogctl deploy microservice -f /tmp/hello-web-catalog.yaml
 ```
 
-Note that this yaml snippet assumes you have an iofogctl stack running, with an agent called `agent-name`. Please replace Agent name accordingly. Once done, we can check that the expected images have been used by using iofogctl to describe our newly created microservice:
+Note that this YAML snippet assumes we have an running ECN in the default Namespace with an Agent called `agent-name`.
 
-```console
-$ iofogctl describe microservice 'hello-web'
+We can check that the expected images have been used by describing our Microservice with iofogct:
 
+```bash
+iofogctl describe microservice 'hello-web'
+```
+
+```plain
 apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
@@ -108,11 +111,11 @@ spec:
 
 ```
 
-## Create your own catalog items
+## Create our own Catalog Items
 
-You can also use iofogctl to create your own catalog items. Please see the [iofogctl yaml documentation](../iofogctl/catalogitem-yaml-spec.md) for comprehensive specification of the yaml kinds.
+We can also use iofogctl to create our own Catalog Items. The YAML spec reference can be found [here](../iofogctl/catalogitem-yaml-spec.md).
 
-```console
+```bash
 $ echo "---
 apiVersion: 'iofog.org/v2'
 kind: CatalogItem
@@ -124,16 +127,17 @@ spec:
   arm: 'arm32v6/alpine:latest'
   registry: 'remote'
 
-" > ./my-catalog-item.yaml
-
-$ iofogctl deploy -f ./my-catalog-item.yaml
+" > /tmp/my-catalog-item.yaml
+iofogctl deploy -f /tmp/my-catalog-item.yaml
 ```
 
-We can verify that our new catalog item was added to the catalog:
+We can verify that our new Catalog Item was added to the Catalog:
 
-```console
-$ iofogctl get catalog | grep my-multiplatform-microservice
+```bash
+iofogctl get catalog | grep my-multiplatform-microservice
+```
 
+```plain
 17		my-multiplatform-microservice	Alpine Linux											remote		amd64/alpine:latest			arm32v6/alpine:latest
 ```
 
