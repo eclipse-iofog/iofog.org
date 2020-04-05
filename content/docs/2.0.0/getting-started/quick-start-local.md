@@ -101,15 +101,15 @@ Which should output something similar to:
 NAMESPACE
 default
 
-CONTROLLER    STATUS    AGE               UPTIME         ADDR             PORT
-local         online    2h26m             1h16m          http://0.0.0.0   51121
+CONTROLLER    STATUS    AGE               UPTIME         ADDR       PORT
+local         online    2h26m             1h16m          0.0.0.0    51121
 
-AGENT         STATUS    AGE               UPTIME         ADDR             VERSION
-local         RUNNING   2h26m             1h15m          150.107.172.240  2.0.0-beta
+AGENT         STATUS    AGE               UPTIME         ADDR       VERSION
+local         RUNNING   2h26m             1h15m          0.0.0.0    2.0.0-beta
 
 APPLICATION	  STATUS    MICROSERVICES
 
-MICROSERVICE  STATUS    AGENT             CONFIG         ROUTES           VOLUMES      PORTS
+MICROSERVICE  STATUS    AGENT             ROUTES         VOLUMES    PORTS
 
 VOLUME        SOURCE    DESTIONATION      PERMISSIONS    AGENTS
 ```
