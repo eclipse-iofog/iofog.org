@@ -146,13 +146,8 @@
         "title": "Microservice Management",
         "subMenus": [
           {
-            "title": "Applications",
+            "title": "Distributed Applications",
             "entry": "./microservices/applications.md",
-            "description": ""
-          },
-          {
-            "title": "Deployment",
-            "entry": "./microservices/microservice-deployment.md",
             "description": ""
           },
           {

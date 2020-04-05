@@ -34,7 +34,7 @@ spec:
   abstractedHardwareEnabled: false
   upstreamRouters: ['default-router']
   networkRouter: ''
-  host: <Agent_host>
+  host: 34.44.56.64
   routerConfig:
     routerMode: edge
     messagingPort: 5672
@@ -70,7 +70,7 @@ spec:
 |                           |
 | networkRouter             | Set the network router                                                                                                                                                                                                                                                                                       |
 |                           |
-| host                      | Set the host Ip used by iofogctl to deploy agent                                                                                                                                                                                                                                                             |
+| host                      | Set the host address of the agent                                                                                                                                                                                                                                                                            |
 |                           |
 | routerConfig              | Set the router configuration                                                                                                                                                                                                                                                                                 |
 |                           |
