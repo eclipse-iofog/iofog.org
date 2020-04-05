@@ -22,7 +22,7 @@ Before:
 apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
-  name: my-msvc
+  name: msvc-1
 spec:
   agent:
     name: agent-name
@@ -40,9 +40,9 @@ spec:
   commands: []
   config:
     config-key: 'config-value'
-  application: my-app
+  application: app-1
   routes:
-    - my-dest-msvc
+    - msvc-2
 ```
 
 After:
@@ -51,7 +51,7 @@ After:
 apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
-  name: my-msvc
+  name: msvc-1
 spec:
   agent:
     name: alpaca-1
@@ -70,9 +70,9 @@ spec:
     commands: []
   config:
     config-key: 'config-value'
-  application: my-app
+  application: app-1
   routes:
-    - my-dest-msvc
+    - msvc-2
 ```
 
 This should make clearer what relates to the ioFog microservice, and what relates to the configuration of the actual container running on the Agent.
@@ -171,7 +171,7 @@ If `public` is specified, this will open a tunnel that will forward all traffic 
 
 ```yaml
 ...
-name: my-msvc
+name: msvc-1
 agent:
  name: agent-1
 container:
