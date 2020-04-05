@@ -198,16 +198,6 @@
         ]
       },
       {
-        "title": "Volumes",
-        "subMenus": [
-          {
-            "title": "Overview",
-            "entry": "./volumes/volumes.md",
-            "description": ""
-          }
-        ]
-      },
-      {
         "title": "Tutorial - Your First Microservice",
         "subMenus": [
           {
