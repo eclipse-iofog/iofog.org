@@ -2,7 +2,7 @@
 
 ### JavaScript Edition
 
-[Node.js](https://nodejs.org/) is a JavaScript runtime built on Google Chrome's V8 JavaScript engine. In this step we're going to build a simple microservice using Node.js and the [ioFog SDK](../writing-microservices/sdk.html).
+[Node.js](https://nodejs.org/) is a JavaScript runtime built on Google Chrome's V8 JavaScript engine. In this step we're going to build a simple microservice using Node.js and the [ioFog SDK](../developing-microservices/sdk.html).
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> New to Node.js?</h3>
@@ -98,7 +98,7 @@ iofog.init('iofog', 54321, null, main);
 });
 ```
 
-For the curious, the first argument is the host name of the [Agent's Local API](content/docs/2.0.0/reference-agent/local-api.html), the second is the port number of the SDK, and the third can be the container's ID, though it is not required.
+For the curious, the first argument is the host name of the [Agent's Local API](../reference-agent/rest-api.html), the second is the port number of the SDK, and the third can be the container's ID, though it is not required.
 
 #### iofog.getConfig()
 
@@ -135,7 +135,7 @@ iofog.wsControlConnection({
 
 Next, we have to connect to the ioFog _message channel_ via WebSocket. This is where we'll receive any messages routed to this microservice from another.
 
-Under the hood, communication is brokered by our [Connector](../connectors/overview.html) and messages are routed according to that microservice's route settings on the Controller.
+Under the hood, communication is brokered by our [Router](../getting-started/architecture.html#router) and messages are routed according to that microservice's route settings on the Controller.
 
 ```js
 iofog.wsMessageConnection(onMessageConnectionOpen, {
@@ -172,7 +172,7 @@ iofog.wsSendMessage(output);
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> More about ioMessages?</h3>
-  <p>ioMessages can contain a number of options and fields not described here. To learn more, check out the <a href="content/docs/2.0.0/reference-agent/local-api.html#iomessages">Local API Reference</a>.</p>
+  <p>ioMessages can contain a number of options and fields not described here. To learn more, check out the <a href="../reference-agent/rest-api.html#iomessages">Local API Reference</a>.</p>
 </aside>
 
 ## Putting The Moving Average Together

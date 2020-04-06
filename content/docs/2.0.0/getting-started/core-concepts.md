@@ -43,7 +43,7 @@ If your microservices need to communicate with other nodes in your network, ioFo
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Ready for more?</h3>
   <p>If you want to know more about all the ioFog components and learn how ioFog Edge Compute Network work, head to <a href="architecture.html">Architecture overview</a>.</p>
-  <p>If instead you want to get started right away, you can check out the <a href="quick-start.html">Quick Start guide</a> to deploy ioFog locally on your computer, or go through production deployment in <a href="../platform-deployment-remote/control-plane.html">Remote deployment</a> or <a href="../platform-deployment-kubernetes/overview.html">Kubernetes deployment</a>.</p>
+  <p>If instead you want to get started right away, you can check out the <a href="quick-start-local.html">Quick Start guide</a> to deploy ioFog locally on your computer, or go through production deployment in <a href="../platform-deployment/introduction.html">Remote deployment</a> or <a href="../platform-deployment/kubernetes-prepare-cluster.html">Kubernetes deployment</a>.</p>
   <p>You can also head to our tutorial for developers to <a href="../tutorial/introduction.html">Learn how to use ioFog and build microservices</a></p>
 </aside>
 

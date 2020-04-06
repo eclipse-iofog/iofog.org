@@ -64,8 +64,8 @@ The Freeboard microservice doesn't know it's running locally, so it could just a
 
 Our tutorial environment has two ioFog containers:
 
-- [Agents](content/docs/2.0.0/reference-agent/overview.html)
-- [Controllers](content/docs/2.0.0/reference-controller/overview.html)
+- [Agents](../reference-agent/overview.html)
+- [Controllers](../reference-controller/overview.html)
 
 We can think of each of these containers as if they were deployed on separate devices. In production, our Controller is most often running on a cloud server and our Agents are each running on individual edge devices in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away.
 
@@ -152,7 +152,7 @@ Fog type                                 : intel_amd
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Learn more Agent commands</h3>
-  <p>If you want to learn about all the possible commands you can use on iofog-agent checkout the <a href="content/docs/2.0.0/reference-agent/cli-usage.html">CLI Usage guide</a>.</p>
+  <p>If you want to learn about all the possible commands you can use on iofog-agent checkout the <a href="../reference-agent/cli-usage.html">CLI Usage guide</a>.</p>
 </aside>
 
 #### Controller's Container

@@ -78,37 +78,6 @@ The high-level process of creating a new microservice is:
 
 It is detailed in our [tutorial](../tutorial/introduction.html)
 
-```json
-{
-  "registries": [
-    {
-      "id": 1,
-      "url": "registry.hub.docker.com",
-      "isPublic": true,
-      "isSecure": true,
-      "certificate": "",
-      "requiresCert": false,
-      "username": "",
-      "password": "",
-      "userEmail": "",
-      "userId": null
-    },
-    {
-      "id": 2,
-      "url": "from_cache",
-      "isPublic": true,
-      "isSecure": true,
-      "certificate": "",
-      "requiresCert": false,
-      "username": "",
-      "password": "",
-      "userEmail": "",
-      "userId": null
-    }
-  ]
-}
-```
-
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
   <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/writing-microservices/overview.md"

@@ -1,6 +1,6 @@
 # Registry and Catalog Management
 
-During the [Quickstart](../getting-started/quick-start.html) and the [tutorial](../tutorial/introduction.html), we specified images to be used for each Microservice, for each type of Agent.
+During the [Quickstart](../getting-started/quick-start-local.html) and the [tutorial](../tutorial/introduction.html), we specified images to be used for each microservice, for each type of Agent.
 
 That was nice and easy, but what if we need to deploy the same code on a lot of Agents? We would need to specify the images for each Microservice. Wouldn't it be nice to have a way to specify the images to be used for each type of Agent once and then reuse this configuration? That's where the Controller Microservice catalog comes into play!
 

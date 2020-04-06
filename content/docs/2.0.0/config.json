@@ -274,16 +274,6 @@
             "title": "REST API Reference",
             "entry": "./reference-controller/rest-api.md",
             "description": "ioFog Controller REST API"
-          },
-          {
-            "title": "Configuration",
-            "entry": "./reference-controller/configuration.md",
-            "description": ""
-          },
-          {
-            "title": "Debugging",
-            "entry": "./reference-controller/debugging.md",
-            "description": ""
           }
         ]
       },

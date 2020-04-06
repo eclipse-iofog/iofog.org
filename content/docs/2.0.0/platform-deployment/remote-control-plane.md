@@ -8,7 +8,7 @@ There are two flavours of Control Plane deployments - Remote and Kubernetes. Thi
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">We use YAML to define ioFog resources</h3>
-  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../iofogctl/platform-yaml-spec.html>here</a>.</p>
+  <p>The following procedures will define resources in YAML for iofogctl to consume. Specification of those YAML resources can be found <a href=../reference-iofogctl/reference-control-plane.html>here</a>.</p>
 </aside>
 
 ## Deploy a Control Plane on a Remote Host

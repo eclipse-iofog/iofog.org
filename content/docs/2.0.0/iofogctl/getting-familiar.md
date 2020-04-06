@@ -55,7 +55,7 @@ Use "iofogctl [command] --help" for more information about a command.
 
 ```
 
-You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/develop/2.0.0-beta.release.md).
+You can also find all available commands, and a detailled documentation of their usage on [our github repository](https://github.com/eclipse-iofog/iofogctl/blob/release/2.0/docs/md/iofogctl.md).
 
 You can use the `--help` flag on every command to learn more. Go ahead and try some of the following:
 
@@ -78,6 +78,16 @@ iofogctl create namespace zoo-1
 iofogctl get namespaces
 iofogctl delete namespace zoo-1
 ```
+
+### Configuring your default namespace
+
+It is possible to specify the namespace to use as default namespace by using the `iofogctl configure` command.
+
+```bash
+iofogctl configure default-namespace <namespace_name>
+```
+
+To revert to the default configuration, you can always run `iofogctl configure default-namespace default`.
 
 Next, we will use the default namespace while exploring `iofogctl` functionality.
 

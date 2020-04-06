@@ -10,7 +10,7 @@ The **config** for the container should look in the following way:
 {\"buffersize\":3,\"contentdataencoding\":\"utf8\",\"contextdataencoding\":\"utf8\",\"outputfields\":{\"publisher\":\"source\",\"contentdata\":\"temperature\",\"timestamp\":\"time\"}}
 ```
 
-Which translates to the following [YAML microservice file](../../tools/iofogctl/application-yaml-spec.html#microservices) :
+Which translates to the following [YAML microservice file](../reference-iofogctl/reference-application.html#microservices) :
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -56,7 +56,7 @@ The **config** for the container should look in the following way:
 {\"citycode\":\"5391997\",\"apikey\":\"6141811a6136148a00133488eadff0fb\",\"frequency\":1000}
 ```
 
-Which translates to the following [YAML microservice file](../../tools/iofogctl/application-yaml-spec.html#microservices) :
+Which translates to the following [YAML microservice file](../reference-iofogctl/reference-application.html#microservices) :
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -91,7 +91,7 @@ _"frequency" - the frequency of message sending in millis_
 - The `JSON REST API` images will always be available on ioFog Controllers using the catalog item ID `7`.
 - The `Open Weather Map` images will always be available on ioFog Controllers using the catalog item ID `8`.
 
-Please refer to the [catalog overview](../introduction.html) if you don't know yet how to deploy microservices using catalog items.
+Please refer to the [catalog overview](../microservices/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
 
 **Request**
 

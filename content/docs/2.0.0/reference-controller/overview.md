@@ -1,6 +1,6 @@
 # Controllers
 
-Since your Edge Compute Network is likely distributed—composed of many different devices across networks, each with potentially differing microservices—a piece of software called the **Controller** is used for orchestration of the different [Agents](content/docs/2.0.0/reference-agent/overview.html).
+Since your Edge Compute Network is likely distributed—composed of many different devices across networks, each with potentially differing microservices—a piece of software called the **Controller** is used for orchestration of the different [Agents](../reference-agent/overview.html).
 
 Because the Controller daemon keeps track of all your Agents, even across complicated network configurations, you can use it to maintain the entire fleet, remotely. Small Edge Compute Networks will only need a single Controller, however, running multiple Controllers is also supported for increased resiliency.
 

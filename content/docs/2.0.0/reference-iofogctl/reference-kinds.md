@@ -49,7 +49,7 @@ spec:
         port: 22
 ```
 
-To learn more about RemoteControlPlane, please see [Iofogctl Platform YAML Specification](content/docs/2.0.0/reference-iofogctl/reference-control-plane.md).
+To learn more about RemoteControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-control-plane).
 
 ### KubernetesControlPlane
 
@@ -70,11 +70,11 @@ spec:
   config: ~/.kube/config
 ```
 
-To learn more about KubernetesControlPlane, please see [Iofogctl Platform YAML Specification](content/docs/2.0.0/reference-iofogctl/reference-control-plane.md).
+To learn more about KubernetesControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#kubernetes-control-plane).
 
 ### LocalControlPlane
 
-The Remote Control Plane component specifies all the resources required to deploy the ioFog Control Plane on a set of local hosts.
+The Local Control Plane component specifies all the resources required to deploy the ioFog Control Plane locally as a docker container
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -92,7 +92,7 @@ spec:
       image: iofog/controller:2.0.0-beta
 ```
 
-To learn more about LocalControlPlane, please see [Iofogctl Platform YAML Specification](content/docs/2.0.0/reference-iofogctl/reference-control-plane.md).
+To learn more about LocalControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
 
 ### RemoteController
 
@@ -112,7 +112,7 @@ spec:
     port: 22
 ```
 
-To learn more about RemoteController, please see [Iofogctl Platform YAML Specification](content/docs/2.0.0/reference-iofogctl/reference-control-plane.md).
+To learn more about RemoteController, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-controller).
 
 ### RemoteAgent
 
@@ -132,7 +132,7 @@ spec:
     port: 22
 ```
 
-To learn more about RemoteAgent, please see [Iofogctl Platform YAML Specification](content/docs/2.0.0/reference-iofogctl/reference-control-plane.md).
+To learn more about RemoteAgent, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-agent).
 
 ### LocalAgent
 
@@ -191,7 +191,7 @@ spec:
   availableDiskThreshold: 90
 ```
 
-To learn more about AgentConfig, please see [Iofogctl agent configuration YAML specification](content/docs/2.0.0/reference-iofogctl/reference-agent.md).
+To learn more about AgentConfig, please see [Iofogctl agent configuration YAML specification](../reference-iofogctl/reference-agent.html).
 
 ### CatalogItem
 
@@ -211,7 +211,7 @@ spec:
   configExample: '{"key": "value"}'
 ```
 
-To learn more about CatalogItem, please see [Iofogctl Catalog Item YAML specification](content/docs/2.0.0/reference-iofogctl/reference-catalog.md).
+To learn more about CatalogItem, please see [Iofogctl Catalog Item YAML specification](../reference-iofogctl/reference-catalog.html).
 
 ### Application
 
@@ -264,7 +264,7 @@ spec:
       to: 'heart-rate-viewer'
 ```
 
-To learn more about Application, please see [Iofogctl Application YAML specification](content/docs/2.0.0/reference-iofogctl/reference-application.md).
+To learn more about Application, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html).
 
 ### Microservice
 
@@ -305,7 +305,7 @@ spec:
     data_label: 'Anonymous_Person_2'
 ```
 
-To learn more about Microservice, please see [Iofogctl Application YAML specification](content/docs/2.0.0/reference-iofogctl/reference-application.md).
+To learn more about Microservice, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html#microservices).
 
 ### Volume
 
@@ -324,7 +324,7 @@ spec:
     - name: agent-2
 ```
 
-To learn more about Volume, please see [Volume Management](content/docs/2.0.0/agent-management/volumes.md).
+To learn more about Volume, please see [Volume Management](../agent-management/volumes.html).
 
 ### Registry
 
@@ -342,7 +342,7 @@ spec:
   certificate: ''
 ```
 
-To learn more about Registry, please see [Registry and Catalog Management](content/docs/2.0.0/microservices/microservice-registry-catalog.md).
+To learn more about Registry, please see [Registry and Catalog Management](../microservices/microservice-registry-catalog.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

@@ -20,9 +20,9 @@ where I want to get the output of the config command from my agent, named iofog-
 
 To determine what legacy commands you wish to use, please see the legacy cli documentation for each component at the following links:
 
-[Agent](content/docs/2.0.0/reference-agent/cli-usage.html)
+[Agent](../reference-agent/cli-usage.html)
 
-[Controller](content/docs/2.0.0/reference-controller/cli-usage.html)
+[Controller](../reference-controller/cli-usage.html)
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

@@ -66,6 +66,33 @@ spec:
 | controller.ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                    |
 | controller.ssh.port    | Port to use with SSH. Optional (default: 22).                                                                                                                            |
 
+## Local Control Plane
+
+The Local Control Plane component specifies all the resources required to deploy the ioFog Control Plane as a local docker container.
+
+```yaml
+apiVersion: iofog.org/v2
+kind: LocalControlPlane
+metadata:
+  name: buffalo
+  namespace: default
+spec:
+  iofogUser:
+    name: Foo
+    surname: Bar
+    email: user@domain.com
+    password: g9hr823rhuoi
+  controller:
+    container:
+      image: iofog/controller:2.0.0-beta
+```
+
+| Field            | Description                                               |
+| ---------------- | --------------------------------------------------------- |
+| iofogUser        | Credentials registered against ioFog Controller REST API. |
+| controller       | Controller specification.                                 |
+| controller.image | Docker image to use as the Controller.                    |
+
 ## Remote Controller
 
 We can expand a Remote Control Plane by deploying a new Controller.

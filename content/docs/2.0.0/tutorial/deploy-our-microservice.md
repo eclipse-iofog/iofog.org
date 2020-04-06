@@ -103,7 +103,7 @@ spec:
       to: Rest API
 ```
 
-This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](../iofogctl/application-yaml-spec.html), but for now let's focus on the main parts.
+This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](../reference-iofogctl/reference-application.html), but for now let's focus on the main parts.
 
 - The file describes an application, named `tutorial`.
 - It has 3 microservices.
@@ -231,7 +231,7 @@ You will notice a few minor changes compared to the description we provided when
 - The microservice routes destinations are listed under a `routes` field.
 - We have many more fields related to the required configuration of the ioFog Agent.
 
-Find the complete yaml description [here](../iofogctl/application-yaml-spec.html#microservices)
+Find the complete yaml description [here](../reference-iofogctl/reference-application.html#microservice)
 
 Now let's say we want to update the configuration of our microservice!
 
@@ -268,7 +268,7 @@ Have a look at new output of the [Freeboard dashboard](http://localhost:10102/?l
 
 The magic about microservices and ioFog is that none of those microservice is specifically designed or requires to work with the other microservice. Using ioFog, you can create smart and secure communication channels between independant microservices and easily manage a fleet of Edge devices and microservices.
 
-Congratulations! You've now have the fundamentals of ioFog. Next, try developing Microservices on an ECN deployed on remote hosts. See this [guide](content/docs/2.0.0/platform-deployment/introduction.html) for deploying remotely.
+Congratulations! You've now have the fundamentals of ioFog. Next, try developing Microservices on an ECN deployed on remote hosts. See this [guide](../platform-deployment/introduction.html) for deploying remotely.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>

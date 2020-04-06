@@ -41,7 +41,7 @@ iofogctl describe agent zebra-1
 
 Now you are ready to start deploying Microservices to your new ECN! We explored how to do this in the [Quick Start Guide](../getting-started/quick-start-local.html). You can try deploying the same microservice on your new ECN.
 
-To get going with your own Microservices, start by looking at the instructions on creating Microservices [here](../writing-microservices/overview.html).
+To get going with your own Microservices, start by looking at the instructions on creating Microservices [here](../tutorial/introduction.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

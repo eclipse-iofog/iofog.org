@@ -1,6 +1,6 @@
 # Iofogctl Catalog Item YAML specification
 
-`iofogctl` allows users to manage a Controller's list of catalog items. To learn more about catalog items, please see [microservice catalog documentation](content/docs/2.0.0/microservices/microservice-registry-catalog.md).
+`iofogctl` allows users to manage a Controller's list of catalog items. To learn more about catalog items, please see [microservice catalog documentation](../microservices/microservice-registry-catalog.html).
 
 ## Catalog Item
 

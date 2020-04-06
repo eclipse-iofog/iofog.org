@@ -37,7 +37,7 @@ While the Agent daemon itself has a CLI, after setting things up a majority of y
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about ioFog Agent?</h3>
   <p>If you want to learn advanced features, how to configure the Agent or how to directly use it, go to <a href="../reference-agent/overview.html">Agent reference documentation</a>.</p>
-  <p>To deploy and use the Agent via iofogctl, go to <a href="../agent-management/prepare-agent-host.html">Agent management documentation</a>.</p>
+  <p>To deploy and use the Agent via iofogctl, go to <a href="../agent-management/introduction.html">Agent management documentation</a>.</p>
   <p>Feel free to also explore and potentially contribute at the <a href="https://github.com/eclipse-iofog/Agent">eclipse-iofog/Agent github repository</a>.</p>
 </aside>
 

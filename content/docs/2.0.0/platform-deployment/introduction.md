@@ -2,7 +2,7 @@
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Have you tried deploying a local ECN first?</h3>
-  <p>In this guide we assume you are up and running with iofogctl. We recommened going through the <a href=../getting-started/quick-start.html>Quick Start Guide</a> before continuing on here. </p>
+  <p>In this guide we assume you are up and running with iofogctl. We recommened going through the <a href=../getting-started/quick-start-local.html>Quick Start Guide</a> before continuing on here. </p>
 </aside>
 
 Edge Compute Networks ('ECNs') are complicated things. They are composed of disparate distributed applications even before you start deploying your own microservices.
