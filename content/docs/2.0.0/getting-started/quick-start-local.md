@@ -49,18 +49,18 @@ sudo yum install iofogctl
 
 #### Verify iofogctl Installation
 
-Run `iofogctl version` to verify you have successfully installed the CLI.
+Run `iofogctl version` to verify we have successfully installed the CLI.
 
 ## Deploy ioFog Locally
 
-You can use `iofogctl deploy` to install and provision ECN components. Here we will deploy a containerized ECN locally.
+We can use `iofogctl deploy` to install and provision ECN components. Here we will deploy a containerized ECN locally.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about iofogctl?</h3>
   <p>We aren't going into detail about iofogctl here because we want to show you how simple it can be to get going with ioFog. Please make sure to check out the full iofogctl documentation <a href="../iofogctl/introduction.html">here</a>.</p>
 </aside>
 
-Go ahead and paste the following commands into your terminal:
+Go ahead and paste the following commands into the terminal:
 
 ```bash
 echo "---
@@ -81,7 +81,7 @@ spec:
 apiVersion: iofog.org/v2
 kind: LocalAgent
 metadata:
-  name: local
+  name: local-agent
 spec:
   container:
     image: iofog/agent:2.0.0-beta2
@@ -101,26 +101,26 @@ Which should output something similar to:
 NAMESPACE
 default
 
-CONTROLLER    STATUS    AGE               UPTIME         ADDR       PORT
-local         online    2h26m             1h16m          0.0.0.0    51121
+CONTROLLER      STATUS    AGE           UPTIME      ADDR             PORT
+local           online    22m29s        22m35s      0.0.0.0          51121
 
-AGENT         STATUS    AGE               UPTIME         ADDR       VERSION
-local         RUNNING   2h26m             1h15m          0.0.0.0    2.0.0-beta2
+AGENT           STATUS    AGE           UPTIME      ADDR             VERSION
+local-agent     RUNNING                 22m7s       150.179.102.91   2.0.0-beta2
 
-APPLICATION	  STATUS    MICROSERVICES
+APPLICATION     STATUS    MICROSERVICES
 
-MICROSERVICE  STATUS    AGENT             ROUTES         VOLUMES    PORTS
+MICROSERVICE    STATUS    AGENT         ROUTES      VOLUMES          PORTS
 
-VOLUME        SOURCE    DESTIONATION      PERMISSIONS    AGENTS
+VOLUME          SOURCE    DESTINATION   PERMISSIONS	AGENTS
 ```
 
 **NB:** The Agent status might say `UNKNOWN` for up to 30s. It is the time for the agent to report back its liveness to the controller.
 
-The `Controller` acts as a control plane, it will be your main point of access and communication with your ECN. If you want to find out more about Controller, please read <a href="../reference-controller/overview.html">this</a>.
+The `Controller` acts as a control plane, it will be our main point of access and communication with our ECN. If we want to find out more about Controller, please read <a href="../reference-controller/overview.html">this</a>.
 
-The `Agent` is the component that is meant to run on your edge devices. Once it has registered itself with a Controller, the Agent will be in charge of actually pulling the microservices images and starting / stopping the microservices on your edge device. If you want to find out more about Agent, please read <a href="../reference-agent/overview.html">this</a>.
+The `Agent` is the component that is meant to run on our edge devices. Once it has registered itself with a Controller, the Agent will be in charge of actually pulling the microservices images and starting / stopping the microservices on our edge device. If we want to find out more about Agent, please read <a href="../reference-agent/overview.html">this</a>.
 
-Those components are all currently running as separate Docker containers on your local machine. You can list the active containers by running:
+Those components are all currently running as separate Docker containers on our local machine. We can list the active containers by running:
 
 ```bash
 docker ps
@@ -129,10 +129,10 @@ docker ps
 Which should output something similar to:
 
 ```plain
-CONTAINER ID        IMAGE                                          COMMAND                  CREATED             STATUS              PORTS                                            NAMES
-4eaaf8c38191        quay.io/interconnectedcloud/qdrouterd:latest   "/home/qdrouterd/bin…"   18 minutes ago      Up 18 minutes       5671/tcp, 55672/tcp, 0.0.0.0:5672->5672/tcp      iofog_zxK6zpnQGmy8Jd8X4Wt8ckpBfxFf6cH9
-30dcb7430f04        iofog/agent:2.0.0-beta2                        "sh /start.sh"           18 minutes ago      Up 18 minutes       0.0.0.0:54321->54321/tcp, 0.0.0.0:8081->22/tcp   iofog-agent
-c57f2817788c        iofog/controller:2.0.0-beta2                   "node /usr/local/lib…"   18 minutes ago      Up 18 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp   iofog-controller
+CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                                                          NAMES
+71927882293f        iofog/router:latest            "/qpid-dispatch/laun…"   15 minutes ago      Up 15 minutes       0.0.0.0:5672->5672/tcp, 0.0.0.0:56721-56722->56721-56722/tcp   iofog_PJFbk3ZHjX3RkNWxwcRqzDXnKV6mLHmq
+8454ca70755b        iofog/agent:2.0.0-beta2        "sh /start.sh"           15 minutes ago      Up 15 minutes                                                                      iofog-agent
+dc7568ad1708        iofog/controller:2.0.0-beta2   "node /usr/local/lib…"   16 minutes ago      Up 16 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp                 iofog-controller
 ```
 
 ## Deploy Microservices
@@ -210,14 +210,17 @@ watch iofogctl get microservices
 Which will output something similar to:
 
 ```plain
-Every 2.0s: iofogctl get microservices                                                                                                                                                       Nehas-MacBook-Pro.local: Mon Mar 16 20:27:38 2020
+Every 2.0s: iofogctl get microservices                                                                                                                     Nehas-MacBook-Pro.local: Tue Apr  7 11:18:43 2020
 
-MICROSERVICE            STATUS          AGENT           CONFIG                                                  ROUTES                  VOLUMES         PORTS
-heart-rate-monitor      QUEUED          local-agent     {"data_label":"Anonymous_Person","test_mode":true}      heart-rate-viewer       /tmp/msvc:/tmp
-heart-rate-viewer       QUEUED          local-agent     {}                                                                              /tmp/iofog:/data5000:80
+NAMESPACE
+default
+
+MICROSERVICE            STATUS          AGENT           ROUTES                  VOLUMES                 PORTS
+heart-rate-monitor      QUEUED          local-agent     heart-rate-viewer       /tmp/msvc:/tmp
+heart-rate-viewer       QUEUED          local-agent                             /tmp/iofog:/data        5000:80
 ```
 
-Once both microservice status are 'RUNNING', the microservices have started. You will be able to see the web application on your browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.
+Once both microservice status are 'RUNNING', the microservices have started. We will be able to see the web application on our browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.
 
 ## Teardown
 
@@ -231,7 +234,7 @@ iofogctl delete all
 
 Now that you have seen what ioFog is about, you can create a real ECN with remote hosts. Instructions are found [here](../platform-deployment/introduction.html).
 
-You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).
+We can also try deploying other Microservices on the local ECN. We can find instructions on writing our own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
