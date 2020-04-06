@@ -14,7 +14,7 @@ We can change Microservice names after they have been deployed.
 
 If we wanted to rename `msvc-1` to `new-msvc-1` we could run:
 
-```bash
+```plain
 iofogctl rename msvc-1 new-msvc-1
 ```
 

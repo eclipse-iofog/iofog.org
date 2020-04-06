@@ -143,57 +143,22 @@
         ]
       },
       {
-        "title": "Microservice Management",
-        "subMenus": [
-          {
-            "title": "Distributed Applications",
-            "entry": "./microservices/applications.md",
-            "description": ""
-          },
-          {
-            "title": "Exposing Public Ports",
-            "entry": "./microservices/microservice-exposing.md",
-            "description": ""
-          },
-          {
-            "title": "Move and Rename",
-            "entry": "./microservices/microservice-move-rename.md",
-            "description": ""
-          },
-          {
-            "title": "Updates and Lifecycle",
-            "entry": "./microservices/microservice-lifecycle-management.md",
-            "description": ""
-          },
-          {
-            "title": "Registry and Catalog",
-            "entry": "./microservices/microservice-registry-catalog.md",
-            "description": ""
-          },
-          {
-            "title": "Logs",
-            "entry": "./microservices/microservice-logs.md",
-            "description": ""
-          }
-        ]
-      },
-      {
-        "title": "Writing Microservices",
+        "title": "Developing Microservices",
         "subMenus": [
           {
             "title": "Overview",
-            "entry": "./writing-microservices/overview.md",
-            "description": "How to write and deploy an iofog microservice"
+            "entry": "./developing-microservices/overview.md",
+            "description": ""
           },
           {
             "title": "SDK",
-            "entry": "./writing-microservices/sdk.md",
-            "description": "iofog SDKs available to write microservices"
+            "entry": "./developing-microservices/sdk.md",
+            "description": ""
           },
           {
             "title": "Debugging",
-            "entry": "./writing-microservices/debugging.md",
-            "description": "How to debug an iofog microservice"
+            "entry": "./developing-microservices/debugging.md",
+            "description": ""
           }
         ]
       },
@@ -228,21 +193,36 @@
         ]
       },
       {
-        "title": "Developing Microservices",
+        "title": "Microservice Management",
         "subMenus": [
           {
-            "title": "Overview",
-            "entry": "./developing-microservices/overview.md",
+            "title": "Distributed Applications",
+            "entry": "./microservices/applications.md",
             "description": ""
           },
           {
-            "title": "SDK",
-            "entry": "./developing-microservices/sdk.md",
+            "title": "Exposing Public Ports",
+            "entry": "./microservices/microservice-exposing.md",
             "description": ""
           },
           {
-            "title": "Debugging",
-            "entry": "./developing-microservices/debugging.md",
+            "title": "Move and Rename",
+            "entry": "./microservices/microservice-move-rename.md",
+            "description": ""
+          },
+          {
+            "title": "Updates and Lifecycle",
+            "entry": "./microservices/microservice-lifecycle-management.md",
+            "description": ""
+          },
+          {
+            "title": "Registry and Catalog",
+            "entry": "./microservices/microservice-registry-catalog.md",
+            "description": ""
+          },
+          {
+            "title": "Logs",
+            "entry": "./microservices/microservice-logs.md",
             "description": ""
           }
         ]
