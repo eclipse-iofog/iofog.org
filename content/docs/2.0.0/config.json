@@ -318,16 +318,6 @@
         ]
       },
       {
-        "title": "Reference - Router",
-        "subMenus": [
-          {
-            "title": "Overview",
-            "entry": "./reference-router/overview.md",
-            "description": ""
-          }
-        ]
-      },
-      {
         "title": "Reference - Catalog Microservices",
         "subMenus": [
           {
