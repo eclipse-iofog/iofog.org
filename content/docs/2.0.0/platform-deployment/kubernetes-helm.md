@@ -41,8 +41,8 @@ The `my-ecn` refers to the Helm release name as shown below.
 To list all Helm releases, we can simply run `helm list`. The result should look like this:
 
 ```plain
-NAME      	REVISION	UPDATED                 	STATUS  	CHART          	    APP VERSION	  NAMESPACE
-my-ecn     	1       	Tue Oct  1 21:34:42 2019	DEPLOYED	iofog-2.0.0-beta	2.0.0-beta 	  default
+NAME     REVISION  UPDATED                   STATUS    CHART             APP VERSION  NAMESPACE
+my-ecn   1         Tue Oct  1 21:34:42 2019  DEPLOYED  iofog-2.0.0-beta  2.0.0-beta   default
 ```
 
 The following is a complete list of all user configurable properties for the ioFog Helm chart. All of the properties are optional and have defaults. Use `--set property.name=value` in `helm install` to parametrize Helm release.

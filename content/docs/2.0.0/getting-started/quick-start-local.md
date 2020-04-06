@@ -76,7 +76,7 @@ spec:
     password: q1u45ic9kst563art
   controller:
     container:
-      image: iofog/controller:2.0.0-beta
+      image: iofog/controller:2.0.0-beta2
 ---
 apiVersion: iofog.org/v2
 kind: LocalAgent
@@ -84,7 +84,7 @@ metadata:
   name: local
 spec:
   container:
-    image: iofog/agent:2.0.0-beta
+    image: iofog/agent:2.0.0-beta2
 " > /tmp/quick-start.yaml
 iofogctl deploy -f /tmp/quick-start.yaml
 ```
@@ -105,7 +105,7 @@ CONTROLLER    STATUS    AGE               UPTIME         ADDR       PORT
 local         online    2h26m             1h16m          0.0.0.0    51121
 
 AGENT         STATUS    AGE               UPTIME         ADDR       VERSION
-local         RUNNING   2h26m             1h15m          0.0.0.0    2.0.0-beta
+local         RUNNING   2h26m             1h15m          0.0.0.0    2.0.0-beta2
 
 APPLICATION	  STATUS    MICROSERVICES
 
@@ -131,8 +131,8 @@ Which should output something similar to:
 ```plain
 CONTAINER ID        IMAGE                                          COMMAND                  CREATED             STATUS              PORTS                                            NAMES
 4eaaf8c38191        quay.io/interconnectedcloud/qdrouterd:latest   "/home/qdrouterd/bin…"   18 minutes ago      Up 18 minutes       5671/tcp, 55672/tcp, 0.0.0.0:5672->5672/tcp      iofog_zxK6zpnQGmy8Jd8X4Wt8ckpBfxFf6cH9
-30dcb7430f04        iofog/agent:2.0.0-beta                         "sh /start.sh"           18 minutes ago      Up 18 minutes       0.0.0.0:54321->54321/tcp, 0.0.0.0:8081->22/tcp   iofog-agent
-c57f2817788c        iofog/controller:2.0.0-beta                    "node /usr/local/lib…"   18 minutes ago      Up 18 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp   iofog-controller
+30dcb7430f04        iofog/agent:2.0.0-beta2                        "sh /start.sh"           18 minutes ago      Up 18 minutes       0.0.0.0:54321->54321/tcp, 0.0.0.0:8081->22/tcp   iofog-agent
+c57f2817788c        iofog/controller:2.0.0-beta2                   "node /usr/local/lib…"   18 minutes ago      Up 18 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp   iofog-controller
 ```
 
 ## Deploy Microservices
