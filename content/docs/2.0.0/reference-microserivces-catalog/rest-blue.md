@@ -1,4 +1,4 @@
-# Bluetooth REST API (REST-BLUE)
+# System: Bluetooth REST API Microservice
 
 > ##### Prerequisites:
 >

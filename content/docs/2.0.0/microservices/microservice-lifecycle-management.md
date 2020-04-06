@@ -1,25 +1,4 @@
-## Microservice Lifecycle
-
-Once we deploy a Microservice, the Agent that hosts it will report the Microservice's status back to the Controller.
-
-The Microservice could be in one of various states including starting, pulling, running, or deleting.
-
-We can view this status by running:
-
-```bash
-iofogctl get microservices
-```
-
-```plain
-NAMESPACE
-default
-
-MICROSERVICE  STATUS    AGENT     ROUTES    VOLUMES           PORTS
-msvc-1        RUNNING   agent-1   route-1   /tmp/msvc:/tmp
-msvc-2        DELETING  agent-2             /tmp/iofog:/data  5000:8
-```
-
-When we manage a deployed Microservice through commands like `move`, `deploy`, and `delete`, we can expect the Microservice to transition between states.
+# Microservice Updates and Lifecycle
 
 ## Microservice Updates
 
@@ -44,3 +23,26 @@ iofogctl deploy -f /tmp/msvc.yaml
     <p>Edit this page on Github!</p>
   </a>
 </aside>
+
+## Microservice States
+
+Once we deploy a Microservice, the Agent that hosts it will report the Microservice's status back to the Controller.
+
+The Microservice could be in one of various states including starting, pulling, running, or deleting.
+
+We can view this status by running:
+
+```bash
+iofogctl get microservices
+```
+
+```plain
+NAMESPACE
+default
+
+MICROSERVICE  STATUS    AGENT     ROUTES    VOLUMES           PORTS
+msvc-1        RUNNING   agent-1   route-1   /tmp/msvc:/tmp
+msvc-2        DELETING  agent-2             /tmp/iofog:/data  5000:8
+```
+
+When we manage a deployed Microservice through commands like `move`, `deploy`, and `delete`, we can expect the Microservice to transition between states.

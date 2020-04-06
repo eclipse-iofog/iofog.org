@@ -1,4 +1,4 @@
-# Setup Your Control Plane
+# Kubernetes - Deploy Control Plane Using iofogctl
 
 Every Edge Compute Network ('ECN') starts with a Control Plane that allows you to manage your ECN's resources.
 

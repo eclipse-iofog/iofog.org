@@ -1,6 +1,6 @@
 # Kinds of Resources
 
-# Common Header YAML Specification
+## Common Header YAML Specification
 
 The most important commands of `iofogctl` consume YAML files as input. A YAML file consists of one or more resources. Every resource contains a header section and a spec section. The header section contains fields common to all resources defined within the spec section.
 
@@ -22,9 +22,7 @@ spec:
 | metadata.namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                                                                                                                                |
 | spec               | Object containing the deployment specifications, different for each resource                                                                                                                                                                                                                      |
 
-## Kind
-
-### RemoteControlPlane
+## RemoteControlPlane
 
 The Remote Control Plane component specifies all the resources required to deploy the ioFog Control Plane on a set of remote hosts.
 
@@ -51,7 +49,7 @@ spec:
 
 To learn more about RemoteControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-control-plane).
 
-### KubernetesControlPlane
+## KubernetesControlPlane
 
 The Kubernetes Control Plane specifies all the resources required to deploy the ioFog Control Plane on a Kubernetes cluster.
 
@@ -72,7 +70,7 @@ spec:
 
 To learn more about KubernetesControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#kubernetes-control-plane).
 
-### LocalControlPlane
+## LocalControlPlane
 
 The Local Control Plane component specifies all the resources required to deploy the ioFog Control Plane locally as a docker container
 
@@ -94,7 +92,7 @@ spec:
 
 To learn more about LocalControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
 
-### RemoteController
+## RemoteController
 
 We can expand a Remote Control Plane by deploying a new Controller.
 
@@ -114,7 +112,7 @@ spec:
 
 To learn more about RemoteController, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-controller).
 
-### RemoteAgent
+## RemoteAgent
 
 We can expand Remote Control Plane by deploying new Agent. They communicate with Controllers to allow your edge nodes to host Microservices.
 
@@ -134,7 +132,7 @@ spec:
 
 To learn more about RemoteAgent, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-agent).
 
-### LocalAgent
+## LocalAgent
 
 We can deploy a local Agent.
 
@@ -148,7 +146,7 @@ spec:
     image: iofog/agent:2.0.0-beta
 ```
 
-### AgentConfig
+## AgentConfig
 
 We can deploy or update the Agent Configuration.
 
@@ -193,7 +191,7 @@ spec:
 
 To learn more about AgentConfig, please see [Iofogctl agent configuration YAML specification](../reference-iofogctl/reference-agent.html).
 
-### CatalogItem
+## CatalogItem
 
 The catalog item has a very simple definition
 
@@ -213,7 +211,7 @@ spec:
 
 To learn more about CatalogItem, please see [Iofogctl Catalog Item YAML specification](../reference-iofogctl/reference-catalog.html).
 
-### Application
+## Application
 
 An application is a set of Microservices working together to achieve one specific purpose.
 
@@ -266,7 +264,7 @@ spec:
 
 To learn more about Application, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html).
 
-### Microservice
+## Microservice
 
 Microservices configuration and set up are defined using YAML files.
 
@@ -307,7 +305,7 @@ spec:
 
 To learn more about Microservice, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html#microservices).
 
-### Volume
+## Volume
 
 We can deploy Volume.
 
@@ -326,7 +324,7 @@ spec:
 
 To learn more about Volume, please see [Volume Management](../agent-management/volumes.html).
 
-### Registry
+## Registry
 
 We can deploy Registry.
 

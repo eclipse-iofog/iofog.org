@@ -1,4 +1,4 @@
-# Controllers
+# Overview
 
 Since your Edge Compute Network is likely distributed—composed of many different devices across networks, each with potentially differing microservices—a piece of software called the **Controller** is used for orchestration of the different [Agents](../reference-agent/overview.html).
 

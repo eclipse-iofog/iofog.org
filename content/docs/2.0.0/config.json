@@ -21,12 +21,12 @@
             "description": "Overview of ioFog architecture."
           },
           {
-            "title": "Quick Start",
+            "title": "Quick Start With Local Deployment",
             "entry": "./getting-started/quick-start-local.md",
             "description": "Getting started with iofog, iofogctl by deploying an ioFog local stack."
           },
           {
-            "title": "Minikube and Vagrant, the Kubernetes local stack",
+            "title": "Quick Start On Minikube and Vagrant",
             "entry": "./getting-started/quick-start-minikube.md",
             "description": "Getting started with iofog, iofogctl by deploying an ioFog local stack on Kubernetes minikube."
           }
@@ -36,32 +36,32 @@
         "title": "iofogctl",
         "subMenus": [
           {
-            "title": "Introduction",
+            "title": "iofogctl - ioFog Unified Command Line Interface",
             "entry": "./iofogctl/introduction.md",
             "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
           },
           {
-            "title": "Installation",
+            "title": "Download And Install iofogctl",
             "entry": "./iofogctl/download.md",
             "description": ""
           },
           {
-            "title": "Getting Familiar",
+            "title": "Getting Familiar With iofogctl",
             "entry": "./iofogctl/getting-familiar.md",
             "description": ""
           },
           {
-            "title": "Managing Resources",
+            "title": "iofogctl Resource Management",
             "entry": "./iofogctl/resource-management.md",
             "description": ""
           },
           {
-            "title": "Connect & Disconnect",
+            "title": "Connecting To Existing Edge Compute Networks",
             "entry": "./iofogctl/connect-disconnect.md",
             "description": ""
           },
           {
-            "title": "Legacy Commands",
+            "title": "Legacy Commands in iofogctl",
             "entry": "./iofogctl/legacy.md",
             "description": ""
           }
@@ -126,12 +126,12 @@
             "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
           },
           {
-            "title": "Attach / Detach Agent",
+            "title": "Attach / Detach an Agent",
             "entry": "./agent-management/attach-detach.md",
             "description": ""
           },
           {
-            "title": "Volumes",
+            "title": "Volume Management",
             "entry": "./agent-management/volumes.md",
             "description": ""
           },
@@ -146,12 +146,12 @@
         "title": "Developing Microservices",
         "subMenus": [
           {
-            "title": "Overview",
+            "title": "Writing Microservices",
             "entry": "./developing-microservices/overview.md",
             "description": ""
           },
           {
-            "title": "SDK",
+            "title": "ioFog SDK",
             "entry": "./developing-microservices/sdk.md",
             "description": ""
           },
@@ -176,17 +176,17 @@
             "description": "ioFog tutorial, what is in the ioFog stack ?"
           },
           {
-            "title": "Manage Your Microservices",
+            "title": "Manage Our Microservices",
             "entry": "./tutorial/manage-our-microservices.md",
             "description": "ioFog tutorial, how to manage microservices using iofogctl"
           },
           {
-            "title": "Create Your First Microservice - JavaScript",
+            "title": "Create Our First Microservice - JavaScript",
             "entry": "./tutorial/create-our-first-microservice-javascript.md",
             "description": "ioFog tutorial, how to create an iofog microservice using the Javascript SDK"
           },
           {
-            "title": "Deploy Your Microservice",
+            "title": "Deploy Our Microservice",
             "entry": "./tutorial/deploy-our-microservice.md",
             "description": "ioFog tutorial, how to deploy a microservice and/or an application using iofogctl"
           }
@@ -201,27 +201,27 @@
             "description": ""
           },
           {
-            "title": "Exposing Public Ports",
+            "title": "Microservice Public Ports",
             "entry": "./microservices/microservice-exposing.md",
             "description": ""
           },
           {
-            "title": "Move and Rename",
+            "title": "Move and Rename Microservices",
             "entry": "./microservices/microservice-move-rename.md",
             "description": ""
           },
           {
-            "title": "Updates and Lifecycle",
+            "title": "Microservice Updates and Lifecycle",
             "entry": "./microservices/microservice-lifecycle-management.md",
             "description": ""
           },
           {
-            "title": "Registry and Catalog",
+            "title": "Microservice Registry and Catalog Management",
             "entry": "./microservices/microservice-registry-catalog.md",
             "description": ""
           },
           {
-            "title": "Logs",
+            "title": "Microservice Logs",
             "entry": "./microservices/microservice-logs.md",
             "description": ""
           }
@@ -231,7 +231,7 @@
         "title": "Reference - iofogctl",
         "subMenus": [
           {
-            "title": "Overview of Kinds",
+            "title": "Kinds of Resources",
             "entry": "./reference-iofogctl/reference-kinds.md",
             "description": ""
           },
@@ -251,7 +251,7 @@
             "description": "iofogctl YAML structure and specification for deploy an application"
           },
           {
-            "title": "CatalogItem YAML Specification",
+            "title": "Catalog Item YAML Specification",
             "entry": "./reference-iofogctl/reference-catalog.md",
             "description": ""
           }
@@ -266,12 +266,12 @@
             "description": "What is the ioFog Controller"
           },
           {
-            "title": "Legacy CLI Usage",
+            "title": "Legacy Controller CLI Usage",
             "entry": "./reference-controller/cli-usage.md",
             "description": "How to use iofog-controller CLI"
           },
           {
-            "title": "REST API Reference",
+            "title": "Controller REST API Reference",
             "entry": "./reference-controller/rest-api.md",
             "description": "ioFog Controller REST API"
           }
@@ -286,22 +286,22 @@
             "description": "What is the ioFog Agent"
           },
           {
-            "title": "Legacy CLI Usage",
+            "title": "Legacy Agent CLI Usage",
             "entry": "./reference-agent/cli-usage.md",
             "description": "How to use iofog-agent CLI"
           },
           {
-            "title": "Local API Reference",
+            "title": "Agent Local API Reference",
             "entry": "./reference-agent/rest-api.md",
             "description": "ioFog Agent REST API"
           },
           {
-            "title": "Configuration",
+            "title": "Agent Configurations",
             "entry": "./reference-agent/configuration.md",
             "description": "ioFog Agent Configurations"
           },
           {
-            "title": "Debugging",
+            "title": "Remote debugging using IntelliJ",
             "entry": "./reference-agent/debugging.md",
             "description": ""
           }
@@ -311,22 +311,22 @@
         "title": "Reference - Catalog Microservices",
         "subMenus": [
           {
-            "title": "System: Diagnostics",
+            "title": "System: Diagnostics Microservice",
             "entry": "./reference-microserivces-catalog/diagnostics.md",
             "description": "Prebuilt iofog system microservice. Diagnostic basic functionalities on your edge device"
           },
           {
-            "title": "System: Hardware Abstraction Layer",
+            "title": "System: Hardware Abstraction Layer Microservice",
             "entry": "./reference-microserivces-catalog/hal.md",
             "description": "Prebuilt iofog system microservice. Hardware interactions on your edge device"
           },
           {
-            "title": "System: Bluetooth REST API",
+            "title": "System: Bluetooth REST API Microservice",
             "entry": "./reference-microserivces-catalog/rest-blue.md",
             "description": "Prebuilt iofog system microservice. Enable/Disable bluetooth on your edge device"
           },
           {
-            "title": "JSON REST API And Open Weather Map",
+            "title": "JSON REST API And Open Weather Map Microservices",
             "entry": "./reference-microserivces-catalog/jsonrestapi.md",
             "description": "Prebuilt iofog system microservice. Transform into JSON data generated by your edge device"
           }
@@ -336,7 +336,7 @@
         "title": "Contributing",
         "subMenus": [
           {
-            "title": "Guidelines",
+            "title": "Contributing Guidelines",
             "entry": "./contributing/guidelines.md",
             "description": "Guidelines to contributing to ioFog. How to contribute ?"
           },

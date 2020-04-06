@@ -1,4 +1,4 @@
-# Agent Management
+# Introduction
 
 Once we have deployed an ioFog Control Plane and some set of Agents, there are certain day-to-day operations we will want to perform on our Agents.
 

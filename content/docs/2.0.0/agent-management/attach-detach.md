@@ -1,4 +1,4 @@
-# Detach / Attach an Agent
+# Attach / Detach an Agent
 
 We can transfer an Agent from one ECN to another by detaching the agent and attaching it to another ECN.
 Note: detaching an agent will delete its connection with the Controller, and all microservices will be shut down.

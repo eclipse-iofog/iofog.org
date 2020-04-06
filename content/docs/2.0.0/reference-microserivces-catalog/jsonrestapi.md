@@ -1,4 +1,4 @@
-# JSON REST API and Open Weather Map Microservices
+# JSON REST API And Open Weather Map Microservices
 
 ## JSON REST API
 

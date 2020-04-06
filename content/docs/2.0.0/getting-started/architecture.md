@@ -3,7 +3,7 @@
   <p>If you haven't done so, you should first go and read <a href="core-concepts.html">Core Concepts</a> in order to understand what ioFog is and what is its purpose.</p>
 </aside>
 
-# ioFog Architecture
+# Architecture
 
 The ioFog architecture consists of several basic building blocks. We are going to introduce all of these one by one and show what capabilities they bring into the system, and how they are commonly deployed. Instances of these ioFog components form a logical component called Edge Compute Network (ECN). We will gradually build up the definition of ioFog ECN from a bare bone ECN to a more robust, even heterogeneous ECN.
 

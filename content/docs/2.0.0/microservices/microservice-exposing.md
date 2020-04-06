@@ -1,4 +1,4 @@
-## Microservice Public Ports
+# Microservice Public Ports
 
 Public Ports allow your microservices to securely expose public endpoints without opening ports on your Agents.
 

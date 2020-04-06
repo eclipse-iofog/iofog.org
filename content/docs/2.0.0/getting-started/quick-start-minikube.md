@@ -1,4 +1,4 @@
-# Getting started with ioFog on Minikube and Vagrant
+# Quick Start On Minikube and Vagrant
 
 ## Prerequisite
 

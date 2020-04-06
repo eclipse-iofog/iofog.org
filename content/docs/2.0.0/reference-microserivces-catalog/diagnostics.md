@@ -1,4 +1,4 @@
-## Diagnostics Container
+# System: Diagnostics Microservice
 
 The Diagnostics Container performs diagnostics of basic functionality to work with ioFog.
 
@@ -6,7 +6,7 @@ Use the Diagnostic Container if something goes wrong on your machine with ioFog 
 
 With the detailed report that the Diagnostics Container creates, you can be aware of the issues that may arise.
 
-### Diagnostics Container performs the following checks:
+## Diagnostics Container performs the following checks:
 
 - Client creation (tries to create ioFog client that checks if all the required parameters are provided)
 - Tries to update config (tries to get ioFog config, ping report_url provided from config)
@@ -16,7 +16,7 @@ With the detailed report that the Diagnostics Container creates, you can be awar
 - Checks if RestBlue is available (connects to RestBlue System Container)
 - Checks if Log Container is available (connects to Log System Container).<br>
 
-### Examples of configuration JSONs:
+## Examples of configuration JSONs:
 
 The full config for the container should look the following way:
 
@@ -47,7 +47,7 @@ If "report_url" is not provided or is not available then whole output will be lo
 }
 ```
 
-### Config explanation:
+## Config explanation:
 
 |                  |                                                                                                                        |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -62,13 +62,13 @@ If "report_url" is not provided or is not available then whole output will be lo
 | "ping_logger"    | connect to Log System Container if true is set                                                                         |
 | "interval"       | perform checks after the specified interval; every 30 sec if not specified                                             |
 
-### Launching the Container
+## Launching the Container
 
 The `Diagnostic` images will always be available on ioFog Controllers using the catalog item ID `4`.
 
 Please refer to the [catalog overview](../microservices/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
 
-### Diagnostics output is the detailed logs about system functionality.
+## Diagnostics output is the detailed logs about system functionality.
 
 You can retrieve the console logs of any microservice by running `iofogctl logs microservice MICROSERVICE_NAME`
 

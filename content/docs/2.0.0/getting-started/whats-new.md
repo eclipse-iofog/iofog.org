@@ -1,4 +1,4 @@
-# What's New in ioFog 2.0?
+# What's New in ioFog 2?
 
 - [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager), see [Architecture Concepts](../getting-started/architecture.html) article for details
 - Improved [registry and catalog items management](../microservices/microservice-registry-catalog.html) in ioFog Controller

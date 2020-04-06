@@ -1,4 +1,4 @@
-# Registry and Catalog Management
+# Microservice Registry and Catalog Management
 
 During the [Quickstart](../getting-started/quick-start-local.html) and the [tutorial](../tutorial/introduction.html), we specified images to be used for each microservice, for each type of Agent.
 

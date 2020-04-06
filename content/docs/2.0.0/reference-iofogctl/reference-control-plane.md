@@ -1,4 +1,4 @@
-# Iofogctl Platform YAML Specification
+# Control Plane YAML Specification
 
 `iofogctl` allows users to deploy Edge Compute Networks ('ECNs'). The various resources which constitute an ECN are specified within YAML files for iofogctl to consume.
 

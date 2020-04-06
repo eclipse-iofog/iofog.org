@@ -1,4 +1,4 @@
-# Prepare Your Kubernetes Cluster
+# Kubernetes - Prepare Your Cluster
 
 Some components of an Edge Compute Network ('ECN') can be deployed on Kubernetes. These component include Controllers. `iofogctl` will also install ioFog Operator and Kubelet to assist in the Kubernetes-deploy Control Plane.
 

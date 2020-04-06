@@ -1,4 +1,4 @@
-# Setup Your Control Plane
+# Remote - Deploy Control Plane
 
 Every Edge Compute Network ('ECN') starts with a Control Plane that allows you to manage your ECN's resources.
 

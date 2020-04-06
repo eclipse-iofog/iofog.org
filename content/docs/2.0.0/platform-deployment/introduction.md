@@ -1,4 +1,4 @@
-# Remote Deployment Introduction
+# Introduction
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Have you tried deploying a local ECN first?</h3>

@@ -1,4 +1,4 @@
-# Getting Familiar
+# Getting Familiar With iofogctl
 
 To list all available commands, just run `iofogctl` without any arguments. The available commands should look something like this:
 

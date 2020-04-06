@@ -1,4 +1,4 @@
-# Helm Guide
+# Kubernetes - Deploy Control Plane Using Helm
 
 In this tutorial, we will install the ioFog Kubernetes Control Plane using Helm.
 
