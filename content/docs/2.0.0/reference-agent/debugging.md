@@ -18,7 +18,7 @@ Here we'll see how to remotely debug our Agent. This assumes we have an IntelliJ
     <figcaption>Step to add remote agent</figcaption>
 </figure>
 
-- Change the port number to 5005.
+- Change the port number to 54322.
 
 - Change the host with the Agent ip.
 

@@ -10,7 +10,7 @@ The Docker folks have several wonderful tutorials on debugging, e.g. [a Node.js 
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/writing-microservices/debugging.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/developing-microservices/debugging.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

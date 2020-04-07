@@ -20,7 +20,7 @@ The ioFog SDK is an _optional_ library. It provides an easy way for your edge no
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/writing-microservices/sdk.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/developing-microservices/sdk.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>
