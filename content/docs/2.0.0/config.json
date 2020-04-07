@@ -177,17 +177,17 @@
           },
           {
             "title": "Manage Our Microservices",
-            "entry": "./tutorial/manage-our-microservices.md",
+            "entry": "./tutorial/manage-your-microservices.md",
             "description": "ioFog tutorial, how to manage microservices using iofogctl"
           },
           {
             "title": "Create Our First Microservice - JavaScript",
-            "entry": "./tutorial/create-our-first-microservice-javascript.md",
+            "entry": "./tutorial/create-your-first-microservice-javascript.md",
             "description": "ioFog tutorial, how to create an iofog microservice using the Javascript SDK"
           },
           {
             "title": "Deploy Our Microservice",
-            "entry": "./tutorial/deploy-our-microservice.md",
+            "entry": "./tutorial/deploy-your-microservice.md",
             "description": "ioFog tutorial, how to deploy a microservice and/or an application using iofogctl"
           }
         ]
