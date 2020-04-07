@@ -1,6 +1,6 @@
 # Docker Image Pruning
 
-Agent disk space is a precious resource. We can reclaim disk space by pruning Docker images from our Agents:
+Agent disk space is a precious resource. You can reclaim disk space by pruning Docker images from your Agents:
 
 ```bash
 iofogctl prune agent NAME

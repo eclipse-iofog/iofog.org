@@ -1,8 +1,8 @@
 # Volume Management
 
-Often our Microservices will require some external data to be mounted into their container environments.
+Often your Microservices will require some external data to be mounted into their container environments.
 
-With iofogctl, we can push directories to our Agents so that they can be mounted into Microservice containers as volumes. To do this, we can specify a Volume in YAML like so:
+With iofogctl, you can push directories to your Agents so that they can be mounted into Microservice containers as volumes. To do this, you can specify a Volume in YAML like so:
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -17,7 +17,7 @@ spec:
     - name: agent-2
 ```
 
-To push the data to our Agents, we run:
+To push the data to your Agents, you run:
 
 ```bash
 iofogctl deploy -f volume.yaml
@@ -25,7 +25,7 @@ iofogctl deploy -f volume.yaml
 
 With the above example, the `/tmp/` directory and all of its subdirectories will be pushed to `/tmp/secrets/` in `agent-1` and `agent-2`.
 
-Once the Volume has been deployed, we can deploy Microservices that depend on it.
+Once the Volume has been deployed, you can deploy Microservices that depend on it.
 
 Volumes can be listed, described, and deleted like all other iofogctl resources.
 

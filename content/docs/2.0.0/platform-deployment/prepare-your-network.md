@@ -1,6 +1,6 @@
 # Prepare Your Network
 
-Once we have a set of remote hosts (and/or a Kubernetes cluster) we need to make sure that we have appropriate firewall rules for the ioFog components that we will start deploying on those remote hosts.
+Once you have a set of remote hosts (and/or a Kubernetes cluster) you need to make sure that you have appropriate firewall rules for the ioFog components that you will start deploying on those remote hosts.
 
 The following is an exhaustive list of the ingress firewall rules required for any ioFog Edge Compute Network.
 

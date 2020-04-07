@@ -1,6 +1,6 @@
 # Remote debugging using IntelliJ
 
-Here we'll see how to remotely debug our Agent. This assumes we have an IntelliJ IDEA IDE up and running, and have already imported the <a href="https://github.com/eclipse-iofog/Agent.git">eclipse-iofog/Agent github repository</a> project we are going to debug.
+Here you'll see how to remotely debug your Agent. This assumes you have an IntelliJ IDEA IDE up and running, and have already imported the <a href="https://github.com/eclipse-iofog/Agent.git">eclipse-iofog/Agent github repository</a> project you are going to debug.
 
 - Open the IntelliJ IDEA IDE and click on Run Configurations (top right)
 

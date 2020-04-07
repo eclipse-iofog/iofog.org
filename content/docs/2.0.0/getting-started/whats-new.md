@@ -14,7 +14,7 @@ Following is a list of API breakages and other important changes to user interac
 
 ## New YAML kinds
 
-We have split up the previous ControlPlane kind into three: KubernetesControlPlane, RemoteControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
+We have split up the previous ControlPlane kind into three: KubernetesControlPlane, RemoteControlPlane, and LocalControlPlane. This change makes your deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
 
 ## Small changes to the Microservice YAML structure
 
@@ -93,7 +93,7 @@ This allows you to use any namespace when omitting the `--namespace` flag from i
 
 ## Prune Docker on an Agent
 
-Agent disk space is a precious resource. We can reclaim disk space by pruning Docker images from our Agents:
+Agent disk space is a precious resource. You can reclaim disk space by pruning Docker images from your Agents:
 
 ```bash
 iofogctl prune agent NAME

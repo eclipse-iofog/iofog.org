@@ -15,7 +15,7 @@ The Windows binary can be downloaded from https://storage.googleapis.com/iofogct
 
 ### Prepare Windows
 
-In order to use `iofogctl` to deploy an ECN locally on Windows we will need to configure Docker to run Linux containers:
+In order to use `iofogctl` to deploy an ECN locally on Windows you will need to configure Docker to run Linux containers:
 
 - Install [docker desktop for windows](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
 - Enable Hyper-V in Powershell `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`

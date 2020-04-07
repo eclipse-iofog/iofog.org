@@ -89,11 +89,11 @@ iofogctl configure default-namespace <namespace_name>
 
 To revert to the default configuration, you can always run `iofogctl configure default-namespace default`.
 
-Next, we will use the default namespace while exploring `iofogctl` functionality.
+Next, you will use the default namespace while exploring `iofogctl` functionality.
 
 ## View Edge Compute Network Details
 
-Once we are connected to a live ECN, we can go ahead and do some introspection.
+Once you are connected to a live ECN, you can go ahead and do some introspection.
 
 Try to display individual resources or all resources within a namespace with the get command:
 
@@ -105,7 +105,7 @@ iofogctl get microservices
 iofogctl get all
 ```
 
-To get more detailed information, we can use the describe command:
+To get more detailed information, you can use the describe command:
 
 ```bash
 iofogctl describe controlplane
@@ -138,7 +138,7 @@ iofogctl move microservice health-case-ui zebra-1
 
 ## Prune Docker on an Agent
 
-We can now manually prune the docker images on our Agents, if our Agent is running out of diskspace.
+You can now manually prune the docker images on your Agents, if your Agent is running out of diskspace.
 
 ```bash
 iofogctl prune agent AGENT_NAME
@@ -146,7 +146,7 @@ iofogctl prune agent AGENT_NAME
 
 ## Detach / Attach an Agent
 
-We can transfer an Agent from one ECN to another by detaching the agent and attaching it to another ECN.
+You can transfer an Agent from one ECN to another by detaching the agent and attaching it to another ECN.
 Note: detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
 
 ```bash
@@ -165,7 +165,7 @@ To display all resources in dettached state with the get command
 iofogctl get all --detached
 ```
 
-If we have an Agent ready and running on a remote host, we can also attach it directly using host and ssh credentials:
+If you have an Agent ready and running on a remote host, you can also attach it directly using host and ssh credentials:
 
 ```bash
 iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH

@@ -1,8 +1,8 @@
 # Microservice Registry and Catalog Management
 
-During the [Quickstart](../getting-started/quick-start-local.html) and the [tutorial](../tutorial/introduction.html), we specified images to be used for each microservice, for each type of Agent.
+During the [Quickstart](../getting-started/quick-start-local.html) and the [tutorial](../tutorial/introduction.html), you specified images to be used for each microservice, for each type of Agent.
 
-That was nice and easy, but what if we need to deploy the same code on a lot of Agents? We would need to specify the images for each Microservice. Wouldn't it be nice to have a way to specify the images to be used for each type of Agent once and then reuse this configuration? That's where the Controller Microservice catalog comes into play!
+That was nice and easy, but what if you need to deploy the same code on a lot of Agents? You would need to specify the images for each Microservice. Wouldn't it be nice to have a way to specify the images to be used for each type of Agent once and then reuse this configuration? That's where the Controller Microservice catalog comes into play!
 
 Each ioFog Controller comes with a built-in microservice catalog. You can see the list of preconfigured Microservices images using `iofogctl`:
 
@@ -29,7 +29,7 @@ ID		NAME				            DESCRIPTION											                                  
 
 ```
 
-Instead of specifying the images for each Agent type, we can refer to catalog ID in your Microservice specification. We can see that there is a `Hello Web Demo` catalog item that is configured with the `iofog/hello-web` image for x86 Agents, and `iofog/hello-web-arm` for ARM Agents. So, to deploy a Microservice running those images, we can use the following YAML:
+Instead of specifying the images for each Agent type, you can refer to catalog ID in your Microservice specification. You can see that there is a `Hello Web Demo` catalog item that is configured with the `iofog/hello-web` image for x86 Agents, and `iofog/hello-web-arm` for ARM Agents. So, to deploy a Microservice running those images, you can use the following YAML:
 
 ```bash
 echo "---
@@ -62,9 +62,9 @@ spec:
 iofogctl deploy microservice -f /tmp/hello-web-catalog.yaml
 ```
 
-Note that this YAML snippet assumes we have an running ECN in the default Namespace with an Agent called `agent-name`.
+Note that this YAML snippet assumes you have an running ECN in the default Namespace with an Agent called `agent-name`.
 
-We can check that the expected images have been used by describing our Microservice with iofogct:
+You can check that the expected images have been used by describing your Microservice with iofogct:
 
 ```bash
 iofogctl describe microservice 'hello-web'
@@ -111,9 +111,9 @@ spec:
 
 ```
 
-## Create our own Catalog Items
+## Create your own Catalog Items
 
-We can also use iofogctl to create our own Catalog Items. The YAML spec reference can be found [here](../iofogctl/catalogitem-yaml-spec.md).
+You can also use iofogctl to create your own Catalog Items. The YAML spec reference can be found [here](../iofogctl/catalogitem-yaml-spec.md).
 
 ```bash
 $ echo "---
@@ -131,7 +131,7 @@ spec:
 iofogctl deploy -f /tmp/my-catalog-item.yaml
 ```
 
-We can verify that our new Catalog Item was added to the Catalog:
+You can verify that your new Catalog Item was added to the Catalog:
 
 ```bash
 iofogctl get catalog | grep my-multiplatform-microservice
@@ -141,7 +141,7 @@ iofogctl get catalog | grep my-multiplatform-microservice
 17		my-multiplatform-microservice	Alpine Linux											remote		amd64/alpine:latest			arm32v6/alpine:latest
 ```
 
-We used grep to filter the ouput, but the columns are the same as above. You can now use the `spec.images.catalogId` field on `Microservice` kind set to 17 in order to deploy you microservice.
+You used grep to filter the ouput, but the columns are the same as above. You can now use the `spec.images.catalogId` field on `Microservice` kind set to 17 in order to deploy you microservice.
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

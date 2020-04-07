@@ -1,6 +1,6 @@
 # Attach / Detach an Agent
 
-We can transfer an Agent from one ECN to another by detaching the agent and attaching it to another ECN.
+You can transfer an Agent from one ECN to another by detaching the agent and attaching it to another ECN.
 Note: detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
 
 ```bash
@@ -19,7 +19,7 @@ To display all resources in dettached state with the get command
 iofogctl get all --detached
 ```
 
-If we have an Agent ready and running on a remote host, we can also attach it directly using host and ssh credentials:
+If you have an Agent ready and running on a remote host, you can also attach it directly using host and ssh credentials:
 
 ```bash
 iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH

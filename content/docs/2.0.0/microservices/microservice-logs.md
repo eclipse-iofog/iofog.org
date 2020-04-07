@@ -1,14 +1,14 @@
 # Microservice Logs
 
-Debugging distributed applications can be tricky. Fortunately, iofogctl makes it easy to find out what each of our microservices are doing.
+Debugging distributed applications can be tricky. Fortunately, iofogctl makes it easy to find out what each of your microservices are doing.
 
-With the `logs` command, we can use iofogctl to inspect the output of each microservice's container:
+With the `logs` command, you can use iofogctl to inspect the output of each microservice's container:
 
 ```bash
 iofogctl logs microservice NAME
 ```
 
-If we have issues getting logs, its a good idea to check the status of the respective microservice:
+If you have issues getting logs, its a good idea to check the status of the respective microservice:
 
 ```bash
 iofogctl get microservices

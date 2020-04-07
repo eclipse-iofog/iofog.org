@@ -13,14 +13,14 @@ metadata:
 spec:
 ```
 
-| Field              | Description                                                                                                                                                                                                                                                                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| apiVersion         | ioFog YAML schema version. Currently `iofog.org/v2`                                                                                                                                                                                                                                               |
-| kind               | String representing what type of resource we want to deploy. The available values are `RemoteControlPlane`, `KubernetesControlPlane`, `LocalControlPlane`, `RemoteController`, `RemoteAgent`, `LocalAgent`, `AgentConfig`, `Registry`, `CatalogItem`, `Application`, `Microservice` and `Volume`. |
-| metadata           | Object containing metadata about the resource                                                                                                                                                                                                                                                     |
-| metadata.name      | User defined, unique identifier of the resource in its namespace.                                                                                                                                                                                                                                 |
-| metadata.namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                                                                                                                                |
-| spec               | Object containing the deployment specifications, different for each resource                                                                                                                                                                                                                      |
+| Field              | Description                                                                                                                                                                                                                                                                                        |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| apiVersion         | ioFog YAML schema version. Currently `iofog.org/v2`                                                                                                                                                                                                                                                |
+| kind               | String representing what type of resource you want to deploy. The available values are `RemoteControlPlane`, `KubernetesControlPlane`, `LocalControlPlane`, `RemoteController`, `RemoteAgent`, `LocalAgent`, `AgentConfig`, `Registry`, `CatalogItem`, `Application`, `Microservice` and `Volume`. |
+| metadata           | Object containing metadata about the resource                                                                                                                                                                                                                                                      |
+| metadata.name      | User defined, unique identifier of the resource in its namespace.                                                                                                                                                                                                                                  |
+| metadata.namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                                                                                                                                 |
+| spec               | Object containing the deployment specifications, different for each resource                                                                                                                                                                                                                       |
 
 ## RemoteControlPlane
 
@@ -94,7 +94,7 @@ To learn more about LocalControlPlane, please see [Iofogctl Platform YAML Specif
 
 ## RemoteController
 
-We can expand a Remote Control Plane by deploying a new Controller.
+You can expand a Remote Control Plane by deploying a new Controller.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -114,7 +114,7 @@ To learn more about RemoteController, please see [Iofogctl Platform YAML Specifi
 
 ## RemoteAgent
 
-We can expand Remote Control Plane by deploying new Agent. They communicate with Controllers to allow your edge nodes to host Microservices.
+You can expand Remote Control Plane by deploying new Agent. They communicate with Controllers to allow your edge nodes to host Microservices.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -134,7 +134,7 @@ To learn more about RemoteAgent, please see [Iofogctl Platform YAML Specificatio
 
 ## LocalAgent
 
-We can deploy a local Agent.
+You can deploy a local Agent.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -148,7 +148,7 @@ spec:
 
 ## AgentConfig
 
-We can deploy or update the Agent Configuration.
+You can deploy or update the Agent Configuration.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -307,7 +307,7 @@ To learn more about Microservice, please see [Iofogctl Application YAML specific
 
 ## Volume
 
-We can deploy Volume.
+You can deploy Volume.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -326,7 +326,7 @@ To learn more about Volume, please see [Volume Management](../agent-management/v
 
 ## Registry
 
-We can deploy Registry.
+You can deploy Registry.
 
 ```yaml
 apiVersion: iofog.org/v2

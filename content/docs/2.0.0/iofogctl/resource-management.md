@@ -26,7 +26,7 @@ Specifications of the ioFog application YAML types can be found [here](../refere
 
 ## Delete Components of Edge Compute Networks
 
-We can delete resources that we have deployed to free up any associated infrastructure. Deleting resources like Control Planes, Controllers and Agents will cause any corresponding daemons to be terminated on the remote hosts.
+You can delete resources that you have deployed to free up any associated infrastructure. Deleting resources like Control Planes, Controllers and Agents will cause any corresponding daemons to be terminated on the remote hosts.
 
 ```bash
 iofogctl delete controller alpaca-1
@@ -35,15 +35,15 @@ iofogctl delete application health-care-app
 iofogctl delete microservice health-case-ui
 ```
 
-To undo a deletion, we can simply re-run the corresponding deploy command for the deleted resource.
+To undo a deletion, you can simply re-run the corresponding deploy command for the deleted resource.
 
-If we want to wipe an entire ECN, we can run:
+If you want to wipe an entire ECN, you can run:
 
 ```bash
 iofogctl delete all
 ```
 
-or, if we also want to delete the namespace, we can run:
+or, if you also want to delete the namespace, you can run:
 
 ```bash
 iofogctl delete namespace zoo-1 --force

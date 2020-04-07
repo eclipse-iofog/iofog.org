@@ -44,7 +44,7 @@ _"publisher" - the uuid of ms sent messages_
 
 _"contentdata" - message format_
 
-E.g. if we route the microservice with Open Weather Map microservice, this will allow to access the weather data in a browser or in any other application or any device cloud.
+E.g. if you route the microservice with Open Weather Map microservice, this will allow to access the weather data in a browser or in any other application or any device cloud.
 
 ## Open Weather Map
 

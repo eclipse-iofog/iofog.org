@@ -95,7 +95,7 @@ spec:
 
 ## Remote Controller
 
-We can expand a Remote Control Plane by deploying a new Controller.
+You can expand a Remote Control Plane by deploying a new Controller.
 
 ```yaml
 apiVersion: iofog.org/v2

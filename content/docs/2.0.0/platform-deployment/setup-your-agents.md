@@ -29,7 +29,7 @@ iofogctl deploy -f /tmp/agent.yaml
 
 ## Verify the Deployment
 
-We can use the following commands to verify the Agent is up and running:
+You can use the following commands to verify the Agent is up and running:
 
 ```bash
 iofogctl get agents

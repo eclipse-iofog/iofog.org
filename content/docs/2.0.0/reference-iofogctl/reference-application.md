@@ -13,7 +13,7 @@ The main take away is that an application is defined by: a `name`, a set of `mic
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: Application # What are we deploying
+kind: Application # What we are deploying
 metadata:
   name: Healthcare Wearable # Application name
   namespace: default # (Optional) iofogctl namespace to use
@@ -83,7 +83,7 @@ A microservice YAML definition file can be retrieved using the describe command:
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: Microservice # What are we deploying
+kind: Microservice # What we are deploying
 metadata:
   name: heart-rate-monitor # Microservice name
   namespace: default # (Optional) iofogctl namespace to use

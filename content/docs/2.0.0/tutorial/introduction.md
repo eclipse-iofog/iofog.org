@@ -1,6 +1,6 @@
 # Introduction
 
-In this tutorial we will use a tutorial project to set up a local ECN with a set of example Microservices.
+In this tutorial you will use a tutorial project to set up a local ECN with a set of example Microservices.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Familiar with the Core Concepts?</h3>
@@ -36,13 +36,13 @@ tar -zxvf demo.tar.gz --strip-components=1
 
 ## Bootstrap the Project
 
-To get going, all we need to do is run:
+To get going, all you need to do is run:
 
 ```sh
 $ ./start.sh tutorial
 ```
 
-We can optionally verify the ioFog stack is provisioned correctly. The automated tests run a smoke test suite on the ioFog stack, testing basic operations.
+You can optionally verify the ioFog stack is provisioned correctly. The automated tests run a smoke test suite on the ioFog stack, testing basic operations.
 
 ```sh
 $ ./test.sh
@@ -54,7 +54,7 @@ $ ./test.sh
 
 ## Get To Know ioFog
 
-With a working ioFog environment set up, we're now ready to get to know ioFog.
+With a working ioFog environment set up, you're now ready to get to know ioFog.
 
 [Continue To Next Step: Get To Know ioFog](get-to-know-iofog.html).
 

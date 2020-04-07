@@ -2,7 +2,7 @@
 
 Every Edge Compute Network ('ECN') starts with a Control Plane that allows you to manage your ECN's resources.
 
-In this guide, our Control Plane will deploy a single Controller instance.
+In this guide, your Control Plane will deploy a single Controller instance.
 
 There are two flavours of Control Plane deployments - Remote and Kubernetes. This guide will focus on deploying a Kubrenetes Control Plane.
 
@@ -38,17 +38,17 @@ Once you have edited the fields to your liking, go ahead and run:
 iofogctl deploy -f /tmp/controlplane.yaml
 ```
 
-Naturally, we can also use `kubectl` to see what is happening on the Kubernetes cluster.
+Naturally, you can also use `kubectl` to see what is happening on the Kubernetes cluster.
 
 ```bash
 kubectl get all
 ```
 
-The next section covers how to do the same thing we just did, but on a remote host instead of a Kubernetes cluster. We can <a href=#verify-the-deployment>skip ahead</a>.
+The next section covers how to do the same thing you just did, but on a remote host instead of a Kubernetes cluster. You can <a href=#verify-the-deployment>skip ahead</a>.
 
 ## Verify the Deployment
 
-We can use the following commands to verify the Control Plane is up and running:
+You can use the following commands to verify the Control Plane is up and running:
 
 ```bash
 iofogctl get controllers

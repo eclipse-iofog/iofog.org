@@ -1,6 +1,6 @@
 # Introduction
 
-Once we have deployed an ioFog Control Plane and some set of Agents, there are certain day-to-day operations we will want to perform on our Agents.
+Once you have deployed an ioFog Control Plane and some set of Agents, there are certain day-to-day operations you will want to perform on your Agents.
 
 This section will canvas those operations with the use of iofogctl.
 

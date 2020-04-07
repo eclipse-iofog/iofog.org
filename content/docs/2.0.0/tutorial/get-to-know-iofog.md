@@ -1,10 +1,10 @@
 # Get To Know ioFog
 
-In this step of the tutorial we'll better familiarize ourselves with the ioFog environment [we just set up](introduction.html) in the previous step and `iofogctl`.
+In this step of the tutorial you'll better familiarize ourselves with the ioFog environment [you just set up](introduction.html) in the previous step and `iofogctl`.
 
 ## Check Your Environment
 
-You can have a comprehensive view of your Edge Cloud Network (ECN) and the running docker containers by using our `./status.sh` shell script.
+You can have a comprehensive view of your Edge Cloud Network (ECN) and the running docker containers by using the `./status.sh` shell script.
 
 ```bash
 $ ./status.sh
@@ -46,7 +46,7 @@ b151f2e4946a        iofog/sensors:latest                            "node /senso
 966ccd2092b8        iofog/controller:latest                         "sh /start.sh"           About an hour ago   Up About an hour    0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp   iofog-controller
 ```
 
-We can also see that in the PORTS column some of these containers have published [port mappings](https://docs.docker.com/config/containers/container-networking/):
+You can also see that in the PORTS column some of these containers have published [port mappings](https://docs.docker.com/config/containers/container-networking/):
 
 For example, there's a microservice running an instance of [Freeboard](https://github.com/Freeboard/freeboard), an open source visualization dashboard for IoT devices. It's running a web server that serves the dashboard.
 
@@ -67,19 +67,19 @@ Our tutorial environment has two ioFog containers:
 - [Agents](../reference-agent/overview.html)
 - [Controllers](../reference-controller/overview.html)
 
-We can think of each of these containers as if they were deployed on separate devices. In production, our Controller is most often running on a cloud server and our Agents are each running on individual edge devices in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away.
+You can think of each of these containers as if they were deployed on separate devices. In production, your Controller is most often running on a cloud server and your Agents are each running on individual edge devices in the field. The Controller is controlling the Agent the same way it would if the devices were hundreds of miles away.
 
 ### iofogctl vs component CLIs
 
-We are currently in the process of migrating all our management system into one tool to rule them all: `iofogctl` !
+We are currently in the process of migrating all your management system into one tool to rule them all: `iofogctl` !
 
 However, this process is still ongoing and even though you can do everything you need for this tutorial (and much more...) in iofogctl, you must know that every ioFog component (Agent and Controller) has its local CLI (iofog-agent, iofog-controller) that can prove itself useful.
 
-In the following sections we will us `iofogctl legacy ...` commands to use the older component CLIs. Note that, because we have a local ECN, we could also use `docker exec` instead.
+In the following sections you will us `iofogctl legacy ...` commands to use the older component CLIs. Note that, because you have a local ECN, you could also use `docker exec` instead.
 
 #### Agent's Container
 
-Let's start by using `iofogctl` to retrieve a detailed description of our Agent.
+Let's start by using `iofogctl` to retrieve a detailed description of your Agent.
 
 ```console
 $ iofogctl describe agent local-agent
@@ -101,7 +101,7 @@ spec:
 ...
 ```
 
-Let's see how we can use the legacy `iofog-agent` CLI to find out its status.
+Let's see how you can use the legacy `iofog-agent` CLI to find out its status.
 
 ```console
 $ iofogctl legacy agent local-agent status
@@ -195,13 +195,13 @@ $ iofogctl legacy controller local-controller iofog list
 ...
 ```
 
-This should give us a JSON response containing a list of edge nodes already registered with the Controller. In our case we should get a single node, `"name": "local-agent"`. This "node" is the container environment of iofog-agent. Remember that in production, instead of being containers running locally on our machine, these nodes would be real edge hardware as part of our Edge Compute Network (ECN), where our microservices run.
+This should give us a JSON response containing a list of edge nodes already registered with the Controller. In your case you should get a single node, `"name": "local-agent"`. This "node" is the container environment of iofog-agent. Remember that in production, instead of being containers running locally on your machine, these nodes would be real edge hardware as part of your Edge Compute Network (ECN), where your microservices run.
 
-## Manage Our Microservices
+## Manage Your Microservices
 
-Now that we know our way around a bit, let's learn how to manage and launch microservices!
+Now that you know your way around a bit, let's learn how to manage and launch microservices!
 
-[Continue To Next Step: Manage Our Microservices](manage-our-microservices.html).
+[Continue To Next Step: Manage Your Microservices](manage-your-microservices.html).
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>

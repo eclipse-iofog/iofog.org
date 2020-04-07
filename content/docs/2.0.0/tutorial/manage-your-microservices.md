@@ -1,12 +1,12 @@
-# Manage Our Microservices
+# Manage Your Microservices
 
-In this step of the tutorial we're ready to learn the basics of managing microservices inside our [Tutorial project](../tutorial/introduction.html).
+In this step of the tutorial you're ready to learn the basics of managing microservices inside our [Tutorial project](../tutorial/introduction.html).
 
 ## Basic Controller CLI Interactions
 
-The Agent daemon runs microservices on our edge nodes locally, but it is controlled remotely by the Controller. Let's learn some of the most common Controller commands.
+The Agent daemon runs microservices on your edge nodes locally, but it is controlled remotely by the Controller. Let's learn some of the most common Controller commands.
 
-This tutorial includes 3 microservices already running. We can view any configured microservices using `iofogctl`:
+This tutorial includes 3 microservices already running. You can view any configured microservices using `iofogctl`:
 
 ```console
 iofogctl get microservices
@@ -38,11 +38,11 @@ Currently, loading the [freeboard dashboard](http://localhost:10102/?load=dashbo
 
 ## Routes
 
-The Sensors and REST API microservices are generic. They are not hardcoded to talk with each other, instead, the relationship dictating the flow of data was configured through the Controller. This is in the spirit of the microservice architecture, separating concerns into pieces so that we can combine and interchange them.
+The Sensors and REST API microservices are generic. They are not hardcoded to talk with each other, instead, the relationship dictating the flow of data was configured through the Controller. This is in the spirit of the microservice architecture, separating concerns into pieces so that you can combine and interchange them.
 
 To connect microservices together, the Controller has the concept of routes.
 
-Routes can be listed from the `iofogctl get microservices` or `iofogctl describe microservice <name>` commands. We can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
+Routes can be listed from the `iofogctl get microservices` or `iofogctl describe microservice <name>` commands. You can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
 
 ```console
 $ iofogctl describe microservice Sensors
@@ -87,13 +87,13 @@ spec:
   application: tutorial
 ```
 
-We'll discover later on how to create and remove routes using iofogctl.
+You'll discover later on how to create and remove routes using iofogctl.
 
-## Create Our First Microservice
+## Create Your First Microservice
 
-Next up, we're going to create our very first microservice to run on ioFog.
+Next up, you're going to create your very first microservice to run on ioFog.
 
-[Continue To Next Step: Create Our First Microservice](create-our-first-microservice-javascript.html)
+[Continue To Next Step: Create Your First Microservice](create-your-first-microservice-javascript.html)
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt=""> Questions? Run into issues?</h3>
@@ -102,7 +102,7 @@ Next up, we're going to create our very first microservice to run on ioFog.
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/tutorial/manage-our-microservices.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/tutorial/manage-your-microservices.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

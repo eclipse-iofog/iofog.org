@@ -2,7 +2,7 @@
 
 Every Edge Compute Network ('ECN') starts with a Control Plane that allows you to manage your ECN's resources.
 
-In this guide, our Control Plane will deploy a single Controller instance.
+In this guide, your Control Plane will deploy a single Controller instance.
 
 There are two flavours of Control Plane deployments - Remote and Kubernetes. This guide will focus on deploying a Remote Control Plane on a single Linux remote host.
 
@@ -45,7 +45,7 @@ iofogctl deploy -f /tmp/controlplane.yaml
 
 ## Verify the Deployment
 
-We can use the following commands to verify the Control Plane is up and running:
+You can use the following commands to verify the Control Plane is up and running:
 
 ```bash
 iofogctl get controllers

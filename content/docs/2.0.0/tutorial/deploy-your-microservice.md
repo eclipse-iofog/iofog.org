@@ -1,16 +1,16 @@
-# Deploy Our Microservice
+# Deploy Your Microservice
 
-In this step we'll learn how to deploy our newly created microservice to our ioFog tutorial environment.
+In this step you'll learn how to deploy your newly created microservice to our ioFog tutorial environment.
 
-Before deploying our new microservice, take a look at the current output of the Freeboard at <a href="http://localhost:10102/?load=dashboard.json" target="_blank">http://localhost:10102/?load=dashboard.json</a>
+Before deploying your new microservice, take a look at the current output of the Freeboard at <a href="http://localhost:10102/?load=dashboard.json" target="_blank">http://localhost:10102/?load=dashboard.json</a>
 
-## Register Our Docker Image
+## Register Your Docker Image
 
-With our Docker image from the previous step in hand, it's time to publish it to a [Docker Registry](https://docs.docker.com/registry/).
+With your Docker image from the previous step in hand, it's time to publish it to a [Docker Registry](https://docs.docker.com/registry/).
 
-While we can use a custom registry (or the public [Docker Hub](https://hub.docker.com/)), the Controller also comes with a built-in private registry that represents the local cache on the ioFog edge compute nodes.
+While you can use a custom registry (or the public [Docker Hub](https://hub.docker.com/)), the Controller also comes with a built-in private registry that represents the local cache on the ioFog edge compute nodes.
 
-To get a list of the container registries, we can use `iofogctl get registries`
+To get a list of the container registries, you can use `iofogctl get registries`
 
 ```bash
 $> iofogctl get registries
@@ -28,7 +28,7 @@ or the legacy Controller CLI `registry list` command:
 iofogctl legacy controller local-controller registry list
 ```
 
-We should see two registries. The first is [Docker Hub](https://hub.docker.com/) and the second is the built-in private registry, which we're going to use.
+You should see two registries. The first is [Docker Hub](https://hub.docker.com/) and the second is the built-in private registry, which you're going to use.
 
 ```json
 {
@@ -46,9 +46,9 @@ We should see two registries. The first is [Docker Hub](https://hub.docker.com/)
 
 The unique ID for the built-in registry is always `2`, and always `1` for Docker hub.
 
-## Add Our Microservice
+## Add Your Microservice
 
-The Docker image containing our microservice code is registered with our local image cache. We can spin up new copies of it using the Controller through `iofogctl`.
+The Docker image containing your microservice code is registered with your local image cache. You can spin up new copies of it using the Controller through `iofogctl`.
 
 If you spent some time looking around the folder structure, you might have noticed the file `init/tutorial/config.yaml`
 
@@ -103,7 +103,7 @@ spec:
       to: Rest API
 ```
 
-This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](../reference-iofogctl/reference-application.html), but for now let's focus on the main parts.
+This yaml file has been used to describe to `iofogctl` what your set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](../reference-iofogctl/reference-application.html), but for now let's focus on the main parts.
 
 - The file describes an application, named `tutorial`.
 - It has 3 microservices.
@@ -112,7 +112,7 @@ This yaml file has been used to describe to `iofogctl` what our set of microserv
 - Some microservices expose ports.
 - There is a route from the `Sensors` microservice to the `Rest API` microservice.
 
-To add our new microservice, go ahead and edit this file by adding our new microservice to the list of microservices:
+To add your new microservice, go ahead and edit this file by adding your new microservice to the list of microservices:
 
 ```yaml
 ---
@@ -130,11 +130,11 @@ To add our new microservice, go ahead and edit this file by adding our new micro
     env: []
 ```
 
-It is very important to note that we are specifying `local` as the value for `images:registry` (instead of `remote` for the other microservices), this instructs the ioFog Agent to use its local cache, and not Docker hub.
+It is very important to note that you are specifying `local` as the value for `images:registry` (instead of `remote` for the other microservices), this instructs the ioFog Agent to use its local cache, and not Docker hub.
 
-## Setup Our Routes
+## Setup Your Routes
 
-Let's change our routes so that our new microservice is placed between the Sensors and the REST API.
+Let's change your routes so that your new microservice is placed between the Sensors and the REST API.
 
 Edit the `routes` section from the YAML file to the following.
 
@@ -146,11 +146,11 @@ routes:
     to: Rest API
 ```
 
-Which will effectively create the following pipeline for our data `Sensor` -> `Moving Average` -> `Rest API`
+Which will effectively create the following pipeline for your data `Sensor` -> `Moving Average` -> `Rest API`
 
 ## Update the application
 
-Now that our config YAML file is ready and describes the new state of our application, we can use `iofogctl` to deploy our application.
+Now that your config YAML file is ready and describes the new state of your application, you can use `iofogctl` to deploy your application.
 
 ```bash
 $ iofogctl deploy application -f init/tutorial/config.yaml
@@ -168,17 +168,17 @@ Moving Average	QUEUED		local-agent	{"maxWindowSize":40}  Rest API
 Sensors		    RUNNING		local-agent	{}		              Moving Average
 ```
 
-It will take some time for the ioFog Agent to spin up the new microservice. You can monitor the status of our newly created microservice using `iofogctl get microservices`.
+It will take some time for the ioFog Agent to spin up the new microservice. You can monitor the status of your newly created microservice using `iofogctl get microservices`.
 
 If you don't have access to the YAML file describing your application, you can always retrieve it using iofogctl and running: `iofogctl describe application APPLICATION_NAME [-o config.yaml]`
 
 ## Update a Microservice
 
-Once a microservice is up and running, we will probably need to modify it later, which we can also do with the Controller.
+Once a microservice is up and running, you will probably need to modify it later, which you can also do with the Controller.
 
-You can either redeploy the entire application using the same steps we just did. Iofogctl is smart enough to only patch the required changes to an existing application.
+You can either redeploy the entire application using the same steps you just did. Iofogctl is smart enough to only patch the required changes to an existing application.
 
-But you can also directly deploy a microservice! First, let's use `iofogctl` to retrieve the microservice configuration for our `Moving Average` microservice.
+But you can also directly deploy a microservice! First, let's use `iofogctl` to retrieve the microservice configuration for your `Moving Average` microservice.
 
 ```console
 $ iofogctl describe microservice 'Moving Average' -o moving-average.yaml && cat moving-average.yaml
@@ -225,15 +225,15 @@ spec:
   application: tutorial
 ```
 
-You will notice a few minor changes compared to the description we provided when we deployed the microservice as part of our application:
+You will notice a few minor changes compared to the description you provided when you deployed the microservice as part of your application:
 
-- We now have an `application` field. This is required for iofogctl to know which application the microservice is part of.
+- You now have an `application` field. This is required for iofogctl to know which application the microservice is part of.
 - The microservice routes destinations are listed under a `routes` field.
-- We have many more fields related to the required configuration of the ioFog Agent.
+- You have many more fields related to the required configuration of the ioFog Agent.
 
 Find the complete yaml description [here](../reference-iofogctl/reference-application.html#microservice)
 
-Now let's say we want to update the configuration of our microservice!
+Now let's say you want to update the configuration of your microservice!
 
 Go ahead and edit the newly created `moving-average.yaml` file, and update the `config` field (Warning: not the `agent:config`, but the root `config` field) to the following:
 
@@ -277,7 +277,7 @@ Congratulations! You've now have the fundamentals of ioFog. Next, try developing
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/tutorial/deploy-our-microservice.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/tutorial/deploy-your-microservice.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

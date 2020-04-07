@@ -1,10 +1,10 @@
 # Quick Start With Local Deployment
 
-In this guide we will:
+In this guide you will:
 
 - Install the prerequisites and tools required to create and manage Edge Compute Networks ('ECNs')
 - Create an ECN on a local machine to demonstrate the processes and components involved in an ECN
-- Deploy a set of Microservices on our local ECN
+- Deploy a set of Microservices on your local ECN
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ The Windows binary can be downloaded from https://storage.googleapis.com/iofogct
 
 ##### Prepare Windows
 
-In order to use `iofogctl` to deploy an ECN locally on Windows we will need to configure Docker to run Linux containers:
+In order to use `iofogctl` to deploy an ECN locally on Windows you will need to configure Docker to run Linux containers:
 
 - Install [docker desktop for windows](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
 - Enable Hyper-V in Powershell `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
@@ -49,15 +49,15 @@ sudo yum install iofogctl
 
 #### Verify iofogctl Installation
 
-Run `iofogctl version` to verify we have successfully installed the CLI.
+Run `iofogctl version` to verify you have successfully installed the CLI.
 
 ## Deploy ioFog Locally
 
-We can use `iofogctl deploy` to install and provision ECN components. Here we will deploy a containerized ECN locally.
+You can use `iofogctl deploy` to install and provision ECN components. Here you will deploy a containerized ECN locally.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about iofogctl?</h3>
-  <p>We aren't going into detail about iofogctl here because we want to show you how simple it can be to get going with ioFog. Please make sure to check out the full iofogctl documentation <a href="../iofogctl/introduction.html">here</a>.</p>
+  <p>You aren't going into detail about iofogctl here because you want to show you how simple it can be to get going with ioFog. Please make sure to check out the full iofogctl documentation <a href="../iofogctl/introduction.html">here</a>.</p>
 </aside>
 
 Go ahead and paste the following commands into the terminal:
@@ -89,7 +89,7 @@ spec:
 iofogctl deploy -f /tmp/quick-start.yaml
 ```
 
-After the deployment has successfully completed, we can verify the resources we specified in the YAML file are running on our local machine.
+After the deployment has successfully completed, you can verify the resources you specified in the YAML file are running on your local machine.
 
 ```bash
 iofogctl get all
@@ -116,11 +116,11 @@ VOLUME          SOURCE    DESTINATION   PERMISSIONS	AGENTS
 
 **NB:** The Agent status might say `UNKNOWN` for up to 30s. It is the time for the agent to report back its liveness to the controller.
 
-The `Controller` acts as a control plane, it will be our main point of access and communication with our ECN. If we want to find out more about Controller, please read <a href="../reference-controller/overview.html">this</a>.
+The `Controller` acts as a control plane, it will be your main point of access and communication with your ECN. If you want to find out more about Controller, please read <a href="../reference-controller/overview.html">this</a>.
 
-The `Agent` is the component that is meant to run on our edge devices. Once it has registered itself with a Controller, the Agent will be in charge of actually pulling the microservices images and starting / stopping the microservices on our edge device. If we want to find out more about Agent, please read <a href="../reference-agent/overview.html">this</a>.
+The `Agent` is the component that is meant to run on your edge devices. Once it has registered itself with a Controller, the Agent will be in charge of actually pulling the microservices images and starting / stopping the microservices on your edge device. If you want to find out more about Agent, please read <a href="../reference-agent/overview.html">this</a>.
 
-Those components are all currently running as separate Docker containers on our local machine. We can list the active containers by running:
+Those components are all currently running as separate Docker containers on your local machine. You can list the active containers by running:
 
 ```bash
 docker ps
@@ -137,7 +137,7 @@ dc7568ad1708        iofog/controller:2.0.0-beta2   "node /usr/local/lib…"   16
 
 ## Deploy Microservices
 
-Now that our local ECN is up, lets put it to use. The following commands will deploy a demonstration application on your ECN:
+Now that your local ECN is up, lets put it to use. The following commands will deploy a demonstration application on your ECN:
 
 ```bash
 echo "---
@@ -220,11 +220,11 @@ heart-rate-monitor      QUEUED          local-agent     heart-rate-viewer       
 heart-rate-viewer       QUEUED          local-agent                             /tmp/iofog:/data        5000:80
 ```
 
-Once both microservice status are 'RUNNING', the microservices have started. We will be able to see the web application on our browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.
+Once both microservice status are 'RUNNING', the microservices have started. You will be able to see the web application on your browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.
 
 ## Teardown
 
-To remove our ECN and any microservices deployed on it, we can run the following command:
+To remove your ECN and any microservices deployed on it, you can run the following command:
 
 ```bash
 iofogctl delete all
@@ -234,7 +234,7 @@ iofogctl delete all
 
 Now that you have seen what ioFog is about, you can create a real ECN with remote hosts. Instructions are found [here](../platform-deployment/introduction.html).
 
-We can also try deploying other Microservices on the local ECN. We can find instructions on writing our own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).
+You can also try deploying other Microservices on the local ECN. You can find instructions on writing your own Microservice [here](../writing-microservices/overview.html) and a step-by-step [tutorial](../tutorial/introduction.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

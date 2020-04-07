@@ -1,6 +1,6 @@
 # Legacy Commands in iofogctl
 
-We can use legacy CLI of each component i.e Controller and Agent.
+You can use legacy CLI of each component i.e Controller and Agent.
 
 ## Using Legacy Commands
 

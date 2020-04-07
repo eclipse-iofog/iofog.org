@@ -6,20 +6,20 @@ The Helm Chart installs a set of Custom Resources and an Operator onto the clust
 
 ## Prerequisites
 
-First, we need a working Kubernetes cluster. We can simply set up a cluster on the Google Kubernetes Engine (GKE) by following the [Creating a cluster tutorial](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster). Using any other managed cluster providers works as well, so do custom installations of Kubernetes, e.g. Minikube.
+First, you need a working Kubernetes cluster. You can simply set up a cluster on the Google Kubernetes Engine (GKE) by following the [Creating a cluster tutorial](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster). Using any other managed cluster providers works as well, so do custom installations of Kubernetes, e.g. Minikube.
 
-IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup a Kubernetes cluster in case we don't have one available. Please see [Platform Tools](./platform-tools.html) for more details.
+IoFog also provides [tools for infrastructure setup](https://github.com/eclipse-iofog/platform) to setup a Kubernetes cluster in case you don't have one available. Please see [Platform Tools](./platform-tools.html) for more details.
 
 The tutorial requires installation of `Helm v3+` and `kubectl` executing the deployment.
 
 - [Helm installation instructions](https://helm.sh/docs/using_helm/#installing-helm)
 - [kubectl installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-From now on, we assume we have a running Kubernetes cluster.
+From now on, we assume you have a running Kubernetes cluster.
 
 ## Install Helm Chart
 
-Add the ioFog Helm repository to our local index:
+Add the ioFog Helm repository to your local index:
 
 ```plain
 helm repo add iofog https://eclipse-iofog.github.io/helm
@@ -38,7 +38,7 @@ helm install my-ecn \
 
 The `my-ecn` refers to the Helm release name as shown below.
 
-To list all Helm releases, we can simply run `helm list`. The result should look like this:
+To list all Helm releases, you can simply run `helm list`. The result should look like this:
 
 ```plain
 NAME     REVISION  UPDATED                   STATUS    CHART             APP VERSION  NAMESPACE
