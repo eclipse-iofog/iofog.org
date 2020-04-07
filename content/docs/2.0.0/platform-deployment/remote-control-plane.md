@@ -1,10 +1,13 @@
+<aside class="notifications tip">
+  <h3><img src="/images/icos/ico-tip.svg" alt="">Want to deploy on Kubernetes cluster instead?</h3>
+  <p>There are two flavours of Control Plane deployments - Remote and Kubernetes. This guide will focus on deploying a Remote Control Plane on a single Linux remote host. Go to <a href="kubernetes-prepare-cluster.html">Kubernetes - Prepare A Cluster</a> to deploy the Control Plane on Kubernetes Cluster instead.</p>
+</aside>
+
 # Remote - Deploy Control Plane
 
-Every Edge Compute Network ('ECN') starts with a Control Plane that allows you to manage your ECN's resources.
+Every Edge Compute Network ('ECN') starts with a Control Plane that allows us to manage ECN's resources.
 
 In this guide, our Control Plane will deploy a single Controller instance.
-
-There are two flavours of Control Plane deployments - Remote and Kubernetes. This guide will focus on deploying a Remote Control Plane on a single Linux remote host.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">We use YAML to define ioFog resources</h3>
@@ -35,9 +38,9 @@ spec:
       keyFile: ~/.ssh/id_rsa" > /tmp/controlplane.yaml
 ```
 
-Make sure to edit the `host`, `ssh.user`, and `ssh.keyFile` fields to correspond with the remote host you are deploying to.
+Make sure to edit the `host`, `ssh.user`, and `ssh.keyFile` fields to correspond with the remote host we are deploying to.
 
-Once you have edited the fields to your liking, go ahead and run:
+Once we have edited the fields to our liking, go ahead and run:
 
 ```bash
 iofogctl deploy -f /tmp/controlplane.yaml
@@ -59,11 +62,14 @@ iofogctl describe controller alpaca-1
 iofogctl describe controlplane
 ```
 
-[Continue To Next Step: Setup your Agents](setup-your-agents.html).
+<aside class="notifications tip">
+  <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>
+  <p>Having our Control Plane up and running, we can now go to <a href="setup-your-agents.html">Setup Agents</a> guide to deploy our Agents and finalize the ECN deployment.</p>
+</aside>
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/platform-deployment/remote-control-plane.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/platform-deployment/remote-control-plane.html"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

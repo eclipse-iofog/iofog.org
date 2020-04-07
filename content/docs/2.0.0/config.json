@@ -76,12 +76,12 @@
             "description": "Introduction to remote deployment of iofog using iofogctl"
           },
           {
-            "title": "Prepare Your Network",
+            "title": "Prepare Network",
             "entry": "./platform-deployment/prepare-your-network.md",
             "description": "Set up ingress and outgress rules for iofog and iofogctl"
           },
           {
-            "title": "Prepare Your Remote Hosts",
+            "title": "Prepare Remote Hosts",
             "entry": "./platform-deployment/prepare-your-remote-hosts.md",
             "description": "Set up remote hosts to be accessible by iofogctl in order to deploy iofog Controller"
           },
@@ -91,7 +91,7 @@
             "description": "Deploy ioFog Controller"
           },
           {
-            "title": "Kubernetes - Prepare Your Cluster",
+            "title": "Kubernetes - Prepare A Cluster",
             "entry": "./platform-deployment/kubernetes-prepare-cluster.md",
             "description": "Set up Kubernetes cluster to be accessible by iofogctl in order to deploy iofog components"
           },
@@ -106,7 +106,7 @@
             "description": "How to deploy a control plane (ioFog Controller) using Helm"
           },
           {
-            "title": "Setup Your Agents",
+            "title": "Setup Agents",
             "entry": "./platform-deployment/setup-your-agents.md",
             "description": ""
           }
@@ -163,7 +163,7 @@
         ]
       },
       {
-        "title": "Tutorial - Your First Microservice",
+        "title": "Tutorial - Our First Microservice",
         "subMenus": [
           {
             "title": "Introduction",

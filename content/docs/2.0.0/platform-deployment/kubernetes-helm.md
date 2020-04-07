@@ -1,3 +1,9 @@
+<aside class="notifications tip">
+  <h3><img src="/images/icos/ico-tip.svg" alt="">Not interested in using Kubernetes?</h3>
+  <p>There are two flavours of Control Plane deployments - Remote and Kubernetes. This guide will focus on deploying a Remote Control Plane on a Kubernetes cluster. Go to <a href="remote-control-plane.html">Remote - Deploy Control Plane</a> to deploy the Control Plane on a Linux host instead. Keep in mind that in such case, it will be necessary to prepare the host for Controller as well.</p>
+  <p>Also, this guide will use Helm to deploy the Control Plane on the cluster. To use iofogctl instead, go to <a href="kubernetes-iofogctl.html"> Kubernetes - Deploy Control Plane Using iofogctl</a>.</p>
+</aside>
+
 # Kubernetes - Deploy Control Plane Using Helm
 
 In this tutorial, we will install the ioFog Kubernetes Control Plane using Helm.
@@ -25,7 +31,7 @@ Add the ioFog Helm repository to our local index:
 helm repo add iofog https://eclipse-iofog.github.io/helm
 ```
 
-Install the Chart while specifying user credentials and a target namespace. If you are not using the default namespace, make sure the namespace already exists on the cluster.
+Install the Chart while specifying user credentials and a target namespace. If we are not using the default namespace, make sure the namespace already exists on the cluster.
 
 ```plain
 helm install my-ecn \
@@ -69,13 +75,11 @@ The following is a complete list of all user configurable properties for the ioF
 
 ### Connection to Installed ioFog
 
-Once the installation is complete, you will be able to connect to the ioFog Controller on K8s using [iofogctl](../iofogctl/introduction.html).
+Once the installation is complete, we will be able to connect to the ioFog Controller on K8s using `iofogctl`.
 
 ```bash
 iofogctl connect --kube ~/.kube/config --email user@domain.com --pass any123password345 -n default
 ```
-
-Once you are connected, you can use `iofogctl` to deploy edge Agents. Then, you can use `kubectl` or `iofogctl` to deploy microservices to your edge Agents. See [Setup Your Agents](content/docs/2.0.0/platform-deployment/setup-your-agents.html) and [Introduction to iofogctl](../iofogctl/introduction.html) for more details.
 
 ## Uninstall ioFog Stack
 
@@ -85,9 +89,14 @@ To uninstall ioFog stack, simply delete the Helm release.
 helm delete my-ecn
 ```
 
+<aside class="notifications tip">
+  <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>
+  <p>Having our Control Plane up and running, we can now go to <a href="setup-your-agents.html">Setup Agents</a> guide to deploy our Agents and finalize the ECN deployment.</p>
+</aside>
+
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/platform-deployment/kubernetes-helm.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.0.0/platform-deployment/kubernetes-helm.html"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>
