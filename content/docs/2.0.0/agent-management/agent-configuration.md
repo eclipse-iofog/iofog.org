@@ -2,9 +2,9 @@
 
 `iofogctl` provides an `AgentConfig` resource for the management of Agent configuration.
 
-An agent configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`
+An agent configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`.
 
-An agent configuration can be deployed using `iofogctl deploy -f agent-config.yaml`
+An agent configuration can be deployed using `iofogctl deploy -f agent-config.yaml`. The following is a sample of `AgentConfig` yaml content:
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -45,39 +45,19 @@ spec:
   availableDiskThreshold: 90
 ```
 
-| Field                     | Description                                                                                                                                                                                                                                                                                                  |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| name                      | User-defined unique identifier of an agent within an ioFog Controller. Must start and end with lowercase alphanumeric character. Can include '-' character.                                                                                                                                                  |
-| description               | Short description of the agent                                                                                                                                                                                                                                                                               |
-| latitude                  | Latitude coordinate of the agent. The ioFog Agent will automatically try to detect its own latitude if it has access to the internet                                                                                                                                                                         |
-| longitude                 | Longitude coordinate of the agent. The ioFog Agent will automatically try to detect its own longitude if it has access to the internet                                                                                                                                                                       |
-| agentType                 | Architecture type of agent. It will be used to determine which image gets deployed. The accepted values are `auto`, `x86` and `arm`. `auto` will have the ioFog agent detect the architecture it is running on, and report it to the ioFog controller. It defaults to `auto` if it fails to parse the value. |
-| dockerUrl                 | Docker engine socket                                                                                                                                                                                                                                                                                         |
-| diskLimit                 | Limit, in GiB, of disk space that the software is allowed to use                                                                                                                                                                                                                                             |
-| diskDirectory             | Set the directory to use for disk storage                                                                                                                                                                                                                                                                    |
-| memoryLimit               | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages                                                                                                                                                                                                                        |
-| cpuLimit                  | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                                                                                                                                                                |
-| logLimit                  | Set the limit, in GiB, of disk space that the log files can consume                                                                                                                                                                                                                                          |
-| logDirectory              | Set the directory to use for log file storage                                                                                                                                                                                                                                                                |
-| logFileCount              | Set the number of log files to evenly split the log storage limit                                                                                                                                                                                                                                            |
-| statusFrequency           | Set the status update frequency                                                                                                                                                                                                                                                                              |
-| changeFrequency           | Set the get changes frequency                                                                                                                                                                                                                                                                                |
-| deviceScanFrequency       | Set the scan devices frequency                                                                                                                                                                                                                                                                               |
-| bluetoothEnabled          | Boolean. Set on/off for the [bluetooth service](../reference-microserivces-catalog/rest-blue.html). If ON, this will install the restblue microservice                                                                                                                                                       |
-| watchdogEnabled           | Boolean. If enabled, watchdog will kill all docker containers running on the agent if they are not part of the microservices deployed by ioFog. If enabled, only docker containers started by the agent process will be allowed to run                                                                       |
-| abstractedHardwareEnabled | Boolean. Set on/off the [HAL services](../reference-microserivces-catalog/hal.html). If ON, this will install the HAL microservice                                                                                                                                                                           |
-| upstreamRouters           | Set the upstream routers                                                                                                                                                                                                                                                                                     |
-|                           |
-| networkRouter             | Set the network router                                                                                                                                                                                                                                                                                       |
-|                           |
-| host                      | Set the host address of the agent                                                                                                                                                                                                                                                                            |
-|                           |
-| routerConfig              | Set the router configuration                                                                                                                                                                                                                                                                                 |
-|                           |
-| logLevel                  | Set the standard logging levels that can be used to control logging output                                                                                                                                                                                                                                   |
-|                           |
-| dockerPruningFrequency    | Set the docker pruning frequency in hours                                                                                                                                                                                                                                                                    |
-| availableDiskThreshold    | Set the available disk threshold                                                                                                                                                                                                                                                                             |
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt="">Comprehensive AgentConfig reference</h3>
+  <p>A complete reference of AgentConfig kind is available in the relevant section in <a href=../reference-iofogctl/reference-agent.html>iofogctl reference</a> documentation.</p>
+  
+  <p>In case we would prefer to handle Agent configuration manually on the Agent's host, we can also do so. For details, please see <a href="../reference-agent/configuration.html">Agent Reference - Configuration</a> page.</p>
+</aside>
+
+<aside class="notifications tip">
+  <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>
+  <p>This section describes a set of independent Agent management operations, hence there is no natural flow nor dependencies. Feel free to explore any topic in this section.</p>
+  
+  <p>If one wants to dive deeper into Agent internals, we recommend also checking out <a href="../reference-agent/overview.html">Agent reference</a> documentation.</p>
+</aside>
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

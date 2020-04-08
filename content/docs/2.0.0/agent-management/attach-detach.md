@@ -4,26 +4,33 @@ We can transfer an Agent from one ECN to another by detaching the agent and atta
 Note: detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
 
 ```bash
-iofogctl detach agent AGENT_NAME
-```
-
-Switch to another ECN / namespace
-
-```bash
-iofogctl attach agent AGENT_NAME
+iofogctl -n first-ecn detach agent AGENT_NAME
 ```
 
 To display all resources in dettached state with the get command
 
 ```bash
-iofogctl get all --detached
+iofogctl -n first-ecn get all --detached
+```
+
+Switch to another ECN / namespace
+
+```bash
+iofogctl -n second-ecn attach agent AGENT_NAME
 ```
 
 If we have an Agent ready and running on a remote host, we can also attach it directly using host and ssh credentials:
 
 ```bash
-iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
+iofogctl attach agent NAME --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
 ```
+
+<aside class="notifications tip">
+  <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>
+  <p>This section describes a set of independent Agent management operations, hence there is no natural flow nor dependencies. Feel free to explore any topic in this section.</p>
+  
+  <p>If one wants to dive deeper into Agent internals, we recommend also checking out <a href="../reference-agent/overview.html">Agent reference</a> documentation.</p>
+</aside>
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
