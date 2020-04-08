@@ -51,10 +51,10 @@ spec:
       container:
         rootHostAccess: false
         ports:
-          # The ui will be listening on port 80 (internal).
-          - external: 5000 # You will be able to access the ui on <AGENT_IP>:5000
-            internal: 80 # The ui is listening on port 80.
-            publicMode: false
+          - internal: 80
+            external: 5000
+            public: 5001
+            protocol: tcp
         env:
           - key: 'BASE_URL'
             value: 'http://localhost:8080/data'
