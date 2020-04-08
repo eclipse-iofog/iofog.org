@@ -3,7 +3,7 @@
   <p>There are two flavours of Control Plane deployments - Remote and Kubernetes. This guide will focus on deploying a Remote Control Plane on a Kubernetes cluster. Go to <a href="remote-control-plane.html">Remote - Deploy Control Plane</a> to deploy the Control Plane on a Linux host instead. Keep in mind that in such case, it will be necessary to prepare the host for Controller as well.</p>
 </aside>
 
-# Kubernetes - Prepare A Cluster
+# Prepare your Kubernetes Cluster
 
 Some components of an Edge Compute Network ('ECN') can be deployed on Kubernetes. These component include Controllers. `iofogctl` will also install ioFog Operator and Kubelet to assist in the Kubernetes-deploy Control Plane.
 

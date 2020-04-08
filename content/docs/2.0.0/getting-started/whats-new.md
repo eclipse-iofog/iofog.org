@@ -1,6 +1,6 @@
 # What's New in ioFog 2?
 
-- [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager), see [Architecture Concepts](../getting-started/architecture.html) article for details
+- [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager). See [Architecture Concepts](../getting-started/architecture.html) article for details
 - Improved [registry and catalog items management](../microservices/microservice-registry-catalog.html) in ioFog Controller
 - [Exposing public ports](../microservices/microservice-exposing.html) for deployed microservices
 - [Docker image pruning](../agent-management/docker-image-pruning.html) feature for ioFog Agent
@@ -8,7 +8,7 @@
 - [Volume management](../agent-management/volumes.html) for pushing Microservice data to Agents
 - [Moving and renaming microservices](../microservices/microservice-move-rename.html) support in iofogctl
 - [Default namespace](../iofogctl/getting-familiar.html#working-with-namespaces) support in iofogctl
-- [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](../platform-deployment/kubernetes-prepare-cluster.html)
+- [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your Kubernetes cluster](../platform-deployment/kubernetes-prepare-cluster.html)
 
 Following is a list of API breakages and other important changes to user interaction, mostly on the `iofogctl` usage.
 
