@@ -6,29 +6,29 @@ The most important commands of `iofogctl` consume YAML files as input. A YAML fi
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: RemoteControlPlane
+kind: ControlPlane
 metadata:
   name: buffalo
   namespace: default # Optional, defaults to value specified by iofogctl namespace flag
 spec:
 ```
 
-| Field              | Description                                                                                                                                                                                                                                                                                       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| apiVersion         | ioFog YAML schema version. Currently `iofog.org/v2`                                                                                                                                                                                                                                               |
-| kind               | String representing what type of resource we want to deploy. The available values are `RemoteControlPlane`, `KubernetesControlPlane`, `LocalControlPlane`, `RemoteController`, `RemoteAgent`, `LocalAgent`, `AgentConfig`, `Registry`, `CatalogItem`, `Application`, `Microservice` and `Volume`. |
-| metadata           | Object containing metadata about the resource                                                                                                                                                                                                                                                     |
-| metadata.name      | User defined, unique identifier of the resource in its namespace.                                                                                                                                                                                                                                 |
-| metadata.namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                                                                                                                                |
-| spec               | Object containing the deployment specifications, different for each resource                                                                                                                                                                                                                      |
+| Field              | Description                                                                                                                                                                                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| apiVersion         | ioFog YAML schema version. Currently `iofog.org/v2`                                                                                                                                                                                                                             |
+| kind               | String representing what type of resource we want to deploy. The available values are `ControlPlane`, `KubernetesControlPlane`, `LocalControlPlane`, `Controller`, `Agent`, `LocalAgent`, `AgentConfig`, `Registry`, `CatalogItem`, `Application`, `Microservice` and `Volume`. |
+| metadata           | Object containing metadata about the resource                                                                                                                                                                                                                                   |
+| metadata.name      | User defined, unique identifier of the resource in its namespace.                                                                                                                                                                                                               |
+| metadata.namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                                                                                                              |
+| spec               | Object containing the deployment specifications, different for each resource                                                                                                                                                                                                    |
 
-## RemoteControlPlane
+## ControlPlane
 
 The Remote Control Plane component specifies all the resources required to deploy the ioFog Control Plane on a set of remote hosts.
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: RemoteControlPlane
+kind: ControlPlane
 metadata:
   name: buffalo
   namespace: default
@@ -47,7 +47,7 @@ spec:
         port: 22
 ```
 
-To learn more about RemoteControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-control-plane).
+To learn more about ControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-control-plane).
 
 ## KubernetesControlPlane
 
@@ -92,13 +92,13 @@ spec:
 
 To learn more about LocalControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
 
-## RemoteController
+## Controller
 
 We can expand a Remote Control Plane by deploying a new Controller.
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: RemoteController
+kind: Controller
 metadata:
   name: alpaca
   namespace: default
@@ -110,15 +110,15 @@ spec:
     port: 22
 ```
 
-To learn more about RemoteController, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-controller).
+To learn more about Controller, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-controller).
 
-## RemoteAgent
+## Agent
 
 We can expand Remote Control Plane by deploying new Agent. They communicate with Controllers to allow your edge nodes to host Microservices.
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: RemoteAgent
+kind: Agent
 metadata:
   name: meerkat
   namespace: default
@@ -130,7 +130,7 @@ spec:
     port: 22
 ```
 
-To learn more about RemoteAgent, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-agent).
+To learn more about Agent, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-agent).
 
 ## LocalAgent
 

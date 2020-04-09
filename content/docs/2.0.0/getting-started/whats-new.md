@@ -14,7 +14,7 @@ Following is a list of API breakages and other important changes to user interac
 
 ## New YAML kinds
 
-We have split up the previous ControlPlane kind into three: KubernetesControlPlane, RemoteControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
+We have split up the previous ControlPlane kind into three: KubernetesControlPlane, ControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
 
 ## Small changes to the Microservice YAML structure
 

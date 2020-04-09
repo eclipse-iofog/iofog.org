@@ -115,7 +115,7 @@ Deploy the Agent to the Vagrant instance:
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: RemoteAgent
+kind: Agent
 metadata:
   name: vagrant
 spec:

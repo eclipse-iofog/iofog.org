@@ -21,7 +21,7 @@ Create a template of controlplane.yaml like so:
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: RemoteControlPlane
+kind: ControlPlane
 metadata:
   name: albatros
 spec:

@@ -7,7 +7,7 @@ Note that we must always specify an empty or non-existent namespace when we use 
 ```bash
 echo "---
 apiVersion: iofog.org/v2
-kind: RemoteControlPlane
+kind: ControlPlane
 metadata:
   name: albatros
 spec:

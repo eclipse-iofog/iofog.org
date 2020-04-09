@@ -37,7 +37,7 @@ The Remote Control Plane component specifies all the resources required to deplo
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: RemoteControlPlane
+kind: ControlPlane
 metadata:
   name: buffalo
   namespace: default
@@ -99,7 +99,7 @@ We can expand a Remote Control Plane by deploying a new Controller.
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: RemoteController
+kind: Controller
 metadata:
   name: alpaca
   namespace: default
@@ -125,7 +125,7 @@ Agents are components of an ECN which run on edge nodes. They communicate with C
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: RemoteAgent
+kind: Agent
 metadata:
   name: meerkat
   namespace: default
@@ -154,7 +154,7 @@ Multiple resources can be incorporated into a single YAML file using `---` as a 
 ```yaml
 ---
 apiVersion: iofog.org/v2
-kind: RemoteControlPlane
+kind: ControlPlane
 metadata:
   name: buffalo
   namespace: default
@@ -177,7 +177,7 @@ spec:
         keyFile: ~/.ssh/id_rsa
 ---
 apiVersion: iofog.org/v2
-kind: RemoteAgent
+kind: Agent
 metadata:
   name: hippo-1
   namespace: default
@@ -188,7 +188,7 @@ spec:
     keyFile: ~/.ssh/id_rsa
 ---
 apiVersion: iofog.org/v2
-kind: RemoteAgent
+kind: Agent
 metadata:
   name: hippo-2
   namespace: default
