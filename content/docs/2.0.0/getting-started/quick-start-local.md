@@ -130,7 +130,7 @@ Which should output something similar to:
 
 ```plain
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                                                          NAMES
-71927882293f        iofog/router:latest            "/qpid-dispatch/laun…"   15 minutes ago      Up 15 minutes       0.0.0.0:5672->5672/tcp, 0.0.0.0:56721-56722->56721-56722/tcp   iofog_PJFbk3ZHjX3RkNWxwcRqzDXnKV6mLHmq
+71927882293f        iofog/router:2.0.0-beta        "/qpid-dispatch/laun…"   15 minutes ago      Up 15 minutes       0.0.0.0:5672->5672/tcp, 0.0.0.0:56721-56722->56721-56722/tcp   iofog_PJFbk3ZHjX3RkNWxwcRqzDXnKV6mLHmq
 8454ca70755b        iofog/agent:2.0.0-beta2        "sh /start.sh"           15 minutes ago      Up 15 minutes                                                                      iofog-agent
 dc7568ad1708        iofog/controller:2.0.0-beta2   "node /usr/local/lib…"   16 minutes ago      Up 16 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp                 iofog-controller
 ```
@@ -144,19 +144,19 @@ echo "---
 apiVersion: iofog.org/v2
 kind: Application
 metadata:
-  name: HealthcareWearable
+  name: health-care-wearable
 spec:
   microservices:
   - name: heart-rate-monitor
     agent:
       name: local-agent
       config:
-        bluetoothEnabled: false # this will install the iofog/restblue microservice
+        bluetoothEnabled: false
         abstractedHardwareEnabled: false
     images:
       arm: edgeworx/healthcare-heart-rate:arm-v1
       x86: edgeworx/healthcare-heart-rate:x86-v1
-      registry: remote # public docker
+      registry: remote
     container:
       rootHostAccess: false
       volumes:
@@ -166,8 +166,7 @@ spec:
       ports: []
     config:
       test_mode: true
-      data_label: 'Anonymous_Person'
-  # Simple JSON viewer for the heart rate output
+      data_label: Anonymous_Person
   - name: heart-rate-viewer
     agent:
       name: local-agent
@@ -178,7 +177,6 @@ spec:
     container:
       rootHostAccess: false
       ports:
-        # The ui will be listening on port 80 (internal).
         - external: 5000
           internal: 80
           public: 5000
@@ -190,8 +188,6 @@ spec:
         - key: BASE_URL
           value: http://localhost:8080/data
   routes:
-  # Use this section to configure route between microservices
-  # Use microservice name
   - from: heart-rate-monitor
     to: heart-rate-viewer" > /tmp/quick-start-app.yaml
 iofogctl deploy -f /tmp/quick-start-app.yaml

@@ -219,7 +219,7 @@ An application is a set of Microservices working together to achieve one specifi
 apiVersion: iofog.org/v2
 kind: Application
 metadata:
-  name: Healthcare Wearable
+  name: health-care-wearable
   namespace: default
 spec:
   microservices:

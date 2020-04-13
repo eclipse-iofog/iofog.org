@@ -15,7 +15,7 @@ The main take away is that an application is defined by: a `name`, a set of `mic
 apiVersion: iofog.org/v2
 kind: Application # What are we deploying
 metadata:
-  name: Healthcare Wearable # Application name
+  name: health-care-wearable # Application name
   namespace: default # (Optional) iofogctl namespace to use
 
 # Specifications of the application
