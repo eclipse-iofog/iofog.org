@@ -18,10 +18,10 @@ agent:
 container:
  ...
  ports:
- - internal: 80
-   external: 5000
-   public: 5001
-   protocol: tcp
+   - internal: 80
+     external: 5000
+     public: 5001
+     protocol: tcp
 ...
 ```
 

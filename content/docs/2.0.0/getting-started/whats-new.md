@@ -99,7 +99,6 @@ Agent disk space is a precious resource. We can reclaim disk space by pruning Do
 iofogctl prune agent agent-1
 ```
 
-**Soon to come:**
 You can also configure an automated pruning frequency using the `AgentConfig` kind
 
 ```yaml
