@@ -86,7 +86,7 @@ This should make clearer what relates to the ioFog microservice, and what relate
 You can now configure which namespace is used as the default one by running:
 
 ```bash
-iofogctl configure default-namespace NAMESPACE
+iofogctl configure default-namespace namespace-1
 ```
 
 This allows you to use any namespace when omitting the `--namespace` flag from iofogctl commands.
@@ -96,7 +96,7 @@ This allows you to use any namespace when omitting the `--namespace` flag from i
 Agent disk space is a precious resource. We can reclaim disk space by pruning Docker images from our Agents:
 
 ```bash
-iofogctl prune agent NAME
+iofogctl prune agent agent-1
 ```
 
 **Soon to come:**
@@ -118,7 +118,7 @@ Up until now, if you needed to move a microservice to another agent, you had to 
 Now, you can simply use:
 
 ```bash
-iofogctl move microservice NAME AGENT_NAME
+iofogctl move microservice agent-1 agent-2
 ```
 
 ## Detach / Attach an Agent
@@ -126,8 +126,8 @@ iofogctl move microservice NAME AGENT_NAME
 Ever wondered how to transfer an Agent from one ECN to another? It's very simple:
 
 ```bash
-iofogctl detach agent NAME -n NAMESPACE_A
-iofogctl attach agent NAME -n NAMESPACE_B
+iofogctl detach agent agent-1 -n namespace-1
+iofogctl attach agent agent-1 -n namespace-2
 ```
 
 Keep in mind that detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
@@ -135,7 +135,7 @@ Keep in mind that detaching an agent will delete its connection with the Control
 If you have an Agent ready and running on a remote host, you can also attach it directly using host and ssh credentials:
 
 ```bash
-iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
+iofogctl attach agent agent-1 --host 123.123.123.123 --user foo --port 22 --key ~/.ssh/id_rsa
 ```
 
 ## New Volume Kind
@@ -193,7 +193,7 @@ Deploying such a configuration would result in port 5001 being opened on the Con
 The public address can be retrieved using:
 
 ```bash
-iofogctl describe microservice NAME
+iofogctl describe microservice msvc-1
 ```
 
 The outputted YAML will contain a `publicLink` key, with the value set to the URL of the public port.
