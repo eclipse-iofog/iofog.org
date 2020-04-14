@@ -318,8 +318,8 @@ spec:
   destination: /tmp/secrets/
   permissions: 666
   agents:
-    - name: agent-1
-    - name: agent-2
+    - agent-1
+    - agent-2
 ```
 
 To learn more about Volume, please see [Volume Management](../agent-management/volumes.html).
