@@ -13,7 +13,8 @@ While we can use a custom registry (or the public [Docker Hub](https://hub.docke
 To get a list of the container registries, we can use `iofogctl get registries`
 
 ```bash
-$> iofogctl get registries
+iofogctl get registries
+
 NAMESPACE
 default
 
@@ -53,7 +54,7 @@ The Docker image containing our microservice code is registered with our local i
 If you spent some time looking around the folder structure, you might have noticed the file `init/tutorial/config.yaml`
 
 ```yaml
-$ cat init/tutorial/config.yaml
+cat init/tutorial/config.yaml
 ---
 apiVersion: iofog.org/v2
 kind: Application
@@ -61,7 +62,7 @@ metadata:
   name: tutorial
 spec:
   microservices:
-    - name: Sensors
+    - name: sensors
       agent:
         name: local-agent
       config: {}
@@ -72,7 +73,7 @@ spec:
         volumes: []
         ports: []
         env: []
-    - name: Rest API
+    - name: rest-api
       agent:
         name: local-agent
       config: {}
@@ -85,7 +86,7 @@ spec:
           - internal: 80
             external: 10101
         env: []
-    - name: Freeboard
+    - name: freeboard
       agent:
         name: local-agent
       config: {}
@@ -99,8 +100,8 @@ spec:
             external: 10102
         env: []
   routes:
-    - from: Sensors
-      to: Rest API
+    - from: sensors
+      to: rest-api
 ```
 
 This yaml file has been used to describe to `iofogctl` what our set of microservices (application) should look like, and how they are configured. You can find a complete description of the YAML format [here](../reference-iofogctl/reference-application.html), but for now let's focus on the main parts.
@@ -110,13 +111,13 @@ This yaml file has been used to describe to `iofogctl` what our set of microserv
 - Each microservice runs on the agent named `local-agent`.
 - Each microservice has its own docker image for x86 devices.
 - Some microservices expose ports.
-- There is a route from the `Sensors` microservice to the `Rest API` microservice.
+- There is a route from the `sensors` microservice to the `rest-api` microservice.
 
 To add our new microservice, go ahead and edit this file by adding our new microservice to the list of microservices:
 
 ```yaml
 ---
-- name: Moving Average
+- name: moving-average
   agent:
     name: local-agent
   config:
@@ -140,32 +141,32 @@ Edit the `routes` section from the YAML file to the following.
 
 ```yaml
 routes:
-  - from: Sensors
-    to: Moving Average
-  - from: Moving Average
-    to: Rest API
+  - from: sensors
+    to: moving-average
+  - from: moving-average
+    to: rest-api
 ```
 
-Which will effectively create the following pipeline for our data `Sensor` -> `Moving Average` -> `Rest API`
+Which will effectively create the following pipeline for our data `Sensor` -> `moving-average` -> `rest-api`
 
 ## Update the application
 
 Now that our config YAML file is ready and describes the new state of our application, we can use `iofogctl` to deploy our application.
 
 ```bash
-$ iofogctl deploy application -f init/tutorial/config.yaml
+iofogctl deploy application -f init/tutorial/config.yaml
 ```
 
 Verify that the application got updated as expected
 
 ```console
-$ iofogctl get microservices
+iofogctl get microservices
 
-MICROSERVICE	STATUS		AGENT		CONFIG		          ROUTES		    VOLUMES		PORTS
-Rest API	    RUNNING		local-agent	{}						                            10101:80
-Freeboard	    RUNNING		local-agent	{}						                            10102:80
-Moving Average	QUEUED		local-agent	{"maxWindowSize":40}  Rest API
-Sensors		    RUNNING		local-agent	{}		              Moving Average
+MICROSERVICE    STATUS    AGENT        ROUTES          VOLUMES  PORTS
+rest-api	      RUNNING   local-agent	 10101:80
+freeboard	      RUNNING   local-agent	 10102:80
+moving-average  QUEUED    local-agent  rest-api
+sensors         RUNNING   local-agent	 moving-average
 ```
 
 It will take some time for the ioFog Agent to spin up the new microservice. You can monitor the status of our newly created microservice using `iofogctl get microservices`.
@@ -178,19 +179,19 @@ Once a microservice is up and running, we will probably need to modify it later,
 
 You can either redeploy the entire application using the same steps we just did. Iofogctl is smart enough to only patch the required changes to an existing application.
 
-But you can also directly deploy a microservice! First, let's use `iofogctl` to retrieve the microservice configuration for our `Moving Average` microservice.
+But you can also directly deploy a microservice! First, let's use `iofogctl` to retrieve the microservice configuration for our `moving-average` microservice.
 
 ```console
-$ iofogctl describe microservice 'Moving Average' -o moving-average.yaml && cat moving-average.yaml
+iofogctl describe microservice moving-average -o moving-average.yaml && cat moving-average.yaml
 
 apiVersion: iofog.org/v2
 kind: Microservice
 metadata:
-  name: Moving Average
+  name: moving-average
   namespace: default
 spec:
   uuid: H3cZ2LQ9hxyM6X7X6xV2q2w6mH3zp7Wc
-  name: Moving Average
+  name: moving-average
   agent:
     name: local-agent
     config:
@@ -221,7 +222,7 @@ spec:
     volumes: []
     env: []
   routes:
-  - Rest API
+  - rest-api
   application: tutorial
 ```
 
@@ -245,19 +246,19 @@ config:
 Then you can use iofogctl to deploy your microservice
 
 ```console
-$ iofogctl deploy -f moving-average.yaml
+iofogctl deploy -f moving-average.yaml
 ```
 
 And see the result with
 
 ```console
-$ iofogctl get microservices
+iofogctl get microservices
 
-MICROSERVICE	STATUS		AGENT		CONFIG			        ROUTES		VOLUMES		PORTS
-Rest API	    RUNNING		local-agent	{}							                    10101:80
-Freeboard	    RUNNING		local-agent	{}							                    10102:80
-Moving Average	RUNNING		local-agent	{"maxWindowSize":100}	Rest API
-Sensors		    RUNNING		local-agent	{}			            Moving Average
+MICROSERVICE    STATUS   AGENT        ROUTES          VOLUMES  PORTS
+rest-api        RUNNING  local-agent                           10101:80
+freeboard       RUNNING  local-agent                           10102:80
+moving-average  RUNNING  local-agent  rest-api
+sensors         RUNNING  local-agent  moving-average
 
 ```
 

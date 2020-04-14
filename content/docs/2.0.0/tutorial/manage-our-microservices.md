@@ -11,12 +11,10 @@ This tutorial includes 3 microservices already running. We can view any configur
 ```console
 iofogctl get microservices
 
-MICROSERVICE	STATUS		AGENT		CONFIG		ROUTES		VOLUMES		PORTS
-Sensors		    RUNNING		local-agent	{}		    Rest API
-Rest API	    RUNNING		local-agent	{}						            10101:80
-Freeboard	    RUNNING		local-agent	{}						            10102:80
-
-
+MICROSERVICE  STATUS    AGENT        ROUTES    VOLUMES  PORTS
+sensors       RUNNING   local-agent  rest-api
+rest-api      RUNNING   local-agent                     10101:80
+freeboard     RUNNING   local-agent                     10102:80
 ```
 
 This returns a list of microservices along with their status, the agent it is running on, configuration, routes, volume mapping and port mapping.
@@ -45,7 +43,7 @@ To connect microservices together, the Controller has the concept of routes.
 Routes can be listed from the `iofogctl get microservices` or `iofogctl describe microservice <name>` commands. We can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
 
 ```console
-$ iofogctl describe microservice Sensors
+iofogctl describe microservice Sensors
 
 apiVersion: iofog.org/v2
 kind: Microservice
@@ -83,7 +81,7 @@ spec:
   volumes: []
   env: []
   routes:
-  - Rest API
+  - rest-api
   application: tutorial
 ```
 

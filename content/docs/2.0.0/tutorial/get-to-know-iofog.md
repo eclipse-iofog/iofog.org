@@ -7,32 +7,30 @@ In this step of the tutorial we'll better familiarize ourselves with the ioFog e
 You can have a comprehensive view of your Edge Cloud Network (ECN) and the running docker containers by using our `./status.sh` shell script.
 
 ```bash
-$ ./status.sh
+./status.sh
 ```
 
 Or you can manually verify that the ioFog stack containers are correctly started. Note that it may take a minute or two for ioFog to start the tutorial microservices. The output should look like the following.
 
 ```console
-$ iofogctl get all
+iofogctl get all
 
 NAMESPACE
 default
 
-CONTROLLER	      STATUS		AGE		    UPTIME		IP		    PORT
-local-controller  online		1h4m		1h4m		0.0.0.0		51121
+CONTROLLER	      STATUS    AGE     UPTIME    IP        PORT
+local-controller  online    1h4m    1h4m      0.0.0.0   51121
 
-AGENT		STATUS		AGE		    UPTIME		IP		        VERSION
-local-agent	RUNNING		1h4m		1h3m		91.178.63.198	1.3.0
+AGENT             STATUS    AGE     UPTIME    IP             VERSION
+local-agent       RUNNING   1h4m    1h3m      91.178.63.198  1.3.0
 
-APPLICATION	STATUS		MICROSERVICES
-tutorial	RUNNING		Sensors, Rest API, Freeboard
+APPLICATION   STATUS    MICROSERVICES
+tutorial      RUNNING   sensors, rest-api, freeboard
 
-MICROSERVICE	STATUS		AGENT		CONFIG		ROUTES		VOLUMES		PORTS
-Rest API	    RUNNING		local-agent	{}						            10101:80
-Freeboard	    RUNNING		local-agent	{}						            10102:80
-Sensors		    RUNNING		local-agent	{}		    Rest API
-
-
+MICROSERVICE  STATUS   AGENT        ROUTES    VOLUMES  PORTS
+rest-api      RUNNING  local-agent                     10101:80
+freeboard     RUNNING  local-agent                     10102:80
+sensors       RUNNING  local-agent  rest-api
 ```
 
 ```console
@@ -82,7 +80,8 @@ In the following sections we will us `iofogctl legacy ...` commands to use the o
 Let's start by using `iofogctl` to retrieve a detailed description of our Agent.
 
 ```console
-$ iofogctl describe agent local-agent
+iofogctl describe agent local-agent
+
 apiVersion: iofog.org/v2
 kind: AgentConfig
 metadata:
@@ -104,7 +103,7 @@ spec:
 Let's see how we can use the legacy `iofog-agent` CLI to find out its status.
 
 ```console
-$ iofogctl legacy agent local-agent status
+iofogctl legacy agent local-agent status
 
 ioFog daemon                : RUNNING
 Memory Usage                : about 248.96 MiB
@@ -122,7 +121,7 @@ System Total CPU            : 0.28 %
 There's also the legacy `info` command, used to view this Agent's settings:
 
 ```console
-$ iofogctl legacy agent local-agent info
+iofogctl legacy agent local-agent info
 
 Iofog UUID                               : 62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq
 IP Address                               : 172.17.0.4
@@ -160,21 +159,20 @@ Fog type                                 : intel_amd
 Let's list all the configured ioFog nodes using `iofogctl`.
 
 ```console
-$ iofogctl get agents
+iofogctl get agents
 
 NAMESPACE
 default
 
-AGENT		STATUS		AGE		    UPTIME		IP		        VERSION
-local-agent	RUNNING		1h26m		1h25m		91.178.63.198	1.3.0
-
-
+AGENT        STATUS   AGE    UPTIME  IP             VERSION
+local-agent  RUNNING  1h26m  1h25m   91.178.63.198  1.3.0
 ```
 
 Now, let's try listing all the preconfigured ioFog nodes using the Controller CLI.
 
 ```console
-$ iofogctl legacy controller local-controller iofog list
+iofogctl legacy controller local-controller iofog list
+
 {
   "fogs": [
     {

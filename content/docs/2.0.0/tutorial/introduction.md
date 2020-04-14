@@ -39,13 +39,13 @@ tar -zxvf demo.tar.gz --strip-components=1
 To get going, all we need to do is run:
 
 ```sh
-$ ./start.sh tutorial
+./start.sh tutorial
 ```
 
 We can optionally verify the ioFog stack is provisioned correctly. The automated tests run a smoke test suite on the ioFog stack, testing basic operations.
 
 ```sh
-$ ./test.sh
+./test.sh
 ```
 
 <aside class="notifications note">
