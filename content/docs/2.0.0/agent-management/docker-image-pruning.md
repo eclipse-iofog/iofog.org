@@ -3,7 +3,7 @@
 Agent disk space is a precious resource. We can reclaim disk space by pruning Docker images from our Agents:
 
 ```bash
-iofogctl prune agent NAME
+iofogctl prune agent agent-1
 ```
 
 The pruning frequency of Agents is also configurable using `dockerPruningFrequency` configuration option. See [iofogctl - AgentConfig reference](../reference-iofogctl/reference-agent.html) for more details.
