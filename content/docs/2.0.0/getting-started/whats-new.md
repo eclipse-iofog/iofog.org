@@ -14,11 +14,11 @@ Following is a list of API breakages and other important changes to user interac
 
 ## New YAML kinds
 
-We have split up the previous ControlPlane kind into three: KubernetesControlPlane, ControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
+We have split up the previous ControlPlane kind into three: ControlPlane, KubernetesControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
 
-## Small changes to the Microservice YAML structure
+## Container Key added to Microservice YAML Specification
 
-We realised that the specification for microservices was a bit confusing, so we have added a new `container` key in the spec. The container key contains all configuration related to the actual Docker container running on the Agent.
+We realised that the specification for Microservices was a bit confusing, so we have added a new `container` key. The container key contains all configuration related to the actual Docker container running on the Agent.
 
 Before:
 
@@ -79,17 +79,17 @@ spec:
     - msvc-2
 ```
 
-This should make clearer what relates to the ioFog microservice, and what relates to the configuration of the actual container running on the Agent.
+This way it is clear as to which information relates to the ioFog Microservice and which information relates to the configuration of the actual container running on the Agent.
 
 ## Configure Default Namespace
 
-You can now configure which namespace is used as the default one by running:
+You can now configure which namespace is used as by default by running:
 
 ```bash
 iofogctl configure default-namespace namespace-1
 ```
 
-This allows you to use any namespace when omitting the `--namespace` flag from iofogctl commands.
+This allows you to use any namespace when omitting the `--namespace` or `-n` flag from iofogctl commands.
 
 ## Prune Docker on an Agent
 
@@ -110,9 +110,9 @@ spec:
   pruningFrequency: 300 # Prune every 300 seconds
 ```
 
-## Move a microservice to another Agent
+## Move a Microservice to another Agent
 
-Up until now, if you needed to move a microservice to another agent, you had to update its deployment YAML file, and redeploy the microservice.
+Up until now, if you needed to move a Microservice to another Agent, you had to update its deployment YAML file, and redeploy the Microservice.
 
 Now, you can simply use:
 
@@ -129,7 +129,7 @@ iofogctl detach agent agent-1 -n namespace-1
 iofogctl attach agent agent-1 -n namespace-2
 ```
 
-Keep in mind that detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
+Keep in mind that detaching an agent will delete its connection with the Controller, and all Microservices will be shut down.
 
 If you have an Agent ready and running on a remote host, you can also attach it directly using host and ssh credentials:
 
@@ -139,11 +139,11 @@ iofogctl attach agent agent-1 --host 123.123.123.123 --user foo --port 22 --key 
 
 ## New Volume Kind
 
-Does your microservice require some secret files, or initialisation data?
+Does your microservice require some secret files or initialisation data?
 
-You have always been able to use volume mappings to mount agent folders into your microservice container. However, until now there was no way to send those files/folders to your Agent using iofgoctl.
+You have always been able to use volume mappings to mount agent folders into your Microservice container. However, until now there was no way to send those files/folders to your Agent using iofogctl.
 
-We have now introduced a new `Volume` kind that, when deployed, will let iofogctl copy folders over to your Agents, using SSH connections.
+We have now introduced a new `Volume` kind that which, when deployed, will let iofogctl copy folders over to your Agents over SSH.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -158,7 +158,7 @@ spec:
     - agent-2
 ```
 
-This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and will copy the contents of `/tmp/` of the computer running iofogctl into it.
+This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and copy the contents of `/tmp/` of the computer running iofogctl into it.
 
 ## Microservice Public Ports
 
