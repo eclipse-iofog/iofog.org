@@ -72,7 +72,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
 
 #### config.xml
 
-````xml
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <config>
   <access_token/>
@@ -96,11 +96,13 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <post_diagnostics_freq>10</post_diagnostics_freq>
   <scan_devices_freq>60</scan_devices_freq>
   <gps>auto</gps>
+  <gps_coordinates>0,0</gps_coordinates>
+  <isolated_docker_container>off</isolated_docker_container>
 </config>
+
 
 #### config-development.xml
 
-```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <config>
   <access_token/>
@@ -124,8 +126,10 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <post_diagnostics_freq>10</post_diagnostics_freq>
   <scan_devices_freq>60</scan_devices_freq>
   <gps>auto</gps>
+  <gps_coordinates>0,0</gps_coordinates>
+  <isolated_docker_container>off</isolated_docker_container>
 </config>
-````
+```
 
 #### config-production.xml
 
@@ -153,6 +157,8 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <post_diagnostics_freq>10</post_diagnostics_freq>
   <scan_devices_freq>60</scan_devices_freq>
   <gps>auto</gps>
+  <gps_coordinates>0,0</gps_coordinates>
+  <isolated_docker_container>off</isolated_docker_container>
 </config>
 ```
 

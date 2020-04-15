@@ -406,6 +406,7 @@ iofog-controller iofog <action> <options>
 | **info**             | Get ioFog node settings.                |
 | **provisioning-key** | Get provisioning key for an ioFog node. |
 | **reboot**           | Reboot ioFog node.                      |
+| **prune**            | Prune ioFog node.                       |
 | **version**          | Change agent version of ioFog node.     |
 | **hal-hw**           | Get HAL Hardware ioFog node data.       |
 | **hal-usb**          | Get HAL USB ioFog node data.            |
@@ -414,65 +415,73 @@ iofog-controller iofog <action> <options>
 
 ##### add
 
-|                                    |                                                           |
-| ---------------------------------- | --------------------------------------------------------- |
-| **-u, --user-id integer**          | User's id                                                 |
-| **-f, --file string**              | Path to ioFog settings JSON file                          |
-| **-n, --name string**              | ioFog node name                                           |
-| **-l, --location string**          | ioFog node location                                       |
-| **-t, --latitude float**           | ioFog node latitude                                       |
-| **-g, --longitude float**          | ioFog node longitude                                      |
-| **-d, --description string**       | ioFog node description                                    |
-| **-D, --docker-url string**        | ioFog node docker url                                     |
-| **-M, --disk-limit float**         | ioFog node disk usage limit (MB)                          |
-| **-T, --disk-directory string**    | ioFog node disk directory                                 |
-| **-m, --memory-limit float**       | ioFog node memory usage limit (MB)                        |
-| **-c, --cpu-limit float**          | ioFog node CPU usage limit (%)                            |
-| **-G, --log-limit float**          | ioFog node log size limit (MB)                            |
-| **-Y, --log-directory string**     | ioFog node log files directory                            |
-| **-C, --log-file-count integer**   | ioFog node log files count                                |
-| **-s, --status-frequency integer** | ioFog node status check frequency (seconds)               |
-| **-F, --change-frequency integer** | ioFog node configuration change check frequency (seconds) |
-| **-Q, --device-frequency integer** | ioFog node device scan frequency (seconds)                |
-| **-B, --bluetooth-enable**         | Enable bluetooth on ioFog node                            |
-| **-b, --bluetooth-disable**        | Disable bluetooth on ioFog node                           |
-| **-W, --watchdog-enable**          | Enable watchdog on ioFog node                             |
-| **-w, --watchdog-disable**         | Disable watchdog on ioFog node                            |
-| **-a, --abs-hw-disable**           | Disable hardware abstraction on ioFog node                |
-| **-A, --abs-hw-enable**            | Enable hardware abstraction on ioFog node                 |
-| **-o, --reboot**                   | Reboot ioFog node                                         |
-| **-y, --fog-type integer**         | ioFog node architecture type                              |
+|                                            |                                                           |
+| ------------------------------------------ | --------------------------------------------------------- |
+| **-u, --user-id integer**                  | User's id                                                 |
+| **-f, --file string**                      | Path to ioFog settings JSON file                          |
+| **-n, --name string**                      | ioFog node name                                           |
+| **-l, --location string**                  | ioFog node location                                       |
+| **-t, --latitude float**                   | ioFog node latitude                                       |
+| **-g, --longitude float**                  | ioFog node longitude                                      |
+| **-d, --description string**               | ioFog node description                                    |
+| **-D, --docker-url string**                | ioFog node docker url                                     |
+| **-M, --disk-limit float**                 | ioFog node disk usage limit (MB)                          |
+| **-T, --disk-directory string**            | ioFog node disk directory                                 |
+| **-m, --memory-limit float**               | ioFog node memory usage limit (MB)                        |
+| **-c, --cpu-limit float**                  | ioFog node CPU usage limit (%)                            |
+| **-G, --log-limit float**                  | ioFog node log size limit (MB)                            |
+| **-Y, --log-directory string**             | ioFog node log files directory                            |
+| **-C, --log-file-count integer**           | ioFog node log files count                                |
+| **-s, --status-frequency integer**         | ioFog node status check frequency (seconds)               |
+| **-F, --change-frequency integer**         | ioFog node configuration change check frequency (seconds) |
+| **-Q, --device-frequency integer**         | ioFog node device scan frequency (seconds)                |
+| **-B, --bluetooth-enable**                 | Enable bluetooth on ioFog node                            |
+| **-b, --bluetooth-disable**                | Disable bluetooth on ioFog node                           |
+| **-W, --watchdog-enable**                  | Enable watchdog on ioFog node                             |
+| **-w, --watchdog-disable**                 | Disable watchdog on ioFog node                            |
+| **-a, --abs-hw-disable**                   | Disable hardware abstraction on ioFog node                |
+| **-A, --abs-hw-enable**                    | Enable hardware abstraction on ioFog node                 |
+| **-o, --reboot**                           | Reboot ioFog node                                         |
+| **-y, --fog-type integer**                 | ioFog node architecture type                              |
+| **-L, --log-level string**                 | ioFog node log level                                      |
+| **-p, --docker-pruning-frequency integer** | ioFog node docker pruning frequency (seconds)             |
+| **-k, --disk-threshold integer**           | ioFog node disk threshold (%)                             |
+| **-e, --prune**                            | Prune ioFog node                                          |
 
 ##### update
 
-|                                    |                                                          |
-| ---------------------------------- | -------------------------------------------------------- |
-| **-i, --iofog-uuid string**        | ioFog node UUID                                          |
-| **-f, --file string**              | Path to ioFog settings JSON file                         |
-| **-n, --name string**              | ioFog node name                                          |
-| **-l, --location string**          | ioFog node location                                      |
-| **-t, --latitude float**           | ioFog node latitude                                      |
-| **-g, --longitude float**          | ioFog node longitude                                     |
-| **-d, --description string**       | ioFog node description                                   |
-| **-D, --docker-url string**        | ioFog node docker url                                    |
-| **-M, --disk-limit float**         | ioFog node disk usage limit (MB                          |
-| **-T, --disk-directory string**    | ioFog node disk directory                                |
-| **-m, --memory-limit float**       | ioFog node memory usage limit (MB                        |
-| **-c, --cpu-limit float**          | ioFog node CPU usage limit (%                            |
-| **-G, --log-limit float**          | ioFog node log size limit (MB                            |
-| **-Y, --log-directory string**     | ioFog node log files directory                           |
-| **-C, --log-file-count integer**   | ioFog node log files count                               |
-| **-s, --status-frequency integer** | ioFog node status check frequency (seconds               |
-| **-F, --change-frequency integer** | ioFog node configuration change check frequency (seconds |
-| **-Q, --device-frequency integer** | ioFog node device scan frequency (seconds                |
-| **-B, --bluetooth-enable**         | Enable bluetooth on ioFog node                           |
-| **-b, --bluetooth-disable**        | Disable bluetooth on ioFog node                          |
-| **-W, --watchdog-enable**          | Enable watchdog on ioFog node                            |
-| **-w, --watchdog-disable**         | Disable watchdog on ioFog node                           |
-| **-a, --abs-hw-disable**           | Disable hardware abstraction on ioFog node               |
-| **-A, --abs-hw-enable**            | Enable hardware abstraction on ioFog node                |
-| **-o, --reboot**                   | Reboot ioFog node                                        |
-| **-y, --fog-type integer**         | ioFog node architecture type                             |
+|                                            |                                                           |
+| ------------------------------------------ | --------------------------------------------------------- |
+| **-u, --user-id integer**                  | User's id                                                 |
+| **-f, --file string**                      | Path to ioFog settings JSON file                          |
+| **-n, --name string**                      | ioFog node name                                           |
+| **-l, --location string**                  | ioFog node location                                       |
+| **-t, --latitude float**                   | ioFog node latitude                                       |
+| **-g, --longitude float**                  | ioFog node longitude                                      |
+| **-d, --description string**               | ioFog node description                                    |
+| **-D, --docker-url string**                | ioFog node docker url                                     |
+| **-M, --disk-limit float**                 | ioFog node disk usage limit (MB)                          |
+| **-T, --disk-directory string**            | ioFog node disk directory                                 |
+| **-m, --memory-limit float**               | ioFog node memory usage limit (MB)                        |
+| **-c, --cpu-limit float**                  | ioFog node CPU usage limit (%)                            |
+| **-G, --log-limit float**                  | ioFog node log size limit (MB)                            |
+| **-Y, --log-directory string**             | ioFog node log files directory                            |
+| **-C, --log-file-count integer**           | ioFog node log files count                                |
+| **-s, --status-frequency integer**         | ioFog node status check frequency (seconds)               |
+| **-F, --change-frequency integer**         | ioFog node configuration change check frequency (seconds) |
+| **-Q, --device-frequency integer**         | ioFog node device scan frequency (seconds)                |
+| **-B, --bluetooth-enable**                 | Enable bluetooth on ioFog node                            |
+| **-b, --bluetooth-disable**                | Disable bluetooth on ioFog node                           |
+| **-W, --watchdog-enable**                  | Enable watchdog on ioFog node                             |
+| **-w, --watchdog-disable**                 | Disable watchdog on ioFog node                            |
+| **-a, --abs-hw-disable**                   | Disable hardware abstraction on ioFog node                |
+| **-A, --abs-hw-enable**                    | Enable hardware abstraction on ioFog node                 |
+| **-o, --reboot**                           | Reboot ioFog node                                         |
+| **-y, --fog-type integer**                 | ioFog node architecture type                              |
+| **-L, --log-level string**                 | ioFog node log level                                      |
+| **-p, --docker-pruning-frequency integer** | ioFog node docker pruning frequency (seconds)             |
+| **-k, --disk-threshold integer**           | ioFog node disk threshold (%)                             |
+| **-e, --prune**                            | Prune ioFog node                                          |
 
 ##### remove
 
@@ -493,6 +502,12 @@ iofog-controller iofog <action> <options>
 | **-i, --iofog-uuid string** | ioFog node UUID |
 
 ##### reboot
+
+|                             |                 |
+| --------------------------- | --------------- |
+| **-i, --iofog-uuid string** | ioFog node UUID |
+
+##### prune
 
 |                             |                 |
 | --------------------------- | --------------- |

@@ -32,7 +32,7 @@ class BringYourOwnEdge extends Component {
                     iofogctl deploy -f microservices.yaml
                   </p>
                 </div>
-                <Link to="/docs/getting-started/quick-start.html">
+                <Link to="/docs/getting-started/quick-start-local.html">
                   <span>View the Quick Start Guide</span>
                   <MdArrowForward />
                 </Link>

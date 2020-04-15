@@ -37,7 +37,7 @@ The Debian package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl
+sudo apt-get install iofogctl=1.3.2
 ```
 
 And similarly, the RPM package can be installed like so:
