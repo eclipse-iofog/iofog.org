@@ -1,22 +1,22 @@
 ## ioFog v2
 
-[Get Started with ioFog v2](/docs/2.0.0/getting-started/core-concepts.html)
+[Get Started with ioFog v2](/docs/2/getting-started/core-concepts.html)
 
-Major ioFog release 2.0.0 brings new ioFog Edge Compute Network (ECN) model, with legacy Connector being replaced by much more robust Apache Qpid Dispatch Router and Red Hat's project Skupper Proxy.
+Major ioFog release 2 brings new ioFog Edge Compute Network (ECN) model, with legacy Connector being replaced by much more robust Apache Qpid Dispatch Router and Red Hat's project Skupper Proxy.
 
 Many other features have been added to the ioFog Engine, such as better Docker image pruning, registry management and volume management in ioFog Agents. You can also expose public ports for individual microservices. Additional changes relate to iofogctl quality of life improvements, Agent attach and detach functionality and microservice moving.
 
 ### What's New?
 
-- [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager), see [Architecture Concepts](/docs/2.0.0/getting-started/architecture.html) article for details
-- Improved [registry and catalog items management](/docs/2.0.0/microservice-catalog/introduction.html) in ioFog Controller
-- [Exposing public ports](/docs/2.0.0/microservice-management/exposing-microservices.html) for deployed microservices
-- [Docker image pruning](/docs/2.0.0/agent-management/docker-image-pruning.html) feature for ioFog Agent
-- [Attach and detach](/docs/2.0.0/microserivce-management/attach-detach.html) ioFog Agents between ECNs
-- [Volume management](/docs/2.0.0/volume-management/overview.html) for mounting volume on ioFog Agent in a microservice
-- [Moving and renaming microservices](/docs/2.0.0/microservice-management/move-and-rename.html) support in iofogctl
-- [Default namespace](/docs/2.0.0/iofogctl/namespaces) support in iofogctl
-- [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](/docs/2.0.0/platform-deployment-kubernetes/prepare-kubernetes-cluster.html)
+- [ioFog Connector](https://github.com/eclipse-iofog/Connector) removed from the ECN architecture and replaced with [ioFog Router](https://github.com/eclipse-iofog/router), [Skupper Proxy](https://github.com/eclipse-iofog/skupper-proxy) and [ioFog Port Manager](https://github.com/eclipse-iofog/port-manager), see [Architecture Concepts](/docs/2/getting-started/architecture.html) article for details
+- Improved [registry and catalog items management](/docs/2/microservices/microservice-registry-catalog.html) in ioFog Controller
+- [Exposing public ports](/docs/2/microservices/microservice-exposing.html) for deployed microservices
+- [Docker image pruning](/docs/2/agent-management/docker-image-pruning.html) feature for ioFog Agent
+- [Attach and detach](/docs/2/agent-management/attach-detach.html) ioFog Agents between ECNs
+- [Volume management](/docs/2/agent-management/volumes.html) for mounting volume on ioFog Agent in a microservice
+- [Moving and renaming microservices](/docs/2/microservices/microservice-move-rename.html) support in iofogctl
+- [Default namespace](/docs/2/iofogctl/getting-familiar.html#configuring-your-default-namespace) support in iofogctl
+- [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](/docs/2/platform-deployment/kubernetes-prepare-cluster.html)
 
 ### Changelogs
 
@@ -49,10 +49,10 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 ### Changelogs
 
 - [Controller](https://github.com/eclipse-iofog/Controller/blob/v1.3.1/CHANGELOG-1.3.md)
-- [Agent](https://github.com/eclipse-iofog/Agent/blob/v2.0.0-beta/CHANGELOG-2.0.md)
+- [Agent](https://github.com/eclipse-iofog/Agent/blob/v1.3.0/CHANGELOG-1.3.md)
 - [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/v1.3.0/CHANGELOG-1.3.md)
 - [Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/blob/v1.3.0/CHANGELOG-1.3.md)
-- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/release/2.0/CHANGELOG-2.0.md)
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/release/1.3.0/CHANGELOG-1.3.md)
 - [Helm](https://github.com/eclipse-iofog/helm/blob/v1.3.0/CHANGELOG.md)
 - [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/v1.3.0/CHANGELOG-1.3.md)
 - [Demo Project](https://github.com/eclipse-iofog/demo/blob/v1.3.0/CHANGELOG-1.3.md)
