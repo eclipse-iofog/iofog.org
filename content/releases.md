@@ -18,17 +18,6 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 - [Default namespace](/docs/2/iofogctl/getting-familiar.html#configuring-your-default-namespace) support in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](/docs/2/platform-deployment/kubernetes-prepare-cluster.html)
 
-### Changelogs
-
-- [Controller](https://github.com/eclipse-iofog/Controller/blob/master/CHANGELOG-2.md)
-- [Agent](https://github.com/eclipse-iofog/Agent/blob/master/CHANGELOG-2.md)
-- [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/master/CHANGELOG-2.md)
-- [Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/blob/master/CHANGELOG-2.md)
-- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/master/CHANGELOG-2.md)
-- [Helm](https://github.com/eclipse-iofog/helm/blob/master/CHANGELOG.md)
-- [ioFog Go SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/master/CHANGELOG-2.md)
-- [Demo Project](https://github.com/eclipse-iofog/demo/blob/master/CHANGELOG-2.md)
-
 ## 1.3.0
 
 [Get Started with release 1.3.0](/docs/1.3.0/getting-started/core-concepts.html)
