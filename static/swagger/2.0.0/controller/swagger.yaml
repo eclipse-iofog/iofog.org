@@ -539,6 +539,30 @@
             description: Not Authorized
           '500':
             description: Internal Server Error
+      patch:
+        tags:
+        - Agent
+        summary: Resets ioFog node changes list
+        operationId: resetIOFogNodeChanges
+        parameters:
+        - in: header
+          name: Authorization
+          description: Agent Token
+          required: true
+          type: string
+        responses:
+          '200':
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '500':
+            description: Internal Server Error
     '/agent/status':
       put:
         tags:
@@ -2399,7 +2423,25 @@
     IOFogNodeInfoResponse:
       type: object
       properties:
-        id:
+        lastActive:
+          type: number
+        daemonOperatingDuration:
+          type: number
+        daemonLastStart:
+          type: number
+        repositoryCount:
+          type: number
+        systemTime:
+          type: number
+        lastStatusTime:
+          type: number
+        processedMessages:
+          type: number
+        lastCommandTime:
+          type: number
+        logFileCount:
+          type: number
+        uuid:
           type: string
         name:
           type: string
@@ -2413,18 +2455,8 @@
           type: number
         description:
           type: string
-        createAt:
-          type: number
-        updatedAt:
-          type: number
-        lastActive:
-          type: number
         daemonStatus:
           type: string
-        daemonOperatingDuration:
-          type: number
-        daemonLastStart:
-          type: number
         memoryUsage:
           type: number
         diskUsage:
@@ -2437,29 +2469,19 @@
           type: boolean
         cpuViolation:
           type: boolean
-        systemAvailableDisk:
-          type: integer
-        systemAvailableMemory:
-           type: integer
         systemTotalCpu:
            type: number
-        microserviceStatus:
+        catalogItemStatus:
           type: string
-        repositoryCount:
-          type: number
         repositoryStatus:
           type: string
-        lastStatusTime:
-          type: number
         ipAddress:
           type: string
-        processedMessages:
-          type: number
-        microserviceMessageCounts:
+        ipAddressExternal:
+          type: string
+        catalogItemMessageCounts:
           type: number
         messageSpeed:
-          type: number
-        lastCommandTime:
           type: number
         networkInterface:
           type: string
@@ -2481,10 +2503,6 @@
           type: boolean
         abstractedHardwareEnabled:
           type: boolean
-        watchdogEnabled:
-          type: boolean
-        logFileCount:
-          type: number
         version:
           type: string
         isReadyToUpgrade:
@@ -2499,14 +2517,38 @@
           type: number
         tunnel:
           type: string
-        type:
-          $ref: '#/definitions/IOFogType'
+        watchdogEnabled:
+          type: boolean
         dockerPruningFrequency:
           type: number
-        diskThreshold:
+        availableDiskThreshold:
           type: number
         logLevel: 
           type: string
+        isSystem:
+          type: boolean
+        routerId:
+          type: number
+        createAt:
+          type: number
+        updatedAt:
+          type: number
+        fogTypeId:
+          type: number
+        userId:
+          type: number
+        routerMode:
+          type: string
+          enum:
+          - none
+          - edge
+          - interior
+        messagingPort: 
+          type: number
+        upstreamRouters:
+          type: array
+          items:
+            type: string
     UpdateIOFogNodeRequestBody:
       type: object
       properties:
@@ -2673,6 +2715,8 @@
           type: boolean
         prune:
           type: boolean
+        routerChanged:
+          type: boolean
     IOFogNodeConfig:
       type: object
       properties:
@@ -2705,6 +2749,16 @@
         latitude:
           type: number
         longitude:
+          type: number
+        logLevel:
+          type: string
+        availableDiskThreshold:
+          type: number
+        dockerPruningFrequency:
+          type: number
+        routerHost:
+          type: string
+        routerPort:
           type: number
     IOFogNodeConfigRequest:
       type: object
@@ -2741,6 +2795,12 @@
           type: number
         gpsMode:
           type: string
+        logLevel:
+          type: string
+        availableDiskThreshold:
+          type: number
+        dockerPruningFrequency:
+          type: number
     AgentStatus:
       type: object
       properties:
@@ -2866,32 +2926,51 @@
       properties:
         uuid:
           type: string
-        needUpdate:
-          type: boolean
+        imageId:
+          type: string
+        config:
+          type: string
         rebuild:
           type: boolean
         rootHostAccess:
           type: boolean
         logSize:
           type: number
-        imageId:
-          type: string
-        registryUrl:
-          type: string
+        registryId:
+          type: number
         portMappings:
           type: array
           items:
             $ref: '#/definitions/PortMappingAgentRequest'
-        VolumeMappings:
+        volumeMappings:
           type: array
           items:
             $ref: '#/definitions/VolumeMapping'
         imageSnapshot:
           type: string
-        removeWithCleanUp:
+        delete:
           type: boolean
+        deleteWithCleanUp:
+          type: boolean
+        env:
+          type: array
+          items:
+            $ref: '#/definitions/AgentEnvRequest'
+        cmd:
+          type: array
+          items:
+            type: string
         routes:
           $ref: '#/definitions/ReceiverMicroservices'
+        idConsumer:
+          type: boolean
+    AgentEnvRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
     ReceiverMicroservices:
       type: array
       items:
@@ -2977,10 +3056,10 @@
     PortMappingAgentRequest:
       type: object
       properties:
-        outsidecontainer:
+        portInternal:
           type: string
           example: 80
-        insidecontainer:
+        portExternal:
           type: string
           example: 80
     RegistriesListResponse:
