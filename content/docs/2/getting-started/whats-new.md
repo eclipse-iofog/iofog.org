@@ -12,7 +12,7 @@
 
 Following is a list of API breakages and other important changes to user interaction, mostly on the `iofogctl` usage.
 
-## New YAML kinds
+## New YAML Kinds
 
 We have split up the previous ControlPlane kind into three: ControlPlane, KubernetesControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
 
