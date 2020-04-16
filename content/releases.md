@@ -1,4 +1,4 @@
-## ioFog v2
+## ioFog v2-beta
 
 [Get Started with ioFog v2](/docs/2/getting-started/core-concepts.html)
 
@@ -18,7 +18,7 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 - [Default namespace](/docs/2/iofogctl/getting-familiar.html#configuring-your-default-namespace) support in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](/docs/2/platform-deployment/kubernetes-prepare-cluster.html)
 
-## 1.3.0
+## ioFog v1.3.0
 
 [Get Started with release 1.3.0](/docs/1.3.0/getting-started/core-concepts.html)
 
@@ -46,7 +46,7 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 - [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/v1.3.0/CHANGELOG-1.3.md)
 - [Demo Project](https://github.com/eclipse-iofog/demo/blob/v1.3.0/CHANGELOG-1.3.md)
 
-## 1.2.0 - "Kubernetes For The Edge"
+## ioFog v1.2.0 - "Kubernetes For The Edge"
 
 [Get Started with release 1.2.0](/docs/1.2.0/getting-started/core-concepts.html)
 
@@ -127,7 +127,7 @@ tools, such as _platform tools_ for cluster and infrastructure management.
 - API: Issues with /update/delete system microservices
 - Controller Installation: Check if sqlite3 binary exists
 
-## 1.1.0
+## ioFog v1.1.0
 
 [Get Started with release 1.1.0](/docs/1.1.0/getting-started/core-concepts.html)
 
@@ -193,7 +193,7 @@ tools, such as _platform tools_ for cluster and infrastructure management.
 
 - Fixed Agent docker depending on unstable location of Java
 
-## 1.0.0
+## ioFog v1.0.0
 
 Our very first release.
 
