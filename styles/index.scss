@@ -292,7 +292,24 @@ aside.notifications {
     background-color: #fef6e9;
   }
 
+  &.contribute {
+    border-left: 6px solid #24292e;
+    background-color: #f0efef;
+  }
+
   ul:last-child {
     margin-bottom: 0;
   }
+}
+
+figure {
+  margin: 3rem 0 3rem 2rem;
+}
+
+figure > img {
+  margin: 0 0 1rem 0;
+}
+
+figure > figcaption {
+  font-style: italic;
 }
