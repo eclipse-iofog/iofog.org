@@ -5,16 +5,16 @@
 The catalog item has a very simple definition
 
 ```yaml
-apiVersion: 'iofog.org/v2'
+apiVersion: iofog.org/v2
 kind: CatalogItem
 metadata:
-  name: 'my-multiplatform-microservice'
+  name: my-multiplatform-microservice
 spec:
   id: 0
-  description: 'Alpine Linux'
-  x86: 'amd64/alpine:latest'
-  arm: 'arm32v6/alpine:latest'
-  registry: 'remote'
+  description: Alpine Linux
+  x86: amd64/alpine:latest
+  arm: arm32v6/alpine:latest
+  registry: remote
   configExample: '{"key": "value"}'
 ```
 
@@ -24,7 +24,7 @@ spec:
 | description   | Human readable description of the Catalog Item                                 |
 | x86           | x86 Docker image                                                               |
 | arm           | arm32 Docker image                                                             |
-| registry      | Registry to use to fetch Docker images, options: {local, remote}               |
+| registry      | Registry to use to fetch Docker images, options: {local, remote, registryID}   |
 | configExample | Json object with key-value pairs indicating example microservice configuration |
 
 Note that the `configExample` field is a yaml map specifying the key value pairs, but it is internally stored a stringified JSON object of these values, similarly to how configuration is sent to microservices.
