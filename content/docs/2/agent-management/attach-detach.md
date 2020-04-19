@@ -1,19 +1,19 @@
 # Attach / Detach an Agent
 
-We can transfer an Agent from one ECN to another by detaching the agent and attaching it to another ECN.
-Note: detaching an agent will delete its connection with the Controller, and all microservices will be shut down.
+We can transfer an Agent from one ECN to another by detaching the Agent and attaching it to another ECN.
+Note: detaching an Agent will delete its connection with the Controller, and all microservices will be shut down.
 
 ```bash
 iofogctl detach agent agent-1 -n namespace-1
 ```
 
-To display all resources in detached state with the get command
+To display all resources in detached state with the get command:
 
 ```bash
 iofogctl get all --detached
 ```
 
-Switch to another Namespace
+Attach the Agent to another ECN / Namespace
 
 ```bash
 iofogctl attach agent agent-1 -n namespace-2
