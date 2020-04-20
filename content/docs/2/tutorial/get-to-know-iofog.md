@@ -21,11 +21,12 @@ default
 CONTROLLER	      STATUS    AGE     UPTIME    IP        PORT
 local-controller  online    1h4m    1h4m      0.0.0.0   51121
 
-AGENT             STATUS    AGE     UPTIME    IP             VERSION
-local-agent       RUNNING   1h4m    1h3m      91.178.63.198  1.3.0
+AGENT             STATUS    AGE     UPTIME    IP               VERSION
+local-agent       RUNNING   1h4m    1h3m      104.196.255.116  2.0.0-beta
 
 APPLICATION   STATUS    MICROSERVICES
 tutorial      RUNNING   sensors, rest-api, freeboard
+Test Flow     RUNNING
 
 MICROSERVICE  STATUS   AGENT        ROUTES    VOLUMES  PORTS
 rest-api      RUNNING  local-agent                     10101:80
@@ -36,12 +37,13 @@ sensors       RUNNING  local-agent  rest-api
 ```console
 $ docker ps --filter "name=iofog"
 
-CONTAINER ID        IMAGE                                           COMMAND                  CREATED             STATUS              PORTS                                            NAMES
-840268cb60b4        iofog/freeboard:latest                          "nginx -g 'daemon of…"   2 minutes ago       Up 2 minutes        0.0.0.0:10102->80/tcp                            iofog_yKVryMQkkxCQt8wv4Qnkpq9dXG3C4W8q
-fba02fc87010        iofog/freeboard-api:latest                      "node /src/index.js"     2 minutes ago       Up 2 minutes        0.0.0.0:10101->80/tcp                            iofog_tjG2LcvVkJtrzP9FHLqyGmBXptKZRxFT
-b151f2e4946a        iofog/sensors:latest                            "node /sensors/index"    2 minutes ago       Up 2 minutes                                                         iofog_zL3qwCBhX9NBK4yWLjbkZY7QhKcJkChd
-0789e92dd6d7        iofog/agent:latest                              "sh /start.sh"           About an hour ago   Up About an hour    0.0.0.0:54321->54321/tcp, 0.0.0.0:8081->22/tcp   iofog-agent
-966ccd2092b8        iofog/controller:latest                         "sh /start.sh"           About an hour ago   Up About an hour    0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp   iofog-controller
+CONTAINER ID        IMAGE                                          COMMAND                  CREATED             STATUS              PORTS                                                                               NAMES
+20ad0be7a0cf        iofog/freeboard:latest                         "nginx -g 'daemon of…"   12 minutes ago      Up 12 minutes       0.0.0.0:10102->80/tcp                                                               iofog_w7Fvn28fWxQFrnNjvYwPMQ6ghqdKjfBq
+7ce950bd971f        iofog/freeboard-api:latest                     "node /src/index.js"     12 minutes ago      Up 12 minutes       0.0.0.0:10101->80/tcp                                                               iofog_2tYXKdLncDhvNYBQYWmFzg9gm9MNkT7x
+1fc59ab19b71        iofog/sensors:latest                           "docker-entrypoint.s…"   12 minutes ago      Up 12 minutes                                                                                           iofog_6VLjktywfnJt8NwjQf9PcF29TbLN9HRM
+a2fb3fa95c94        quay.io/interconnectedcloud/qdrouterd:latest   "/home/qdrouterd/bin…"   13 minutes ago      Up 13 minutes       5671/tcp, 0.0.0.0:5672->5672/tcp, 55672/tcp, 0.0.0.0:56721-56722->56721-56722/tcp   iofog_rrkXQJMdvJZ8tPVhvMhvR9jWMDctYBPv
+82e539cf4b88        iofog/agent:2.0.0-beta                         "sh /start.sh"           14 minutes ago      Up 14 minutes                                                                                           iofog-agent
+72fd11ff5d8d        iofog/controller:2.0.0-beta                    "node /usr/local/lib…"   14 minutes ago      Up 14 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp                                      iofog-controller
 ```
 
 We can also see that in the PORTS column some of these containers have published [port mappings](https://docs.docker.com/config/containers/container-networking/):
@@ -106,16 +108,16 @@ Let's see how we can use the legacy `iofog-agent` CLI to find out its status.
 iofogctl legacy agent local-agent status
 
 ioFog daemon                : RUNNING
-Memory Usage                : about 248.96 MiB
-Disk Usage                  : about 17.91 MiB
-CPU Usage                   : about 3.38 %
-Running Microservices       : 3
+Memory Usage                : about 51.19 MiB
+Disk Usage                  : about 0.19 MiB
+CPU Usage                   : about 0.99 %
+Running Microservices       : 4
 Connection to Controller    : ok
-Messages Processed          : about 78,496
-System Time                 : 23/10/2019 03:31 AM
-System Available Disk       : 43598.10 MB
-System Available Memory     : 763.71 MB
-System Total CPU            : 0.28 %
+Messages Processed          : about 837
+System Time                 : 20/04/2020 05:32 AM
+System Available Disk       : 4559.27 MB (46.77 %)
+System Available Memory     : 2717.61 MB
+System Total CPU            : 32.58 %
 ```
 
 There's also the legacy `info` command, used to view this Agent's settings:
@@ -123,29 +125,31 @@ There's also the legacy `info` command, used to view this Agent's settings:
 ```console
 iofogctl legacy agent local-agent info
 
-Iofog UUID                               : 62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq
-IP Address                               : 172.17.0.4
-Network Interface                        : eth0(dynamic)
+Iofog UUID                               : VB78m6tLdrtWNDgdr73VrmCxZ3ZRkxjB
+IP Address                               : 10.138.0.41
+Network Interface                        : ens4(dynamic)
 Developer's Mode                         : on
-ioFog Controller                         : http://iofog-controller:51121/api/v3/
+ioFog Controller                         : http://172.17.0.2:51121/api/v3/
 ioFog Certificate                        : /etc/iofog-agent/cert.crt
 Docker URL                               : unix:///var/run/docker.sock
 Disk Usage Limit                         : 50.00 GiB
 Message Storage Directory                : /var/lib/iofog-agent/
-Memory RAM Limit                         : 1024.00 MiB
+Memory RAM Limit                         : 4096.00 MiB
 CPU Usage Limit                          : 80.00%
 Log Disk Limit                           : 10.00 GiB
 Log File Directory                       : /var/log/iofog-agent/
 Log Rolling File Count                   : 10
 Log Level                                : INFO
-Status Update Frequency                  : 30
-Get Changes Frequency                    : 60
+Status Update Frequency                  : 10
+Get Changes Frequency                    : 10
 Scan Devices Frequency                   : 60
 Post Diagnostics Frequency               : 10
 Isolated Docker Containers Mode          : off
 GPS mode                                 : auto
-GPS coordinates(lat,lon)                 : -36.8486,174.754
+GPS coordinates(lat,lon)                 : 39.0438,-77.4874
 Fog type                                 : intel_amd
+Docker Pruning Frequency                 : 1
+Available Disk Threshold                 : 90
 
 ```
 
@@ -164,8 +168,9 @@ iofogctl get agents
 NAMESPACE
 default
 
-AGENT        STATUS   AGE    UPTIME  IP             VERSION
-local-agent  RUNNING  1h26m  1h25m   91.178.63.198  1.3.0
+AGENT		STATUS		AGE		UPTIME		ADDR		    VERSION
+local-agent	RUNNING				15m38s		104.196.255.116	2.0.0-beta
+
 ```
 
 Now, let's try listing all the preconfigured ioFog nodes using the Controller CLI.
@@ -176,19 +181,19 @@ iofogctl legacy controller local-controller iofog list
 {
   "fogs": [
     {
-      "lastActive": 1568371373399,
-      "daemonOperatingDuration": 5312950,
-      "daemonLastStart": 1568366050335,
-      "systemAvailableDisk": 46123114496,
-      "systemAvailableMemory": 890736640,
+      "lastActive": 1587360831027,
+      "daemonOperatingDuration": 937515,
+      "daemonLastStart": 1587359873075,
+      "systemAvailableDisk": 4780654592,
+      "systemAvailableMemory": 2847510528,
       "repositoryCount": 2,
-      "systemTime": 1568371324278,
-      "lastStatusTime": 1568371365808,
-      "processedMessages": 149610,
-      "messageSpeed": 86,
+      "systemTime": 1587360773069,
+      "lastStatusTime": 1587360811615,
+      "processedMessages": 848,
+      "messageSpeed": 1,
       "lastCommandTime": 0,
       "logFileCount": 10,
-      "uuid": "62GHyYgrGrfbYfhxwk9Q8LQW34VVMtKq",
+      "uuid": "VB78m6tLdrtWNDgdr73VrmCxZ3ZRkxjB",
       "name": "local-agent",
 ...
 ```
