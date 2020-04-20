@@ -254,7 +254,7 @@ iofog-controller connector <action> <options>
 
 ## Config Locations
 
-Config files are located in project. There are 3 config files:
+Config files are located in project `src/config/<file>.json`. When installed using iofogctl resolves to `/opt/iofog/controller/lib/node_modules/iofogcontroller/src/config/`. There are 3 config files:
 
 #### default.json (general data that is used for default values)
 
@@ -263,8 +263,14 @@ Config files are located in project. There are 3 config files:
   "App": {
     "Name": "iofog-controller"
   },
+  "Viewer": {
+    "Port": 80
+  },
+  "Kubelet": {
+    "Uri": "http://localhost:1234"
+  },
   "Server": {
-    "Port": 54421,
+    "Port": 51121,
     "DevMode": false
   },
   "Email": {
@@ -273,11 +279,16 @@ Config files are located in project. There are 3 config files:
   },
   "Service": {
     "LogsDirectory": "/var/log/iofog-controller",
-    "LogsFileSize": 1048576
+    "LogsFileSize": 10485760,
+    "LogsFileCount": 10
   },
   "Settings": {
+    "DefaultJobIntervalSeconds": 120,
     "UserTokenExpirationIntervalSeconds": 3600,
-    "FogTokenExpirationIntervalSeconds": 3600
+    "FogTokenExpirationIntervalSeconds": 3600,
+    "FogStatusUpdateIntervalSeconds": 120,
+    "FogStatusFrequencySeconds": 60,
+    "ConnectorHealthCheckFrequencySeconds": 10
   },
   "Diagnostics": {
     "DiagnosticDir": "diagnostic"
@@ -292,6 +303,12 @@ Config files are located in project. There are 3 config files:
   "App": {
     "Name": "iofog-controller-dev"
   },
+  "Viewer": {
+    "Port": 80
+  },
+  "Kubelet": {
+    "Uri": "http://localhost:1234"
+  },
   "Server": {
     "Port": 51121,
     "DevMode": true
@@ -302,11 +319,15 @@ Config files are located in project. There are 3 config files:
   },
   "Service": {
     "LogsDirectory": "/var/log/iofog-controller",
-    "LogsFileSize": 1048576
+    "LogsFileSize": 10485760,
+    "LogsFileCount": 10
   },
   "Settings": {
     "UserTokenExpirationIntervalSeconds": 360000,
-    "FogTokenExpirationIntervalSeconds": 3600000
+    "FogTokenExpirationIntervalSeconds": 3600000,
+    "FogStatusUpdateIntervalSeconds": 120,
+    "FogStatusFrequencySeconds": 60,
+    "ConnectorHealthCheckFrequencySeconds": 10
   },
   "Tunnel": {
     "Username": "username",
@@ -318,6 +339,20 @@ Config files are located in project. There are 3 config files:
   },
   "Diagnostics": {
     "DiagnosticDir": "diagnostic"
+  },
+  "Database": {
+    "Provider": "sqlite",
+    "Config": {
+      "databaseName": "dev_database.sqlite",
+      "logging": false,
+      "transactionType": "IMMEDIATE",
+      "pool": {
+        "maxactive": 1,
+        "max": 1,
+        "min": 0,
+        "idle": 20000
+      }
+    }
   }
 }
 ```
@@ -329,16 +364,41 @@ Config files are located in project. There are 3 config files:
   "App": {
     "Name": "iofog-controller"
   },
+  "Viewer": {
+    "Port": 80
+  },
   "Server": {
-    "Port": 54421,
+    "Port": 51121,
     "DevMode": true
   },
   "Email": {
     "ActivationEnabled": false
   },
+  "Service": {
+    "LogsDirectory": "/var/log/iofog-controller",
+    "LogsFileSize": 10485760,
+    "LogsFileCount": 10
+  },
   "Settings": {
     "UserTokenExpirationIntervalSeconds": 3600,
-    "FogTokenExpirationIntervalSeconds": 3600
+    "FogTokenExpirationIntervalSeconds": 3600,
+    "FogStatusUpdateIntervalSeconds": 120,
+    "FogStatusFrequencySeconds": 60,
+    "ConnectorHealthCheckFrequencySeconds": 10
+  },
+  "Database": {
+    "Provider": "sqlite",
+    "Config": {
+      "databaseName": "prod_database.sqlite",
+      "logging": false,
+      "transactionType": "IMMEDIATE",
+      "pool": {
+        "maxactive": 1,
+        "max": 1,
+        "min": 0,
+        "idle": 20000
+      }
+    }
   }
 }
 ```
@@ -488,6 +548,7 @@ iofog-controller iofog <action> <options>
 |                             |                 |
 | --------------------------- | --------------- |
 | **-i, --iofog-uuid string** | ioFog node UUID |
+| **-u, --user-id integer**   | User's id       |
 
 ##### info
 
