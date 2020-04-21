@@ -16,7 +16,6 @@ iofog-controller <command> <action> <options>
 | [help](#help)                 | Display usage information.                    |
 | [user](#user)                 | User operations.                              |
 | [config](#config)             | Set/Display iofog-controller service config.  |
-| [connector](#connector)       | Connector operations.                         |
 | [tunnel](#tunnel)             | Tunnel operations.                            |
 | [iofog](#iofog)               | ioFog node operations.                        |
 | [catalog](#catalog)           | Microservices catalog operations.             |
@@ -201,57 +200,6 @@ iofog-controller config <options>
 
 ---
 
-## connector
-
-Connector operations.
-
-```sh
-iofog-controller connector <action> <options>
-```
-
-#### Actions
-
-|            |                               |
-| ---------- | ----------------------------- |
-| **add**    | Add a new Connector.          |
-| **update** | Update an existing Connector. |
-| **remote** | Delete a Connector.           |
-| **list**   | List all Connectors.          |
-
-#### Options
-
-##### add
-
-|                            |                                 |
-| -------------------------- | ------------------------------- |
-| **-n, --name string**      | Connector name                  |
-| **-d, --domain string**    | Connector domain name           |
-| **-i, --public-ip string** | Connector public IP address     |
-| **-c, --cert string**      | Certificate                     |
-| **-S, --self-signed-on**   | Switch on self-signed enabled   |
-| **-s, --self-signed-off**  | Switch off self-signed disabled |
-| **-H, --dev-mode-on**      | Switch on dev mode              |
-| **-h, --dev-mode-off**     | Switch off dev mode             |
-
-##### update
-
-|                            |                                 |
-| -------------------------- | ------------------------------- |
-| **-n, --name string**      | Connector name                  |
-| **-d, --domain string**    | Connector domain name           |
-| **-i, --public-ip string** | Connector public IP address     |
-| **-c, --cert string**      | Certificate                     |
-| **-S, --self-signed-on**   | Switch on self-signed enabled   |
-| **-s, --self-signed-off**  | Switch off self-signed disabled |
-| **-H, --dev-mode-on**      | Switch on dev mode              |
-| **-h, --dev-mode-off**     | Switch off dev mode             |
-
-##### remove
-
-|                            |                             |
-| -------------------------- | --------------------------- |
-| **-i, --public-ip string** | Connector public IP address |
-
 ## Config Locations
 
 Config files are located in project `src/config/<file>.json`. When installed using iofogctl resolves to `/opt/iofog/controller/lib/node_modules/iofogcontroller/src/config/`. There are 3 config files:
@@ -287,8 +235,7 @@ Config files are located in project `src/config/<file>.json`. When installed usi
     "UserTokenExpirationIntervalSeconds": 3600,
     "FogTokenExpirationIntervalSeconds": 3600,
     "FogStatusUpdateIntervalSeconds": 120,
-    "FogStatusFrequencySeconds": 60,
-    "ConnectorHealthCheckFrequencySeconds": 10
+    "FogStatusFrequencySeconds": 60
   },
   "Diagnostics": {
     "DiagnosticDir": "diagnostic"
@@ -326,8 +273,7 @@ Config files are located in project `src/config/<file>.json`. When installed usi
     "UserTokenExpirationIntervalSeconds": 360000,
     "FogTokenExpirationIntervalSeconds": 3600000,
     "FogStatusUpdateIntervalSeconds": 120,
-    "FogStatusFrequencySeconds": 60,
-    "ConnectorHealthCheckFrequencySeconds": 10
+    "FogStatusFrequencySeconds": 60
   },
   "Tunnel": {
     "Username": "username",
@@ -383,8 +329,7 @@ Config files are located in project `src/config/<file>.json`. When installed usi
     "UserTokenExpirationIntervalSeconds": 3600,
     "FogTokenExpirationIntervalSeconds": 3600,
     "FogStatusUpdateIntervalSeconds": 120,
-    "FogStatusFrequencySeconds": 60,
-    "ConnectorHealthCheckFrequencySeconds": 10
+    "FogStatusFrequencySeconds": 60
   },
   "Database": {
     "Provider": "sqlite",
