@@ -16,14 +16,6 @@ With the msvc.yaml file generated for us, we can make changes to the spec and ru
 iofogctl deploy -f /tmp/msvc.yaml
 ```
 
-<aside class="notifications contribute">
-  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/microservices/microservice-lifecycle-management.md"
-    target="_blank">
-    <p>Edit this page on Github!</p>
-  </a>
-</aside>
-
 ## Microservice States
 
 Once we deploy a Microservice, the Agent that hosts it will report the Microservice's status back to the Controller.
@@ -46,3 +38,11 @@ msvc-2        DELETING  agent-2             /tmp/iofog:/data  5000:8
 ```
 
 When we manage a deployed Microservice through commands like `move`, `deploy`, and `delete`, we can expect the Microservice to transition between states.
+
+<aside class="notifications contribute">
+  <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/microservices/microservice-lifecycle-management.md"
+    target="_blank">
+    <p>Edit this page on Github!</p>
+  </a>
+</aside>

@@ -11,10 +11,10 @@ This tutorial includes 3 microservices already running. We can view any configur
 ```console
 iofogctl get microservices
 
-MICROSERVICE  STATUS    AGENT        ROUTES    VOLUMES  PORTS
-sensors       RUNNING   local-agent  rest-api
-rest-api      RUNNING   local-agent                     10101:80
-freeboard     RUNNING   local-agent                     10102:80
+MICROSERVICE	STATUS		AGENT		CONFIG		ROUTES		VOLUMES		PORTS
+Sensors		    RUNNING		local-agent	{}		    Rest API
+Rest API	    RUNNING		local-agent	{}						            10101:80
+Freeboard	    RUNNING		local-agent	{}						            10102:80
 ```
 
 This returns a list of microservices along with their status, the agent it is running on, configuration, routes, volume mapping and port mapping.

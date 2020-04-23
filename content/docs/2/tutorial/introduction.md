@@ -19,7 +19,7 @@ Supported operating systems:
 Required tools:
 
 - `Docker 1.10+`: Open platform for developing, shipping, and running applications. ([installation instructions](https://docs.docker.com/install/))
-- `iofogctl 2.0.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](../../getting-started/quick-start-local.html))
+- `iofogctl 2.0.0+`: CLI tool and a one-stop-shop for all your ioFog needs. ([installation instructions](../getting-started/quick-start-local.html))
 
 Make sure to follow the Docker [post-installation instructions](https://docs.docker.com/install/linux/linux-postinstall/) so that the Docker daemon can work without `sudo`. Otherwise, the commands in this guide will not work.
 

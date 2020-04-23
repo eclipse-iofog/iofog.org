@@ -62,12 +62,12 @@ spec:
 iofogctl deploy microservice -f /tmp/hello-web-catalog.yaml
 ```
 
-Note that this YAML snippet assumes we have an running ECN in the default Namespace with an Agent called `agent-name`.
+Note that this YAML snippet assumes we have an running ECN in the default Namespace with an Agent called `my-agent-name`.
 
 We can check that the expected images have been used by describing our Microservice with iofogct:
 
 ```bash
-iofogctl describe microservice 'hello-web'
+iofogctl describe microservice hello-web
 ```
 
 ```plain
@@ -113,10 +113,10 @@ spec:
 
 ## Create our own Catalog Items
 
-We can also use iofogctl to create our own Catalog Items. The YAML spec reference can be found [here](../iofogctl/catalogitem-yaml-spec.md).
+We can also use iofogctl to create our own Catalog Items. The YAML spec reference can be found [here](../reference-iofogctl/reference-catalog.html).
 
 ```bash
-$ echo "---
+echo "---
 apiVersion: 'iofog.org/v2'
 kind: CatalogItem
 metadata:

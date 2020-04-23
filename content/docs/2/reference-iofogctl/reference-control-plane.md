@@ -26,10 +26,10 @@ spec:
   config: ~/.kube/config
 ```
 
-| Field     | Description                                                                                                   |
-| --------- | ------------------------------------------------------------------------------------------------------------- |
-| iofogUser | Credentials registered against ioFog Controller REST API.                                                     |
-| config    | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster. |
+| Field     | Description                                                                                                                                                                                                                       |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| iofogUser | Credentials registered against ioFog Controller REST API.                                                                                                                                                                         |
+| config    | Path to Kubernetes configuration file that iofogctl uses to install Controller service to Kubernetes cluster. (Note: The namespace used with iofogctl will be the kubernetes namespace to which your components will be deployed) |
 
 ## Remote Control Plane
 

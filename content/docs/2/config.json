@@ -238,7 +238,7 @@
           {
             "title": "Control Plane YAML Specification",
             "entry": "./reference-iofogctl/reference-control-plane.md",
-            "description": "iofogctl YAML structure and specifications for platform (Controller, Connector and Agent)"
+            "description": "iofogctl YAML structure and specifications for platform (Controller and Agent)"
           },
           {
             "title": "Agent configuration YAML Specification",

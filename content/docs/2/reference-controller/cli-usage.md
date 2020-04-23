@@ -16,7 +16,6 @@ iofog-controller <command> <action> <options>
 | [help](#help)                 | Display usage information.                    |
 | [user](#user)                 | User operations.                              |
 | [config](#config)             | Set/Display iofog-controller service config.  |
-| [connector](#connector)       | Connector operations.                         |
 | [tunnel](#tunnel)             | Tunnel operations.                            |
 | [iofog](#iofog)               | ioFog node operations.                        |
 | [catalog](#catalog)           | Microservices catalog operations.             |
@@ -201,60 +200,9 @@ iofog-controller config <options>
 
 ---
 
-## connector
-
-Connector operations.
-
-```sh
-iofog-controller connector <action> <options>
-```
-
-#### Actions
-
-|            |                               |
-| ---------- | ----------------------------- |
-| **add**    | Add a new Connector.          |
-| **update** | Update an existing Connector. |
-| **remote** | Delete a Connector.           |
-| **list**   | List all Connectors.          |
-
-#### Options
-
-##### add
-
-|                            |                                 |
-| -------------------------- | ------------------------------- |
-| **-n, --name string**      | Connector name                  |
-| **-d, --domain string**    | Connector domain name           |
-| **-i, --public-ip string** | Connector public IP address     |
-| **-c, --cert string**      | Certificate                     |
-| **-S, --self-signed-on**   | Switch on self-signed enabled   |
-| **-s, --self-signed-off**  | Switch off self-signed disabled |
-| **-H, --dev-mode-on**      | Switch on dev mode              |
-| **-h, --dev-mode-off**     | Switch off dev mode             |
-
-##### update
-
-|                            |                                 |
-| -------------------------- | ------------------------------- |
-| **-n, --name string**      | Connector name                  |
-| **-d, --domain string**    | Connector domain name           |
-| **-i, --public-ip string** | Connector public IP address     |
-| **-c, --cert string**      | Certificate                     |
-| **-S, --self-signed-on**   | Switch on self-signed enabled   |
-| **-s, --self-signed-off**  | Switch off self-signed disabled |
-| **-H, --dev-mode-on**      | Switch on dev mode              |
-| **-h, --dev-mode-off**     | Switch off dev mode             |
-
-##### remove
-
-|                            |                             |
-| -------------------------- | --------------------------- |
-| **-i, --public-ip string** | Connector public IP address |
-
 ## Config Locations
 
-Config files are located in project. There are 3 config files:
+Config files are located in project `src/config/<file>.json`. When installed using iofogctl resolves to `/opt/iofog/controller/lib/node_modules/iofogcontroller/src/config/`. There are 3 config files:
 
 #### default.json (general data that is used for default values)
 
@@ -263,8 +211,14 @@ Config files are located in project. There are 3 config files:
   "App": {
     "Name": "iofog-controller"
   },
+  "Viewer": {
+    "Port": 80
+  },
+  "Kubelet": {
+    "Uri": "http://localhost:1234"
+  },
   "Server": {
-    "Port": 54421,
+    "Port": 51121,
     "DevMode": false
   },
   "Email": {
@@ -273,11 +227,15 @@ Config files are located in project. There are 3 config files:
   },
   "Service": {
     "LogsDirectory": "/var/log/iofog-controller",
-    "LogsFileSize": 1048576
+    "LogsFileSize": 10485760,
+    "LogsFileCount": 10
   },
   "Settings": {
+    "DefaultJobIntervalSeconds": 120,
     "UserTokenExpirationIntervalSeconds": 3600,
-    "FogTokenExpirationIntervalSeconds": 3600
+    "FogTokenExpirationIntervalSeconds": 3600,
+    "FogStatusUpdateIntervalSeconds": 120,
+    "FogStatusFrequencySeconds": 60
   },
   "Diagnostics": {
     "DiagnosticDir": "diagnostic"
@@ -292,6 +250,12 @@ Config files are located in project. There are 3 config files:
   "App": {
     "Name": "iofog-controller-dev"
   },
+  "Viewer": {
+    "Port": 80
+  },
+  "Kubelet": {
+    "Uri": "http://localhost:1234"
+  },
   "Server": {
     "Port": 51121,
     "DevMode": true
@@ -302,11 +266,14 @@ Config files are located in project. There are 3 config files:
   },
   "Service": {
     "LogsDirectory": "/var/log/iofog-controller",
-    "LogsFileSize": 1048576
+    "LogsFileSize": 10485760,
+    "LogsFileCount": 10
   },
   "Settings": {
     "UserTokenExpirationIntervalSeconds": 360000,
-    "FogTokenExpirationIntervalSeconds": 3600000
+    "FogTokenExpirationIntervalSeconds": 3600000,
+    "FogStatusUpdateIntervalSeconds": 120,
+    "FogStatusFrequencySeconds": 60
   },
   "Tunnel": {
     "Username": "username",
@@ -318,6 +285,20 @@ Config files are located in project. There are 3 config files:
   },
   "Diagnostics": {
     "DiagnosticDir": "diagnostic"
+  },
+  "Database": {
+    "Provider": "sqlite",
+    "Config": {
+      "databaseName": "dev_database.sqlite",
+      "logging": false,
+      "transactionType": "IMMEDIATE",
+      "pool": {
+        "maxactive": 1,
+        "max": 1,
+        "min": 0,
+        "idle": 20000
+      }
+    }
   }
 }
 ```
@@ -329,16 +310,40 @@ Config files are located in project. There are 3 config files:
   "App": {
     "Name": "iofog-controller"
   },
+  "Viewer": {
+    "Port": 80
+  },
   "Server": {
-    "Port": 54421,
+    "Port": 51121,
     "DevMode": true
   },
   "Email": {
     "ActivationEnabled": false
   },
+  "Service": {
+    "LogsDirectory": "/var/log/iofog-controller",
+    "LogsFileSize": 10485760,
+    "LogsFileCount": 10
+  },
   "Settings": {
     "UserTokenExpirationIntervalSeconds": 3600,
-    "FogTokenExpirationIntervalSeconds": 3600
+    "FogTokenExpirationIntervalSeconds": 3600,
+    "FogStatusUpdateIntervalSeconds": 120,
+    "FogStatusFrequencySeconds": 60
+  },
+  "Database": {
+    "Provider": "sqlite",
+    "Config": {
+      "databaseName": "prod_database.sqlite",
+      "logging": false,
+      "transactionType": "IMMEDIATE",
+      "pool": {
+        "maxactive": 1,
+        "max": 1,
+        "min": 0,
+        "idle": 20000
+      }
+    }
   }
 }
 ```
@@ -488,6 +493,7 @@ iofog-controller iofog <action> <options>
 |                             |                 |
 | --------------------------- | --------------- |
 | **-i, --iofog-uuid string** | ioFog node UUID |
+| **-u, --user-id integer**   | User's id       |
 
 ##### info
 

@@ -19,12 +19,12 @@ spec:
 | kind               | String representing what type of resource we want to deploy. The available values are `ControlPlane`, `KubernetesControlPlane`, `LocalControlPlane`, `Controller`, `Agent`, `LocalAgent`, `AgentConfig`, `Registry`, `CatalogItem`, `Application`, `Microservice` and `Volume`. |
 | metadata           | Object containing metadata about the resource                                                                                                                                                                                                                                   |
 | metadata.name      | User defined, unique identifier of the resource in its namespace.                                                                                                                                                                                                               |
-| metadata.namespace | Optional. Will force iofogctl to work in this specific namespace (If specified, it overwrites the `-n` CLI option)                                                                                                                                                              |
+| metadata.namespace | Optional. Will force iofogctl to work in this specific namespace                                                                                                                                                                                                                |
 | spec               | Object containing the deployment specifications, different for each resource                                                                                                                                                                                                    |
 
 ## ControlPlane
 
-The Remote Control Plane component specifies all the resources required to deploy the ioFog Control Plane on a set of remote hosts.
+The Control Plane component specifies all the resources required to deploy the ioFog Control Plane on a set of remote hosts.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -114,7 +114,7 @@ To learn more about Controller, please see [Iofogctl Platform YAML Specification
 
 ## Agent
 
-We can expand Remote Control Plane by deploying new Agent. They communicate with Controllers to allow your edge nodes to host Microservices.
+We can expand any Control Plane by deploying new Agents. They communicate with Controllers and manages your edge nodes to host Microservices.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -196,16 +196,16 @@ To learn more about AgentConfig, please see [Iofogctl agent configuration YAML s
 The catalog item has a very simple definition
 
 ```yaml
-apiVersion: 'iofog.org/v2'
+apiVersion: iofog.org/v2
 kind: CatalogItem
 metadata:
-  name: 'my-multiplatform-microservice'
+  name: my-multiplatform-microservice
 spec:
   id: 0
-  description: 'Alpine Linux'
-  x86: 'amd64/alpine:latest'
-  arm: 'arm32v6/alpine:latest'
-  registry: 'remote'
+  description: Alpine Linux
+  x86: amd64/alpine:latest
+  arm: arm32v6/alpine:latest
+  registry: remote
   configExample: '{"key": "value"}'
 ```
 
@@ -223,28 +223,28 @@ metadata:
   namespace: default
 spec:
   microservices:
-    - name: 'heart-rate-monitor'
+    - name: heart-rate-monitor
       agent:
-        name: 'horse-1'
+        name: horse-1
       images:
-        arm: 'edgeworx/healthcare-heart-rate:arm-v1'
-        x86: 'edgeworx/healthcare-heart-rate:x86-v1'
+        arm: edgeworx/healthcare-heart-rate:arm-v1
+        x86: edgeworx/healthcare-heart-rate:x86-v1
       container:
         rootHostAccess: false
         ports: []
       config:
         test_mode: true
-        data_label: 'Anonymous Person'
+        data_label: Anonymous Person
         nested_object:
           key: 42
           deep_nested:
             foo: bar
-    - name: 'heart-rate-viewer'
+    - name: heart-rate-viewer
       agent:
-        name: 'horse-1'
+        name: horse-1
       images:
-        arm: 'edgeworx/healthcare-heart-rate-ui:arm'
-        x86: 'edgeworx/healthcare-heart-rate-ui:x86'
+        arm: edgeworx/healthcare-heart-rate-ui:arm
+        x86: edgeworx/healthcare-heart-rate-ui:x86
         registry: remote
       container:
         rootHostAccess: false
@@ -253,13 +253,13 @@ spec:
             internal: 80
             publicMode: false
         env:
-          - key: 'BASE_URL'
-            value: 'http://localhost:8080/data'
+          - key: BASE_URL
+            value: http://localhost:8080/data
       config:
         test: 54
   routes:
-    - from: 'heart-rate-monitor'
-      to: 'heart-rate-viewer'
+    - from: heart-rate-monitor
+      to: heart-rate-viewer
 ```
 
 To learn more about Application, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html).
@@ -300,7 +300,7 @@ spec:
     - func-app-ui
   config:
     test_mode: true
-    data_label: 'Anonymous_Person_2'
+    data_label: Anonymous_Person_2
 ```
 
 To learn more about Microservice, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html#microservices).

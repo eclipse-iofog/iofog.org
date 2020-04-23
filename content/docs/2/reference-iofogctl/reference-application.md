@@ -23,30 +23,30 @@ spec:
   # List of microservices composing your application
   microservices:
     #  # It uses the microservice YAML schema described below
-    - name: 'heart-rate-monitor'
+    - name: heart-rate-monitor
       agent:
-        name: 'horse-1'
+        name: horse-1
       images:
-        arm: 'edgeworx/healthcare-heart-rate:arm-v1'
-        x86: 'edgeworx/healthcare-heart-rate:x86-v1'
+        arm: edgeworx/healthcare-heart-rate:arm-v1
+        x86: edgeworx/healthcare-heart-rate:x86-v1
         # registry: remote
       container:
         rootHostAccess: false
         ports: []
       config:
         test_mode: true
-        data_label: 'Anonymous Person'
+        data_label: Anonymous Person
         nested_object:
           key: 42
           deep_nested:
             foo: bar
     # Simple JSON viewer for the heart rate output
-    - name: 'heart-rate-viewer'
+    - name: heart-rate-viewer
       agent:
-        name: 'horse-1'
+        name: horse-1
       images:
-        arm: 'edgeworx/healthcare-heart-rate-ui:arm'
-        x86: 'edgeworx/healthcare-heart-rate-ui:x86'
+        arm: edgeworx/healthcare-heart-rate-ui:arm
+        x86: edgeworx/healthcare-heart-rate-ui:x86
         registry: remote
       container:
         rootHostAccess: false
@@ -56,15 +56,15 @@ spec:
             public: 5001
             protocol: tcp
         env:
-          - key: 'BASE_URL'
-            value: 'http://localhost:8080/data'
+          - key: BASE_URL
+            value: http://localhost:8080/data
       config:
         test: 54
   routes:
     # Use this section to configure route between microservices
     # Use microservice name
-    - from: 'heart-rate-monitor'
-      to: 'heart-rate-viewer'
+    - from: heart-rate-monitor
+      to: heart-rate-viewer
 ```
 
 | Field         | Description                                                                                                                                                                                                                 |
@@ -138,8 +138,8 @@ spec:
     # Microservice container volume mapping list on the agent
     volumes:
       # This will create a volume mapping between the agent '/tmp/msvc' volume and the microservice container volume '/data'
-      - hostDestination: '/tmp/msvc'
-        containerDestination: '/data'
+      - hostDestination: /tmp/msvc
+        containerDestination: /data
         accessMode: 'rw' # ReadWrite access to the mounted volume
 
     # Microservice container environment variable list on the agent
@@ -152,6 +152,9 @@ spec:
       # This will create a mapping between the port 80 of the microservice container and the port 5000 of the agent
       - internal: 80
         external: 5000
+        public: 5001 # This will create a HTTP proxy tunnel between the port 5001 on the default router, and the port 5000 on the Agent
+        host: default-router # Target for the public port (use Agent name, defaults to `default-router`)
+        protocol: http # Protocol for the proxy tunnel (Either tcp or http, defaults to http)
     commands:
       # This will result in the container being started as `docker run <image> <options> dbhost localhost:27017`
       - 'dbhost'
@@ -175,21 +178,24 @@ spec:
   rebuild: false
 ```
 
-| Field                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name                     | User-defined unique identifier of an Microservice within an ioFog Controller. Must start and end with lowercase alphanumeric character. Can include '-' character.                                                                                                                                                                                                                                                                                                      |
-| agent                    | Object describing the name and the required configuration of the ioFog agent the microservice is to be deployed on. All configuration fields are optional only the specified values will be updated.                                                                                                                                                                                                                                                                    |
-| images                   | Description of the images to be used by the container running the microservice. `x86` is the image to be used on x86 ioFog Agents. `arm` is the image to be used on ARM ioFog Agents. `Registry` is either `local`, `remote`, or `registryID`. Remote will pull the image from Dockerhub, local will use the local cache of the ioFog Agent. RegistryID will use the specified registry. A catalog ID can be provided in lieu and place of the images and the registry. |
-| config                   | User-defined arbitrary object to be passed to the microservice runtime as its configuration                                                                                                                                                                                                                                                                                                                                                                             |
-| container.rootHostAccess | Does the container running the microservice requires root access to the host                                                                                                                                                                                                                                                                                                                                                                                            |
-| container.ports          | List of port mapping to be provided to the container running the microservice                                                                                                                                                                                                                                                                                                                                                                                           |
-| container.volumes        | List of volume mapping to be provided to the container running the microservice                                                                                                                                                                                                                                                                                                                                                                                         |
-| container.env            | List of environment variables to be provided to the container running the microservice                                                                                                                                                                                                                                                                                                                                                                                  |
-| container.commands       | List of arguments passed as CMD to the container runtime                                                                                                                                                                                                                                                                                                                                                                                                                |
-| routes                   | List of ioFog Routes destination. Use microservice name as identifiers. The microservice specified must be part of the application. Only use this field when updating a microservice in isolation.                                                                                                                                                                                                                                                                      |
-| application              | Unique identifier of the Application the microservice is part of                                                                                                                                                                                                                                                                                                                                                                                                        |
-| rebuild                  | Boolean instructing the ioFog Agent to rebuild the microservice container after update. Use this flag if you updated the content of the docker image but didn't change the image name and/or tag.                                                                                                                                                                                                                                                                       |
-|                          |
+| Field                    | Description                                                                                                                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name                     | User-defined unique identifier of an Microservice within an ioFog Controller. Must start and end with lowercase alphanumeric character. Can include '-' character.                                   |
+| agent                    | Object describing the name and the required configuration of the ioFog agent the microservice is to be deployed on. All configuration fields are optional only the specified values will be updated. |
+| images                   | Description of the images to be used by the container running the microservice.                                                                                                                      |
+| images.x86               | Image to be used on x86 ioFog Agents.                                                                                                                                                                |
+| images.arm               | Image to be used on ARM ioFog Agents.                                                                                                                                                                |
+| images.registry          | Either `local`, `remote`, or `registryID`. Remote will pull the image from Dockerhub, local will use the local cache of the ioFog Agent. RegistryID will use the specified registry.                 |
+| images.catalogId         | Catalog item ID to be used in lieu and place of the images and the registry. (see [catalog items](../microservices/microservice-registry-catalog.html))                                              |
+| config                   | User-defined arbitrary object to be passed to the microservice runtime as its configuration                                                                                                          |
+| container.rootHostAccess | Set to true if the container needs to be able to access the host. This will also set the network of the container to `host`                                                                          |
+| container.ports          | List of port mapping to be provided to the container running the microservice (See [public ports](../microservices/microservice-exposing.html) for a more detailed explanation of public ports)      |
+| container.volumes        | List of volume mapping to be provided to the container running the microservice                                                                                                                      |
+| container.env            | List of environment variables to be provided to the container running the microservice                                                                                                               |
+| container.commands       | List of arguments passed as CMD to the container runtime                                                                                                                                             |
+| routes                   | List of ioFog Routes destination. Use microservice name as identifiers. The microservice specified must be part of the application. Only use this field when updating a microservice in isolation.   |
+| application              | Unique identifier of the Application the microservice is part of                                                                                                                                     |
+| rebuild                  | Boolean instructing the ioFog Agent to rebuild the microservice container after update. Use this flag if you updated the content of the docker image but didn't change the image name and/or tag.    |
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

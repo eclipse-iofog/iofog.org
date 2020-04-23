@@ -81,6 +81,14 @@ When we are finished working with the cluster, we can disconnect from it and rel
 iofogctl disconnect
 ```
 
+<aside class="notifications note">
+  <h3><img src="/images/icos/ico-note.svg" alt="">Next steps?</h3>
+  <ul>
+    <li><a href="./legacy.html">Legacy commands.</a></li>
+    <li><a href="../reference-iofogctl/reference-kinds.html">iofogctl reference.</a></li>
+  <ul>
+</aside>
+
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
   <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/iofogctl/connect-disconnect.md"

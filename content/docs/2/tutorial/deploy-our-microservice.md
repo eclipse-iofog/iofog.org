@@ -162,11 +162,12 @@ Verify that the application got updated as expected
 ```console
 iofogctl get microservices
 
-MICROSERVICE    STATUS    AGENT        ROUTES          VOLUMES  PORTS
-rest-api	      RUNNING   local-agent	 10101:80
-freeboard	      RUNNING   local-agent	 10102:80
-moving-average  QUEUED    local-agent  rest-api
-sensors         RUNNING   local-agent	 moving-average
+MICROSERVICE	STATUS		AGENT		CONFIG		ROUTES		   VOLUMES		PORTS
+Sensors		    RUNNING		local-agent	{}		    moving-average
+Rest API	    RUNNING		local-agent	{}						                10101:80
+Freeboard	    RUNNING		local-agent	{}						                10102:80
+moving-average  QUEUED      local-agent {}          rest-api
+
 ```
 
 It will take some time for the ioFog Agent to spin up the new microservice. You can monitor the status of our newly created microservice using `iofogctl get microservices`.
@@ -254,11 +255,11 @@ And see the result with
 ```console
 iofogctl get microservices
 
-MICROSERVICE    STATUS   AGENT        ROUTES          VOLUMES  PORTS
-rest-api        RUNNING  local-agent                           10101:80
-freeboard       RUNNING  local-agent                           10102:80
-moving-average  RUNNING  local-agent  rest-api
-sensors         RUNNING  local-agent  moving-average
+MICROSERVICE	STATUS		AGENT		CONFIG		ROUTES		   VOLUMES		PORTS
+Sensors		    RUNNING		local-agent	{}		    moving-average
+Rest API	    RUNNING		local-agent	{}						                10101:80
+Freeboard	    RUNNING		local-agent	{}						                10102:80
+moving-average  RUNNING     local-agent {}          rest-api
 
 ```
 
