@@ -43,7 +43,7 @@ jobs:
             EDIT_LINK_TAG="develop"
           fi
           echo "Replacing branch name in github links to: ${EDIT_LINK_TAG}"
-          find content/docs/2  -name ‘*.md’ -exec sed -i "" “s/\(https:\/\/github.com\/eclipse-iofog\/iofog.org\/edit\/\)develop\//\1master\//” {} \;
+          find content/docs/2  -name ‘*.md’ -exec sed -i "" “s/\(https:\/\/github.com\/eclipse-iofog\/iofog.org\/edit\/\)develop\//\1${EDIT_LINK_TAG}\//” {} \;
 
       - task: Docker@2
         displayName: 'build docker'
