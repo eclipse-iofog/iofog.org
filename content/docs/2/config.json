@@ -253,7 +253,12 @@
           {
             "title": "Catalog Item YAML Specification",
             "entry": "./reference-iofogctl/reference-catalog.md",
-            "description": ""
+            "description": "iofogctl YAML structure and specification for deploying a catalog item"
+          },
+          {
+            "title": "Registry YAML Specification",
+            "entry": "./reference-iofogctl/reference-registry.md",
+            "description": "iofogctl YAML structure and specification for deploying a registry"
           }
         ]
       },

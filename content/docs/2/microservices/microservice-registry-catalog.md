@@ -143,6 +143,37 @@ iofogctl get catalog | grep my-multiplatform-microservice
 
 We used grep to filter the ouput, but the columns are the same as above. You can now use the `spec.images.catalogId` field on `Microservice` kind set to 17 in order to deploy you microservice.
 
+# Registries
+
+During the [tutorial](../tutorial/introduction.html), we saw that the images are being pulled from a repository specified in the YAML. The two values we have used so far are `remote` (public docker hub) and `local` (image locally present on the Agent). There is a third value available, which is a `repository ID`.
+
+NB: `remote` and `local` are aliases for values `1` and `2`, which are the repository seeded in your Controller database.
+
+We can list our current registries using `iofogctl get registries`
+
+```plain
+ID              URL                     USERNAME        PRIVATE         SECURE
+1               registry.hub.docker.com                 false           true
+2               from_cache                              false           true
+```
+
+We can add a new registry using the `Registry` [deploy kind](../reference-iofogctl/reference-registry.html)
+
+```bash
+echo "---
+apiVersion: iofog.org/v2
+kind: Registry
+spec:
+  url: registry.hub.docker.com # This will create a registry that can download your private docker hub images
+  username: john
+  password: q1u45ic9kst563art
+  email: user@domain.com
+" > /tmp/my-private-registry.yaml
+iofogctl deploy -f /tmp/my-private-registry.yaml
+```
+
+After running this, you should now have 3 registries and you can use the `ID` in the [microservice images registry field](../reference-iofogctl/reference-application.html#microservices)
+
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
   <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/microservices/microservice-registry-catalog.md"
