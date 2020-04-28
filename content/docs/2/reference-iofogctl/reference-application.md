@@ -141,6 +141,7 @@ spec:
       - hostDestination: /tmp/msvc
         containerDestination: /data
         accessMode: 'rw' # ReadWrite access to the mounted volume
+        type: 'bind' # Accepts 'bind' or 'volume'. Default is 'bind'
 
     # Microservice container environment variable list on the agent
     env:

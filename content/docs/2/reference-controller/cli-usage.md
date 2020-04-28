@@ -774,7 +774,7 @@ iofog-controller microservice add \
 ```sh
 iofog-controller update \
   --microservice-uuid <microservice-uuid> \
-  --volumes {'hostDestination':'/var1/dest','containerDestination':'/var/dest','accessMode':'w'} \
+  --volumes {'hostDestination':'/var1/dest','containerDestination':'/var/dest','accessMode':'w','type':'bind'} \
   --name testcli
 ```
 

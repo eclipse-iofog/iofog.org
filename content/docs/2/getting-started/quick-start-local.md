@@ -163,6 +163,7 @@ spec:
         - hostDestination: /tmp/msvc
           containerDestination: /tmp
           accessMode: z
+          type: bind
       ports: []
     config:
       test_mode: true
@@ -181,9 +182,10 @@ spec:
           internal: 80
           public: 5000
       volumes:
-      - hostDestination: /tmp/iofog
+      - hostDestination: data_volume
         containerDestination: /data
         accessMode: rw
+        type: volume
       env:
         - key: BASE_URL
           value: http://localhost:8080/data
