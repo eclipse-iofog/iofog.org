@@ -53,6 +53,7 @@ iofog-agent config defaults
 | **-idc on/off**            | Set the mode on which any not registered docker container will be shut down                                                                                                |
 | **-gps auto/off/number**   | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |
 | **-ft auto/intel_amd/arm** | Set fog type. Use auto to detect fog type by system commands, use arm or intel_amd to set it manually                                                                      |
+| **-dev on/off**            | Set the developer's mode without using ssl certificates                                                                                                                    |
 
 ## switch
 
