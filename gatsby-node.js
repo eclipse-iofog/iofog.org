@@ -91,6 +91,24 @@ exports.createPages = ({ graphql, actions }) => {
           latestConfig.menus[0].subMenus[0].entry.absolutePath;
         let foundLatestDocsStartFile = false;
 
+        // We want each /docs/<version> to redirect to the first element of that version
+        for (const config of configs) {
+          const docsStartFile =
+            config.node.menus[0].subMenus[0].entry.absolutePath;
+          const entry = result.data.allMarkdownRemark.edges.find(
+            e => e.node.fileAbsolutePath === docsStartFile
+          );
+          if (!entry) {
+            throw new Error(`Could not find slug for ${docsStartFile}`);
+          }
+          createRedirect({
+            fromPath: config.node.fields.path,
+            isPermanent: true,
+            redirectInBrowser: true,
+            toPath: entry.node.fields.slug
+          });
+        }
+
         result.data.allMarkdownRemark.edges.forEach(edge => {
           const { slug } = edge.node.fields;
           if (slug.startsWith('/docs/')) {
@@ -121,10 +139,11 @@ exports.createPages = ({ graphql, actions }) => {
           // The latest version changes, so we want to do this dynamically for
           // each build
           if (edge.node.fileAbsolutePath === latestDocsStartFile) {
-            if (foundLatestDocsStartFile)
+            if (foundLatestDocsStartFile) {
               throw new Error(
                 `latestDocsStartFile was already found ${latestDocsStartFile}`
               );
+            }
             foundLatestDocsStartFile = true;
 
             createRedirect({
@@ -136,10 +155,11 @@ exports.createPages = ({ graphql, actions }) => {
           }
         });
 
-        if (!foundLatestDocsStartFile)
+        if (!foundLatestDocsStartFile) {
           throw new Error(
             `no redirect for /docs setup, didn't find ${latestDocsStartFile}`
           );
+        }
       })
     );
   });
