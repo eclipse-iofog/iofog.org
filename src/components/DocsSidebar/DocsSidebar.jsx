@@ -24,11 +24,8 @@ class DocsSidebar extends Component {
               value: edge.node.fields.path
             }))}
             onChange={data => {
-              // We want version switching to keep the current file
-              const part = activePath.slice(
-                activeVersion.node.fields.path.length
-              );
-              const path = data.value + part;
+              // We want version switching to go back to default page
+              const path = data.value;
               navigate(path);
             }}
             value={{

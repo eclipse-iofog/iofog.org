@@ -9,7 +9,7 @@ Here we'll see how to remotely debug our Agent. This assumes we have an IntelliJ
     <figcaption>Intellij edit configuration</figcaption>
 </figure>
 
-- Click on the green plus (top left) and select Remote to add a new configuration for a remote app.
+- Click on the plus (top left) and select Remote to add a new configuration for a remote app.
 
 - Enter a name for the configuration, for example my-remote-agent.
 
