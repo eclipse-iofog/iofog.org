@@ -37,14 +37,14 @@ The Debian package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl=2.0.0-beta4
+sudo apt-get install iofogctl=2.0.0-rc1
 ```
 
 And similarly, the RPM package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-2.0.0_beta4-1.x86_64
+sudo yum install iofogctl-2.0.0_rc1-1.x86_64
 ```
 
 #### Verify iofogctl Installation
@@ -76,7 +76,7 @@ spec:
     password: q1u45ic9kst563art
   controller:
     container:
-      image: iofog/controller:2.0.0-beta2
+      image: iofog/controller:2.0.0-rc1
 ---
 apiVersion: iofog.org/v2
 kind: LocalAgent
@@ -84,7 +84,7 @@ metadata:
   name: local-agent
 spec:
   container:
-    image: iofog/agent:2.0.0-beta2
+    image: iofog/agent:2.0.0-rc1
 " > /tmp/quick-start.yaml
 iofogctl deploy -f /tmp/quick-start.yaml
 ```
@@ -105,7 +105,7 @@ CONTROLLER      STATUS    AGE           UPTIME      ADDR             PORT
 local           online    22m29s        22m35s      0.0.0.0          51121
 
 AGENT           STATUS    AGE           UPTIME      ADDR             VERSION
-local-agent     RUNNING                 22m7s       150.179.102.91   2.0.0-beta2
+local-agent     RUNNING                 22m7s       150.179.102.91   2.0.0-rc1
 
 APPLICATION     STATUS    MICROSERVICES
 
@@ -130,9 +130,9 @@ Which should output something similar to:
 
 ```plain
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                                                          NAMES
-71927882293f        iofog/router:2.0.0-beta        "/qpid-dispatch/laun…"   15 minutes ago      Up 15 minutes       0.0.0.0:5672->5672/tcp, 0.0.0.0:56721-56722->56721-56722/tcp   iofog_PJFbk3ZHjX3RkNWxwcRqzDXnKV6mLHmq
-8454ca70755b        iofog/agent:2.0.0-beta2        "sh /start.sh"           15 minutes ago      Up 15 minutes                                                                      iofog-agent
-dc7568ad1708        iofog/controller:2.0.0-beta2   "node /usr/local/lib…"   16 minutes ago      Up 16 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp                 iofog-controller
+71927882293f        iofog/router:2.0.0-rc1        "/qpid-dispatch/laun…"   15 minutes ago      Up 15 minutes       0.0.0.0:5672->5672/tcp, 0.0.0.0:56721-56722->56721-56722/tcp   iofog_PJFbk3ZHjX3RkNWxwcRqzDXnKV6mLHmq
+8454ca70755b        iofog/agent:2.0.0-rc1         "sh /start.sh"           15 minutes ago      Up 15 minutes                                                                      iofog-agent
+dc7568ad1708        iofog/controller:2.0.0-rc1    "node /usr/local/lib…"   16 minutes ago      Up 16 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp                 iofog-controller
 ```
 
 ## Deploy Microservices

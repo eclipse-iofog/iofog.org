@@ -84,7 +84,7 @@ spec:
     password: g9hr823rhuoi
   controller:
     container:
-      image: iofog/controller:2.0.0-beta
+      image: iofog/controller:2.0.0-rc1
 ```
 
 | Field            | Description                                               |
