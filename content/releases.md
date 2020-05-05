@@ -1,4 +1,4 @@
-## ioFog v2-beta
+## ioFog v2-rc1
 
 [Get Started with ioFog v2](/docs/2/getting-started/core-concepts.html)
 
