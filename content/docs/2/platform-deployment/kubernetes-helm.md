@@ -31,15 +31,21 @@ Add the ioFog Helm repository to our local index:
 helm repo add iofog https://eclipse-iofog.github.io/helm
 ```
 
-Install the Chart while specifying user credentials and a target namespace. If we are not using the default namespace, make sure the namespace already exists on the cluster.
+To list all available version of ioFog Helm chart, including development versions, run:
 
-```plain
+```bash
+helm search repo -l --devel iofog/iofog
+```
+
+Install the Chart while specifying user credentials and a target namespace. If we are not using the default namespace, we can use `--create-namespace` from Helm v3.2 onwards. Otherwise the namespace must already exist on the cluster. Note that not specifying the version default to latest stable version of ioFog chart, but ioFog 2.0 has not officially released a stable chart yet, so we need to specify the `--version` here.
+
+```bash
 helm install my-ecn \
-    --version 2.0.0-beta \
-    --set controlPlane.user.email=user@domain.com \
-    --set controlPlane.user.password=any123password345 \
-    --namespace default \
-    iofog/iofog
+ --namespace my-ns --create-namespace \
+ --version 2.0.0-rc1 \
+ --set user.email=user@domain.com \
+ --set user.password=any123password345 \
+ iofog/iofog
 ```
 
 The `my-ecn` refers to the Helm release name as shown below.
@@ -48,37 +54,31 @@ To list all Helm releases, we can simply run `helm list`. The result should look
 
 ```plain
 NAME     REVISION  UPDATED                   STATUS    CHART             APP VERSION  NAMESPACE
-my-ecn   1         Tue Oct  1 21:34:42 2019  DEPLOYED  iofog-2.0.0-beta  2.0.0-beta   default
+my-ecn   1         Tue Oct  1 21:34:42 2019  DEPLOYED  iofog-2.0.0-rc1   2.0.0-rc1    my-ns
 ```
 
 The following is a complete list of all user configurable properties for the ioFog Helm chart. All of the properties are optional and have defaults. Use `--set property.name=value` in `helm install` to parametrize Helm release.
 
-| Property                                | Default value                   | Description                                                                                   |
-| --------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------- |
-| createCustomResources                   | true                            | See [Multiple Edge Compute Networks](#multiple-edge-compute-networks)                         |
-| controlPlane.user.firstName             | First                           | First name of initial user in Controller                                                      |
-| controlPlane.user.surname               | Second                          | Surname of initial user in Controller                                                         |
-| controlPlane.user.email                 | user@domain.com                 | Email (login) of initial user in Controller                                                   |
-| controlPlane.user.password              | H23fkidf9hoibf2nlk              | Password of initial user in Controller                                                        |
-| controlPlane.controller.replicas        | 1                               | Number of replicas of Controller pods                                                         |
-| controlPlane.controller.image           | iofog/controller:2.0.0-beta     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)                     |
-| controlPlane.controller.imagePullPolicy | Always                          | Controller Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/) |
-| controlPlane.kubeletImage               | iofog/iofog-kubelet:2.0.0-beta  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)                     |
-| controlPlane.portManager                | iofog/port-manager:2.0.0-beta   | [Port Manager Docker image](https://hub.docker.com/r/iofog/port-manager/tags)                 |
-| controlPlane.proxy                      | iofog/proxy:2.0.0-beta          | [Proxy Docker image](https://hub.docker.com/r/iofog/proxy/tags)                               |
-| controlPlane.router                     | iofog/router:2.0.0-beta         | [Router Docker image](https://hub.docker.com/r/iofog/router/tags)                             |
-| controlPlane.loadBalancerIp             |                                 | Pre-allocated static IP address for Controller                                                |
-| controlPlane.serviceType                | LoadBalancer                    | Service type for Controller (one of `LoadBalancer`, `NodePort` or `ClusterIP`)                |
-| operator.replicas                       | 1                               | Number of replicas of Operator pods                                                           |
-| operator.image                          | iofog/iofog-operator:2.0.0-beta | [Operator Docker image](https://hub.docker.com/r/iofog/iofog-operator/tags)                   |
-| operator.imagePullPolicy                | Always                          | Operator Docker image [pull policy](https://kubernetes.io/docs/concepts/containers/images/)   |
+| Property            | Default value                  | Description                                                                   |
+| ------------------- | ------------------------------ | ----------------------------------------------------------------------------- |
+| user.firstName      | First                          | First name of initial user in Controller                                      |
+| user.surname        | Second                         | Surname of initial user in Controller                                         |
+| user.email          | user@domain.com                | Email (login) of initial user in Controller                                   |
+| user.password       | H23fkidf9hoibf2nlk             | Password of initial user in Controller                                        |
+| images.controller   | iofog/controller:2.0.0-rc1     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)     |
+| images.kubelet      | iofog/iofog-kubelet:2.0.0-rc1  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)     |
+| images.operator     | iofog/iofog-operator:2.0.0-rc1 | [Operator Docker image](https://hub.docker.com/r/iofog/iofog-operator/tags)   |
+| images.portManager  | iofog/port-manager:2.0.0-rc1   | [Port Manager Docker image](https://hub.docker.com/r/iofog/port-manager/tags) |
+| images.proxy        | iofog/proxy:2.0.0-rc1          | [Proxy Docker image](https://hub.docker.com/r/iofog/proxy/tags)               |
+| replicas.operator   | 1                              | Number of replicas of Operator pods                                           |
+| replicas.controller | 1                              | Number of replicas of Controller pods                                         |
 
 ### Connection to Installed ioFog
 
-Once the installation is complete, we will be able to connect to the ioFog Controller on K8s using `iofogctl`.
+Once the installation is complete, you will be able to connect to the ioFog Controller on K8s using [iofogctl](../iofogctl/introduction.html). Make sure the `--namespace` here matches the one used during `helm install` step, so `iofogctl` can find the correct ECN using your kubeconfig file.
 
 ```bash
-iofogctl connect --kube ~/.kube/config --email user@domain.com --pass any123password345 -n default
+iofogctl --namespace my-ns connect --kube ~/.kube/config --email user@domain.com --pass H23fkidf9hoibf2nlk
 ```
 
 ## Uninstall ioFog Stack
@@ -86,7 +86,7 @@ iofogctl connect --kube ~/.kube/config --email user@domain.com --pass any123pass
 To uninstall ioFog stack, simply delete the Helm release.
 
 ```bash
-helm delete my-ecn
+helm --namespace my-ns delete my-ecn
 ```
 
 <aside class="notifications tip">
