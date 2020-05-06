@@ -2434,7 +2434,7 @@
             description: Duplicate Name
           '500':
             description: Internal Server Error
-    /routing/{id}:
+    /routing/{name}:
       get:
         tags:
         - Routing
@@ -2447,8 +2447,8 @@
           required: true
           type: string
         - in: path
-          name: id
-          description: Route Id
+          name: name
+          description: Route name
           required: true
           type: string
         responses:
@@ -2478,8 +2478,8 @@
           required: true
           type: string
         - in: path
-          name: id
-          description: Route Id
+          name: name
+          description: Route name
           required: true
           type: string
         - in: body
@@ -2517,8 +2517,8 @@
           required: true
           type: string
         - in: path
-          name: id
-          description: Route Id
+          name: name
+          description: Route name
           required: true
           type: string
         responses:
