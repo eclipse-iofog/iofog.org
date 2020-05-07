@@ -2372,7 +2372,7 @@
             description: Not Found
           500:
             description: Internal Server Error
-    /routing:
+    /routes:
       get:
         tags:
         - Routing
@@ -2434,7 +2434,7 @@
             description: Duplicate Name
           '500':
             description: Internal Server Error
-    /routing/{name}:
+    /routes/{name}:
       get:
         tags:
         - Routing
