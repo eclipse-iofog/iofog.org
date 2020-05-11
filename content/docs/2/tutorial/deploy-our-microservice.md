@@ -116,7 +116,6 @@ This yaml file has been used to describe to `iofogctl` what our set of microserv
 To add our new microservice, go ahead and edit this file by adding our new microservice to the list of microservices:
 
 ```yaml
----
 - name: moving-average
   agent:
     name: local-agent
