@@ -159,11 +159,6 @@ spec:
       registry: remote
     container:
       rootHostAccess: false
-      volumes:
-        - hostDestination: /tmp/msvc
-          containerDestination: /tmp
-          accessMode: z
-          type: bind
       ports: []
     config:
       test_mode: true
@@ -181,11 +176,6 @@ spec:
         - external: 5000
           internal: 80
           public: 5000
-      volumes:
-      - hostDestination: data_volume
-        containerDestination: /data
-        accessMode: rw
-        type: volume
       env:
         - key: BASE_URL
           value: http://localhost:8080/data
@@ -214,8 +204,8 @@ NAMESPACE
 default
 
 MICROSERVICE            STATUS          AGENT           ROUTES                  VOLUMES                 PORTS
-heart-rate-monitor      QUEUED          local-agent     heart-rate-viewer       /tmp/msvc:/tmp
-heart-rate-viewer       QUEUED          local-agent                             /tmp/iofog:/data        5000:80
+heart-rate-monitor      QUEUED          local-agent     heart-rate-viewer
+heart-rate-viewer       QUEUED          local-agent                                                     5000:80
 ```
 
 Once both microservice status are 'RUNNING', the microservices have started. We will be able to see the web application on our browser at <a href="http://localhost:5000/" target="_blank">http://localhost:5000</a>.
