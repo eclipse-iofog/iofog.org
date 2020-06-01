@@ -5,11 +5,11 @@
 
 # Prepare your Kubernetes Cluster
 
-Some components of an Edge Compute Network ('ECN') can be deployed on Kubernetes. These component include Controllers. `iofogctl` will also install ioFog Operator and Kubelet to assist in the Kubernetes-deploy Control Plane. Further components are Router, Port-Manager, and a Proxy service.
+Some components of an Edge Compute Network ('ECN') can be deployed on Kubernetes. These component include Controllers. `iofogctl` will also install ioFog Operator and Kubelet to assist in the Kubernetes deployed Control Plane. Resources for routing will also be deployed.
 
 The ioFog platform can be installed easily on a managed Kubernetes Cluster provided by e.g. AWS, GCP, or Azure. Minikube is supported as well.
 
-Using lightweight Kubernetes implementations such as MicroK8s or K3s do not work in this stage straight off because those platforms do not support assigning an IP address to the Operator's LoadBalancer right away which is necessary to have a working ioFog platform.
+Using lightweight Kubernetes implementations such as MicroK8s or K3s are not fully supported. They will likely fail because those platforms do not assign host or IP addresses to Load Balancer services.
 
 ## Kube Config
 
