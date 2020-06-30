@@ -9,9 +9,10 @@
 ## Setting up minikube
 
 Start minikube. Minikube will set up `~/.kube/config` to point to your minikube cluster.
+Due to an [issue](https://github.com/kubernetes/minikube/pull/8610) in the current minikube release (`v1.11.0`) use a Kubernetes versions > 1.18 (e.g. latest 1.17 release).
 
 ```bash
-minikube start
+minikube start --kubernetes-version='v1.17.8'
 ```
 
 Run the tunnel command in the background to enable Kubernetes LoadBalancers.
