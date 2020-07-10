@@ -165,10 +165,10 @@ To display all resources in dettached state with the get command
 iofogctl get all --detached
 ```
 
-If we have an Agent ready and running on a remote host, we can also attach it directly using host and ssh credentials:
+We can also move Agents between Namespaces with a single command. The following command will move agent-1 from namespace-1 to namespace-2:
 
 ```bash
-iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
+iofogctl move agent agent-1 namespace-2 -n namespace-1
 ```
 
 <aside class="notifications note">

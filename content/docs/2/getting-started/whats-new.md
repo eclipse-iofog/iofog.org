@@ -131,10 +131,10 @@ iofogctl attach agent agent-1 -n namespace-2
 
 Keep in mind that detaching an agent will delete its connection with the Controller, and all Microservices will be shut down.
 
-If you have an Agent ready and running on a remote host, you can also attach it directly using host and ssh credentials:
+We can also move Agents between Namespaces with a single command. The following command will move agent-1 from namespace-1 to namespace-2:
 
 ```bash
-iofogctl attach agent agent-1 --host 123.123.123.123 --user foo --port 22 --key ~/.ssh/id_rsa
+iofogctl move agent agent-1 namespace-2 -n namespace-1
 ```
 
 ## New Volume Kind
