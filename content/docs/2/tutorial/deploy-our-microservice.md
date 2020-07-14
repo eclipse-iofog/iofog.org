@@ -100,7 +100,8 @@ spec:
             external: 10102
         env: []
   routes:
-    - from: sensors
+    - name: sensor-to-api
+      from: sensors
       to: rest-api
 ```
 
@@ -140,9 +141,11 @@ Edit the `routes` section from the YAML file to the following.
 
 ```yaml
 routes:
-  - from: sensors
+  - name: sensor-to-avg
+    from: sensors
     to: moving-average
-  - from: moving-average
+  - name: avg-to-api
+    from: moving-average
     to: rest-api
 ```
 

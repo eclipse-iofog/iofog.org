@@ -258,7 +258,8 @@ spec:
       config:
         test: 54
   routes:
-    - from: heart-rate-monitor
+    - name: monitor-to-viewer
+      from: heart-rate-monitor
       to: heart-rate-viewer
 ```
 

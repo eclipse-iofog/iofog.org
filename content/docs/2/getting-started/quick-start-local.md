@@ -180,7 +180,8 @@ spec:
         - key: BASE_URL
           value: http://localhost:8080/data
   routes:
-  - from: heart-rate-monitor
+  - name: monitor-to-viewer
+    from: heart-rate-monitor
     to: heart-rate-viewer" > /tmp/quick-start-app.yaml
 iofogctl deploy -f /tmp/quick-start-app.yaml
 ```

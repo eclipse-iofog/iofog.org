@@ -63,7 +63,8 @@ spec:
   routes:
     # Use this section to configure route between microservices
     # Use microservice name
-    - from: heart-rate-monitor
+    - name: monitor-to-viewer
+      from: heart-rate-monitor
       to: heart-rate-viewer
 ```
 
