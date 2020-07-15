@@ -57,7 +57,6 @@ spec:
     commands: []
   config: {}
   application: hello-web
-  routes: []
 " > /tmp/hello-web-catalog.yaml
 iofogctl deploy microservice -f /tmp/hello-web-catalog.yaml
 ```

@@ -224,15 +224,12 @@ spec:
     ports: []
     volumes: []
     env: []
-  routes:
-  - rest-api
   application: tutorial
 ```
 
 You will notice a few minor changes compared to the description we provided when we deployed the microservice as part of our application:
 
 - We now have an `application` field. This is required for iofogctl to know which application the microservice is part of.
-- The microservice routes destinations are listed under a `routes` field.
 - We have many more fields related to the required configuration of the ioFog Agent.
 
 Find the complete yaml description [here](../reference-iofogctl/reference-application.html#microservice)

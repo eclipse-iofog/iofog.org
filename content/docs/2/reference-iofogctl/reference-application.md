@@ -168,11 +168,6 @@ spec:
     data_label: test_mode=false_cross_agent_microservice_routing_aug_27
     test_mode: true
 
-  # List of microservice names to which a route needs to be created
-  routes:
-    - heart-rate-viewer # This will create a route from 'heart-rate-monitor' to 'heart-rate-viewer'
-  # When deploying application, the application level 'routes' field is preferred to this field
-
   # Mandatory application name inside which to deploy the microservice
   application: Healthcare Wearable
 
@@ -195,7 +190,6 @@ spec:
 | container.volumes        | List of volume mapping to be provided to the container running the microservice                                                                                                                      |
 | container.env            | List of environment variables to be provided to the container running the microservice                                                                                                               |
 | container.commands       | List of arguments passed as CMD to the container runtime                                                                                                                                             |
-| routes                   | List of ioFog Routes destination. Use microservice name as identifiers. The microservice specified must be part of the application. Only use this field when updating a microservice in isolation.   |
 | application              | Unique identifier of the Application the microservice is part of                                                                                                                                     |
 | rebuild                  | Boolean instructing the ioFog Agent to rebuild the microservice container after update. Use this flag if you updated the content of the docker image but didn't change the image name and/or tag.    |
 

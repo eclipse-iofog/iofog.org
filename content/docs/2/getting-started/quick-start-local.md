@@ -112,6 +112,9 @@ APPLICATION     STATUS    MICROSERVICES
 MICROSERVICE    STATUS    AGENT         ROUTES      VOLUMES          PORTS
 
 VOLUME          SOURCE    DESTINATION   PERMISSIONS	AGENTS
+
+ROUTE           SOURCE MSVC     DEST MSVC
+
 ```
 
 **NB:** The Agent status might say `UNKNOWN` for up to 30s. It is the time for the agent to report back its liveness to the controller.

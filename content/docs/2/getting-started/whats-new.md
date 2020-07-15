@@ -16,6 +16,98 @@ Following is a list of API breakages and other important changes to user interac
 
 We have split up the previous ControlPlane kind into three: ControlPlane, KubernetesControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
 
+### New Route kind
+
+We have extracted `Routes` to become a first class kind. Routes now require a name and can be deployed as part of an application, or as a separate kind.
+Routes are no longer supported inside the `Microservice` kind. See the [reference docs](../reference-iofogctl/reference-route.html) for full details.
+
+Before:
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Microservice
+metadata:
+  name: msvc-1
+spec:
+  agent:
+    name: agent-name
+    config: {}
+  images:
+    x86: hello-world
+  env:
+    - key: MY_ENV
+      value: 42
+  ports:
+    - internal: 80
+      external: 5000
+  rootHostAccess: true
+  volumes: []
+  commands: []
+  config:
+    config-key: 'config-value'
+  application: app-1
+  routes:
+    - dest-msvc-name
+```
+
+After:
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Microservice
+metadata:
+  name: msvc-1
+spec:
+  agent:
+    name: agent-name
+    config: {}
+  images:
+    x86: hello-world
+  env:
+    - key: MY_ENV
+      value: 42
+  ports:
+    - internal: 80
+      external: 5000
+  rootHostAccess: true
+  volumes: []
+  commands: []
+  config:
+    config-key: 'config-value'
+  application: app-1
+---
+apiVersion: iofog.org/v2
+kind: Route
+metadata:
+  name: my-route
+spec:
+  from: msvc-1
+  to: dest-msvc-name
+```
+
+### New Volume Kind
+
+Does your microservice require some secret files or initialisation data?
+
+You have always been able to use volume mappings to mount agent folders into your Microservice container. However, until now there was no way to send those files/folders to your Agent using iofogctl.
+
+We have now introduced a new `Volume` kind that which, when deployed, will let iofogctl copy folders over to your Agents over SSH.
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Volume
+spec:
+  name: secret
+  source: /tmp/
+  destination: /tmp/secrets/
+  permissions: 666
+  agents:
+    - agent-1
+    - agent-2
+```
+
+This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and copy the contents of `/tmp/` of the computer running iofogctl into it.
+
 ## Container Key added to Microservice YAML Specification
 
 We realised that the specification for Microservices was a bit confusing, so we have added a new `container` key. The container key contains all configuration related to the actual Docker container running on the Agent.
@@ -45,8 +137,6 @@ spec:
   config:
     config-key: 'config-value'
   application: app-1
-  routes:
-    - msvc-2
 ```
 
 After:
@@ -75,8 +165,6 @@ spec:
   config:
     config-key: 'config-value'
   application: app-1
-  routes:
-    - msvc-2
 ```
 
 This way it is clear as to which information relates to the ioFog Microservice and which information relates to the configuration of the actual container running on the Agent.
@@ -136,29 +224,6 @@ We can also move Agents between Namespaces with a single command. The following 
 ```bash
 iofogctl move agent agent-1 namespace-2 -n namespace-1
 ```
-
-## New Volume Kind
-
-Does your microservice require some secret files or initialisation data?
-
-You have always been able to use volume mappings to mount agent folders into your Microservice container. However, until now there was no way to send those files/folders to your Agent using iofogctl.
-
-We have now introduced a new `Volume` kind that which, when deployed, will let iofogctl copy folders over to your Agents over SSH.
-
-```yaml
-apiVersion: iofog.org/v2
-kind: Volume
-spec:
-  name: secret
-  source: /tmp/
-  destination: /tmp/secrets/
-  permissions: 666
-  agents:
-    - agent-1
-    - agent-2
-```
-
-This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and copy the contents of `/tmp/` of the computer running iofogctl into it.
 
 ## Microservice Public Ports
 

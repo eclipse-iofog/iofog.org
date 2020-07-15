@@ -40,49 +40,31 @@ The Sensors and REST API microservices are generic. They are not hardcoded to ta
 
 To connect microservices together, the Controller has the concept of routes.
 
-Routes can be listed from the `iofogctl get microservices` or `iofogctl describe microservice <name>` commands. We can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
+Routes can be listed from the `iofogctl get routes` or `iofogctl describe route <name>` commands. We can see that a route has already been set up for us: the Sensors microservice has its destination (output) directed to the REST API microservice.
 
 ```console
-iofogctl describe microservice Sensors
+iofogctl get routes
+
+NAMESPACE
+default
+
+ROUTE           SOURCE MSVC   DEST MSVC
+sensor-to-rest  Sensors       Rest API
+
+```
+
+```console
+iofogctl describe route sensor-to-rest
 
 apiVersion: iofog.org/v2
-kind: Microservice
+kind: Route
 metadata:
-  name: Sensors
+  name: sensor-to-rest
   namespace: default
 spec:
-  uuid: cHttwNHmDnj2rYcX6qypgcr9JDpV2CNR
-  name: Sensors
-  agent:
-    name: local-agent
-    config:
-      dockerUrl: unix:///var/run/docker.sock
-      diskLimit: 50
-      diskDirectory: /var/lib/iofog-agent/
-      memoryLimit: 1024
-      cpuLimit: 80
-      logLimit: 10
-      logDirectory: /var/log/iofog-agent/
-      logFileCount: 10
-      statusFrequency: 30
-      changeFrequency: 60
-      deviceScanFrequency: 60
-      bluetoothEnabled: false
-      watchdogEnabled: false
-      abstractedHardwareEnabled: false
-  images:
-    catalogId: 0
-    x86: iofog/sensors:latest
-    arm: ""
-    registry: remote
-  config: {}
-  rootHostAccess: false
-  ports: []
-  volumes: []
-  env: []
-  routes:
-  - rest-api
-  application: tutorial
+  name: sensor-to-rest
+  from: Sensors
+  to: Rest API
 ```
 
 We'll discover later on how to create and remove routes using iofogctl.

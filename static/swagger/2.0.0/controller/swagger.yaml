@@ -3124,8 +3124,6 @@
           type: array
           items:
             type: string
-        routes:
-          $ref: '#/definitions/ReceiverMicroservices'
         idConsumer:
           type: boolean
     AgentEnvRequest:
@@ -3424,8 +3422,6 @@
           type: array
           items:
             $ref: '#/definitions/PortMappingsResponse'
-        routes:
-          $ref: '#/definitions/ReceiverMicroservices'
         status:
           type: object
           properties:
@@ -3474,8 +3470,6 @@
           type: array
           items:
             $ref: '#/definitions/PortMappingsRequest'
-        routes:
-          $ref: '#/definitions/ReceiverMicroservices'
     UpdateMicroserviceRequest:
       type: object
       required:

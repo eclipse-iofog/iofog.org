@@ -296,9 +296,6 @@ spec:
       - key: TEST
         value: 42
   application: func-app
-  routes:
-    - func-app-server
-    - func-app-ui
   config:
     test_mode: true
     data_label: Anonymous_Person_2
