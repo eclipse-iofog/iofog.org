@@ -24,7 +24,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <fog_type>auto</fog_type>
   <network_interface>dynamic</network_interface>
   <docker_url>unix:///var/run/docker.sock</docker_url>
-  <disk_consumption_limit>50</disk_consumption_limit>
+  <disk_consumption_limit>1</disk_consumption_limit>
   <disk_directory>/var/lib/iofog-agent/</disk_directory>
   <memory_consumption_limit>4096</memory_consumption_limit>
   <processor_consumption_limit>80.0</processor_consumption_limit>
@@ -56,7 +56,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <fog_type>auto</fog_type>
   <network_interface>dynamic</network_interface>
   <docker_url>unix:///var/run/docker.sock</docker_url>
-  <disk_consumption_limit>50</disk_consumption_limit>
+  <disk_consumption_limit>1</disk_consumption_limit>
   <disk_directory>/var/lib/iofog-agent/</disk_directory>
   <memory_consumption_limit>4096</memory_consumption_limit>
   <processor_consumption_limit>80.0</processor_consumption_limit>
@@ -89,7 +89,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <fog_type>auto</fog_type>
   <network_interface>dynamic</network_interface>
   <docker_url>unix:///var/run/docker.sock</docker_url>
-  <disk_consumption_limit>50</disk_consumption_limit>
+  <disk_consumption_limit>1</disk_consumption_limit>
   <disk_directory>/var/lib/iofog-agent/</disk_directory>
   <memory_consumption_limit>4096</memory_consumption_limit>
   <processor_consumption_limit>80.0</processor_consumption_limit>

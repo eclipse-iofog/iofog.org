@@ -49,6 +49,7 @@ iofog-agent config defaults
 | **-df number**             | Set the post diagnostics frequency                                                                                                                                         |
 | **-sd number**             | Set the scan devices frequency                                                                                                                                             |
 | **-pf number**             | Set the docker pruning frequency                                                                                                                                           |
+| **-uf number**             | Set the isReadyToUpgradeScan frequency                                                                                                                                     |
 | **-dt number**             | Set the available disk threshold                                                                                                                                           |
 | **-idc on/off**            | Set the mode on which any not registered docker container will be shut down                                                                                                |
 | **-gps auto/off/number**   | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |
