@@ -32,8 +32,8 @@ iofog-agent config defaults
 |                            |                                                                                                                                                                            |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **defaults**               | Reset configuration to default values                                                                                                                                      |
-| **-d number**              | Set the limit, in GiB, of disk space that the software is allowed to use                                                                                                   |
-| **-dl**                    | Set the directory to use for disk storage                                                                                                                                  |
+| **-d number**              | Set the limit, in GiB, of disk space that the message archive is allowed to use                                                                                            |
+| **-dl**                    | Set the message archive directory to use for disk storage                                                                                                                  |
 | **-m number**              | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages                                                                                      |
 | **-p number**              | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                              |
 | **-a string**              | Set the uri of the fog controller to which this software connects                                                                                                          |

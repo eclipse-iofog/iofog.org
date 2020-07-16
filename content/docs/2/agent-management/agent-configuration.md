@@ -19,7 +19,7 @@ spec:
   longitude: 6.143158
   agentType: auto
   dockerUrl: unix:///var/run/docker.sock
-  diskLimit: 1
+  diskLimit: 10
   diskDirectory: /var/lib/iofog-agent/
   memoryLimit: 4096
   cpuLimit: 80
