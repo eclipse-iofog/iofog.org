@@ -84,10 +84,10 @@ iofogctl delete namespace zoo-1
 It is possible to specify the namespace to use as default namespace by using the `iofogctl configure` command.
 
 ```bash
-iofogctl configure default-namespace <namespace_name>
+iofogctl configure current-namespace NAMESPACE
 ```
 
-To revert to the default configuration, you can always run `iofogctl configure default-namespace default`.
+To revert to the default configuration, you can always run `iofogctl configure current-namespace default`.
 
 Next, we will use the default namespace while exploring `iofogctl` functionality.
 

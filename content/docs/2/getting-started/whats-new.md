@@ -174,7 +174,7 @@ This way it is clear as to which information relates to the ioFog Microservice a
 You can now configure which namespace is used as by default by running:
 
 ```bash
-iofogctl configure default-namespace namespace-1
+iofogctl configure current-namespace namespace-1
 ```
 
 This allows you to use any namespace when omitting the `--namespace` or `-n` flag from iofogctl commands.

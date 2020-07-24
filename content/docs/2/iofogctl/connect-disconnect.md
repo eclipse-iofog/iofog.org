@@ -67,7 +67,7 @@ iofogctl configure controlplane --kube KUBECONFIG
 iofogctl configure controller NAME --user USER --key KEYFILE --port PORTNUM
 iofogctl configure agent NAME --user USER --key KEYFILE --port PORTNUM
 
-iofogctl configure default-namespace NAMESPACE
+iofogctl configure current-namespace NAMESPACE
 
 iofogctl configure controllers --user USER --key KEYFILE --port PORTNUM
 iofogctl configure agents --user USER --key KEYFILE --port PORTNUM
