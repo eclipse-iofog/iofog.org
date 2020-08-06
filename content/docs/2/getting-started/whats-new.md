@@ -4,10 +4,10 @@
 - Improved [registry and catalog items management](../microservices/microservice-registry-catalog.html) in ioFog Controller
 - [Exposing public ports](../microservices/microservice-exposing.html) for deployed microservices
 - [Docker image pruning](../agent-management/docker-image-pruning.html) feature for ioFog Agent
-- [Attach and detach](../agent-management/attach-detach.html) ioFog Agents between ECNs
+- [Attach, detach, and move](../agent-management/attach-detach.html) ioFog Agents between ECNs
 - [Volume management](../agent-management/volumes.html) for pushing Microservice data to Agents
 - [Moving and renaming microservices](../microservices/microservice-move-rename.html) support in iofogctl
-- [Default namespace](../iofogctl/getting-familiar.html#working-with-namespaces) support in iofogctl
+- [Current namespace](../iofogctl/getting-familiar.html#working-with-namespaces) support in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your Kubernetes cluster](../platform-deployment/kubernetes-prepare-cluster.html)
 
 Following is a list of API breakages and other important changes to user interaction, mostly on the `iofogctl` usage.
