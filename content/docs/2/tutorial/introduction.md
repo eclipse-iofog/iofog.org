@@ -30,7 +30,7 @@ On Unix based systems, download our tar.gz package.
 ```bash
 mkdir -p /tmp/iofog/demo
 cd /tmp/iofog/demo
-curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v2.0.0-rc3.tar.gz
+curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v2.0.0.tar.gz
 tar -zxvf demo.tar.gz --strip-components=1
 ```
 
