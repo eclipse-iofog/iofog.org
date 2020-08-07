@@ -23,7 +23,6 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 - [Controller](https://github.com/eclipse-iofog/Controller/blob/release/2.0/CHANGELOG.md)
 - [Agent](https://github.com/eclipse-iofog/Agent/blob/release/2.0/CHANGELOG.md)
 - [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/release/2.0/CHANGELOG.md)
-- [Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/blob/release/2.0/CHANGELOG.md)
 - [Port Manager](https://github.com/eclipse-iofog/port-manager/blob/release/2.0/CHANGELOG.md)
 - [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/release/2.0/CHANGELOG.md)
 - [Helm](https://github.com/eclipse-iofog/helm/blob/release/2.0/CHANGELOG.md)
