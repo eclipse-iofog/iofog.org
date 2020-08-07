@@ -43,7 +43,7 @@ iofog-agent config defaults
 | **-l number**              | Set the limit, in GiB, of disk space that the log files can consume                                                                                                        |
 | **-ld string**             | Set the directory to use for log file storage, default: `/var/log/iofog-agent`                                                                                             |
 | **-lc number**             | Set the number of log files to evenly split the log storage limit                                                                                                          |
-| **-ll string**             | Set the level for logging output. Valid options are FINE, INFO, WARNING, SEVERE                                                                                                 |
+| **-ll string**             | Set the level for logging output. Valid options are FINE, INFO, WARNING, SEVERE                                                                                            |
 | **-sf number**             | Set the status update frequency                                                                                                                                            |
 | **-cf number**             | Set the get changes frequency                                                                                                                                              |
 | **-df number**             | Set the post diagnostics frequency                                                                                                                                         |
