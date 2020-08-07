@@ -8,7 +8,7 @@
 
 In this tutorial, we will install the ioFog Kubernetes Control Plane using Helm.
 
-The Helm Chart installs a set of Custom Resources and an Operator onto the cluster. It then creates a Custom Resource Definition which describes an ioFog Control Plane to be deployed on the cluster. The Operator consumes this CRD and creates deployments for the Controller, Port Manager, and Kubelet, as well as associated services.
+The Helm Chart installs a set of Custom Resources and an Operator onto the cluster. It then creates a Custom Resource Definition which describes an ioFog Control Plane to be deployed on the cluster. The Operator consumes this CRD and creates deployments for the Controller, Port Manager, and Router, as well as associated services.
 
 ## Prerequisites
 
@@ -66,7 +66,6 @@ The following is a complete list of all user configurable properties for the ioF
 | user.email          | user@domain.com                | Email (login) of initial user in Controller                                   |
 | user.password       | H23fkidf9hoibf2nlk             | Password of initial user in Controller                                        |
 | images.controller   | iofog/controller:<version>     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)     |
-| images.kubelet      | iofog/iofog-kubelet:<version>  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)     |
 | images.operator     | iofog/iofog-operator:<version> | [Operator Docker image](https://hub.docker.com/r/iofog/iofog-operator/tags)   |
 | images.portManager  | iofog/port-manager:<version>   | [Port Manager Docker image](https://hub.docker.com/r/iofog/port-manager/tags) |
 | images.proxy        | iofog/proxy:<version>          | [Proxy Docker image](https://hub.docker.com/r/iofog/proxy/tags)               |

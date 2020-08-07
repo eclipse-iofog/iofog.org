@@ -115,17 +115,6 @@ When deploying ioFog on Kubernetes using iofogctl or Helm, the ioFog Operator wo
    <p>As an internal part of the ioFog stack, the Operator is not a separately manageable component. However, feel free to explore and potentially contribute at the <a href="https://github.com/eclipse-iofog/iofog-operator">eclipse-iofog/iofog-operator github repository</a>.</p>
 </aside>
 
-## Kubelet
-
-The ioFog Kubelet is a Virtual Kubelet that provides a bridge between ioFog Agent management and kubernetes nodes. Only once instance of Kubelet is needed to service all ioFog Agents.
-
-In the current ioFog architecture, not much functionality is provided by the Kubelet, but it does expose ioFog Agent to Kubernetes for view-only purposes.
-
-<aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about ioFog Kubelet?</h3>
-   <p>As an internal part of the ioFog stack, the Kubelet is not a separately manageable component. However, feel free to explore and potentially contribute at the <a href="https://github.com/eclipse-iofog/iofog-kubelet">eclipse-iofog/iofog-kubelet github repository</a>.</p>
-</aside>
-
 ## Port Manager
 
 The last major component of ioFog on Kubernetes. The Port Manager is responsible for deploying Proxies on the cluster as necessary for exposing microservices on external public ports. It does so by exposing these ports as a Kubernetes service with a global Load Balancer and opening appropriate ports.
