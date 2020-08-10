@@ -4,10 +4,10 @@
 - Improved [registry and catalog items management](../microservices/microservice-registry-catalog.html) in ioFog Controller
 - [Exposing public ports](../microservices/microservice-exposing.html) for deployed microservices
 - [Docker image pruning](../agent-management/docker-image-pruning.html) feature for ioFog Agent
-- [Attach and detach](../agent-management/attach-detach.html) ioFog Agents between ECNs
+- [Attach, detach, and move](../agent-management/attach-detach.html) ioFog Agents between ECNs
 - [Volume management](../agent-management/volumes.html) for pushing Microservice data to Agents
 - [Moving and renaming microservices](../microservices/microservice-move-rename.html) support in iofogctl
-- [Default namespace](../iofogctl/getting-familiar.html#working-with-namespaces) support in iofogctl
+- [Current namespace](../iofogctl/getting-familiar.html#working-with-namespaces) configuration in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your Kubernetes cluster](../platform-deployment/kubernetes-prepare-cluster.html)
 
 Following is a list of API breakages and other important changes to user interaction, mostly on the `iofogctl` usage.
@@ -15,6 +15,98 @@ Following is a list of API breakages and other important changes to user interac
 ## New YAML Kinds
 
 We have split up the previous ControlPlane kind into three: ControlPlane, KubernetesControlPlane, and LocalControlPlane. This change makes our deployment specs more explicit and less error prone. See the [reference docs](../reference-iofogctl/reference-control-plane.html) for full details.
+
+### New Route kind
+
+We have extracted `Routes` to become a first class kind. Routes now require a name and can be deployed as part of an application, or as a separate kind.
+Routes are no longer supported inside the `Microservice` kind. See the [reference docs](../reference-iofogctl/reference-route.html) for full details.
+
+Before:
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Microservice
+metadata:
+  name: msvc-1
+spec:
+  agent:
+    name: agent-name
+    config: {}
+  images:
+    x86: hello-world
+  env:
+    - key: MY_ENV
+      value: 42
+  ports:
+    - internal: 80
+      external: 5000
+  rootHostAccess: true
+  volumes: []
+  commands: []
+  config:
+    config-key: 'config-value'
+  application: app-1
+  routes:
+    - dest-msvc-name
+```
+
+After:
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Microservice
+metadata:
+  name: msvc-1
+spec:
+  agent:
+    name: agent-name
+    config: {}
+  images:
+    x86: hello-world
+  env:
+    - key: MY_ENV
+      value: 42
+  ports:
+    - internal: 80
+      external: 5000
+  rootHostAccess: true
+  volumes: []
+  commands: []
+  config:
+    config-key: 'config-value'
+  application: app-1
+---
+apiVersion: iofog.org/v2
+kind: Route
+metadata:
+  name: my-route
+spec:
+  from: msvc-1
+  to: dest-msvc-name
+```
+
+### New Volume Kind
+
+Does your microservice require some secret files or initialisation data?
+
+You have always been able to use volume mappings to mount agent folders into your Microservice container. However, until now there was no way to send those files/folders to your Agent using iofogctl.
+
+We have now introduced a new `Volume` kind that which, when deployed, will let iofogctl copy folders over to your Agents over SSH.
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Volume
+spec:
+  name: secret
+  source: /tmp/
+  destination: /tmp/secrets/
+  permissions: 666
+  agents:
+    - agent-1
+    - agent-2
+```
+
+This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and copy the contents of `/tmp/` of the computer running iofogctl into it.
 
 ## Container Key added to Microservice YAML Specification
 
@@ -45,8 +137,6 @@ spec:
   config:
     config-key: 'config-value'
   application: app-1
-  routes:
-    - msvc-2
 ```
 
 After:
@@ -75,18 +165,16 @@ spec:
   config:
     config-key: 'config-value'
   application: app-1
-  routes:
-    - msvc-2
 ```
 
 This way it is clear as to which information relates to the ioFog Microservice and which information relates to the configuration of the actual container running on the Agent.
 
-## Configure Default Namespace
+## Configure Current Namespace
 
 You can now configure which namespace is used as by default by running:
 
 ```bash
-iofogctl configure default-namespace namespace-1
+iofogctl configure current-namespace namespace-1
 ```
 
 This allows you to use any namespace when omitting the `--namespace` or `-n` flag from iofogctl commands.
@@ -131,34 +219,11 @@ iofogctl attach agent agent-1 -n namespace-2
 
 Keep in mind that detaching an agent will delete its connection with the Controller, and all Microservices will be shut down.
 
-If you have an Agent ready and running on a remote host, you can also attach it directly using host and ssh credentials:
+We can also move Agents between Namespaces with a single command. The following command will move agent-1 from namespace-1 to namespace-2:
 
 ```bash
-iofogctl attach agent agent-1 --host 123.123.123.123 --user foo --port 22 --key ~/.ssh/id_rsa
+iofogctl move agent agent-1 namespace-2 -n namespace-1
 ```
-
-## New Volume Kind
-
-Does your microservice require some secret files or initialisation data?
-
-You have always been able to use volume mappings to mount agent folders into your Microservice container. However, until now there was no way to send those files/folders to your Agent using iofogctl.
-
-We have now introduced a new `Volume` kind that which, when deployed, will let iofogctl copy folders over to your Agents over SSH.
-
-```yaml
-apiVersion: iofog.org/v2
-kind: Volume
-spec:
-  name: secret
-  source: /tmp/
-  destination: /tmp/secrets/
-  permissions: 666
-  agents:
-    - agent-1
-    - agent-2
-```
-
-This will create a folder `/tmp/secrets/` on both agents `agent-1` and `agent-2`, and copy the contents of `/tmp/` of the computer running iofogctl into it.
 
 ## Microservice Public Ports
 

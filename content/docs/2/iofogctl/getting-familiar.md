@@ -79,17 +79,15 @@ iofogctl get namespaces
 iofogctl delete namespace zoo-1
 ```
 
-### Configuring your default namespace
+### Configuring your current namespace
 
-It is possible to specify the namespace to use as default namespace by using the `iofogctl configure` command.
+It is possible to specify the namespace to use as current namespace by using the `iofogctl configure` command.
 
 ```bash
-iofogctl configure default-namespace <namespace_name>
+iofogctl configure current-namespace NAMESPACE
 ```
 
-To revert to the default configuration, you can always run `iofogctl configure default-namespace default`.
-
-Next, we will use the default namespace while exploring `iofogctl` functionality.
+To revert to the default configuration, you can always run `iofogctl configure current-namespace default`.
 
 ## View Edge Compute Network Details
 
@@ -165,10 +163,10 @@ To display all resources in dettached state with the get command
 iofogctl get all --detached
 ```
 
-If we have an Agent ready and running on a remote host, we can also attach it directly using host and ssh credentials:
+We can also move Agents between Namespaces with a single command. The following command will move agent-1 from namespace-1 to namespace-2:
 
 ```bash
-iofogctl attach agent NAME --host HOST --host AGENT_HOST --user SSH_USER --port SSH_PORT --key SSH_PRIVATE_KEY_PATH
+iofogctl move agent agent-1 namespace-2 -n namespace-1
 ```
 
 <aside class="notifications note">

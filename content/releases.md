@@ -1,4 +1,4 @@
-## ioFog v2-rc1
+## ioFog v2
 
 [Get Started with ioFog v2](/docs/2/getting-started/core-concepts.html)
 
@@ -15,8 +15,18 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 - [Attach and detach](/docs/2/agent-management/attach-detach.html) ioFog Agents between ECNs
 - [Volume management](/docs/2/agent-management/volumes.html) for mounting volume on ioFog Agent in a microservice
 - [Moving and renaming microservices](/docs/2/microservices/microservice-move-rename.html) support in iofogctl
-- [Default namespace](/docs/2/iofogctl/getting-familiar.html#configuring-your-default-namespace) support in iofogctl
+- [Current namespace](/docs/2/iofogctl/getting-familiar.html#working-with-namespaces) configuration in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](/docs/2/platform-deployment/kubernetes-prepare-cluster.html)
+
+### Changelogs
+
+- [Controller](https://github.com/eclipse-iofog/Controller/blob/release/2.0/CHANGELOG.md)
+- [Agent](https://github.com/eclipse-iofog/Agent/blob/release/2.0/CHANGELOG.md)
+- [Operator](https://github.com/eclipse-iofog/iofog-operator/blob/release/2.0/CHANGELOG.md)
+- [Port Manager](https://github.com/eclipse-iofog/port-manager/blob/release/2.0/CHANGELOG.md)
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/release/2.0/CHANGELOG.md)
+- [Helm](https://github.com/eclipse-iofog/helm/blob/release/2.0/CHANGELOG.md)
+- [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/release/2.0/CHANGELOG.md)
 
 ## ioFog v1.3.0
 

@@ -1,6 +1,6 @@
 [
   {
-    "version": "v2-rc1",
+    "version": "v2",
     "menus": [
       {
         "title": "Getting Started",
@@ -249,6 +249,11 @@
             "title": "Application YAML Specification",
             "entry": "./reference-iofogctl/reference-application.md",
             "description": "iofogctl YAML structure and specification for deploy an application"
+          },
+          {
+            "title": "Route YAML Specification",
+            "entry": "./reference-iofogctl/reference-route.md",
+            "description": "iofogctl YAML structure and specification for deploying a route"
           },
           {
             "title": "Catalog Item YAML Specification",

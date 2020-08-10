@@ -34,7 +34,7 @@ spec:
   config: ~/.kube/config" > /tmp/controlplane.yaml
 ```
 
-Make sure to specify the correct value for the `config` field. Here we implicitly use the default namespace. Note that iofogctl will deploy to the Kubernetes namespace that it is configured to use through the `-n` flag or to the default namespace we set via `iofogctl configure default-namespace ...`. This means that by following these examples, we end up installing the Control Plane in `default` namespace on the cluster. Therefore it is recommended to use a namespace instead.
+Make sure to specify the correct value for the `config` field. Here we implicitly use the default namespace. Note that iofogctl will deploy to the Kubernetes namespace that it is configured to use through the `-n` flag or to the default namespace we set via `iofogctl configure current-namespace ...`. This means that by following these examples, we end up installing the Control Plane in `default` namespace on the cluster. Therefore it is recommended to use a namespace instead.
 
 Once we have edited the fields to our liking, we can go ahead and run:
 

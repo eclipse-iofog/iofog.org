@@ -57,12 +57,11 @@ spec:
     commands: []
   config: {}
   application: hello-web
-  routes: []
 " > /tmp/hello-web-catalog.yaml
 iofogctl deploy microservice -f /tmp/hello-web-catalog.yaml
 ```
 
-Note that this YAML snippet assumes we have an running ECN in the default Namespace with an Agent called `my-agent-name`.
+Note that this YAML snippet assumes we have a running ECN in the current Namespace with an Agent called `my-agent-name`.
 
 We can check that the expected images have been used by describing our Microservice with iofogct:
 

@@ -19,18 +19,11 @@ Attach the Agent to another ECN / Namespace
 iofogctl attach agent agent-1 -n namespace-2
 ```
 
-If we have an Agent ready and running on a remote host, we can also attach it directly using host and SSH credentials:
+We can also move Agents between Namespaces with a single command. The following command will move agent-1 from namespace-1 to namespace-2:
 
 ```bash
-iofogctl attach agent agent-1 --host 123.123.123.123 --user foo --port 22 --key ~/.ssh/id_rsa
+iofogctl move agent agent-1 namespace-2 -n namespace-1
 ```
-
-<aside class="notifications tip">
-  <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>
-  <p>This section describes a set of independent Agent management operations, hence there is no natural flow nor dependencies. Feel free to explore any topic in this section.</p>
-  
-  <p>If one wants to dive deeper into Agent internals, we recommend also checking out <a href="../reference-agent/overview.html">Agent reference</a> documentation.</p>
-</aside>
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

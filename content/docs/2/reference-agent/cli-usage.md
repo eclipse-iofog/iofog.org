@@ -32,8 +32,8 @@ iofog-agent config defaults
 |                            |                                                                                                                                                                            |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **defaults**               | Reset configuration to default values                                                                                                                                      |
-| **-d number**              | Set the limit, in GiB, of disk space that the software is allowed to use                                                                                                   |
-| **-dl**                    | Set the directory to use for disk storage                                                                                                                                  |
+| **-d number**              | Set the limit, in GiB, of disk space that the message archive is allowed to use                                                                                            |
+| **-dl**                    | Set the message archive directory to use for disk storage                                                                                                                  |
 | **-m number**              | Set the limit, in MiB, of RAM memory that the software is allowed to use for messages                                                                                      |
 | **-p number**              | Set the limit, in percentage, of CPU time that the software is allowed to use                                                                                              |
 | **-a string**              | Set the uri of the fog controller to which this software connects                                                                                                          |
@@ -43,12 +43,13 @@ iofog-agent config defaults
 | **-l number**              | Set the limit, in GiB, of disk space that the log files can consume                                                                                                        |
 | **-ld string**             | Set the directory to use for log file storage, default: `/var/log/iofog-agent`                                                                                             |
 | **-lc number**             | Set the number of log files to evenly split the log storage limit                                                                                                          |
-| **-ll string**             | Set the standard logging levels that can be used to control logging output                                                                                                 |
+| **-ll string**             | Set the level for logging output. Valid options are FINE, INFO, WARNING, SEVERE                                                                                            |
 | **-sf number**             | Set the status update frequency                                                                                                                                            |
 | **-cf number**             | Set the get changes frequency                                                                                                                                              |
 | **-df number**             | Set the post diagnostics frequency                                                                                                                                         |
 | **-sd number**             | Set the scan devices frequency                                                                                                                                             |
 | **-pf number**             | Set the docker pruning frequency                                                                                                                                           |
+| **-uf number**             | Set the isReadyToUpgradeScan frequency                                                                                                                                     |
 | **-dt number**             | Set the available disk threshold                                                                                                                                           |
 | **-idc on/off**            | Set the mode on which any not registered docker container will be shut down                                                                                                |
 | **-gps auto/off/number**   | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |

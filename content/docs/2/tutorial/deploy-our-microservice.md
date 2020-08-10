@@ -100,7 +100,8 @@ spec:
             external: 10102
         env: []
   routes:
-    - from: sensors
+    - name: sensor-to-api
+      from: sensors
       to: rest-api
 ```
 
@@ -116,7 +117,6 @@ This yaml file has been used to describe to `iofogctl` what our set of microserv
 To add our new microservice, go ahead and edit this file by adding our new microservice to the list of microservices:
 
 ```yaml
----
 - name: moving-average
   agent:
     name: local-agent
@@ -141,9 +141,11 @@ Edit the `routes` section from the YAML file to the following.
 
 ```yaml
 routes:
-  - from: sensors
+  - name: sensor-to-avg
+    from: sensors
     to: moving-average
-  - from: moving-average
+  - name: avg-to-api
+    from: moving-average
     to: rest-api
 ```
 
@@ -222,15 +224,12 @@ spec:
     ports: []
     volumes: []
     env: []
-  routes:
-  - rest-api
   application: tutorial
 ```
 
 You will notice a few minor changes compared to the description we provided when we deployed the microservice as part of our application:
 
 - We now have an `application` field. This is required for iofogctl to know which application the microservice is part of.
-- The microservice routes destinations are listed under a `routes` field.
 - We have many more fields related to the required configuration of the ioFog Agent.
 
 Find the complete yaml description [here](../reference-iofogctl/reference-application.html#microservice)

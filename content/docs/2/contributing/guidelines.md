@@ -15,7 +15,6 @@ We use different issue trackers for individual pieces of the ioFog community.
 - [iofogctl](https://github.com/eclipse-iofog/iofogctl/issues)
 - [Kubernetes Operator](https://github.com/eclipse-iofog/iofog-operator/issues)
 - [Port Manager](https://github.com/eclipse-iofog/port-manager/issues)
-- [Virtual Kubelet](https://github.com/eclipse-iofog/iofog-kubelet/issues)
 - [iofog.org documentation](https://github.com/ioFog/iofog.org/issues) (this site)
 
 ### Getting Help

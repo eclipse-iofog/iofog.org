@@ -19,7 +19,7 @@ spec:
   longitude: 6.143158
   agentType: auto
   dockerUrl: unix:///var/run/docker.sock
-  diskLimit: 50
+  diskLimit: 10
   diskDirectory: /var/lib/iofog-agent/
   memoryLimit: 4096
   cpuLimit: 80
@@ -49,14 +49,7 @@ spec:
   <h3><img src="/images/icos/ico-note.svg" alt="">Comprehensive AgentConfig reference</h3>
   <p>A complete reference of AgentConfig kind is available in the relevant section in <a href=../reference-iofogctl/reference-agent.html>iofogctl reference</a> documentation.</p>
   
-  <p>In case we would prefer to handle Agent configuration manually on the Agent's host, we can also do so. For details, please see <a href="../reference-agent/configuration.html">Agent Reference - Configuration</a> page.</p>
-</aside>
-
-<aside class="notifications tip">
-  <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>
-  <p>This section describes a set of independent Agent management operations, hence there is no natural flow nor dependencies. Feel free to explore any topic in this section.</p>
-  
-  <p>If one wants to dive deeper into Agent internals, we recommend also checking out <a href="../reference-agent/overview.html">Agent reference</a> documentation.</p>
+  <p>Details as to what the Agent configuration files look like on Agent hosts can be found on the <a href="../reference-agent/configuration.html">Agent Reference - Configuration</a> page.</p>
 </aside>
 
 <aside class="notifications contribute">

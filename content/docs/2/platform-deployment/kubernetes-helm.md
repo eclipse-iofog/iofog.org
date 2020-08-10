@@ -8,7 +8,7 @@
 
 In this tutorial, we will install the ioFog Kubernetes Control Plane using Helm.
 
-The Helm Chart installs a set of Custom Resources and an Operator onto the cluster. It then creates a Custom Resource Definition which describes an ioFog Control Plane to be deployed on the cluster. The Operator consumes this CRD and creates deployments for the Controller, Port Manager, and Kubelet, as well as associated services.
+The Helm Chart installs a set of Custom Resources and an Operator onto the cluster. It then creates a Custom Resource Definition which describes an ioFog Control Plane to be deployed on the cluster. The Operator consumes this CRD and creates deployments for the Controller, Port Manager, and Router, as well as associated services.
 
 ## Prerequisites
 
@@ -37,12 +37,12 @@ To list all available version of ioFog Helm chart, including development version
 helm search repo -l --devel iofog/iofog
 ```
 
-Install the Chart while specifying user credentials and a target namespace. If we are not using the default namespace, we can use `--create-namespace` from Helm v3.2 onwards. Otherwise the namespace must already exist on the cluster. Note that not specifying the version default to latest stable version of ioFog chart, but ioFog 2.0 has not officially released a stable chart yet, so we need to specify the `--version` here.
+Install the Chart while specifying user credentials and a target namespace. If we are not using the default namespace, we can use `--create-namespace` from Helm v3.2 onwards. Otherwise the namespace must already exist on the cluster. Note that not specifying the version default to latest stable version of ioFog chart, therefore for ioFog releases that have not officially released a stable chart yet, so we need to specify the `--version` here manually. To install version `2.0.0` for example, use the following:
 
 ```bash
 helm install my-ecn \
  --namespace my-ns --create-namespace \
- --version 2.0.0-rc1 \
+ --version 2.0.0 \
  --set user.email=user@domain.com \
  --set user.password=any123password345 \
  iofog/iofog
@@ -54,10 +54,10 @@ To list all Helm releases, we can simply run `helm list`. The result should look
 
 ```plain
 NAME     REVISION  UPDATED                   STATUS    CHART             APP VERSION  NAMESPACE
-my-ecn   1         Tue Oct  1 21:34:42 2019  DEPLOYED  iofog-2.0.0-rc1   2.0.0-rc1    my-ns
+my-ecn   1         Tue Oct  1 21:34:42 2019  DEPLOYED  iofog-2.0.0       2.0.0        my-ns
 ```
 
-The following is a complete list of all user configurable properties for the ioFog Helm chart. All of the properties are optional and have defaults. Use `--set property.name=value` in `helm install` to parametrize Helm release.
+The following is a complete list of all user configurable properties for the ioFog Helm chart. All of the properties are optional and have defaults. Use `--set property.name=value` in `helm install` to parametrize Helm release. We recommend not changing the image variables, as these are predefined for each ioFog version, and mixing these across versions is not supported.
 
 | Property            | Default value                  | Description                                                                   |
 | ------------------- | ------------------------------ | ----------------------------------------------------------------------------- |
@@ -65,11 +65,10 @@ The following is a complete list of all user configurable properties for the ioF
 | user.surname        | Second                         | Surname of initial user in Controller                                         |
 | user.email          | user@domain.com                | Email (login) of initial user in Controller                                   |
 | user.password       | H23fkidf9hoibf2nlk             | Password of initial user in Controller                                        |
-| images.controller   | iofog/controller:2.0.0-rc1     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)     |
-| images.kubelet      | iofog/iofog-kubelet:2.0.0-rc1  | [Kubelet Docker image](https://hub.docker.com/r/iofog/iofog-kubelet/tags)     |
-| images.operator     | iofog/iofog-operator:2.0.0-rc1 | [Operator Docker image](https://hub.docker.com/r/iofog/iofog-operator/tags)   |
-| images.portManager  | iofog/port-manager:2.0.0-rc1   | [Port Manager Docker image](https://hub.docker.com/r/iofog/port-manager/tags) |
-| images.proxy        | iofog/proxy:2.0.0-rc1          | [Proxy Docker image](https://hub.docker.com/r/iofog/proxy/tags)               |
+| images.controller   | iofog/controller:<version>     | [Controller Docker image](https://hub.docker.com/r/iofog/controller/tags)     |
+| images.operator     | iofog/iofog-operator:<version> | [Operator Docker image](https://hub.docker.com/r/iofog/iofog-operator/tags)   |
+| images.portManager  | iofog/port-manager:<version>   | [Port Manager Docker image](https://hub.docker.com/r/iofog/port-manager/tags) |
+| images.proxy        | iofog/proxy:<version>          | [Proxy Docker image](https://hub.docker.com/r/iofog/proxy/tags)               |
 | replicas.operator   | 1                              | Number of replicas of Operator pods                                           |
 | replicas.controller | 1                              | Number of replicas of Controller pods                                         |
 

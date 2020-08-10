@@ -87,7 +87,7 @@ spec:
     password: q1u45ic9kst563art
   controller:
     container:
-      image: iofog/controller:2.0.0-rc1
+      image: iofog/controller:2.0.0
 ```
 
 To learn more about LocalControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
@@ -143,7 +143,7 @@ metadata:
   name: local
 spec:
   container:
-    image: iofog/agent:2.0.0-rc1
+    image: iofog/agent:2.0.0
 ```
 
 ## AgentConfig
@@ -258,7 +258,8 @@ spec:
       config:
         test: 54
   routes:
-    - from: heart-rate-monitor
+    - name: monitor-to-viewer
+      from: heart-rate-monitor
       to: heart-rate-viewer
 ```
 
@@ -295,9 +296,6 @@ spec:
       - key: TEST
         value: 42
   application: func-app
-  routes:
-    - func-app-server
-    - func-app-ui
   config:
     test_mode: true
     data_label: Anonymous_Person_2
