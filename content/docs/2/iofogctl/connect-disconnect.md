@@ -60,7 +60,7 @@ For Kubernetes Control Planes we can run the same command but provide the Kubern
 iofogctl connect --kube ~/.kube/config --email user@domain.com --pass h9g84q
 ```
 
-After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once. We can also configure which namespace is used as a default namespace.
+After using these commands, we can manually add SSH details where necessary using the `configure` command. The `configure` command lets us configure a single component or a group of components or all components at once.
 
 ```plain
 iofogctl configure controlplane --kube KUBECONFIG

@@ -7,7 +7,7 @@
 - [Attach, detach, and move](../agent-management/attach-detach.html) ioFog Agents between ECNs
 - [Volume management](../agent-management/volumes.html) for pushing Microservice data to Agents
 - [Moving and renaming microservices](../microservices/microservice-move-rename.html) support in iofogctl
-- [Current namespace](../iofogctl/getting-familiar.html#working-with-namespaces) support in iofogctl
+- [Current namespace](../iofogctl/getting-familiar.html#working-with-namespaces) configuration in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your Kubernetes cluster](../platform-deployment/kubernetes-prepare-cluster.html)
 
 Following is a list of API breakages and other important changes to user interaction, mostly on the `iofogctl` usage.
@@ -169,7 +169,7 @@ spec:
 
 This way it is clear as to which information relates to the ioFog Microservice and which information relates to the configuration of the actual container running on the Agent.
 
-## Configure Default Namespace
+## Configure Current Namespace
 
 You can now configure which namespace is used as by default by running:
 

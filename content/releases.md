@@ -15,7 +15,7 @@ Many other features have been added to the ioFog Engine, such as better Docker i
 - [Attach and detach](/docs/2/agent-management/attach-detach.html) ioFog Agents between ECNs
 - [Volume management](/docs/2/agent-management/volumes.html) for mounting volume on ioFog Agent in a microservice
 - [Moving and renaming microservices](/docs/2/microservices/microservice-move-rename.html) support in iofogctl
-- [Default namespace](/docs/2/iofogctl/getting-familiar.html#configuring-your-default-namespace) support in iofogctl
+- [Current namespace](/docs/2/iofogctl/getting-familiar.html#working-with-namespaces) configuration in iofogctl
 - [Platform tools repository](https://github.com/eclipse-iofog/platform) is no longer supported, please follow our guide on how to [Prepare your or managed Kubernetes cluster](/docs/2/platform-deployment/kubernetes-prepare-cluster.html)
 
 ### Changelogs
