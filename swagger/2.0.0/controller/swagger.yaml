@@ -1454,6 +1454,7 @@
         - Microservices
         summary: Creates a route from microservice to receiver
         operationId: createMicroserviceRoute
+        deprecated: true
         parameters:
         - in: header
           name: Authorization
@@ -1490,6 +1491,7 @@
         - Microservices
         summary: Deletes a route microservice
         operationId: deleteMicroserviceRoute
+        deprecated: true
         parameters:
         - in: header
           name: Authorization
@@ -2370,6 +2372,168 @@
             description: Not Found
           500:
             description: Internal Server Error
+    /routes:
+      get:
+        tags:
+        - Routing
+        summary: Get routes
+        operationId: getRoutes
+        parameters:
+        - in: header
+          name: Authorization
+          description: User Token
+          required: true
+          type: string
+        responses:
+          '200':
+            description: Success
+            schema:
+              $ref: '#/definitions/RouteListResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '401':
+            description: Not Authorized
+          '500':
+            description: Internal Server Error
+      post:
+        tags:
+        - Routing
+        summary: Creates a new route
+        operationId: createRoute
+        parameters:
+        - in: header
+          name: Authorization
+          description: User Token
+          required: true
+          type: string
+        - in: body
+          name: CreateRoute
+          description: Route Info
+          required: true
+          schema:
+            $ref: '#/definitions/NewRouteRequest'
+        responses:
+          '201':
+            description: Created
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '409':
+            description: Duplicate Name
+          '500':
+            description: Internal Server Error
+    /routes/{name}:
+      get:
+        tags:
+        - Routing
+        summary: Gets a route info
+        operationId: getRoute
+        parameters:
+        - in: header
+          name: Authorization
+          description: User Token
+          required: true
+          type: string
+        - in: path
+          name: name
+          description: Route name
+          required: true
+          type: string
+        responses:
+          '200':
+            description: Route Info
+            schema:
+              $ref: '#/definitions/RouteResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '401':
+            description: Not Authorized
+          '404':
+            description: Invalid Route Id
+          '500':
+            description: Internal Server Error
+      patch:
+        tags:
+        - Routing
+        summary: Updates a route
+        operationId: updateRoute
+        parameters:
+        - in: header
+          name: Authorization
+          description: User Token
+          required: true
+          type: string
+        - in: path
+          name: name
+          description: Route name
+          required: true
+          type: string
+        - in: body
+          name: UpdateRoute
+          description: Route Info
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateRouteRequest'
+        responses:
+          '204':
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '401':
+            description: Not Authorized
+          '404':
+            description: Invalid Route Id
+          '409':
+            description: Duplicate Name
+          '500':
+            description: Internal Server Error
+      delete:
+        tags:
+        - Routing
+        summary: Deletes a route
+        operationId: deleteRoute
+        parameters:
+        - in: header
+          name: Authorization
+          description: User Token
+          required: true
+          type: string
+        - in: path
+          name: name
+          description: Route name
+          required: true
+          type: string
+        responses:
+          '204':
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '401':
+            description: Not Authorized
+          '404':
+            description: Invalid Route Id
+          '500':
+            description: Internal Server Error
   definitions:
     ServiceStatusResponse:
       type: object
@@ -2960,8 +3124,6 @@
           type: array
           items:
             type: string
-        routes:
-          $ref: '#/definitions/ReceiverMicroservices'
         idConsumer:
           type: boolean
     AgentEnvRequest:
@@ -3260,8 +3422,6 @@
           type: array
           items:
             $ref: '#/definitions/PortMappingsResponse'
-        routes:
-          $ref: '#/definitions/ReceiverMicroservices'
         status:
           type: object
           properties:
@@ -3310,8 +3470,6 @@
           type: array
           items:
             $ref: '#/definitions/PortMappingsRequest'
-        routes:
-          $ref: '#/definitions/ReceiverMicroservices'
     UpdateMicroserviceRequest:
       type: object
       required:
@@ -3510,6 +3668,46 @@
           type: string
         data: 
           type: object
+    RouteListResponse:
+      type: object
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/definitions/RouteResponse'
+    RouteResponse:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        sourceMicroserviceUuid:
+          type: string
+        destMicroserviceUuid:
+          type: string
+    NewRouteRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        sourceMicroserviceUuid:
+          type: string
+        destMicroserviceUuid:
+          type: string
+      required:
+      - name
+      - sourceMicroserviceUuid
+      - destMicroserviceUuid
+    UpdateRouteRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        sourceMicroserviceUuid:
+          type: string
+        destMicroserviceUuid:
+          type: string
   schemes:
   - http
   - https
@@ -3526,6 +3724,8 @@
     description: Manage your flows
   - name: Microservices
     description: Manage your microservices
+  - name: Routing
+    description: Manage your routes
   - name: Diagnostics
     description: Diagnostic your microservices 
   - name: Tunnel
