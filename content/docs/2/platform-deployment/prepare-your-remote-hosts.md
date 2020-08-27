@@ -21,7 +21,7 @@ We do this for Controller host (only when we intend to deploy Controller directl
 `iofogctl` will need to run certain commands as sudo. In order to do this without using the root user, we must add the user we intend to use on the remote host to the sudo group. Run this command on all the remote host:
 
 ```bash
-usermod -aG sudo $USER
+sudo usermod -aG sudo $USER
 ```
 
 ## Allow Sudoers to Sudo without Password
