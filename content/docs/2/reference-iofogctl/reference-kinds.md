@@ -143,7 +143,7 @@ metadata:
   name: local
 spec:
   container:
-    image: iofog/agent:2.0.0
+    image: iofog/agent:2.0.1
 ```
 
 ## AgentConfig

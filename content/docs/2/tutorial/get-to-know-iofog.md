@@ -42,7 +42,7 @@ CONTAINER ID        IMAGE                                          COMMAND      
 7ce950bd971f        iofog/freeboard-api:latest                     "node /src/index.js"     12 minutes ago      Up 12 minutes       0.0.0.0:10101->80/tcp                                                               iofog_2tYXKdLncDhvNYBQYWmFzg9gm9MNkT7x
 1fc59ab19b71        iofog/sensors:latest                           "docker-entrypoint.s…"   12 minutes ago      Up 12 minutes                                                                                           iofog_6VLjktywfnJt8NwjQf9PcF29TbLN9HRM
 a2fb3fa95c94        quay.io/interconnectedcloud/qdrouterd:latest   "/home/qdrouterd/bin…"   13 minutes ago      Up 13 minutes       5671/tcp, 0.0.0.0:5672->5672/tcp, 55672/tcp, 0.0.0.0:56721-56722->56721-56722/tcp   iofog_rrkXQJMdvJZ8tPVhvMhvR9jWMDctYBPv
-82e539cf4b88        iofog/agent:2.0.0                              "sh /start.sh"           14 minutes ago      Up 14 minutes                                                                                           iofog-agent
+82e539cf4b88        iofog/agent:2.0.1                              "sh /start.sh"           14 minutes ago      Up 14 minutes                                                                                           iofog-agent
 72fd11ff5d8d        iofog/controller:2.0.0                         "node /usr/local/lib…"   14 minutes ago      Up 14 minutes       0.0.0.0:51121->51121/tcp, 0.0.0.0:8008->80/tcp                                      iofog-controller
 ```
 
@@ -168,9 +168,8 @@ iofogctl get agents
 NAMESPACE
 default
 
-AGENT		STATUS		AGE		UPTIME		ADDR		    VERSION
-local-agent	RUNNING				15m38s		104.196.255.116	2.0.0
-
+AGENT       STATUS   AGE     UPTIME  ADDR             VERSION
+local-agent	RUNNING  15m38s  15m38s  104.196.255.116  2.0.1
 ```
 
 Now, let's try listing all the preconfigured ioFog nodes using the Controller CLI.
