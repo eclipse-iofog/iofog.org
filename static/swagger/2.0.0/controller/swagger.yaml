@@ -1285,7 +1285,7 @@
         - in: query
           name: flowId
           description: Flow Id
-          required: false
+          required: true
           type: integer
         responses:
           '200':
