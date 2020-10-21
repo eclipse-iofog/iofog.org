@@ -19,7 +19,8 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <access_token/>
   <controller_url>http://localhost:54421/api/v3/</controller_url>
   <iofog_uuid/>
-  <dev_mode>on</dev_mode>
+  <secure_mode>on</secure_mode>
+  <dev_mode>off</dev_mode>
   <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
   <fog_type>auto</fog_type>
   <network_interface>dynamic</network_interface>
@@ -51,6 +52,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <access_token/>
   <controller_url>http://localhost:51121/api/v3/</controller_url>
   <iofog_uuid/>
+  <secure_mode>on</secure_mode>
   <dev_mode>on</dev_mode>
   <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
   <fog_type>auto</fog_type>
@@ -84,6 +86,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <access_token/>
   <controller_url>http://localhost:54421/api/v3/</controller_url>
   <iofog_uuid/>
+  <secure_mode>off</secure_mode>
   <dev_mode>off</dev_mode>
   <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
   <fog_type>auto</fog_type>
