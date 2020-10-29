@@ -156,7 +156,7 @@ Which will effectively create the following pipeline for our data `Sensor` -> `m
 Now that our config YAML file is ready and describes the new state of our application, we can use `iofogctl` to deploy our application.
 
 ```bash
-iofogctl deploy application -f init/tutorial/config.yaml
+iofogctl deploy -f init/tutorial/config.yaml
 ```
 
 Verify that the application got updated as expected
