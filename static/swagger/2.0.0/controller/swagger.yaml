@@ -404,6 +404,209 @@
             description: Invalid Node Id
           '500':
             description: Internal Server Error
+    /application:
+      get:
+        tags:
+          - Application
+        summary: Lists all applications
+        operationId: listApplication
+        parameters:
+          - in: header
+            name: Authorization
+            description: User Token
+            required: true
+            type: string
+        responses:
+          200:
+            description: Success
+            schema:
+              $ref: '#/definitions/ApplicationListResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          404:
+            description: Not Found
+          '500':
+            description: Internal Server Error
+      post:
+        tags:
+          - Application
+        summary: Creates an application
+        operationId: createApplication
+        parameters:
+          - in: header
+            name: Authorization
+            description: User Token
+            required: true
+            type: string
+          - in: body
+            required: true
+            name: ApplicationCreateRequest
+            schema:
+                $ref: '#/definitions/ApplicationCreateRequest'
+        responses:
+          200:
+            description: Success
+            schema:
+                $ref: '#/definitions/ApplicationCreateResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          '500':
+            description: Internal Server Error
+            get:
+              tags:
+              - ioFog
+              summary: Retrieves HAL USB info
+              operationId: getFogHalUsbInfo
+              parameters:
+              - in: path
+                name: uuid
+                description: ioFog node id
+                required: true
+                type: string
+              - in: header
+                name: Authorization
+                description: User token
+                required: true
+                type: string
+              responses:
+                '200':
+                  description: Success
+                  schema:
+                    $ref: '#/definitions/HalInfo'
+                  headers:
+                    X-Timestamp:
+                      type: number
+                      description: FogController server timestamp
+                '401':
+                  description: Not Authorized
+                '404':
+                  description: Invalid Node Id
+                '500':
+                  description: Internal Server Error
+    '/application/{name}':
+      put:
+        tags:
+          - Application
+        summary: Updates an application
+        operationId: updateApplication
+        parameters:
+          - in: header
+            name: Authorization
+            description: User Token
+            required: true
+            type: string
+          - in: body
+            required: true
+            name: ApplicationUpdateRequest
+            schema:
+                $ref: '#/definitions/ApplicationCreateRequest'
+        responses:
+          204:
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          404:
+            description: Not Found
+          '500':
+            description: Internal Server Error
+      patch:
+        tags:
+          - Application
+        summary: Updates an application metadata
+        operationId: patchApplication
+        parameters:
+          - in: header
+            name: Authorization
+            description: User Token
+            required: true
+            type: string
+          - in: body
+            required: true
+            name: ApplicationUpdateRequest
+            schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  isActivated:
+                    type: boolean
+        responses:
+          204:
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          404:
+            description: Not Found
+          '500':
+            description: Internal Server Error
+      delete:
+        tags:
+          - Application
+        summary: Deletes an application
+        operationId: deleteApplication
+        parameters:
+          - in: header
+            name: Authorization
+            description: User Token
+            required: true
+            type: string
+        responses:
+          204:
+            description: Success
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          404:
+            description: Not Found
+          '500':
+            description: Internal Server Error
+      get:
+        tags:
+          - Application
+        summary: Gets an application details
+        operationId: getApplication
+        parameters:
+          - in: header
+            name: Authorization
+            description: User Token
+            required: true
+            type: string
+        responses:
+          200:
+            description: Success
+            schema:
+              $ref: '#/definitions/ApplicationGetResponse'
+            headers:
+              X-Timestamp:
+                type: number
+                description: FogController server timestamp
+          '400':
+            description: Bad Request
+          404:
+            description: Not Found
+          '500':
+            description: Internal Server Error
     '/agent/provision':
       post:
         tags:
@@ -1117,6 +1320,7 @@
         tags:
         - Flow
         summary: Gets list of flows
+        deprecated: true
         operationId: getFlowsList
         parameters:
         - in: header
@@ -1141,6 +1345,7 @@
         tags:
         - Flow
         summary: Creates a new flow
+        deprecated: true
         operationId: createFlow
         parameters:
         - in: header
@@ -1178,6 +1383,7 @@
         - Flow
         summary: Gets flow info
         operationId: getFlowInfo
+        deprecated: true
         parameters:
         - in: header
           name: Authorization
@@ -1209,6 +1415,7 @@
         - Flow
         summary: Updates a flow
         operationId: updateFlow
+        deprecated: true
         parameters:
         - in: header
           name: Authorization
@@ -1246,6 +1453,7 @@
         - Flow
         summary: Deletes a flow
         operationId: deleteFlow
+        deprecated: true
         parameters:
         - in: header
           name: Authorization
@@ -1284,9 +1492,15 @@
           type: string
         - in: query
           name: flowId
+          deprecated: true
           description: Flow Id
           required: false
           type: integer
+        - in: query
+          name: application
+          description: Application name
+          required: false
+          type: string
         responses:
           '200':
             description: Success
@@ -2535,6 +2749,110 @@
           '500':
             description: Internal Server Error
   definitions:
+    ApplicationCreateRequest:
+      type: object
+      properties:
+        name: string
+        description: string
+        isActivated: boolean
+        microservices:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              config:
+                type: string
+              catalogItemId:
+                type: integer
+              registryId:
+                type: integer
+              images:
+                type: array
+                items:
+                  properties:
+                    containerImage:
+                      type: string
+                    fogTypeId:
+                      type: string
+              iofogUuid:
+                type: string
+              rootHostAccess:
+                type: boolean
+              logSize:
+                type: number
+              rebuild:
+                type: boolean
+              volumeMappings:
+                type: array
+                items:
+                  $ref: '#/definitions/VolumeMapping'
+              envs:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                    value: 
+                      type: string
+              cmd:
+                type: array
+                items:
+                  type: string
+              ports:
+                type: array
+                items:
+                  $ref: '#/definitions/PortMappingsRequest'
+        routes:
+          type: array
+          items:
+            type: object
+            properties:
+              from: 
+                type: string
+              to: 
+                type: string
+              name: 
+                type: string
+    ApplicationCreateResponse:
+      type: object
+      properties:
+        id: 
+          type: number
+        name: 
+          type: string
+    ApplicationGetResponse:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+        isActivated:
+          type: boolean
+        userId:
+          type: number
+        microservices:
+          type: array
+          items:
+            $ref: '#/definitions/GetMicroservicesResponse'
+        routes:
+          type: array
+          items:
+            properties:
+              name:
+                type: string
+    ApplicationListResponse:
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            $ref: '#/definitions/ApplicationGetResponse'
     ServiceStatusResponse:
       type: object
       properties:
@@ -3414,6 +3732,29 @@
           type: boolean
         logLimit:
           type: number
+        images:
+          type: array
+          items:
+            properties:
+              containerImage:
+                type: string
+              fogTypeId:
+                type: string
+        iofogUuid:
+          type: string
+        envs:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value: 
+                type: string
+        cmd:
+          type: array
+          items:
+            type: string
         volumeMappings:
           type: array
           items:
@@ -3716,12 +4057,15 @@
     description: Manage your controller
   - name: ioFog
     description: Manage your agents
+  - name: Application
+    description: Manage your applications
   - name: Catalog
     description: Manage your catalog
   - name: Registries
     description: Manage your registries
   - name: Flow
     description: Manage your flows
+    deprecated: true
   - name: Microservices
     description: Manage your microservices
   - name: Routing
