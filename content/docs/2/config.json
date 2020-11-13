@@ -264,6 +264,11 @@
             "title": "Registry YAML Specification",
             "entry": "./reference-iofogctl/reference-registry.md",
             "description": "iofogctl YAML structure and specification for deploying a registry"
+          },
+          {
+            "title": "Template engine for ioFog YAML Specification",
+            "entry": "./reference-iofogctl/reference-template-engine.md",
+            "description": "ioFog template engine for parametric YAML specification"
           }
         ]
       },
