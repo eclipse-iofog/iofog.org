@@ -21,17 +21,23 @@ If we are familiar with `kubectl`, we will know that it relies on a configuratio
 
 In order for `iofogctl` or Helm to do its thing with our Kubernetes cluster, we will have to make sure we have the right [RBAC permissions](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
-The way we add these permissions will depend on our respective Kubernetes provider. Ultimately, we need the User Account associated with our `~/.kube/config` configuration file to have permission to use all verbs against the following resources:
+The way we add these permissions will depend on our respective Kubernetes provider. Ultimately, we need the User Account associated with our `~/.kube/config` configuration file to have at least the following permissions:
 
-- roles
-- clusterroles
-- rolebindings
-- clusterrolebindings
-- services
-- deployments
-- statefulsets
-- pods
-- namespaces
+```yaml
+Resources                               Verbs
+---------                               -----
+configmaps                              [*]
+persistentvolumeclaims                  [*]
+pods                                    [*]
+secrets                                 [*]
+serviceaccounts                         [*]
+services                                [*]
+deployments.apps                        [*]
+rolebindings.rbac.authorization.k8s.io  [*]
+roles.rbac.authorization.k8s.io         [*]
+apps.iofog.org                          [list get watch]
+controlplanes.iofog.org                 [list get watch]
+```
 
 If in doubt, we can use the default cluster role `cluster-admin`.
 
