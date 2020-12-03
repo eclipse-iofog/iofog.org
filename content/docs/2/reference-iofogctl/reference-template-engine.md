@@ -64,12 +64,18 @@ spec:
           - key: https_proxy
             value: "{{ self.microservices | where: \"name\", \"rulesengine\" | first | map: \"env\" | first | where: \"key\" , \"http_proxy\" | first | map: \"value\" | first }}" # get the https proxy from rulesengine ms and env http_proxy
           - key: rulesengineHOST
-            value: "TODO"
+            value: "{%  assign curmsvc= self.microservices | where: \"name\", \"msvc-1\" | first %}{{ curmsvc | findAgent: iofogs | map: \"host\" }}"  # get the host where a microservice is running via agent
           - key: rulesenginePORT
             value: "{{ self.microservices | where: \"name\", \"rulesengine\" | first | map: \"ports\" | first | map: \"external\" | first }}"
+          - key: redisHost # get host and port of a mciroservice
+            value: "{% assign redismsvc = microservices | where: \"name\", \"redistest\" | first %}{{ redismsvc | findAgent: iofogs | map: \"host\"}}:{{ redismsvc | map: \"ports\" | first | first |map: \"external\" | first }}"
+          - key: edgeResLiveness # Get edge resource endpoint for a specific version
+            value: "{{ \"com.orange.smart-door\" | findEdgeResource: \"0.0.1\" | map: \"interface\" | map: \"endpoints\" | first  | where: \"name\", \"liveness\" | first | map: \"url\" }}"
+          - key: edgeResVersion  # Get edge resource endpoint
+            value: "{{ \"com.orange.smart-door\" | findEdgeResource            | map: \"interface\" | map: \"endpoints\" | first  | where: \"name\", \"version\" | first | map: \"url\" }}"
 ```
 
-with controller API the same configuration:
+with controller API the same configuration looks like:
 
 ```json
 {
@@ -169,11 +175,23 @@ with controller API the same configuration:
                 },
                 {
                     "key": "rulesengineHOST",
-                    "value": "TODO"
+                    "value": "{%  assign curmsvc= self.microservices | where: \"name\", \"msvc-1\" | first %}{{ curmsvc | findAgent: iofogs | map: \"host\" }}"
                 },
                 {
                     "key": "rulesenginePORT",
                     "value": "{{ self.microservices | where: \"name\", \"rulesengine\" | first | map: \"ports\" | first | map: \"external\" | first }}"
+                },
+                {
+                    "key": "redisHost",
+                    "value": "{% assign redismsvc = microservices | where: \"name\", \"redistest\" | first %}{{ redismsvc | findAgent: iofogs | map: \"host\"}}:{{ redismsvc | map: \"ports\" | first | first |map: \"external\" | first }}"
+                },
+                {
+                    "key": "edgeResLiveness",
+                    "value": "{{ \"com.orange.smart-door\" | findEdgeResource: \"0.0.1\" | map: \"interface\" | map: \"endpoints\" | first  | where: \"name\", \"liveness\" | first | map: \"url\" }}"
+                },
+                {
+                    "key": "edgeResVersion",
+                    "value": "{{ \"com.orange.smart-door\" | findEdgeResource            | map: \"interface\" | map: \"endpoints\" | first  | where: \"name\", \"version\" | first | map: \"url\" }}"
                 }
             ],
             "cmd": []
@@ -184,9 +202,19 @@ with controller API the same configuration:
 
 The context for scripting contains the variables:
 
-| variable      | Description                                                                                                                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| self          | This is the current object. if deploying an application, this is the current description of the application. The schema of self is the json schema structure.                                                               |
+| variable      | Description                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------- |
+| self          | This is the current object. if deploying an application, this is the current description of the application.          |
+| microservices | This is the list of the microservices deployed on the controller.                                                     |
+| iofogs        | This is the list of agents deployed on the controller.                                                                |
+
+The extra liquid filters available are:
+
+| filter syntax                                                            | Description                                                                                                           |
+| -----------------------------------------------------------------        | --------------------------------------------------------------------------------------------------------------------- |
+| `agentName` \| findAgent: iofogs                                          | Give the agent of `agentName` in the `iofogs` list                                                                   |
+| `resName` \| findEdgeResource or `resName` \| findEdgeResource: `version`| Give all the edge ressource of name `resName` or only `version` requested                                             |
+
 
 ## Caveats
 
