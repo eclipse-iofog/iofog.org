@@ -64,11 +64,11 @@ spec:
           - key: https_proxy
             value: "{{ self.microservices | where: \"name\", \"rulesengine\" | first | map: \"env\" | first | where: \"key\" , \"http_proxy\" | first | map: \"value\" | first }}" # get the https proxy from rulesengine ms and env http_proxy
           - key: rulesengineHOST
-            value: "{%  assign curmsvc= self.microservices | where: \"name\", \"msvc-1\" | first %}{{ curmsvc | findAgent: iofogs | map: \"host\" }}"  # get the host where a microservice is running via agent
+            value: "{%  assign curmsvc= self.microservices | where: \"name\", \"msvc-1\" | first %}{{ curmsvc | findAgent: agents | map: \"host\" }}"  # get the host where a microservice is running via agent
           - key: rulesenginePORT
             value: "{{ self.microservices | where: \"name\", \"rulesengine\" | first | map: \"ports\" | first | map: \"external\" | first }}"
           - key: redisHost # get host and port of a mciroservice
-            value: "{% assign redismsvc = microservices | where: \"name\", \"redistest\" | first %}{{ redismsvc | findAgent: iofogs | map: \"host\"}}:{{ redismsvc | map: \"ports\" | first | first |map: \"external\" | first }}"
+            value: "{% assign redismsvc = microservices | where: \"name\", \"redistest\" | first %}{{ redismsvc | findAgent: agents | map: \"host\"}}:{{ redismsvc | map: \"ports\" | first | first |map: \"external\" | first }}"
           - key: edgeResLiveness # Get edge resource endpoint for a specific version
             value: "{{ \"com.orange.smart-door\" | findEdgeResource: \"0.0.1\" | map: \"interface\" | map: \"endpoints\" | first  | where: \"name\", \"liveness\" | first | map: \"url\" }}"
           - key: edgeResVersion  # Get edge resource endpoint
@@ -175,7 +175,7 @@ with controller API the same configuration looks like:
                 },
                 {
                     "key": "rulesengineHOST",
-                    "value": "{%  assign curmsvc= self.microservices | where: \"name\", \"msvc-1\" | first %}{{ curmsvc | findAgent: iofogs | map: \"host\" }}"
+                    "value": "{%  assign curmsvc= self.microservices | where: \"name\", \"msvc-1\" | first %}{{ curmsvc | findAgent: agents | map: \"host\" }}"
                 },
                 {
                     "key": "rulesenginePORT",
@@ -183,7 +183,7 @@ with controller API the same configuration looks like:
                 },
                 {
                     "key": "redisHost",
-                    "value": "{% assign redismsvc = microservices | where: \"name\", \"redistest\" | first %}{{ redismsvc | findAgent: iofogs | map: \"host\"}}:{{ redismsvc | map: \"ports\" | first | first |map: \"external\" | first }}"
+                    "value": "{% assign redismsvc = microservices | where: \"name\", \"redistest\" | first %}{{ redismsvc | findAgent: agents | map: \"host\"}}:{{ redismsvc | map: \"ports\" | first | first |map: \"external\" | first }}"
                 },
                 {
                     "key": "edgeResLiveness",
@@ -206,13 +206,13 @@ The context for scripting contains the variables:
 | ------------- | --------------------------------------------------------------------------------------------------------------------- |
 | self          | This is the current object. if deploying an application, this is the current description of the application.          |
 | microservices | This is the list of the microservices deployed on the controller.                                                     |
-| iofogs        | This is the list of agents deployed on the controller.                                                                |
+| agents        | This is the list of agents deployed on the controller.                                                                |
 
 The extra liquid filters available are:
 
 | filter syntax                                                            | Description                                                                                                           |
 | -----------------------------------------------------------------        | --------------------------------------------------------------------------------------------------------------------- |
-| `agentName` \| findAgent: iofogs                                          | Give the agent of `agentName` in the `iofogs` list                                                                   |
+| `agentName` \| findAgent: agents                                          | Give the agent of `agentName` in the `agents` list                                                                   |
 | `resName` \| findEdgeResource or `resName` \| findEdgeResource: `version`| Give all the edge ressource of name `resName` or only `version` requested                                             |
 
 
