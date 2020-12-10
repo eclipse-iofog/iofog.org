@@ -8,6 +8,7 @@ import logoEdgeworx from '../../../static/images/logos/edgeworx.svg';
 import logoEclipse from '../../../static/images/logos/eclipse.svg';
 import siteLogo from '../../../static/images/logos/iofog.svg';
 import logoIoT from '../../../static/images/logos/iot.svg';
+import logoENWG from '../../../static/images/logos/enwg-logo.svg';
 
 class Footer extends Component {
   render() {
@@ -72,6 +73,15 @@ class Footer extends Component {
                   <div className="item">
                     <a href="http://edgeworx.io/">
                       <img srcSet={logoEdgeworx} alt="Edgeworx" />
+                    </a>
+                  </div>
+                  <div className="item enwg">
+                    <a href="http://edgenative.eclipse.org/">
+                      <img
+                        height="35"
+                        srcSet={logoENWG}
+                        alt="Edge Native Working Group"
+                      />
                     </a>
                   </div>
                   <div className="item">
