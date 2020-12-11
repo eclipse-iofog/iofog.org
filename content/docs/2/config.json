@@ -248,22 +248,27 @@
           {
             "title": "Application YAML Specification",
             "entry": "./reference-iofogctl/reference-application.md",
-            "description": "iofogctl YAML structure and specification for deploy an application"
+            "description": "iofogctl YAML structure and specification for deploying an Application Template"
+          },
+          {
+            "title": "Application Template YAML Specification",
+            "entry": "./reference-iofogctl/reference-application-template.md",
+            "description": "iofogctl YAML structure and specification for deploying an Application"
           },
           {
             "title": "Route YAML Specification",
             "entry": "./reference-iofogctl/reference-route.md",
-            "description": "iofogctl YAML structure and specification for deploying a route"
+            "description": "iofogctl YAML structure and specification for deploying a Route"
           },
           {
             "title": "Catalog Item YAML Specification",
             "entry": "./reference-iofogctl/reference-catalog.md",
-            "description": "iofogctl YAML structure and specification for deploying a catalog item"
+            "description": "iofogctl YAML structure and specification for deploying a Catalog Item"
           },
           {
             "title": "Registry YAML Specification",
             "entry": "./reference-iofogctl/reference-registry.md",
-            "description": "iofogctl YAML structure and specification for deploying a registry"
+            "description": "iofogctl YAML structure and specification for deploying a Registry"
           }
         ]
       },

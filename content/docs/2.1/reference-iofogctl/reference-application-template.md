@@ -1,37 +1,70 @@
-# Application template YAML Specification
+# Application Template YAML Specification
 
-`iofogctl` allows users to manage a Controller's list of Application templates. To learn more about catalog items, please see [microservice catalog documentation](../applications/microservice-registry-catalog.html).
+In order to simplify the management and deployment of distributed applications, `iofogctl` provides the `ApplicationTemplate` kind.
 
-The catalog item has a very simple definition
+Application Templates allow users to specify an Application once and deploy it many times with different variables. Application Templates do this by allowing users to create Template Variables which can be modified every time an Application is deployed.
+
+To deploy Applications from a Template, first an Application Template must be deployed through `iofogctl deploy -f template.yaml`. An Application Template YAML spec contains an Application spec with Templated Variables.
 
 ```yaml
 apiVersion: iofog.org/v2
-kind: CatalogItem
+kind: ApplicationTemplate
 metadata:
-  name: my-multiplatform-microservice
+  name: my-template
 spec:
-  id: 0
-  description: Alpine Linux
-  x86: amd64/alpine:latest
-  arm: arm32v6/alpine:latest
-  registry: remote
-  configExample: '{"key": "value"}'
+    name: my-template
+    description: My app template
+    variables:
+    - key: agent-name # Templated variable pertaining to value in spec.application.microservices[0].agent.name below
+      description: Name of Agent to deploy Microservices to
+      defaultValue: zebra-1
+    application: # Typical Application kind spec (fields omitted for simplicity)
+      routes:
+      ...
+      microservices:
+      - name: heart-rate-viewer
+        agent:
+          name: "{{agent-name}}" # Templated Variable (quotation marks are required)
+        ...
+      ...
 ```
 
-| Field         | Description                                                                    |
-| ------------- | ------------------------------------------------------------------------------ |
-| id            | Assigned by Controller, read only                                              |
-| description   | Human readable description of the Catalog Item                                 |
-| x86           | x86 Docker image                                                               |
-| arm           | arm32 Docker image                                                             |
-| registry      | Registry to use to fetch Docker images, options: {local, remote, registryID}   |
-| configExample | Json object with key-value pairs indicating example microservice configuration |
+| Field                  | Description                                                                                                                                     |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| name                   | User-defined unique identifier of an Application Template. Must start and end with lowercase alphanumeric character. Can include '-' character. |
+| description            | Additional detail of the Application Template that user wishes to specify.                                                                      |
+| variables              | List of Template Variables to be expected in spec.application.                                                                                  |
+| variables.defaultValue | Value the Templated Variable should take if an Application is deployed without providing a value.                                               |
+| variables.description  | Additional detail of the Template Variable that user wishes to specify.                                                                         |
 
-Note that the `configExample` field is a yaml map specifying the key value pairs, but it is internally stored a stringified JSON object of these values, similarly to how configuration is sent to microservices.
+## Templated Application YAML Specification
+
+Once an Application Template has been created, the following Application YAML can be used to deploy an Application from the Template with the requisite variables specified:
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Application
+metadata:
+  name: my-app
+spec:
+  template:
+    name: my-template
+    variables:
+      - key: agent-name
+        value: zebra-2
+```
+
+| Field                | Description                                                                              |
+| -------------------- | ---------------------------------------------------------------------------------------- |
+| metadata.name        | Name of the Application.                                                                 |
+| spec.name            | Name of the Application Template used to create the Application.                         |
+| spec.variables       | List of Template Variables to be expected in spec.application.                           |
+| spec.variables.key   | Name of the Templated Variable expected in Application spec of the Application Template. |
+| spec.variables.value | Value the Templated Variable should take for this Application deployment.                |
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.1/reference-iofogctl/reference-catalog.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/reference-iofogctl/reference-application.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

@@ -17,7 +17,7 @@ Those variables allow you to reference the same document, or any resource preexi
 - Assigning a value: `{% assign agent = "agent-name" | findAgent %}`
 - Example: Getting the host value of the agent named `zebra-1`: `{% assign agent = "zebra-1" | findAgent %}{{ agent.host }}`
 
-[Find out more!](../reference-iofogctl/reference-template-engine.html)
+[Find out more](../reference-iofogctl/reference-template-engine.html) and check out the [YAML specification](../reference-iofogctl/reference-application-template.html)!
 
 ## Application templates
 
