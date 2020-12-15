@@ -6,7 +6,9 @@
 
 ## Template parametric expressions
 
-For every `yaml` configuration files and also for the corresponding controller API request body, the template parametric expression can be used for any value.
+Variables, filter and template "queries" can now be used as values for any field in your deployment YAMLs (And therefore, any value of the JSON body of most PUT/POST/PATCH Controller REST API requests).
+
+Those variables allow you to reference the same document, or any resource preexisting on your Controller, adding a lot of flexibility in your deployments.
 
 #### Quick capabilities overview
 

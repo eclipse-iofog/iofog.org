@@ -226,7 +226,7 @@
             "description": ""
           },
           {
-            "title": "Application templates, a.k.a \"App Store\"",
+            "title": "Application templates",
             "entry": "./applications/application-templates.md",
             "description": ""
           },

@@ -1,6 +1,8 @@
-# Template engine for ioFog configuration
+# Template engine for ioFog YAML Specification
 
-For every `yaml` configuration files and also for the corresponding controller API request body, the template parametric expression can be used for any value.
+Variables, filter and template "queries" can now be used as values for any field in your deployment YAMLs (And therefore, any value of the JSON body of most PUT/POST/PATCH Controller REST API requests).
+
+Those variables allow you to reference the same document, or any resource preexisting on your Controller, adding a lot of flexibility in your deployments.
 
 The values are interpolated (replaced) when the request is made to Controller. The variable value is a `snapshot` of the referenced value when the request is made. Any subsequent modification of the underlying value will NOT be repercussed.
 
