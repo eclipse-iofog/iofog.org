@@ -251,11 +251,6 @@
             "description": "iofogctl YAML structure and specification for deploying an Application Template"
           },
           {
-            "title": "Application Template YAML Specification",
-            "entry": "./reference-iofogctl/reference-application-template.md",
-            "description": "iofogctl YAML structure and specification for deploying an Application"
-          },
-          {
             "title": "Route YAML Specification",
             "entry": "./reference-iofogctl/reference-route.md",
             "description": "iofogctl YAML structure and specification for deploying a Route"
