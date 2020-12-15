@@ -396,7 +396,7 @@ For Endpoints numbers 6, 8, 10, 12, 14, 16, 18 (basically the ones with mac para
 
 The `REST Blue` images will always be available on ioFog Controllers using the catalog item ID `2`.
 
-Please refer to the [catalog overview](../microservices/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
+Please refer to the [catalog overview](../applications/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

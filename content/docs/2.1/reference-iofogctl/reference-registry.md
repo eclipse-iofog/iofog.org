@@ -1,6 +1,6 @@
 # Registry YAML Specification
 
-`iofogctl` allows users to manage a Controller's list of registries. To learn more about registries, please see [microservice registry documentation](../microservices/microservice-registry-catalog.html#registries).
+`iofogctl` allows users to manage a Controller's list of registries. To learn more about registries, please see [microservice registry documentation](../applications/microservice-registry-catalog.html#registries).
 
 The registry has a very simple definition
 

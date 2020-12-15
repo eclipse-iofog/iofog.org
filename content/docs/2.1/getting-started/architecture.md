@@ -47,7 +47,7 @@ The last absolutely essential components in edge computing are microservices. Th
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">Want to know more about microservices?</h3>
-  <p>If you want to know more about managing microservices in ioFog, head to <a href="../microservices/applications.html">Microservice management</a>.</p>
+  <p>If you want to know more about managing microservices in ioFog, head to <a href="../applications/applications.html">Microservice management</a>.</p>
   <p>You can also head to our tutorial for developers to <a href="../tutorial/introduction.html">Learn how to use ioFog and build microservices</a></p>
 </aside>
 

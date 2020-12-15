@@ -338,7 +338,7 @@ spec:
   certificate: ''
 ```
 
-To learn more about Registry, please see [Registry and Catalog Management](../microservices/microservice-registry-catalog.html).
+To learn more about Registry, please see [Registry and Catalog Management](../applications/microservice-registry-catalog.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

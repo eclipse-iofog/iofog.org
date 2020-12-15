@@ -91,7 +91,7 @@ _"frequency" - the frequency of message sending in millis_
 - The `JSON REST API` images will always be available on ioFog Controllers using the catalog item ID `7`.
 - The `Open Weather Map` images will always be available on ioFog Controllers using the catalog item ID `8`.
 
-Please refer to the [catalog overview](../microservices/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
+Please refer to the [catalog overview](../applications/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
 
 **Request**
 

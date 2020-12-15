@@ -10,7 +10,7 @@ The following is an exhaustive list of the ingress firewall rules required for a
 | Controller | http:80       | ECN Viewer to be accessible by ECN admins or users.               |
 | iofogctl   | tcp:22        | SSH access to install ioFog Controller and Agent on remote hosts. |
 
-Please keep in mind that once we start [exposing microservices using public ports](../microservices/microservice-exposing.html) in our ECNs, there will be additional ports that we expect to be accessible from outside of the network.
+Please keep in mind that once we start [exposing microservices using public ports](../applications/microservice-exposing.html) in our ECNs, there will be additional ports that we expect to be accessible from outside of the network.
 
 <aside class="notifications tip">
   <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>

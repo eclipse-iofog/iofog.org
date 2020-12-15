@@ -18,7 +18,7 @@ The rest of this section will cover how we can manage our distributed applicatio
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.1/microservices/applications.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.1/applications/introduction.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

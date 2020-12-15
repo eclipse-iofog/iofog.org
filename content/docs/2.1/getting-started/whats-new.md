@@ -1,8 +1,8 @@
 # What's New in ioFog 2.1.0?
 
 - [Template parametric expressions](../reference-iofogctl/reference-template-engine.html) now available!
-- [Application template](../reference-iofogctl/reference-application-template.html), build your own App Store!
-- [Edge resources](../reference-iofogctl/reference-edge-resources.html), let your microservices know what their Agent is capable of!
+- [Application template](../applications/application-templates.html), build your own App Store!
+- [Edge resources](../agent-management/edge-resources.html), let your microservices know what their Agent is capable of!
 
 ## Template parametric expressions
 
@@ -19,11 +19,19 @@ For every `yaml` configuration files and also for the corresponding controller A
 
 ## Application templates
 
-[Find out more!](../reference-iofogctl/reference-application-template.html)
+What if we need to deploy the same code on a lot of Agents? We would need to details all the microservices and routes in a separate YAML document for every instance of your Application. This is tedious and error prone, as often only a few values would change from one Agent to another.
+
+Wouldn't it be nice to have a way to specify the skeleton (template) of an Application and then reuse the same template over an over again, only modifying a few variables? That's where the Controller Application Template catalog comes into play!
+
+[Find out more!](../applications/application-templates.html)
 
 ## Edge resources
 
-[Find out more!](../reference-iofogctl/reference-edge-resources.html)
+The Edge is where the virtual meets the physical. Most if not all Edge applications are built to interact in some way with entities or resources that exist in the physical world.
+
+Edge Resources are Digital Twins that allow you to define an interface for your microservices to communicate with resources available on your ioFog Agents.
+
+[Find out more!](../agent-management/edge-resources.html)
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

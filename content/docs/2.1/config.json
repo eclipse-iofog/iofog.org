@@ -6,9 +6,9 @@
         "title": "Getting Started",
         "subMenus": [
           {
-            "title": "What's New in ioFog 2?",
+            "title": "What's New in ioFog 2.1?",
             "entry": "./getting-started/whats-new.md",
-            "description": "List of features in ioFog 2 and their impact to users."
+            "description": "List of features in ioFog 2.1 and their impact to users."
           },
           {
             "title": "Core Concepts",
@@ -139,6 +139,11 @@
             "title": "Docker Image Pruning",
             "entry": "./agent-management/docker-image-pruning.md",
             "description": ""
+          },
+          {
+            "title": "Edge Resources",
+            "entry": "./agent-management/edge-resources.md",
+            "description": ""
           }
         ]
       },
@@ -193,36 +198,41 @@
         ]
       },
       {
-        "title": "Microservice Management",
+        "title": "Applications Management",
         "subMenus": [
           {
-            "title": "Distributed Applications",
-            "entry": "./microservices/applications.md",
+            "title": "Introduction",
+            "entry": "./applications/introduction.md",
             "description": ""
           },
           {
             "title": "Microservice Public Ports",
-            "entry": "./microservices/microservice-exposing.md",
+            "entry": "./applications/microservice-exposing.md",
             "description": ""
           },
           {
             "title": "Move and Rename Microservices",
-            "entry": "./microservices/microservice-move-rename.md",
+            "entry": "./applications/microservice-move-rename.md",
             "description": ""
           },
           {
             "title": "Microservice Updates and Lifecycle",
-            "entry": "./microservices/microservice-lifecycle-management.md",
+            "entry": "./applications/microservice-lifecycle-management.md",
             "description": ""
           },
           {
             "title": "Microservice Registry and Catalog Management",
-            "entry": "./microservices/microservice-registry-catalog.md",
+            "entry": "./applications/microservice-registry-catalog.md",
+            "description": ""
+          },
+          {
+            "title": "Application templates, a.k.a \"App Store\"",
+            "entry": "./applications/application-templates.md",
             "description": ""
           },
           {
             "title": "Microservice Logs",
-            "entry": "./microservices/microservice-logs.md",
+            "entry": "./applications/microservice-logs.md",
             "description": ""
           }
         ]

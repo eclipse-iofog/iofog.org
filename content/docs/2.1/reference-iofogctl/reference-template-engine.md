@@ -227,7 +227,8 @@ with controller API the same configuration looks like:
 
 ## Caveats
 
-The algoritmic operator of `liquidjs` or variable assignment have the scope on the processing string.
+- Variables defined in an Application Template will only be evaluated when the template is used to deploy an actual Application
+- The algoritmic operator of `liquidjs` or variable assignment have the scope on the processing string.
 
 ```yaml
 ---
@@ -235,6 +236,22 @@ The algoritmic operator of `liquidjs` or variable assignment have the scope on t
           - key: testaffect
             value: "{% assign ms =self.microservices | where: \"name\", \"rulesengine\" | first %}{{ ms.env | where: \"key\" , \"http_proxy\" | first }}"
 ....
+```
+
+- Make sure to define the template parametric expressions as `string`, otherwise the YAML parser will interpret them as Object, and you will encounter multiple type of errors
+
+Incorrect:
+
+```yaml
+---
+name: { { my-variable } } # This will error, as name are expected to be strings, and the yaml parser will interpret this as an object
+```
+
+Correct:
+
+```yaml
+---
+name: '{{my-variable}}' # This will behave as expected
 ```
 
 <aside class="notifications contribute">

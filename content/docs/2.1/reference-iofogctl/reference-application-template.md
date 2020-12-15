@@ -1,6 +1,6 @@
 # Application template YAML Specification
 
-`iofogctl` allows users to manage a Controller's list of catalog items. To learn more about catalog items, please see [microservice catalog documentation](../microservices/microservice-registry-catalog.html).
+`iofogctl` allows users to manage a Controller's list of Application templates. To learn more about catalog items, please see [microservice catalog documentation](../applications/microservice-registry-catalog.html).
 
 The catalog item has a very simple definition
 

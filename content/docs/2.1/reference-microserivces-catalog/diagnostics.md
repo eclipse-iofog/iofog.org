@@ -62,7 +62,7 @@ If "report_url" is not provided or is not available then whole output will be lo
 
 The `Diagnostic` images will always be available on ioFog Controllers using the catalog item ID `4`.
 
-Please refer to the [catalog overview](../microservices/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
+Please refer to the [catalog overview](../applications/microservice-registry-catalog.html) if you don't know yet how to deploy microservices using catalog items.
 
 ## Diagnostics output is the detailed logs about system functionality.
 
