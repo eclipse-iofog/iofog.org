@@ -156,7 +156,7 @@ Which will effectively create the following pipeline for our data `Sensor` -> `m
 Now that our config YAML file is ready and describes the new state of our application, we can use `iofogctl` to deploy our application.
 
 ```bash
-iofogctl deploy application -f init/tutorial/config.yaml
+iofogctl deploy -f init/tutorial/config.yaml
 ```
 
 Verify that the application got updated as expected
@@ -278,7 +278,7 @@ Congratulations! You've now have the fundamentals of ioFog. Next, try developing
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/tutorial/deploy-our-microservice.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.1/tutorial/deploy-our-microservice.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

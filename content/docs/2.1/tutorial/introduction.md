@@ -30,7 +30,7 @@ On Unix based systems, download our tar.gz package.
 ```bash
 mkdir -p /tmp/iofog/demo
 cd /tmp/iofog/demo
-curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v2.0.2.tar.gz
+curl -L -o demo.tar.gz https://github.com/eclipse-iofog/demo/archive/v2.0.0.tar.gz
 tar -zxvf demo.tar.gz --strip-components=1
 ```
 
@@ -65,7 +65,7 @@ With a working ioFog environment set up, we're now ready to get to know ioFog.
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/tutorial/introduction.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.1/tutorial/introduction.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

@@ -1,6 +1,6 @@
 [
   {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "menus": [
       {
         "title": "Getting Started",
@@ -248,7 +248,12 @@
           {
             "title": "Application YAML Specification",
             "entry": "./reference-iofogctl/reference-application.md",
-            "description": "iofogctl YAML structure and specification for deploy an application"
+            "description": "iofogctl YAML structure and specification for deploying an application"
+          },
+          {
+            "title": "Application Template YAML Specification",
+            "entry": "./reference-iofogctl/reference-application-template.md",
+            "description": "iofogctl YAML structure and specification for deploying an application template"
           },
           {
             "title": "Route YAML Specification",
@@ -264,6 +269,16 @@
             "title": "Registry YAML Specification",
             "entry": "./reference-iofogctl/reference-registry.md",
             "description": "iofogctl YAML structure and specification for deploying a registry"
+          },
+          {
+            "title": "Edge Resources YAML Specification",
+            "entry": "./reference-iofogctl/reference-edge-resources.md",
+            "description": "iofogctl YAML structure and specification for deploying edge resources"
+          },
+          {
+            "title": "Template engine for ioFog YAML Specification",
+            "entry": "./reference-iofogctl/reference-template-engine.md",
+            "description": "ioFog template engine for parametric YAML specification"
           }
         ]
       },

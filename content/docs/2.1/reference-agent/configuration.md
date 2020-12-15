@@ -19,7 +19,8 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <access_token/>
   <controller_url>http://localhost:54421/api/v3/</controller_url>
   <iofog_uuid/>
-  <dev_mode>on</dev_mode>
+  <secure_mode>on</secure_mode>
+  <dev_mode>off</dev_mode>
   <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
   <fog_type>auto</fog_type>
   <network_interface>dynamic</network_interface>
@@ -51,6 +52,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <access_token/>
   <controller_url>http://localhost:51121/api/v3/</controller_url>
   <iofog_uuid/>
+  <secure_mode>on</secure_mode>
   <dev_mode>on</dev_mode>
   <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
   <fog_type>auto</fog_type>
@@ -84,6 +86,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <access_token/>
   <controller_url>http://localhost:54421/api/v3/</controller_url>
   <iofog_uuid/>
+  <secure_mode>off</secure_mode>
   <dev_mode>off</dev_mode>
   <controller_cert>/etc/iofog-agent/cert.crt</controller_cert>
   <fog_type>auto</fog_type>
@@ -111,7 +114,7 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/reference-agent/configuration.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.1/reference-agent/configuration.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>

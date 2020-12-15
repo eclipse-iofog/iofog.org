@@ -1,4 +1,17 @@
-## ioFog v2
+## ioFog v2.1.0
+
+- [Template parametric expressions](../reference-iofogctl/reference-template-engine.html) now available!
+- [Application template](../reference-iofogctl/reference-application-template.html), build your own App Store!
+- [Edge resources](../reference-iofogctl/reference-application-template.html), let your microservices know what their Agent is capable of!
+
+### Changelogs
+
+- [Controller](https://github.com/eclipse-iofog/Controller/blob/release/2.1/CHANGELOG.md)
+- [Agent](https://github.com/eclipse-iofog/Agent/blob/release/2.1/CHANGELOG.md)
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/release/2.1/CHANGELOG.md)
+- [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/release/2.1/CHANGELOG.md)
+
+## ioFog v2.0.0
 
 [Get Started with ioFog v2](/docs/2/getting-started/core-concepts.html)
 

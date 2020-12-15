@@ -54,7 +54,8 @@ iofog-agent config defaults
 | **-idc on/off**            | Set the mode on which any not registered docker container will be shut down                                                                                                |
 | **-gps auto/off/number**   | Set gps location of fog. Use auto to get coordinates by IP, use off to forbid gps, use GPS coordinates in DD format to set them manually. Format: DD.DDD(lat), DD.DDD(lon) |
 | **-ft auto/intel_amd/arm** | Set fog type. Use auto to detect fog type by system commands, use arm or intel_amd to set it manually                                                                      |
-| **-dev on/off**            | Set the developer's mode without using ssl certificates                                                                                                                    |
+| **-sec on/off**            | Set the secure mode without using ssl certificates                                                                                                                         |
+| **-dev on/off**            | Set the developer's mode                                                                                                                                                   |
 
 ## switch
 
@@ -122,7 +123,7 @@ iofog-agent help
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
-  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2/reference-agent/cli-usage.md"
+  <a href="https://github.com/eclipse-iofog/iofog.org/edit/develop/content/docs/2.1/reference-agent/cli-usage.md"
     target="_blank">
     <p>Edit this page on Github!</p>
   </a>
