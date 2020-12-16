@@ -86,7 +86,7 @@
             "description": "Set up remote hosts to be accessible by iofogctl in order to deploy iofog Controller"
           },
           {
-            "title": "Remote - Deploy Control Plane",
+            "title": "Remote Host - Deploy Control Plane using iofogctl",
             "entry": "./platform-deployment/remote-control-plane.md",
             "description": "Deploy ioFog Controller"
           },

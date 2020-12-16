@@ -119,32 +119,6 @@ spec:
 | ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Controller service.                                                                    |
 | ssh.port    | Port to use with SSH. Optional (default: 22)                                                                                                                             |
 
-## Remote Agent
-
-Agents are components of an ECN which run on edge nodes. They communicate with Controllers to allow your edge nodes to host Microservices.
-
-```yaml
-apiVersion: iofog.org/v2
-kind: Agent
-metadata:
-  name: meerkat
-  namespace: default
-spec:
-  host: 30.40.50.6
-  ssh:
-    user: foo
-    keyFile: ~/.ssh/id_rsa
-    port: 22
-```
-
-| Field       | Description                                                                                                                                                         |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name        | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
-| host        | Hostname of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
-| ssh.user    | Username of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
-| ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Agent service.                                                                    |
-| ssh.port    | Port to use with SSH. Optional (default: 22).                                                                                                                       |
-
 ## Edge Compute Network
 
 An entire ECN can be specified within a single YAML file.

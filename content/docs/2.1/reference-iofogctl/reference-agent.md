@@ -1,4 +1,69 @@
-# Agent configuration YAML Specification
+# Agent YAML Specification
+
+Agents are components of an ECN which run on edge nodes. They communicate with Controllers to allow your edge nodes to host Microservices.
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Agent
+metadata:
+  name: meerkat
+  namespace: default
+spec:
+  host: 30.40.50.6
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa
+    port: 22
+```
+
+| Field       | Description                                                                                                                                                         |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name        | User-defined unique identifier of Agent instance within an iofogctl namespace. Must start and end with lowercase alphanumeric character. Can include '-' character. |
+| host        | Hostname of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
+| ssh.user    | Username of remote host that iofogctl must SSH into to install Agent service.                                                                                       |
+| ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Agent service.                                                                    |
+| ssh.port    | Port to use with SSH. Optional (default: 22).                                                                                                                       |
+
+## Agent Installation Plugins YAML Specification
+
+Agents can be specified to require user-defined installation scripts to be executed instead of the default `iofogctl` installation procedures.
+
+Custom installation scripts are specified through the optional field `scripts` in the Agent YAML.
+
+```yaml
+apiVersion: iofog.org/v2
+kind: Agent
+metadata:
+  name: meerkat
+  namespace: default
+spec:
+  scripts:
+    dir: /tmp/my-scripts
+    deps:
+      entrypoint: install_deps.sh
+    install:
+      entrypoint: install_iofog.sh
+      args:
+        - 2.0.1
+    uninstall:
+      entrypoint: uninstall_iofog.sh
+  host: 30.40.50.6
+  ssh:
+    user: foo
+    keyFile: ~/.ssh/id_rsa
+    port: 22
+```
+
+| Field                 | Description                                                                                                                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| scripts.dir           | Source directory containing all scripts to be used in Agent installation and uninstallation procedures. All files in this directory are copied to `/etc/iofog/agent/` on the Agent host. |
+| scripts.deps          | Details pertaining to the script in `scripts.dir` which serves as the entrypoint to installing pre-requisites of ioFog Agent.                                                            |
+| scripts.install       | Details pertaining to the script in `scripts.dir` which serves as the entrypoint to installing ioFog Agent.                                                                              |
+| scripts.uninstall     | Details pertaining to the script in `scripts.dir` which serves as the entrypoint to uninstalling ioFog Agent.                                                                            |
+| scripts.\*.entrypoint | Name of the script in `scripts.dir` which serves as the entrypoint to a procedure run on the Agent host.                                                                                 |
+| scripts.\*.args       | List of arguments to be provided to the entrypoint when invoked on the Agent host.                                                                                                       |
+
+# Agent Configuration YAML Specification
 
 Agent configuration YAML files let you configure an ioFog Agent provisioned with your Controller.
 

@@ -3,11 +3,11 @@
   <p>There are two flavours of Control Plane deployments - Remote and Kubernetes. This guide will focus on deploying a Remote Control Plane on a single Linux remote host. Go to <a href="kubernetes-prepare-cluster.html">Kubernetes - Prepare A Cluster</a> to deploy the Control Plane on Kubernetes Cluster instead.</p>
 </aside>
 
-# Remote - Deploy Control Plane
+# Remote Host - Deploy Control Plane
 
 Every Edge Compute Network ('ECN') starts with a Control Plane that allows us to manage ECN's resources.
 
-In this guide, our Control Plane will deploy a single Controller instance.
+In this guide, our Control Plane will deploy a single Controller instance on a remote host.
 
 <aside class="notifications note">
   <h3><img src="/images/icos/ico-note.svg" alt="">We use YAML to define ioFog resources</h3>
