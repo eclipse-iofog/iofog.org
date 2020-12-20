@@ -89,7 +89,7 @@ spec:
 
 Upon Agent deployment, `iofogctl` will copy these scripts to `/etc/iofog/agent/`. It will then first invoke `install_deps.sh` as the entrypoint to the pre-requisites procedure. `install_deps.sh` will call `install_java.sh` and `install_docker.sh` directly. Finally, `iofogctl` will invoke `install_iofog.sh` as the Agent installation procedure.
 
-Check out the [YAML specification](../reference-iofogctl/reference-agent.html#agent-installation-plugins-yaml-specification) to get started!
+Check out the [YAML specification](../reference-iofogctl/reference-agent.html#installation-plugins) to get started!
 
 <aside class="notifications tip">
   <h3><img src="/images/icos/ico-tip.svg" alt="">Where to go from here?</h3>

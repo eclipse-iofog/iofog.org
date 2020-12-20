@@ -251,7 +251,7 @@
             "description": "iofogctl YAML structure and specifications for platform (Controller and Agent)"
           },
           {
-            "title": "Agent configuration YAML Specification",
+            "title": "Agent YAML Specification",
             "entry": "./reference-iofogctl/reference-agent.md",
             "description": "iofogctl YAML structure and specifications for configuring an ioFog Agent"
           },

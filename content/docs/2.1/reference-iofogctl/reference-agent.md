@@ -24,7 +24,7 @@ spec:
 | ssh.keyFile | Path to private SSH key that iofogctl must use to SSH into remote host to install Agent service.                                                                    |
 | ssh.port    | Port to use with SSH. Optional (default: 22).                                                                                                                       |
 
-## Agent Installation Plugins YAML Specification
+#### Installation Plugins
 
 Agents can be specified to require user-defined installation scripts to be executed instead of the default `iofogctl` installation procedures.
 
@@ -65,11 +65,11 @@ spec:
 
 # Agent Configuration YAML Specification
 
-Agent configuration YAML files let you configure an ioFog Agent provisioned with your Controller.
+Agent Configuration YAML files let you configure an ioFog Agent provisioned with your Controller. You can use Agent Configuration to modify the behaviour of an Agent after it is deployed.
 
-An Agent configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`
+An Agent Configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`
 
-An Agent configuration can be deployed using `iofogctl deploy -f agent-config.yaml`
+An Agent Configuration can be deployed using `iofogctl deploy -f agent-config.yaml`
 
 ```yaml
 apiVersion: iofog.org/v2
