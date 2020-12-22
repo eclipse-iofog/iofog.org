@@ -60,7 +60,7 @@ The `package.json` file should look something like this now:
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@iofog/nodejs-sdk": "0.0.1"
+    "@iofog/nodejs-sdk": "2.5.0"
   }
 }
 ```
@@ -355,7 +355,7 @@ We now to need to package up our code as a Docker image, so that we can deploy i
 Like all build scripts, Dockerfiles can become a bit complex for advanced applications, but fortunately, ours is fairly simple:
 
 ```console
-echo "FROM node:8
+echo "FROM node:14
 WORKDIR /moving-average
 COPY ./package.json .
 RUN npm install --only=production
@@ -365,7 +365,7 @@ CMD node ." > Dockerfile
 
 In case you are not familiar with [Dockerfile](https://docs.docker.com/engine/reference/builder/), here is a quick run down of the building steps:
 
-1. Use a [public base image](https://hub.docker.com/_/node) `node:8` to start with
+1. Use a [public base image](https://hub.docker.com/_/node) `node:14` to start with
 2. Set the image current working directory to `/moving-average`
 3. Copy `package.json` from the current local folder into `/moving-average` inside the image
 4. Run `npm install --only=production`, which will install all required `node_modules` for production
