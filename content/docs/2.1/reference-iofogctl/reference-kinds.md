@@ -2,7 +2,9 @@
 
 ## Common Header YAML Specification
 
-The most important commands of `iofogctl` consume YAML files as input. A YAML file consists of one or more resources. Every resource contains a header section and a spec section. The header section contains fields common to all resources defined within the spec section.
+The most important commands of `iofogctl` consume YAML files as input. A YAML file consists of one or more resources.
+
+Every resource contains a header section and a spec section. The header section contains fields common to all supported kinds.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -24,7 +26,7 @@ spec:
 
 ## ControlPlane
 
-The Control Plane component specifies all the resources required to deploy the ioFog Control Plane on a set of remote hosts.
+The `ControlPlane` kind specifies all the details required to deploy the ioFog Control Plane on a set of remote hosts.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -47,11 +49,11 @@ spec:
         port: 22
 ```
 
-To learn more about ControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-control-plane).
+To learn more about the `ControlPlane` kind, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-control-plane).
 
 ## KubernetesControlPlane
 
-The Kubernetes Control Plane specifies all the resources required to deploy the ioFog Control Plane on a Kubernetes cluster.
+The `KubernetesControlPlane` kind specifies all the details required to deploy the ioFog Control Plane on a Kubernetes cluster.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -68,11 +70,11 @@ spec:
   config: ~/.kube/config
 ```
 
-To learn more about KubernetesControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#kubernetes-control-plane).
+To learn more about the `KubernetesControlPlane` kind, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#kubernetes-control-plane).
 
 ## LocalControlPlane
 
-The Local Control Plane component specifies all the resources required to deploy the ioFog Control Plane locally as a docker container
+The `LocalControlPlane` kind specifies all the details required to deploy the ioFog Control Plane locally as a docker container.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -90,11 +92,11 @@ spec:
       image: iofog/controller:2.0.0
 ```
 
-To learn more about LocalControlPlane, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
+To learn more about `LocalControlPlane`, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
 
 ## Controller
 
-We can expand a Remote Control Plane by deploying a new Controller.
+We can expand a Remote Control Plane by deploying a new Controller via the `Controller` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -110,11 +112,11 @@ spec:
     port: 22
 ```
 
-To learn more about Controller, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-controller).
+To learn more about the `Controller` kind, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-controller).
 
 ## Agent
 
-We can expand any Control Plane by deploying new Agents. They communicate with Controllers and manages your edge nodes to host Microservices.
+Once a Control Plane is set up, we can deploy Agents to remote hosts via the `Agent` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -130,11 +132,11 @@ spec:
     port: 22
 ```
 
-To learn more about Agent, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#remote-agent).
+To learn more about the `Agent` kind, please see [Iofogctl Agent YAML Specification](../reference-iofogctl/reference-agent.html).
 
 ## LocalAgent
 
-We can deploy a local Agent.
+Once a Control Plane is set up, we can deploy Agents as a local container via the `LocalAgent` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -146,9 +148,11 @@ spec:
     image: iofog/agent:2.0.2
 ```
 
+To learn more about the `LocalAgent` kind, please see the [Quick Start](../getting-started/quick-start-local.html).
+
 ## AgentConfig
 
-We can deploy or update the Agent Configuration.
+We can modify Agent behaviour dynamically via the `AgentConfig` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -189,11 +193,11 @@ spec:
   availableDiskThreshold: 90
 ```
 
-To learn more about AgentConfig, please see [Iofogctl agent configuration YAML specification](../reference-iofogctl/reference-agent.html).
+To learn more about the `AgentConfig` kind, please see the [Agent management section](../agent-management/agent-configuration.html) and [Iofogctl Agent YAML specification](../reference-iofogctl/reference-agent.html).
 
 ## CatalogItem
 
-The catalog item has a very simple definition
+Microservice Catalogs can be created via the `CatalogItem` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -209,11 +213,11 @@ spec:
   configExample: '{"key": "value"}'
 ```
 
-To learn more about CatalogItem, please see [Iofogctl Catalog Item YAML specification](../reference-iofogctl/reference-catalog.html).
+To learn more about the `CatalogItem` kind, please see [Iofogctl Catalog Item YAML specification](../reference-iofogctl/reference-catalog.html).
 
 ## Application
 
-An application is a set of Microservices working together to achieve one specific purpose.
+A set of Microservices can be deployed via the `Application` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -263,11 +267,11 @@ spec:
       to: heart-rate-viewer
 ```
 
-To learn more about Application, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html).
+To learn more about the `Application` kind, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html).
 
 ## Microservice
 
-Microservices configuration and set up are defined using YAML files.
+Individual Microservices can be deployed and configured via the `Microservice` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -277,8 +281,6 @@ metadata:
 spec:
   agent:
     name: func-test-0
-    config:
-      memoryLimit: 8192
   images:
     arm: edgeworx/healthcare-heart-rate:test-arm
     x86: edgeworx/healthcare-heart-rate:test
@@ -301,11 +303,11 @@ spec:
     data_label: Anonymous_Person_2
 ```
 
-To learn more about Microservice, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html#microservices).
+To learn more about the `Microservice` kind, please see [Iofogctl Application YAML specification](../reference-iofogctl/reference-application.html#microservices).
 
 ## Volume
 
-We can deploy Volume.
+Directories can be pushed to Agent hosts so that Microservice volume requirements are fulfilled via the `Volume` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -320,11 +322,11 @@ spec:
     - agent-2
 ```
 
-To learn more about Volume, please see [Volume Management](../agent-management/volumes.html).
+To learn more about the `Volume` kind, please see [Volume Management](../agent-management/volumes.html).
 
 ## Registry
 
-We can deploy Registry.
+Private container image registries for Microservices can be set up via the `Registry` kind.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -338,7 +340,7 @@ spec:
   certificate: ''
 ```
 
-To learn more about Registry, please see [Registry and Catalog Management](../applications/microservice-registry-catalog.html).
+To learn more about the `Registry` kind, please see [Registry and Catalog Management](../applications/microservice-registry-catalog.html).
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
