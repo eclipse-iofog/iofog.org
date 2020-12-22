@@ -33,7 +33,7 @@ Edge Resources are Digital Twins that allow you to define an interface for your 
 
 `iofogctl` can install ioFog Agent on a number of Linux distributions out of the box. However, the list of supported distributions is finite; in order to allow the community to add support for any host environment, `iofogctl` has been updated with the ability to run user-defined installation scripts for Agent and its dependancies.
 
-[Find out more](../platform-deployment/setup-your-agents.html#customize-agent-installation) and check out the [YAML specification](../reference-iofogctl/reference-agent.html#installation-plugins)!
+[Find out more](../platform-deployment/setup-your-agents.html#customize-agent-installation) and check out the [YAML specification](../reference-iofogctl/reference-agent.html#installation-plugin-fields)!
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

@@ -1,10 +1,12 @@
 # Agent Configuration
 
-`iofogctl` provides an `AgentConfig` resource for the management of Agent configuration.
+`iofogctl` provides an `AgentConfig` resource for dynamic management of Agents.
 
-An agent configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`.
+`AgentConfig` is usually deployed after an `Agent` in order to modify its behaviour. Note that the `Agent` kind also contains configuration details in the same way that `AgentConfig` does which means that you can specify custom configuration of Agents at deploy-time.
 
-An agent configuration can be deployed using `iofogctl deploy -f agent-config.yaml`. The following is a sample of `AgentConfig` yaml content:
+An Agent Configuration can be retrieved using `iofogctl describe agent-config <AGENT_NAME>`.
+
+An Agent Configuration can be deployed using `iofogctl deploy -f agent-config.yaml`. The following is a sample of `AgentConfig` YAML content:
 
 ```yaml
 apiVersion: iofog.org/v2
