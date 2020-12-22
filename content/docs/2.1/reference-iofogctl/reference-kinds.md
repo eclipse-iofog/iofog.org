@@ -12,7 +12,7 @@ kind: ControlPlane
 metadata:
   name: buffalo
   namespace: default # Optional, defaults to value specified by iofogctl namespace flag
-spec:
+spec: ...
 ```
 
 | Field              | Description                                                                                                                                                                                                                                                                     |
@@ -92,7 +92,7 @@ spec:
       image: iofog/controller:2.0.0
 ```
 
-To learn more about `LocalControlPlane`, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
+To learn more about the `LocalControlPlane` kind, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
 
 ## Controller
 
