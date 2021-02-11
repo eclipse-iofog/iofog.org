@@ -14,16 +14,20 @@ spec:
   email: user@domain.com
   requiresCert: false
   certificate: ''
+  private: false
+  id: 42
 ```
 
-| Field        | Description                                           |
-| ------------ | ----------------------------------------------------- |
-| url          | Registry url                                          |
-| username     | Username                                              |
-| password     | Password                                              |
-| email        | Email                                                 |
-| certificate  | (Optional) Certificate to be used by the registry     |
-| requiresCert | (Optional) Does the repository requires a certificate |
+| Field        | Description                                                                            |
+| ------------ | ---------------------------------------------------------------------------------------|
+| url          | Registry url                                                                           |
+| username     | Username                                                                               |
+| password     | Password                                                                               |
+| email        | Email                                                                                  |
+| certificate  | (Optional) Certificate to be used by the registry                                      |
+| id           | (Optional) An integer that is used to identify the registry                            |
+| private      | (Optional) true|false If true, authenticate with the registy via username and password |
+| requiresCert | (Optional) Does the repository requires a certificate                                  |
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>
