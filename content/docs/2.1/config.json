@@ -121,12 +121,12 @@
             "description": ""
           },
           {
-            "title": "Agent Configuration",
+            "title": "Configuration",
             "entry": "./agent-management/agent-configuration.md",
             "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
           },
           {
-            "title": "Attach / Detach an Agent",
+            "title": "Attach / Detach",
             "entry": "./agent-management/attach-detach.md",
             "description": ""
           },
@@ -143,6 +143,11 @@
           {
             "title": "Edge Resources",
             "entry": "./agent-management/edge-resources.md",
+            "description": ""
+          },
+          {
+            "title": "Upgrade / Rollback",
+            "entry": "./agent-management/upgrade-rollback.md",
             "description": ""
           }
         ]
