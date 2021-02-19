@@ -25,7 +25,7 @@ iofogctl deploy -f volume.yaml
 
 With the above example, the `/tmp/` directory and all of its subdirectories will be pushed to `/tmp/secrets/` in `agent-1` and `agent-2`.
 
-Once the Volume has been deployed, we can deploy Microservices that depend on it. The YAML specification for doing this can be found [here](http://iofog.staging.edgeworx.io/docs/2/reference-iofogctl/reference-application.html#microservices).
+Once the Volume has been deployed, we can deploy Microservices that depend on it. The YAML specification for doing this can be found [here](../reference-iofogctl/reference-application.html#microservices).
 
 Volumes can be listed, described, and deleted like all other iofogctl resources.
 

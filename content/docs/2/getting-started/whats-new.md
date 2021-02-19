@@ -205,7 +205,7 @@ Up until now, if you needed to move a Microservice to another Agent, you had to 
 Now, you can simply use:
 
 ```bash
-iofogctl move microservice agent-1 agent-2
+iofogctl move microservice msvc-1 agent-2
 ```
 
 ## Detach / Attach an Agent
@@ -222,7 +222,7 @@ Keep in mind that detaching an agent will delete its connection with the Control
 We can also move Agents between Namespaces with a single command. The following command will move agent-1 from namespace-1 to namespace-2:
 
 ```bash
-iofogctl move agent agent-1 namespace-2 -n namespace-1
+iofogctl move agent agent-1 -n namespace-1 namespace-2
 ```
 
 ## Microservice Public Ports
