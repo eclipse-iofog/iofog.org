@@ -235,7 +235,7 @@ If `public` is specified, this will open a tunnel that will forward all traffic 
 
 `host` allows you to specify the Agent that will open the public port, the default value being that the public port is opened alongside your Controller (same host for a Vanilla Controller, as a separate Load Balancer for a K8s deployment).
 
-`protocol` lets you decide between `http`, `tcp` and `udp`. It tells the public port which type of traffic to forward. the default value is `http`.
+`protocol` lets you decide between `http` and `tcp`. It tells the public port which type of traffic to forward. the default value is `http`.
 
 ```yaml
 ...
