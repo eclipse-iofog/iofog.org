@@ -205,7 +205,7 @@ Up until now, if you needed to move a Microservice to another Agent, you had to 
 Now, you can simply use:
 
 ```bash
-iofogctl move microservice MICROSERVICE_NAME AGENT_NAME
+iofogctl move microservice msvc-1 agent-2
 ```
 
 ## Detach / Attach an Agent
@@ -213,8 +213,8 @@ iofogctl move microservice MICROSERVICE_NAME AGENT_NAME
 Ever wondered how to transfer an Agent from one ECN to another? It's very simple:
 
 ```bash
-iofogctl detach agent AGENT_NAME -n namespace-1
-iofogctl attach agent AGENT_NAME -n namespace-2
+iofogctl detach agent agent-1 -n namespace-1
+iofogctl attach agent agent-1 -n namespace-2
 ```
 
 Keep in mind that detaching an agent will delete its connection with the Controller, and all Microservices will be shut down.
@@ -222,7 +222,7 @@ Keep in mind that detaching an agent will delete its connection with the Control
 We can also move Agents between Namespaces with a single command. The following command will move agent-1 from namespace-1 to namespace-2:
 
 ```bash
-iofogctl move agent AGENT_NAME namespace-1 -n namespace-2
+iofogctl move agent agent-1 -n namespace-1 namespace-2
 ```
 
 ## Microservice Public Ports
