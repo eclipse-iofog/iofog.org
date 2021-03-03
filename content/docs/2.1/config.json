@@ -341,6 +341,11 @@
             "description": "ioFog Agent Configurations"
           },
           {
+            "title": "Agent Logs",
+            "entry": "./reference-agent/agent-logs.md",
+            "description": "ioFog Agent Logs"
+          },
+          {
             "title": "Remote debugging using IntelliJ",
             "entry": "./reference-agent/debugging.md",
             "description": ""
