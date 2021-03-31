@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.0.0
+  version: 3.0.0
   title: ioFog Controller
 paths:
   /status:
@@ -54,7 +54,7 @@ paths:
         "500":
           description: Internal Server Error
   /iofog-list:
-    post:
+    get:
       tags:
         - ioFog
       summary: Returns list of ioFog nodes
