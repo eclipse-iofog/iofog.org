@@ -89,7 +89,7 @@ spec:
     password: q1u45ic9kst563art
   controller:
     container:
-      image: iofog/controller:2.0.0
+      image: iofog/controller:3.0.0
 ```
 
 To learn more about the `LocalControlPlane` kind, please see [Iofogctl Platform YAML Specification](../reference-iofogctl/reference-control-plane.html#local-control-plane).
@@ -145,7 +145,7 @@ metadata:
   name: local
 spec:
   container:
-    image: iofog/agent:2.0.2
+    image: iofog/agent:3.0.0
 ```
 
 To learn more about the `LocalAgent` kind, please see the [Quick Start](../getting-started/quick-start-local.html).

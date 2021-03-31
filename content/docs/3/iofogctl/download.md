@@ -6,12 +6,12 @@ Mac users can use Homebrew:
 
 ```bash
 brew tap eclipse-iofog/iofogctl
-brew install iofogctl@2.0
+brew install iofogctl@3.0
 ```
 
 ## Install iofogctl on Windows
 
-The Windows binary can be downloaded from https://storage.googleapis.com/iofogctl/win/2.0/iofogctl.exe.
+The Windows binary can be downloaded from https://storage.googleapis.com/iofogctl/win/3.0/iofogctl.exe.
 
 ### Prepare Windows
 
@@ -27,14 +27,14 @@ The Debian package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl=2.0.2
+sudo apt-get install iofogctl=3.0.0-alpha1
 ```
 
 And similarly, the RPM package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-2.0.2-1.x86_64
+sudo yum install iofogctl-3.0.0-alpha1-1.x86_64
 ```
 
 ## Verify iofogctl Installation

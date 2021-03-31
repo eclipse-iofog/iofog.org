@@ -3,8 +3,8 @@
 `iofogctl` allows users to deploy Edge Compute Networks ('ECNs'). The various resources which constitute an ECN are specified within YAML files for iofogctl to consume.
 
 <aside class="notifications note">
-  <h3><img src="/images/icos/ico-note.svg" alt="">Trying to use iofogctl 2.0 with an older ECN?</h3>
-  <p>You can connect to an older ECN with iofogctl 2.0 for view-only purposes. If you would like full control over the ECN with iofogctl 2.0, you should delete the ECN with your older iofogctl and then redeploy with iofogctl 2.0.</p>
+  <h3><img src="/images/icos/ico-note.svg" alt="">Trying to use iofogctl 3.0 with an older ECN?</h3>
+  <p>You can connect to an older ECN with iofogctl 3.0 for view-only purposes. If you would like full control over the ECN with iofogctl 3.0, you should delete the ECN with your older iofogctl and then redeploy with iofogctl 3.0.</p>
 </aside>
 
 ## Kubernetes Control Plane
@@ -84,7 +84,7 @@ spec:
     password: g9hr823rhuoi
   controller:
     container:
-      image: iofog/controller:2.0.0
+      image: iofog/controller:3.0.0
 ```
 
 | Field            | Description                                               |

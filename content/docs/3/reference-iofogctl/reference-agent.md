@@ -50,7 +50,7 @@ spec:
     install:
       entrypoint: install_iofog.sh
       args:
-        - 2.0.1
+        - 3.0.0-alpha1
     uninstall:
       entrypoint: uninstall_iofog.sh
 ```
