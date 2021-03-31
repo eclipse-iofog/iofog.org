@@ -1,8 +1,9 @@
-## ioFog v2.1.0
+## ioFog v3.0.0-alpha1
 
-- [Template parametric expressions](../reference-iofogctl/reference-template-engine.html) now available!
-- [Application template](../reference-iofogctl/reference-application-template.html), build your own App Store!
-- [Edge resources](../reference-iofogctl/reference-application-template.html), let your microservices know what their Agent is capable of!
+- [Template parametric expressions](./docs/3/reference-iofogctl/reference-template-engine.html) now available!
+- [Application template](./docs/3/reference-iofogctl/reference-application-template.html), build your own App Store!
+- [Edge resources](./docs/3/agent-management/edge-resources.html), let your microservices know what their Agent is capable of!
+- [Agent install plugins](./docs/3/platform-deployment/setup-your-agents.html#customize-agent-installation) let you install Agent on your favourite Linux distro!
 
 ### Changelogs
 
