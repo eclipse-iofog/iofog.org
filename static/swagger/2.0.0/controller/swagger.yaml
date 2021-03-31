@@ -52,7 +52,7 @@
           '500':
             description: Internal Server Error
     '/iofog-list':
-      post:
+      get:
         tags:
         - ioFog
         summary: Returns list of ioFog nodes
