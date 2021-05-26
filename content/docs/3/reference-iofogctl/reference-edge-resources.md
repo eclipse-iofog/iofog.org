@@ -1,11 +1,12 @@
 # Edge Resources YAML Specification
 
-`iofogctl` allows users to manage a Controller's list of Edge Resources. To learn more about Edge Resources, please see [here](../agent-management/edge-resources.html).
+`iofogctl` allows users to manage a Controller's list of Edge Resources. To learn more about Edge Resources,
+please see [here](../agent-management/edge-resources.html).
 
-The Edge Resource is defined as follow:
+The Edge Resource is defined as follows:
 
 ```yaml
-apiVersion: iofog.org/v2
+apiVersion: iofog.org/v3
 kind: EdgeResource
 metadata:
   name: smart-door
@@ -29,7 +30,6 @@ spec:
   display:
     name: Smart Door
     icon: accessible-forward
-    color: rgb(90, 200, 250)
   custom: {}
 ```
 
@@ -40,10 +40,9 @@ spec:
 | description       | Human readable description of the Edge Resource                                                                                                                       |
 | interfaceProtocol | Protocol the microservices must use to communicate with the resource. It also determines the schema of the `interface` key. Currently, one of: `http, https, ws, wss` |
 | interface         | Specification of the available communication interface                                                                                                                |
-| display           | Informations about how to display the attached Edge Resource in the ECN-Viewer                                                                                        |
+| display           | Information about how to display the attached Edge Resource in the ECN-Viewer                                                                                         |
 | display.name      | Display label                                                                                                                                                         |
-| display.icon      | Name of the [material icon](https://material.io/resources/icons/?style=baseline) to be used on the map (optionnal)                                                    |
-| display.color     | Display color, rgb, rgba, and hex format supported                                                                                                                    |
+| display.icon      | Name of the [material icon](https://material.io/resources/icons/?style=baseline) to be used on the map (optional)                                                     |  |
 | custom            | Free object containing anything else the microservice might need to know about the resource.                                                                          |
 
 # HTTP, HTTPS, WS and WSS Interface specification

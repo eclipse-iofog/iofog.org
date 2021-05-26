@@ -2,35 +2,48 @@
 
 ## Backdrop
 
-The Edge is where the virtual meets the physical. Most if not all Edge applications are built to interact in some way with entities or resources that exist in the physical world. A megatrend of [Digital Twins](https://digitaltransformationtrends.com/2019/09/15/what-are-digital-twins/) has been gaining momentum over the last decade. Nearly all applications that we see at the Edge are interacting with some type of external entity (sensor, camera, 3D printer, fuel pump, etc) either collecting data, or effecting some action, or both.
+The Edge is where the virtual meets the physical. Most if not all Edge applications are built to interact in some way
+with entities or resources that exist in the physical world. A megatrend of
+[Digital Twins](https://digitaltransformationtrends.com/2019/09/15/what-are-digital-twins/) has been gaining momentum
+over the last decade. Nearly all applications that we see at the Edge are interacting with some type of external entity
+(sensor, camera, 3D printer, fuel pump, etc) either collecting data, or effecting some action, or both.
 
-While on the surface, ioFog Agent has been mainly focused on enabling the execution of containerized applications at the Edge, inherent in its design in the notion of the Hardware Abstraction Layer (HAL). HAL is a uniform way for hardware to be “lifted up” from the host OS into the container layer for easy access to for developer. An obvious example of this is RESTBlue, but we also support Serial and GPIO REST interfaces. The goal of HAL has always been to allow any Edge hardware to be defined/described and lifted into the container layer.
+While on the surface, ioFog Agent has been mainly focused on enabling the execution of containerized applications at
+the Edge, inherent in its design in the notion of the Hardware Abstraction Layer (HAL). HAL is a uniform way for
+hardware to be “lifted up” from the host OS into the container layer for easy access to for developer. An obvious
+example of this is RESTBlue, but we also support Serial and GPIO REST interfaces. The goal of HAL has always been to
+allow any Edge hardware to be defined/described and lifted into the container layer.
 
-To make ioFog a more fully featured platform we are interested in bringing the physical into the ioFog abstraction model. This document is a lightweight design and discussion around how that can be done.
+To make ioFog a more fully featured platform we are interested in bringing the physical into the ioFog abstraction model.
 
 ## How does it work?
 
-Using `iofogctl` (or directly Controller REST API), you can define `Edge Resources` and `attach` those resources to 1..N ioFog Agents.
+An Edge resource is meant to be a Digital Twin of a piece of hardware (or software) that is available to your
+Microservices running on your ioFog Agents. Using `iofogctl` (or the Controller REST API directly), you can define
+`Edge Resources` and `attach` those resources
+to 1..N ioFog Agents.
 
-An Edge resource is meant to be a Digital Twin of a piece of hardware (or software) that is available to your Microservices running on your ioFog Agents.
-
-Microservices can query their ioFog Agent, using the [ioFog SDKs](../developing-microservices/sdk.html) (or directly using the Agent local API) to retrieve the list of Edge Resources currently attached to their ioFog Agent.
+Microservices can query their ioFog Agent, using the [ioFog SDKs](../developing-microservices/sdk.html)
+(or directly using the Agent local API) to retrieve the list of Edge Resources currently attached to their ioFog Agent.
 
 ## What is an Edge Resource composed of?
 
-Edge Resources are meant to be a definition of the communication interface that your Microservices can use to execute certain actions against the specified resource.
+Edge Resources are meant to be a definition of the communication interface that your Microservices can use to execute
+certain actions against the specified resource. The model has been built to be extensible, and currently HTTP, HTTPS,
+WS, and WSS are supported as protocols.
 
-The model has been built to be extensible, but currently only HTTP, HTTPS, WS, and WSS are suported as protocols. We welcome any contributing PR if you would like to improve [ioFog Controller](https://github.com/eclipse-iofog/Controller).
+We welcome any contributing PR if you would like to improve [ioFog Controller](https://github.com/eclipse-iofog/Controller).
 
 Edge Resources are uniquely identified by a composite of their `name` and their `version`.
 
 ## Creating an Edge Resource
 
-We can use `iofogctl` to create our own Edge Resources. The YAML spec reference can be found [here](../reference-iofogctl/reference-edge-resources.html).
+We can use `iofogctl` to create our own Edge Resources. The YAML spec reference can be found
+[here](../reference-iofogctl/reference-edge-resources.html).
 
 ```bash
 echo "---
-apiVersion: iofog.org/v2
+apiVersion: iofog.org/v3
 kind: EdgeResource
 metadata:
   name: smart-door
@@ -54,7 +67,6 @@ spec:
   display:
     name: Smart Door
     icon: accessible-forward
-    color: rgb(90, 200, 250)
 " > /tmp/my-edge-resource.yaml
 iofogctl deploy -f /tmp/my-edge-resource.yaml
 ```
@@ -75,7 +87,7 @@ Or, if we need more details:
 ```bash
 $> iofogctl describe edge-resource smart-door v1.0.0
 
-apiVersion: iofog.org/v2
+apiVersion: iofog.org/v3
 kind: EdgeResource
 metadata:
   name: smart-door
@@ -99,7 +111,6 @@ spec:
   display:
     name: Smart Door
     icon: accessible-forward
-    color: rgb(90, 200, 250)
   orchestrationTags:
   - smart
   - door
