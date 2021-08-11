@@ -4,6 +4,7 @@
 - [Application Templates](../applications/application-templates.html) which simplify and improve management of your microservices.
 - [Edge Resources](../agent-management/edge-resources.html), let your microservices know what their Agent is capable of.
 - [Agent Installation Plugins](../platform-deployment/setup-your-agents.html#customize-agent-installation) added to `iofogctl` .
+- [Commands for upgrade and rollback of Agents](../agent-management/upgrade-rollback.html) added to `iofogctl`.
 
 ## Template parametric expressions
 
