@@ -5,6 +5,7 @@
 - [Edge Resources](../agent-management/edge-resources.html), let your microservices know what their Agent is capable of.
 - [Agent Installation Plugins](../platform-deployment/setup-your-agents.html#customize-agent-installation) added to `iofogctl` .
 - [Commands for upgrade and rollback of Agents](../agent-management/upgrade-rollback.html) added to `iofogctl`.
+- [ECN Viewer](../reference-controller/ecn-viewer.html) added to `Controller`.
 
 ## Template parametric expressions
 
@@ -12,7 +13,7 @@ Variables, filter and template "queries" can now be used as values for any field
 
 Those variables allow you to reference the same document, or any resource preexisting on your Controller, adding a lot of flexibility in your deployments.
 
-[Find out more](../reference-iofogctl/reference-template-engine.html)!
+[Find out more!](../reference-iofogctl/reference-template-engine.html)
 
 ## Application Templates
 
@@ -34,7 +35,14 @@ Edge Resources are Digital Twins that allow you to define an interface for your 
 
 `iofogctl` can install ioFog Agent on a number of Linux distributions out of the box. However, the list of supported distributions is finite; in order to allow the community to add support for any host environment, `iofogctl` has been updated with the ability to run user-defined installation scripts for Agent and its dependancies.
 
-[Find out more](../platform-deployment/setup-your-agents.html#customize-agent-installation) and check out the [YAML specification](../reference-iofogctl/reference-agent.html#installation-plugin-fields)!
+[Find out more!](../platform-deployment/setup-your-agents.html#customize-agent-installation) and check out the [YAML specification](../reference-iofogctl/reference-agent.html#installation-plugin-fields)!
+
+## ECN Viewer
+
+The Edge Compute Network Viewer lets you visualise and manage your entire ECN from your favorite browser!
+It is available by default on the standard HTTP port of `Controller` (80).
+
+[Find out more!](../reference-controller/ecn-viewer.html)
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

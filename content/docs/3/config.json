@@ -314,6 +314,11 @@
             "title": "Controller REST API Reference",
             "entry": "./reference-controller/rest-api.md",
             "description": "ioFog Controller REST API"
+          },
+          {
+            "title": "ECN Viewer",
+            "entry": "./reference-controller/ecn-viewer.md",
+            "description": "ioFog Controller ECN Viewer"
           }
         ]
       },
