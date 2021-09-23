@@ -12,6 +12,8 @@ In this guide we will:
 
 #### Install iofogctl on Mac
 
+###### Homebrew
+
 Mac users can use Homebrew:
 
 ```bash
@@ -33,18 +35,30 @@ In order to use `iofogctl` to deploy an ECN locally on Windows we will need to c
 
 #### Install iofogctl on Linux
 
+###### Binary
+
+```bash
+curl -LO https://storage.googleapis.com/iofogctl/linux/3.0/iofogctl
+sudo install -o root -g root -m 0755 iofogctl /usr/local/bin/iofogctl
+rm ./iofogctl
+```
+
+###### Debian
+
 The Debian package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.deb.sh | sudo bash
-sudo apt-get install iofogctl=3.0.0-alpha1
+sudo apt-get install iofogctl=3.0.0-beta1
 ```
+
+###### RPM
 
 And similarly, the RPM package can be installed like so:
 
 ```bash
 curl https://packagecloud.io/install/repositories/iofog/iofogctl/script.rpm.sh | sudo bash
-sudo yum install iofogctl-3.0.0-alpha1-1.x86_64
+sudo yum install iofogctl-3.0.0-beta1-1.x86_64
 ```
 
 #### Verify iofogctl Installation
