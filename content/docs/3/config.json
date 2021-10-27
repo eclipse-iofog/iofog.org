@@ -1,6 +1,6 @@
 [
   {
-    "version": "3.0.0-alpha1",
+    "version": "3.0.0-beta4",
     "menus": [
       {
         "title": "Getting Started",
@@ -211,7 +211,7 @@
             "description": ""
           },
           {
-            "title": "Microservice Public Ports",
+            "title": "Public services",
             "entry": "./applications/microservice-exposing.md",
             "description": ""
           },

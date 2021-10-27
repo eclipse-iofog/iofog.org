@@ -55,8 +55,6 @@ spec:
         ports:
           - internal: 80
             external: 5000
-            public: 5001
-            protocol: tcp
         env:
           - key: BASE_URL
             value: http://localhost:8080/data
@@ -97,35 +95,6 @@ spec:
   agent:
     # Agent name
     name: zebra-1
-    # Optional agent configuration
-    config:
-      # All fields are optional
-      dockerUrl: unix:///var/run/docker.sock
-      diskLimit: 50
-      diskDirectory: /var/lib/iofog-agent/
-      memoryLimit: 4096
-      cpuLimit: 80
-      logLimit: 10
-      logDirectory: /var/log/iofog-agent/
-      logFileCount: 10
-      statusFrequency: 10
-      changeFrequency: 10
-      deviceScanFrequency: 60
-      bluetoothEnabled: true
-      watchdogEnabled: false
-      abstractedHardwareEnabled: false
-      upstreamRouters: ['default-router']
-      networkRouter: ''
-      host: horse-1
-      routerConfig:
-        routerMode: edge
-        messagingPort: 5672
-        edgeRouterPort: 56721
-        interRouterPort: 56722
-      dockerPruningFrequency: 1
-      logLevel: INFO
-      availableDiskThreshold: 90
-
   # Information about the container images to be used
   images:
     x86: edgeworx/healthcare-heart-rate:x86-v1 # Image to be used on x86 type agents
@@ -156,9 +125,12 @@ spec:
       # This will create a mapping between the port 80 of the microservice container and the port 5000 of the agent
       - internal: 80
         external: 5000
-        public: 5001 # This will create a HTTP proxy tunnel between the port 5001 on the default router, and the port 5000 on the Agent
-        host: default-router # Target for the public port (use Agent name, defaults to `default-router`)
-        protocol: http # Protocol for the proxy tunnel (Either tcp or http, defaults to http)
+        protocol: tcp # Protocol for the container port mapping (Either tcp or udp, defaults to tcp)
+        # Defining this field will create a public service. Exposing the microservice port on your Controller host.
+        public:
+          schemes: # List of schemes supported by the public service. Controller will generate a link for each scheme
+            - https
+          protocol: http # Protocol for the proxy tunnel (Either tcp or http, defaults to http)
     commands:
       # This will result in the container being started as `docker run <image> <options> dbhost localhost:27017`
       - 'dbhost'
