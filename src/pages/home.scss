@@ -1,0 +1,18 @@
+.home-section {
+  border-top: 1px solid #d0d7da;
+  background: var(--bg-color, #fafcff) 0% 0% no-repeat padding-box;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.sections__header {
+  width: 100%;
+  text-align: center;
+
+  font: normal normal 800 23px/28px Averta;
+  letter-spacing: 0.21px;
+  color: #012f42;
+  opacity: 1;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,47 @@
+.links__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.link {
+  grid-column: auto / span 3;
+  height: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .link {
+    grid-column: auto;
+  }
+}
+
+.link__card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  opacity: 1;
+  padding: 1rem;
+  height: 100%;
+
+  .link__title {
+    text-align: left;
+    font: normal normal 800 15px/20px Averta;
+    letter-spacing: 0px;
+    color: #012f42;
+    opacity: 1;
+  }
+
+  .link__description {
+    text-align: left;
+    font: normal normal normal 13px/20px Averta;
+    letter-spacing: 0px;
+    color: #012f42;
+    opacity: 1;
+    margin-top: 1rem;
+  }
+}

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import { MdArrowForward } from 'react-icons/md';
-import './BringYourOwnEdge.scss';
+import './index.scss';
 
-class BringYourOwnEdge extends Component {
+class HomeTitle extends Component {
   render() {
     return (
       <section className="edge">
         <section className="container">
           <section className="row">
             <section className="col-12 col-md-6 promo">
-              <h1 className="title">Bring your own edge.</h1>
+              <h1 className="title">
+                Manage your edge like it's in the cloud.
+              </h1>
               <p>
-                Start building your first Eclipse ioFog<sup>TM</sup> application
-                today. Eclipse ioFog is free, <b>open source</b>, and it always
-                will be.
+                The free, open source way to deploy containerized apps across
+                any edge, and manage everything from the cloud.
               </p>
             </section>
             <section className="col-12 col-md-6 code__container">
@@ -45,4 +46,4 @@ class BringYourOwnEdge extends Component {
   }
 }
 
-export default BringYourOwnEdge;
+export default HomeTitle;

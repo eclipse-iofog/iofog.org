@@ -3,6 +3,10 @@
   height: 446px;
   position: relative;
 
+  .row {
+    align-items: center;
+  }
+
   &:after {
     content: '';
     display: block;
@@ -29,8 +33,6 @@
 }
 
 .promo {
-  margin-top: 25px;
-
   h1 {
     color: #4668fd;
     letter-spacing: -0.2px;
