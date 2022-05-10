@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 
-import logoEdgeworx from '../../../static/images/logos/edgeworx.svg';
-import logoOrange from '../../../static/images/logos/edgeworx.svg';
-import logoRedHat from '../../../static/images/logos/edgeworx.svg';
-import logoVMWare from '../../../static/images/logos/edgeworx.svg';
-import logoSiemens from '../../../static/images/logos/edgeworx.svg';
+import logoEdgeworx from '../../../static/images/contributors/logo-edgeworx.svg';
+import logoOrange from '../../../static/images/contributors/logo-orange.svg';
+import logoRedHat from '../../../static/images/contributors/logo-redhat.svg';
+import logoVMWare from '../../../static/images/contributors/logo-VMware.svg';
+import logoSiemens from '../../../static/images/contributors/logo-siemens.svg';
 
 import './index.scss';
 

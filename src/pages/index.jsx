@@ -9,9 +9,9 @@ import Contributors from '../components/Contributors';
 import AboutProject from '../components/AboutProject/AboutProject';
 
 import './home.scss';
-import InUse from '../components/InUse';
+// import InUse from '../components/InUse';
 
-const image = 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg';
+import image from '../../static/images/home/iofog-diagram@2x.png';
 
 class Index extends React.Component {
   render() {
@@ -25,11 +25,21 @@ class Index extends React.Component {
           <WhatsNew />
         </div>
         <div class="home-section">
-          <section className="container">
-            <div className="sections__header">
-              <h4>ioFog bridges the gap between the Edge and the Cloud</h4>
-            </div>
-            <img src={image} style={{ width: '100%' }} />
+          <section class="schema">
+            <section className="container">
+              <div className="sections__header">
+                <h4>ioFog bridges the gap between the Edge and the Cloud</h4>
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                <img src={image} style={{ margin: 'auto', maxWidth: '75%' }} />
+              </div>
+            </section>
           </section>
         </div>
         <div class="home-section" style={{ '--bg-color': '#2FD7F033' }}>
@@ -45,9 +55,9 @@ class Index extends React.Component {
             </section>
           </section>
         </div>
-        <div class="home-section">
+        {/* <div class="home-section">
           <InUse />
-        </div>
+        </div> */}
         <div class="home-section">
           <Contributors />
         </div>

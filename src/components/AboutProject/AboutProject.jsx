@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 
 import './AboutProject.scss';
-import icoSecurity from '../../../static/images/icos/ico-security.svg';
+import icoSecurity from '../../../static/images/icos/checkmark.svg';
 
 const whys = [
   {
