@@ -13,7 +13,7 @@ const whys = [
   {
     label: 'Edge Projects',
     description:
-      'logically group, secure and manage edge nodes and applications'
+      'Logically group, secure and manage edge nodes and applications'
   },
   {
     label: 'Container lifecycle management',
@@ -32,7 +32,8 @@ const whys = [
   },
   {
     label: 'Application lifecycle management',
-    description: 'Application lifecycle management'
+    description:
+      'Manage the entire app lifecycle from development to deployment, updating, deleting, scaling'
   },
   {
     label: 'Heterogenous hardware',

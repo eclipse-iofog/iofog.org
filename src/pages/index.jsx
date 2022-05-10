@@ -36,6 +36,16 @@ class Index extends React.Component {
           <AboutProject />
         </div>
         <div class="home-section">
+          <section class="quote">
+            <section className="container">
+              <div class="home__quote">
+                “… K8s is great for 1 x 5,000 node cluster, ioFog is great for
+                5,000 x 1 nodes clusters and everything in between…”
+              </div>
+            </section>
+          </section>
+        </div>
+        <div class="home-section">
           <InUse />
         </div>
         <div class="home-section">

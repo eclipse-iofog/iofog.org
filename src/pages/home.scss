@@ -2,8 +2,18 @@
   border-top: 1px solid #d0d7da;
   background: var(--bg-color, #fafcff) 0% 0% no-repeat padding-box;
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 72px;
+  padding-bottom: 72px;
+
+  .home__quote {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    font: normal normal 800 42px/52px Averta PE;
+    letter-spacing: -0.63px;
+    color: #4D6BE9;
+    opacity: 1;
+  }
 }
 
 .sections__header {
