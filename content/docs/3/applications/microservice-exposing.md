@@ -2,14 +2,11 @@
 
 Public services allow your microservices to securely expose public endpoints without opening ports on your Agents.
 
-When deploying Applications and Microservices, you can specify a `public` configuration when configuring the port mappings of your container.
+When deploying Applications and Microservices, you can specify a `proxy` configuration when configuring the port mappings of your container.
 
-If `public` is specified, this will open a tunnel that will forward all traffic incoming onto the port exposed by the container.
+If `proxy` is specified and set to `true`, this will open a tunnel that will forward all traffic incoming onto the port exposed by the container.
 
-`schemes` allows you to specify the protocols supported by the underlying exposed Microservice. Controller will generate a public URL for each protocol supported.
-The example below would be for a Microservice exposing a HTTPS server.
-
-`protocol` lets you decide between `http` and `tcp`. It tells the public port which type of traffic to forward. the default value is `http`. `http` protocol will only work if the schemes are `http` and/or `https`.
+`protocol` lets you decide between `tcp` and `udp`. It tells the public port which type of traffic to forward. the default value is `tcp`.
 
 ```yaml
 ...
@@ -21,14 +18,11 @@ container:
  ports:
    - internal: 80
      external: 5000
-     public:
-      schemes:
-      - https
-      protocol: http
+     proxy: true
 ...
 ```
 
-Deploying such a configuration would result in a port being opened on the Controller host, and all incoming tcp traffic would be tunneled to agent-1, port 5000.
+Deploying such a configuration would result in a port being opened on the public host, and all incoming tcp traffic would be tunneled to agent-1, port 5000.
 
 The public address can be retrieved using:
 
@@ -46,17 +40,11 @@ container:
  ports:
    - internal: 80
      external: 5000
-     public:
-      schemes:
-      - https
-      links:
-      - https://<controller-ip>:<port>
-      protocol: http
+     proxy: true
 ...
 ```
 
-The public port is selected by Controller from it's configured public port range (default from `6000-7000`).
-The range can be configured by updating Controller env variable `PublicPorts_Range`
+The public port is selected by Port Broker from public host's configured public port range.
 
 <aside class="notifications contribute">
   <h3><img src="/images/icos/ico-github.svg" alt="">See anything wrong with the document? Help us improve it!</h3>

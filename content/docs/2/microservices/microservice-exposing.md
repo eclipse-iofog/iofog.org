@@ -20,12 +20,12 @@ container:
  ports:
    - internal: 80
      external: 5000
-     public: 5001
+     proxy: true
      protocol: tcp
 ...
 ```
 
-Deploying such a configuration would result in port 5001 being opened on the Controller host, and all incoming tcp traffic would be tunneled to agent-1, port 5000.
+Deploying such a configuration would result in a port being opened on the public host, and all incoming tcp traffic would be tunneled to agent-1, port 5000.
 
 The public address can be retrieved using:
 
