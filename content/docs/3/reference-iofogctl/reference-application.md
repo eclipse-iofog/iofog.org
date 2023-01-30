@@ -126,11 +126,8 @@ spec:
       - internal: 80
         external: 5000
         protocol: tcp # Protocol for the container port mapping (Either tcp or udp, defaults to tcp)
-        # Defining this field will create a public service. Exposing the microservice port on your Controller host.
-        public:
-          schemes: # List of schemes supported by the public service. Controller will generate a link for each scheme
-            - https
-          protocol: http # Protocol for the proxy tunnel (Either tcp or http, defaults to http)
+        # Defining this field will create a public service. Exposing the microservice port on a public host.
+        proxy: true
     commands:
       # This will result in the container being started as `docker run <image> <options> dbhost localhost:27017`
       - 'dbhost'

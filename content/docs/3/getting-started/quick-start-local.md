@@ -192,10 +192,7 @@ spec:
       ports:
         - external: 5000
           internal: 80
-          public:
-            schemes:
-            - https
-            protocol: http
+          proxy: true
       env:
         - key: BASE_URL
           value: http://localhost:8080/data

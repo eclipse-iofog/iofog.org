@@ -53,7 +53,7 @@ spec:
         ports:
           - internal: 80
             external: 5000
-            public: 5001
+            proxy: true
             protocol: tcp
         env:
           - key: BASE_URL
@@ -154,9 +154,8 @@ spec:
       # This will create a mapping between the port 80 of the microservice container and the port 5000 of the agent
       - internal: 80
         external: 5000
-        public: 5001 # This will create a HTTP proxy tunnel between the port 5001 on the default router, and the port 5000 on the Agent
-        host: default-router # Target for the public port (use Agent name, defaults to `default-router`)
-        protocol: http # Protocol for the proxy tunnel (Either tcp or http, defaults to http)
+        proxy: true # This will create a HTTP proxy tunnel between the public host, and the port 5000 on the Agent
+        protocol: tcp # Protocol for the proxy tunnel (Either tcp or udp, defaults to tcp)
     commands:
       # This will result in the container being started as `docker run <image> <options> dbhost localhost:27017`
       - 'dbhost'
