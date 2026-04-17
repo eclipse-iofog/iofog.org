@@ -21,12 +21,12 @@ variables:
 jobs:
   - job: "ioFog"
     pool:
-      vmImage: 'Ubuntu-18.04'
+      vmImage: 'Ubuntu-22.04'
 
     steps:
       - task: NodeTool@0
         inputs:
-          versionSpec: '10.x'
+          versionSpec: '18.x'
         displayName: 'Install Node.js'
 
       - script: |

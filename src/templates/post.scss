@@ -159,7 +159,9 @@
 
 /* resolution less than 1200px */
 @media (max-width: 1199px) {
-  padding: 40px 40px 460px 106px;
+  .post {
+    padding: 40px 40px 460px 106px;
+  }
 }
 
 @media (max-width: 991px) {
