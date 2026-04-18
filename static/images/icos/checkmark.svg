@@ -1,0 +1,10 @@
+<svg id="checkmark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_21" data-name="Rectangle 21" width="22" height="22" fill="#012f42"/>
+    </clipPath>
+  </defs>
+  <g id="Group_38" data-name="Group 38" clip-path="url(#clip-path)">
+    <path id="Path_27" data-name="Path 27" d="M7.464,10.707l2.122,2.121,4.95-4.949A1,1,0,1,1,15.95,9.293L10.293,14.95a1,1,0,0,1-1.414,0L6.05,12.121a1,1,0,0,1,1.414-1.414M11,20a9,9,0,1,0-9-9,9,9,0,0,0,9,9m0,2A11,11,0,1,1,22,11,11,11,0,0,1,11,22" fill="#012f42"/>
+  </g>
+</svg>

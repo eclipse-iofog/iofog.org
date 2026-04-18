@@ -102,6 +102,31 @@
       font-size: 19px;
     }
   }
+
+  &__contributors {
+    .item {
+      margin-bottom: 8px;
+      line-height: 0;
+    }
+
+    .contributor-logo {
+      display: block;
+      width: auto;
+      max-width: 126px;
+      max-height: 31px;
+      object-fit: contain;
+    }
+
+    .contributor-logo--iot {
+      max-width: 96px;
+      max-height: 40px;
+    }
+
+    .contributor-logo--eclipse {
+      max-width: 136px;
+      max-height: 38px;
+    }
+  }
 }
 
 /* resolution less than 768px */

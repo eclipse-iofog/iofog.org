@@ -31,10 +31,24 @@ module.exports = {
       options: {
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
-        exclude: ['/docs/1.2.0/**', '/docs/1.1.0/**', '/docs/1.0.0/**']
+        excludes: ['/docs/1.2.0/**', '/docs/1.1.0/**', '/docs/1.0.0/**']
       }
     },
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        sassOptions: {
+          quietDeps: true,
+          silenceDeprecations: [
+            'legacy-js-api',
+            'import',
+            'global-builtin',
+            'color-functions',
+            'if-function'
+          ]
+        }
+      }
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -81,7 +95,7 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: 'language-',
-              showLineNumbers: true
+              showLineNumbers: false
             }
           },
           {

@@ -2,7 +2,6 @@
   .post-container {
     color: #002e43;
     font-size: 15px;
-    width: calc(100% - 340px);
     border-left: 1px solid #d0d7da;
     padding: 60px 20px;
 
@@ -33,7 +32,7 @@
       margin-top: 30px;
     }
 
-    .language-text {
+    :not(pre) > .language-text {
       border-radius: 4px;
       background-color: rgba(38, 214, 241, 0.3);
       text-shadow: none;
@@ -125,6 +124,14 @@
         }
       }
     }
+
+    /* Keep documentation images within the content column */
+    p > img,
+    a > img,
+    figure img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }
 
@@ -159,7 +166,9 @@
 
 /* resolution less than 1200px */
 @media (max-width: 1199px) {
-  padding: 40px 40px 460px 106px;
+  .post {
+    padding: 40px 40px 460px 106px;
+  }
 }
 
 @media (max-width: 991px) {

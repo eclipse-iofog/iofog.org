@@ -3,6 +3,7 @@
 // Core variables and mixins
 @import '~bootstrap/scss/_functions';
 @import '~bootstrap/scss/_variables';
+@import "~bootstrap/scss/maps";
 @import '~bootstrap/scss/_mixins';
 
 // Reset and dependencies
@@ -13,6 +14,7 @@
 //@import "~bootstrap/scss/_type";
 @import '~bootstrap/scss/_images';
 //@import "~bootstrap/scss/_code";
+@import '~bootstrap/scss/_containers';
 @import '~bootstrap/scss/_grid';
 @import '~bootstrap/scss/_tables';
 @import '~bootstrap/scss/_forms';
@@ -23,17 +25,17 @@
 @import '~bootstrap/scss/_dropdown';
 //@import "~bootstrap/scss/_button-group";
 //@import "~bootstrap/scss/_input-group";
-@import '~bootstrap/scss/_custom-forms';
+// @import '~bootstrap/scss/_custom-forms';
 @import '~bootstrap/scss/_nav';
 //@import "~bootstrap/scss/_navbar";
 @import '~bootstrap/scss/_card';
-//@import "~bootstrap/scss/_breadcrumb";
+@import "~bootstrap/scss/_breadcrumb";
 //@import "~bootstrap/scss/_pagination";
 @import '~bootstrap/scss/_badge';
 //@import "~bootstrap/scss/_jumbotron";
 @import '~bootstrap/scss/_alert';
-//@import "~bootstrap/scss/_progress";
-//@import "~bootstrap/scss/_media";
+@import "~bootstrap/scss/_progress";
+// @import "~bootstrap/scss/_media";
 @import '~bootstrap/scss/_list-group';
 //@import "~bootstrap/scss/_close";
 
@@ -45,3 +47,4 @@
 
 // Utility classes
 @import '~bootstrap/scss/_utilities';
+@import '~bootstrap/scss/utilities/api';

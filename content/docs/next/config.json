@@ -1,148 +1,974 @@
 [
   {
-    "version": "1.3.0",
+    "version": "3.7.0",
     "menus": [
       {
         "title": "Getting Started",
         "subMenus": [
           {
+            "title": "What's New in ioFog 3.7.0?",
+            "entry": "./getting-started/whats-new.md",
+            "description": "Learn about What's New in ioFog 3.7.0?."
+          },
+          {
             "title": "Core Concepts",
-            "entry": "./getting-started/core-concepts.md"
+            "entry": "./getting-started/core-concepts.md",
+            "description": "Learn about Core Concepts."
           },
           {
-            "title": "Quick Start",
-            "entry": "./getting-started/quick-start.md"
+            "title": "Architecture",
+            "entry": "./getting-started/architecture.md",
+            "description": "Learn about Architecture."
           },
           {
-            "title": "Setup Your Controllers",
-            "entry": "./getting-started/setup-your-controllers.md"
-          },
-          {
-            "title": "Setup Your Connectors",
-            "entry": "./getting-started/setup-your-connectors.md"
-          },
-          {
-            "title": "Setup Your Agents",
-            "entry": "./getting-started/setup-your-agents.md"
+            "title": "Quick Start With Local Deployment",
+            "entry": "./getting-started/quick-start-local.md",
+            "description": "Learn about Quick Start With Local Deployment."
           }
         ]
       },
       {
-        "title": "Tutorial",
+        "title": "iofogctl",
         "subMenus": [
           {
             "title": "Introduction",
-            "entry": "./tutorial/introduction.md"
+            "entry": "./iofogctl/introduction.md",
+            "description": "Learn about Introduction."
           },
           {
-            "title": "Get To Know ioFog",
-            "entry": "./tutorial/get-to-know-iofog.md"
+            "title": "Download",
+            "entry": "./iofogctl/download.md",
+            "description": "Learn about Download."
           },
           {
-            "title": "Manage Your Microservices",
-            "entry": "./tutorial/manage-our-microservices.md"
+            "title": "Getting Familiar",
+            "entry": "./iofogctl/getting-familiar.md",
+            "description": "Learn about Getting Familiar."
           },
           {
-            "title": "Create Your First Microservice - JavaScript",
-            "entry": "./tutorial/create-our-first-microservice-javascript.md"
+            "title": "Resource Management",
+            "entry": "./iofogctl/resource-management.md",
+            "description": "Learn about Resource Management."
           },
           {
-            "title": "Deploy Your Microservice",
-            "entry": "./tutorial/deploy-our-microservice.md"
+            "title": "Connect/Disconnect",
+            "entry": "./iofogctl/connect-disconnect.md",
+            "description": "Learn about Connect/Disconnect."
+          },
+          {
+            "title": "Legacy",
+            "entry": "./iofogctl/legacy.md",
+            "description": "Learn about Legacy."
+          },
+          {
+            "title": "iofogctl",
+            "entry": "./iofogctl/cli/iofogctl.md",
+            "description": "CLI reference for iofogctl."
+          },
+          {
+            "title": "iofogctl attach",
+            "entry": "./iofogctl/cli/iofogctl_attach.md",
+            "description": "CLI reference for iofogctl attach."
+          },
+          {
+            "title": "iofogctl attach agent",
+            "entry": "./iofogctl/cli/iofogctl_attach_agent.md",
+            "description": "CLI reference for iofogctl attach agent."
+          },
+          {
+            "title": "iofogctl attach edge-resource",
+            "entry": "./iofogctl/cli/iofogctl_attach_edge-resource.md",
+            "description": "CLI reference for iofogctl attach edge-resource."
+          },
+          {
+            "title": "iofogctl attach exec",
+            "entry": "./iofogctl/cli/iofogctl_attach_exec.md",
+            "description": "CLI reference for iofogctl attach exec."
+          },
+          {
+            "title": "iofogctl attach exec agent",
+            "entry": "./iofogctl/cli/iofogctl_attach_exec_agent.md",
+            "description": "CLI reference for iofogctl attach exec agent."
+          },
+          {
+            "title": "iofogctl attach exec microservice",
+            "entry": "./iofogctl/cli/iofogctl_attach_exec_microservice.md",
+            "description": "CLI reference for iofogctl attach exec microservice."
+          },
+          {
+            "title": "iofogctl attach volume-mount",
+            "entry": "./iofogctl/cli/iofogctl_attach_volume-mount.md",
+            "description": "CLI reference for iofogctl attach volume-mount."
+          },
+          {
+            "title": "iofogctl completion",
+            "entry": "./iofogctl/cli/iofogctl_completion.md",
+            "description": "CLI reference for iofogctl completion."
+          },
+          {
+            "title": "iofogctl completion bash",
+            "entry": "./iofogctl/cli/iofogctl_completion_bash.md",
+            "description": "CLI reference for iofogctl completion bash."
+          },
+          {
+            "title": "iofogctl completion fish",
+            "entry": "./iofogctl/cli/iofogctl_completion_fish.md",
+            "description": "CLI reference for iofogctl completion fish."
+          },
+          {
+            "title": "iofogctl completion powershell",
+            "entry": "./iofogctl/cli/iofogctl_completion_powershell.md",
+            "description": "CLI reference for iofogctl completion powershell."
+          },
+          {
+            "title": "iofogctl completion zsh",
+            "entry": "./iofogctl/cli/iofogctl_completion_zsh.md",
+            "description": "CLI reference for iofogctl completion zsh."
+          },
+          {
+            "title": "iofogctl configure",
+            "entry": "./iofogctl/cli/iofogctl_configure.md",
+            "description": "CLI reference for iofogctl configure."
+          },
+          {
+            "title": "iofogctl connect",
+            "entry": "./iofogctl/cli/iofogctl_connect.md",
+            "description": "CLI reference for iofogctl connect."
+          },
+          {
+            "title": "iofogctl create",
+            "entry": "./iofogctl/cli/iofogctl_create.md",
+            "description": "CLI reference for iofogctl create."
+          },
+          {
+            "title": "iofogctl create namespace",
+            "entry": "./iofogctl/cli/iofogctl_create_namespace.md",
+            "description": "CLI reference for iofogctl create namespace."
+          },
+          {
+            "title": "iofogctl delete",
+            "entry": "./iofogctl/cli/iofogctl_delete.md",
+            "description": "CLI reference for iofogctl delete."
+          },
+          {
+            "title": "iofogctl delete agent",
+            "entry": "./iofogctl/cli/iofogctl_delete_agent.md",
+            "description": "CLI reference for iofogctl delete agent."
+          },
+          {
+            "title": "iofogctl delete all",
+            "entry": "./iofogctl/cli/iofogctl_delete_all.md",
+            "description": "CLI reference for iofogctl delete all."
+          },
+          {
+            "title": "iofogctl delete application-template",
+            "entry": "./iofogctl/cli/iofogctl_delete_application-template.md",
+            "description": "CLI reference for iofogctl delete application-template."
+          },
+          {
+            "title": "iofogctl delete application",
+            "entry": "./iofogctl/cli/iofogctl_delete_application.md",
+            "description": "CLI reference for iofogctl delete application."
+          },
+          {
+            "title": "iofogctl delete catalogitem",
+            "entry": "./iofogctl/cli/iofogctl_delete_catalogitem.md",
+            "description": "CLI reference for iofogctl delete catalogitem."
+          },
+          {
+            "title": "iofogctl delete certificate",
+            "entry": "./iofogctl/cli/iofogctl_delete_certificate.md",
+            "description": "CLI reference for iofogctl delete certificate."
+          },
+          {
+            "title": "iofogctl delete configmap",
+            "entry": "./iofogctl/cli/iofogctl_delete_configmap.md",
+            "description": "CLI reference for iofogctl delete configmap."
+          },
+          {
+            "title": "iofogctl delete controller",
+            "entry": "./iofogctl/cli/iofogctl_delete_controller.md",
+            "description": "CLI reference for iofogctl delete controller."
+          },
+          {
+            "title": "iofogctl delete edge-resource",
+            "entry": "./iofogctl/cli/iofogctl_delete_edge-resource.md",
+            "description": "CLI reference for iofogctl delete edge-resource."
+          },
+          {
+            "title": "iofogctl delete microservice",
+            "entry": "./iofogctl/cli/iofogctl_delete_microservice.md",
+            "description": "CLI reference for iofogctl delete microservice."
+          },
+          {
+            "title": "iofogctl delete namespace",
+            "entry": "./iofogctl/cli/iofogctl_delete_namespace.md",
+            "description": "CLI reference for iofogctl delete namespace."
+          },
+          {
+            "title": "iofogctl delete nats-account-rule",
+            "entry": "./iofogctl/cli/iofogctl_delete_nats-account-rule.md",
+            "description": "CLI reference for iofogctl delete nats-account-rule."
+          },
+          {
+            "title": "iofogctl delete nats-user-rule",
+            "entry": "./iofogctl/cli/iofogctl_delete_nats-user-rule.md",
+            "description": "CLI reference for iofogctl delete nats-user-rule."
+          },
+          {
+            "title": "iofogctl delete registry",
+            "entry": "./iofogctl/cli/iofogctl_delete_registry.md",
+            "description": "CLI reference for iofogctl delete registry."
+          },
+          {
+            "title": "iofogctl delete role",
+            "entry": "./iofogctl/cli/iofogctl_delete_role.md",
+            "description": "CLI reference for iofogctl delete role."
+          },
+          {
+            "title": "iofogctl delete rolebinding",
+            "entry": "./iofogctl/cli/iofogctl_delete_rolebinding.md",
+            "description": "CLI reference for iofogctl delete rolebinding."
+          },
+          {
+            "title": "iofogctl delete secret",
+            "entry": "./iofogctl/cli/iofogctl_delete_secret.md",
+            "description": "CLI reference for iofogctl delete secret."
+          },
+          {
+            "title": "iofogctl delete service",
+            "entry": "./iofogctl/cli/iofogctl_delete_service.md",
+            "description": "CLI reference for iofogctl delete service."
+          },
+          {
+            "title": "iofogctl delete serviceaccount",
+            "entry": "./iofogctl/cli/iofogctl_delete_serviceaccount.md",
+            "description": "CLI reference for iofogctl delete serviceaccount."
+          },
+          {
+            "title": "iofogctl delete volume-mount",
+            "entry": "./iofogctl/cli/iofogctl_delete_volume-mount.md",
+            "description": "CLI reference for iofogctl delete volume-mount."
+          },
+          {
+            "title": "iofogctl delete volume",
+            "entry": "./iofogctl/cli/iofogctl_delete_volume.md",
+            "description": "CLI reference for iofogctl delete volume."
+          },
+          {
+            "title": "iofogctl deploy",
+            "entry": "./iofogctl/cli/iofogctl_deploy.md",
+            "description": "CLI reference for iofogctl deploy."
+          },
+          {
+            "title": "iofogctl describe",
+            "entry": "./iofogctl/cli/iofogctl_describe.md",
+            "description": "CLI reference for iofogctl describe."
+          },
+          {
+            "title": "iofogctl describe agent-config",
+            "entry": "./iofogctl/cli/iofogctl_describe_agent-config.md",
+            "description": "CLI reference for iofogctl describe agent-config."
+          },
+          {
+            "title": "iofogctl describe agent",
+            "entry": "./iofogctl/cli/iofogctl_describe_agent.md",
+            "description": "CLI reference for iofogctl describe agent."
+          },
+          {
+            "title": "iofogctl describe application-template",
+            "entry": "./iofogctl/cli/iofogctl_describe_application-template.md",
+            "description": "CLI reference for iofogctl describe application-template."
+          },
+          {
+            "title": "iofogctl describe application",
+            "entry": "./iofogctl/cli/iofogctl_describe_application.md",
+            "description": "CLI reference for iofogctl describe application."
+          },
+          {
+            "title": "iofogctl describe certificate",
+            "entry": "./iofogctl/cli/iofogctl_describe_certificate.md",
+            "description": "CLI reference for iofogctl describe certificate."
+          },
+          {
+            "title": "iofogctl describe configmap",
+            "entry": "./iofogctl/cli/iofogctl_describe_configmap.md",
+            "description": "CLI reference for iofogctl describe configmap."
+          },
+          {
+            "title": "iofogctl describe controller",
+            "entry": "./iofogctl/cli/iofogctl_describe_controller.md",
+            "description": "CLI reference for iofogctl describe controller."
+          },
+          {
+            "title": "iofogctl describe controlplane",
+            "entry": "./iofogctl/cli/iofogctl_describe_controlplane.md",
+            "description": "CLI reference for iofogctl describe controlplane."
+          },
+          {
+            "title": "iofogctl describe edge-resource",
+            "entry": "./iofogctl/cli/iofogctl_describe_edge-resource.md",
+            "description": "CLI reference for iofogctl describe edge-resource."
+          },
+          {
+            "title": "iofogctl describe microservice",
+            "entry": "./iofogctl/cli/iofogctl_describe_microservice.md",
+            "description": "CLI reference for iofogctl describe microservice."
+          },
+          {
+            "title": "iofogctl describe namespace",
+            "entry": "./iofogctl/cli/iofogctl_describe_namespace.md",
+            "description": "CLI reference for iofogctl describe namespace."
+          },
+          {
+            "title": "iofogctl describe nats-account-rule",
+            "entry": "./iofogctl/cli/iofogctl_describe_nats-account-rule.md",
+            "description": "CLI reference for iofogctl describe nats-account-rule."
+          },
+          {
+            "title": "iofogctl describe nats-account",
+            "entry": "./iofogctl/cli/iofogctl_describe_nats-account.md",
+            "description": "CLI reference for iofogctl describe nats-account."
+          },
+          {
+            "title": "iofogctl describe nats-user-rule",
+            "entry": "./iofogctl/cli/iofogctl_describe_nats-user-rule.md",
+            "description": "CLI reference for iofogctl describe nats-user-rule."
+          },
+          {
+            "title": "iofogctl describe nats-user",
+            "entry": "./iofogctl/cli/iofogctl_describe_nats-user.md",
+            "description": "CLI reference for iofogctl describe nats-user."
+          },
+          {
+            "title": "iofogctl describe registry",
+            "entry": "./iofogctl/cli/iofogctl_describe_registry.md",
+            "description": "CLI reference for iofogctl describe registry."
+          },
+          {
+            "title": "iofogctl describe role",
+            "entry": "./iofogctl/cli/iofogctl_describe_role.md",
+            "description": "CLI reference for iofogctl describe role."
+          },
+          {
+            "title": "iofogctl describe rolebinding",
+            "entry": "./iofogctl/cli/iofogctl_describe_rolebinding.md",
+            "description": "CLI reference for iofogctl describe rolebinding."
+          },
+          {
+            "title": "iofogctl describe secret",
+            "entry": "./iofogctl/cli/iofogctl_describe_secret.md",
+            "description": "CLI reference for iofogctl describe secret."
+          },
+          {
+            "title": "iofogctl describe service",
+            "entry": "./iofogctl/cli/iofogctl_describe_service.md",
+            "description": "CLI reference for iofogctl describe service."
+          },
+          {
+            "title": "iofogctl describe serviceaccount",
+            "entry": "./iofogctl/cli/iofogctl_describe_serviceaccount.md",
+            "description": "CLI reference for iofogctl describe serviceaccount."
+          },
+          {
+            "title": "iofogctl describe system-microservice",
+            "entry": "./iofogctl/cli/iofogctl_describe_system-microservice.md",
+            "description": "CLI reference for iofogctl describe system-microservice."
+          },
+          {
+            "title": "iofogctl describe volume-mount",
+            "entry": "./iofogctl/cli/iofogctl_describe_volume-mount.md",
+            "description": "CLI reference for iofogctl describe volume-mount."
+          },
+          {
+            "title": "iofogctl describe volume",
+            "entry": "./iofogctl/cli/iofogctl_describe_volume.md",
+            "description": "CLI reference for iofogctl describe volume."
+          },
+          {
+            "title": "iofogctl detach",
+            "entry": "./iofogctl/cli/iofogctl_detach.md",
+            "description": "CLI reference for iofogctl detach."
+          },
+          {
+            "title": "iofogctl detach agent",
+            "entry": "./iofogctl/cli/iofogctl_detach_agent.md",
+            "description": "CLI reference for iofogctl detach agent."
+          },
+          {
+            "title": "iofogctl detach edge-resource",
+            "entry": "./iofogctl/cli/iofogctl_detach_edge-resource.md",
+            "description": "CLI reference for iofogctl detach edge-resource."
+          },
+          {
+            "title": "iofogctl detach exec",
+            "entry": "./iofogctl/cli/iofogctl_detach_exec.md",
+            "description": "CLI reference for iofogctl detach exec."
+          },
+          {
+            "title": "iofogctl detach exec agent",
+            "entry": "./iofogctl/cli/iofogctl_detach_exec_agent.md",
+            "description": "CLI reference for iofogctl detach exec agent."
+          },
+          {
+            "title": "iofogctl detach exec microservice",
+            "entry": "./iofogctl/cli/iofogctl_detach_exec_microservice.md",
+            "description": "CLI reference for iofogctl detach exec microservice."
+          },
+          {
+            "title": "iofogctl detach volume-mount",
+            "entry": "./iofogctl/cli/iofogctl_detach_volume-mount.md",
+            "description": "CLI reference for iofogctl detach volume-mount."
+          },
+          {
+            "title": "iofogctl disconnect",
+            "entry": "./iofogctl/cli/iofogctl_disconnect.md",
+            "description": "CLI reference for iofogctl disconnect."
+          },
+          {
+            "title": "iofogctl exec",
+            "entry": "./iofogctl/cli/iofogctl_exec.md",
+            "description": "CLI reference for iofogctl exec."
+          },
+          {
+            "title": "iofogctl exec agent",
+            "entry": "./iofogctl/cli/iofogctl_exec_agent.md",
+            "description": "CLI reference for iofogctl exec agent."
+          },
+          {
+            "title": "iofogctl exec microservice",
+            "entry": "./iofogctl/cli/iofogctl_exec_microservice.md",
+            "description": "CLI reference for iofogctl exec microservice."
+          },
+          {
+            "title": "iofogctl get",
+            "entry": "./iofogctl/cli/iofogctl_get.md",
+            "description": "CLI reference for iofogctl get."
+          },
+          {
+            "title": "iofogctl legacy",
+            "entry": "./iofogctl/cli/iofogctl_legacy.md",
+            "description": "CLI reference for iofogctl legacy."
+          },
+          {
+            "title": "iofogctl logs",
+            "entry": "./iofogctl/cli/iofogctl_logs.md",
+            "description": "CLI reference for iofogctl logs."
+          },
+          {
+            "title": "iofogctl move",
+            "entry": "./iofogctl/cli/iofogctl_move.md",
+            "description": "CLI reference for iofogctl move."
+          },
+          {
+            "title": "iofogctl move agent",
+            "entry": "./iofogctl/cli/iofogctl_move_agent.md",
+            "description": "CLI reference for iofogctl move agent."
+          },
+          {
+            "title": "iofogctl move microservice",
+            "entry": "./iofogctl/cli/iofogctl_move_microservice.md",
+            "description": "CLI reference for iofogctl move microservice."
+          },
+          {
+            "title": "iofogctl nats",
+            "entry": "./iofogctl/cli/iofogctl_nats.md",
+            "description": "CLI reference for iofogctl nats."
+          },
+          {
+            "title": "iofogctl nats accounts",
+            "entry": "./iofogctl/cli/iofogctl_nats_accounts.md",
+            "description": "CLI reference for iofogctl nats accounts."
+          },
+          {
+            "title": "iofogctl nats accounts ensure",
+            "entry": "./iofogctl/cli/iofogctl_nats_accounts_ensure.md",
+            "description": "CLI reference for iofogctl nats accounts ensure."
+          },
+          {
+            "title": "iofogctl nats operator",
+            "entry": "./iofogctl/cli/iofogctl_nats_operator.md",
+            "description": "CLI reference for iofogctl nats operator."
+          },
+          {
+            "title": "iofogctl nats operator describe",
+            "entry": "./iofogctl/cli/iofogctl_nats_operator_describe.md",
+            "description": "CLI reference for iofogctl nats operator describe."
+          },
+          {
+            "title": "iofogctl nats users",
+            "entry": "./iofogctl/cli/iofogctl_nats_users.md",
+            "description": "CLI reference for iofogctl nats users."
+          },
+          {
+            "title": "iofogctl nats users create-mqtt-bearer",
+            "entry": "./iofogctl/cli/iofogctl_nats_users_create-mqtt-bearer.md",
+            "description": "CLI reference for iofogctl nats users create-mqtt-bearer."
+          },
+          {
+            "title": "iofogctl nats users create",
+            "entry": "./iofogctl/cli/iofogctl_nats_users_create.md",
+            "description": "CLI reference for iofogctl nats users create."
+          },
+          {
+            "title": "iofogctl nats users creds",
+            "entry": "./iofogctl/cli/iofogctl_nats_users_creds.md",
+            "description": "CLI reference for iofogctl nats users creds."
+          },
+          {
+            "title": "iofogctl nats users delete-mqtt-bearer",
+            "entry": "./iofogctl/cli/iofogctl_nats_users_delete-mqtt-bearer.md",
+            "description": "CLI reference for iofogctl nats users delete-mqtt-bearer."
+          },
+          {
+            "title": "iofogctl nats users delete",
+            "entry": "./iofogctl/cli/iofogctl_nats_users_delete.md",
+            "description": "CLI reference for iofogctl nats users delete."
+          },
+          {
+            "title": "iofogctl prune",
+            "entry": "./iofogctl/cli/iofogctl_prune.md",
+            "description": "CLI reference for iofogctl prune."
+          },
+          {
+            "title": "iofogctl prune agent",
+            "entry": "./iofogctl/cli/iofogctl_prune_agent.md",
+            "description": "CLI reference for iofogctl prune agent."
+          },
+          {
+            "title": "iofogctl rebuild",
+            "entry": "./iofogctl/cli/iofogctl_rebuild.md",
+            "description": "CLI reference for iofogctl rebuild."
+          },
+          {
+            "title": "iofogctl rebuild microservice",
+            "entry": "./iofogctl/cli/iofogctl_rebuild_microservice.md",
+            "description": "CLI reference for iofogctl rebuild microservice."
+          },
+          {
+            "title": "iofogctl rebuild system-microservice",
+            "entry": "./iofogctl/cli/iofogctl_rebuild_system-microservice.md",
+            "description": "CLI reference for iofogctl rebuild system-microservice."
+          },
+          {
+            "title": "iofogctl rename",
+            "entry": "./iofogctl/cli/iofogctl_rename.md",
+            "description": "CLI reference for iofogctl rename."
+          },
+          {
+            "title": "iofogctl rename agent",
+            "entry": "./iofogctl/cli/iofogctl_rename_agent.md",
+            "description": "CLI reference for iofogctl rename agent."
+          },
+          {
+            "title": "iofogctl rename application",
+            "entry": "./iofogctl/cli/iofogctl_rename_application.md",
+            "description": "CLI reference for iofogctl rename application."
+          },
+          {
+            "title": "iofogctl rename controller",
+            "entry": "./iofogctl/cli/iofogctl_rename_controller.md",
+            "description": "CLI reference for iofogctl rename controller."
+          },
+          {
+            "title": "iofogctl rename edge-resource",
+            "entry": "./iofogctl/cli/iofogctl_rename_edge-resource.md",
+            "description": "CLI reference for iofogctl rename edge-resource."
+          },
+          {
+            "title": "iofogctl rename microservice",
+            "entry": "./iofogctl/cli/iofogctl_rename_microservice.md",
+            "description": "CLI reference for iofogctl rename microservice."
+          },
+          {
+            "title": "iofogctl rename namespace",
+            "entry": "./iofogctl/cli/iofogctl_rename_namespace.md",
+            "description": "CLI reference for iofogctl rename namespace."
+          },
+          {
+            "title": "iofogctl rollback",
+            "entry": "./iofogctl/cli/iofogctl_rollback.md",
+            "description": "CLI reference for iofogctl rollback."
+          },
+          {
+            "title": "iofogctl start",
+            "entry": "./iofogctl/cli/iofogctl_start.md",
+            "description": "CLI reference for iofogctl start."
+          },
+          {
+            "title": "iofogctl start application",
+            "entry": "./iofogctl/cli/iofogctl_start_application.md",
+            "description": "CLI reference for iofogctl start application."
+          },
+          {
+            "title": "iofogctl start microservice",
+            "entry": "./iofogctl/cli/iofogctl_start_microservice.md",
+            "description": "CLI reference for iofogctl start microservice."
+          },
+          {
+            "title": "iofogctl stop",
+            "entry": "./iofogctl/cli/iofogctl_stop.md",
+            "description": "CLI reference for iofogctl stop."
+          },
+          {
+            "title": "iofogctl stop application",
+            "entry": "./iofogctl/cli/iofogctl_stop_application.md",
+            "description": "CLI reference for iofogctl stop application."
+          },
+          {
+            "title": "iofogctl stop microservice",
+            "entry": "./iofogctl/cli/iofogctl_stop_microservice.md",
+            "description": "CLI reference for iofogctl stop microservice."
+          },
+          {
+            "title": "iofogctl upgrade",
+            "entry": "./iofogctl/cli/iofogctl_upgrade.md",
+            "description": "CLI reference for iofogctl upgrade."
+          },
+          {
+            "title": "iofogctl version",
+            "entry": "./iofogctl/cli/iofogctl_version.md",
+            "description": "CLI reference for iofogctl version."
+          },
+          {
+            "title": "iofogctl view",
+            "entry": "./iofogctl/cli/iofogctl_view.md",
+            "description": "CLI reference for iofogctl view."
           }
         ]
       },
       {
-        "title": "Writing Microservices",
+        "title": "Platform Deployment",
+        "subMenus": [
+          {
+            "title": "Introduction",
+            "entry": "./platform-deployment/introduction.md",
+            "description": "Learn about Introduction."
+          },
+          {
+            "title": "Prepare Your Network",
+            "entry": "./platform-deployment/prepare-your-network.md",
+            "description": "Learn about Prepare Your Network."
+          },
+          {
+            "title": "Prepare Realm and OIDC Client",
+            "entry": "./platform-deployment/prepare-realm.md",
+            "description": "Learn about Prepare Realm and OIDC Client."
+          },
+          {
+            "title": "Keycloak Deployment",
+            "entry": "./platform-deployment/keycloak-deployment.md",
+            "description": "Learn about Keycloak Deployment."
+          },
+          {
+            "title": "Prepare Your Remote Hosts",
+            "entry": "./platform-deployment/prepare-your-remote-hosts.md",
+            "description": "Learn about Prepare Your Remote Hosts."
+          },
+          {
+            "title": "Remote Control Plane",
+            "entry": "./platform-deployment/remote-control-plane.md",
+            "description": "Learn about Remote Control Plane."
+          },
+          {
+            "title": "Kubernetes Prepare Cluster",
+            "entry": "./platform-deployment/kubernetes-prepare-cluster.md",
+            "description": "Learn about Kubernetes Prepare Cluster."
+          },
+          {
+            "title": "External Database Deployment",
+            "entry": "./platform-deployment/database.md",
+            "description": "Learn about External Database Deployment."
+          },
+          {
+            "title": "Kubernetes iofogctl",
+            "entry": "./platform-deployment/kubernetes-iofogctl.md",
+            "description": "Learn about Kubernetes iofogctl."
+          },
+          {
+            "title": "Setup Your Agents",
+            "entry": "./platform-deployment/setup-your-agents.md",
+            "description": "Learn about Setup Your Agents."
+          },
+          {
+            "title": "Airgap Deployment",
+            "entry": "./platform-deployment/airgap-deployment.md",
+            "description": "Learn about Airgap Deployment."
+          }
+        ]
+      },
+      {
+        "title": "Security and RBAC",
+        "subMenus": [
+          {
+            "title": "Securing Cluster",
+            "entry": "./security/introduction.md",
+            "description": "Learn about Securing Cluster."
+          },
+          {
+            "title": "Roles",
+            "entry": "./security/roles.md",
+            "description": "Learn about Roles."
+          },
+          {
+            "title": "Role Bindings",
+            "entry": "./security/role-bindings.md",
+            "description": "Learn about Role Bindings."
+          },
+          {
+            "title": "Certificates Manager",
+            "entry": "./security/certificates-manager.md",
+            "description": "Learn about Certificates Manager."
+          },
+          {
+            "title": "NATs Account Rule",
+            "entry": "./security/nats-account-rule.md",
+            "description": "Learn about NATs Account Rule."
+          },
+          {
+            "title": "NATs User Rule",
+            "entry": "./security/nats-user-rule.md",
+            "description": "Learn about NATs User Rule."
+          },
+          {
+            "title": "NATs JWT Authentication",
+            "entry": "./security/nats-jwt-authentication.md",
+            "description": "Learn about NATs JWT Authentication."
+          }
+        ]
+      },
+      {
+        "title": "Agent Management",
+        "subMenus": [
+          {
+            "title": "Introduction",
+            "entry": "./agent-management/introduction.md",
+            "description": "Learn about Introduction."
+          },
+          {
+            "title": "Agent Configuration",
+            "entry": "./agent-management/agent-configuration.md",
+            "description": "Learn about Agent Configuration."
+          },
+          {
+            "title": "Attach/Detach",
+            "entry": "./agent-management/attach-detach.md",
+            "description": "Learn about Attach/Detach."
+          },
+          {
+            "title": "Volumes",
+            "entry": "./agent-management/volumes.md",
+            "description": "Learn about Volumes."
+          },
+          {
+            "title": "Docker Image Pruning",
+            "entry": "./agent-management/docker-image-pruning.md",
+            "description": "Learn about Docker Image Pruning."
+          },
+          {
+            "title": "Upgrade/Rollback",
+            "entry": "./agent-management/upgrade-rollback.md",
+            "description": "Learn about Upgrade/Rollback."
+          }
+        ]
+      },
+      {
+        "title": "Application Management",
+        "subMenus": [
+          {
+            "title": "Introduction",
+            "entry": "./applications/introduction.md",
+            "description": "Learn about Introduction."
+          },
+          {
+            "title": "Application Templates",
+            "entry": "./applications/application-templates.md",
+            "description": "Learn about Application Templates."
+          },
+          {
+            "title": "Microservice Lifecycle Management",
+            "entry": "./applications/microservice-lifecycle-management.md",
+            "description": "Learn about Microservice Lifecycle Management."
+          },
+          {
+            "title": "Microservice Logs",
+            "entry": "./applications/microservice-logs.md",
+            "description": "Learn about Microservice Logs."
+          },
+          {
+            "title": "Microservice Move/Rename",
+            "entry": "./applications/microservice-move-rename.md",
+            "description": "Learn about Microservice Move/Rename."
+          },
+          {
+            "title": "Microservice Registry Catalog",
+            "entry": "./applications/microservice-registry-catalog.md",
+            "description": "Learn about Microservice Registry Catalog."
+          }
+        ]
+      },
+      {
+        "title": "YAML References",
+        "subMenus": [
+          {
+            "title": "YAML Kinds",
+            "entry": "./yaml-references/reference-kinds.md",
+            "description": "Learn about YAML Kinds."
+          },
+          {
+            "title": "Control Plane",
+            "entry": "./yaml-references/reference-control-plane.md",
+            "description": "Learn about Control Plane."
+          },
+          {
+            "title": "Agent",
+            "entry": "./yaml-references/reference-agent.md",
+            "description": "Learn about Agent."
+          },
+          {
+            "title": "Application",
+            "entry": "./yaml-references/reference-application.md",
+            "description": "Learn about Application."
+          },
+          {
+            "title": "Application Template",
+            "entry": "./yaml-references/reference-application-template.md",
+            "description": "Learn about Application Template."
+          },
+          {
+            "title": "Registry",
+            "entry": "./yaml-references/reference-registry.md",
+            "description": "Learn about Registry."
+          },
+          {
+            "title": "Catalog",
+            "entry": "./yaml-references/reference-catalog.md",
+            "description": "Learn about Catalog."
+          },
+          {
+            "title": "OfflineImage",
+            "entry": "./yaml-references/reference-offlineimage.md",
+            "description": "Learn about OfflineImage."
+          },
+          {
+            "title": "Secret",
+            "entry": "./yaml-references/reference-secret.md",
+            "description": "Learn about Secret."
+          },
+          {
+            "title": "Certificate",
+            "entry": "./yaml-references/reference-certificate.md",
+            "description": "Learn about Certificate."
+          },
+          {
+            "title": "ConfigMap",
+            "entry": "./yaml-references/reference-configmap.md",
+            "description": "Learn about ConfigMap."
+          },
+          {
+            "title": "VolumeMount",
+            "entry": "./yaml-references/reference-volumemount.md",
+            "description": "Learn about VolumeMount."
+          },
+          {
+            "title": "Service",
+            "entry": "./yaml-references/reference-service.md",
+            "description": "Learn about Service."
+          },
+          {
+            "title": "Role",
+            "entry": "./yaml-references/reference-roles.md",
+            "description": "Learn about Role."
+          },
+          {
+            "title": "RoleBinding",
+            "entry": "./yaml-references/reference-role-binding.md",
+            "description": "Learn about RoleBinding."
+          },
+          {
+            "title": "NatsAccountRule",
+            "entry": "./yaml-references/reference-nats-account-rule.md",
+            "description": "Learn about NatsAccountRule."
+          },
+          {
+            "title": "NatsUserRule",
+            "entry": "./yaml-references/reference-nats-user-rule.md",
+            "description": "Learn about NatsUserRule."
+          }
+        ]
+      },
+      {
+        "title": "ECN Viewer",
+        "subMenus": [
+          {
+            "title": "ECN Viewer",
+            "entry": "./ECN-Viewer/ecn-viewer.md",
+            "description": "Learn about ECN Viewer."
+          }
+        ]
+      },
+      {
+        "title": "Reference - Controller",
         "subMenus": [
           {
             "title": "Overview",
-            "entry": "./writing-microservices/overview.md"
+            "entry": "./reference-controller/overview.md",
+            "description": "Learn about Overview."
           },
           {
-            "title": "SDK",
-            "entry": "./writing-microservices/sdk.md"
+            "title": "Configuration",
+            "entry": "./reference-controller/configuration.md",
+            "description": "Learn about Configuration."
           },
           {
-            "title": "Debugging",
-            "entry": "./writing-microservices/debugging.md"
+            "title": "REST API",
+            "entry": "./reference-controller/rest-api.md",
+            "description": "Learn about REST API."
           }
         ]
       },
       {
-        "title": "Using System Microservices",
-        "subMenus": [
-          {
-            "title": "Diagnostics",
-            "entry": "./using-system-microservices/diagnostics.md"
-          },
-          {
-            "title": "Hardware Abstraction Layer",
-            "entry": "./using-system-microservices/hal.md"
-          },
-          {
-            "title": "Bluetooth REST API",
-            "entry": "./using-system-microservices/rest-blue.md"
-          }
-        ]
-      },
-      {
-        "title": "Using Public Catalog Microservices",
-        "subMenus": [
-          {
-            "title": "JSON REST API And Open Weather Map",
-            "entry": "./using-public-catalog-microservices/jsonrestapi.md"
-          }
-        ]
-      },
-      {
-        "title": "Controllers",
+        "title": "Reference - Agent",
         "subMenus": [
           {
             "title": "Overview",
-            "entry": "./controllers/overview.md"
+            "entry": "./reference-agent/overview.md",
+            "description": "Learn about Overview."
           },
           {
             "title": "CLI Usage",
-            "entry": "./controllers/cli-usage.md"
+            "entry": "./reference-agent/cli-usage.md",
+            "description": "Learn about CLI Usage."
           },
           {
-            "title": "REST API Reference",
-            "entry": "./controllers/rest-api.md"
+            "title": "Local API",
+            "entry": "./reference-agent/local-api.md",
+            "description": "Learn about Local API."
+          },
+          {
+            "title": "Configuration",
+            "entry": "./reference-agent/configuration.md",
+            "description": "Learn about Configuration."
+          },
+          {
+            "title": "Agent Logs",
+            "entry": "./reference-agent/agent-logs.md",
+            "description": "Learn about Agent Logs."
           }
         ]
       },
       {
-        "title": "Connectors",
+        "title": "Reference - Catalog Microservices",
         "subMenus": [
           {
-            "title": "Overview",
-            "entry": "./connectors/overview.md"
+            "title": "HAL",
+            "entry": "./reference-microservices-catalog/hal.md",
+            "description": "Learn about HAL."
           },
           {
-            "title": "CLI Usage",
-            "entry": "./connectors/cli-usage.md"
-          },
-          {
-            "title": "API Reference",
-            "entry": "./connectors/api-reference.md"
-          }
-        ]
-      },
-      {
-        "title": "Agents",
-        "subMenus": [
-          {
-            "title": "Overview",
-            "entry": "./agents/overview.md"
-          },
-          {
-            "title": "CLI Usage",
-            "entry": "./agents/cli-usage.md"
-          },
-          {
-            "title": "Local API Reference",
-            "entry": "./agents/local-api.md"
+            "title": "REST Blue",
+            "entry": "./reference-microservices-catalog/rest-blue.md",
+            "description": "Learn about REST Blue."
           }
         ]
       },
@@ -151,11 +977,13 @@
         "subMenus": [
           {
             "title": "Guidelines",
-            "entry": "./contributing/guidelines.md"
+            "entry": "./contributing/guidelines.md",
+            "description": "Learn about Guidelines."
           },
           {
             "title": "Code of Conduct",
-            "entry": "./contributing/code-of-conduct.md"
+            "entry": "./contributing/code-of-conduct.md",
+            "description": "Learn about Code of Conduct."
           }
         ]
       }

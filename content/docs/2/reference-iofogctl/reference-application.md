@@ -2,14 +2,14 @@
 
 `iofogctl` allows users to deploy sets of Microservices to Edge Compute Networks ('ECNs'). The various components of Microservices are specified within YAML files for `iofogctl` to consume.
 
-An application is a set of Microservices working together to achieve one specific purpose.
+An Application is a set of Microservices working together to achieve one specific purpose.
 
-An application is defined by a YAML file. This file is passed as a parameter to the deploy command: `iofogctl deploy -f <path-to-yaml>`
+An Application is defined by a YAML file. This file is passed as a parameter to the deploy command: `iofogctl deploy -f <path-to-yaml>`
 
-An application YAML file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
+An Application YAML file definition can be retrieved with the describe command: `iofogctl describe application <NAME> [-o <path-to-yaml>]`
 
 Don't panic if this seems like a lot to digest, the [microservice yaml definition](#microservices) is explained in more details further down.
-The main take away is that an application is defined by: a `name`, a set of `microservices` and a set of `routes`.
+The main take away is that an Application is defined by: a `name`, a set of `microservices` and a set of `routes`.
 
 ```yaml
 apiVersion: iofog.org/v2
@@ -53,7 +53,7 @@ spec:
         ports:
           - internal: 80
             external: 5000
-            public: 5001
+            proxy: true
             protocol: tcp
         env:
           - key: BASE_URL
@@ -78,7 +78,7 @@ spec:
 
 Microservices configuration and set up are defined using YAML files.
 
-Those YAML definitions can be used inside an application YAML file, or by themselves when deploying a microservice to an existing application: `iofogctl deploy microservice -f <path-to-microservice.yaml>`
+Those YAML definitions can be used inside an Application YAML file, or by themselves when deploying a microservice to an existing Application: `iofogctl deploy microservice -f <path-to-microservice.yaml>`
 
 A microservice YAML definition file can be retrieved using the describe command: `iofogctl describe microservice <NAME> [-o microservice.yaml]`
 
@@ -154,9 +154,8 @@ spec:
       # This will create a mapping between the port 80 of the microservice container and the port 5000 of the agent
       - internal: 80
         external: 5000
-        public: 5001 # This will create a HTTP proxy tunnel between the port 5001 on the default router, and the port 5000 on the Agent
-        host: default-router # Target for the public port (use Agent name, defaults to `default-router`)
-        protocol: http # Protocol for the proxy tunnel (Either tcp or http, defaults to http)
+        proxy: true # This will create a HTTP proxy tunnel between the public host, and the port 5000 on the Agent
+        protocol: tcp # Protocol for the proxy tunnel (Either tcp or udp, defaults to tcp)
     commands:
       # This will result in the container being started as `docker run <image> <options> dbhost localhost:27017`
       - 'dbhost'

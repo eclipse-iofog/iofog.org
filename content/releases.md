@@ -1,4 +1,39 @@
-## ioFog v2
+## ioFog v3.7.0
+
+- [NATS messaging](/docs/3.7/security/nats-jwt-authentication.html) is now available as default pub/sub, request/reply, KV store and JetStream messaging inside **ioFog** clusters; use [NATS Account Rules](/docs/3.7/security/nats-account-rule.html) at application level and [NATS User Rules](/docs/3.7/security/nats-user-rule.html) at microservice level-the Controller provisions credentials automatically with no manual JWT handling.
+- [Access Control](/docs/3.7/security/roles.html) is now available with fine-grained [Roles](/docs/3.7/security/roles.html) and [Role Bindings](/docs/3.7/security/role-bindings.html) for the Controller REST and WS APIs, plus [NATS Account Rule](/docs/3.7/security/nats-account-rule.html) and [NATS User Rule](/docs/3.7/security/nats-user-rule.html) for NATS access.
+- [Security](/docs/3.7/security/introduction.html) is now documented in a dedicated section: [NATS JWT Authentication](/docs/3.7/security/nats-jwt-authentication.html) and [Certificates Manager](/docs/3.7/security/certificates-manager.html) for Microservices. For Routers and NATs instances TLS by default, with support for custom CAs and volume-mounted certs.
+- Legacy ioFog Messagebus is deprecated.
+- Controller supports external KMS system for Secrets and ConfigMaps(spec.usevault: true) store. HashiCorp Vault, OpenBao, AWS Secret Manager, Azure Key Vault, Google Secret Manager.
+- [VolumeMount](/docs/3.7/yaml-references/reference-volumemount.html) is now available with **type**-based volume mapping and reference by name.
+- [Logging via WebSocket](/docs/3.7/applications/microservice-logs.html) is now available for streaming Agent and microservice logs in ECN-Viewer and iofogctl; see [Agent Logs](/docs/3.7/reference-agent/agent-logs.html) for details.
+- [Airgap deployment](/docs/3.7/platform-deployment/airgap-deployment.html) is now documented with a dedicated guide for control plane and Agent images offline, [OfflineImage](/docs/3.7/yaml-references/reference-offlineimage.html) for microservices, and iofogctl flags (`--no-cache`, `--transfer-pool`).
+- [Service](/docs/3.7/yaml-references/reference-service.html) is now available for exposing microservices, agents, Kubernetes services, or external endpoints through Router's TCP bridge mechanism.
+- [Secret Management](/docs/3.7/yaml-references/reference-secret.html) is now available for storing and managing sensitive data including Opaque and TLS secrets.
+- [Certificate and CertificateAuthority](/docs/3.7/yaml-references/reference-certificate.html) management is now available for generating self-signed certificates or using existing certificates from ioFog cluster or Kubernetes secrets.
+- [ConfigMap](/docs/3.7/yaml-references/reference-configmap.html) is now available for managing non-sensitive configuration data that can be mounted to microservices.
+- [VolumeMount](/docs/3.7/yaml-references/reference-volumemount.html) is now available for attaching ConfigMaps or Secrets to Agents as volumes, enabling easy volume management for microservices.
+- [OfflineImage](/docs/3.7/yaml-references/reference-offlineimage.html) is now available for deploying container images to edge nodes that cannot access the internet, enabling iofogctl to pull images locally and transfer them to remote hosts via SSH.
+- [Debugging & Exec Sessions](#debugging-and-exec-sessions) deliver role-aware remote terminals for Agents, microservices, and system microservices—powered by iofogctl and ECN Viewer.
+- [ECN Viewer](/docs/3.7/ECN-Viewer/ecn-viewer.html) now mirrors nearly every iofogctl operation, enabling full-cluster workload management, remote exec, resource editing, and deployments directly from the browser.
+- [Events and Auditing](#events-and-auditing) provides comprehensive tracking and auditing of all Controller API endpoint calls for compliance and troubleshooting.
+
+
+## ioFog v3.0.0
+
+- [Template parametric expressions](./docs/3/reference-iofogctl/reference-template-engine.html) now available!
+- [Application template](./docs/3/reference-iofogctl/reference-application-template.html), build your own App Store!
+- [Edge resources](./docs/3/agent-management/edge-resources.html), let your microservices know what their Agent is capable of!
+- [Agent install plugins](./docs/3/platform-deployment/setup-your-agents.html#customize-agent-installation) let you install Agent on your favourite Linux distro!
+
+### Changelogs
+
+- [Controller](https://github.com/eclipse-iofog/Controller/blob/release/2.1/CHANGELOG.md)
+- [Agent](https://github.com/eclipse-iofog/Agent/blob/release/2.1/CHANGELOG.md)
+- [iofogctl](https://github.com/eclipse-iofog/iofogctl/blob/release/2.1/CHANGELOG.md)
+- [ioFog Golang SDK](https://github.com/eclipse-iofog/iofog-go-sdk/blob/release/2.1/CHANGELOG.md)
+
+## ioFog v2.0.0
 
 [Get Started with ioFog v2](/docs/2/getting-started/core-concepts.html)
 
