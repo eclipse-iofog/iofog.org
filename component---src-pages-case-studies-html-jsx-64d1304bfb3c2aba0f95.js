@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkiofog_org=self.webpackChunkiofog_org||[]).push([[721],{91448:function(e,t,n){n.r(t);var o=n(77387),r=n(96540),i=n(18250),u=n(52214),l=n(46969),s=n.n(l),c=function(e){function t(){return e.apply(this,arguments)||this}return(0,o.A)(t,e),t.prototype.render=function(){return r.createElement(u.A,{location:"case-studies.html"},r.createElement(i.A,{title:"Case Studies | "+s().siteTitle}),"Hello world")},t}(r.Component);t.default=c}}]);
+//# sourceMappingURL=component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js.map

@@ -1,0 +1,18 @@
+<svg id="logo-siemens" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150.013" height="23.229" viewBox="0 0 150.013 23.229">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_15" data-name="Rectangle 15" width="150.013" height="23.229" fill="#a9b2bc"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectangle_14" data-name="Rectangle 14" width="6.608" height="22.156" transform="translate(21.235 0.424)" fill="#a9b2bc"/>
+  <path id="Path_21" data-name="Path 21" d="M41.3.528V22.684H58.4V18.279H47.909V13.744h9.2V9.468h-9.2V4.934H58.4V.528Z" transform="translate(-8.189 -0.104)" fill="#a9b2bc"/>
+  <path id="Path_22" data-name="Path 22" d="M87.7.528,81.609,13.679,75.778.528H67.161V22.684h5.312V9.468L78.3,22.684h4.34l6.284-13.54v13.54h6.609V.528Z" transform="translate(-13.316 -0.104)" fill="#a9b2bc"/>
+  <path id="Path_23" data-name="Path 23" d="M151.065.528v13.6L142.772.528h-7.255V22.684h4.664V9.015l8.357,13.669h7.192V.528Z" transform="translate(-26.869 -0.104)" fill="#a9b2bc"/>
+  <path id="Path_24" data-name="Path 24" d="M109.031.528V22.684h17.1V18.279h-10.5V13.744h9.2V9.468h-9.2V4.934h10.5V.528Z" transform="translate(-21.618 -0.104)" fill="#a9b2bc"/>
+  <g id="Group_32" data-name="Group 32" transform="translate(0 0)">
+    <g id="Group_31" data-name="Group 31" clip-path="url(#clip-path)">
+      <path id="Path_25" data-name="Path 25" d="M14.112,10.595c-1.878-.842-4.794-2.332-6.8-3.239C5.423,6.5,5.366,2.044,16.25,5.347V1.137C13.982.359,7.763-1.131,3.1,1.46S-.464,10.465,3.1,12.6c1.555.842,3.693,1.619,6.414,2.785,2.254.966,3.628,5.9-9.264,2.527v4.341c2.656.972,12.374,2.008,15.224-1.167,3.559-3.963,1.943-9.134-1.361-10.495" transform="translate(0 0)" fill="#a9b2bc" fill-rule="evenodd"/>
+      <path id="Path_26" data-name="Path 26" d="M179.416,10.595c-1.878-.842-4.794-2.332-6.8-3.239-1.886-.852-1.943-5.312,8.941-2.008V1.137c-2.268-.778-8.487-2.268-13.152.323s-3.563,9.005,0,11.143c1.555.842,3.693,1.619,6.414,2.785,2.254.966,3.628,5.9-9.264,2.527v4.341c2.656.972,12.374,2.008,15.224-1.167,3.559-3.963,1.943-9.134-1.361-10.495" transform="translate(-32.775 0)" fill="#a9b2bc" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>
