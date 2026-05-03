@@ -16,7 +16,7 @@ The Controller stores operator and account JWTs and generates user credentials w
 
 ```bash
 iofogctl nats operator describe
-name: pot-operator
+name: iofog-operator
 publickey: OCRQSRFBZEBHQQMQ6N37KCBSZCQI2WEG7DQXHRXUUW3FSBBN5TP2ZDLV
 jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJhdWQiOiJOQVRTIiwibmFtZSI6InBvdC1vcGVyYXRvciIsInN1YiI6Ik9DUlFTUkZCWkVCSFFRTVE2TjM3S0NCU1pDUUkyV0VHN0RRWEhSWFVVVzNGU0JCTjVUUDJaRExWIiwibmF0cyI6eyJ0eXBlIjoib3BlcmF0b3IiLCJ2ZXJzaW9uIjoyfSwiaXNzIjoiT0NSUVNSRkJaRUJIUVFNUTZOMzdLQ0JTWkNRSTJXRUc3RFFYSFJYVVVXM0ZTQkJONVRQMlpETFYiLCJpYXQiOjE3NzI3MDYxOTUsImp0aSI6IlRWbjFVNGVadG00ZzAvcEU0Tlo5NFZleGlURmRwMEg2ZkhROFpqKysxUUVQWVJqaFppSUE1L1JWN25icDMyYjhSSDFFdXVMV1l4eEt2bnc4dkdpL1pBPT0ifQ.BxbgFYGCE0pGQsRu08VQI8DsrC0RIKkZm7-DfcmYRsano4PShIfYppBmtSYZxwP_GZYgZIcFUdnmMqsUWQ-2DA
 ```
@@ -27,7 +27,7 @@ aud: NATS
 iat: 1.772706195e+09
 iss: OCRQSRFBZEBHQQMQ6N37KCBSZCQI2WEG7DQXHRXUUW3FSBBN5TP2ZDLV
 jti: TVn1U4eZtm4g0/pE4NZ94VexiTFdp0H6fHQ8Zj++1QEPYRjhZiIA5/RV7nbp32b8RH1EuuLWYxxKvnw8vGi/ZA==
-name: pot-operator
+name: iofog-operator
 nats:
   type: operator
   version: 2
@@ -212,7 +212,7 @@ iofogctl deploy -f /tmp/apps.yaml
 ```bash
 iofogctl get nats-accounts
 NAMESPACE
-pot-local
+iofog-local
 
 NAME		APP ID		SYSTEM		PUBLIC KEY							
 SYS		0		true		ACXO6737ASXEGXI57MJPUJOIPV7OMBIDA77ACHYM57BQ4SFPIMSWQ5E3	
@@ -356,7 +356,7 @@ apiVersion: iofog.org/v3
 kind: Microservice
 metadata:
   name: nats-test/box-1
-  namespace: pot-local
+  namespace: iofog-local
 spec:
   uuid: 2bc86457-b7a3-4886-b1bf-4a5725cf0bb0
   name: box-1

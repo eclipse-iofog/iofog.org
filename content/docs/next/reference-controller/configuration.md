@@ -173,7 +173,7 @@ diagnostics:
 # OpenTelemetry Configuration
 # otel:
 #   enabled: false         # true/disable OpenTelemetry
-#   serviceName: "pot-controller"  # Service name for traces
+#   serviceName: "iofog-controller"  # Service name for traces
 #   endpoint: "http://localhost:4318/v1/traces"  # OTel endpoint
 #   protocol: http/protobuf       # Exporter OTLP Protocol (grpc or http/protobuf)
 #   headers: ""  # A list of headers to apply to all outgoing data (traces, metrics, and logs).

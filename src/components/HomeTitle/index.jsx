@@ -12,7 +12,7 @@ class HomeTitle extends Component {
             <section className="col-12 col-md-6 promo">
               <h1 className="title">EdgeOps at Scale.</h1>
               <p>
-                Run, deploy, manage and distribute your workloads on the Edge.
+                Securely deploy, orchestrate, and operate distributed workloads across your edge environment from a single control plane.
                 Eclipse ioFog<sup>TM</sup> is <b>free, open source</b>, and it always
                 will be.
               </p>

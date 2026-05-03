@@ -92,7 +92,7 @@ spec:
     realm: 
     ssl: "none"
     realmKey:
-    controllerClient: pot-controller
+    controllerClient: iofog-controller
     controllerSecret: ""
     viewerClient: ecn-viewer
 

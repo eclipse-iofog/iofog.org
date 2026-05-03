@@ -16,7 +16,7 @@
 - [OfflineImage](/docs/3.7/yaml-references/reference-offlineimage.html) is now available for deploying container images to edge nodes that cannot access the internet, enabling iofogctl to pull images locally and transfer them to remote hosts via SSH.
 - [Debugging & Exec Sessions](#debugging-and-exec-sessions) deliver role-aware remote terminals for Agents, microservices, and system microservices—powered by iofogctl and ECN Viewer.
 - [ECN Viewer](/docs/3.7/ECN-Viewer/ecn-viewer.html) now mirrors nearly every iofogctl operation, enabling full-cluster workload management, remote exec, resource editing, and deployments directly from the browser.
-- [Events and Auditing](#events-and-auditing) provides comprehensive tracking and auditing of all Controller API endpoint calls for compliance and troubleshooting.
+- [Events and Auditing](/docs/3.7/ECN-Viewer/ecn-viewer.html#6-events-and-audit-trail) provides comprehensive tracking and auditing of all Controller API endpoint calls for compliance and troubleshooting.
 
 
 ## ioFog v3.0.0

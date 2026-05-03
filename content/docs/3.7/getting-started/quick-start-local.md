@@ -90,7 +90,7 @@ spec:
     realm: realm-name
     realmKey: realm-key
     ssl: exter
-    controllerClient: pot-controller
+    controllerClient: iofog-controller
     controllerSecret:
     viewerClient: ecn-viewer
   nats:

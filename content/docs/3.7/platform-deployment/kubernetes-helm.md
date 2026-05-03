@@ -34,14 +34,14 @@ Install the Chart while specifying the required authentication configuration. Th
 ### Quick Install with Flags
 
 ```bash
-helm install pot-operator datasance/pot -n pot --create-namespace \
+helm install iofog-operator datasance/pot -n pot --create-namespace \
   --set controlplane.spec.auth.url=https://keycloak.example.com \
   --set controlplane.spec.auth.realm=pot \
   --set controlplane.spec.auth.realmKey=master \
   --set controlplane.spec.auth.ssl=true \
-  --set controlplane.spec.auth.controllerClient=pot-controller \
+  --set controlplane.spec.auth.controllerClient=iofog-controller \
   --set controlplane.spec.auth.controllerSecret=supersecret \
-  --set controlplane.spec.auth.viewerClient=pot-viewer
+  --set controlplane.spec.auth.viewerClient=iofog-viewer
 ```
 
 ### Install with Values File
@@ -73,16 +73,16 @@ controlplane:
       realm: pot
       realmKey: master
       ssl: true
-      controllerClient: pot-controller
+      controllerClient: iofog-controller
       controllerSecret: supersecret
-      viewerClient: pot-viewer
+      viewerClient: iofog-viewer
 ```
 
 Then install using the values file:
 
 ```bash
-helm install pot-operator datasance/pot -n pot --create-namespace \
-  -f pot-operator-values.yaml
+helm install iofog-operator datasance/pot -n pot --create-namespace \
+  -f iofog-operator-values.yaml
 ```
 
 The install creates:
@@ -103,7 +103,7 @@ The result should look like this:
 
 ```plain
 NAME          REVISION  UPDATED                   STATUS    CHART        APP VERSION  NAMESPACE
-pot-operator  1         Tue Dec  8 21:34:42 2025  DEPLOYED  pot-3.7.0    3.7.0        pot
+iofog-operator  1         Tue Dec  8 21:34:42 2025  DEPLOYED  iofog-3.7.0    3.7.0        pot
 ```
 ## Configuration
 
@@ -141,9 +141,9 @@ helm install pot datasance/pot -n pot --create-namespace \
   --set controlplane.spec.auth.realm=pot \
   --set controlplane.spec.auth.realmKey=master \
   --set controlplane.spec.auth.ssl=external \
-  --set controlplane.spec.auth.controllerClient=pot-controller \
+  --set controlplane.spec.auth.controllerClient=iofog-controller \
   --set controlplane.spec.auth.controllerSecret=supersecret \
-  --set controlplane.spec.auth.viewerClient=pot-viewer \
+  --set controlplane.spec.auth.viewerClient=iofog-viewer \
   --set controlplane.spec.database.provider=sqlite \
   --set controlplane.spec.database.host="" \
   --set controlplane.spec.database.port=0 \
@@ -178,9 +178,9 @@ controlplane:
       realm: pot
       realmKey: master
       ssl: external
-      controllerClient: pot-controller
+      controllerClient: iofog-controller
       controllerSecret: supersecret
-      viewerClient: pot-viewer
+      viewerClient: iofog-viewer
     replicas:
       controller: 1
       nats: 2

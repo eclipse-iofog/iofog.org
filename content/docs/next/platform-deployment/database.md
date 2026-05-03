@@ -11,7 +11,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pot-db-volume
+  name: iofog-db-volume
 spec:
   accessModes:
     - ReadWriteOnce
@@ -56,7 +56,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - mountPath: /home/postgres/pgdata/data
-              name: pot-db-volume
+              name: iofog-db-volume
               readOnly: false
       securityContext:
         runAsUser: 1000
@@ -64,9 +64,9 @@ spec:
         fsGroup: 1000
       restartPolicy: Always
       volumes:
-        - name: pot-db-volume
+        - name: iofog-db-volume
           persistentVolumeClaim:
-            claimName: pot-db-volume
+            claimName: iofog-db-volume
 ---
 apiVersion: v1
 kind: Service
@@ -91,7 +91,7 @@ kubectl apply -f example-postgre.yaml -n $namespace
 apiVersion: v1
 kind: Secret
 metadata:
-  name: pot-mysql-secret
+  name: iofog-mysql-secret
 stringData:
   rootHost: "%"
   rootPassword: "password"
@@ -144,13 +144,13 @@ spec:
               valueFrom: 
                secretKeyRef: 
                 key: rootPassword
-                name: pot-mysql-secret
+                name: iofog-mysql-secret
           volumeMounts:
-            - name: pot-db
+            - name: iofog-db
               mountPath: /var/lib/mysql
   volumeClaimTemplates:
     - metadata:
-        name: pot-db
+        name: iofog-db
       spec:
         storageClassName: default
         accessModes:

@@ -5,26 +5,26 @@ Eclipse ioFog integrates Keycloak as its identity and access management (IAM) so
 ## Roles and permissions
 
 By default preconfigured Eclipse ioFog realm comes with below Realm level roles:
-- pot-Admin
-- pot-SRE
-- pot-Developer
-- pot-Viewer
+- iofog-Admin
+- iofog-SRE
+- iofog-Developer
+- iofog-Viewer
 
-By default preconfigured Eclipse ioFog realm comes with  two client `pot-controller` and `ecn-viewer`. 
-`ecn-viewer`client comes with `Standard Flow` , `pot-controller` client comes with `Direct access grants` and `Service accounts roles`
+By default preconfigured Eclipse ioFog realm comes with  two client `iofog-controller` and `ecn-viewer`. 
+`ecn-viewer`client comes with `Standard Flow` , `iofog-controller` client comes with `Direct access grants` and `Service accounts roles`
 
-Both `pot-controller` and `ecn-viewer` client has tree roles: `SRE`, `Developer` and `Viewer`
+Both `iofog-controller` and `ecn-viewer` client has tree roles: `SRE`, `Developer` and `Viewer`
 
 Below you can find how realm Level roles are associated with Client level roles. 
 
-| Realm Role | pot-controller | ecn-viewer |
+| Realm Role | iofog-controller | ecn-viewer |
 |------------| --------------| ------------|
-| pot-Admin | Admin | Admin |
-| pot-SRE | SRE | SRE |
-| pot-Developer | Developer | Developer |
-| pot-Viewer | Viewer | Viewer |
+| iofog-Admin | Admin | Admin |
+| iofog-SRE | SRE | SRE |
+| iofog-Developer | Developer | Developer |
+| iofog-Viewer | Viewer | Viewer |
 
-Only users with `pot-Admin` roles can access Keycloak console and add or remove users, configure realm settings.
+Only users with `iofog-Admin` roles can access Keycloak console and add or remove users, configure realm settings.
 
 <aside class="notifications danger">
   <h3><img src="../../../images/icos/ico-danger.svg" alt=""> Don't change client level roles</h3>
@@ -47,12 +47,12 @@ By default users with `Developer` and `Viewer` roles need to configure 2FA. If y
 You can download preconfigured realm import json for Eclipse ioFog with below command. Replace `newRealmValue` with the you would like to give for your realm.
 
 ```bash
-wget -q -O - "https://iofog.org/iofog-realm-template.json" | sed 's/\$realm/newRealmValue/g' > datasance-pot-ralm.json
+wget -q -O - "https://iofog.org/iofog-realm-template.json" | sed 's/\$realm/newRealmValue/g' > datasance-iofog-ralm.json
 ```
 ##### Example
 
 ```bash title="Download preconfigured Eclipse ioFog realm configuration and assign realm-name: test "
-wget -q -O - "https://iofog.org/iofog-realm-template.json" | sed 's/\$realm/test/g' > datasance-pot-realm.json
+wget -q -O - "https://iofog.org/iofog-realm-template.json" | sed 's/\$realm/test/g' > datasance-iofog-realm.json
 ```
 
 ## Import Realm
@@ -76,7 +76,7 @@ Create user inside imported realm. Create user's password and assign role.
 
 ## Generate Client Secret
 
-Generate client secret for `pot-controller` client. Copy and save it, you wil use it while preparing `ControlPlane` yaml.
+Generate client secret for `iofog-controller` client. Copy and save it, you wil use it while preparing `ControlPlane` yaml.
 
 <img src="../../../images/keycloak/keycloak-9.png" />
 <img src="../../../images/keycloak/keycloak-10.png" />
@@ -109,7 +109,7 @@ spec:
     realm: $realm-name
     realmKey: $realm-key
     ssl: external
-    controllerClient: pot-controller
+    controllerClient: iofog-controller
     controllerSecret: $controller-client-secret
     viewerClient: ecn-viewer
 

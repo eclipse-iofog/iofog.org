@@ -104,7 +104,7 @@ spec:
 apiVersion: k8s.keycloak.org/v2alpha1
 kind: Keycloak
 metadata:
-  name: pot-auth
+  name: iofog-auth
 spec:
   instances: 1
   image: ghcr.io/eclipse-iofog/keycloak:25.0.0
@@ -135,7 +135,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pot-auth-ingress
+  name: iofog-auth-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
     nginx.ingress.kubernetes.io/backend-protocol: "https"
@@ -154,7 +154,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: pot-auth
+            name: iofog-auth
             port:
               number: 8443
 

@@ -15,7 +15,7 @@
 - [VolumeMount](../yaml-references/reference-volumemount.html) is now available for attaching ConfigMaps or Secrets to Agents as volumes, enabling easy volume management for microservices.
 - [OfflineImage](../yaml-references/reference-offlineimage.html) is now available for deploying container images to edge nodes that cannot access the internet, enabling iofogctl to pull images locally and transfer them to remote hosts via SSH.
 - [Debugging & Exec Sessions](#debugging-and-exec-sessions) deliver role-aware remote terminals for Agents, microservices, and system microservices—powered by iofogctl and ECN Viewer.
-- [ECN Viewer](../ECN-Viewer.html) now mirrors nearly every iofogctl operation, enabling full-cluster workload management, remote exec, resource editing, and deployments directly from the browser.
+- [ECN Viewer](../ECN-Viewer/ecn-viewer.html) now mirrors nearly every iofogctl operation, enabling full-cluster workload management, remote exec, resource editing, and deployments directly from the browser.
 - [Events and Auditing](#events-and-auditing) provides comprehensive tracking and auditing of all Controller API endpoint calls for compliance and troubleshooting.
 
 ## Service
@@ -89,13 +89,13 @@ If no image is provided, the cluster’s catalog debugger image is deployed auto
 
 The browser-based ECN Viewer now provides operational parity with iofogctl for day-2 workflows. You can deploy and manage applications, edit any resource YAML, configure registries and catalogs, open exec sessions into Agents or microservices, and call the Controller REST API without leaving the UI. Only the installation of Controllers and Agents still requires iofogctl.
 
-[Find out more!](../ECN-Viewer.html)
+[Find out more!](../ECN-Viewer/ecn-viewer.html)
 
 ## Events and Auditing
 
 The Events endpoint provides comprehensive tracking and auditing of all Controller API calls. Administrators can filter events by type, endpoint, status, method, resource type, actor, and time range. Export event logs for compliance reporting or delete old events to manage storage. This feature is essential for enterprise deployments requiring audit trails and compliance with security policies.
 
-[Find out more!](../ECN-Viewer.html#events-and-auditing)
+[Find out more!](../ECN-Viewer/ecn-viewer.html#6-events-and-audit-trail)
 
 
 <aside class="notifications contribute">

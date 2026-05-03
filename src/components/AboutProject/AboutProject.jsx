@@ -50,7 +50,7 @@ const featuresData = {
         icon: LayoutDashboard,
         title: 'Centralized Management',
         description:
-          'Unified operations via the graphical console and the potctl CLI.'
+          'Unified operations via the ECN-Viewer GUI and the iofogctl CLI.'
       }
     ]
   },

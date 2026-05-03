@@ -25,7 +25,7 @@ When deploying a Remote or Kubernetes ControlPlane, you can introduce TLS certif
 apiVersion: v1
 kind: Secret
 metadata:
-  name: pot-demo
+  name: iofog-demo
 type: kubernetes.io/tls
 data:
   ca.crt: 
@@ -54,7 +54,7 @@ spec:
   #   ecnViewerPort: 0
     # ecnViewerUrl:
     https: true
-    secretName: pot-demo
+    secretName: iofog-demo
     logLevel: info
   # ingresses: 
     # controller:
@@ -64,7 +64,7 @@ spec:
         # nginx.ingress.kubernetes.io/backend-protocol: "https"
       # ingressClassName: 
       # host: <host>
-      # secretName: pot-demo
+      # secretName: iofog-demo
 
 ```
 
