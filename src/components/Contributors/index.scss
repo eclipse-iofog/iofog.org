@@ -1,0 +1,44 @@
+.logos__container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 576px) {
+  .logos__container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .logos__container {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.logo-container {
+  justify-self: center;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .logo {
+    display: block;
+    width: auto;
+    max-width: 155px;
+    max-height: 42px;
+    object-fit: contain;
+    opacity: 0.85;
+  }
+
+  .logo--datasance {
+    max-width: 180px;
+    max-height: 40px;
+    filter: grayscale(1) saturate(0) brightness(1.9) contrast(0.45);
+    opacity: 0.62;
+  }
+}

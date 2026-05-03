@@ -10,15 +10,54 @@ import DocsSidebar from '../components/DocsSidebar/DocsSidebar';
 import Edgeworx from '../components/Egdeworx/Edgeworx';
 
 export default class PostTemplate extends React.Component {
-  findTitleAndDescription(menus, activePath) {
-    for (const menu of menus) {
-      for (const sub of menu.subMenus) {
-        if (sub.entry.childMarkdownRemark.fields.slug === activePath) {
-          return {
-            title: `${sub.title} | ${menu.title} | ${config.siteTitle}`,
-            description: sub.description || config.siteDescription
-          };
+  pathForSubMenu(sub, versionPath) {
+    if (!sub || !sub.entry) {
+      return null;
+    }
+    if (
+      typeof sub.entry === 'object' &&
+      sub.entry.childMarkdownRemark &&
+      sub.entry.childMarkdownRemark.fields
+    ) {
+      return sub.entry.childMarkdownRemark.fields.slug;
+    }
+    if (typeof sub.entry === 'string') {
+      const normalizedVersionPath = versionPath.endsWith('/')
+        ? versionPath
+        : `${versionPath}/`;
+      const relativePath = sub.entry.replace(/^\.\//, '');
+      return `${normalizedVersionPath}${relativePath.replace(/\.md$/, '.html')}`;
+    }
+    return null;
+  }
+
+  findSubMenuMatch(subMenus, activePath, versionPath) {
+    for (const sub of subMenus) {
+      if (this.pathForSubMenu(sub, versionPath) === activePath) {
+        return sub;
+      }
+      if (sub.subMenus && sub.subMenus.length) {
+        const nested = this.findSubMenuMatch(
+          sub.subMenus,
+          activePath,
+          versionPath
+        );
+        if (nested) {
+          return nested;
         }
+      }
+    }
+    return null;
+  }
+
+  findTitleAndDescription(menus, activePath, versionPath) {
+    for (const menu of menus) {
+      const sub = this.findSubMenuMatch(menu.subMenus, activePath, versionPath);
+      if (sub) {
+        return {
+          title: `${sub.title} | ${menu.title} | ${config.siteTitle}`,
+          description: sub.description || config.siteDescription
+        };
       }
     }
 
@@ -44,7 +83,8 @@ export default class PostTemplate extends React.Component {
 
     const { title, description } = this.findTitleAndDescription(
       activeVersion.node.menus,
-      activePath
+      activePath,
+      activeVersion.node.fields.path
     );
 
     return (
@@ -107,6 +147,11 @@ export const pageQuery = graphql`
               description
               entry {
                 ...menuEntry
+              }
+              subMenus {
+                title
+                description
+                entry
               }
             }
           }

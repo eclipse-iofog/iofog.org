@@ -9,7 +9,6 @@ import favIcon32 from '../../static/images/favicon-32x32.png';
 import favIcon96 from '../../static/images/favicon-96x96.png';
 
 require('prismjs/themes/prism-okaidia.css');
-require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 
 export default class MainLayout extends Component {
   render() {

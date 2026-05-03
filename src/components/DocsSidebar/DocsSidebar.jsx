@@ -4,15 +4,102 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import './DocsSidebar.scss';
 
-const pathForSubMenu = sub => sub.entry.childMarkdownRemark.fields.slug;
+const pathForSubMenu = (sub, versionPath) => {
+  if (!sub || !sub.entry) {
+    return null;
+  }
+
+  if (
+    typeof sub.entry === 'object' &&
+    sub.entry.childMarkdownRemark &&
+    sub.entry.childMarkdownRemark.fields
+  ) {
+    return sub.entry.childMarkdownRemark.fields.slug;
+  }
+
+  if (typeof sub.entry === 'string') {
+    const normalizedVersionPath = versionPath.endsWith('/')
+      ? versionPath
+      : `${versionPath}/`;
+    const relativePath = sub.entry.replace(/^\.\//, '');
+    return `${normalizedVersionPath}${relativePath.replace(/\.md$/, '.html')}`;
+  }
+
+  return null;
+};
+
+const submenuIsActive = (sub, activePath, versionPath) => {
+  const ownPath = pathForSubMenu(sub, versionPath);
+  if (ownPath && ownPath === activePath) {
+    return true;
+  }
+  if (!sub || !sub.subMenus) {
+    return false;
+  }
+  return sub.subMenus.some(item => submenuIsActive(item, activePath, versionPath));
+};
 
 class DocsSidebar extends Component {
   state = {
     openMenu: null
   };
+
+  renderSubMenus(items, activePath, versionPath, level = 0) {
+    if (!items || !items.length) {
+      return null;
+    }
+
+    return items.map((item, i) => {
+      const itemPath = pathForSubMenu(item, versionPath);
+      const hasChildren = item.subMenus && item.subMenus.length > 0;
+      const itemIsActive = submenuIsActive(item, activePath, versionPath);
+
+      if (!hasChildren) {
+        if (!itemPath) {
+          return null;
+        }
+        return (
+          <Link
+            activeClassName="active"
+            to={itemPath}
+            key={`${level}-${i}-${item.title}`}
+            className={level > 0 ? 'nested-link' : ''}
+          >
+            {item.title}
+          </Link>
+        );
+      }
+
+      return (
+        <div
+          key={`${level}-${i}-${item.title}`}
+          className={`sub-menu-group ${itemIsActive ? 'active' : ''}`}
+        >
+          {itemPath ? (
+            <Link
+              activeClassName="active"
+              to={itemPath}
+              className={`group-link ${level > 0 ? 'nested-link' : ''}`}
+            >
+              {item.title}
+            </Link>
+          ) : (
+            <span className={`group-link ${level > 0 ? 'nested-link' : ''}`}>
+              {item.title}
+            </span>
+          )}
+          <div className="sub-menu nested">
+            {this.renderSubMenus(item.subMenus, activePath, versionPath, level + 1)}
+          </div>
+        </div>
+      );
+    });
+  }
+
   render() {
     const { versions, activeVersion, activePath } = this.props;
     const { menus } = activeVersion.node;
+    const versionPath = activeVersion.node.fields.path;
     const { openMenu } = this.state;
 
     return (
@@ -39,11 +126,12 @@ class DocsSidebar extends Component {
         <div className="menu-body">
           {menus.map(menu => {
             const { subMenus } = menu;
-            const indexPath = pathForSubMenu(subMenus[0]);
+            const indexPath =
+              pathForSubMenu(subMenus[0], versionPath) || `menu-${menu.title}`;
             const classNames = ['item-container'];
-            const menuIsActive = subMenus.some(sub => {
-              return activePath === pathForSubMenu(sub);
-            });
+            const menuIsActive = subMenus.some(sub =>
+              submenuIsActive(sub, activePath, versionPath)
+            );
 
             if (menuIsActive) {
               classNames.push('active');
@@ -68,15 +156,7 @@ class DocsSidebar extends Component {
                 </button>
                 {menu.subMenus && (
                   <div className="sub-menu active">
-                    {menu.subMenus.map((item, i) => (
-                      <Link
-                        activeClassName="active"
-                        to={pathForSubMenu(item)}
-                        key={i}
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
+                    {this.renderSubMenus(menu.subMenus, activePath, versionPath)}
                   </div>
                 )}
               </div>

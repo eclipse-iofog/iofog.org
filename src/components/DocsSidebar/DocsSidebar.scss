@@ -57,6 +57,26 @@
           background-color: rgba(80, 100, 236, 0.05);
         }
       }
+
+      .sub-menu-group {
+        .group-link {
+          width: 100%;
+          display: block;
+        }
+
+        .sub-menu.nested {
+          display: block;
+
+          a,
+          .group-link {
+            padding-left: 104px;
+          }
+
+          a:before {
+            left: 93px;
+          }
+        }
+      }
     }
 
     &.active {

@@ -1,6 +1,6 @@
 [
   {
-    "version": "v2",
+    "version": "2.0.0",
     "menus": [
       {
         "title": "Getting Started",
@@ -121,12 +121,12 @@
             "description": ""
           },
           {
-            "title": "Agent Configuration",
+            "title": "Configuration",
             "entry": "./agent-management/agent-configuration.md",
             "description": "Getting started with iofogctl. Overview of available commands like deploy, connect, namespaces, update, delete"
           },
           {
-            "title": "Attach / Detach an Agent",
+            "title": "Attach / Detach",
             "entry": "./agent-management/attach-detach.md",
             "description": ""
           },
@@ -248,22 +248,22 @@
           {
             "title": "Application YAML Specification",
             "entry": "./reference-iofogctl/reference-application.md",
-            "description": "iofogctl YAML structure and specification for deploy an application"
+            "description": "iofogctl YAML structure and specification for deploying an Application Template"
           },
           {
             "title": "Route YAML Specification",
             "entry": "./reference-iofogctl/reference-route.md",
-            "description": "iofogctl YAML structure and specification for deploying a route"
+            "description": "iofogctl YAML structure and specification for deploying a Route"
           },
           {
             "title": "Catalog Item YAML Specification",
             "entry": "./reference-iofogctl/reference-catalog.md",
-            "description": "iofogctl YAML structure and specification for deploying a catalog item"
+            "description": "iofogctl YAML structure and specification for deploying a Catalog Item"
           },
           {
             "title": "Registry YAML Specification",
             "entry": "./reference-iofogctl/reference-registry.md",
-            "description": "iofogctl YAML structure and specification for deploying a registry"
+            "description": "iofogctl YAML structure and specification for deploying a Registry"
           }
         ]
       },

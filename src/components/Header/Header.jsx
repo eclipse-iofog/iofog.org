@@ -209,6 +209,11 @@ const Header = ({ menuLinks, activeLink, docsConfig }) => (
                   Releases
                 </Link>
               </li>
+              {/* <li>
+                <Link activeClassName="active" to="/case-studies.html">
+                  Case studies
+                </Link>
+              </li> */}
               <li>
                 <Link activeClassName="active" to="/community.html">
                   Community

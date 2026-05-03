@@ -4,12 +4,13 @@ import searchIcon from '../../../static/images/icos/ico-search.svg';
 export default class SearchInput extends Component {
   async componentDidMount() {
     // Must be imported async because of SSR incompatibility
-    const { default: docsearch } = await import('docsearch.js');
+    const { default: docsearch } = await import('@docsearch/js');
 
     docsearch({
+      appId: 'BH4D9OD16A',
       apiKey: 'a256bdc2b7b80d0424058db638556958',
       indexName: 'iofog',
-      inputSelector: '#search-input'
+      container: '#search-input'
     });
   }
 
