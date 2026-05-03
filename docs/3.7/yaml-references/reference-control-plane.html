@@ -88,7 +88,7 @@
     <span class="token key atrule">realm</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>name
     <span class="token key atrule">realmKey</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>key
     <span class="token key atrule">ssl</span><span class="token punctuation">:</span> external
-    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>controller
+    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>controller
     <span class="token key atrule">controllerSecret</span><span class="token punctuation">:</span>
     <span class="token key atrule">viewerClient</span><span class="token punctuation">:</span> ecn<span class="token punctuation">-</span>viewer
   <span class="token key atrule">events</span><span class="token punctuation">:</span>  <span class="token comment"># enable/disable or configure controller audit events</span>
@@ -252,7 +252,7 @@
 </aside>
 <aside class="notifications danger">
   <h3><img src="/e231474194041727a89873c7438a3496/ico-danger.svg" alt=""> Router and NATS TLS</h3>
-  <p>By default, Router and NATS instances are deployed with TLS. If you do not provide your own CA, the operator creates self-signed certificates. To use your own CA, create Kubernetes secrets `pot-site-ca` and `default-router-local-ca` in the Control Plane namespace. See [Certificates for Router and NATS](../security/certificates-manager.html).</p>
+  <p>By default, Router and NATS instances are deployed with TLS. If you do not provide your own CA, the operator creates self-signed certificates. To use your own CA, create Kubernetes secrets `iofog-site-ca` and `default-router-local-ca` in the Control Plane namespace. See [Certificates for Router and NATS](../security/certificates-manager.html).</p>
 </aside>
 <h2 id="remote-control-plane" style="position:relative;"><a href="#remote-control-plane" aria-label="remote control plane permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remote Control Plane</h2>
 <p>The <strong>ControlPlane</strong> kind deploys the Controller (and optionally Router, NATS, and a System Agent) on one or more remote hosts. iofogctl uses SSH to install and configure each Controller. You can enable NATS with <code class="language-text">nats.enabled: true</code> and optionally set <code class="language-text">airgap: true</code> for air-gapped installs.</p>
@@ -413,7 +413,7 @@
     <span class="token key atrule">realm</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>name
     <span class="token key atrule">realmKey</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>key
     <span class="token key atrule">ssl</span><span class="token punctuation">:</span> external
-    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>controller
+    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>controller
     <span class="token key atrule">controllerSecret</span><span class="token punctuation">:</span>
     <span class="token key atrule">viewerClient</span><span class="token punctuation">:</span> ecn<span class="token punctuation">-</span>viewer
   <span class="token key atrule">nats</span><span class="token punctuation">:</span>
@@ -540,7 +540,7 @@
     <span class="token key atrule">realm</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>name
     <span class="token key atrule">realmKey</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>key
     <span class="token key atrule">ssl</span><span class="token punctuation">:</span> external
-    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>controller
+    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>controller
     <span class="token key atrule">controllerSecret</span><span class="token punctuation">:</span>
     <span class="token key atrule">viewerClient</span><span class="token punctuation">:</span> ecn<span class="token punctuation">-</span>viewer
   <span class="token key atrule">nats</span><span class="token punctuation">:</span>
@@ -649,7 +649,7 @@
     <span class="token key atrule">realm</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>name
     <span class="token key atrule">realmKey</span><span class="token punctuation">:</span> realm<span class="token punctuation">-</span>key
     <span class="token key atrule">ssl</span><span class="token punctuation">:</span> external
-    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>controller
+    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>controller
     <span class="token key atrule">controllerSecret</span><span class="token punctuation">:</span>
     <span class="token key atrule">viewerClient</span><span class="token punctuation">:</span> ecn<span class="token punctuation">-</span>viewer
   <span class="token key atrule">controllers</span><span class="token punctuation">:</span>
@@ -710,6 +710,6 @@
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-1bf56d253dfd0ded6975.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
+            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-e5a989d5572a4e2ba72e.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="a7eab7cc5b21ff2ed4d1";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-1bf56d253dfd0ded6975.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="4e9253f2131dd9daf77b";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-e5a989d5572a4e2ba72e.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

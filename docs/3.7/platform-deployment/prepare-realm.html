@@ -54,47 +54,47 @@
 <h2 id="roles-and-permissions" style="position:relative;"><a href="#roles-and-permissions" aria-label="roles and permissions permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Roles and permissions</h2>
 <p>By default preconfigured Eclipse ioFog realm comes with below Realm level roles:</p>
 <ul>
-<li>pot-Admin</li>
-<li>pot-SRE</li>
-<li>pot-Developer</li>
-<li>pot-Viewer</li>
+<li>iofog-Admin</li>
+<li>iofog-SRE</li>
+<li>iofog-Developer</li>
+<li>iofog-Viewer</li>
 </ul>
-<p>By default preconfigured Eclipse ioFog realm comes with  two client <code class="language-text">pot-controller</code> and <code class="language-text">ecn-viewer</code>.
-<code class="language-text">ecn-viewer</code>client comes with <code class="language-text">Standard Flow</code> , <code class="language-text">pot-controller</code> client comes with <code class="language-text">Direct access grants</code> and <code class="language-text">Service accounts roles</code></p>
-<p>Both <code class="language-text">pot-controller</code> and <code class="language-text">ecn-viewer</code> client has tree roles: <code class="language-text">SRE</code>, <code class="language-text">Developer</code> and <code class="language-text">Viewer</code></p>
+<p>By default preconfigured Eclipse ioFog realm comes with  two client <code class="language-text">iofog-controller</code> and <code class="language-text">ecn-viewer</code>.
+<code class="language-text">ecn-viewer</code>client comes with <code class="language-text">Standard Flow</code> , <code class="language-text">iofog-controller</code> client comes with <code class="language-text">Direct access grants</code> and <code class="language-text">Service accounts roles</code></p>
+<p>Both <code class="language-text">iofog-controller</code> and <code class="language-text">ecn-viewer</code> client has tree roles: <code class="language-text">SRE</code>, <code class="language-text">Developer</code> and <code class="language-text">Viewer</code></p>
 <p>Below you can find how realm Level roles are associated with Client level roles.</p>
 <table>
 <thead>
 <tr>
 <th>Realm Role</th>
-<th>pot-controller</th>
+<th>iofog-controller</th>
 <th>ecn-viewer</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>pot-Admin</td>
+<td>iofog-Admin</td>
 <td>Admin</td>
 <td>Admin</td>
 </tr>
 <tr>
-<td>pot-SRE</td>
+<td>iofog-SRE</td>
 <td>SRE</td>
 <td>SRE</td>
 </tr>
 <tr>
-<td>pot-Developer</td>
+<td>iofog-Developer</td>
 <td>Developer</td>
 <td>Developer</td>
 </tr>
 <tr>
-<td>pot-Viewer</td>
+<td>iofog-Viewer</td>
 <td>Viewer</td>
 <td>Viewer</td>
 </tr>
 </tbody>
 </table>
-<p>Only users with <code class="language-text">pot-Admin</code> roles can access Keycloak console and add or remove users, configure realm settings.</p>
+<p>Only users with <code class="language-text">iofog-Admin</code> roles can access Keycloak console and add or remove users, configure realm settings.</p>
 <aside class="notifications danger">
   <h3><img src="../../../images/icos/ico-danger.svg" alt=""> Don't change client level roles</h3>
   <p>It is important to note that you have never change the client level roles as `Controller`'s REST-API endpoints protected against user's associated client level roles.</p>
@@ -111,9 +111,9 @@
 </aside>
 <h2 id="download-preconfigured-realm-configuration-for-eclipse-iofog" style="position:relative;"><a href="#download-preconfigured-realm-configuration-for-eclipse-iofog" aria-label="download preconfigured realm configuration for eclipse iofog permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Download PreConfigured Realm Configuration for Eclipse ioFog</h2>
 <p>You can download preconfigured realm import json for Eclipse ioFog with below command. Replace <code class="language-text">newRealmValue</code> with the you would like to give for your realm.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-O</span> - <span class="token string">"https://iofog.org/iofog-realm-template.json"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/\$realm/newRealmValue/g'</span> <span class="token operator">></span> datasance-pot-ralm.json</code></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-O</span> - <span class="token string">"https://iofog.org/iofog-realm-template.json"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/\$realm/newRealmValue/g'</span> <span class="token operator">></span> datasance-iofog-ralm.json</code></pre></div>
 <h5 id="example" style="position:relative;"><a href="#example" aria-label="example permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h5>
-<div class="gatsby-highlight" data-language="bashtitle="download preconfigured eclipse iofog realm configuration and assign realm-name: test ""><pre class="language-bashtitle="download preconfigured eclipse iofog realm configuration and assign realm-name: test ""><code class="language-bashtitle="download preconfigured eclipse iofog realm configuration and assign realm-name: test "">wget -q -O - &quot;https://iofog.org/iofog-realm-template.json&quot; | sed &#39;s/\$realm/test/g&#39; &gt; datasance-pot-realm.json</code></pre></div>
+<div class="gatsby-highlight" data-language="bashtitle="download preconfigured eclipse iofog realm configuration and assign realm-name: test ""><pre class="language-bashtitle="download preconfigured eclipse iofog realm configuration and assign realm-name: test ""><code class="language-bashtitle="download preconfigured eclipse iofog realm configuration and assign realm-name: test "">wget -q -O - &quot;https://iofog.org/iofog-realm-template.json&quot; | sed &#39;s/\$realm/test/g&#39; &gt; datasance-iofog-realm.json</code></pre></div>
 <h2 id="import-realm" style="position:relative;"><a href="#import-realm" aria-label="import realm permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Import Realm</h2>
 <p>Import the preconfigured realm json you download in previous step.</p>
 <img src="../../../images/keycloak/keycloak-2.png" />
@@ -126,7 +126,7 @@
 <img src="../../../images/keycloak/keycloak-7.png" />
 <img src="../../../images/keycloak/keycloak-8.png" />
 <h2 id="generate-client-secret" style="position:relative;"><a href="#generate-client-secret" aria-label="generate client secret permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate Client Secret</h2>
-<p>Generate client secret for <code class="language-text">pot-controller</code> client. Copy and save it, you wil use it while preparing <code class="language-text">ControlPlane</code> yaml.</p>
+<p>Generate client secret for <code class="language-text">iofog-controller</code> client. Copy and save it, you wil use it while preparing <code class="language-text">ControlPlane</code> yaml.</p>
 <img src="../../../images/keycloak/keycloak-9.png" />
 <img src="../../../images/keycloak/keycloak-10.png" />
 <h2 id="get-realmkey" style="position:relative;"><a href="#get-realmkey" aria-label="get realmkey permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get RealmKey</h2>
@@ -150,7 +150,7 @@
     <span class="token key atrule">realm</span><span class="token punctuation">:</span> $realm<span class="token punctuation">-</span>name
     <span class="token key atrule">realmKey</span><span class="token punctuation">:</span> $realm<span class="token punctuation">-</span>key
     <span class="token key atrule">ssl</span><span class="token punctuation">:</span> external
-    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>controller
+    <span class="token key atrule">controllerClient</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>controller
     <span class="token key atrule">controllerSecret</span><span class="token punctuation">:</span> $controller<span class="token punctuation">-</span>client<span class="token punctuation">-</span>secret
     <span class="token key atrule">viewerClient</span><span class="token punctuation">:</span> ecn<span class="token punctuation">-</span>viewer
 </code></pre></div>
@@ -186,6 +186,6 @@
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-1bf56d253dfd0ded6975.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
+            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-e5a989d5572a4e2ba72e.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="a7eab7cc5b21ff2ed4d1";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-1bf56d253dfd0ded6975.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="4e9253f2131dd9daf77b";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-e5a989d5572a4e2ba72e.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -112,7 +112,7 @@ spec:
 <div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> k8s.keycloak.org/v2alpha1
 <span class="token key atrule">kind</span><span class="token punctuation">:</span> Keycloak
 <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>auth
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>auth
 <span class="token key atrule">spec</span><span class="token punctuation">:</span>
   <span class="token key atrule">instances</span><span class="token punctuation">:</span> <span class="token number">1</span>
   <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/eclipse<span class="token punctuation">-</span>iofog/keycloak<span class="token punctuation">:</span>25.0.0
@@ -143,7 +143,7 @@ spec:
 <span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> networking.k8s.io/v1
 <span class="token key atrule">kind</span><span class="token punctuation">:</span> Ingress
 <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>auth<span class="token punctuation">-</span>ingress
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>auth<span class="token punctuation">-</span>ingress
   <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
     <span class="token key atrule">cert-manager.io/cluster-issuer</span><span class="token punctuation">:</span> letsencrypt
     <span class="token key atrule">nginx.ingress.kubernetes.io/backend-protocol</span><span class="token punctuation">:</span> <span class="token string">"https"</span>
@@ -162,7 +162,7 @@ spec:
         <span class="token key atrule">pathType</span><span class="token punctuation">:</span> Prefix
         <span class="token key atrule">backend</span><span class="token punctuation">:</span>
           <span class="token key atrule">service</span><span class="token punctuation">:</span>
-            <span class="token key atrule">name</span><span class="token punctuation">:</span> pot<span class="token punctuation">-</span>auth
+            <span class="token key atrule">name</span><span class="token punctuation">:</span> iofog<span class="token punctuation">-</span>auth
             <span class="token key atrule">port</span><span class="token punctuation">:</span>
               <span class="token key atrule">number</span><span class="token punctuation">:</span> <span class="token number">8443</span>
 </code></pre></div>
@@ -191,6 +191,6 @@ spec:
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-1bf56d253dfd0ded6975.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
+            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-e5a989d5572a4e2ba72e.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="a7eab7cc5b21ff2ed4d1";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-1bf56d253dfd0ded6975.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="4e9253f2131dd9daf77b";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-e5a989d5572a4e2ba72e.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

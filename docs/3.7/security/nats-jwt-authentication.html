@@ -60,7 +60,7 @@
 </ol>
 <p>The Controller stores operator and account JWTs and generates user credentials when a microservice is deployed with <code class="language-text">natsAccess: true</code> and a valid <code class="language-text">natsRule</code> reference.</p>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">iofogctl nats operator describe
-name: pot-operator
+name: iofog-operator
 publickey: OCRQSRFBZEBHQQMQ6N37KCBSZCQI2WEG7DQXHRXUUW3FSBBN5TP2ZDLV
 jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJhdWQiOiJOQVRTIiwibmFtZSI6InBvdC1vcGVyYXRvciIsInN1YiI6Ik9DUlFTUkZCWkVCSFFRTVE2TjM3S0NCU1pDUUkyV0VHN0RRWEhSWFVVVzNGU0JCTjVUUDJaRExWIiwibmF0cyI6eyJ0eXBlIjoib3BlcmF0b3IiLCJ2ZXJzaW9uIjoyfSwiaXNzIjoiT0NSUVNSRkJaRUJIUVFNUTZOMzdLQ0JTWkNRSTJXRUc3RFFYSFJYVVVXM0ZTQkJONVRQMlpETFYiLCJpYXQiOjE3NzI3MDYxOTUsImp0aSI6IlRWbjFVNGVadG00ZzAvcEU0Tlo5NFZleGlURmRwMEg2ZkhROFpqKysxUUVQWVJqaFppSUE1L1JWN25icDMyYjhSSDFFdXVMV1l4eEt2bnc4dkdpL1pBPT0ifQ.BxbgFYGCE0pGQsRu08VQI8DsrC0RIKkZm7-DfcmYRsano4PShIfYppBmtSYZxwP_GZYgZIcFUdnmMqsUWQ-2DA</code></pre></div>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">iofogctl nats operator describe <span class="token parameter variable">--jwt</span>
@@ -68,7 +68,7 @@ aud: NATS
 iat: <span class="token number">1</span>.772706195e+09
 iss: OCRQSRFBZEBHQQMQ6N37KCBSZCQI2WEG7DQXHRXUUW3FSBBN5TP2ZDLV
 jti: TVn1U4eZtm4g0/pE4NZ94VexiTFdp0H6fHQ8Zj++1QEPYRjhZiIA5/RV7nbp32b8RH1EuuLWYxxKvnw8vGi/ZA<span class="token operator">==</span>
-name: pot-operator
+name: iofog-operator
 nats:
   type: operator
   version: <span class="token number">2</span>
@@ -239,7 +239,7 @@ iofogctl deploy <span class="token parameter variable">-f</span> /tmp/apps.yaml
 </code></pre></div>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">iofogctl get nats-accounts
 NAMESPACE
-pot-local
+iofog-local
 
 NAME		APP ID		SYSTEM		PUBLIC KEY							
 SYS		<span class="token number">0</span>		<span class="token boolean">true</span>		ACXO6737ASXEGXI57MJPUJOIPV7OMBIDA77ACHYM57BQ4SFPIMSWQ5E3	
@@ -368,7 +368,7 @@ apiVersion: iofog.org/v3
 kind: Microservice
 metadata:
   name: nats-test/box-1
-  namespace: pot-local
+  namespace: iofog-local
 spec:
   uuid: 2bc86457-b7a3-4886-b1bf-4a5725cf0bb0
   name: box-1
@@ -465,6 +465,6 @@ sub: UA6SGNFSJ24FI64EOP3HJNGHR2BUPV3A6MT5VYS6KHRBUKARV26HTKRT</code></pre></div>
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-1bf56d253dfd0ded6975.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
+            window.___chunkMapping="{\"polyfill\":[\"/polyfill-73e8c0d97f91ad752ebe.js\"],\"app\":[\"/app-e5a989d5572a4e2ba72e.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-e9bcc28ed82585dadc4d.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-6ee2fd7b24d369ede07b.js\"],\"component---src-pages-case-studies-html-jsx\":[\"/component---src-pages-case-studies-html-jsx-64d1304bfb3c2aba0f95.js\"],\"component---src-pages-community-html-jsx\":[\"/component---src-pages-community-html-jsx-06b63e436dbf77cf2096.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-9463c5bb7f9dff3b75db.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-93f3a5c9de1137cd4e68.js\"],\"component---src-templates-releases-jsx\":[\"/component---src-templates-releases-jsx-b2a39b9591a699725775.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="a7eab7cc5b21ff2ed4d1";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-1bf56d253dfd0ded6975.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="4e9253f2131dd9daf77b";</script><script src="/webpack-runtime-c841a9ac2abec5196836.js" nomodule></script><script src="/polyfill-73e8c0d97f91ad752ebe.js" nomodule></script><script src="/webpack-runtime-c841a9ac2abec5196836.js" async></script><script src="/framework-d56a97eb83664e8e8479.js" async></script><script src="/app-e5a989d5572a4e2ba72e.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
